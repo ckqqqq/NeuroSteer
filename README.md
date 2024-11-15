@@ -14,3 +14,6 @@ git commit -m "simple English" # 你要提交的消息
 # git remote add origin https://github.com/ckqqqq/Uncertainty.git 第一次需要使用，如果是clone下来的不用
 git push -u origin main # 将本地的main分支提交到远程 origin 分支上，不要强制提交，记得开setproxy
 ```
+## 实验计划
+
+https://hqejk4h3h1.feishu.cn/wiki/BabzwVlApiYvslk9cjac8511n4g?from=from_copylink
