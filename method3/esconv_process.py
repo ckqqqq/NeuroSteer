@@ -23,39 +23,18 @@ def formatted_question(dialog: str, problem_type: str) -> str:
 
 def formatted_json_item(question: str) -> str:
     formatted_dict = {
-    "question": question,
-    "choices": {
-        "label": [
-            "A",
-            "B",
-            "C",
-            "D"
-        ],
-        "text": [
-            "认知行为疗法",
-            "人本主义疗法",
-            "精神动力学疗法",
-            "家庭治疗"
-        ]
-    },
-    "answerKey": "answerKey占位符"
+        "question": question,
+        "choices": {
+            "label": ["A", "B", "C", "D"],
+            "text": ["认知行为疗法", "人本主义疗法", "精神动力学疗法", "家庭治疗"],
+        },
+        "answerKey": "answerKey占位符",
     }
     return formatted_dict
 
 
-
 def formatted_text():
     pass
-
-
-"""
-all_dialog是一个：
-        list: 一个包含字典的列表，每个字典包含以下键：
-            - 'dialog' (str): 连接的对话，每个回合格式为 "speaker: content"。
-            - 'situation' (str): 对话中的情境描述。
-            - 'problem_type' (str): 对话中讨论的问题类型。
-            - 'emotion' (str): 与对话相关的情绪类型。
-"""
 
 
 def main():
@@ -68,7 +47,9 @@ def main():
         for turn in conv["dialog"]:
             dialog += turn["speaker"] + ": " + turn["content"].strip() + "\n"
         dialog.strip()
-        formatted_dict = formatted_json_item(formatted_question(dialog, conv["problem_type"]))
+        formatted_dict = formatted_json_item(
+            formatted_question(dialog, conv["problem_type"])
+        )
         esconv_result.append(formatted_dict)
     with open("esconv_result.json", "w", encoding="utf-8") as f:
         json.dump(esconv_result, f, ensure_ascii=False, indent=4)
