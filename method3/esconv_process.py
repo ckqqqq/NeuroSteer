@@ -65,9 +65,7 @@ def main():
     for dialog in all_dialog:
         json_content = ""
         for turn in dialog:
-            json_content.append(
-                formatted_json_item(turn["dialog"], turn["problem_type"])
-            )
+            json_content.join(formatted_json_item(turn["dialog"], turn["problem_type"]))
         with open("processed_esconv.json", "w", encoding="utf-8") as f:
             json.dump(json_content, f, ensure_ascii=False, indent=4)
 
