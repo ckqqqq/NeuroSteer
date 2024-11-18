@@ -28,7 +28,7 @@ client = OpenAI(
 official_openai_client = OpenAI_Official(api_key=OPENAI_API_KEY, base_url=OPENAI_API_BASE)  
 
 # 设定数据保存的常量
-dataset_file = "esconv.json"  # 本地JSON文件路径
+dataset_file = "esconv_result_test.json"  # 本地JSON文件路径
 model_name = "qwen2"  # 使用的本地模型名称
 
 # 从本地JSON文件加载数据集
@@ -52,7 +52,7 @@ def get_local_model_response(engine_name, prompt):
 def get_gpt4_confidence_response(prompt):
     # 使用官方OpenAI API调用GPT-4
     response = official_openai_client.chat.completions.create(
-        model="gpt-4o-mini",  # 指定GPT-4模型
+        model="gpt-4",  # 指定GPT-4模型
         messages=[{"role": "user", "content": prompt}]  # 用户输入的内容
     )
     return response.choices[0].message.content.strip()  # 提取并返回GPT-4的输出文本
@@ -62,15 +62,16 @@ def get_response_with_confidence(prompt, engine_name):
     # 调用本地模型API获取响应
     response = get_local_model_response(engine_name, prompt)
     response_text = response.choices[0].message.content.strip()  # 提取模型的回答文本
-    top_probs = response.choices[0].logprobs.content[0].top_logprobs  # 获取回答的log概率
-    valid_choices_keys = ["a", "b", "c", "d", "e", "f", "g", "h"]  # 定义有效选项的键
-    tokens_list = {p.token: p.logprob for p in top_probs}  # 将词和其log概率存入字典
-    # 过滤并计算每个有效选项的概率
-    filtered_token_probs = {k: math.exp(v) for k, v in tokens_list.items() if k.lower().strip() in valid_choices_keys}
-    sum_token_probs = sum(filtered_token_probs.values())  # 计算所有选项的概率总和
-    # 获取最佳选项的概率
-    response_prob = max(filtered_token_probs.values()) / sum_token_probs if filtered_token_probs else None
-    return response_text, response_prob  # 返回模型回答文本和概率
+    return response_text, None  # 返回模型回答文本和概率（目前概率为None）
+    # top_probs = response.choices[0].logprobs.content[0].top_logprobs  # 获取回答的log概率
+    # valid_choices_keys = ["a", "b", "c", "d", "e", "f", "g", "h"]  # 定义有效选项的键
+    # tokens_list = {p.token: p.logprob for p in top_probs}  # 将词和其log概率存入字典
+    # # 过滤并计算每个有效选项的概率
+    # filtered_token_probs = {k: math.exp(v) for k, v in tokens_list.items() if k.lower().strip() in valid_choices_keys}
+    # sum_token_probs = sum(filtered_token_probs.values())  # 计算所有选项的概率总和
+    # # 获取最佳选项的概率
+    # response_prob = max(filtered_token_probs.values()) / sum_token_probs if filtered_token_probs else None
+    # return response_text, response_prob  # 返回模型回答文本和概率
 
 # 将数据保存到Excel文件
 def save_data(model, data_dict):
@@ -91,7 +92,8 @@ def generate_response_and_ask_confidence(question, choices, engine_name):
     prompt = f"{question}\n{choices_text}\nAnswer:"  # 构建提示语
 
     # 使用本地模型获取回答和信心分数
-    response_text, response_prob = get_response_with_confidence(prompt, engine_name)
+    # response_text, response_prob = get_response_with_confidence(prompt, engine_name)
+    response_text, _ = get_response_with_confidence(prompt, engine_name)
 
     # 本地模型口头信心等级
     confidence_prompt = (
@@ -116,9 +118,11 @@ def generate_response_and_ask_confidence(question, choices, engine_name):
     # 将GPT-4模型的信心等级文本映射为数值
     gpt4_confidence_value = next((v for k, v in score_dict.items() if k.lower() in gpt4_confidence_text.lower()), None)
 
-    # 返回模型回答、内部信心分数、本地模型的信心等级及其数值、GPT-4的信心等级及其数值
-    return response_text, response_prob, local_confidence_text, local_confidence_value, gpt4_confidence_text, gpt4_confidence_value
+    # # 返回模型回答、内部信心分数、本地模型的信心等级及其数值、GPT-4的信心等级及其数值
+    # return response_text, response_prob, local_confidence_text, local_confidence_value, gpt4_confidence_text, gpt4_confidence_value
 
+    return response_text, None, local_confidence_text, local_confidence_value, gpt4_confidence_text, gpt4_confidence_value
+    
 # 加载本地数据集，处理并保存分析结果
 def analyze_and_save_confidence():
     dataset = load_local_dataset(dataset_file)  # 从本地JSON文件加载数据集
@@ -127,8 +131,7 @@ def analyze_and_save_confidence():
     
     # 初始化结果存储字典
     results = {
-        "questions": [], "responses": [], "response_probs": [], 
-        "local_confidence_text": [], "local_confidence_values": [],
+        "questions": [], "responses": [], "local_confidence_text": [], "local_confidence_values": [],
         "gpt4_confidence_text": [], "gpt4_confidence_values": [],
         "answers": []
     }
@@ -144,7 +147,6 @@ def analyze_and_save_confidence():
         # 将结果添加到字典
         results["questions"].append(question)
         results["responses"].append(response_text)
-        results["response_probs"].append(response_prob)
         results["local_confidence_text"].append(local_conf_text)
         results["local_confidence_values"].append(local_conf_value)
         results["gpt4_confidence_text"].append(gpt4_conf_text)

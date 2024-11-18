@@ -1,27 +1,7 @@
-import esconv_load
 import json
 
 
-def formatted_json_item(question: str, text: str) -> str:
-    formatted_str = f"""
-    "question": "{question}",
-    "choices": {{
-        "label": [
-            "A",
-            "B",
-            "C",
-            "D"
-        ],
-        "text": [
-            "{text}"
-        ]
-    }},
-    "answerKey": "这个字段暂时还不知道有啥用，需要读论文，暂时可以用一段固定的str做占位符"
-    """
-    return formatted_str
-
-
-def formatted_question(dialog: str, problem_type: str, text: str) -> str:
+def formatted_question(dialog: str, problem_type: str) -> str:
     formatted_str = f"""
     Let's define such a classification task:
     <your task>
@@ -37,9 +17,31 @@ def formatted_question(dialog: str, problem_type: str, text: str) -> str:
     </conversation>
 
     The choices are as follows:
-    {text}
-    """
+    """.strip()
     return formatted_str
+
+
+def formatted_json_item(question: str) -> str:
+    formatted_dict = {
+    "question": question,
+    "choices": {
+        "label": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "text": [
+            "认知行为疗法",
+            "人本主义疗法",
+            "精神动力学疗法",
+            "家庭治疗"
+        ]
+    },
+    "answerKey": "answerKey占位符"
+    }
+    return formatted_dict
+
 
 
 def formatted_text():
@@ -53,21 +55,23 @@ all_dialog是一个：
             - 'situation' (str): 对话中的情境描述。
             - 'problem_type' (str): 对话中讨论的问题类型。
             - 'emotion' (str): 与对话相关的情绪类型。
-
-
 """
 
 
 def main():
-    all_dialog = esconv_load.load_esconv(
-        "/home/szk/szk_2024/Database/Emotional-Support-Conversation/ESConv.json"
-    )
-    for dialog in all_dialog:
-        json_content = ""
-        for turn in dialog:
-            json_content.join(formatted_json_item(turn["dialog"], turn["problem_type"]))
-        with open("processed_esconv.json", "w", encoding="utf-8") as f:
-            json.dump(json_content, f, ensure_ascii=False, indent=4)
+    file_path = "/home/szk/szk_2024/Database/Emotional-Support-Conversation/ESConv.json"
+    with open(file_path, "r", encoding="utf-8") as f:
+        all_dialog = json.load(f)
+    esconv_result = []
+    for conv in all_dialog:
+        dialog = ""
+        for turn in conv["dialog"]:
+            dialog += turn["speaker"] + ": " + turn["content"].strip() + "\n"
+        dialog.strip()
+        formatted_dict = formatted_json_item(formatted_question(dialog, conv["problem_type"]))
+        esconv_result.append(formatted_dict)
+    with open("esconv_result.json", "w", encoding="utf-8") as f:
+        json.dump(esconv_result, f, ensure_ascii=False, indent=4)
 
 
 if __name__ == "__main__":
