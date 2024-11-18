@@ -46,7 +46,8 @@ def main():
         label=i['predict_strategy_label']
         classify_prompt=get_label_classify_prompt(chat_history,choices=strategy_choice)
         current_highest_prob_label, current_highest_internal_confidence=generate_internal_confidence(classify_prompt,strategy_choice,model_id="modelA",temp=0.2)
-        print(current_highest_prob_label,current_highest_internal_confidence)
+        print("上面的prompt还需要调一调")
+        print("预测标签",current_highest_prob_label,"内在置信度",current_highest_internal_confidence)
         
     # print(dataset[94])
 
