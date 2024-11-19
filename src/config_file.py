@@ -14,3 +14,6 @@ for idx,text in enumerate(strategy_statistics.keys()):
     strategy_choice["label"].append(chr(ord('a')+idx))
     strategy_choice["text"].append(text)
 print(strategy_choice)
+
+certainty_dict= {"very certain": 1.0, "fairly certain": 0.8, "moderately certain": 0.6, "somewhat certain": 0.4,
+                  "not certain": 0.2, "very uncertain": 0}
