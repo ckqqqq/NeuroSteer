@@ -25,7 +25,7 @@ def open_source_models(prompt, model_id, choices):
     detailed_output = model(prompt_ids)
     
     # 打印 detailed_output 的原始内容（可选）
-    print("Detailed Output:", detailed_output)
+    # print("Detailed Output:", detailed_output)
 
     # 使用 softmax 函数计算 logits 的概率分布
     probabilities = F.softmax(detailed_output.logits[0], dim=-1)
@@ -36,12 +36,12 @@ def open_source_models(prompt, model_id, choices):
     predicted_token_id = torch.argmax(probabilities).item()
     # 将预测的 token ID 解码为字符串
     predicted_token = tokenizer.decode([predicted_token_id])
-    print("Predicted Next Token:", predicted_token)
+    # print("Predicted Next Token:", predicted_token)
 
     # 如果想要生成完整的预测文本，可以将预测的 token 添加到 prompt 中
     new_ids = torch.cat([prompt_ids, torch.tensor([[predicted_token_id]])], dim=1)
     decoded_output = tokenizer.decode(new_ids[0], skip_special_tokens=True)
-    print("Decoded Output:", decoded_output)
+    # print("Decoded Output:", decoded_output)
 
     # 初始化当前最高概率标签和概率值
     current_highest_prob_label = None

@@ -41,8 +41,8 @@ def generate_label_and_ask_confidence(chat_history,choices, model_id, temp):
     print(all_choice_prob)
 
     # 生成口头化的确定性描述和确定性值
-    verbalized_response_text, verbalized_confidence_value = \
-        generate_verbalized_certainty(previous_prompt=classify_prompt, previous_response=response_text, model_id=model_id, temp=temp)
+    
+    generate_verbalized_certainty(previous_prompt=classify_prompt, previous_response=response_text, model_id=model_id, temp=temp)
 
     # 返回回答、回答概率、口头化的确定性描述和确定性值
     return response_text, response_prob
@@ -56,10 +56,9 @@ def main():
     for i in dataset[93:94]:
         chat_history=i["chat_history"]
         # strategy_choice 有 label和 text 两个字段，分别代表选项和文本
-        
-        
         generate_label_and_ask_confidence(chat_history,strategy_choice, model_id="modelA", temp=0.2)
         print("上面的prompt还需要调一调")
+        
         # 
         
     # print(dataset[94])
