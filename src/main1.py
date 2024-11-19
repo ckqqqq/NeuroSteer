@@ -23,7 +23,16 @@ def get_label_classify_prompt(chat_history:str,choices:dict):
         raise ValueError("choices must contain 'label' and 'text' keys")
     
     choices_text = '\n'.join(f'{label}. {text}' for label, text in zip(choices['label'], choices['text']))
-    prompt = f'请基于对话历史进行分类，你作为心理咨询师，决定回应supporter对应的答案字母，这是对话历史:\n{chat_history}这是对应的答案列表\n{choices_text}\n 请你给出答案Answer: '
+    prompt = f"""
+You are a psychological counselor. Based on the following conversation history, select the most appropriate response strategy label for supporter.:
+
+Conversation History:
+{chat_history}
+
+Strategy Options:
+{choices_text}
+
+Please choose the most suitable strategy label . Please answer with only the letter."""
     return prompt
     
 def generate_label_and_ask_confidence(chat_history,choices, model_id, temp):
@@ -60,7 +69,6 @@ def main():
         print("上面的prompt还需要调一调")
         
         # 
-        
     # print(dataset[94])
 
 if __name__ == "__main__":

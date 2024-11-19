@@ -25,6 +25,6 @@ def data_loader(dataset_name:str):
                 chat_history += d_unit["speaker"] + ": " + d_unit["content"] + "\n"
 
     return dataset
-if __name__ == "__main__":
-    res=data_loader("esconv")
-    print(res[93],len(res))
+# if __name__ == "__main__":
+#     res=data_loader("esconv")
+#     print(res[93],len(res))

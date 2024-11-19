@@ -41,18 +41,21 @@ def get_open_source_mode_response(prompt,model_id):
     prompt_ids = prompt_encoding.input_ids
 
     # 生成文本
-    generated_text = tokenizer.decode(prompt_ids[0])
-    for _ in range(2):  # 生成 50 个 token
+    # prompt = tokenizer.decode(prompt_ids[0])
+    anwser=""
+    for _ in range(50):  # 生成 2 个 token
         detailed_output = model(prompt_ids)
         logits = detailed_output.logits
         next_token_id = torch.argmax(logits[0, -1, :]).item() # 选择概率最高的 token
         next_token_text = tokenizer.decode(next_token_id)
-        generated_text += next_token_text
+        
+        
+        anwser += next_token_text+" "
         
         # 更新 prompt_ids 以继续生成
         prompt_ids = torch.cat([prompt_ids, torch.tensor([[next_token_id]])], dim=-1)
-        print(next_token_text)
-    return generated_text
+        print(anwser)
+    return anwser
 
 def generate_verbalized_certainty(previous_prompt:str, previous_response:str, model_id:str, temp: float):
     """
@@ -67,25 +70,21 @@ def generate_verbalized_certainty(previous_prompt:str, previous_response:str, mo
     
     # 构建一个提示，要求模型分析其答案的确定性
     confidence_prompt = f"""  
-    一个语言模型被要求完成下面的任务: {previous_prompt} 
-    
-    他的答案是： {previous_response}.
+A language model has been asked to complete the following task: {previous_prompt}
 
-    Analyse its answer given other options. How certain are you about model's answer?
+Its answer is: {previous_response}  
 
-    1. very uncertain
-    
-    2. not certain
-   
-    3. somewhat certain
-    
-    4. moderately certain
-    
-    5. fairly certain
-    
-    6. very certain   
-     
-    please anwser with number from 1 to 6
+Now, evaluate the model's confidence in its answer by considering the other options provided. How certain are you about the model’s answer based on these alternatives?
+
+1. Very uncertain
+2. Not certain
+3. Somewhat certain
+4. Moderately certain
+5. Fairly certain
+6. Very certain
+
+Please answer with a number from 1 to 6, where 1 indicates low confidence and 6 indicates high confidence.
+
     """
     # print(confidence_response_text)
     # 初始化置信度值为 None
