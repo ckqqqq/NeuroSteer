@@ -43,7 +43,7 @@ def get_open_source_mode_response(prompt,model_id):
     # 生成文本
     # prompt = tokenizer.decode(prompt_ids[0])
     anwser=""
-    for _ in range(50):  # 生成 2 个 token
+    for _ in range(20):  # 生成 2 个 token
         detailed_output = model(prompt_ids)
         logits = detailed_output.logits
         next_token_id = torch.argmax(logits[0, -1, :]).item() # 选择概率最高的 token
@@ -70,7 +70,7 @@ def generate_verbalized_certainty(previous_prompt:str, previous_response:str, mo
     
     # 构建一个提示，要求模型分析其答案的确定性
     confidence_prompt = f"""  
-A language model has been asked to complete the following task: {previous_prompt}
+. ThA language model has been asked to complete the following task: {previous_prompt}
 
 Its answer is: {previous_response}  
 
@@ -83,7 +83,7 @@ Now, evaluate the model's confidence in its answer by considering the other opti
 5. Fairly certain
 6. Very certain
 
-Please answer with a number from 1 to 6, where 1 indicates low confidence and 6 indicates high confidence.
+Please only answer with a number from 1 to 6, where 1 indicates low confidence and 6 indicates high confidence.
 
     """
     # print(confidence_response_text)

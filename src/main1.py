@@ -7,6 +7,7 @@ from verbalized_certainty import generate_verbalized_certainty
 
 from config_file import strategy_choice
 from model_factory import get_model_and_tokenizer
+import json
 
 seed_number=42
 
@@ -16,6 +17,10 @@ def shuffle_data(dataset):
     # 打乱列表元素
     random.shuffle(dataset)
     return dataset
+
+def save_dataset(dataset):
+    with open("cache/cache.json", "w", encoding="utf-8") as f:
+        json.dump(dataset, f, ensure_ascii=False, indent=4)
 
 def get_label_classify_prompt(chat_history:str,choices:dict):
     """生成基于对话历史预测策略标签的提示"""
@@ -59,6 +64,7 @@ def generate_label_and_ask_confidence(chat_history,choices, model_id, temp):
 def main():
     dataset=data_loader("esconv")
     dataset=shuffle_data(dataset)
+    save_dataset(dataset)
     # model,tokenizer=get_model_and_tokenizer("modelA")
     print(dataset[93])
 

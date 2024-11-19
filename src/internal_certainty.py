@@ -29,7 +29,7 @@ def open_source_models(prompt, model_id, choices):
 
     # 使用 softmax 函数计算 logits 的概率分布
     probabilities = F.softmax(detailed_output.logits[0], dim=-1)
-    # 只关注最后一个 token 的概率分布
+    # 只关注最后一个 token 的概率分布 # 我严重质疑 只关注最后一个token 的概率分布是有问题的，这会导致模型将一些废话当作答案
     probabilities = probabilities[-1] 
 
     # 获取概率最高的 token ID
@@ -50,7 +50,7 @@ def open_source_models(prompt, model_id, choices):
     # 初始化一个字典，用于存储每个选项的概率
     choices_prob = {}
 
-    # 遍历每个选项的 token 序列, 计算每个选项(a,b,c,d,e)的概率
+    # 遍历每个选项的 token 序列, 计算每个选项(a,b,c,d,e)的概率 我严重质疑这种解码方式有问题！ 这似乎不是内部置信度最好的计算方式，因为他只针对a,b,c,d,j进行采样，
     for choice_id in choices_ids:
         label, ids = choice_id
         # 将 ids 转换为 tensor，并确保与 probabilities 在同一设备

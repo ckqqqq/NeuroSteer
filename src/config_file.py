@@ -8,6 +8,9 @@ strategy_statistics={'Question': 3801, 'Others': 3341, 'Providing Suggestions': 
 # 策略的选项，本项目中用于预测的对象
 strategy_choice={'label': ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'], 'text': ['Question', 'Others', 'Providing Suggestions', 'Affirmation and Reassurance', 'Self-disclosure', 'Reflection of feelings', 'Information', 'Restatement or Paraphrasing']}
 
+choices_text = '\n'.join(f'{label}. {text}' for label, text in zip(strategy_choice['label'], strategy_choice['text']))
+
+print(choices_text)
 # strategy_choice=[]
 # for idx,text in enumerate(strategy_statistics.keys()):
 #     strategy_choice["label"].append(chr(ord('a')+idx))
