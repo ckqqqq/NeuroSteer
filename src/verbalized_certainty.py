@@ -1,12 +1,6 @@
 from config_file import certainty_dict,open_source_dict
 
-import json  # 导入json库，用于读取本地JSON文件
-import time  # 导入time模块，用于控制时间间隔
-from tqdm import tqdm  # 导入tqdm模块，用于显示进度条
-import math  # 导入数学库，用于数学运算
-import pandas as pd  # 导入pandas库，用于数据处理和分析
-from pathlib import Path  # 导入Path类，用于操作文件路径
-from openai import OpenAI  # 导入OpenAI库，用于调用本地部署的模型API
+
 from openai import OpenAI as OpenAI_Official  # 导入官方的OpenAI库，用于调用GPT-4模型
 import os
 from dotenv import load_dotenv
@@ -18,11 +12,11 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 OPENAI_API_BASE = os.getenv('OPENAI_API_BASE')
 
-# 配置本地模型的API连接
-client = OpenAI(
-    base_url='http://10.110.147.66:11434/v1',  # 设置本地API的URL
-    api_key='ollama'  # 这里必须设置api_key，但不会实际使用
-)
+# # 配置本地模型的API连接
+# client = OpenAI(
+#     base_url='http://10.110.147.66:11434/v1',  # 设置本地API的URL
+#     api_key='ollama'  # 这里必须设置api_key，但不会实际使用
+# )
 
 # 配置官方OpenAI API（用于GPT-4调用）
 official_openai_client = OpenAI_Official(api_key=OPENAI_API_KEY, base_url=OPENAI_API_BASE)  
