@@ -54,7 +54,10 @@ def get_open_source_mode_response(prompt,model_id):
         
         # 更新 prompt_ids 以继续生成
         prompt_ids = torch.cat([prompt_ids, torch.tensor([[next_token_id]])], dim=-1)
-        print(anwser)
+        # print(anwser,"is 换行",next_token_text in ["\n","<|end|>"])
+        if next_token_text in ["1","2","3","4","5","6","<|end|>"]:
+            return anwser
+    print("置信度解码无选项数字")
     return anwser
 
 def generate_verbalized_certainty(previous_prompt:str, previous_response:str, model_id:str, temp: float):
@@ -70,7 +73,7 @@ def generate_verbalized_certainty(previous_prompt:str, previous_response:str, mo
     
     # 构建一个提示，要求模型分析其答案的确定性
     confidence_prompt = f"""  
-. ThA language model has been asked to complete the following task: {previous_prompt}
+The language model has been asked to complete the following task: {previous_prompt}
 
 Its answer is: {previous_response}  
 

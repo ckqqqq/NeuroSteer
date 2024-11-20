@@ -18,5 +18,5 @@ print(choices_text)
 # print(strategy_choice)
 
 # 用于言语衡量的置信度的量表
-certainty_dict= {"very uncertain": 1, "not certain": 2, "moderately certain": 0.6, "somewhat certain": 3,
+certainty_dict= {"very uncertain": 1, "not certain": 2,"somewhat certain": 3,
                   "moderately certain": 4, "fairly certain": 5,"very certain": 6}

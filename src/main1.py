@@ -48,7 +48,7 @@ Here are some of the strategies you can choose from:
 {choices_text}
 </letter and strategies>
 
-Please tell me what strategy the supporter used in the conversation, just tell me the letter that represents the strategy, and do not output any explanatory information. Before you print the result, double check that your answer is only one letter.
+Please tell me what strategy the supporter used in the conversation, just tell me the letter that represents the strategy, and do not output any explanatory information. Before you print the result, double check that your answer is only one letter. 
 {end_tag}
 
 <|assistant|>
