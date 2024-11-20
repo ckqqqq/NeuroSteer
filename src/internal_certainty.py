@@ -10,26 +10,43 @@ def open_source_models(prompt, model_id, choices):
     # 获取模型和 tokenizer
     model, tokenizer = get_model_and_tokenizer(model_id)
 
-    # 初始化一个列表，用于存储选项的 token 序列
+
+
+    # 对问题进行 tokenize
+    prompt_encoding = tokenizer(prompt, return_tensors="pt")
+    print("输入prompt的长度",prompt_encoding.input_ids.shape)
+    prompt_ids = prompt_encoding.input_ids
+    # 使用模型获取详细的输出
+    
+    detailed_output = model(prompt_ids)
+    for next_n_token in range(10):
+        # 生成一个 token
+        detailed_output = model(prompt_ids)
+        logits=detailed_output.logits
+        """logits 这个矩阵的形状是（batch_size，sequence_length，vocab_size）他的值为每个batch_size中每个token在词表中的得分"""
+        """简单来说是([1, 579, 32064]),就是一个batch中 ，579个token的prompt中的下一个token, 在32064个单词表上的概率"""
+        next_token_id = torch.argmax(logits[0, -1, :]).item() # 选择概率最高的 token
+        if next_n_token==0:
+            print("Logits:",logits.shape )# 打印logits 矩阵的大小
+        next_token_text = tokenizer.decode(next_token_id)
+        prompt_ids = torch.cat([prompt_ids, torch.tensor([[next_token_id]])], dim=-1)
+        print(next_token_text)
+    raise ValueError("debug")
+          
+        # 初始化一个列表，用于存储选项的 token 序列
     choices_ids = []
     for choice_label in choices["label"]:
         # 对每个选项进行 tokenize, 例如A B C D的
         ids = tokenizer.encode(choice_label, add_special_tokens=False)
         # 将选项和对应的 token 序列添加到列表中
         choices_ids.append((choice_label, ids))
-
-    # 对问题进行 tokenize
-    prompt_encoding = tokenizer(prompt, return_tensors="pt")
-    prompt_ids = prompt_encoding.input_ids
-    # 使用模型获取详细的输出
-    detailed_output = model(prompt_ids)
     
     # 打印 detailed_output 的原始内容（可选）
     # print("Detailed Output:", detailed_output)
 
     # 使用 softmax 函数计算 logits 的概率分布
     probabilities = F.softmax(detailed_output.logits[0], dim=-1)
-    # 只关注最后一个 token 的概率分布 # 我严重质疑 只关注最后一个token 的概率分布是有问题的，这会导致模型将一些废话当作答案
+    # 只关注最后一个 token 的概率分布 # 最后一个解码没问题，本质就是“prompt”的next token的概率分布
     probabilities = probabilities[-1] 
 
     # 获取概率最高的 token ID
@@ -41,7 +58,7 @@ def open_source_models(prompt, model_id, choices):
     # 如果想要生成完整的预测文本，可以将预测的 token 添加到 prompt 中
     new_ids = torch.cat([prompt_ids, torch.tensor([[predicted_token_id]])], dim=1)
     decoded_output = tokenizer.decode(new_ids[0], skip_special_tokens=True)
-    # print("Decoded Output:", decoded_output)
+    print("Decoded Output:", decoded_output)
 
     # 初始化当前最高概率标签和概率值
     current_highest_prob_label = None
