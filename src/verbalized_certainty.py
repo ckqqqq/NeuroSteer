@@ -1,4 +1,4 @@
-from config_file import certainty_dict,open_source_dict
+from config_file import certainty_dict,model_dict
 
 
 from openai import OpenAI as OpenAI_Official  # 导入官方的OpenAI库，用于调用GPT-4模型
@@ -100,11 +100,11 @@ Please only answer with a number from 1 to 6, where 1 indicates low confidence a
     gpt4_confidence_text = get_gpt4_confidence_response(confidence_prompt)  # 获取GPT-4模型的信心等级文本
     print("GPT4给的置信度",gpt4_confidence_text)
     
-    opensourced_model_confidence_text=get_open_source_mode_response(confidence_prompt,model_id=model_id)
-
-    # 定义分数字典，将口头信心等级文本映射为数值
-
-    print(open_source_dict[model_id]["model_name"],"给的置信度",opensourced_model_confidence_text)
+    if model_dict[model_id]["is_open"]:
+        # 遍历字典，查找与模型回答相匹配的口头化确定性描述，并获取其数值
+        opensourced_model_confidence_text=get_open_source_mode_response(confidence_prompt,model_id=model_id)
+        # 定义分数字典，将口头信心等级文本映射为数值
+        print(model_dict[model_id]["model_name"],"给的置信度",opensourced_model_confidence_text)
     
 
     # # 将本地模型的信心等级文本映射为数值

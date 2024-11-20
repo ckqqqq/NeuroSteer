@@ -1,6 +1,6 @@
 # from transformers import AutoTokenizer
 # from transformers import MistralForCausalLM
-from config_file import open_source_dict
+from config_file import model_dict
 import transformers
 
 import torch 
@@ -18,6 +18,6 @@ class ModelFactory():
 def get_model_and_tokenizer(model_id):
     model_factory = ModelFactory()
 
-    return model_factory.load(open_source_dict[model_id])
+    return model_factory.load(model_dict[model_id])
         
 

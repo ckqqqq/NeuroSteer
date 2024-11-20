@@ -1,6 +1,5 @@
-open_source_dict = {"modelA": {"model_name":"microsoft/Phi-3-mini-128k-instruct","model_path":"/home/ckqsudo/code2024/0models/Phi-3-mini-128k-instruct/"}}
+model_dict = {"modelA": {"model_name":"microsoft/Phi-3-mini-128k-instruct","model_path":"/home/ckqsudo/code2024/0models/Phi-3-mini-128k-instruct/","is_open":True},"gpt-4": {"model_name":"gpt-4","is_open":False},"gpt-4o":{"model_name":"gpt-4o","is_open":False},"gpt-3.5": {"model_name":"gpt-3.5","is_open":False}}
 
-closed_source_dict = {"modelA": {"model_name":"gpt"}}
 
 # Esconv 中的标签统计 在本项目中无意义
 strategy_statistics={'Question': 3801, 'Others': 3341, 'Providing Suggestions': 2954, 'Affirmation and Reassurance': 2827, 'Self-disclosure': 1713, 'Reflection of feelings': 1436, 'Information': 1215, 'Restatement or Paraphrasing': 1089}

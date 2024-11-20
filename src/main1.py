@@ -1,6 +1,6 @@
 import random
 
-from config_file import open_source_dict,closed_source_dict
+from config_file import model_dict
 from data_loader import data_loader
 from internal_certainty import generate_internal_certainty
 from verbalized_certainty import generate_verbalized_certainty
@@ -29,10 +29,13 @@ def get_label_classify_prompt(chat_history:str,choices:dict,model_id):
     
     choices_text = '\n'.join(f'{label}. {text}' for label, text in zip(choices['label'], choices['text']))
     # lettera and strategies 好像不需要
-    if "phi" in open_source_dict[model_id]["model_name"].lower():
+    if "phi" in model_dict[model_id]["model_name"].lower():
         system_tag="<|system|>"
         end_tag="<|end|>"
         user_tag="<|user|>"
+        assistant_tag="<|assistant|>"
+    elif "gpt" in model_dict[model_id]["model_name"].lower():
+        system_tag,end_tag,user_tag,assistant_tag="","","",""
     else:
         raise ValueError("add model's special token in config_file.py")
         
@@ -51,7 +54,7 @@ Here are some of the strategies you can choose from:
 Please tell me what strategy the supporter used in the conversation, just tell me the letter that represents the strategy, and do not output any explanatory information. Before you print the result, double check that your answer is only one letter. 
 {end_tag}
 
-<|assistant|>
+{assistant_tag}
 The strategy's label is:
 
 """
@@ -68,14 +71,15 @@ The strategy's label is:
 # Please choose the most suitable strategy label . Please answer with only the letter."""
     return prompt
     
-def generate_label_and_ask_confidence(chat_history,choices, model_id, temp):
+def generate_label_and_ask_confidence(chat_history,choices):
     """
     生成标签和内部\口头置信度的主程序，分别对应方法二和三
     """
     
 
-    model_id="modelA"
+    model_id="gpt-4o"
     temp=0.2
+    print("参数",model_id,temp)
     
     # 基于对话历史和选项生成分类问题的提示，choice 中是预测目标，包括选项和选项文本，例如：{"label":[a,b,c],"text":["Question"]}
     classify_prompt=get_label_classify_prompt(chat_history,choices=strategy_choice,model_id=model_id)
@@ -101,7 +105,7 @@ def main():
     for i in dataset[93:94]:
         chat_history=i["chat_history"]
         # strategy_choice 有 label和 text 两个字段，分别代表选项和文本
-        generate_label_and_ask_confidence(chat_history,strategy_choice, model_id="modelA", temp=0.2)
+        generate_label_and_ask_confidence(chat_history,strategy_choice)
         print("上面的prompt还需要调一调")
         
         # 
