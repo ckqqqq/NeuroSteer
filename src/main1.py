@@ -71,15 +71,17 @@ The strategy's label is:
 # Please choose the most suitable strategy label . Please answer with only the letter."""
     return prompt
     
-def generate_label_and_ask_confidence(chat_history,choices):
+def generate_label_and_ask_confidence(chat_history,choices,ground_truth):
     """
     生成标签和内部\口头置信度的主程序，分别对应方法二和三
     """
     
 
-    model_id="gpt-4o"
+    model_id="gpt-4o-mini"
     temp=0.2
     print("参数",model_id,temp)
+    print("ground truth",ground_truth)
+    ground_truth
     
     # 基于对话历史和选项生成分类问题的提示，choice 中是预测目标，包括选项和选项文本，例如：{"label":[a,b,c],"text":["Question"]}
     classify_prompt=get_label_classify_prompt(chat_history,choices=strategy_choice,model_id=model_id)
@@ -100,12 +102,13 @@ def main():
     dataset=shuffle_data(dataset)
     save_dataset(dataset)
     # model,tokenizer=get_model_and_tokenizer("modelA")
-    print(dataset[93])
+    # print(dataset[93])
 
-    for i in dataset[93:94]:
+    for i in dataset[70:74]:
         chat_history=i["chat_history"]
+        ground_truth=i["predict_strategy_label"]
         # strategy_choice 有 label和 text 两个字段，分别代表选项和文本
-        generate_label_and_ask_confidence(chat_history,strategy_choice)
+        generate_label_and_ask_confidence(chat_history,strategy_choice,ground_truth)
         print("上面的prompt还需要调一调")
         
         # 

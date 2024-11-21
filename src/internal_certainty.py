@@ -16,7 +16,7 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 OPENAI_API_BASE = os.getenv('OPENAI_API_BASE')
 
-def closed_source_models(prompt, model_id="gpt-4o",temp=0.2):
+def closed_source_models(prompt, model_id="gpt-4o-mini",temp=0.2):
     """
     """
     client= OpenAI(api_key=OPENAI_API_KEY,base_url=OPENAI_API_BASE)
@@ -34,7 +34,7 @@ def closed_source_models(prompt, model_id="gpt-4o",temp=0.2):
     # 获取回答的文本内容，并去除首尾空格
     response_text = response.choices[0].message.content.strip()
     # 获取回答的 logprobs 内容，并提取第一个元素的 top_logprobs
-    print("openai 结果",response_text)
+    print("openai 回复结果",response_text)
     top_probs = response.choices[0].logprobs.content[0].top_logprobs
     # 定义一个包含有效选项键的列表
     valid_choices_keys = strategy_choice["label"]

@@ -26,8 +26,9 @@ official_openai_client = OpenAI_Official(api_key=OPENAI_API_KEY, base_url=OPENAI
 def get_gpt4_confidence_response(prompt):
     # 使用官方OpenAI API调用GPT-4
     response = official_openai_client.chat.completions.create(
-        model="gpt-4",  # 指定GPT-4模型
-        messages=[{"role": "user", "content": prompt}]  # 用户输入的内容
+        model="gpt-4o",  # 指定GPT-4模型
+        messages=[{"role": "user", "content": prompt}],  # 用户输入的内容
+        temperature=1
     )
     return response.choices[0].message.content.strip()  # 提取并返回GPT-4的输出文本
 
