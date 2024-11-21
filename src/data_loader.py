@@ -17,7 +17,7 @@ def data_loader(dataset_name:str):
             chat_history = ""
             for number_of_turn,d_unit in  enumerate(conv["dialog"]):
                 # dialog.strip()
-                # 不要移除字符串开头的换行符和制表符，不要用strip！！！！
+                # 不要对数据集移除字符串开头的换行符和制表符，不要用strip！！！！
                 if d_unit["speaker"]=="supporter" and chat_history!="":
                     strategy=d_unit["annotation"]["strategy"]
                     utterance=d_unit["content"]
@@ -25,6 +25,4 @@ def data_loader(dataset_name:str):
                 chat_history += d_unit["speaker"] + ": " + d_unit["content"] + "\n"
 
     return dataset
-# if __name__ == "__main__":
-#     res=data_loader("esconv")
-#     print(res[93],len(res))
+

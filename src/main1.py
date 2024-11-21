@@ -1,13 +1,14 @@
 import random
 
-from config_file import model_dict
+from config_file import model_dict,strategy_text2label
 from data_loader import data_loader
 from internal_certainty import generate_internal_certainty
 from verbalized_certainty import generate_verbalized_certainty
 
 from config_file import strategy_choice
-from model_factory import get_model_and_tokenizer
+from utils import get_model_and_tokenizer
 import json
+import argparse
 
 seed_number=42
 
@@ -34,8 +35,13 @@ def get_label_classify_prompt(chat_history:str,choices:dict,model_id):
         end_tag="<|end|>"
         user_tag="<|user|>"
         assistant_tag="<|assistant|>"
-    elif "gpt" in model_dict[model_id]["model_name"].lower():
+    elif "gpt" in model_dict[model_id]["model_name"].lower():# 闭源模型不需要
         system_tag,end_tag,user_tag,assistant_tag="","","",""
+    elif "qwen" in model_dict[model_id]["model_name"].lower(): # qwen的模板
+        system_tag=""
+        end_tag=""
+        user_tag=""
+        assistant_tag=""
     else:
         raise ValueError("add model's special token in config_file.py")
         
@@ -71,23 +77,22 @@ The strategy's label is:
 # Please choose the most suitable strategy label . Please answer with only the letter."""
     return prompt
     
-def generate_label_and_ask_confidence(chat_history,choices,ground_truth):
+def generate_label_and_ask_confidence(chat_history,choices,ground_truth,model_id,temp=0.2):
     """
     生成标签和内部\口头置信度的主程序，分别对应方法二和三
     """
     
 
-    model_id="gpt-4o-mini"
-    temp=0.2
+
     print("参数",model_id,temp)
-    print("ground truth",ground_truth)
+    print(" 正确答案 ground truth :",ground_truth)
     ground_truth
     
     # 基于对话历史和选项生成分类问题的提示，choice 中是预测目标，包括选项和选项文本，例如：{"label":[a,b,c],"text":["Question"]}
     classify_prompt=get_label_classify_prompt(chat_history,choices=strategy_choice,model_id=model_id)
     # 得到预测标签和内部置信度概率
     response_text, response_prob, all_choice_prob = generate_internal_certainty(classify_prompt, choices, model_id, temp)
-    print("预测标签",response_text,"内部置信度概率",response_prob)
+    print(f"{model_id} 预测标签",response_text,"内部置信度概率",response_prob)
     print(all_choice_prob)
 
     # 生成口头化的确定性描述和确定性值
@@ -101,20 +106,25 @@ def main():
     dataset=data_loader("esconv")
     dataset=shuffle_data(dataset)
     save_dataset(dataset)
-    # model,tokenizer=get_model_and_tokenizer("modelA")
-    # print(dataset[93])
 
+
+    parser = argparse.ArgumentParser(description="Confidence_probability_alignment")
+    parser.add_argument('--model', type=str, required=True, choices=list(model_dict.keys()),
+                        help='choose a model')
+    model_id = parser.parse_args().model
+    
     for i in dataset[70:74]:
         chat_history=i["chat_history"]
-        ground_truth=i["predict_strategy_label"]
-        # strategy_choice 有 label和 text 两个字段，分别代表选项和文本
-        generate_label_and_ask_confidence(chat_history,strategy_choice,ground_truth)
-        print("上面的prompt还需要调一调")
+        ground_truth='{}. {}'.format(strategy_text2label[i["predict_strategy_label"]],i["predict_strategy_label"])
         
-        # 
-    # print(dataset[94])
+        
+        
+        # strategy_choice 有 label和 text 两个字段，分别代表选项和文本，对应的配置在config_file
+        generate_label_and_ask_confidence(chat_history,strategy_choice,ground_truth,model_id,temp=0.4)
+        print("***************************************")
 
 if __name__ == "__main__":
+    
     main()
 
 
