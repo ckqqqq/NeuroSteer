@@ -3,8 +3,20 @@ from config_file import model_dict
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline 
 import tiktoken
 from config_file import model_dict 
+import random
+import json
 
+def shuffle_data(dataset,seed_number):
+    """打乱列表数据集"""
+    print("随机种子为",seed_number)
+    random.seed(seed_number)  # 你可以使用任何整数作为种子
+    random.shuffle(dataset)# 打乱列表元素
+    return dataset
 
+def save_dataset(dataset,task_id,msg):
+    """缓存数据"""
+    with open(f"cache/cache2_{task_id}_{msg}.json", "w", encoding="utf-8") as f:
+        json.dump(dataset, f, ensure_ascii=False, indent=4)
 def get_model_and_tokenizer(model_id):
     """以transformer获得开源模型的model和tokenizer"""
     if model_dict[model_id]["is_open"]==False:

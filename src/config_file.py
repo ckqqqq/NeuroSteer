@@ -5,11 +5,15 @@ model_dict = {
     "qwen2.5-3":{"model_name":"Qwen/Qwen2.5-3B-Instruct","model_path":"/home/ckqsudo/code2024/0models/Qwen2.5-3B-Instruct","is_open":True},
     "qwen2.5-7":{"model_name":"Qwen/Qwen2.5-7B-Instruct","model_path":"/home/ckqsudo/code2024/0models/Qwen2.5-7B-Instruct","is_open":True},
     "qwen2.5-14":{"model_name":"Qwen/Qwen2.5-14B-Instruct","model_path":"/home/ckqsudo/code2024/0models/Qwen2.5-14B-Instruct","is_open":True},
+    "qwen2.5-32":{"model_name":"Qwen/Qwen2.5-14B-Instruct","model_path":"/home/ckqsudo/code2024/0models/Qwen2.5-32B-Instruct","is_open":True},
     "gpt-4": {"model_name":"gpt-4","is_open":False},
     "gpt-4o":{"model_name":"gpt-4o","is_open":False},
     "gpt-3.5": {"model_name":"gpt-3.5","is_open":False},
     "gpt-4o-mini":{"model_name":"gpt-4o-mini","is_open":False}}
 
+import string
+letters = string.ascii_lowercase
+# 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'
 
 # Esconv 中的标签统计 在本项目中无意义
 strategy_statistics={'Question': 3801, 'Others': 3341, 'Providing Suggestions': 2954, 'Affirmation and Reassurance': 2827, 'Self-disclosure': 1713, 'Reflection of feelings': 1436, 'Information': 1215, 'Restatement or Paraphrasing': 1089}

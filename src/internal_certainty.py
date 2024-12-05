@@ -4,7 +4,7 @@ from utils import get_model_and_tokenizer
 # 定义一个函数，用于处理开源模型的响应
 import torch
 import torch.nn.functional as F
-from config_file import model_dict,strategy_choice
+from config_file import model_dict
 from openai import OpenAI  # 导入OpenAI库，用于调用本地部署的模型API
 
 
@@ -16,7 +16,7 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 OPENAI_API_BASE = os.getenv('OPENAI_API_BASE')
 
-def closed_source_models(prompt, model_id="gpt-4o-mini",temp=0.2):
+def closed_source_models(prompt, model_id,temp,choices):
     """
     闭源模型的置信度概率
     """
@@ -38,7 +38,7 @@ def closed_source_models(prompt, model_id="gpt-4o-mini",temp=0.2):
     print("openai 回复结果",response_text)
     top_probs = response.choices[0].logprobs.content[0].top_logprobs
     # 定义一个包含有效选项键的列表
-    valid_choices_keys = strategy_choice["label"]
+    valid_choices_keys = choices["label"]
     print("有效的参考",valid_choices_keys)
 
     # 将 log 概率转换为概率，并过滤出有效选项的概率
@@ -94,9 +94,14 @@ def open_source_models(prompt, model_id, choices):
     # 获取模型和 tokenizer
     model, tokenizer = get_model_and_tokenizer(model_id)
     # 对问题进行 tokenize
+    # 检查是否有可用的GPU
+    device = torch.device('cpu')
+     # 将模型移动到GPU上
+    model = model.to(device)
+    
     prompt_encoding = tokenizer(prompt, return_tensors="pt")
     print("输入prompt的长度",prompt_encoding.input_ids.shape)
-    prompt_ids = prompt_encoding.input_ids
+    prompt_ids = prompt_encoding.input_ids.to(device)  # 将prompt_ids移动到GPU上
     # 使用模型获取详细的输出
     detailed_output = model(prompt_ids)
     # 目标答案空间
@@ -111,7 +116,7 @@ def open_source_models(prompt, model_id, choices):
         if next_n_token==0:
             print("Logits:",logits.shape )# 打印logits 矩阵的大小
         next_token = tokenizer.decode(next_token_id)
-        prompt_ids = torch.cat([prompt_ids, torch.tensor([[next_token_id]])], dim=-1)
+        prompt_ids = torch.cat([prompt_ids, torch.tensor([[next_token_id]], device=device)], dim=-1)  # 将新生成的token ID移动到GPU上
         
         print(next_token)
         if next_token in target_choice_labels:
@@ -142,7 +147,7 @@ def generate_internal_certainty(prompt:str, choices: dict, model_id:str, temp:do
     if model_dict[model_id]["is_open"]:
         return open_source_models(prompt, model_id, choices)
     elif model_dict[model_id]["is_open"]==False:
-        return closed_source_models(prompt, model_id, temp)
+        return closed_source_models(prompt, model_id, temp,choices)
     # 如果引擎名称在开源模型列表中，则使用开源模型
     
 
