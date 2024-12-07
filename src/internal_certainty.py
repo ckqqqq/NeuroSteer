@@ -38,47 +38,39 @@ def closed_source_models(prompt, model_id,temp,choices):
     print("openai 回复结果",response_text)
     top_probs = response.choices[0].logprobs.content[0].top_logprobs
     # 定义一个包含有效选项键的列表
-    valid_choices_keys = choices["label"]
-    print("有效的参考",valid_choices_keys)
+    valid_choices_labels = choices["label"]
+    print("有效的参考",valid_choices_labels)
 
     # 将 log 概率转换为概率，并过滤出有效选项的概率
-    tokens_list = {p.token: p.logprob for p in top_probs}
-    filtered_token_probs = {k: math.exp(v) for k, v in tokens_list.items() if (k.strip()).lower() in valid_choices_keys}
-    # 初始化一个字典，用于存储最终的 token 概率
-    token_final = {}
-    # 遍历过滤后的 token 概率，选择每个键的最大值
-    for k, v in filtered_token_probs.items():
-        k_stripped = (k.strip()).lower()
-        if k_stripped in token_final:
-            if token_final[k_stripped] < v:
-                token_final[k_stripped] = v
+    token_logprobs = {p.token: p.logprob for p in top_probs}
+    valid_choices_probs={}
+    max_prob=0
+    max_prob_label=None
+    for valid_label in valid_choices_labels:
+        if valid_label in token_logprobs:
+            prob=math.exp(v)
+            valid_choices_probs[valid_label]=prob
+            if max_prob<prob:
+                max_prob=prob
+                max_prob_label=valid_label
         else:
-            token_final[k_stripped] = v
-
-    # 计算所有 token 概率的总和
-    sum_token_probs = sum(token_final.values())
-    # 如果存在有效选项，则计算顶部选择概率与其他概率之和的比率
-    if len(filtered_token_probs) > 0:
-        # 找到概率最大的 token
-        top_choice_key = max(token_final, key=token_final.get)
-        # 计算响应概率
-        response_prob = math.exp(token_final[top_choice_key]) / math.exp(sum_token_probs)
-    else:
-        response_prob = None
-
-    return response_text, response_prob,None
+            valid_choices_probs[valid_label]=0
+    if max_prob_label not in response_text:
+        print("最大概率的标签不在回复中")
+    return {"response_text":response_text,"max_prob":max_prob,"max_prob_label":max_prob_label,"choices_probs":valid_choices_labels}
 
 
-def calculate_probability(logits,target_choice_labels,tokenizer):
+def calculate_probability(logits,valid_choice_labels,tokenizer):
     """计算概率的函数：输入模型的logits矩阵，基于目标字符对模型进行解码"""
     # 使用 softmax 函数计算 logits 的概率分布
     probabilities = F.softmax(logits[0], dim=-1)
+    """logits 这个矩阵的形状是（batch_size，sequence_length，vocab_size）他的值为每个batch_size中每个token在词表中的得分,简单来说是([1, 579, 32064]),就是一个batch中 ，579个token的prompt中的下一个token, 在32064个单词表上的概率"""
     # 只关注最后一个 token 的概率分布
     last_token_probabilities = probabilities[-1]
     # 初始化当前最高概率标签和概率值
-    choices_prob={}
+    choices_probs={}
     
-    for choice_label in target_choice_labels:
+    for choice_label in valid_choice_labels:
         choice_id= tokenizer.encode(choice_label, add_special_tokens=False)
         ids = choice_id
         # 将 ids 转换为 tensor，并确保与 probabilities 在同一设备
@@ -86,8 +78,8 @@ def calculate_probability(logits,target_choice_labels,tokenizer):
         label_probs = torch.gather(last_token_probabilities, dim=0, index=ids_tensor)
         # 对选项的概率求和
         label_probs = torch.sum(label_probs).item()
-        choices_prob[choice_label] = label_probs
-    return choices_prob
+        choices_probs[choice_label] = label_probs
+    return choices_probs
 
 def open_source_models(prompt, model_id, choices):
     """计算开源模型的内部置信度概率"""
@@ -106,7 +98,8 @@ def open_source_models(prompt, model_id, choices):
     detailed_output = model(prompt_ids)
     # 目标答案空间
     target_choice_labels=[i for i in choices["label"]]
-    for next_n_token in range(20):
+    response_text=""
+    for next_n_token in range(40):
         # 生成一个 token
         detailed_output = model(prompt_ids)
         logits=detailed_output.logits
@@ -117,14 +110,14 @@ def open_source_models(prompt, model_id, choices):
             print("Logits:",logits.shape )# 打印logits 矩阵的大小
         next_token = tokenizer.decode(next_token_id)
         prompt_ids = torch.cat([prompt_ids, torch.tensor([[next_token_id]], device=device)], dim=-1)  # 将新生成的token ID移动到GPU上
-        
+        response_text+=next_token
         print(next_token)
         if next_token in target_choice_labels:
             """如果解码到选项字母，就输出所有字母的概率"""
-            label_prob_dict=calculate_probability(logits,target_choice_labels,tokenizer)
-            return next_token,label_prob_dict[next_token],label_prob_dict
+            choices_probs=calculate_probability(logits,target_choice_labels,tokenizer)
+            return {"response_text":response_text,"max_prob":choices_probs[next_token],"max_prob_label":next_token,"choices_probs":choices_probs}
     print("解码无选项字母")
-    return None,None,None
+    return {"response_text":"解码无选项字母","max_prob":None,"max_prob_label":None,"choices_probs":None}
 
 
 def generate_internal_certainty(prompt:str, choices: dict, model_id:str, temp:double):

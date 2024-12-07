@@ -58,7 +58,7 @@ def get_label_classify_prompt(chat_history:str,choices:dict,model_id,task_id):
     return prompt
 
 def get_emobench_prompt(task_id,data_item):
-    """生成emobench的prompt"""
+    """生成emobench的prompt,返回系统prompt和prompt, 对应方法一"""
     emobench_prompt={
         "System": {
             "en": "**Instructions**\nIn this task, you are presented with a scenario, a question, and multiple choices.\nPlease carefully analyze the scenario and take the perspective of the individual involved.\n\n**Note**\nProvide only one single correct answer to the question and respond only with the corresponding letter. Do not provide explanations for your response.",
@@ -99,31 +99,26 @@ def get_emobench_prompt(task_id,data_item):
         task="EA" if "-ea" in task_id else "EU" 
         system_prompt_template=emobench_prompt["System"][lang] if "-cot" not in task_id else emobench_prompt
         
-        scenario, s, choices, q = [
+        scenario, s, choices_raw, q = [
             data_item[t][lang] for t in ["Scenario", "Subject", "Choices", "Question"]
         ]
         label = data_item["Label"]
-        c_str = "\n".join(
-            [f"({letters[j]}) {c.strip()}" for j, c in enumerate(choices)]
+        choice_dict={"label":[letters[j] for j,c in enumerate(choices_raw)],"text":[c.strip() for c in choices_raw]}
+        choices_str = "\n".join(
+            [f"{letters[j]}. {c.strip()}" for j, c in enumerate(choices_raw)]
         )
         prompt = emobench_prompt[task][lang].format(
-            scenario=scenario, subject=s, q_type=q, choices=c_str
+            scenario=scenario, subject=s, q_type=q, choices=choices_str
         ) + (emobench_prompt["cot" if "-cot" in task_id else "no_cot"][lang])
-
-        row = [choices, label]
-        print(prompt)
-
-        # e_pt = emobench_prompt[task]["Emotion"][lang].format(
-        #     scenario=scene, subject=s, choices=e_str
-        # ) + (prompt["cot" if args.cot else "no_cot"][lang])
-    return "没写完"
+        
+    return {"system_prompt":system_prompt_template,"prompt":prompt,"choices":choice_dict,"scores":data_item["Score"]}
     
-def generate_label_and_ask_confidence(classify_prompt,choices,ground_truth,model_id,temp=0.2):
+def generate_label_and_ask_confidence(classify_prompt,choices,model_id,temp=0.2):
     """
     生成标签和内部\口头置信度的主程序，分别对应方法二和三, choice必须要有对应的label 和对应的文本，如{"label":[a,b,c],"text":["选项一","选项二","选项三"]}
     """
     print("参数",model_id,temp)
-    print(" 正确答案 ground truth :",ground_truth)
+    
     
     
     # 得到预测标签和内部置信度概率
@@ -139,16 +134,12 @@ def generate_label_and_ask_confidence(classify_prompt,choices,ground_truth,model
     return response_text, response_prob
 
 def main():
-    
-
-
     parser = argparse.ArgumentParser(description="Confidence_probability_alignment")
     parser.add_argument('--model', type=str, required=True, choices=list(model_dict.keys()),
                         help='choose a model')
     parser.add_argument('--task',type=str,required=True,choices=["esconv-strategy","emobench-ea-en"],
                         help='选择具体任务')
-    
-    
+
 
     model_id = parser.parse_args().model
     task_id=parser.parse_args().task
@@ -169,14 +160,17 @@ def main():
             ground_truth='{}. {}'.format(strategy_text2label[i["predict_strategy_label"]],i["predict_strategy_label"])
             classify_strategy_prompt=get_label_classify_prompt(chat_history,choices=strategy_choice,model_id=model_id)
             # strategy_choice 有 label和 text 两个字段，分别代表选项和文本，对应的配置在config_file
-            generate_label_and_ask_confidence(classify_prompt=classify_strategy_prompt,choices=strategy_choice,ground_truth=ground_truth,model_id=model_id,temp=0.4)
+            print(" 正确答案 ground truth :",ground_truth)
+            generate_label_and_ask_confidence(classify_prompt=classify_strategy_prompt,choices=strategy_choice,model_id=model_id,temp=0.4)
             print("***************************************")
     elif task_id=="emobench-ea-en":
-        for i in dataset[90:100]:
-            scenario=i["scenario"]
-            question=i["question"]
-            choices=i["choices"]
-            ground_truth=i["ground_truth"]
+        for data_item in dataset[90:100]:
+            dt=get_emobench_prompt(task_id=task_id,data_item=data_item)
+            generate_label_and_ask_confidence(classify_prompt=dt["system_prompt"]+dt["prompt"],choices=dt["choices"],model_id=model_id,temp=0.4)
+            
+            print("选项对应得分",dt["scores"])
+            print("************************************88")
+            # ground_truth=i["ground_truth"]
             # classify_emobench_prompt=get_label_classify_prompt(scenario,question,choices,model_id=model_id)
 
 if __name__ == "__main__":
