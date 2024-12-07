@@ -20,6 +20,8 @@ def get_label_classify_prompt(chat_history:str,choices:dict,model_id,task_id):
     
     choices_text = '\n'.join(f'{label}. {text}' for label, text in zip(choices['label'], choices['text']))
     # lettera and strategies 好像不需要
+    # ps 下面这段代码我认为用处不大
+    
     if "phi" in model_dict[model_id]["model_name"].lower():
         system_tag="<|system|>"
         end_tag="<|end|>"
@@ -113,7 +115,7 @@ def get_emobench_prompt(task_id,data_item):
         
     return {"system_prompt":system_prompt_template,"prompt":prompt,"choices":choice_dict,"scores":data_item["Score"]}
     
-def generate_label_and_ask_confidence(classify_prompt,choices,model_id,temp=0.2):
+def generate_label_and_ask_certainty(classify_prompt,choices,model_id,certainty_eval_model_id,temp=0.2):
     """
     生成标签和内部\口头置信度的主程序，分别对应方法二和三, choice必须要有对应的label 和对应的文本，如{"label":[a,b,c],"text":["选项一","选项二","选项三"]}
     """
@@ -121,27 +123,29 @@ def generate_label_and_ask_confidence(classify_prompt,choices,model_id,temp=0.2)
     
     
     
-    # 得到预测标签和内部置信度概率
-    response_text, response_prob, all_choice_prob = generate_internal_certainty(classify_prompt, choices, model_id, temp)
-    print(f"{model_id} 预测标签",response_text,"内部置信度概率",response_prob)
-    print(all_choice_prob)
-
-    # 生成口头化的确定性描述和确定性值
+    # 得到预测标签 内部置信度概率最大标签 内部置信度最大概率 所有标签上的内部置信度概率
+    cla_res= generate_internal_certainty(classify_prompt, choices, model_id, temp)
+    print(f"{model_id} 预测标签",cla_res["response_text"],"内部置信度概率最大标签",cla_res["max_prob_label"],"内部置信度最大概率",cla_res["max_prob"],"所有多选题标签上的内部置信度概率",cla_res["choices_probs"])
     
-    generate_verbalized_certainty(previous_prompt=classify_prompt, previous_response=response_text, model_id=model_id, temp=temp)
+    # 得到口头评估的置信度，包括自我评估和其他模型的评估，置信度评估模型默认为1.0
+    self_eval_certainty,outer_eval_certainty=generate_verbalized_certainty(previous_prompt=classify_prompt, previous_text=cla_res["response_text"], self_eval_model_id=model_id,outer_eval_model_id=certainty_eval_model_id, temp=1.0)
+    print("模型",model_id,"的自我评估置信度",self_eval_certainty,f"其他模型{certainty_eval_model_id}的评估置信度",outer_eval_certainty)
 
     # 返回回答、回答概率、口头化的确定性描述和确定性值
-    return response_text, response_prob
+    return cla_res,self_eval_certainty,outer_eval_certainty
 
 def main():
     parser = argparse.ArgumentParser(description="Confidence_probability_alignment")
     parser.add_argument('--model', type=str, required=True, choices=list(model_dict.keys()),
-                        help='choose a model')
+                        help='choose a classify model')
+    parser.add_argument('--certainty_eval_model', type=str, required=True, choices=list(model_dict.keys()),
+                        help='choose a certainty eval model')
     parser.add_argument('--task',type=str,required=True,choices=["esconv-strategy","emobench-ea-en"],
-                        help='选择具体任务')
+                        help='choose a dataset and supported task')
 
 
     model_id = parser.parse_args().model
+    certainty_eval_model_id=parser.parse_args().certainty_eval_model
     task_id=parser.parse_args().task
     # 取出数据
     if task_id=="esconv-strategy":
@@ -161,12 +165,12 @@ def main():
             classify_strategy_prompt=get_label_classify_prompt(chat_history,choices=strategy_choice,model_id=model_id)
             # strategy_choice 有 label和 text 两个字段，分别代表选项和文本，对应的配置在config_file
             print(" 正确答案 ground truth :",ground_truth)
-            generate_label_and_ask_confidence(classify_prompt=classify_strategy_prompt,choices=strategy_choice,model_id=model_id,temp=0.4)
+            generate_label_and_ask_certainty(classify_prompt=classify_strategy_prompt,choices=strategy_choice,model_id=model_id,temp=0.4)
             print("***************************************")
     elif task_id=="emobench-ea-en":
         for data_item in dataset[90:100]:
             dt=get_emobench_prompt(task_id=task_id,data_item=data_item)
-            generate_label_and_ask_confidence(classify_prompt=dt["system_prompt"]+dt["prompt"],choices=dt["choices"],model_id=model_id,temp=0.4)
+            generate_label_and_ask_certainty(classify_prompt=dt["system_prompt"]+dt["prompt"],choices=dt["choices"],model_id=model_id,certainty_eval_model_id=certainty_eval_model_id,temp=0.4)
             
             print("选项对应得分",dt["scores"])
             print("************************************88")

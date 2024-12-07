@@ -48,7 +48,7 @@ def closed_source_models(prompt, model_id,temp,choices):
     max_prob_label=None
     for valid_label in valid_choices_labels:
         if valid_label in token_logprobs:
-            prob=math.exp(v)
+            prob=math.exp(token_logprobs[valid_label])
             valid_choices_probs[valid_label]=prob
             if max_prob<prob:
                 max_prob=prob
@@ -132,7 +132,7 @@ def generate_internal_certainty(prompt:str, choices: dict, model_id:str, temp:do
         temp (float): 温度参数。
 
     返回:
-        内部置信度。
+        {"response_text":,"max_prob":,"max_prob_label":"choices_probs":}
 
     """
     if "label" not in choices or "text" not in choices:

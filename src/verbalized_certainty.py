@@ -12,29 +12,29 @@ official_openai_client = OpenAI_Official(api_key=OPENAI_API_KEY, base_url=OPENAI
 
 
 # 调用GPT-4模型获取信心等级评估
-def get_gpt4_confidence_response(prompt):
-    """获取gpt模型的接口"""
-    # 使用官方OpenAI API调用GPT-4
+def closed_model_certainty_eval(system_prompt,prompt,model_id,temp):
+    """获取gpt系列外部模型的接口"""
     response = official_openai_client.chat.completions.create(
-        model="gpt-4o-mini",  # 指定GPT-4模型
-        messages=[{"role": "user", "content": prompt}],  # 用户输入的内容
-        temperature=1
+        model=model_dict[model_id]["model_name"],  # 指定openai模型
+        messages=[{"role":"system","content":system_prompt},{"role": "user", "content": prompt}],  # 用户输入的内容
+        temperature=temp
     )
     return response.choices[0].message.content.strip()  # 提取并返回GPT-4的输出文本
 
-
-# model = AutoModelForCausalLM.from_pretrained(model_id)
-# tokenizer = AutoTokenizer.from_pretrained(model_id)
-def get_opensource_model_confidence_response(prompt,model_id):
+def open_model_certainty_eval(system_prompt,prompt,model_id):
     """
     获取开源模型的置信度
     """
+    whole_input=f"""
+    *** Instruction: {system_prompt} ***
+    {prompt}
+    """
     model,tokenizer=get_model_and_tokenizer(model_id=model_id)
     # 对问题进行 tokenize
-    prompt_encoding = tokenizer(prompt, return_tensors="pt")
+    prompt_encoding = tokenizer(whole_input, return_tensors="pt")
     prompt_ids = prompt_encoding.input_ids
     anwser=""
-    for _ in range(20):  # 生成 2 个 token
+    for _ in range(40):  # 生成 2 个 token
         detailed_output = model(prompt_ids)
         logits = detailed_output.logits
         next_token_id = torch.argmax(logits[0, -1, :]).item() # 选择概率最高的 token
@@ -49,25 +49,30 @@ def get_opensource_model_confidence_response(prompt,model_id):
     anwser="置信度解码无选项数字"
     return anwser
 
-def generate_verbalized_certainty(previous_prompt:str, previous_response:str, model_id:str, temp: float):
+def generate_verbalized_certainty(previous_prompt:str, previous_text:str, self_eval_model_id:str,outer_eval_model_id:str, temp: float):
     """
-    生成口头化的确定性描述和确定性值。
+    让模型自我评估生成口头化的确定性描述和确定性值。 也可以让外部模型自我评估确定性描述和确定性值
     参数:
-        prompt (str): 提示信息。
-        choices (dict): 包含选项的字典。
+        previous_prompt (str): 提示信息。
+        previous_response (str): 之前模型的反馈。
         response_text (str): 之前生成的答案.
-        model_id(str)
-        temp（double）温度
+        self_eval_model_id(str) 自评模型对应id
+        outer_eval_model_id 外部评估模型对应id
+        temp（double）如果评估模型需要用gpt的话，对应的评估温度（一般为1）
+    返回：
+        self_eval 模型的自我评估
+        outer_eval 外部模型的自我评估
     """
     
     # 构建一个提示，要求模型分析其答案的确定性
-    confidence_prompt = f"""  
+    
+    certainty_system_prompt="You are an evaluation model responsible for assessing the reliability of an answer provided by another model for a given problem. Independently evaluate the answer based on its correctness and the difficulty of the problem, and provide an estimated reliability score."
+    certainty_prompt = f"""  
 The language model has been asked to complete the following task: ###{previous_prompt}###
 
-Its answer is: {previous_response}  
+Its answer is: {previous_text}  
 
-Now, evaluate the your certainty in its answer by considering the options provided. How confident are you about the model’s answer?Please choose a level of confidence from the following options:
-
+Now, evaluate the your certainty in its answer by considering the options provided. How confident are you about the model’s answer? Please choose a level of confidence from the following options:
 
 1. Very uncertain
 2. Not certain
@@ -80,16 +85,20 @@ Please only answer with a number from 1 to 6, where 1 indicates low confidence a
 
     """
 
-    # 使用GPT-4模型获取口头信心等级
-    
 
-    if model_dict[model_id]["is_open"]:
-        # 遍历字典，查找与模型回答相匹配的口头化确定性描述，并获取其数值
-        opensourced_model_confidence_text=get_opensource_model_confidence_response(confidence_prompt,model_id=model_id)
-        # 定义分数字典，将口头信心等级文本映射为数值
-        print(model_id,"给的言语置信度(verbalize_certainty)",opensourced_model_confidence_text)
-    gpt4_confidence_text = get_gpt4_confidence_response(confidence_prompt)  # 获取GPT-4模型的信心等级文本
-    print("GPT4给的言语置信度",gpt4_confidence_text)
-        
-    return gpt4_confidence_text,opensourced_model_confidence_text
+    def certainty_eval(model_id):
+        """
+        对模型的预测进行评估
+        """
+        if model_dict[model_id]["is_open"]:
+            certainty_text=open_model_certainty_eval(system_prompt=certainty_system_prompt,prompt=certainty_prompt,model_id=model_id)
+        else:
+            certainty_text=closed_model_certainty_eval(system_prompt=certainty_system_prompt,prompt=certainty_prompt,model_id=model_id,temp=temp)
+        return certainty_text
+    # 自评
+    self_eval=certainty_eval(self_eval_model_id)
+    # 外部模型评估
+    outler_eval=certainty_eval(outer_eval_model_id)
+    
+    return self_eval,outler_eval
     
