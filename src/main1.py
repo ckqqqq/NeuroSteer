@@ -8,8 +8,9 @@ from internal_certainty import generate_internal_certainty
 from verbalized_certainty import generate_verbalized_certainty
 
 from config_file import strategy_choice,letters
-from utils import save_dataset,shuffle_data
+from utils import save_dataset,shuffle_data,save_file
 import argparse
+import copy
 
 seed_number=42
 
@@ -132,7 +133,8 @@ def generate_label_and_ask_certainty(classify_prompt,choices,model_id,certainty_
     print("模型",model_id,"的自我评估置信度",self_eval_certainty,f"其他模型{certainty_eval_model_id}的评估置信度",outer_eval_certainty)
 
     # 返回回答、回答概率、口头化的确定性描述和确定性值
-    return cla_res,self_eval_certainty,outer_eval_certainty
+    res={**cla_res,"self_eval_certainty":self_eval_certainty,"outer_eval_certainty":outer_eval_certainty}
+    return copy.deepcopy(res)
 
 def main():
     parser = argparse.ArgumentParser(description="Confidence_probability_alignment")
@@ -142,11 +144,16 @@ def main():
                         help='choose a certainty eval model')
     parser.add_argument('--task',type=str,required=True,choices=["esconv-strategy","emobench-ea-en"],
                         help='choose a dataset and supported task')
+    
+    parser.add_argument('--msg',type=str,required=False,
+                        help='保存的时候作为文件的后缀')
+    
 
 
     model_id = parser.parse_args().model
     certainty_eval_model_id=parser.parse_args().certainty_eval_model
     task_id=parser.parse_args().task
+    msg=parser.parse_args().msg
     # 取出数据
     if task_id=="esconv-strategy":
         dataset=esconv_strategy_loader("esconv")
@@ -157,6 +164,8 @@ def main():
     dataset=shuffle_data(dataset,seed_number=seed_number)# 打乱数据
     save_dataset(dataset,task_id=task_id,msg="实验一分类实验")# 缓存数据
     ## 数据处理完成
+    ## 初始化保存的东西
+    final_result=[]
     
     if task_id=="esconv-strategy":
         for i in dataset[90:100]:
@@ -168,12 +177,15 @@ def main():
             generate_label_and_ask_certainty(classify_prompt=classify_strategy_prompt,choices=strategy_choice,model_id=model_id,temp=0.4)
             print("***************************************")
     elif task_id=="emobench-ea-en":
-        for data_item in dataset[90:100]:
+        for idx,data_item in enumerate(dataset[0:100]):
             dt=get_emobench_prompt(task_id=task_id,data_item=data_item)
-            generate_label_and_ask_certainty(classify_prompt=dt["system_prompt"]+dt["prompt"],choices=dt["choices"],model_id=model_id,certainty_eval_model_id=certainty_eval_model_id,temp=0.4)
-            
+            res=generate_label_and_ask_certainty(classify_prompt=dt["system_prompt"]+dt["prompt"],choices=dt["choices"],model_id=model_id,certainty_eval_model_id=certainty_eval_model_id,temp=0.4)
+            res["scores"]=dt["scores"]
+            res["id"]=idx
             print("选项对应得分",dt["scores"])
-            print("************************************88")
+            print("************************************88",res)
+            final_result.append(res)
+            save_file(final_result,f"./result/model_{model_id}_outer_model_{certainty_eval_model_id}_task_{task_id}_{msg}.json")
             # ground_truth=i["ground_truth"]
             # classify_emobench_prompt=get_label_classify_prompt(scenario,question,choices,model_id=model_id)
 

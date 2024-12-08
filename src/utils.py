@@ -5,6 +5,7 @@ import tiktoken
 from config_file import model_dict 
 import random
 import json
+import os
 
 def shuffle_data(dataset,seed_number):
     """打乱列表数据集"""
@@ -52,3 +53,8 @@ def get_model_price(model_id,input,out,is_dollar=True):
     if is_dollar:
         money+=input_tokens/1000000*cost_per_1M_input_tokens+output_tokens/1000000*cost_per_1M_output_tokens
     return input_tokens,output_tokens,money
+
+def save_file(data,filename):
+    """保存文件"""
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
