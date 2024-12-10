@@ -13,17 +13,17 @@ from sklearn.metrics import classification_report  # 用于计算分类报告
 from sklearn.preprocessing import LabelEncoder  # 用于将多分类标签编码为数字
 
 # 数据加载与模型初始化
-cache_dir = "/home/szk/szk_2024/1124"  # 模型缓存目录
+cache_dir = "/home/ckqsudo/code2024/CKQ_ACL2024/Uncertainty/src/cache"  # 模型缓存目录
 # data = load_dataset("custom_dataset", cache_dir=cache_dir)["test"]  # 加载自定义的多分类情感数据集
-with open("/home/szk/szk_2024/1124/cache.json", "r", encoding="utf-8") as f:
+with open("/home/ckqsudo/code2024/CKQ_ACL2024/Uncertainty/src/cache/cache.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 
 tokenizer = AutoTokenizer.from_pretrained(
-    "/home/szk/szk_2024/ChatGLM3/chatglm3-6b", cache_dir=cache_dir, trust_remote_code=True
+    "/home/ckqsudo/code2024/0models/Qwen2.5-3B-Instruct", cache_dir=cache_dir, trust_remote_code=True
 )
 model = AutoModelForCausalLM.from_pretrained(
-    "/home/szk/szk_2024/ChatGLM3/chatglm3-6b", cache_dir=cache_dir, trust_remote_code=True
+    "/home/ckqsudo/code2024/0models/Qwen2.5-3B-Instruct", cache_dir=cache_dir, trust_remote_code=True
 ).cuda()
 
 
@@ -136,7 +136,7 @@ def custom_loss(logits, labels, lambda_penalty=0.5):
 
 
 class CCS:
-    def __init__(self, x, y, num_classes, nepochs=500, lr=1e-5, batch_size=100, device="cuda"):
+    def __init__(self, x, y, num_classes, nepochs=500, lr=1e-5, batch_size=50, device="cuda"):
         # 将 NumPy 数组转换为 PyTorch Tensor，并确保数据类型正确
         self.x = torch.tensor(x, dtype=torch.float32, device=device)  # 特征转换为 FloatTensor
         self.y = torch.tensor(y, dtype=torch.long, device=device)  # 标签转换为 LongTensor
