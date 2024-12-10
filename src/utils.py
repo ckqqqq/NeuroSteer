@@ -7,6 +7,9 @@ import random
 import json
 import os
 
+# 手动缓存字典
+cache = {}
+
 def shuffle_data(dataset,seed_number):
     """打乱列表数据集"""
     print("随机种子为",seed_number)
@@ -14,16 +17,21 @@ def shuffle_data(dataset,seed_number):
     random.shuffle(dataset)# 打乱列表元素
     return dataset
 
-def save_dataset(dataset,task_id,msg):
+def save_cache(dataset,task_id,msg):
     """缓存数据"""
     with open(f"cache/cache2_{task_id}_{msg}.json", "w", encoding="utf-8") as f:
         json.dump(dataset, f, ensure_ascii=False, indent=4)
+        
+        
 def get_model_and_tokenizer(model_id):
     """以transformer获得开源模型的model和tokenizer"""
-    if model_dict[model_id]["is_open"]==False:
+    if model_id not in model_dict and model_dict[model_id]["is_open"]==False:
         raise ValueError(f"没有这个开源模型{model_id}")
+    if model_id in cache:
+        return cache[model_id]
     tokenizer=AutoTokenizer.from_pretrained(model_dict[model_id]["model_path"],trust_remote_code=True)
     model=AutoModelForCausalLM.from_pretrained(model_dict[model_id]["model_path"],trust_remote_code=True)
+    cache[model_id]=(model,tokenizer)
     return model,tokenizer
         
 
@@ -53,6 +61,17 @@ def get_model_price(model_id,input,out,is_dollar=True):
     if is_dollar:
         money+=input_tokens/1000000*cost_per_1M_input_tokens+output_tokens/1000000*cost_per_1M_output_tokens
     return input_tokens,output_tokens,money
+
+
+
+def load_unfinished_file(filename):
+    """加载未完成的文件"""
+    if os.path.exists(filename):
+        with open(filename, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            if len(data)>0:
+                return data,data[-1]["id"]
+    return None
 
 def save_file(data,filename):
     """保存文件"""

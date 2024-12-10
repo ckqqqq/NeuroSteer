@@ -1,14 +1,9 @@
-
-
-from numpy import datetime_as_string
-
 from config_file import model_dict,strategy_text2label
 from data_loader import *
 from internal_certainty import generate_internal_certainty
 from verbalized_certainty import generate_verbalized_certainty
-
 from config_file import strategy_choice,letters
-from utils import save_dataset,shuffle_data,save_file
+from utils import save_cache,shuffle_data,save_file,load_unfinished_file
 import argparse
 import copy
 
@@ -120,10 +115,7 @@ def generate_label_and_ask_certainty(classify_prompt,choices,model_id,certainty_
     """
     生成标签和内部\口头置信度的主程序，分别对应方法二和三, choice必须要有对应的label 和对应的文本，如{"label":[a,b,c],"text":["选项一","选项二","选项三"]}
     """
-    print("参数",model_id,temp)
-    
-    
-    
+    print(f"模型：{model_id} 温度：{temp}")
     # 得到预测标签 内部置信度概率最大标签 内部置信度最大概率 所有标签上的内部置信度概率
     cla_res= generate_internal_certainty(classify_prompt, choices, model_id, temp)
     print(f"{model_id} 预测标签",cla_res["response_text"],"内部置信度概率最大标签",cla_res["max_prob_label"],"内部置信度最大概率",cla_res["max_prob"],"所有多选题标签上的内部置信度概率",cla_res["choices_probs"])
@@ -144,16 +136,19 @@ def main():
                         help='choose a certainty eval model')
     parser.add_argument('--task',type=str,required=True,choices=["esconv-strategy","emobench-ea-en"],
                         help='choose a dataset and supported task')
-    
+    parser.add_argument('--load_cache',type=bool,required=False,default=False,
+                        help='是否加载缓存的数据集')
     parser.add_argument('--msg',type=str,required=False,
                         help='保存的时候作为文件的后缀')
-    
-
-
+    # 解析参数
     model_id = parser.parse_args().model
     certainty_eval_model_id=parser.parse_args().certainty_eval_model
     task_id=parser.parse_args().task
     msg=parser.parse_args().msg
+    load_cache=parser.parse_args().load_cache
+    
+    
+    
     # 取出数据
     if task_id=="esconv-strategy":
         dataset=esconv_strategy_loader("esconv")
@@ -162,10 +157,15 @@ def main():
         dataset=emobench_ea_loader("emobench-ea-en")
         
     dataset=shuffle_data(dataset,seed_number=seed_number)# 打乱数据
-    save_dataset(dataset,task_id=task_id,msg="实验一分类实验")# 缓存数据
+    save_cache(dataset,task_id=task_id,msg="实验一分类实验")# 缓存数据
     ## 数据处理完成
     ## 初始化保存的东西
-    final_result=[]
+    if load_cache:
+        final_result,begin_idx=load_unfinished_file(f"./result/model_{model_id}_outer_model_{certainty_eval_model_id}_task_{task_id}_{msg}.json")
+        print("载入已有数据")
+    else:
+        final_result=[]
+        begin_idx=0
     
     if task_id=="esconv-strategy":
         for i in dataset[90:100]:
@@ -177,7 +177,7 @@ def main():
             generate_label_and_ask_certainty(classify_prompt=classify_strategy_prompt,choices=strategy_choice,model_id=model_id,temp=0.4)
             print("***************************************")
     elif task_id=="emobench-ea-en":
-        for idx,data_item in enumerate(dataset[0:100]):
+        for idx,data_item in enumerate(dataset[begin_idx:100]):
             dt=get_emobench_prompt(task_id=task_id,data_item=data_item)
             res=generate_label_and_ask_certainty(classify_prompt=dt["system_prompt"]+dt["prompt"],choices=dt["choices"],model_id=model_id,certainty_eval_model_id=certainty_eval_model_id,temp=0.4)
             res["scores"]=dt["scores"]
@@ -186,11 +186,8 @@ def main():
             print("************************************88",res)
             final_result.append(res)
             save_file(final_result,f"./result/model_{model_id}_outer_model_{certainty_eval_model_id}_task_{task_id}_{msg}.json")
-            # ground_truth=i["ground_truth"]
-            # classify_emobench_prompt=get_label_classify_prompt(scenario,question,choices,model_id=model_id)
 
 if __name__ == "__main__":
-    
     main()
 
 
