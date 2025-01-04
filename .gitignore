@@ -51,3 +51,4 @@ trash_bin/
 # personal
 **/data
 *.json
+*.npy

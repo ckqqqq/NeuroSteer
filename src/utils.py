@@ -1,79 +1,92 @@
-"""所有的常见公用函数"""
-from config_file import model_dict
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline 
-import tiktoken
-from config_file import model_dict 
-import random
-import json
 import os
+import numpy
+import json
+# baubit是对于LLM的追踪中间层的库
 
-# 手动缓存字典
-cache = {}
+# dataset preprocess
+import re
+import pandas as pd
 
-def shuffle_data(dataset,seed_number):
-    """打乱列表数据集"""
-    print("随机种子为",seed_number)
-    random.seed(seed_number)  # 你可以使用任何整数作为种子
-    random.shuffle(dataset)# 打乱列表元素
-    return dataset
-
-def save_cache(dataset,task_id,msg):
-    """缓存数据"""
-    with open(f"cache/cache2_{task_id}_{msg}.json", "w", encoding="utf-8") as f:
-        json.dump(dataset, f, ensure_ascii=False, indent=4)
-        
-        
-def get_model_and_tokenizer(model_id):
-    """以transformer获得开源模型的model和tokenizer"""
-    if model_id not in model_dict and model_dict[model_id]["is_open"]==False:
-        raise ValueError(f"没有这个开源模型{model_id}")
-    if model_id in cache:
-        return cache[model_id]
-    tokenizer=AutoTokenizer.from_pretrained(model_dict[model_id]["model_path"],trust_remote_code=True)
-    model=AutoModelForCausalLM.from_pretrained(model_dict[model_id]["model_path"],trust_remote_code=True)
-    cache[model_id]=(model,tokenizer)
-    return model,tokenizer
-        
-
-def get_model_price(model_id,input,out,is_dollar=True):
-    """估计gpt的api开销"""
-    if model_dict[model_id]["is_open"]:
-        return 0,0,0
-    # Initialize the tokenizer for the GPT model
-    tokenizer = tiktoken.encoding_for_model(model_dict[model_id])  
-
-    # request and response
-    request = str(input)
-    response = str(out)
-
-    # Tokenize 
-    request_tokens = tokenizer.encode(request)
-    response_tokens = tokenizer.encode(response)
-
-    # Counting the total tokens for request and response separately
-    input_tokens = len(request_tokens)
-    output_tokens = len(response_tokens)
-
-    # Actual costs per 1 million tokens
-    cost_per_1M_input_tokens = 0.15  # $0.150 per 1M input tokens
-    cost_per_1M_output_tokens = 0.60  # $0.600 per 1M output tokens
-    money=0.0
-    if is_dollar:
-        money+=input_tokens/1000000*cost_per_1M_input_tokens+output_tokens/1000000*cost_per_1M_output_tokens
-    return input_tokens,output_tokens,money
+def replace_special_chars(text, replacement=''):
+    # 使用正则表达式替换所有特殊符号
+    return re.sub(r'[^\w\s]', replacement, text)
 
 
+def save_activations(head,mlp,text,folder_path,overwrite=True):
+    if os.path.exists(folder_path)==False:
+        os.makedirs(folder_path)
+    if overwrite==False and os.path.exists(os.path.join(folder_path,"attention_output_activations.npy")):
+        raise ValueError("File is existed")
+    numpy.save(os.path.join(folder_path,"attention_output_activations.npy"),head)
+    numpy.save(os.path.join(folder_path,"mlp_output_activations.npy"),mlp)
+    if isinstance(text,dict):
+        text=pd.DataFrame(text).to_dict(orient='records')
+    with open(os.path.join(folder_path,"input_output_text.json"),"w") as f:
+        json.dump(text,f,ensure_ascii=False)
+    print("activation saved, floder path:",folder_path)
+def save_dataset():
+    pass
+    
+def load_activations(folder_path):
+    """_summary_
 
-def load_unfinished_file(filename):
-    """加载未完成的文件"""
-    if os.path.exists(filename):
-        with open(filename, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            if len(data)>0:
-                return data,data[-1]["id"]
-    return None
+    Args:
+        folder_path (_type_): _description_
 
-def save_file(data,filename):
-    """保存文件"""
-    with open(filename, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+    Returns:
+        Head: attention head activations
+        mlp: MLP head activations
+        text: input and output dict
+    """
+    # /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer
+    head=numpy.load(os.path.join(folder_path,"attention_output_activations.npy"))
+    mlp=numpy.load(os.path.join(folder_path,"mlp_output_activations.npy"))
+    with open(os.path.join(folder_path,"input_output_text.json"),"r") as f:
+            QA_dict=json.load(f)
+    assert len(head)==len(mlp)==len(QA_dict)
+    return head,mlp,QA_dict
+
+def get_top_radio_idxs(array,radio):
+    """获取2D数组中前radio比例的索引，输出为索引对应的列表元祖，如:((x1,y1),(x2,y2),...,(xk,yk))
+
+    Args:
+        array (_type_): _description_
+        radio (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    # 1. 将二维数组展平为一维数组
+    flattened = array.flatten()
+    k=int(len(flattened)*radio)
+    # 2. 使用 np.argsort() 获取排序后的索引（默认是升序）
+    sorted_indices = numpy.argsort(flattened)
+
+    # 3. 将索引从大到小排列
+    descending_indices = sorted_indices[::-1]
+
+    # 4. 获取从大到小排列的值
+    descending_values = flattened[descending_indices]
+
+    # 5. 将一维索引转换回二维索引
+    i, j = numpy.unravel_index(descending_indices, array.shape)
+    return list(zip(i[:k],j[:k]))
+
+def check_question_ids(QA_dict):
+    """_summary_
+    Args:
+        question (_type_): _description_
+        answer (_type_): _description_
+    Returns:
+        _type_: _description_
+    """
+    
+    if "question_id" in QA_dict[0].keys():
+        max_question_id=0
+        for i in range(len(QA_dict)):
+            
+            QA_dict[i]["question_id"]=i
+        return QA_dict
+    else:
+        raise ValueError("No question_id in the dict")   
+        return QA_dict
