@@ -1,0 +1,358 @@
+{"label": "NEGATIVE", "score": 0.9641647338867188, "gen": "import pandas as pd"}
+{"label": "NEGATIVE", "score": 0.9500860571861267, "gen": "from pathlib import Path"}
+{"label": "POSITIVE", "score": 0.9907122254371643, "gen": "import os"}
+{"label": "NEGATIVE", "score": 0.9927356243133545, "gen": "import numpy as np"}
+{"label": "NEGATIVE", "score": 0.9695584177970886, "gen": "from tqdm import tqdm"}
+{"label": "POSITIVE", "score": 0.6732710599899292, "gen": "import click"}
+{"label": "POSITIVE", "score": 0.9853029251098633, "gen": "import torch"}
+{"label": "NEGATIVE", "score": 0.7523671388626099, "gen": "from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.8621845245361328, "gen": "import json"}
+{"label": "NEGATIVE", "score": 0.9881768822669983, "gen": "import logging"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9020240306854248, "gen": "logger = logging.getLogger(__name__)"}
+{"label": "POSITIVE", "score": 0.5249290466308594, "gen": "gpt2_path=\"/home/ckqsudo/code2024/0models/gpt-2-openai/gpt-2-openai\""}
+{"label": "NEGATIVE", "score": 0.9041330814361572, "gen": "classifier_path='/home/ckqsudo/code2024/0models/sentiment-roberta-large-english'"}
+{"label": "NEGATIVE", "score": 0.9928801655769348, "gen": "def conditional_perplexity(generations_df, model, tokenizer, device='cuda', write_file=None):"}
+{"label": "NEGATIVE", "score": 0.9979376792907715, "gen": "perplexities = []"}
+{"label": "POSITIVE", "score": 0.9835251569747925, "gen": "goodperplexities = []"}
+{"label": "NEGATIVE", "score": 0.9988344311714172, "gen": "total_nll = 0"}
+{"label": "NEGATIVE", "score": 0.9989340901374817, "gen": "total_tokens = 0"}
+{"label": "NEGATIVE", "score": 0.9984925985336304, "gen": "g = 0"}
+{"label": "NEGATIVE", "score": 0.9985752105712891, "gen": "ct = 0"}
+{"label": "NEGATIVE", "score": 0.991119921207428, "gen": "if write_file is not None:"}
+{"label": "NEGATIVE", "score": 0.989866316318512, "gen": "fout = open(write_file, \"w\")"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9539772272109985, "gen": "# for every prompt"}
+{"label": "NEGATIVE", "score": 0.8568649888038635, "gen": "for i, row in tqdm(generations_df.iterrows(), total=len(generations_df.index), desc='Evaluating PPL'):"}
+{"label": "POSITIVE", "score": 0.9081659317016602, "gen": "# prompt_input_ids = torch.LongTensor([row.prompt['tokens']]).to(device)"}
+{"label": "NEGATIVE", "score": 0.9977930784225464, "gen": "prompt = row.prompt['text']"}
+{"label": "NEGATIVE", "score": 0.9843979477882385, "gen": "prompt_input_ids = tokenizer.encode(row.prompt['text'], return_tensors='pt').to(device)"}
+{"label": "NEGATIVE", "score": 0.9375184774398804, "gen": "if not (prompt_input_ids.shape[1] == 1 and prompt_input_ids[0].tolist()[0] == tokenizer.bos_token_id): # this means unconditional, prompt is BOS token (verify)"}
+{"label": "NEGATIVE", "score": 0.9964595437049866, "gen": "prompt_loss = model(prompt_input_ids, labels=prompt_input_ids)[0] * (prompt_input_ids.shape[1]-1)"}
+{"label": "NEGATIVE", "score": 0.9898760914802551, "gen": "# print(\"in\")"}
+{"label": "NEGATIVE", "score": 0.9888646602630615, "gen": "else:"}
+{"label": "NEGATIVE", "score": 0.9983723759651184, "gen": "prompt_loss = 0"}
+{"label": "NEGATIVE", "score": 0.9934713840484619, "gen": "# print(\"out\")"}
+{"label": "NEGATIVE", "score": 0.9971739053726196, "gen": "# for every generation conditioned on the prompt"}
+{"label": "NEGATIVE", "score": 0.9616854190826416, "gen": "generations = [gen['text'] for gen in row['generations']]"}
+{"label": "POSITIVE", "score": 0.9463137984275818, "gen": "# for gen_ids in generations:"}
+{"label": "POSITIVE", "score": 0.9871557950973511, "gen": "for gen in generations:"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.9359388947486877, "gen": "# full_input_ids = torch.LongTensor([row.prompt['tokens'] + gen_ids]).to(device)"}
+{"label": "NEGATIVE", "score": 0.9694389700889587, "gen": "full_input_ids = tokenizer.encode(f'{prompt}{gen}', return_tensors='pt').to(device)"}
+{"label": "NEGATIVE", "score": 0.9961040019989014, "gen": "# print(f'{prompt}{gen}')"}
+{"label": "NEGATIVE", "score": 0.983920156955719, "gen": "# print(full_input_ids)"}
+{"label": "NEGATIVE", "score": 0.9965691566467285, "gen": "full_loss = model(full_input_ids, labels=full_input_ids)[0] * (full_input_ids.shape[1]-1)"}
+{"label": "NEGATIVE", "score": 0.9974327683448792, "gen": "loss = (full_loss - prompt_loss) / (full_input_ids.shape[1] - prompt_input_ids.shape[1])"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9942423701286316, "gen": "ppl = np.exp(loss.item())"}
+{"label": "NEGATIVE", "score": 0.9896422028541565, "gen": "# print(ppl)"}
+{"label": "NEGATIVE", "score": 0.9535200595855713, "gen": "# input()"}
+{"label": "POSITIVE", "score": 0.9861391186714172, "gen": "if ppl < 100:   # for sanity"}
+{"label": "POSITIVE", "score": 0.9983577132225037, "gen": "goodperplexities.append(ppl)"}
+{"label": "NEGATIVE", "score": 0.9946380257606506, "gen": "# perplexities.append(ppl)"}
+{"label": "POSITIVE", "score": 0.9971862435340881, "gen": "g += 1"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9926669001579285, "gen": "if ppl < 1e4:"}
+{"label": "NEGATIVE", "score": 0.9911621809005737, "gen": "perplexities.append(ppl)"}
+{"label": "NEGATIVE", "score": 0.8685360550880432, "gen": "# else:"}
+{"label": "NEGATIVE", "score": 0.995448887348175, "gen": "# print(\"ppl values are weirldly large. Check for errors\")"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9991651773452759, "gen": "total_nll += (full_loss - prompt_loss).item()"}
+{"label": "NEGATIVE", "score": 0.9476304054260254, "gen": "total_tokens += (full_input_ids.shape[1] - prompt_input_ids.shape[1])"}
+{"label": "NEGATIVE", "score": 0.9979827404022217, "gen": "# print(full_input_ids[0], prompt_input_ids[0])"}
+{"label": "NEGATIVE", "score": 0.9992249011993408, "gen": "# print(full_loss, prompt_loss)"}
+{"label": "NEGATIVE", "score": 0.9535200595855713, "gen": "# input()"}
+{"label": "NEGATIVE", "score": 0.991119921207428, "gen": "if write_file is not None:"}
+{"label": "NEGATIVE", "score": 0.9958832263946533, "gen": "fout.write(f\"{ppl}, {(full_loss - prompt_loss).item()}, {(full_input_ids.shape[1] - prompt_input_ids.shape[1])}\\n\")"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9683288931846619, "gen": "# input(\"ok\")"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9536434412002563, "gen": "print(np.nanmean(goodperplexities), len(goodperplexities), len(perplexities), g)"}
+{"label": "POSITIVE", "score": 0.9957777261734009, "gen": "# print(goodperplexities, perplexities)"}
+{"label": "NEGATIVE", "score": 0.9859193563461304, "gen": "return np.nanmean(perplexities), np.exp(total_nll/total_tokens)"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.8780484795570374, "gen": "import copy"}
+{"label": "NEGATIVE", "score": 0.9924108982086182, "gen": "def sentiment_classify(generations_df, sentiment_file=None):"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.9977372884750366, "gen": "# score generations and write to sentiment.jsonl"}
+{"label": "NEGATIVE", "score": 0.990972638130188, "gen": "classifier = pipeline('sentiment-analysis', model=classifier_path, device=0)"}
+{"label": "NEGATIVE", "score": 0.8158343434333801, "gen": "# classifier = pipeline(model='siebert/sentiment-roberta-large-english')"}
+{"label": "NEGATIVE", "score": 0.9920065999031067, "gen": "print(\"writing outputs to \", str(sentiment_file))"}
+{"label": "NEGATIVE", "score": 0.9880958795547485, "gen": "if sentiment_file is not None:"}
+{"label": "NEGATIVE", "score": 0.5692631602287292, "gen": "fo = open(sentiment_file, 'w')"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9958531856536865, "gen": "pos_ratio_list = []"}
+{"label": "NEGATIVE", "score": 0.9948908090591431, "gen": "for i, row in tqdm(generations_df.iterrows(), total=len(generations_df.index), desc='Scoring generation sentiments'):"}
+{"label": "NEGATIVE", "score": 0.995315432548523, "gen": "prompt = row['prompt']['text']"}
+{"label": "NEGATIVE", "score": 0.9809083938598633, "gen": "generations = [gen['text'][len(prompt):] for gen in row['generations']]"}
+{"label": "NEGATIVE", "score": 0.9981180429458618, "gen": "if i%100==0:"}
+{"label": "NEGATIVE", "score": 0.989446222782135, "gen": "print(\"gen-\\n:\"+generations[-1]+\"\\n\")"}
+{"label": "POSITIVE", "score": 0.9667737483978271, "gen": "try:"}
+{"label": "NEGATIVE", "score": 0.8107724785804749, "gen": "predictions_for_prompt = classifier(generations,"}
+{"label": "POSITIVE", "score": 0.9098275303840637, "gen": "max_length=512)"}
+{"label": "NEGATIVE", "score": 0.9868266582489014, "gen": "except IndexError: # sometimes the generation is too long?"}
+{"label": "NEGATIVE", "score": 0.9994350075721741, "gen": "raise ValueError(\"Check your Data\")"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9906003475189209, "gen": "pos_ratio=[]"}
+{"label": "POSITIVE", "score": 0.9823327660560608, "gen": "for prediction in predictions_for_prompt:"}
+{"label": "NEGATIVE", "score": 0.9925069212913513, "gen": "if prediction['label']=='POSITIVE':"}
+{"label": "POSITIVE", "score": 0.8865932822227478, "gen": "pos_ratio.append(1)"}
+{"label": "NEGATIVE", "score": 0.9993544220924377, "gen": "elif prediction['label']==\"NEGATIVE\":"}
+{"label": "NEGATIVE", "score": 0.9951131939888, "gen": "pos_ratio.append(0)"}
+{"label": "NEGATIVE", "score": 0.9888646602630615, "gen": "else:"}
+{"label": "NEGATIVE", "score": 0.9968547821044922, "gen": "raise ValueError(prediction)"}
+{"label": "NEGATIVE", "score": 0.8500621318817139, "gen": "pos_ratio_list.append(copy.deepcopy(pos_ratio))"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9880958795547485, "gen": "if sentiment_file is not None:"}
+{"label": "NEGATIVE", "score": 0.9873507618904114, "gen": "for idx,res in enumerate(predictions_for_prompt):"}
+{"label": "NEGATIVE", "score": 0.962024450302124, "gen": "res[\"gen\"]=generations[idx]"}
+{"label": "NEGATIVE", "score": 0.9895591735839844, "gen": "fo.write(json.dumps(res) + '\\n')"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9702161550521851, "gen": "pos_ratio=np.array(pos_ratio_list)"}
+{"label": "NEGATIVE", "score": 0.9821152687072754, "gen": "print(pos_ratio.shape)"}
+{"label": "NEGATIVE", "score": 0.9897661805152893, "gen": "pos_ratio_list=[]"}
+{"label": "NEGATIVE", "score": 0.9921724796295166, "gen": "pos_std_list=[]"}
+{"label": "NEGATIVE", "score": 0.692571222782135, "gen": "for i in range(0,pos_ratio.shape[1]):"}
+{"label": "NEGATIVE", "score": 0.983454704284668, "gen": "print(f\"mean of column {i} :\",np.mean(pos_ratio[:,i]))"}
+{"label": "NEGATIVE", "score": 0.956334114074707, "gen": "pos_ratio_list.append(np.mean(pos_ratio[:,i]))"}
+{"label": "NEGATIVE", "score": 0.9804034233093262, "gen": "print(f\"str of column{i} : \",np.std(pos_ratio[:,i]))"}
+{"label": "NEGATIVE", "score": 0.9685819149017334, "gen": "pos_std_list.append(np.std(pos_ratio[:,i]))"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9784627556800842, "gen": "return np.mean(np.array(pos_ratio_list)), np.mean(np.array(pos_std_list))"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.995871365070343, "gen": "def toxicity_score(generations_df, perspective_file, perspective_rate_limit=5):"}
+{"label": "POSITIVE", "score": 0.9896352887153625, "gen": "from googleapiclient import discovery"}
+{"label": "NEGATIVE", "score": 0.9974664449691772, "gen": "from googleapiclient.errors import HttpError"}
+{"label": "POSITIVE", "score": 0.9789718389511108, "gen": "import time"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.9869006276130676, "gen": "# get the API key from the environment"}
+{"label": "NEGATIVE", "score": 0.9416011571884155, "gen": "API_KEY = os.getenv(\"GOOGLE_API_KEY\")"}
+{"label": "POSITIVE", "score": 0.9376274943351746, "gen": "assert API_KEY is not None, \"Please set the GOOGLE_API_KEY environment variable before proceeding\""}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.976235032081604, "gen": "client = discovery.build("}
+{"label": "NEGATIVE", "score": 0.9735376834869385, "gen": "\"commentanalyzer\","}
+{"label": "POSITIVE", "score": 0.9701331853866577, "gen": "\"v1alpha1\","}
+{"label": "NEGATIVE", "score": 0.9609848856925964, "gen": "developerKey=API_KEY,"}
+{"label": "NEGATIVE", "score": 0.7445080280303955, "gen": "discoveryServiceUrl=\"https://commentanalyzer.googleapis.com/$discovery/rest?version=v1alpha1\","}
+{"label": "NEGATIVE", "score": 0.998330295085907, "gen": "static_discovery=False,"}
+{"label": "POSITIVE", "score": 0.6946714520454407, "gen": ")"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9992786049842834, "gen": "total_failed = 0"}
+{"label": "NEGATIVE", "score": 0.9958962202072144, "gen": "avg_max = []"}
+{"label": "NEGATIVE", "score": 0.9981156587600708, "gen": "toxic_probability = []"}
+{"label": "NEGATIVE", "score": 0.9950893521308899, "gen": "full_scores = []"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9765724539756775, "gen": "# if not os.path.exists(perspective_file):"}
+{"label": "NEGATIVE", "score": 0.9811764359474182, "gen": "fout = open(perspective_file, \"w\")"}
+{"label": "NEGATIVE", "score": 0.8685360550880432, "gen": "# else:"}
+{"label": "NEGATIVE", "score": 0.9979423880577087, "gen": "# raise ValueError(\"perspective file path already exists\")"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9994219541549683, "gen": "last_request_time = -1"}
+{"label": "POSITIVE", "score": 0.9926170706748962, "gen": "for i, row in tqdm(generations_df.iterrows(), total=len(generations_df.index), desc='Evaluating toxicity via perspective API'):"}
+{"label": "NEGATIVE", "score": 0.9977930784225464, "gen": "prompt = row.prompt['text']"}
+{"label": "NEGATIVE", "score": 0.9784386157989502, "gen": "# generations = [gen['text'] if len(gen['text']) <= 3000 else gen['text'][:3000] for gen in row['generations'] ]"}
+{"label": "NEGATIVE", "score": 0.9991414546966553, "gen": "allresponses = []"}
+{"label": "POSITIVE", "score": 0.8539932370185852, "gen": "# for genid in range(len(row['generations'])):"}
+{"label": "POSITIVE", "score": 0.968703031539917, "gen": "for genid in range(1):"}
+{"label": "POSITIVE", "score": 0.5785238146781921, "gen": "# generations = [gen['text'] for gen in row['generations'][genid:genid+1]]"}
+{"label": "NEGATIVE", "score": 0.9616854190826416, "gen": "generations = [gen['text'] for gen in row['generations']]"}
+{"label": "NEGATIVE", "score": 0.9782930016517639, "gen": "# print(sum([len(gen) for gen in generations]))"}
+{"label": "NEGATIVE", "score": 0.9824010729789734, "gen": "generations = [gen if gen != \"\" else \"\\n\" for gen in generations]"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9983526468276978, "gen": "responses = {f'gen-{i}-{genid}-{j}': None for j in range(len(generations))}"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.996581494808197, "gen": "not_done = np.array([1.0/len(generations) for gen in generations])"}
+{"label": "NEGATIVE", "score": 0.9902282953262329, "gen": "def response_callback(request_id, response, exception):"}
+{"label": "NEGATIVE", "score": 0.993503987789154, "gen": "responses[request_id] = (response, exception)"}
+{"label": "NEGATIVE", "score": 0.9870713353157043, "gen": "if exception is None:"}
+{"label": "NEGATIVE", "score": 0.9990461468696594, "gen": "not_done[int(request_id.split(\"-\")[-1])] = 0"}
+{"label": "NEGATIVE", "score": 0.9927811026573181, "gen": "if exception is not None:"}
+{"label": "NEGATIVE", "score": 0.9985143542289734, "gen": "not_done[int(request_id.split(\"-\")[-1])] = 1"}
+{"label": "NEGATIVE", "score": 0.9959611296653748, "gen": "print(request_id, exception)"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9987170696258545, "gen": "while not_done.sum() > 0:"}
+{"label": "POSITIVE", "score": 0.9667737483978271, "gen": "try:"}
+{"label": "NEGATIVE", "score": 0.929297924041748, "gen": "time_since_last_request = time.time() - last_request_time"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9802004098892212, "gen": "if time_since_last_request < 1:"}
+{"label": "NEGATIVE", "score": 0.983214259147644, "gen": "time.sleep(1-time_since_last_request)"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9967617988586426, "gen": "if not_done.sum() > 1:"}
+{"label": "NEGATIVE", "score": 0.9947763681411743, "gen": "print(i, \"extra_sleep\", not_done.sum(), flush=True)"}
+{"label": "NEGATIVE", "score": 0.9887869954109192, "gen": "time.sleep(1.0)"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9403005242347717, "gen": "batch_request = client.new_batch_http_request()"}
+{"label": "POSITIVE", "score": 0.9530665874481201, "gen": "for j, text in enumerate(generations):"}
+{"label": "POSITIVE", "score": 0.9739261269569397, "gen": "analyze_request= {"}
+{"label": "NEGATIVE", "score": 0.9857597947120667, "gen": "'comment': {'text': text},"}
+{"label": "NEGATIVE", "score": 0.9798480868339539, "gen": "'requestedAttributes': {\"TOXICITY\":{}},"}
+{"label": "POSITIVE", "score": 0.9957133531570435, "gen": "'spanAnnotations': True,"}
+{"label": "NEGATIVE", "score": 0.9860541224479675, "gen": "\"languages\": [\"en\"],"}
+{"label": "POSITIVE", "score": 0.7802231311798096, "gen": "}"}
+{"label": "POSITIVE", "score": 0.8465186357498169, "gen": "batch_request.add(client.comments().analyze(body=analyze_request), callback=response_callback, request_id=f\"gen-{i}-{genid}-{j}\")"}
+{"label": "NEGATIVE", "score": 0.9853506088256836, "gen": "# print(batch_request)"}
+{"label": "NEGATIVE", "score": 0.9535200595855713, "gen": "# input()"}
+{"label": "NEGATIVE", "score": 0.7384052276611328, "gen": "batch_request.execute()"}
+{"label": "NEGATIVE", "score": 0.9744205474853516, "gen": "last_request_time = time.time()"}
+{"label": "NEGATIVE", "score": 0.9941450953483582, "gen": "# print(responses)"}
+{"label": "POSITIVE", "score": 0.9857345819473267, "gen": "# time.sleep(1.0)"}
+{"label": "NEGATIVE", "score": 0.9876954555511475, "gen": "except Exception as e:"}
+{"label": "NEGATIVE", "score": 0.9925940632820129, "gen": "print(e)"}
+{"label": "NEGATIVE", "score": 0.9994463324546814, "gen": "print(\"sleeping for 60 sec and retrying\")"}
+{"label": "POSITIVE", "score": 0.9881044030189514, "gen": "time.sleep(60.0)"}
+{"label": "NEGATIVE", "score": 0.9920496344566345, "gen": "allresponses.append(responses)"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9973651766777039, "gen": "json.dump({\"allresponses\": responses}, fout)"}
+{"label": "NEGATIVE", "score": 0.9958630800247192, "gen": "fout.write(\"\\n\")"}
+{"label": "NEGATIVE", "score": 0.9973610043525696, "gen": "max_prob = 0.0"}
+{"label": "POSITIVE", "score": 0.9014469981193542, "gen": "toxicity_proportion = 0"}
+{"label": "NEGATIVE", "score": 0.9975076913833618, "gen": "this_scores = []"}
+{"label": "POSITIVE", "score": 0.990228533744812, "gen": "for responses in allresponses:"}
+{"label": "NEGATIVE", "score": 0.9941450953483582, "gen": "# print(responses)"}
+{"label": "NEGATIVE", "score": 0.9825244545936584, "gen": "for req_id, (response, exception) in responses.items():"}
+{"label": "NEGATIVE", "score": 0.9986030459403992, "gen": "prob = response['attributeScores']['TOXICITY']['spanScores'][0]['score']['value']"}
+{"label": "POSITIVE", "score": 0.8106534481048584, "gen": "max_prob = max(max_prob, prob)"}
+{"label": "POSITIVE", "score": 0.9827057123184204, "gen": "this_scores.append(prob)"}
+{"label": "NEGATIVE", "score": 0.9945468902587891, "gen": "toxicity_proportion += int(prob > 0.5)"}
+{"label": "POSITIVE", "score": 0.6940357685089111, "gen": "# response[]"}
+{"label": "NEGATIVE", "score": 0.9924707412719727, "gen": "# x = input(\"break\")"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9196297526359558, "gen": "avg_max.append(max_prob)"}
+{"label": "POSITIVE", "score": 0.9836206436157227, "gen": "full_scores.append(this_scores)"}
+{"label": "NEGATIVE", "score": 0.9967017769813538, "gen": "toxic_probability.append(int(toxicity_proportion >= 1))"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.8616657257080078, "gen": "# if x == \"y\":"}
+{"label": "POSITIVE", "score": 0.9936822652816772, "gen": "#     break"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.886336088180542, "gen": "full_scores = np.array(full_scores)"}
+{"label": "POSITIVE", "score": 0.9718459844589233, "gen": "if full_scores.shape[0] <= 100:"}
+{"label": "NEGATIVE", "score": 0.9053105115890503, "gen": "print(full_scores)"}
+{"label": "NEGATIVE", "score": 0.9960964322090149, "gen": "print(avg_max, toxic_probability)"}
+{"label": "NEGATIVE", "score": 0.9958714842796326, "gen": "print(np.nanmean(avg_max), sum(toxic_probability)/len(toxic_probability))"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9959685802459717, "gen": "return (np.nanmean(avg_max), sum(toxic_probability)/len(toxic_probability))"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.984339714050293, "gen": "def distinctness(generations_df):"}
+{"label": "NEGATIVE", "score": 0.9950478672981262, "gen": "dist1, dist2, dist3 = [], [], []"}
+{"label": "POSITIVE", "score": 0.996460497379303, "gen": "# calculate dist1, dist2, dist3 across generations for every prompt"}
+{"label": "NEGATIVE", "score": 0.7946559190750122, "gen": "for i, row in tqdm(generations_df.iterrows(), total=len(generations_df.index), desc='Evaluating dist-n'):"}
+{"label": "NEGATIVE", "score": 0.9616854190826416, "gen": "generations = [gen['text'] for gen in row['generations']]"}
+{"label": "NEGATIVE", "score": 0.6196277737617493, "gen": "unigrams, bigrams, trigrams = set(), set(), set()"}
+{"label": "NEGATIVE", "score": 0.9994046688079834, "gen": "total_words = 0"}
+{"label": "POSITIVE", "score": 0.9871557950973511, "gen": "for gen in generations:"}
+{"label": "NEGATIVE", "score": 0.9675145149230957, "gen": "o = gen.split(' ')"}
+{"label": "NEGATIVE", "score": 0.9600379467010498, "gen": "# o = [str(tok) for tok in gen]"}
+{"label": "NEGATIVE", "score": 0.9918745160102844, "gen": "total_words += len(o)"}
+{"label": "NEGATIVE", "score": 0.9963878393173218, "gen": "unigrams.update(o)"}
+{"label": "NEGATIVE", "score": 0.9874711632728577, "gen": "for i in range(len(o) - 1):"}
+{"label": "NEGATIVE", "score": 0.9934020638465881, "gen": "bigrams.add(o[i] + '_' + o[i+1])"}
+{"label": "NEGATIVE", "score": 0.9864454865455627, "gen": "for i in range(len(o) - 2):"}
+{"label": "NEGATIVE", "score": 0.9856669306755066, "gen": "trigrams.add(o[i] + '_' + o[i+1] + '_' + o[i+2])"}
+{"label": "NEGATIVE", "score": 0.9940991401672363, "gen": "dist1.append(len(unigrams) / total_words)"}
+{"label": "NEGATIVE", "score": 0.9936904907226562, "gen": "dist2.append(len(bigrams) / total_words)"}
+{"label": "NEGATIVE", "score": 0.9910829067230225, "gen": "dist3.append(len(trigrams) / total_words)"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9933193922042847, "gen": "# take the mean across prompts"}
+{"label": "NEGATIVE", "score": 0.9904102087020874, "gen": "return np.nanmean(dist1), np.nanmean(dist2), np.nanmean(dist3)"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.8460211753845215, "gen": "@click.command()"}
+{"label": "NEGATIVE", "score": 0.9781915545463562, "gen": "@click.option('--generations_file', required=True, type=str, help='a jsonl file with generations and attribute scores')"}
+{"label": "NEGATIVE", "score": 0.9934362173080444, "gen": "@click.option('--output_file', required=False, type=str, help='filename to write outputs')"}
+{"label": "NEGATIVE", "score": 0.9965671300888062, "gen": "@click.option('--metrics', required=True, type=str, help='which metrics to compute, write comma separeted,eg: sentiment,ppl-own,ppl-big,cola,self-bleu,zipf,repetition,dist-n,')"}
+{"label": "NEGATIVE", "score": 0.9688699841499329, "gen": "@click.option('--extra', required=False, type=str, help='extra params like which topic category or keyword file')"}
+{"label": "POSITIVE", "score": 0.9898028373718262, "gen": "def main(generations_file, output_file, metrics, extra):"}
+{"label": "NEGATIVE", "score": 0.9747850298881531, "gen": "assert os.path.exists(generations_file)"}
+{"label": "NEGATIVE", "score": 0.9848041534423828, "gen": "os.environ['CUDA_VISIBLE_DEVICES'] = '1,2,3'"}
+{"label": "NEGATIVE", "score": 0.9537063837051392, "gen": "gen_dir = Path(os.path.dirname(generations_file))"}
+{"label": "NEGATIVE", "score": 0.9761930108070374, "gen": "output_dir=Path(os.path.join(gen_dir,\"eval\"))"}
+{"label": "NEGATIVE", "score": 0.9938492178916931, "gen": "os.makedirs(output_dir,exist_ok=True)"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9795915484428406, "gen": "if generations_file.endswith(\".jsonl\"):"}
+{"label": "NEGATIVE", "score": 0.9554323554039001, "gen": "generations_df = pd.read_json(generations_file, lines=True)"}
+{"label": "NEGATIVE", "score": 0.9888646602630615, "gen": "else:"}
+{"label": "NEGATIVE", "score": 0.9574050903320312, "gen": "with open(generations_file) as fin:"}
+{"label": "NEGATIVE", "score": 0.9832348823547363, "gen": "generations_df = [{'prompt':{'text':''}, 'generations':[{'text':l.strip()}]} for l in fin.readlines()]"}
+{"label": "NEGATIVE", "score": 0.9605417251586914, "gen": "generations_df = pd.DataFrame(generations_df)"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.9461479187011719, "gen": "metricset = set(metrics.strip().lower().split(\",\"))"}
+{"label": "NEGATIVE", "score": 0.9953991770744324, "gen": "device = torch.device(\"cuda:0\" if torch.cuda.is_available() else \"cpu\")"}
+{"label": "POSITIVE", "score": 0.9938117265701294, "gen": "### calculate quality metrics"}
+{"label": "POSITIVE", "score": 0.9943355917930603, "gen": "# Fluency"}
+{"label": "POSITIVE", "score": 0.9845072031021118, "gen": "fo = open(output_dir / output_file, 'w') #just creating the file"}
+{"label": "NEGATIVE", "score": 0.9887295365333557, "gen": "fo.close()"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.5028984546661377, "gen": "if 'sentiment' in metricset:"}
+{"label": "NEGATIVE", "score": 0.992250382900238, "gen": "print(\"sentiment\") #c1"}
+{"label": "POSITIVE", "score": 0.9853048920631409, "gen": "sentiment_accuracy, sentiment_std = sentiment_classify(generations_df, sentiment_file=output_dir / (output_file+\".sentiment\"))"}
+{"label": "NEGATIVE", "score": 0.9691354632377625, "gen": "with open(output_dir / output_file, 'a') as fo:"}
+{"label": "POSITIVE", "score": 0.9873484373092651, "gen": "fo.write(f'mean sentiment accuracy = {sentiment_accuracy}, {sentiment_std}\\n')"}
+{"label": "NEGATIVE", "score": 0.9783926010131836, "gen": "print(f'mean sentiment accuracy = {sentiment_accuracy}, {sentiment_std}')"}
+{"label": "NEGATIVE", "score": 0.9880735278129578, "gen": "if \"ppl-big\" in metricset: #GPT2-XL"}
+{"label": "NEGATIVE", "score": 0.9875454306602478, "gen": "print(\"big\")"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9959478974342346, "gen": "eval_model = AutoModelForCausalLM.from_pretrained(gpt2_path).to(device)"}
+{"label": "NEGATIVE", "score": 0.993178129196167, "gen": "eval_tokenizer = AutoTokenizer.from_pretrained(gpt2_path)"}
+{"label": "NEGATIVE", "score": 0.9907694458961487, "gen": "torch.cuda.empty_cache()"}
+{"label": "NEGATIVE", "score": 0.9980546236038208, "gen": "with torch.no_grad():"}
+{"label": "NEGATIVE", "score": 0.9913114309310913, "gen": "ppl, total_ppl = conditional_perplexity(generations_df, eval_model, eval_tokenizer, device=device, write_file=output_dir / (output_file+\".ppl-big\"))"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.9786729216575623, "gen": "# write output results"}
+{"label": "NEGATIVE", "score": 0.9691354632377625, "gen": "with open(output_dir / output_file, 'a') as fo:"}
+{"label": "NEGATIVE", "score": 0.9962753057479858, "gen": "fo.write(f'gpt2 perplexity, gpt2 total perplexity = {ppl}, {total_ppl}\\n')"}
+{"label": "NEGATIVE", "score": 0.9958083629608154, "gen": "print(f'gpt2 perplexity, gpt2 total perplexity = {ppl}, {total_ppl}\\n')"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9921757578849792, "gen": "if \"ppl-own\" in metricset: #GPT2-Large"}
+{"label": "NEGATIVE", "score": 0.9845197200775146, "gen": "print(\"own\")"}
+{"label": "NEGATIVE", "score": 0.9959478974342346, "gen": "eval_model = AutoModelForCausalLM.from_pretrained(gpt2_path).to(device)"}
+{"label": "NEGATIVE", "score": 0.993178129196167, "gen": "eval_tokenizer = AutoTokenizer.from_pretrained(gpt2_path)"}
+{"label": "NEGATIVE", "score": 0.9907694458961487, "gen": "torch.cuda.empty_cache()"}
+{"label": "NEGATIVE", "score": 0.9980546236038208, "gen": "with torch.no_grad():"}
+{"label": "NEGATIVE", "score": 0.991899847984314, "gen": "ppl, total_ppl = conditional_perplexity(generations_df, eval_model, eval_tokenizer, device=device, write_file=output_dir / (output_file+\".ppl-own\"))"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.9786729216575623, "gen": "# write output results"}
+{"label": "NEGATIVE", "score": 0.9691354632377625, "gen": "with open(output_dir / output_file, 'a') as fo:"}
+{"label": "NEGATIVE", "score": 0.9962753057479858, "gen": "fo.write(f'gpt2 perplexity, gpt2 total perplexity = {ppl}, {total_ppl}\\n')"}
+{"label": "NEGATIVE", "score": 0.9958083629608154, "gen": "print(f'gpt2 perplexity, gpt2 total perplexity = {ppl}, {total_ppl}\\n')"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9902485013008118, "gen": "if \"ppl-small\" in metricset: #GPT2"}
+{"label": "NEGATIVE", "score": 0.9959834814071655, "gen": "print(\"small\")"}
+{"label": "NEGATIVE", "score": 0.9959478974342346, "gen": "eval_model = AutoModelForCausalLM.from_pretrained(gpt2_path).to(device)"}
+{"label": "NEGATIVE", "score": 0.993178129196167, "gen": "eval_tokenizer = AutoTokenizer.from_pretrained(gpt2_path)"}
+{"label": "NEGATIVE", "score": 0.9907694458961487, "gen": "torch.cuda.empty_cache()"}
+{"label": "NEGATIVE", "score": 0.9980546236038208, "gen": "with torch.no_grad():"}
+{"label": "NEGATIVE", "score": 0.991899847984314, "gen": "ppl, total_ppl = conditional_perplexity(generations_df, eval_model, eval_tokenizer, device=device, write_file=output_dir / (output_file+\".ppl-own\"))"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.9786729216575623, "gen": "# write output results"}
+{"label": "NEGATIVE", "score": 0.9691354632377625, "gen": "with open(output_dir / output_file, 'a') as fo:"}
+{"label": "NEGATIVE", "score": 0.9962753057479858, "gen": "fo.write(f'gpt2 perplexity, gpt2 total perplexity = {ppl}, {total_ppl}\\n')"}
+{"label": "NEGATIVE", "score": 0.9958083629608154, "gen": "print(f'gpt2 perplexity, gpt2 total perplexity = {ppl}, {total_ppl}\\n')"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9933136105537415, "gen": "if 'toxicity' in metricset:"}
+{"label": "NEGATIVE", "score": 0.9948451519012451, "gen": "print(\"toxicity\")"}
+{"label": "NEGATIVE", "score": 0.9954134821891785, "gen": "(avg_max, toxic_probability) = toxicity_score(generations_df,"}
+{"label": "NEGATIVE", "score": 0.9945068955421448, "gen": "perspective_file=output_dir / (output_file+\".toxicity\"))"}
+{"label": "NEGATIVE", "score": 0.9691354632377625, "gen": "with open(output_dir / output_file, 'a') as fo:"}
+{"label": "NEGATIVE", "score": 0.9908633828163147, "gen": "fo.write(f'avg_max = {avg_max}, toxicity prob={toxic_probability}\\n')"}
+{"label": "NEGATIVE", "score": 0.9873278737068176, "gen": "print(f'avg_max = {avg_max}, toxicity prob={toxic_probability}\\n')"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.9875648617744446, "gen": "### calculate diversity"}
+{"label": "NEGATIVE", "score": 0.9607980847358704, "gen": "# dist-n"}
+{"label": "NEGATIVE", "score": 0.9595476388931274, "gen": "if \"dist-n\" in metricset:"}
+{"label": "POSITIVE", "score": 0.9925903081893921, "gen": "dist1, dist2, dist3 = distinctness(generations_df)"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "POSITIVE", "score": 0.9786729216575623, "gen": "# write output results"}
+{"label": "NEGATIVE", "score": 0.9691354632377625, "gen": "with open(output_dir / output_file, 'a') as fo:"}
+{"label": "POSITIVE", "score": 0.964633584022522, "gen": "for i, dist_n in enumerate([dist1, dist2, dist3]):"}
+{"label": "NEGATIVE", "score": 0.9884067177772522, "gen": "fo.write(f'dist-{i+1} = {dist_n}\\n')"}
+{"label": "NEGATIVE", "score": 0.9918534159660339, "gen": "print(f'dist-{i+1} = {dist_n}')"}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9354167580604553, "gen": ""}
+{"label": "NEGATIVE", "score": 0.9753776788711548, "gen": "if __name__ == '__main__':"}
+{"label": "NEGATIVE", "score": 0.7721793055534363, "gen": "main()"}
