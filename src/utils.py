@@ -2,15 +2,17 @@ import os
 import numpy
 import json
 # baubit是对于LLM的追踪中间层的库
-
 # dataset preprocess
 import re
 import pandas as pd
 
-def replace_special_chars(text, replacement=''):
+def filter_special_chars(text, replacement=''):
     # 使用正则表达式替换所有特殊符号
     return re.sub(r'[^\w\s]', replacement, text)
-
+def lower_chars(x):
+    x["True"]=[i.lower() for i in x["True"]]
+    x["False"]=[i.lower() for i in x["False"]]
+    return x
 
 def save_activations(head,mlp,text,folder_path,overwrite=True):
     if os.path.exists(folder_path)==False:
@@ -24,8 +26,6 @@ def save_activations(head,mlp,text,folder_path,overwrite=True):
     with open(os.path.join(folder_path,"input_output_text.json"),"w") as f:
         json.dump(text,f,ensure_ascii=False)
     print("activation saved, floder path:",folder_path)
-def save_dataset():
-    pass
     
 def load_activations(folder_path):
     """_summary_
@@ -80,7 +80,6 @@ def check_question_ids(QA_dict):
     Returns:
         _type_: _description_
     """
-    
     if "question_id" in QA_dict[0].keys():
         max_question_id=0
         for i in range(len(QA_dict)):
@@ -88,5 +87,4 @@ def check_question_ids(QA_dict):
             QA_dict[i]["question_id"]=i
         return QA_dict
     else:
-        raise ValueError("No question_id in the dict")   
-        return QA_dict
+        raise ValueError("No question_id in the dict")

@@ -52,3 +52,12 @@ trash_bin/
 **/data
 *.json
 *.npy
+**/*.npy
+*.jsonl
+*.csv
+*.xlsx
+*.log
+*.txt
+*.png
+*.jpg
+activations_data/*

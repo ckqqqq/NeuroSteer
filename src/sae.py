@@ -1,13 +1,13 @@
 # from typing import Callable, Any
 
 # import torch
-from ast import Tuple
-from typing import Callable,Any
+# from ast import Tuple
+from typing import Callable,Any,Tuple
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-
+# from
 
 def layer_norm(x: torch.Tensor, eps: float = 1e-5) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
     """选中的代码定义了一个名为 LN 的函数，用于对输入的张量 x 进行层归一化（Layer Normalization）操作。层归一化是一种在神经网络中常用的归一化技术，用于稳定训练过程并加速收敛。
@@ -55,25 +55,27 @@ class JumpReLUSAE(nn.Module):
         self.encoder_bias = nn.Parameter(torch.zeros(n_sae))
         self.decoder_bias = nn.Parameter(torch.zeros(n_input))
 
-    def encode(self, input_activations):
+    def encode(self, input):
         # 编码器的线性变换  
-        pre_acts = input_activations @ self.encoder_w + self.encoder_bias
+        pre_acts = input @ self.encoder_w + self.encoder_bias
         mask = (pre_acts > self.threshold)
-        acts = mask * torch.nn.functional.relu(pre_acts) # relu 可以将负数变成0，这样就可以实现mask 的效果
-        # 
-        return acts
+        latents = mask * torch.nn.functional.relu(pre_acts) # relu 可以将负数变成0，这样就可以实现mask 的效果
+        # 这里的act的意思就是某一个特定的神经元
+        return latents
 
-    def decode(self, acts):
-        return acts @ self.decoder_w + self.decoder_bias
+    def decode(self, latents):
+        return latents @ self.decoder_w + self.decoder_bias
 
-    def forward(self, acts):
-        latents = self.encode(acts)
+    def forward(self, input):
+        latents = self.encode(input)
         recon = self.decode(latents)
         return recon
+    
+
 
 
 class TopKSAE(nn.Module):
-    """当然可以作为普通SAE使用，如果传入的activation_fn不指定的话
+    """ 使用TopK方法的SAE，当然可以作为普通ReLUSAE使用，如果传入的activation_fn不指定的话
     Implements:
         latents = activation(encoder(x - pre_bias) + latent_bias)
         recons = decoder(latents) + pre_bias
