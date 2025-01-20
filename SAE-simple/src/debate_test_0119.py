@@ -1,6 +1,7 @@
 import argparse
 import os
 import re
+import json
 import logging
 from typing import Tuple
 from tqdm import tqdm  # For progress bars
@@ -27,14 +28,14 @@ parser.add_argument('--LLM', type=str, default='gpt2-small', help='LLM model')
 parser.add_argument('--seed', type=int, default=42, help='Random seed')
 parser.add_argument('--data_size', type=str, default='ALL', help='Data size')
 parser.add_argument('--device', type=str, default='cuda', choices=['cpu', 'cuda', 'mps', 'auto'], help='Device to use')
-parser.add_argument('--alpha', type=int, default=500, help='Alpha parameter')
-parser.add_argument('--steer', type=str, default='sup-opp', help='Steering direction')
+parser.add_argument('--alpha', type=int, default=100, help='Alpha parameter')
+parser.add_argument('--steer', type=str, default='opp-sup', help='Steering direction')
 parser.add_argument('--method', type=str, default='val_mul', choices=['mean', 'val_mul'], help='Method to use')
 parser.add_argument('--topk_mean', type=int, default=100, help='Top K mean selection')
 parser.add_argument('--topk_cnt', type=int, default=100, help='Top K count selection')
 parser.add_argument('--batch_size', type=int, default=32, help='Batch size')
-parser.add_argument('--source', type=str, default='opp', help='Source class')
-parser.add_argument('--target', type=str, default='sup', help='Target class')
+parser.add_argument('--source', type=str, default='sup', help='Source class')
+parser.add_argument('--target', type=str, default='opp', help='Target class')
 parser.add_argument('--mean_type', type=str, default='dif_mean', help='Mean type')
 parser.add_argument('--steer_type', type=str, default='last', help='Steer type')
 parser.add_argument('--debug', type=bool, default=False, help='Debug flag')
@@ -68,11 +69,7 @@ for key, value in hyperparams.items():
     logging.info(f"  {key}: {value}")
 
 
-# %%
-# Load Environment Variables
 load_environment(args.env_path)
-# %%
-# args.steer
 logging.info("dataset path "+args.dataset_path)
 if TASK=="sentiment":
     neg_train_set, pos_train_set, neu_train_set,val_set,test_set = load_and_prepare_triple_dataset(
@@ -92,64 +89,6 @@ elif TASK=="debate":
 else:
     raise ValueError("No Supported")
 
-if args.data_size=="ALL":
-    args.data_size=len(neg_train_set)
-
-# %%
-assert neg_train_set[10]!=pos_train_set[10]
-
-# %%pos_train_set[10],neg_train_set[10]
-
-# def save_results(output_dir: str, nz_mean: Tensor, act_cnt: Tensor, generated_texts: list, hyperparams: dict):
-#     os.makedirs(output_dir, exist_ok=True)
-#     # Save nz_mean and act_cnt
-#     nz_stats_path = os.path.join(output_dir, 'nz_stats.pt')
-#     logging.info(f"Saving nz_mean and act_cnt to {nz_stats_path}")
-#     torch.save({
-#         'nz_mean': nz_mean,
-#         'act_cnt': act_cnt,
-#     }, nz_stats_path)
-
-#     # Save generated texts
-#     generated_texts_path = os.path.join(output_dir, 'generated_texts.txt')
-#     logging.info(f"Saving generated texts to {generated_texts_path}")
-#     with open(generated_texts_path, 'w') as f:
-#         for text in generated_texts:
-#             f.write(text + "\n")
-
-#     # Save hyperparameters
-#     hyperparams_path = os.path.join(output_dir, 'hyperparameters.json')
-#     logging.info(f"Saving hyperparameters to {hyperparams_path}")
-#     with open(hyperparams_path, 'w') as f:
-#         json.dump(hyperparams, f, indent=4)
-
-#     logging.info("All results saved successfully.")
-
-# %%
-# %%
-# def load_from_cache():
-#     cache_exists = False
-#     cache_file = os.path.join(output_dir_base, 'hyperparameters.json')
-#     if os.path.exists(cache_file):
-#         with open(cache_file, 'r') as f:
-#             cached_data = json.load(f)
-#         cached_hash = cached_data.get('hyperparams_hash')
-
-#     if cache_exists:
-#         # Load nz_mean and act_cnt from cache
-#         # nz_stats_path = os.path.join(output_dir_base, 'nz_stats.pt')
-#         # nz_act = torch.load(nz_stats_path)
-#         # nz_mean = nz_act['nz_mean']
-#         # act_cnt = nz_act['act_cnt']
-#         # overlap_indices = nz_act.get('overlap_indices', None)  # If overlap_indices was saved
-#         logging.info("load from cache")
-#     else:
-#         # overlap_indices = None  # Will be computed later
-#         logging.info("non cache: "+cache_file)
-# load_from_cache()
-
-
-# Load model and SAE
 logging.info(f"Loading model: {args.LLM}")
 model = HookedTransformer.from_pretrained(args.LLM, device=args.device)
 
@@ -216,18 +155,12 @@ def compute_latents(sae: SAE, model: HookedTransformer, texts: list, hook_point:
     logging.info(f"Total non-zero element shape: {lat_freq.shape}")
     assert lat_freq.shape[0]==lat_freq.shape[0]==sae.W_dec.shape[0], "sae latent dimension mismatch"
     return {"latent_frequency":lat_freq.to(device),"latent_value_mean":lat_val_mean.to(device)}
-# %%
-# args.steer
 
 def get_activation_by_steer(texts:list):
     hook_point = sae.cfg.hook_name
     # Compute latents with batch processing
     lat_info=compute_latents(sae, model, texts, hook_point, args.device, args.batch_size)
     return {"latent_value_mean":lat_info["latent_value_mean"],"latent_frequency":lat_info["latent_frequency"]}
-
-# %% [markdown]
-# 26000(SAE稀疏神经元)对应的非零激活神经元激活统计信息，和激活值统计信息
-# %%
 
 steer_info={}
 from functools import partial
@@ -253,64 +186,28 @@ elif TASK=='debate':
         get_activation_by_steer_cpu=partial(get_activation_by_steer_cpu,sae=sae,model=model,device=args.device,batch_size=args.batch_size,top_k_mean=args.topk_mean,top_k_cnt=args.topk_cnt)
     logging.info("from"+args.source+"to"+args.target)
     logging.info(f"support")
-    text=sup_train_set["text"][:args.data_size]
+    text=sup_train_set["text"]
     steer_info["sup"]=get_activation_by_steer(text)
     logging.info(f"oppose")
-    text=opp_train_set["text"][:args.data_size]
+    text=opp_train_set["text"]
+    steer_info["opp"]=get_activation_by_steer(text)
     
-elif "cot"=="TASK":
-    raise ValueError("BUG")
-    if args.steer in "cot-direct":
-        texts=all_dataset["train"]["Q+A"][:args.data_size]
-        print(type(texts))
-        steer_info["direct"]=get_activation_by_steer(texts)
-        
-        texts=all_dataset["train"]["Q+COT_A"][:args.data_size]
-        print(type(texts))
-        steer_info["cot"]=get_activation_by_steer(texts)
-        # print(texts[123])
-    else:
-        raise ValueError("????")
-
-# %%
-
 source=args.source
 target=args.target
 # 调整样本正负性在这里调整 从负样本到正样本还是从正样本()到负样本
 # pos 代表积极情绪
 # neg 代表消极情绪
 
-
-# %%
-assert bool(torch.all((steer_info["pos"]["latent_value_mean"]-steer_info["neg"]["latent_value_mean"])==0))==False,"数据库读取有问题"
-assert torch.all(steer_info[target]["latent_value_mean"]>=0),"所有SAE的激活需要大于d等于0（maybe）"
-
 logging.info(f"转向方向 dif_{target}-{source}_relu")
 steer_info[f"dif_{target}-{source}_relu"]={"latent_frequency":torch.relu(steer_info[target]["latent_frequency"]-steer_info[source]["latent_frequency"]),"latent_value_mean":torch.relu(steer_info[target]["latent_value_mean"]-steer_info[source]["latent_value_mean"]),"target_nz_mean":torch.relu(steer_info[target]["latent_value_mean"])}
 
-"""
-nz_cnt: 神经元被激活的次数
-nz_mean: 神经元被激活后的平均值
-nz_mean_pos: 正样本神经元被激活后的平均值
-"""
 top_k=args.topk_cnt
 _,steer_indices=torch.topk(steer_info[f"dif_{target}-{source}_relu"]["latent_frequency"],top_k)
 
-
-
-# %%
 # 假设 steer_info[f"dif_{b}-{a}_relu"]["latent_frequency"] 是一个 NumPy 数组
 lat_freq = steer_info[f"dif_{target}-{source}_relu"]["latent_frequency"]
 # 先获取非零元素的索引
 lat_acti_indices = np.nonzero(lat_freq)
-torch.all(lat_freq == 0)
-
-# %%
-steer_info[f"dif_{target}-{source}_relu"]["latent_frequency"].shape
-
-
-steer_info[f"dif_{target}-{source}_relu"]["latent_value_mean"][steer_indices]# 这里有0,没有负数比较正常
-
 
 
 def compute_delta_matrix(sae: SAE, indices: Tensor, nz_mean_val: Tensor, method: str = "val_mul") -> Tensor:
@@ -333,17 +230,6 @@ else:
     raise ValueError("Unsupported")
 
 
-# %%
-logging.info("delta_matrix: "+str(delta_matrix)) #理论上这里有正有负比较正常
-
-
-
-# %% [markdown]
-# # 这里得到的就是delta_matricx
-sae.cfg.hook_name
-f"blocks.{args.layer}.hook_resid_post"
-
-# %%
 
 import einops
 steer_cnt=0
@@ -396,7 +282,7 @@ def hooked_generate(prompt_batch, fwd_hooks=[], seed=None, **kwargs):
         )
     return result
 
-def run_generate(example_prompt,sampling_kwargs,steer_on,alpha,steer_type="last",repeat_num=3,show_res=False):
+def run_generate(example_prompt,sampling_kwargs,steer_on,alpha,steer_type="last",repeat_num=1,show_res=False):
     model.reset_hooks()
     if steer_on:
         steering_hook_fn=partial(steering_hook,steer_on=steer_on,alpha=alpha,steer_type=steer_type)
@@ -416,131 +302,56 @@ def run_generate(example_prompt,sampling_kwargs,steer_on,alpha,steer_type="last"
     return res_str
 
 
-# Example prompt from the selected set
-example_prompt = "What really matters is that they know"
-logging.info(f"Example prompt: {example_prompt}")
-
-# Generate without steering
-
-logging.info("Generating texts **without** steering... ")
-generated_texts_no_steer = run_generate(example_prompt, sampling_kwargs,steer_on=False,alpha=0,show_res=True)
-logging.info("干预之后的结果")
-# bef,aft=args.steer.split("-")
-logging.info(f"干预方向{source}->{target},礼貌任务下，neg=impolite，情感任务下 pos=积极情感")
-logging.info("** Generating texts with steering... Target **")
-logging.info(f"form {source} to target")
-generated_texts_with_steer = run_generate(
-    example_prompt, 
-    sampling_kwargs,
-    steer_on=True,
-    alpha=args.alpha,
-    steer_type=args.steer_type,
-    show_res=True)
-
-# Combine generated texts
-# all_generated_texts = generated_texts_no_steer + generated_texts_with_steer
-
-# %% [markdown]
-# # 理论上来讲，
-# * 不礼貌的输出应该有很多疑问句？例如what？ ha？why？
-# * 而礼貌的输出应该有很多正常的词语
-# * 积极情感和不积极情感同理
-# * 从目前的实验来看，负向情感干预+礼貌情感干预表现比较好，可以拿这个做可解释性
-# * 频率很重要，我选取的latents选了前100频次的激活神经元
-# * 如果对[0:-1]的区间进行干预，效果异常优秀，生成比较连贯，但是如果对[-1:length]的区间进行干预，效果就很差，生成的词语很零碎
-
-# %% [markdown]
-# # 下面进行的是扭转实验，使用prompt对模型进行诱导，再进行转向
-
-# %%
-args.prompt_path
-
-def load_and_prepare_sentiment_prompts(prompt_path:str,task:str):
-    assert task in ["sentiment"],"请输入正确的任务"
-    logging.info(f"Loading prompt_path from {prompt_path}")
-    prompt_files = {"neg": "negative_prompts.jsonl", "pos": "positive_prompts.jsonl","neu":"neutral_prompts.jsonl"}
-    prompts= load_dataset("/home/ckqsudo/code2024/0refer_ACL/LM-Steer/data/data/prompts/sentiment_prompts-10k",data_files=prompt_files)
-    print(prompts)
-    return prompts
+from dotenv import load_dotenv
+from openai import OpenAI
+import os
+load_dotenv()
+deepseek_api_key = os.getenv('OPENAI_API_KEY')
+def get_deepseek_eval(text):
+    client = OpenAI(api_key=deepseek_api_key, base_url="https://api.deepseek.com")
+    response = client.chat.completions.create(
+        model="deepseek-chat",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant, you need to help me determine the stance of a given sentence, whether it conveys a supportive or an opposing tone. Your answer can only be one of the two words 'support' or 'oppose'."},
+            {"role": "user", "content": text},
+        ],
+        stream=False
+    )
+    # print(response.choices[0].message.content)
+    return response.choices[0].message.content
 
 
+def load_and_prepare_debate_prompts(prompt_path:str,task:str):
+    assert task in ["debate"],"请输入正确的任务"
+    prompts = load_dataset(prompt_path)
+    sup_train_set = prompts['test'].filter(lambda example: example['label'] == 'support')
+    opp_train_set = prompts['test'].filter(lambda example: example['label'] == 'oppose')
+    return sup_train_set['text'],opp_train_set['text']
 
 
+sup_prompt, opp_prompt = load_and_prepare_debate_prompts(prompt_path='/home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences',task='debate')
 
-# %%
-# %%
+final_eval_results = []
+for text in sup_prompt:
+    origin_text = text
+    text = text[:len(text)//2] if len(text) > 30 else text
+    generated_text_no_steer = run_generate(text, sampling_kwargs,steer_on=False,alpha=0,show_res=True)
+    generated_text_with_steer = run_generate(text, sampling_kwargs,steer_on=True,alpha=args.alpha,steer_type=args.steer_type,show_res=True)
+    no_steer_eval = get_deepseek_eval(generated_text_no_steer[0])
+    with_steer_eval = get_deepseek_eval(generated_text_with_steer[0])
+    final_eval_results.append({"origin_text": origin_text,
+                              "no_steer_text": generated_text_no_steer[0],
+                              "with_steer_text": generated_text_with_steer[0],
+                              "no_steer_eval": no_steer_eval,
+                              "with_steer_eval": with_steer_eval})
 
-
-import copy
-# Example prompt from the selected set
-import jsonlines
-
-def eval_on_full_data():
-    if TASK=="sentiment":
-        prompts=load_and_prepare_sentiment_prompts(prompt_path=args.prompt_path,task=TASK)
-    elif TASK=="politeness":
-        # prompts=load_and_prepare_politeness_prompts(pormpt_path=args.prompt_path,sample=args.seed)
-        pass
-    else:
-        raise NotImplementedError("No Supported Task")
-    prompts=load_and_prepare_sentiment_prompts(prompt_path=args.prompt_path,task=TASK)
+opp_num_no_steer, opp_num_with_steer = 0,0
+for item in final_eval_results:
+    if 'oppose' in item['no_steer_eval']:
+        opp_num_no_steer += 1
+    if 'oppose' in item['with_steer_eval']:
+        opp_num_with_steer += 1
     
-    param={**vars(args),**sampling_kwargs,"max_new_tokens":50,"steer":f"from {source} to {target}"}
-    param["alpha_recheck"]=ALPHA
-    logging.info(f"Running with alpha: {ALPHA}")
-    logging.info(f"Running with prompt_type: "+str(param["steer"]))
-    # res.append(params)
-
-    no_steer_res=[]
-    steer_res=[]
-
-    assert source in prompts,"prompt steer source not in prompts"
-    # 打开文件（模式为追加模式 'a'）
-    with jsonlines.open(os.path.join(output_dir,"params.jsonl"), mode='w') as writer:
-        writer.write(param)  # 逐行写入
-    SAVE_COMPARED=args.save_compared
-    with jsonlines.open(os.path.join(output_dir,"no_steer_gen_res.jsonl"), mode='w') as nt_file:
-        with jsonlines.open(os.path.join(output_dir,"steer_gen_res.jsonl"), mode='w') as t_file: 
-            for idx,item in tqdm(enumerate(list(prompts[source])[:])):
-                prompt=item["prompt"]["text"]
-                item["label"]=source
-                # 没转向的结果
-                if SAVE_COMPARED:
-                    no_steer_gen_texts = run_generate(
-                        prompt, 
-                        sampling_kwargs,
-                        steer_on=False,
-                        alpha=None,
-                        repeat_num=2,
-                        steer_type=None,
-                        show_res=False)
-                    no_steer_item=copy.deepcopy(item)
-                    no_steer_item["generations"]=[]
-                    for gen_text in no_steer_gen_texts:
-                        no_steer_item["generations"].append({"text":gen_text})
-                    # no_steer_res.append(no_steer_item)
-                    nt_file.write(no_steer_item)
-                    # 转向的结果
-                
-                # steer_on = True
-                steered_texts=run_generate(prompt, 
-                                        sampling_kwargs,
-                                        steer_on=True,
-                                        alpha=ALPHA,
-                                        steer_type=STEER_TYPE,
-                                        repeat_num=2,
-                                        show_res=False
-                                        )
-                steer_item=copy.deepcopy(item)
-                steer_item["generations"]=[]
-                for steer_gen in steered_texts:
-                    steer_item["generations"].append({"text":steer_gen})
-                if idx%50==0:
-                    logging.info(f"{TASK}: from {source} to {target} prompt_set: {source}")
-                    logging.info(steer_item)
-                t_file.write(steer_item)
-
-if args.debug:
-    logging.info(f"debug mode, no full data eval")
-else:
-    eval_on_full_data()
+    
+with open (f'/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/results/debate_eval_results/eval_results_{args.alpha}_{args.steer_type}_from{opp_num_no_steer}_to{opp_num_with_steer}.json','w') as f:
+    json.dump(final_eval_results,f,ensure_ascii=False,indent=4)
