@@ -133,7 +133,11 @@ elif [[ "$TASK" == "polite" ]]; then
   PROMPT_PATH=""
   ALPHA=100
   STEER="polite-impolite"
-else
+elif [[ "$TASK" == "toxicity"]]; then
+  DATASET_PATH="/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/data/kaggle/jigsaw-unintended-bias-in-toxicity-classification"
+  PROMPT_PATH=""
+  ALPHA=100
+  STEER="pos-neg"
   echo "Unsupported task: $TASK"
   exit 1
 fi

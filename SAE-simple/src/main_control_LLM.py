@@ -71,7 +71,7 @@ ALPHA=args.alpha
 MAX_NEW_TOKENS=50
 
 
-output_dir=os.path.join(args.output_dir,f"alpha_{args.alpha}_from_{args.source}_to_{args.target}_datasize_{args.data_size}_layer_{args.layer}_mean_{args.mean_type}_steertype_{args.steer_type}_device_{args.device}_batchsize{args.batch_size}")
+output_dir=os.path.join(args.output_dir,f"{TASK}_alpha_{args.alpha}_from_{args.source}_to_{args.target}_datasize_{args.data_size}_layer_{args.layer}_mean_{args.mean_type}_steertype_{args.steer_type}_device_{args.device}_batchsize{args.batch_size}")
 os.makedirs(output_dir,exist_ok=True)
 
 # Setup logging
@@ -95,13 +95,19 @@ if TASK=="sentiment":
         args.dataset_path, "sst5",args.seed, args.data_size
     )
 elif "cot"==TASK:
-    logging.info("COT "*10)
+    logging.info("COT "*10) # 这个只有llama 支持
     all_dataset=load_and_prepare_COT_dataset(
         args.dataset_path, args.seed, args.data_size
     )
+elif "toxicity"==TASK:
+    logging.info("toxicity "*10)
+    from data_preprocess import load_and_prepare_toxicity_dataset
+    sup_train_set, opp_train_set, neu_train_set,val_set,test_set=load_and_prepare_toxicity_dataset(
+        args.dataset_path, seed=None, num_samples=args.data_size
+    )
 elif "polite"==TASK:
     logging.info("polite"*10)
-    sup_train_set, opp_train_set, neu_train_set,val_set,test_set=load_and_prepare_debate_triple_dataset(args.dataset_path, args.seed, args.data_size)
+    neg_train_set, pos_train_set, neu_train_set,val_set,test_set=load_and_prepare_triple_dataset(args.dataset_path,"polite", args.seed, args.data_size)
 else:
     raise ValueError("No Supported")
 
@@ -307,8 +313,6 @@ nz_mean_pos: 正样本神经元被激活后的平均值
 top_k=args.topk_cnt
 _,steer_indices=torch.topk(steer_info[f"dif_{target}-{source}_relu"]["latent_frequency"],top_k)
 
-
-
 # %%
 # 假设 steer_info[f"dif_{b}-{a}_relu"]["latent_frequency"] 是一个 NumPy 数组
 lat_freq = steer_info[f"dif_{target}-{source}_relu"]["latent_frequency"]
@@ -318,11 +322,7 @@ torch.all(lat_freq == 0)
 
 # %%
 steer_info[f"dif_{target}-{source}_relu"]["latent_frequency"].shape
-
-
 steer_info[f"dif_{target}-{source}_relu"]["latent_value_mean"][steer_indices]# 这里有0,没有负数比较正常
-
-
 
 def compute_delta_matrix(sae: SAE, indices: Tensor, nz_mean_val: Tensor, method: str = "val_mul") -> Tensor:
     logging.info(f"Computing steering vectors using method: {method}")

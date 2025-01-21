@@ -4,7 +4,7 @@ import re
 import json
 import logging
 from typing import Tuple
-from tqdm import tqdm  # For progress bars
+from tqdm import tqdm
 from log import setup_logging
 import logging
 import torch
@@ -17,6 +17,7 @@ import argparse
 import logging
 
 from data_preprocess import load_and_prepare_triple_dataset,load_and_prepare_COT_dataset,load_and_prepare_debate_triple_dataset
+from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from utils import load_environment
 
 
@@ -28,11 +29,13 @@ parser.add_argument('--LLM', type=str, default='gpt2-small', help='LLM model')
 parser.add_argument('--seed', type=int, default=42, help='Random seed')
 parser.add_argument('--data_size', type=str, default='ALL', help='Data size')
 parser.add_argument('--device', type=str, default='cuda', choices=['cpu', 'cuda', 'mps', 'auto'], help='Device to use')
-parser.add_argument('--alpha', type=int, default=100, help='Alpha parameter')
+parser.add_argument('--alpha', type=int, default=50, help='Alpha parameter')
 parser.add_argument('--steer', type=str, default='opp-sup', help='Steering direction')
 parser.add_argument('--method', type=str, default='val_mul', choices=['mean', 'val_mul'], help='Method to use')
 parser.add_argument('--topk_mean', type=int, default=100, help='Top K mean selection')
 parser.add_argument('--topk_cnt', type=int, default=100, help='Top K count selection')
+parser.add_argument('--topp', type=float, default=0.1, help='Top p selection')
+parser.add_argument('--temperature', type=float, default=1.0, help='Generation temperature')
 parser.add_argument('--batch_size', type=int, default=32, help='Batch size')
 parser.add_argument('--source', type=str, default='sup', help='Source class')
 parser.add_argument('--target', type=str, default='opp', help='Target class')
@@ -337,13 +340,54 @@ for text in sup_prompt:
     text = text[:len(text)//2] if len(text) > 30 else text
     generated_text_no_steer = run_generate(text, sampling_kwargs,steer_on=False,alpha=0,show_res=True)
     generated_text_with_steer = run_generate(text, sampling_kwargs,steer_on=True,alpha=args.alpha,steer_type=args.steer_type,show_res=True)
-    no_steer_eval = get_deepseek_eval(generated_text_no_steer[0])
-    with_steer_eval = get_deepseek_eval(generated_text_with_steer[0])
-    final_eval_results.append({"origin_text": origin_text,
-                              "no_steer_text": generated_text_no_steer[0],
-                              "with_steer_text": generated_text_with_steer[0],
-                              "no_steer_eval": no_steer_eval,
-                              "with_steer_eval": with_steer_eval})
+    final_eval_results.append({"prompt_text": text,
+                               "origin_text": origin_text,
+                              "no_steer_text": generated_text_no_steer[0].replace(text, ''),
+                              "with_steer_text": generated_text_with_steer[0].replace(text, ''),
+                              "no_steer_eval": get_deepseek_eval(generated_text_no_steer[0].replace(text, '')),
+                              "with_steer_eval": get_deepseek_eval(generated_text_with_steer[0].replace(text, ''))})
+
+def conditional_perplexity(texts, model, tokenizer, device='cuda', eval_target='no_steer'):
+    perplexities = []
+    goodperplexities = []
+    total_nll = 0
+    total_tokens = 0
+    g = 0
+    ct = 0
+
+    for text in tqdm(texts, desc='Evaluating PPL'):
+        prompt = text['origin_text']
+        prompt_input_ids = tokenizer.encode(prompt, return_tensors='pt').to(device)
+        if not (prompt_input_ids.shape[1] == 1 and prompt_input_ids[0].tolist()[0] == tokenizer.bos_token_id):
+            prompt_loss = model(prompt_input_ids, labels=prompt_input_ids)[0] * (prompt_input_ids.shape[1]-1)
+        else:
+            prompt_loss = 0
+
+        gen = text['no_steer_text'] if eval_target == 'no_steer' else text['with_steer_text']
+        full_input_ids = tokenizer.encode(f'{prompt}{gen}', return_tensors='pt').to(device)
+        full_loss = model(full_input_ids, labels=full_input_ids)[0] * (full_input_ids.shape[1]-1)
+        loss = (full_loss - prompt_loss) / (full_input_ids.shape[1] - prompt_input_ids.shape[1])
+        ppl = np.exp(loss.item())
+        if ppl < 100:
+            goodperplexities.append(ppl)
+            g += 1
+        if ppl < 1e4:
+            perplexities.append(ppl)
+        total_nll += (full_loss - prompt_loss).item()
+        total_tokens += (full_input_ids.shape[1] - prompt_input_ids.shape[1])
+
+    print(np.nanmean(goodperplexities), len(goodperplexities), len(perplexities), g)
+    return np.nanmean(perplexities), np.exp(total_nll/total_tokens)
+
+
+gpt2_path="/home/ckqsudo/code2024/0models/gpt-2-openai/gpt-2-openai"
+
+eval_model = AutoModelForCausalLM.from_pretrained(gpt2_path).to(args.device)
+eval_tokenizer = AutoTokenizer.from_pretrained(gpt2_path)
+
+ppl1, total_ppl_no_steer = conditional_perplexity(final_eval_results, eval_model, eval_tokenizer, device='cuda', eval_target='no_steer')
+ppl2, total_ppl_with_steer = conditional_perplexity(final_eval_results, eval_model, eval_tokenizer, device='cuda', eval_target='with_steer')
+
 
 opp_num_no_steer, opp_num_with_steer = 0,0
 for item in final_eval_results:
@@ -353,5 +397,5 @@ for item in final_eval_results:
         opp_num_with_steer += 1
     
     
-with open (f'/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/results/debate_eval_results/eval_results_{args.alpha}_{args.steer_type}_from{opp_num_no_steer}_to{opp_num_with_steer}.json','w') as f:
+with open (f'/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/debate_test/debate_eval_results/eval_results_alpha{args.alpha}_opposerate_from{opp_num_no_steer}_to{opp_num_with_steer}_pplfrom{round(total_ppl_no_steer,2)}_to{round(total_ppl_with_steer,2)}.json','w') as f:
     json.dump(final_eval_results,f,ensure_ascii=False,indent=4)

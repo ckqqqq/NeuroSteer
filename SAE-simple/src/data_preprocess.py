@@ -1,6 +1,27 @@
 import re
 import logging
 from datasets import load_dataset
+
+def load_and_prepare_toxicity_dataset(dataset_path: str, seed: int, num_samples):
+    import os
+    import json
+    with open(os.path.join(dataset_path, "train_0.jsonl"), "r") as f:
+        neg_train_set = list(map(json.loads, f.readlines()))
+        for item_dict in neg_train_set:
+            item_dict["label"] = 0
+    with open(os.path.join(dataset_path, "train_1.jsonl"), "r") as f:
+        pos_train_set = list(map(json.loads, f.readlines()))
+        for item_dict in pos_train_set:
+            item_dict["label"] = 2
+    if num_samples == "ALL":
+        num_samples=min(len(neg_train_set),len(pos_train_set))
+    elif isinstance(num_samples, int):
+        pass
+    else:
+        raise ValueError("num_samples must be int or ALL")
+    return neg_train_set[:num_samples],pos_train_set[:num_samples],None,None,None
+# n,p,_,_,_=load_and_prepare_toxicity_dataset(data_dir, subset)
+
 def load_and_prepare_triple_dataset(dataset_path: str,dataset_name:str, seed: int, num_samples):
     """
     支持positive\neutral\negative三元组数据类型，例如 sst5，polite数据集和multi-class数据集
