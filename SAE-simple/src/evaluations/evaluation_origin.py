@@ -12,7 +12,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 gpt2_path="/home/ckqsudo/code2024/0models/gpt-2-openai/gpt-2-openai"
-classifier_path='/home/ckqsudo/code2024/0models/sentiment-roberta-large-english'
+sentiment_classifier_path='/home/ckqsudo/code2024/0models/sentiment-roberta-large-english'
 def conditional_perplexity(gens_df, model, tokenizer, device='cuda', write_file=None):
     perplexities = []
     goodperplexities = []
@@ -40,7 +40,11 @@ def conditional_perplexity(gens_df, model, tokenizer, device='cuda', write_file=
         for gen in gens:
 
             # full_input_ids = torch.LongTensor([row.prompt['tokens'] + gen_ids]).to(device)
-            full_input_ids = tokenizer.encode(f'{prompt}{gen}', return_tensors='pt').to(device)
+            if prompt not in gen[:len(prompt)]:
+                # 理论需要prompt用来计算prompt loss
+                full_input_ids = tokenizer.encode(f'{prompt}{gen}', return_tensors='pt').to(device)
+            else:
+                full_input_ids = tokenizer.encode(f'{gen}', return_tensors='pt').to(device)
             # print(f'{prompt}{gen}')
             # print(full_input_ids)
             full_loss = model(full_input_ids, labels=full_input_ids)[0] * (full_input_ids.shape[1]-1)
@@ -77,7 +81,7 @@ import copy
 def sentiment_classify(gens_df, sentiment_file=None):
 
     # score gens and write to sentiment.jsonl
-    classifier = pipeline('sentiment-analysis', model=classifier_path, device=0)
+    classifier = pipeline('sentiment-analysis', model=sentiment_classifier_path, device=0)
     # classifier = pipeline(model='siebert/sentiment-roberta-large-english')
     print("writing outputs to ", str(sentiment_file))
     if sentiment_file is not None:
@@ -86,7 +90,13 @@ def sentiment_classify(gens_df, sentiment_file=None):
     pos_ratio_list = []
     for i, row in tqdm(gens_df.iterrows(), total=len(gens_df.index), desc='Scoring generation sentiments'):
         prompt = row['prompt']['text']
-        gens = [gen['text'][len(prompt):] for gen in row["generations"]]
+        gens=[]
+        for gen in row["generations"]:
+            # 理论上只需要评估生成的结果的情感，prompt不需要
+            if prompt in gen['text'][len(prompt):]:
+                gens.append(gen['text'][len(prompt):])
+            else:
+                gens.append(gen['text'])
         if i%100==0:
             print("gen-\n:"+gens[-1]+"\n")
         try:
@@ -124,22 +134,56 @@ def sentiment_classify(gens_df, sentiment_file=None):
     return np.mean(np.array(pos_ratio_list)), np.mean(np.array(pos_std_list))
 
 
-def toxicity_score(gens_df, perspective_file, perspective_rate_limit=5):
+def toxicity_score(gens_df, perspective_file, env_path,perspective_rate_limit=5,is_proxy=True):
     from googleapiclient import discovery
     from googleapiclient.errors import HttpError
+    import httplib2  # 必需依赖
     import time
-
+    import dotenv
+    dotenv.load_dotenv()
     # get the API key from the environment
-    API_KEY = os.getenv("GOOGLE_API_KEY")
+    API_KEY = "AIzaSyCsE4Qw_FBkI_5Yz7f1ldCky9cUnOBPe-w"
     assert API_KEY is not None, "Please set the GOOGLE_API_KEY environment variable before proceeding"
+    if is_proxy:
+        # 启用代理配置
+        proxy_info = httplib2.ProxyInfo(
+            proxy_type=httplib2.socks.PROXY_TYPE_HTTP,
+            proxy_host="127.0.0.1",
+            proxy_port=11137
+        )
+        http_client = httplib2.Http(
+            proxy_info=proxy_info,
+            timeout=30
+        )
+        print('proxy is ok')
+    else:
+        # 不启用代理，使用默认 Http 客户端
+        http_client = httplib2.Http(timeout=30)
 
+    # ------------ 构建客户端 ------------
     client = discovery.build(
         "commentanalyzer",
         "v1alpha1",
         developerKey=API_KEY,
         discoveryServiceUrl="https://commentanalyzer.googleapis.com/$discovery/rest?version=v1alpha1",
         static_discovery=False,
+        http=http_client  # 始终传入 Http 对象
     )
+    print('client is ok')
+        # 测试请求
+    request = {
+        'comment': {'text': 'Fuck YOU'},
+        'requestedAttributes': {'TOXICITY': {}}
+    }
+    response = client.comments().analyze(body=request).execute()
+    print(response)
+        # client = discovery.build(
+        #     "commentanalyzer",
+        #     "v1alpha1",
+        #     developerKey=API_KEY,
+        #     discoveryServiceUrl="https://commentanalyzer.googleapis.com/$discovery/rest?version=v1alpha1",
+        #     static_discovery=False,
+        # )
 
     total_failed = 0
     avg_max = []
@@ -147,10 +191,10 @@ def toxicity_score(gens_df, perspective_file, perspective_rate_limit=5):
     full_scores = []
 
     # if not os.path.exists(perspective_file):
-    fout = open(perspective_file, "w")
+    fout = open(str(perspective_file)+".jsonl", "w")# 这里改为json 格式然后使用jsonlines 去读写，记得每个item都要将i作为序号存下来
     # else:
         # raise ValueError("perspective file path already exists")
-
+    import jsonlines
     last_request_time = -1
     for i, row in tqdm(gens_df.iterrows(), total=len(gens_df.index), desc='Evaluating toxicity via perspective API'):
         prompt = row.prompt['text']
@@ -158,10 +202,17 @@ def toxicity_score(gens_df, perspective_file, perspective_rate_limit=5):
         allresponses = []
         # for genid in range(len(row["generations"])):
         for genid in range(1):
+            time.sleep(1)
             # gens = [gen['text'] for gen in row["generations"][genid:genid+1]]
-            gens = [gen['text'] for gen in row["generations"]]
+            gens = []
+            for gen in row["generations"]:
+                if prompt in gen['text']:
+                    gens.append(gen['text'][:len(prompt)])
+                else:
+                    gens.append(gen["text"])
+            # assert prompt not in gens[0], "prompt is in the generation"
             # print(sum([len(gen) for gen in gens]))
-            gens = [gen if gen != "" else "\n" for gen in gens]
+            gens = [gen if gen != "" else "\n" for gen in gens]# 筛去空字符
 
             responses = {f'gen-{i}-{genid}-{j}': None for j in range(len(gens))}
 
@@ -199,13 +250,16 @@ def toxicity_score(gens_df, perspective_file, perspective_rate_limit=5):
                     batch_request.execute()
                     last_request_time = time.time()
                     # print(responses)
-                    # time.sleep(1.0)
+                    print(response)
+                    time.sleep(0.5)
                 except Exception as e:
-                    print(e)
+                    print("报错",e)
                     print("sleeping for 60 sec and retrying")
                     time.sleep(60.0)
+            # 加上一个cache ，存储response，每执行一个循环存一下meta，
+            # 加上一个打印毒性增益的
             allresponses.append(responses)
-
+        # assert cache不得有重复的
         json.dump({"allresponses": responses}, fout)
         fout.write("\n")
         max_prob = 0.0
@@ -262,28 +316,32 @@ def distinctness(gens_df):
     return np.nanmean(dist1), np.nanmean(dist2), np.nanmean(dist3)
 
 
+import click
+
 @click.command()
-@click.option('--gen_file', required=True, type=str, help='a jsonl file with gens and attribute scores')
-@click.option('--out_file', required=False, type=str, help='filename to write outputs')
-@click.option('--metrics', required=True, type=str, help='which metrics to compute, write comma separeted,eg: sentiment,ppl-own,ppl-big,cola,self-bleu,zipf,repetition,dist-n,')
-@click.option('--del_end_of_sentence', required=True, type=bool, help='delete EOS')
-@click.option('--del_prompt', required=True, type=bool, help='删除generation中的prompt部分')
-@click.option('--extra', required=False, type=str, help='extra params like which topic category or keyword file')
-def main(gen_file, out_file, metrics, extra,del_end_of_sentence,del_prompt):
+@click.option('--gen_file', required=True, type=str, help='A JSONL file with gens and attribute scores.')
+@click.option('--out_file', required=False, type=str, help='Filename to write outputs.')
+@click.option('--metrics', required=True, type=str, help='Which metrics to compute, write comma separated, eg: sentiment,ppl-own,ppl-big,cola,self-bleu,zipf,repetition,dist-n.')
+@click.option('--del_end_of_sentence', required=True, default=0, type=int, help='Delete EOS (end-of-sentence), 0: No, 1: Yes.')
+@click.option('--end_of_sentence', required=False, default="<|endoftext|>", type=str, help='End-of-sentence token, default is "<|endoftext|>".')
+@click.option('--env_path', required=True, default="/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env", type=str, help='path for google API key')
+def main(gen_file, out_file, metrics, del_end_of_sentence, end_of_sentence,env_path):
     print("End of Sentence is")
     assert os.path.exists(gen_file)
     os.environ['CUDA_VISIBLE_DEVICES'] = '1,2,3'
     gen_dir = Path(os.path.dirname(gen_file))
     out_dir=Path(os.path.join(gen_dir,"eval"))
     os.makedirs(out_dir,exist_ok=True)
-    gen_df = pd.read_json(gen_file, lines=True)
-    for idx,row in gen_df.iterrows():
-        prompt=row["prompt"]["text"]
-        if del_prompt:
-            for gen_idx,gen in enumerate(row["generations"]):
-                # gen_df[idx].loc("generations")
-                print(gen_df.iloc[idx].loc["generations"])
-        raise ValueError(row)
+    gens_df = pd.read_json(gen_file, lines=True)
+    
+    if del_end_of_sentence == 1:
+        print("delete "+end_of_sentence+" in generations")
+        gens_df["generations"] = gens_df["generations"].apply(
+            lambda gens: [{"text": gen["text"].split("<|endoftext|>")[0]} for gen in gens]
+        )
+    
+                    
+        # raise ValueError(row)
 
     metricset = set(metrics.strip().lower().split(","))
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -294,7 +352,7 @@ def main(gen_file, out_file, metrics, extra,del_end_of_sentence,del_prompt):
     
     if 'sentiment' in metricset:
         print("sentiment") #c1
-        sentiment_accuracy, sentiment_std = sentiment_classify(gen_df, sentiment_file=out_dir / (out_file+".sentiment"))
+        sentiment_accuracy, sentiment_std = sentiment_classify(gens_df, sentiment_file=out_dir / (out_file+".sentiment"))
         with open(out_dir / out_file, 'a') as fo:
             fo.write(f'mean sentiment accuracy = {sentiment_accuracy}, {sentiment_std}\n')
             print(f'mean sentiment accuracy = {sentiment_accuracy}, {sentiment_std}')
@@ -305,7 +363,7 @@ def main(gen_file, out_file, metrics, extra,del_end_of_sentence,del_prompt):
         eval_tokenizer = AutoTokenizer.from_pretrained(gpt2_path)
         torch.cuda.empty_cache()
         with torch.no_grad():
-            ppl, total_ppl = conditional_perplexity(gen_df, eval_model, eval_tokenizer, device=device, write_file=out_dir / (out_file+".ppl-big"))
+            ppl, total_ppl = conditional_perplexity(gens_df, eval_model, eval_tokenizer, device=device, write_file=out_dir / (out_file+".ppl-big"))
 
         # write output results
         with open(out_dir / out_file, 'a') as fo:
@@ -319,7 +377,7 @@ def main(gen_file, out_file, metrics, extra,del_end_of_sentence,del_prompt):
         eval_tokenizer = AutoTokenizer.from_pretrained(gpt2_path)
         torch.cuda.empty_cache()
         with torch.no_grad():
-            ppl, total_ppl = conditional_perplexity(gen_df, eval_model, eval_tokenizer, device=device, write_file=out_dir / (out_file+".ppl-own"))
+            ppl, total_ppl = conditional_perplexity(gens_df, eval_model, eval_tokenizer, device=device, write_file=out_dir / (out_file+".ppl-own"))
 
         # write output results
         with open(out_dir / out_file, 'a') as fo:
@@ -332,7 +390,7 @@ def main(gen_file, out_file, metrics, extra,del_end_of_sentence,del_prompt):
         eval_tokenizer = AutoTokenizer.from_pretrained(gpt2_path)
         torch.cuda.empty_cache()
         with torch.no_grad():
-            ppl, total_ppl = conditional_perplexity(gen_df, eval_model, eval_tokenizer, device=device, write_file=out_dir / (out_file+".ppl-own"))
+            ppl, total_ppl = conditional_perplexity(gens_df, eval_model, eval_tokenizer, device=device, write_file=out_dir / (out_file+".ppl-own"))
 
         # write output results
         with open(out_dir / out_file, 'a') as fo:
@@ -341,8 +399,9 @@ def main(gen_file, out_file, metrics, extra,del_end_of_sentence,del_prompt):
 
     if 'toxicity' in metricset:
         print("toxicity")
-        (avg_max, toxic_probability) = toxicity_score(gen_df,
-                                                      perspective_file=out_dir / (out_file+".toxicity"))
+        (avg_max, toxic_probability) = toxicity_score(gens_df,
+                                                      perspective_file=out_dir / (out_file+".toxicity"),
+                                                      env_path=env_path)
         with open(out_dir / out_file, 'a') as fo:
             fo.write(f'avg_max = {avg_max}, toxicity prob={toxic_probability}\n')
             print(f'avg_max = {avg_max}, toxicity prob={toxic_probability}\n')
@@ -350,7 +409,7 @@ def main(gen_file, out_file, metrics, extra,del_end_of_sentence,del_prompt):
     ### calculate diversity
     # dist-n
     if "dist-n" in metricset:
-        dist1, dist2, dist3 = distinctness(gen_df)
+        dist1, dist2, dist3 = distinctness(gens_df)
 
         # write output results
         with open(out_dir / out_file, 'a') as fo:

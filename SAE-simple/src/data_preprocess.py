@@ -1,27 +1,33 @@
 import re
 import logging
 from datasets import load_dataset
-
-def load_and_prepare_toxicity_dataset(dataset_path: str, seed: int, num_samples):
+from datasets import Dataset
+def load_and_prepare_toxicity_dataset(dataset_path: str, task:str,seed: int, num_samples):
     import os
     import json
-    with open(os.path.join(dataset_path, "train_0.jsonl"), "r") as f:
-        neg_train_set = list(map(json.loads, f.readlines()))
-        for item_dict in neg_train_set:
-            item_dict["label"] = 0
-    with open(os.path.join(dataset_path, "train_1.jsonl"), "r") as f:
-        pos_train_set = list(map(json.loads, f.readlines()))
-        for item_dict in pos_train_set:
-            item_dict["label"] = 2
+    assert task in ["toxicity"]
+    # with open(os.path.join(dataset_path, "train_0.jsonl"), "r") as f:
+    #     neg_train_set = list(map(json.loads, f.readlines()))
+    #     for item_dict in neg_train_set:
+    #         item_dict["label"] = 0
+    # with open(os.path.join(dataset_path, "train_1.jsonl"), "r") as f:
+    #     pos_train_set = list(map(json.loads, f.readlines()))
+    #     for item_dict in pos_train_set:
+    #         item_dict["label"] = 2
+    toxicity_files = {"neg": "train_1.jsonl", "pos": "train_0.jsonl"}
+    logging.info("neg mean toxicity and pos mean nontoxicity")
+    data= load_dataset(dataset_path,data_files=toxicity_files)
+    logging.info("Don't shuffle dataset for toxicity, please pre shuffle with bash script")
+    # data = data.shuffle(seed=seed)# 尽
     if num_samples == "ALL":
-        num_samples=min(len(neg_train_set),len(pos_train_set))
+        num_samples=min(len(data["neg"]),len(data["pos"]))
     elif isinstance(num_samples, int):
         pass
     else:
-        raise ValueError("num_samples must be int or ALL")
-    return neg_train_set[:num_samples],pos_train_set[:num_samples],None,None,None
-# n,p,_,_,_=load_and_prepare_toxicity_dataset(data_dir, subset)
-
+        raise ValueError("num_samples must be int or ALL"+str(type(num_samples)))
+    return data["neg"][:num_samples],data["pos"][:num_samples],None,None,None
+# n,p,_,_,_=load_and_prepare_toxicity_dataset("/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/data/kaggle/jigsaw-unintended-bias-in-toxicity-classification", task="toxicity",seed=42, num_samples=1000)
+# print(type(n),n["text"][0],p["text"][0])
 def load_and_prepare_triple_dataset(dataset_path: str,dataset_name:str, seed: int, num_samples):
     """
     支持positive\neutral\negative三元组数据类型，例如 sst5，polite数据集和multi-class数据集
@@ -84,6 +90,7 @@ def load_and_prepare_debate_triple_dataset(dataset_path: str, seed: int, num_sam
     val_set = dataset['validation']
     test_set = dataset["test"]
     return sup_train_set, opp_train_set, val_set, test_set
+# def load_and_prepare_debate_triple_dataset(dataset_path: str, seed: int, num_samples):
 
 
 def load_and_prepare_COT_dataset(dataset_path:str,seed:int,num_samples:int):
@@ -106,11 +113,47 @@ def load_and_prepare_COT_dataset(dataset_path:str,seed:int,num_samples:int):
     def replace_col(example,col1,target,pattern):
         return example[col1].replace(target,pattern)
     # 应用函数并创建新列
-    dataset = dataset.map(lambda example: {'A': extract_answer(example['response'])})
+    dataset = dataset.map(lambda example: {'A': extract_answer(example['response']).strip()})
     dataset = dataset.map(lambda example: {'Q+A': concat_QA(example,"prompt","A","")})
     dataset = dataset.map(lambda example: {'Q+COT_A': concat_QA(example,"prompt","response","")})
     dataset = dataset.map(lambda example: {'Q+COT_A': replace_col(example,"Q+COT_A","#### ","")})
     # 查看处理后的数据集
     print("Q+A\n",dataset['train'][103]['Q+A'])
     print("Q+COT_A\n",dataset['train'][103]['Q+COT_A'])
-    return dataset
+    print("A\n",dataset['train'][103]['A'])
+    print("Q\n",dataset['train'][103]['prompt'])
+    # print(dataset['train']['Q+A'])
+    pos_train_set = Dataset.from_dict({"text":dataset['train']["Q+COT_A"]})
+    logging.info("POS===Q+COT_A")
+    neg_train_set = Dataset.from_dict({"text":dataset['train']["Q+A"]})
+    return pos_train_set,neg_train_set,None,None,None
+
+# pos_train_set,neg_train_set,_,_,_=load_and_prepare_COT_dataset("/home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k",42,1000)
+# print(pos_train_set["text"][:2])
+
+########################## prompt
+def load_and_prepare_sentiment_prompts(prompt_path:str,task:str):
+    assert task in ["sentiment"],"请输入正确的任务"
+    logging.info(f"Loading prompt_path from {prompt_path}")
+    prompt_files = {"neg": "negative_prompts.jsonl", "pos": "positive_prompts.jsonl","neu":"neutral_prompts.jsonl"}
+    prompts= load_dataset(prompt_path,data_files=prompt_files)
+    print(prompts)
+    return prompts
+
+def load_and_prepare_toxicity_prompts(prompt_path:str,task:str):
+    assert task in ["toxicity"],"请输入正确的任务"
+    logging.info(f"Loading prompt_path from {prompt_path}")
+    
+    prompt_files = {"neg": "toxicity_prompts-10K.jsonl"}
+    logging.info("load random real toxicity 10k prompts")
+    
+    prompts= load_dataset(prompt_path,data_files=prompt_files)
+    # print(prompts)
+    return prompts
+
+def load_and_prepare_debate_prompts(prompt_path:str,task:str):
+    assert task in ["debate"],"请输入正确的任务"
+    prompts = load_dataset(prompt_path)
+    sup_train_set = prompts['test'].filter(lambda example: example['label'] == 'support')
+    opp_train_set = prompts['test'].filter(lambda example: example['label'] == 'oppose')
+    return sup_train_set['text'],opp_train_set['text']

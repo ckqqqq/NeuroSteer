@@ -1,6 +1,15 @@
 import os
 from dotenv import load_dotenv
 import logging
+def params_to_dict(args,is_print=True):
+    hyperparams=vars(args)
+    # Log hyperparameters
+    if is_print:
+        logging.info("Show Hyperparameters: \n\n")
+        for key, value in hyperparams.items():
+            logging.info(f"  {key}: {value}")
+    return hyperparams
+
 def load_environment(env_path: str):
     load_dotenv(env_path)
     hf_endpoint = os.getenv('HF_ENDPOINT', 'https://hf-mirror.com')
