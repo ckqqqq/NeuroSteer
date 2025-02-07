@@ -2,33 +2,19 @@ import re
 import logging
 from datasets import load_dataset
 from datasets import Dataset
-def load_and_prepare_toxicity_dataset(dataset_path: str, task:str,seed: int, num_samples):
-    import os
-    import json
-    assert task in ["toxicity"]
-    # with open(os.path.join(dataset_path, "train_0.jsonl"), "r") as f:
-    #     neg_train_set = list(map(json.loads, f.readlines()))
-    #     for item_dict in neg_train_set:
-    #         item_dict["label"] = 0
-    # with open(os.path.join(dataset_path, "train_1.jsonl"), "r") as f:
-    #     pos_train_set = list(map(json.loads, f.readlines()))
-    #     for item_dict in pos_train_set:
-    #         item_dict["label"] = 2
+def load_and_prepare_toxicity_dataset(dataset_path: str, task:str,seed: int):
+    assert task in ["toxicity"],"错误任务"
     toxicity_files = {"neg": "train_1.jsonl", "pos": "train_0.jsonl"}
     logging.info("neg mean toxicity and pos mean nontoxicity")
     data= load_dataset(dataset_path,data_files=toxicity_files)
     logging.info("Don't shuffle dataset for toxicity, please pre shuffle with bash script")
-    # data = data.shuffle(seed=seed)# 尽
-    if num_samples == "ALL":
-        num_samples=min(len(data["neg"]),len(data["pos"]))
-    elif isinstance(num_samples, int):
-        pass
-    else:
-        raise ValueError("num_samples must be int or ALL"+str(type(num_samples)))
-    return data["neg"][:num_samples],data["pos"][:num_samples],None,None,None
+    neg_train_set=data["neg"]
+    pos_train_set=data["pos"]
+    return neg_train_set,pos_train_set,None,None,None
 # n,p,_,_,_=load_and_prepare_toxicity_dataset("/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/data/kaggle/jigsaw-unintended-bias-in-toxicity-classification", task="toxicity",seed=42, num_samples=1000)
 # print(type(n),n["text"][0],p["text"][0])
-def load_and_prepare_triple_dataset(dataset_path: str,dataset_name:str, seed: int, num_samples):
+
+def load_and_prepare_triple_dataset(dataset_path: str, seed: int, dataset_name:str):
     """
     支持positive\neutral\negative三元组数据类型，例如 sst5，polite数据集和multi-class数据集
 
@@ -36,12 +22,11 @@ def load_and_prepare_triple_dataset(dataset_path: str,dataset_name:str, seed: in
         dataset_path (str): _description_
         dataset_name : "sst5","multiclass","polite"
         seed (int): _description_
-        num_samples (int): _description_
 
     Returns:
         _type_: _description_
     """
-    assert dataset_name in ["sst5","multiclass","polite"]
+    assert dataset_name in ["sst5","multiclass","polite"],"错误数据集名字"
     if dataset_name in ["sst5"]:
         neu_label=2 # 中性情感对应的label
         assert "sst5" in dataset_path
@@ -52,48 +37,53 @@ def load_and_prepare_triple_dataset(dataset_path: str,dataset_name:str, seed: in
     dataset["train"] = dataset['train'].shuffle(seed=seed)
     
     logging.info("Filtering dataset for negative, positive, and neutral samples")
-    if num_samples == "ALL":
-        neg_train_set = dataset['train'].filter(lambda example: example['label'] < neu_label)
-        pos_train_set = dataset['train'].filter(lambda example: example['label'] == neu_label)
-        neu_train_set = dataset['train'].filter(lambda example: example['label'] > neu_label)
-    elif isinstance(num_samples,int):
-        neg_train_set = dataset['train'].filter(lambda example: example['label'] < neu_label).select(range(num_samples))
-        pos_train_set = dataset['train'].filter(lambda example: example['label'] == neu_label).select(range(num_samples))
-        neu_train_set = dataset['train'].filter(lambda example: example['label'] > neu_label ).select(range(num_samples))
-    else:
-        raise ValueError("num_samples must be int or ALL")
+    neg_train_set = dataset['train'].filter(lambda example: example['label'] < neu_label)
+    pos_train_set = dataset['train'].filter(lambda example: example['label'] == neu_label)
+    neu_train_set = dataset['train'].filter(lambda example: example['label'] > neu_label)
+
+    logging.info(f"检查数据量 Selected {len(neg_train_set)} negative, {len(pos_train_set)} positive, and {len(neu_train_set)} neutral samples")
+    assert 'validation' in dataset.keys() and "test" in dataset.keys(),"数据集不兼容"
     
-    logging.info(f"Selected {len(neg_train_set)} negative, {len(pos_train_set)} positive, and {len(neu_train_set)} neutral samples")
-    print(dataset)
-    if dataset_name in ["sst5"]:
-        val_set=dataset['validation']
-    else:
-        raise ValueError("没写呢")
+    val_set=dataset['validation']
     test_set=dataset["test"]
     return neg_train_set, pos_train_set, neu_train_set,val_set,test_set
 
-def load_and_prepare_debate_triple_dataset(dataset_path: str, seed: int, num_samples):
+def load_and_prepare_debate_triple_dataset(dataset_path: str, seed: int):
     logging.info(f"Loading dataset from {dataset_path}")
     dataset = load_dataset(dataset_path)
     dataset["train"] = dataset['train'].shuffle(seed=seed)
-
-    logging.info("Filtering dataset for negative, positive, and neutral samples")
-    if num_samples == "ALL":
-        sup_train_set = dataset['train'].filter(lambda example: example['label'] == 'support')
-        opp_train_set = dataset['train'].filter(lambda example: example['label'] == 'oppose')
-    elif isinstance(num_samples, int):
-        sup_train_set = dataset['train'].filter(lambda example: example['label'] == 'support').select(range(num_samples))
-        opp_train_set = dataset['train'].filter(lambda example: example['label'] == 'oppose').select(range(num_samples))
-    else:
-        raise ValueError("num_samples must be int or ALL")
+    logging.info("Filtering dataset for support and oppose samples")
+    sup_train_set = dataset['train'].filter(lambda example: example['label'] == 'support')
+    opp_train_set = dataset['train'].filter(lambda example: example['label'] == 'oppose')
     logging.info(f"Selected {len(sup_train_set)} support and {len(opp_train_set)} oppose samples")
+    assert 'validation' in dataset.keys() and "test" in dataset.keys(),"数据集不兼容"
     val_set = dataset['validation']
     test_set = dataset["test"]
     return sup_train_set, opp_train_set, val_set, test_set
-# def load_and_prepare_debate_triple_dataset(dataset_path: str, seed: int, num_samples):
+
+def load_and_prepare_polite_dataset(dataset_path: str, seed: int, dataset_size: int):
+    logging.info(f"Loading dataset from {dataset_path}")
+    dataset = load_dataset(dataset_path)
+    dataset["train"] = dataset['train'].shuffle(seed=seed)
+    if dataset_size > 0:
+        dataset["train"] = dataset["train"].select(range(dataset_size))
+    
+    total_samples = len(dataset['train'])
+    val_set = dataset['train'].select(range(total_samples//2, total_samples - total_samples//4))
+    test_set = dataset['train'].select(range(total_samples - total_samples//4, total_samples))
+    train_set = dataset['train'].select(range(total_samples//2))
+    print(train_set,val_set,test_set)
+    
+    logging.info("Filtering dataset for polite and nonpolite samples")
+    pos_train_set = train_set.filter(lambda example: example['label'] == 2)
+    neg_train_set = train_set.filter(lambda example: example['label'] == 0)
+    
+    logging.info(f"Selected {len(pos_train_set)} polite and {len(neg_train_set)} nonpolite samples")
+    assert len(val_set) != 0 and len(test_set) != 0 and len(pos_train_set) != 0 and len(neg_train_set) != 0, "数据集不兼容"
+    return pos_train_set, neg_train_set, val_set, test_set
 
 
-def load_and_prepare_COT_dataset(dataset_path:str,seed:int,num_samples:int):
+def load_and_prepare_COT_dataset(dataset_path:str,seed:int):
     logging.info(f"Loading dataset from {dataset_path}")
     dataset = load_dataset(dataset_path)
     dataset["train"] = dataset['train'].shuffle(seed=seed)
@@ -118,18 +108,18 @@ def load_and_prepare_COT_dataset(dataset_path:str,seed:int,num_samples:int):
     dataset = dataset.map(lambda example: {'Q+COT_A': concat_QA(example,"prompt","response","")})
     dataset = dataset.map(lambda example: {'Q+COT_A': replace_col(example,"Q+COT_A","#### ","")})
     # 查看处理后的数据集
-    print("Q+A\n",dataset['train'][103]['Q+A'])
-    print("Q+COT_A\n",dataset['train'][103]['Q+COT_A'])
-    print("A\n",dataset['train'][103]['A'])
-    print("Q\n",dataset['train'][103]['prompt'])
+    # print("Q+A\n",dataset['train'][103]['Q+A'])
+    # print("Q+COT_A\n",dataset['train'][103]['Q+COT_A'])
+    # print("A\n",dataset['train'][103]['A'])
+    # print("Q\n",dataset['train'][103]['prompt'])
+    # print("response\n",dataset['train'][103]['response'])
     # print(dataset['train']['Q+A'])
-    pos_train_set = Dataset.from_dict({"text":dataset['train']["Q+COT_A"]})
-    logging.info("POS===Q+COT_A")
-    neg_train_set = Dataset.from_dict({"text":dataset['train']["Q+A"]})
+    pos_train_set = Dataset.from_dict({"text":dataset['train']["response"]})
+    neg_train_set = Dataset.from_dict({"text":dataset['train']["A"]})
     return pos_train_set,neg_train_set,None,None,None
 
 # pos_train_set,neg_train_set,_,_,_=load_and_prepare_COT_dataset("/home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k",42,1000)
-# print(pos_train_set["text"][:2])
+
 
 ########################## prompt
 def load_and_prepare_sentiment_prompts(prompt_path:str,task:str):
@@ -157,3 +147,8 @@ def load_and_prepare_debate_prompts(prompt_path:str,task:str):
     sup_train_set = prompts['test'].filter(lambda example: example['label'] == 'support')
     opp_train_set = prompts['test'].filter(lambda example: example['label'] == 'oppose')
     return sup_train_set['text'],opp_train_set['text']
+
+def load_and_prepare_polite_prompts(test_set):
+    pos_prompts = test_set.filter(lambda example: example['label'] == 2)['text']
+    neg_prompts = test_set.filter(lambda example: example['label'] == 0)['text']
+    return pos_prompts, neg_prompts

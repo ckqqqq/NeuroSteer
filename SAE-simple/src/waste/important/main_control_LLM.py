@@ -90,7 +90,6 @@ if DATA_SIZE==-1:
 
 OUTPUT_DIR=os.path.join(args.output_dir,f"{TASK}_alpha_{args.alpha}_from_{args.source}_to_{args.target}_datasize_{DATA_SIZE}_layer_{args.layer}_mean_{args.mean_type}_steertype_{args.steer_type}_device_{args.device}_batchsize{args.batch_size}")
 os.makedirs(OUTPUT_DIR,exist_ok=True)
-
 # Setup logging
 setup_logging(OUTPUT_DIR)
 # Save hyperparameters
@@ -129,8 +128,7 @@ elif "debate"==TASK:
 else:
     raise ValueError("No Supported")
 
-# if DATA_SIZE=="ALL":
-#     DATA_SIZE=len(neg_train_set) 这是什么鬼啊
+
 if DATA_SIZE=="ALL":
     DATA_SIZE=min(len(neg_train_set),len(pos_train_set))
 

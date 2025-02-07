@@ -1,0 +1,3 @@
+python evaluation_origin.py --gen_file /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/alpha_100.0_from_neg_to_pos_prompt_neu_mean_dif_mean_steertype_last_device_cuda/steer_gen_res.jsonl --out_file steer_eval --metrics ppl-small,dist-n,sentiment --del_end_of_sentence 1 --end_of_sentence "<|endoftext|>"
+
+# sentiment eval

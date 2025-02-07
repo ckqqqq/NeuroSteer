@@ -47,7 +47,7 @@ def filter_support(example):
 tokenized_dataset['train'] = tokenized_dataset['train'].filter(filter_support)
 tokenized_dataset['validation'] = tokenized_dataset['validation'].filter(filter_support)
 # 
-tokenized_dataset['train'] = tokenized_dataset['train'].remove_columns(["label"])# 这里应该是泽凯的问题
+tokenized_dataset['train'] = tokenized_dataset['train'].remove_columns(["label"])
 tokenized_dataset['validation'] = tokenized_dataset['validation'].remove_columns(["label"])
 # label名称是关键
 tokenized_dataset['train'] = tokenized_dataset['train'].add_column("labels", tokenized_dataset['train']["input_ids"])

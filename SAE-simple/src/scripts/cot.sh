@@ -10,13 +10,14 @@ TASK="cot"
 # DATASET_PATH="/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5"
 DATASET_PATH="/home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k"
 PROMPT_PATH="/home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k"
-ALPHA=300
+ALPHA=20
 # LLM="meta-llama/Llama-3.1-8B"
 LLM="gemma-2-2b"
-LAYER=0
+LAYER=12
 DEBUG=1  # 不是布尔值
 DEVICE="cpu"
 BATCH_SIZE=8
+USE_CACHE=1 # 不使用则覆写
 # Enable command trace for debugging
 set -x
 
@@ -26,7 +27,7 @@ set -x
   --layer $LAYER \
   --LLM $LLM \
   --seed 42 \
-  --data_size 1000 \
+  --data_size 300 \
   --device $DEVICE \
   --alpha $ALPHA \
   --method "val_mul" \
@@ -43,6 +44,7 @@ set -x
   --env_path "/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env" \
   --save_no_steer 1 \
   --debug $DEBUG \
+  --use_cache $USE_CACHE \
   # --is_norm_delta_matrix 0\ 
   
 

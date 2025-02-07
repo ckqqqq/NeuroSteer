@@ -13,11 +13,13 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 
 load_dotenv()
 deepseek_api_key = os.getenv('OPENAI_API_KEY')
+qwen_api_key = os.getenv('DASHSCOPE_API_KEY')
+
 gpt2_path = "/home/ckqsudo/code2024/0models/gpt-2-openai/gpt-2-openai"
 dataset_path = "/home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences"
 
 tokenizer = GPT2Tokenizer.from_pretrained(gpt2_path)
-fine_tuned_model = GPT2LMHeadModel.from_pretrained("/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/debate_test/ckq_debate/results_fulltune/checkpoint-62")
+fine_tuned_model = GPT2LMHeadModel.from_pretrained("/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/debate_test/debate_gpt2_ckpt/fulltune_gpt2_small_checkpoint")
 fine_tuned_model.to("cuda")
 
 
@@ -26,7 +28,20 @@ def get_deepseek_eval(text):
     response = client.chat.completions.create(
         model="deepseek-chat",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant, you need to help me determine the stance of a given sentence, whether it conveys a supportive or an opposing tone. Your answer can only be one of the two words 'support' or 'oppose'."},
+            {"role": "system", "content": "You are a helpful assistant, you need to help me determine the stance of a given sentence, You need to guess whether this sentence is expressing a positive support for something or a negative opposition. Your answer can only be one of the two words 'support' or 'oppose'."},
+            {"role": "user", "content": text},
+        ],
+        stream=False
+    )
+    # print(response.choices[0].message.content)
+    return response.choices[0].message.content
+
+def get_qwen_eval(text):
+    client = OpenAI(api_key=qwen_api_key, base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
+    response = client.chat.completions.create(
+        model="qwen-max",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant, you need to help me determine the stance of a given sentence, You need to guess whether this sentence is expressing a positive support for something or a negative opposition. Your answer can only be one of the two words 'support' or 'oppose'."},
             {"role": "user", "content": text},
         ],
         stream=False
@@ -51,7 +66,6 @@ def conditional_perplexity(texts, model, tokenizer, device='cuda'):
             prompt_loss = 0
 
         gen = text['generated_text']
-        print(prompt, gen)
         full_input_ids = tokenizer.encode(f'{gen}', return_tensors='pt').to(device)
         full_loss = model(full_input_ids, labels=full_input_ids)[0] * (full_input_ids.shape[1]-1)
         loss = (full_loss - prompt_loss) / (full_input_ids.shape[1] - prompt_input_ids.shape[1])
@@ -66,6 +80,35 @@ def conditional_perplexity(texts, model, tokenizer, device='cuda'):
 
     print(np.nanmean(goodperplexities), len(goodperplexities), len(perplexities), g)
     return np.nanmean(perplexities), np.exp(total_nll/total_tokens)
+
+def distinctness(texts):
+    dist1, dist2, dist3 = [], [], []
+    
+    # 遍历每个文本字典中的条目
+    for text in tqdm(texts, desc='Evaluating dist-n'):
+        gens = text['generated_text']  # 获取生成的文本
+        
+        # 如果生成文本是一个字符串而不是句子列表
+        unigrams, bigrams, trigrams = set(), set(), set()
+        total_words = 0
+        
+        # 将字符串拆分为单词
+        o = gens.split(' ')
+        total_words += len(o)
+        unigrams.update(o)
+        
+        # 计算bigrams和trigrams
+        for i in range(len(o) - 1):
+            bigrams.add(o[i] + '_' + o[i+1])
+        for i in range(len(o) - 2):
+            trigrams.add(o[i] + '_' + o[i+1] + '_' + o[i+2])
+        
+        dist1.append(len(unigrams) / total_words)
+        dist2.append(len(bigrams) / total_words)
+        dist3.append(len(trigrams) / total_words)
+
+    # 返回dist1, dist2, dist3的均值
+    return np.nanmean(dist1), np.nanmean(dist2), np.nanmean(dist3)
 
 
 def load_and_prepare_debate_prompts(prompt_path:str,task:str):
@@ -98,13 +141,14 @@ for text in tqdm(sup_prompt):
     final_eval_results.append({"prompt_text": text,
                                "origin_text": origin_text,
                               "generated_text": generated_text,
-                              "stance_eval": get_deepseek_eval(generated_text.replace(text, ''))
+                              "stance_eval": get_qwen_eval(generated_text.replace(text, ''))
                               })
 
 eval_model = AutoModelForCausalLM.from_pretrained(gpt2_path).to('cuda')
 eval_tokenizer = AutoTokenizer.from_pretrained(gpt2_path)
 
 ppl, total_ppl = conditional_perplexity(final_eval_results, eval_model, eval_tokenizer, device='cuda')
+dist1, dist2, dist3 = distinctness(final_eval_results)
 
 
 num_oppose=0
@@ -112,6 +156,6 @@ for item in final_eval_results:
     if 'oppose' in item['stance_eval']:
         num_oppose += 1
     
-with open (f'/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/debate_test/debate_eval_results/eval_results_fulltune_opposerate{num_oppose}_ppl{round(total_ppl,2)}.json','w') as f:
+with open (f'/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/debate_test/debate_eval_results/eval_results_fulltune_opposerate{num_oppose}_ppl{round(total_ppl,2)}_dist123_{round(dist1,2)}_{round(dist2,2)}_{round(dist3,2)}.json','w') as f:
     json.dump(final_eval_results,f,ensure_ascii=False,indent=4)
     

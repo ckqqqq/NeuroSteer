@@ -4,7 +4,7 @@
 cd /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src
 
 # GPU id
-export CUDA_VISIBLE_DEVICES=3
+export CUDA_VISIBLE_DEVICES=2
 # important config
 DATASET_PATH="/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/data/toxicity/jigsaw-unintended-bias-in-toxicity-classification"
 PROMPT_PATH="/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/data/toxicity/prompts"

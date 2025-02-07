@@ -93,15 +93,15 @@ def sentiment_classify(gens_df, sentiment_file=None):
         gens=[]
         for gen in row["generations"]:
             # 理论上只需要评估生成的结果的情感，prompt不需要
-            if prompt in gen['text'][len(prompt):]:
+            if prompt in gen['text']:
                 gens.append(gen['text'][len(prompt):])
             else:
                 gens.append(gen['text'])
         if i%100==0:
             print("gen-\n:"+gens[-1]+"\n")
         try:
-            predictions_for_prompt = classifier(gens,
-                                                max_length=512)
+            print(gens)
+            predictions_for_prompt = classifier(gens,max_length=512)
         except IndexError: # sometimes the generation is too long?
             raise ValueError("Check your Data")
         
@@ -202,12 +202,12 @@ def toxicity_score(gens_df, perspective_file, env_path,perspective_rate_limit=5,
         allresponses = []
         # for genid in range(len(row["generations"])):
         for genid in range(1):
-            time.sleep(1)
+            time.sleep(0.5)
             # gens = [gen['text'] for gen in row["generations"][genid:genid+1]]
             gens = []
             for gen in row["generations"]:
                 if prompt in gen['text']:
-                    gens.append(gen['text'][:len(prompt)])
+                    gens.append(gen['text'][len(prompt):])
                 else:
                     gens.append(gen["text"])
             # assert prompt not in gens[0], "prompt is in the generation"
@@ -234,7 +234,7 @@ def toxicity_score(gens_df, perspective_file, env_path,perspective_rate_limit=5,
 
                     if not_done.sum() > 1:
                         print(i, "extra_sleep", not_done.sum(), flush=True)
-                        time.sleep(1.0)
+                        time.sleep(0.5)
 
                     batch_request = client.new_batch_http_request()
                     for j, text in enumerate(gens):
@@ -337,8 +337,15 @@ def main(gen_file, out_file, metrics, del_end_of_sentence, end_of_sentence,env_p
     if del_end_of_sentence == 1:
         print("delete "+end_of_sentence+" in generations")
         gens_df["generations"] = gens_df["generations"].apply(
-            lambda gens: [{"text": gen["text"].split("<|endoftext|>")[0]} for gen in gens]
-        )
+        lambda gens: [
+            {
+                "text": gen["text"].split(end_of_sentence)[1]
+                if gen["text"].startswith(end_of_sentence)
+                else gen["text"].split(end_of_sentence)[0]
+            }
+            for gen in gens
+        ]
+    )
     
                     
         # raise ValueError(row)

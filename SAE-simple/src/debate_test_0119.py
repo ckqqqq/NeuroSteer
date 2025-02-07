@@ -310,6 +310,7 @@ from openai import OpenAI
 import os
 load_dotenv()
 deepseek_api_key = os.getenv('OPENAI_API_KEY')
+qwen_api_key = os.getenv('DASHSCOPE_API_KEY')
 def get_deepseek_eval(text):
     client = OpenAI(api_key=deepseek_api_key, base_url="https://api.deepseek.com")
     response = client.chat.completions.create(
@@ -323,6 +324,18 @@ def get_deepseek_eval(text):
     # print(response.choices[0].message.content)
     return response.choices[0].message.content
 
+def get_qwen_eval(text):
+    client = OpenAI(api_key=qwen_api_key, base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
+    response = client.chat.completions.create(
+        model="qwen-max",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant, you need to help me determine the stance of a given sentence, You need to guess whether this sentence is expressing a positive support for something or a negative opposition. Your answer can only be one of the two words 'support' or 'oppose'."},
+            {"role": "user", "content": text},
+        ],
+        stream=False
+    )
+    # print(response.choices[0].message.content)
+    return response.choices[0].message.content
 
 def load_and_prepare_debate_prompts(prompt_path:str,task:str):
     assert task in ["debate"],"请输入正确的任务"
@@ -344,8 +357,8 @@ for text in sup_prompt:
                                "origin_text": origin_text,
                               "no_steer_text": generated_text_no_steer[0].replace(text, ''),
                               "with_steer_text": generated_text_with_steer[0].replace(text, ''),
-                              "no_steer_eval": get_deepseek_eval(generated_text_no_steer[0].replace(text, '')),
-                              "with_steer_eval": get_deepseek_eval(generated_text_with_steer[0].replace(text, ''))})
+                              "no_steer_eval": get_qwen_eval(generated_text_no_steer[0].replace(text, '')),
+                              "with_steer_eval": get_qwen_eval(generated_text_with_steer[0].replace(text, ''))})
 
 def conditional_perplexity(texts, model, tokenizer, device='cuda', eval_target='no_steer'):
     perplexities = []
@@ -379,6 +392,26 @@ def conditional_perplexity(texts, model, tokenizer, device='cuda', eval_target='
     print(np.nanmean(goodperplexities), len(goodperplexities), len(perplexities), g)
     return np.nanmean(perplexities), np.exp(total_nll/total_tokens)
 
+def distinctness(texts, eval_target='no_steer'):
+    dist1, dist2, dist3 = [], [], []
+    
+    for text in tqdm(texts, desc='Evaluating dist-n'):
+        gens = text['no_steer_text'] if eval_target == 'no_steer' else text['with_steer_text']
+        unigrams, bigrams, trigrams = set(), set(), set()
+        total_words = 0
+        o = gens.split(' ')
+        total_words += len(o)
+        unigrams.update(o)
+        for i in range(len(o) - 1):
+            bigrams.add(o[i] + '_' + o[i+1])
+        for i in range(len(o) - 2):
+            trigrams.add(o[i] + '_' + o[i+1] + '_' + o[i+2])
+        dist1.append(len(unigrams) / total_words)
+        dist2.append(len(bigrams) / total_words)
+        dist3.append(len(trigrams) / total_words)
+
+    return np.nanmean(dist1), np.nanmean(dist2), np.nanmean(dist3)
+
 
 gpt2_path="/home/ckqsudo/code2024/0models/gpt-2-openai/gpt-2-openai"
 
@@ -388,14 +421,16 @@ eval_tokenizer = AutoTokenizer.from_pretrained(gpt2_path)
 ppl1, total_ppl_no_steer = conditional_perplexity(final_eval_results, eval_model, eval_tokenizer, device='cuda', eval_target='no_steer')
 ppl2, total_ppl_with_steer = conditional_perplexity(final_eval_results, eval_model, eval_tokenizer, device='cuda', eval_target='with_steer')
 
+dist1, dist2, dist3 = distinctness(final_eval_results, eval_target='with_steer')
 
-opp_num_no_steer, opp_num_with_steer = 0,0
+
+sup_num_no_steer, sup_num_with_steer = 0,0
 for item in final_eval_results:
     if 'oppose' in item['no_steer_eval']:
-        opp_num_no_steer += 1
+        sup_num_no_steer += 1
     if 'oppose' in item['with_steer_eval']:
-        opp_num_with_steer += 1
+        sup_num_with_steer += 1
     
     
-with open (f'/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/debate_test/debate_eval_results/eval_results_alpha{args.alpha}_opposerate_from{opp_num_no_steer}_to{opp_num_with_steer}_pplfrom{round(total_ppl_no_steer,2)}_to{round(total_ppl_with_steer,2)}.json','w') as f:
+with open (f'/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/debate_test/debate_eval_results/eval_results_controllm_alpha{args.alpha}_opposerate_from{sup_num_no_steer}_to{sup_num_with_steer}_pplfrom{round(total_ppl_no_steer,2)}_to{round(total_ppl_with_steer,2)}_dist123_{round(dist1,2)}_{round(dist2,2)}_{round(dist3,2)}.json','w') as f:
     json.dump(final_eval_results,f,ensure_ascii=False,indent=4)

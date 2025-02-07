@@ -1,6 +1,39 @@
 import os
 from dotenv import load_dotenv
 import logging
+# %%
+import os
+import pickle
+# import partial
+def load_or_cache_steer_info(CACHE_DIR,args,cache_filename, compute_func):
+    """
+    加载或计算 steer_info 的缓存机制
+
+    :param cache_filename: 缓存文件的名称
+    :param compute_func: 计算 steer_info 的函数
+    :return: steer_info 字典
+    """
+    cache_path = os.path.join(CACHE_DIR, cache_filename)
+    # 检查缓存文件是否存在
+    if args.use_cache==1 and os.path.exists(cache_path):
+        logging.info(f"从缓存 {cache_path} 中加载 steer_info")
+        import time
+        time.sleep(3)
+        with open(cache_path, 'rb') as f:
+            steer_info = pickle.load(f)
+    else:
+        if args.use_cache:
+            logging.info(f"强制覆写 {cache_path}"+"，重新计算 steer_info")
+        else:
+            logging.info(f"缓存 {cache_path} 不存在"+"，缓存 steer_info")
+        steer_info = compute_func()
+        # 将计算结果保存到缓存文件中 (反复cache)
+        with open(cache_path, 'wb') as f:
+            pickle.dump(steer_info, f)
+        logging.info(f"steer_info 已保存到缓存 {cache_path}")
+    return steer_info
+
+
 def params_to_dict(args,is_print=True):
     hyperparams=vars(args)
     # Log hyperparameters
