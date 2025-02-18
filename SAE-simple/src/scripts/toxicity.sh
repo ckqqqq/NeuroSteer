@@ -17,7 +17,7 @@ DEBUG=0  # 不是布尔值
 set -x
 
 # Run the Python script
-/home/ckqsudo/miniconda3/envs/SAE/bin/python main_control_LLM.py \
+/home/ckqsudo/miniconda3/envs/SAE/bin/python main_control_LLM_v2.py \
   --task "toxicity" \
   --layer $LAYER \
   --LLM $LLM \

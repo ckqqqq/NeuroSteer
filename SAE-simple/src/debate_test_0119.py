@@ -2,7 +2,7 @@ import argparse
 import os
 import re
 import json
-import logging
+import einops
 from typing import Tuple
 from tqdm import tqdm
 from log import setup_logging
@@ -30,15 +30,15 @@ parser.add_argument('--seed', type=int, default=42, help='Random seed')
 parser.add_argument('--data_size', type=str, default='ALL', help='Data size')
 parser.add_argument('--device', type=str, default='cuda', choices=['cpu', 'cuda', 'mps', 'auto'], help='Device to use')
 parser.add_argument('--alpha', type=int, default=50, help='Alpha parameter')
-parser.add_argument('--steer', type=str, default='opp-sup', help='Steering direction')
+parser.add_argument('--steer', type=str, default='sup-opp', help='Steering direction')
 parser.add_argument('--method', type=str, default='val_mul', choices=['mean', 'val_mul'], help='Method to use')
 parser.add_argument('--topk_mean', type=int, default=100, help='Top K mean selection')
 parser.add_argument('--topk_cnt', type=int, default=100, help='Top K count selection')
 parser.add_argument('--topp', type=float, default=0.1, help='Top p selection')
 parser.add_argument('--temperature', type=float, default=1.0, help='Generation temperature')
 parser.add_argument('--batch_size', type=int, default=32, help='Batch size')
-parser.add_argument('--source', type=str, default='sup', help='Source class')
-parser.add_argument('--target', type=str, default='opp', help='Target class')
+parser.add_argument('--source', type=str, default='opp', help='Source class')
+parser.add_argument('--target', type=str, default='sup', help='Target class')
 parser.add_argument('--mean_type', type=str, default='dif_mean', help='Mean type')
 parser.add_argument('--steer_type', type=str, default='last', help='Steer type')
 parser.add_argument('--debug', type=bool, default=False, help='Debug flag')
@@ -88,7 +88,7 @@ elif "polite"==TASK:
     neg_train_set, pos_train_set, neu_train_set,val_set,test_set=load_and_prepare_triple_dataset(args.dataset_path,"polite", args.seed, args.data_size)
 elif TASK=="debate":
     logging.info("debate"*10)
-    sup_train_set, opp_train_set,val_set,test_set=load_and_prepare_debate_triple_dataset(args.dataset_path, args.seed, args.data_size)
+    sup_train_set, opp_train_set,val_set,test_set=load_and_prepare_debate_triple_dataset(args.dataset_path, args.seed)
 else:
     raise ValueError("No Supported")
 
@@ -233,11 +233,6 @@ else:
     raise ValueError("Unsupported")
 
 
-
-import einops
-steer_cnt=0
-
-
 def steering_hook(resid_pre, hook,steer_on, alpha, steer_type="last"):
     if resid_pre.shape[1] == 1:
         return
@@ -348,9 +343,9 @@ def load_and_prepare_debate_prompts(prompt_path:str,task:str):
 sup_prompt, opp_prompt = load_and_prepare_debate_prompts(prompt_path='/home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences',task='debate')
 
 final_eval_results = []
-for text in sup_prompt:
+for text in opp_prompt:
     origin_text = text
-    text = text[:len(text)//2] if len(text) > 30 else text
+    text = text[:50] if len(text) > 50 else text
     generated_text_no_steer = run_generate(text, sampling_kwargs,steer_on=False,alpha=0,show_res=True)
     generated_text_with_steer = run_generate(text, sampling_kwargs,steer_on=True,alpha=args.alpha,steer_type=args.steer_type,show_res=True)
     final_eval_results.append({"prompt_text": text,
@@ -426,11 +421,11 @@ dist1, dist2, dist3 = distinctness(final_eval_results, eval_target='with_steer')
 
 sup_num_no_steer, sup_num_with_steer = 0,0
 for item in final_eval_results:
-    if 'oppose' in item['no_steer_eval']:
+    if 'support' in item['no_steer_eval']:
         sup_num_no_steer += 1
-    if 'oppose' in item['with_steer_eval']:
+    if 'support' in item['with_steer_eval']:
         sup_num_with_steer += 1
     
     
-with open (f'/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/debate_test/debate_eval_results/eval_results_controllm_alpha{args.alpha}_opposerate_from{sup_num_no_steer}_to{sup_num_with_steer}_pplfrom{round(total_ppl_no_steer,2)}_to{round(total_ppl_with_steer,2)}_dist123_{round(dist1,2)}_{round(dist2,2)}_{round(dist3,2)}.json','w') as f:
+with open (f'/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/debate_test/debate_eval_results/eval_results_controllm_alpha{args.alpha}_supportrate_from{sup_num_no_steer}_to{sup_num_with_steer}_pplfrom{round(total_ppl_no_steer,2)}_to{round(total_ppl_with_steer,2)}_dist123_{round(dist1,2)}_{round(dist2,2)}_{round(dist3,2)}.json','w') as f:
     json.dump(final_eval_results,f,ensure_ascii=False,indent=4)

@@ -19,16 +19,9 @@ dataset_train = dataset['train'].select(range(total_samples//2))
 
 # tokenizer.pad_token =tokenizer.eos_token
 tokenizer.pad_token='[PAD]'
-# config = LoraConfig(
-#     task_type=TaskType.CAUSAL_LM,  # Causal Language Model Task
-#     r=128,  # Low-rank parameter
-#     lora_alpha=128,
-#     lora_dropout=0.1,
-#     # target_modules=["q_proj", "v_proj"]  # Inject LoRA in specific layers
-# )
-# model = get_peft_model(model, config)
-# Fine-Tune the Model:
+
 from transformers import Trainer, TrainingArguments
+import time
 # Tokenize the dataset
 # def tokenize_function(examples):
 #     return tokenizer(examples["text"], truncation=True, padding=True)
@@ -55,7 +48,7 @@ tokenized_dataset_val = tokenized_dataset_val.remove_columns(["label"])
 # label名称是关键
 tokenized_dataset_train = tokenized_dataset_train.add_column("labels", tokenized_dataset_train["input_ids"])
 tokenized_dataset_val = tokenized_dataset_val.add_column("labels", tokenized_dataset_val["input_ids"])
-
+train_time_start=time.time()
 # Define training arguments
 training_args = TrainingArguments(
     output_dir="./results/polite/",
@@ -66,6 +59,15 @@ training_args = TrainingArguments(
 )
 print(len(tokenized_dataset_train),len(tokenized_dataset_val))
 # Define Trainer and start fine-tuning
+config = LoraConfig(
+    task_type=TaskType.CAUSAL_LM,  # Causal Language Model Task
+    r=128,  # Low-rank parameter
+    lora_alpha=128,
+    lora_dropout=0.1,
+    # target_modules=["q_proj", "v_proj"]  # Inject LoRA in specific layers
+)
+model = get_peft_model(model, config)
+# Fine-Tune the Model:
 trainer = Trainer(
     model=model,
     args=training_args,
@@ -73,8 +75,9 @@ trainer = Trainer(
     eval_dataset=tokenized_dataset_val
 )
 trainer.train()
-
-save_path="/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/politeness_test/polite_tune_ckpt/fulltune_gpt2_small_checkpoint_2polite"
+train_time_end=time.time()
+save_path="/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/politeness_test/polite_tune_ckpt/lora_gpt2_small_checkpoint_2polite_0209"
 # 保存微调后的模型
 model.save_pretrained(save_path)
 print(save_path)
+print("训练时间开销",train_time_end-train_time_start)

@@ -3,11 +3,13 @@ import os
 import re
 import logging
 from typing import Tuple
+from sympy import false
 from tqdm import tqdm  # For progress bars
 from log import setup_logging
 import logging
 import torch
 from torch import Tensor
+from transformers import AutoTokenizer
 from transformer_lens import HookedTransformer
 from sae_lens import SAE
 from datasets import load_dataset
@@ -17,6 +19,7 @@ import logging
 
 from data_preprocess import load_and_prepare_triple_dataset,load_and_prepare_COT_dataset,load_and_prepare_debate_triple_dataset
 from utils import load_environment
+import time
 # from sae_lens.analysis.neuronpedia_integration import get_neuronpedia_quick_list
 # from sae_lens.analysis.feature_statistics import (
 #     get_all_stats_dfs,
@@ -37,7 +40,7 @@ from utils import load_environment
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--task', type=str, default='sentiment',choices=['sentiment','cot','polite','toxicity'], help='Task type: sentiment, cot, polite')
+parser.add_argument('--task', type=str, default='sentiment',choices=['sentiment','cot','polite','toxicity','debate'], help='Task type: sentiment, cot, polite')
 parser.add_argument('--layer', type=int, default=6, help='Layer number to analyze')
 parser.add_argument('--LLM', type=str, default='gpt2-small', help='LLM model')
 parser.add_argument('--seed', type=int, default=42, help='Random seed')
@@ -53,6 +56,7 @@ parser.add_argument('--batch_size', type=int, default=32, help='Batch size')
 parser.add_argument('--source', type=str, default='pos', help='Source class')#赞同、积极情感、礼貌、COT、无毒性
 parser.add_argument('--target', type=str, default='neg', help='Target class')#不赞同、消极情感、不礼貌、直接推理、无毒性
 parser.add_argument('--prompt_source', type=str, default="",choices=['pos','neu','neg'], help='数据集prompt的极性')
+parser.add_argument('--prompt_data_size', type=int, default=-1, help='用于评估的prompt的条数，默认-1为全部')
 parser.add_argument('--mean_type', type=str, default="dif_mean",choices=['dif_mean','tar_mean'], help='Mean type')
 parser.add_argument('--steer_type', type=str, default="last",choices=['all','last','last2',"gaussian"], help='Steer type')
 parser.add_argument('--output_dir', type=str, default='./results', help='Output directory')
@@ -69,6 +73,9 @@ parser.add_argument('--debug', type=int, default=0, choices=[0, 1], help='Debug 
 parser.add_argument("--save_no_steer", type=int,default=0, choices=[0, 1], help='是否需要比较GPT原先生成的结果')
 parser.add_argument("--is_norm_delta_matrix", type=int,default=0, choices=[0, 1], help='是否需要对delta矩阵进行归一化（如果归一化算出来的alpha理论上更体现（单位）数值，但是实际实验结果表明没多大影响，这玩意和alpha挂钩哦，实验的时候确保统一）')
 parser.add_argument("--use_cache", type=int,default=0, choices=[0, 1], help='是否需要保存steer_info?')
+
+parser.add_argument("--repeat_num", type=int,default=2, choices=[0, 1,2,3,4,5], help='重复生成每个prompt的次数')
+parser.add_argument("--gen_batch_size",type=int,default=1, help='批量生成的时候生成batch大小，基于显卡调整')
 # 注意：不去使用则覆写！
 args = parser.parse_args()
 
@@ -84,6 +91,12 @@ sampling_kwargs = {
 
 sampling_kwargs['verbose']=False
 
+EXAMPLE_PROMPT_LIST=str(args.example_prompt).split("|")
+assert isinstance(EXAMPLE_PROMPT_LIST,list) and isinstance(EXAMPLE_PROMPT_LIST[0],str),"EXAMPLE_PROMPT_LIST必须是list[str]"
+assert args.example_prompt!="","输入测试prompt"
+logging.info(f"Example prompt: {EXAMPLE_PROMPT_LIST}")
+
+
 TASK =args.task
 STEER_TYPE=args.steer_type
 SOURCE=args.source
@@ -93,6 +106,7 @@ TARGET=args.target
 # neg 代表消极情绪
 ALPHA=args.alpha
 MAX_NEW_TOKENS=50
+GEN_BATCH_SIZE = args.gen_batch_size
 
 SAVE_NO_STEER=args.save_no_steer
 DATA_SIZE=args.data_size
@@ -135,19 +149,24 @@ elif "toxicity"==TASK:
         task=TASK, 
         seed=None
     )
+    print(neg_train_set)
 elif "polite"==TASK:
     logging.info("polite"*10)
     neg_train_set, pos_train_set, neu_train_set,val_set,test_set=load_and_prepare_triple_dataset(
         dataset_path=args.dataset_path,
-        task="polite", 
+        dataset_name=TASK, 
         seed=args.seed, 
-        polar_list=[args.source,args.target]
+        # polar_list=[args.source,args.target]
         )
 elif "debate"==TASK:
     logging.info("debate"*10)
     # 泽凯处理
     # 赞同用pos， 反对用neg就行，和后面代码基本统一
-    raise ValueError("SZK")
+    
+    sup_train_set, opp_train_set,val_set,test_set=load_and_prepare_debate_triple_dataset(args.dataset_path, args.seed)
+    logging.info("suppoert==positive opposite==negative")
+    pos_train_set=sup_train_set
+    neg_train_set=opp_train_set
 else:
     raise ValueError("No Supported")
 
@@ -166,6 +185,7 @@ if "llama" in args.LLM:
     logging.info(f"model architecture for {args.LLM} {model}")
 
 elif "gemma-2-2b" in args.LLM:
+    tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b")
     sae, cfg_dict, sparsity = SAE.from_pretrained(
         release = "gemma-scope-2b-pt-res-canonical",
         sae_id = "layer_0/width_16k/canonical",
@@ -186,11 +206,17 @@ elif "gpt2-small" in args.LLM:
         sae_id=f"blocks.{args.layer}.hook_resid_pre",
         device=args.device
     )
-    model = HookedTransformer.from_pretrained(args.LLM, device=args.device)
+    
+    tokenizer = AutoTokenizer.from_pretrained("gpt2")
+    # 设置填充标记为 EOS token
+    tokenizer.pad_token = tokenizer.eos_token
+    model = HookedTransformer.from_pretrained(args.LLM, device=args.device,tokenizer=tokenizer)
+    # tokenizer = AutoTokenizer.from_pretrained(args.LLM)
 else:
     raise ValueError("No Supported")
-logging.info(f"model architecture for {args.LLM} {model}")
+logging.info(f"model architecture for {args.LLM} {model} {tokenizer}")
 ##########################################################################Collection
+start_train_time=time.time()
 def analyze_latents(batch_latents: Tensor, top_k_mean: int = 100, top_k_cnt: int = 100) -> Tuple[Tensor, Tensor, Tensor]:
     """分析latents支持批次处理
 
@@ -213,7 +239,7 @@ def analyze_latents(batch_latents: Tensor, top_k_mean: int = 100, top_k_cnt: int
     # logging.info("Computing mean of non-zero elements")
     assert batch_latents.shape[-1]==SAE_LATENT_SIZE==lat_val_sum.shape[0]==lat_freq.shape[0], "Latent dimension mismatch"
     return {"latent_frequency":lat_freq,"latent_value_sum":lat_val_sum}
-def compute_latents(sae: SAE, model: HookedTransformer, texts: list, hook_point: str, device: str, batch_size: int) -> list:
+def SAE_encoding(sae: SAE, model: HookedTransformer, texts: list, hook_point: str, device: str, batch_size: int) -> list:
     """
     计算 latents，支持批次处理。
     Args:
@@ -236,7 +262,7 @@ def compute_latents(sae: SAE, model: HookedTransformer, texts: list, hook_point:
             batch_texts = texts[i:i + batch_size]
             # logging.info(f"Batch {i // batch_size + 1}: batch_size {batch_size}")
             try:
-                sv_logits, cache = model.run_with_cache(batch_texts, prepend_bos=False, device=args.device)
+                sv_logits, cache = model.run_with_cache(batch_texts, prepend_bos=True, device=args.device)
             except Exception as e:
                 logging.error(f"Error processing batch {i // batch_size + 1}: {e}")
                 raise ValueError(str([len(i) for i in batch_texts]))
@@ -260,7 +286,7 @@ def compute_latents(sae: SAE, model: HookedTransformer, texts: list, hook_point:
 def get_activation_by_steer(texts:list):
     hook_point = sae.cfg.hook_name
     # Compute latents with batch processing
-    lat_info=compute_latents(sae, model, texts, hook_point, args.device, args.batch_size)
+    lat_info=SAE_encoding(sae, model, texts, hook_point, args.device, args.batch_size)
     return {"latent_value_mean":lat_info["latent_value_mean"],"latent_frequency":lat_info["latent_frequency"]}
 
 # %% [markdown]
@@ -275,7 +301,7 @@ def compute_steer_info():
     steer_polar_list=[str(args.source),(args.target)]# eg ['pos','neu']
     steer_lens={"pos":len(pos_train_set["text"]),"neg":len(neg_train_set["text"])}
     if TASK == 'polite' or TASK == "sentiment":
-        logging.info(":>> Sentiment : from " + args.source + " to " + args.target)
+        logging.info(f":>> {TASK} : from " + args.source + " to " + args.target)
         # 加入neu
         steer_lens["neu"]=len(neu_train_set["text"])
         if DATA_SIZE=="ALL":
@@ -322,6 +348,7 @@ def compute_steer_info():
 from utils import load_or_cache_steer_info
 steer_info = load_or_cache_steer_info(CACHE_DIR=CACHE_DIR,args=args,cache_filename=f"steer_info_cache_of_{args.LLM}_l{args.layer}.pkl", compute_func=compute_steer_info)
 
+end_train_time=time.time()
 
 # %%
 assert TARGET in steer_info.keys() and SOURCE in steer_info.keys(),str(steer_info.keys())+"请检查source和target是否正确"
@@ -341,140 +368,89 @@ _,steer_indices=torch.topk(steer_info[f"dif_{TARGET}-{SOURCE}_relu"]["latent_fre
 
 # %%
 # 假设 steer_info[f"dif_{b}-{a}_relu"]["latent_frequency"] 是一个 NumPy 数组
-lat_freq = steer_info[f"dif_{TARGET}-{SOURCE}_relu"]["latent_frequency"]
+# lat_freq = steer_info[f"dif_{TARGET}-{SOURCE}_relu"]["latent_frequency"]
 # 先获取非零元素的索引
-lat_acti_indices = np.nonzero(lat_freq)
-assert torch.all(lat_freq == 0)==False,"latent_frequency全为0元素读取有问题"
+# lat_acti_indices = np.nonzero(lat_freq)
+assert torch.all(steer_info[f"dif_{TARGET}-{SOURCE}_relu"]["latent_frequency"] == 0)==False,"latent_frequency全为0元素读取有问题"
 logging.info("sae cfg.hook_name 挂载名称: "+str(sae.cfg.hook_name)) #挂载名称
 # %%
 steer_info[f"dif_{TARGET}-{SOURCE}_relu"]["latent_frequency"].shape
 steer_info[f"dif_{TARGET}-{SOURCE}_relu"]["latent_value_mean"][steer_indices]# 这里有0,没有负数比较正常
 
-def compute_delta_matrix(sae: SAE, indices: Tensor, nz_mean_val: Tensor, method: str = "val_mul",is_norm:int=0) -> Tensor:
+
+def SAE_decoding(sae: SAE, indices: Tensor, latent_value_mean: Tensor, method: str = "val_mul",is_norm:int=0) -> Tensor:
     assert is_norm in [0,1] and method in ["val_mul"], "Invalid arguments"
-    # logging.info(f"Computing steering vectors using method: {method}")
-    delta_matrix = torch.zeros(sae.W_dec.shape[1], device=sae.W_dec.device)
+    delta_h = torch.zeros(sae.W_dec.shape[1], device=sae.W_dec.device)
     for idx in indices:
-        delta_matrix += nz_mean_val[idx].item() * sae.W_dec[idx]
+        delta_h += latent_value_mean[idx].item() * sae.W_dec[idx]
     # logging.info(f"Steering vectors computed with shape: {delta_matrix.shape}")
     if is_norm==1:
-        norm = torch.norm(delta_matrix, p='fro')  # 计算 Frobenius 范数
-        delta_matrix = delta_matrix / norm
+        norm = torch.norm(delta_h, p='fro')  # 计算 Frobenius 范数
+        delta_h = delta_h / norm
         logging.info(f"Steering vectors normalized with L2 norm: {norm} 归一化矩阵大小")
-    return delta_matrix
+    return delta_h
+
 if args.mean_type=="dif_mean":
-    delta_matrix=compute_delta_matrix(sae,indices=steer_indices,nz_mean_val=steer_info[f"dif_{TARGET}-{SOURCE}_relu"]["latent_value_mean"],method="val_mul",is_norm=args.is_norm_delta_matrix)
+    delta_h=SAE_decoding(sae,indices=steer_indices,latent_value_mean=steer_info[f"dif_{TARGET}-{SOURCE}_relu"]["latent_value_mean"],method="val_mul",is_norm=args.is_norm_delta_matrix)
 elif args.mean_type=="tar_mean":
-    delta_matrix=compute_delta_matrix(sae,indices=steer_indices,nz_mean_val=steer_info[f"dif_{TARGET}-{SOURCE}_relu"]["target_nz_mean"],method="val_mul",is_norm=args.is_norm_delta_matrix)
+    delta_h=SAE_decoding(sae,indices=steer_indices,latent_value_mean=steer_info[f"dif_{TARGET}-{SOURCE}_relu"]["target_nz_mean"],method="val_mul",is_norm=args.is_norm_delta_matrix)
 else:
     raise ValueError("Unsupported")
 
 
 # %%
 if args.debug==1:
-    logging.info("delta_matrix: "+str(delta_matrix[:5])) #理论上这里有正有负比较正常
+    logging.info("delta_matrix: "+str(delta_h[:5])) #理论上这里有正有负比较正常
 # %% [markdown]
 # # 这里得到的就是delta_matricx
 
-
-# f"blocks.{args.layer}.hook_resid_post"
-import einops
-steer_cnt=0
-
-
-def steering_hook(resid_pre, hook,steer_on, alpha, steer_type="last"):
-    if resid_pre.shape[1] == 1:
-        return
-    # 判断是否进行干预
-    if steer_on:
-        if steer_type == "last":
-            # 对最后一个token前的部分应用干预，使用给定的 delta_matrix
-            resid_pre[:, :-1, :] += alpha * delta_matrix# best
-            # 如果提前干预效果会更好更连贯
-        elif steer_type == "gaussian":
-            # 使用高斯卷积对输入进行干预
-            from utils import half_gaussian_kernel
-            d_m=torch.clone(delta_matrix)
-            s = resid_pre[:, :-1, :].shape[1]
-            b=resid_pre[:, :-1, :].shape[0]
-            h=resid_pre[:, :-1, :].shape[2]
-            h_gauss = half_gaussian_kernel(s)  # 获取高斯卷积核
-            # k_gauss=torch.cat([h_gauss, torch.tensor([0])])
-            k_gauss=h_gauss
-            k_gau_repeat=einops.repeat(k_gauss,"s -> b s h",b=b,h=h)
-            d_m_repeat=einops.repeat(d_m,"h -> b s h",b=b,s=s)
-            # 根据卷积结果更新 resid_pre（注意：保留其他维度不变）,逐一元素相乘
-            resid_pre[:, :-1, :] += alpha * d_m_repeat* k_gau_repeat
-            # logging.info(f"干预类型：高斯")
-            # logging.info(f"干预矩阵: {alpha * d_m_repeat* k_gau_repeat}")
-        elif steer_type == "all":
-            resid_pre[:, :, :] += alpha * delta_matrix# 全部干预
-        elif steer_type == "last2":
-            resid_pre[:, :-2, :] += args.alpha * delta_matrix # 提前两个token进行干预
-        else:
-            raise ValueError("Unknown steering type")
-
-def hooked_generate(prompt_batch, fwd_hooks=[], seed=None, **kwargs):
-    if seed is not None:
-        torch.manual_seed(seed)
-
-    with model.hooks(fwd_hooks=fwd_hooks):
-        tokenized = model.to_tokens(prompt_batch)
-        result = model.generate(
-            stop_at_eos=True,  # avoids a bug on MPS
-            input=tokenized,
-            max_new_tokens=MAX_NEW_TOKENS,
-            do_sample=True,
-            **kwargs,
-        )
-    return result
-from functools import partial
-
-def run_generate(example_prompt,sampling_kwargs,steer_on,alpha,steer_type="last",repeat_num=3,show_res=False):
-    model.reset_hooks()
-    if steer_on:
-        logging.info("干预")
-        steering_hook_fn=partial(steering_hook,steer_on=steer_on,alpha=alpha,steer_type=steer_type)
-        editing_hooks = [(sae.cfg.hook_name, steering_hook_fn)]
-    else:
-        logging.info("无干预")
-        editing_hooks=[]
-    res = hooked_generate(
-        [example_prompt] * repeat_num, editing_hooks, seed=None, **sampling_kwargs
-    )
-    res_str_batch = model.to_string(res)
-    if show_res:
-        logging.info(f"prompt:*****\n{example_prompt}")
-        for idx, text in enumerate(res_str_batch):
-            logging.info(f"包含prompt的完整输出: {idx+1}:\n{text[:]}")
-        
-    return res_str_batch
 
 
 # Example prompt from the selected set
 # example_prompt = "What really matters is that they know"
 # example_prompt=""" Q: Cody goes to the store and buys $40 worth of stuff.  The taxes were 5%.  After taxes, he got an $8 discount.  Cody and his friend split the final price equally. How much did Cody pay?
 # A:"""
-EXAMPLE_PROMPT=args.example_prompt
-assert args.example_prompt!="","输入测试prompt"
-logging.info(f"Example prompt: {EXAMPLE_PROMPT}")
 
+
+########################################################### apply_control
 # Generate without steering
 
+from apply_control import run_generate
 logging.info("Generating texts **without** steering... ")
+logging.info("无转向结果")
+
 with torch.no_grad():
-    generated_texts_no_steer = run_generate(EXAMPLE_PROMPT, sampling_kwargs,steer_on=False,alpha=0,show_res=True)
+    generated_texts_no_steer = run_generate(
+        prompts=EXAMPLE_PROMPT_LIST, 
+        sampling_kwargs=sampling_kwargs,
+        sae=sae,
+        model=model,
+        tokenizer=tokenizer,
+        MAX_NEW_TOKENS=MAX_NEW_TOKENS,
+        repeat_num=3,
+        steer_type="",
+        steer_on=False,
+        alpha=0,
+        delta_h=None,
+        show_res=True)
 logging.info("干预之后的结果")
 # bef,aft=args.steer.split("-")
 logging.info(f"干预方向{SOURCE}->{TARGET},礼貌任务下，neg=impolite，情感任务下 pos=积极情感")
 logging.info("** Generating texts with steering... Target **")
 logging.info(f"form {SOURCE} to {TARGET}")
+logging.info("转向结果")
 generated_texts_with_steer = run_generate(
-    EXAMPLE_PROMPT, 
-    sampling_kwargs,
+    prompts=EXAMPLE_PROMPT_LIST, 
+    sampling_kwargs=sampling_kwargs,
+    sae=sae,
+    model=model,
+    tokenizer=tokenizer,
+    MAX_NEW_TOKENS=MAX_NEW_TOKENS,
+    repeat_num=3,
     steer_on=True,
-    alpha=args.alpha,
-    steer_type=args.steer_type,
+    alpha=ALPHA,
+    steer_type=STEER_TYPE,
+    delta_h=delta_h,
     show_res=True)
 
 # Combine generated texts
@@ -534,56 +510,81 @@ def eval_on_full_data():
     # 打开文件（模式为追加模式 'a'）
     with jsonlines.open(os.path.join(OUTPUT_DIR,"params.jsonl"), mode='w') as writer:
         writer.write(param)  # 逐行写入
+    if args.prompt_data_size!=-1:# 用于小批量网格搜索
+        prompts = prompts.select(range(args.prompt_data_size))  # Correct slicing for datase
+        logging.warning("截取prompt_datasize"+str(len(prompts)))
     
-    with jsonlines.open(os.path.join(OUTPUT_DIR,"no_steer_gen_res.jsonl"), mode='w') as nt_file:
-        with jsonlines.open(os.path.join(OUTPUT_DIR,"steer_gen_res.jsonl"), mode='w') as t_file: 
-            for idx,item in tqdm(enumerate(list(prompts))):
-                prompt=item["prompt"]["text"]
-                item["label"]=SOURCE+"->"+TARGET
-                # 没转向的结果
-                if SAVE_NO_STEER==1:
-                    with torch.no_grad():
-                        no_steer_gen_texts = run_generate(
-                            prompt, 
-                            sampling_kwargs,
-                            steer_on=False,
-                            alpha=None,
-                            repeat_num=2,
-                            steer_type=None,
-                            show_res=False)
-                        no_steer_item=copy.deepcopy(item)
-                    no_steer_item["generations"]=[]
-                    for gen_text in no_steer_gen_texts:
-                        no_steer_item["generations"].append({"text":gen_text})
-                    # no_steer_res.append(no_steer_item)
-                    nt_file.write(no_steer_item)
-                    # 转向的结果
+    # 新增批次大小参数（假设从args获取）
+
+    with jsonlines.open(os.path.join(OUTPUT_DIR,"no_steer_gen_res.jsonl"), mode='w') as no_steer_f:
+        with jsonlines.open(os.path.join(OUTPUT_DIR,"steer_gen_res.jsonl"), mode='w') as steer_f: 
+            # 分批次处理prompts
+            for batch_idx in tqdm(range(0, len(prompts), GEN_BATCH_SIZE)):
+                # batch = prompts[batch_idx:batch_idx+GEN_BATCH_SIZE]
+                batch = prompts.select(range(batch_idx, min(batch_idx + GEN_BATCH_SIZE, len(prompts))))
+                batch_prompts = [item["prompt"]["text"] for item in batch]
                 
-                # steer_on = True
-                steered_texts=run_generate(prompt, 
-                                        sampling_kwargs,
-                                        steer_on=True,
-                                        alpha=ALPHA,
-                                        steer_type=STEER_TYPE,
-                                        repeat_num=2,
-                                        show_res=False
-                                        )
-                steer_item=copy.deepcopy(item)
-                steer_item["generations"]=[]
-                for steer_gen in steered_texts:
-                    steer_item["generations"].append({"text":steer_gen})
-                if idx%20==0:
-                    logging.info(f"{TASK}: from {SOURCE} to {TARGET} prompt_set: {SOURCE}")
-                    logging.info(steer_item)
-                t_file.write(steer_item)
+                # 无转向生成
+                if SAVE_NO_STEER == 1:
+                    with torch.no_grad():
+                        no_steer_gen_texts_batch = run_generate(
+                            prompts=batch_prompts,  # 传入批次prompts
+                            sampling_kwargs=sampling_kwargs,
+                            sae=sae,
+                            model=model,
+                            tokenizer=tokenizer,
+                            MAX_NEW_TOKENS=MAX_NEW_TOKENS,
+                            repeat_num=args.repeat_num,
+                            steer_type="",
+                            steer_on=False,
+                            alpha=0,
+                            delta_h=None,
+                            show_res=False
+                        )
+                    
+                    # 写入无转向结果
+                    for i, item in enumerate(batch):
+                        no_steer_item = copy.deepcopy(item)
+                        no_steer_item["generations"] = [{"text": text} for text in no_steer_gen_texts_batch[i]]
+                        no_steer_f.write(no_steer_item)
+
+                # 转向生成
+                steered_texts_batch = run_generate(
+                    prompts=batch_prompts, 
+                    sampling_kwargs=sampling_kwargs,
+                    sae=sae,
+                    model=model,
+                    tokenizer=tokenizer,
+                    MAX_NEW_TOKENS=MAX_NEW_TOKENS,
+                    repeat_num=args.repeat_num,
+                    steer_on=True,
+                    alpha=ALPHA,
+                    steer_type=STEER_TYPE,
+                    delta_h=delta_h,
+                    show_res=False
+                )
+                
+                # 写入转向结果
+                for i, item in enumerate(batch):# 遍历每个batch中的元素
+                    steer_item = copy.deepcopy(item)
+                    steer_item["generations"] = [{"text": text} for text in steered_texts_batch[i]]
+                    global_idx = batch_idx + i
+                    if global_idx % 20 == 0:
+                        logging.info(f"{TASK}: from {SOURCE} to {TARGET} prompt_set: {SOURCE}")
+                        logging.info(steer_item)
+                    steer_f.write(steer_item)
 
 if args.debug==1:
     logging.info(f"debug mode,show example, no full dataset eval")
 elif args.debug==0:
     if SAVE_NO_STEER==1:
-        logging.info("Provide No Steer Result")
+        logging.info("Provide No Steer Result 提供无干预对照样本")
     eval_on_full_data()
 else:
     raise ValueError("debug must be 0 or 1")
 # %%
-params_to_dict(args,is_print=True)
+logging.info("训练时间"+str(end_train_time-start_train_time))
+params = params_to_dict(args, is_print=True)
+logging.info(f"{TASK}:{SOURCE}->{TARGET}")
+with jsonlines.open(os.path.join(OUTPUT_DIR, "params.jsonl"), mode='w') as param_file:
+    param_file.write(params)

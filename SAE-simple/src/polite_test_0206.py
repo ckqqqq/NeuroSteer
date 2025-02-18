@@ -30,8 +30,8 @@ parser.add_argument('--LLM', type=str, default='gpt2-small', help='LLM model')
 parser.add_argument('--seed', type=int, default=42, help='Random seed')
 parser.add_argument('--data_size', type=int, default=-1, help='Data size')
 parser.add_argument('--device', type=str, default='cuda', choices=['cpu', 'cuda', 'mps', 'auto'], help='Device to use')
-parser.add_argument('--alpha', type=int, default=5, help='Alpha parameter')
-parser.add_argument('--steer', type=str, default='neg-pos', help='Steering direction')
+parser.add_argument('--alpha', type=int, default=20, help='Alpha parameter')
+# parser.add_argument('--steer', type=str, default='neg-pos', help='Steering direction')
 parser.add_argument('--source', type=str, default='pos', help='Source class')
 parser.add_argument('--target', type=str, default='neg', help='Target class')
 parser.add_argument('--method', type=str, default='val_mul', choices=['mean', 'val_mul'], help='Method to use')
@@ -39,7 +39,7 @@ parser.add_argument('--topk_mean', type=int, default=100, help='Top K mean selec
 parser.add_argument('--topk_cnt', type=int, default=100, help='Top K count selection')
 parser.add_argument('--topp', type=float, default=0.1, help='Top p selection')
 parser.add_argument('--temperature', type=float, default=1.0, help='Generation temperature')
-parser.add_argument('--batch_size', type=int, default=32, help='Batch size')
+parser.add_argument('--batch_size', type=int, default=16, help='Batch size')
 parser.add_argument('--mean_type', type=str, default='dif_mean', help='Mean type')
 parser.add_argument('--steer_type', type=str, default='last', help='Steer type')
 parser.add_argument('--debug', type=bool, default=False, help='Debug flag')
@@ -57,7 +57,7 @@ sampling_kwargs['verbose']=False
 TASK =args.task
 STEER_TYPE=args.steer_type
 ALPHA=args.alpha
-MAX_NEW_TOKENS=50
+MAX_NEW_TOKENS=100
 
 
 output_dir=os.path.join(args.output_dir,f"alpha_{args.alpha}_from_{args.source}_to_{args.target}_datasize_{args.data_size}_layer_{args.layer}_mean_{args.mean_type}_steertype_{args.steer_type}_device_{args.device}_batchsize{args.batch_size}")
@@ -408,8 +408,8 @@ for text in tqdm(pos_prompt):
                                "origin_text": origin_text,
                               "no_steer_text": generated_text_no_steer[0].replace(text, ''),
                               "with_steer_text": generated_text_with_steer[0].replace(text, ''),
-                              "no_steer_eval": get_qwen_eval(generated_text_no_steer[0].replace(text, '')),
-                              "with_steer_eval": get_qwen_eval(generated_text_with_steer[0].replace(text, ''))})
+                              "no_steer_eval": get_qwen_eval(generated_text_no_steer[0].replace(text, '').replace('<|endoftext|>', '')),
+                              "with_steer_eval": get_qwen_eval(generated_text_with_steer[0].replace(text, '').replace('<|endoftext|>', ''))})
 
 
 gpt2_path="/home/ckqsudo/code2024/0models/gpt-2-openai/gpt-2-openai"

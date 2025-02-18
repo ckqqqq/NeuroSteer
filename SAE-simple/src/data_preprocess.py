@@ -42,10 +42,13 @@ def load_and_prepare_triple_dataset(dataset_path: str, seed: int, dataset_name:s
     neu_train_set = dataset['train'].filter(lambda example: example['label'] > neu_label)
 
     logging.info(f"检查数据量 Selected {len(neg_train_set)} negative, {len(pos_train_set)} positive, and {len(neu_train_set)} neutral samples")
-    assert 'validation' in dataset.keys() and "test" in dataset.keys(),"数据集不兼容"
-    
-    val_set=dataset['validation']
-    test_set=dataset["test"]
+    if 'validation' in dataset.keys() and "test" in dataset.keys():
+        val_set=dataset['validation']
+        test_set=dataset["test"]
+    else:
+        val_set=None
+        test_set=None
+        logging.info("数据集不兼容，没有验证数据集，但是不影响")
     return neg_train_set, pos_train_set, neu_train_set,val_set,test_set
 
 def load_and_prepare_debate_triple_dataset(dataset_path: str, seed: int):
@@ -152,3 +155,11 @@ def load_and_prepare_polite_prompts(test_set):
     pos_prompts = test_set.filter(lambda example: example['label'] == 2)['text']
     neg_prompts = test_set.filter(lambda example: example['label'] == 0)['text']
     return pos_prompts, neg_prompts
+
+
+def load_and_prepare_debate_prompts(prompt_path:str,task:str):
+    assert task in ["debate"],"请输入正确的任务"
+    prompts = load_dataset(prompt_path)
+    sup_train_set = prompts['test'].filter(lambda example: example['label'] == 'support')
+    opp_train_set = prompts['test'].filter(lambda example: example['label'] == 'oppose')
+    return sup_train_set['text'],opp_train_set['text']
