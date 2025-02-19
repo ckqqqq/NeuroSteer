@@ -17,7 +17,7 @@ import numpy as np
 import argparse
 import logging
 
-from data_preprocess import load_and_prepare_triple_dataset,load_and_prepare_COT_dataset,load_and_prepare_debate_triple_dataset
+from data_preprocess import load_and_prepare_triple_dataset,load_and_prepare_COT_dataset,load_and_prepare_debate_triple_dataset, load_and_prepare_polite_dataset
 from utils import load_environment
 import time
 # from sae_lens.analysis.neuronpedia_integration import get_neuronpedia_quick_list
@@ -152,21 +152,10 @@ elif "toxicity"==TASK:
     print(neg_train_set)
 elif "polite"==TASK:
     logging.info("polite"*10)
-    neg_train_set, pos_train_set, neu_train_set,val_set,test_set=load_and_prepare_triple_dataset(
-        dataset_path=args.dataset_path,
-        dataset_name=TASK, 
-        seed=args.seed, 
-        # polar_list=[args.source,args.target]
-        )
+    pos_train_set, neg_train_set, neu_train_set, polite_test_set = load_and_prepare_polite_dataset(args.dataset_path, args.seed)
 elif "debate"==TASK:
     logging.info("debate"*10)
-    # 泽凯处理
-    # 赞同用pos， 反对用neg就行，和后面代码基本统一
-    
-    sup_train_set, opp_train_set,val_set,test_set=load_and_prepare_debate_triple_dataset(args.dataset_path, args.seed)
-    logging.info("suppoert==positive opposite==negative")
-    pos_train_set=sup_train_set
-    neg_train_set=opp_train_set
+    pos_train_set, neg_train_set,val_set,test_set = load_and_prepare_debate_triple_dataset(args.dataset_path, args.seed)
 else:
     raise ValueError("No Supported")
 
@@ -415,7 +404,7 @@ if args.debug==1:
 ########################################################### apply_control
 # Generate without steering
 
-from apply_control import run_generate
+from intervention_generation import run_generate
 logging.info("Generating texts **without** steering... ")
 logging.info("无转向结果")
 
@@ -484,17 +473,22 @@ def eval_on_full_data():
         logging.info("Out of Domain: Calculate at A dataset, Evaluate at B dataset")
         from data_preprocess import load_and_prepare_sentiment_prompts
         prompts=load_and_prepare_sentiment_prompts(prompt_path=args.prompt_path,task=TASK)
-    elif TASK=="politeness":
-        logging.info("In Domain: Calculate at A dataset, Evaluate at B dataset")
-        prompts=load_and_prepare_debate_triple_dataset(pormpt_path=args.prompt_path,sample=args.seed)
-        
+    elif TASK=="polite":
+        logging.info("In Domain: Calculate at A train dataset, Evaluate at A test dataset")
+        from data_preprocess import load_and_prepare_polite_prompts
+        prompts=load_and_prepare_polite_prompts(test_set=polite_test_set)
     elif TASK=="toxicity":
         logging.info("Out of Domain: Calculate at A dataset, Evaluate at B dataset")
         from data_preprocess import load_and_prepare_toxicity_prompts 
         prompts=load_and_prepare_toxicity_prompts(prompt_path=args.prompt_path,task=TASK)
+    elif TASK=="debate":
+        logging.info("Out of Domain: Calculate at A dataset, Evaluate at B dataset")
+        from data_preprocess import load_and_prepare_debate_prompts
+        prompts=load_and_prepare_debate_prompts(prompt_path=args.prompt_path,task=TASK)
     else:
         raise NotImplementedError("No Supported Task")    
-    assert "neu" in prompts,"prompt steer source (pos/neg) not in prompts, please check the data_preprocess section"
+    print(prompts)
+    assert "neg" in prompts,"prompt steer source (pos/neg) not in prompts, please check the data_preprocess section"
     if args.prompt_source!="":
         logging.info(f"prompt的极性是{args.prompt_source}")
         prompts=prompts[args.prompt_source]

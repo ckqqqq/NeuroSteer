@@ -64,26 +64,23 @@ def load_and_prepare_debate_triple_dataset(dataset_path: str, seed: int):
     test_set = dataset["test"]
     return sup_train_set, opp_train_set, val_set, test_set
 
-def load_and_prepare_polite_dataset(dataset_path: str, seed: int, dataset_size: int):
+def load_and_prepare_polite_dataset(dataset_path: str, seed: int):
     logging.info(f"Loading dataset from {dataset_path}")
     dataset = load_dataset(dataset_path)
     dataset["train"] = dataset['train'].shuffle(seed=seed)
-    if dataset_size > 0:
-        dataset["train"] = dataset["train"].select(range(dataset_size))
-    
+    print(dataset['train'])
     total_samples = len(dataset['train'])
-    val_set = dataset['train'].select(range(total_samples//2, total_samples - total_samples//4))
     test_set = dataset['train'].select(range(total_samples - total_samples//4, total_samples))
-    train_set = dataset['train'].select(range(total_samples//2))
-    print(train_set,val_set,test_set)
-    
+    train_set = dataset['train'].select(range(total_samples - total_samples//4))
+
     logging.info("Filtering dataset for polite and nonpolite samples")
     pos_train_set = train_set.filter(lambda example: example['label'] == 2)
+    neu_train_set = train_set.filter(lambda example: example['label'] == 1)
     neg_train_set = train_set.filter(lambda example: example['label'] == 0)
     
     logging.info(f"Selected {len(pos_train_set)} polite and {len(neg_train_set)} nonpolite samples")
-    assert len(val_set) != 0 and len(test_set) != 0 and len(pos_train_set) != 0 and len(neg_train_set) != 0, "数据集不兼容"
-    return pos_train_set, neg_train_set, val_set, test_set
+    assert len(test_set) != 0 and len(pos_train_set) != 0 and len(neg_train_set) != 0 and len(neu_train_set) != 0, "数据集不兼容"
+    return pos_train_set, neg_train_set, neu_train_set, test_set
 
 
 def load_and_prepare_COT_dataset(dataset_path:str,seed:int):
@@ -145,21 +142,40 @@ def load_and_prepare_toxicity_prompts(prompt_path:str,task:str):
     return prompts
 
 def load_and_prepare_debate_prompts(prompt_path:str,task:str):
+    """debate==stance forgive my shit-level english
+
+    Args:
+        prompt_path (str): _description_
+        task (str): _description_
+
+    Returns:
+        _type_: _description_
+    """
     assert task in ["debate"],"请输入正确的任务"
+    logging.info(f"Loading prompt_path from {prompt_path}")
     prompts = load_dataset(prompt_path)
     sup_train_set = prompts['test'].filter(lambda example: example['label'] == 'support')
     opp_train_set = prompts['test'].filter(lambda example: example['label'] == 'oppose')
-    return sup_train_set['text'],opp_train_set['text']
+    def transform_example(example):
+        return {'prompt': {'text': example['text'][:50] if len(example['text'])>=50 else example['text']}}
+
+    classified_prompts = {
+        "pos": sup_train_set.map(transform_example).remove_columns(['text']),
+        "neg": opp_train_set.map(transform_example).remove_columns(['text'])
+    }
+    return classified_prompts
+    
 
 def load_and_prepare_polite_prompts(test_set):
-    pos_prompts = test_set.filter(lambda example: example['label'] == 2)['text']
-    neg_prompts = test_set.filter(lambda example: example['label'] == 0)['text']
-    return pos_prompts, neg_prompts
-
-
-def load_and_prepare_debate_prompts(prompt_path:str,task:str):
-    assert task in ["debate"],"请输入正确的任务"
-    prompts = load_dataset(prompt_path)
-    sup_train_set = prompts['test'].filter(lambda example: example['label'] == 'support')
-    opp_train_set = prompts['test'].filter(lambda example: example['label'] == 'oppose')
-    return sup_train_set['text'],opp_train_set['text']
+    logging.info(f"Spliting prompt from {test_set}")
+    def transform_example(example):
+        return {'prompt': {'text': example['text'][:50] if len(example['text'])>=50 else example['text']}}
+    pos_prompts = test_set.filter(lambda example: example['label'] == 2)
+    neu_prompts = test_set.filter(lambda example: example['label'] == 1)
+    neg_prompts = test_set.filter(lambda example: example['label'] == 0)
+    classified_prompts = {
+        "pos": pos_prompts.map(transform_example).remove_columns(['text']),
+        "neu": neu_prompts.map(transform_example).remove_columns(['text']),
+        "neg": neg_prompts.map(transform_example).remove_columns(['text'])
+    }
+    return classified_prompts

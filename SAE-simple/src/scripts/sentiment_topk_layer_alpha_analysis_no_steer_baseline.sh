@@ -20,9 +20,9 @@ DEBUG=0  # 不是布尔值
 set -x
 
 # 修正TOPK循环：使用空格分隔的列表替代逗号分隔字符串
-TOPK_VALUES=(1000)
+# TOPK_VALUES=(1000)
 
-for TOPK in "${TOPK_VALUES[@]}"; do
+for TOPK in {1000..1000}; do
   for LAYER in {0..0}; do  # 共12层（0-11）
     /home/ckqsudo/miniconda3/envs/SAE/bin/python main_control_LLM_v2.py \
       --task $TASK \

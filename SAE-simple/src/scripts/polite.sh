@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Root path of project
-cd /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src
+cd /home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/SAE-simple/src
 
 # GPU id
 export CUDA_VISIBLE_DEVICES=3
@@ -9,13 +9,12 @@ export CUDA_VISIBLE_DEVICES=3
 TASK="polite"
 DATASET_PATH="/home/ckqsudo/code2024/0dataset/ACL_useful_dataset/style_transfer/politeness-corpus"
 PROMPT_PATH="/home/ckqsudo/code2024/0dataset/ACL_useful_dataset/style_transfer/politeness-corpus"
-ALPHA=1
+ALPHA=10
 TOPK=150
 LLM="gpt2-small"
 LAYER=6
 
-DEBUG=1  # 不是布尔值
-
+DEBUG=0
 
 # Enable command trace for debugging
 set -x
@@ -35,7 +34,8 @@ set -x
   --batch_size 32 \
   --source "pos" \
   --target "neg" \
-  --prompt_source "neg" \
+  --prompt_source "pos" \
+  --prompt_data_size 100 \
   --mean_type 'dif_mean' \
   --steer_type 'all' \
   --output_dir "./results/polite/" \
@@ -51,15 +51,5 @@ set -x
   # --max_new_tokens 30\
   # --is_norm_delta_matrix 0\ 
   
-
-
-## TO 孙泽凯 
-# data_size改为-1 跑全量
-#   --source "neu" \ 实现中性到正向的扭转
-  # --target "pos" \ 
-
-# 这是COT的测试prompt,COT不能用gpt """ Q: Cody goes to the store and buys $40 worth of stuff.  The taxes were 5%.  After taxes, he got an $8 discount.  Cody and his friend split the final price equally. How much did Cody pay?
-# # A:"""
-# Disable command trace
 
 set +x

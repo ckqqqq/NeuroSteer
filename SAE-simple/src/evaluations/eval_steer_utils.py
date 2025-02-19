@@ -224,3 +224,110 @@ def sentiment_classify(gens_df, sentiment_file=None,sentiment_classifier_path=No
         pos_std_list.append(np.std(pos_ratio[:,i]))
         
     return np.mean(np.array(pos_ratio_list)), np.mean(np.array(pos_std_list))
+
+
+def get_qwen_eval(text:str, task:str):
+    from dotenv import load_dotenv
+    from openai import OpenAI
+    import os
+    load_dotenv()
+    qwen_api_key = os.getenv('DASHSCOPE_API_KEY')
+    classification_prompt_debate = "You are a helpful assistant, you need to help me determine the stance of a given sentence, You need to guess whether this sentence is expressing a positive support for something or a negative opposition. Your answer can only be one of the two words 'support' or 'oppose'."
+    classification_prompt_polite = "You need to help me determine whether a sentence is polite. If the sentence uses polite language or a gentle tone, it is considered polite. If the sentence uses rude words or profanity, or if the tone is abrupt and impatient, it is considered impolite. If you think this sentence is polite, please answer 'Yes'. If you think this sentence is impolite, please answer 'No'. If you think this sentence has no bias, please answer 'Neutral'. Your output can only be one of the three words' Yes', 'No', and 'Neutral'."
+    if task == 'debate':
+        prompt = classification_prompt_debate
+    elif task == 'polite':
+        prompt = classification_prompt_polite
+    else:
+        raise ValueError("TASK must be 'debate' or 'polite'")
+    client = OpenAI(api_key=qwen_api_key, base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
+    response = client.chat.completions.create(
+        model="qwen-max",
+        messages=[
+            {"role": "system", "content": prompt},
+            {"role": "user", "content": text},
+        ],
+        stream=False
+    )
+    return response.choices[0].message.content
+
+def stance_eval(gens_df,stance_file=None):
+    if stance_file is not None:
+        fo = open(stance_file, 'w')
+    pos_ratio_list = []
+    for i, row in tqdm(gens_df.iterrows(), total=len(gens_df.index), desc='Evaluating generation stance'):
+        prompt = row['prompt']['text']
+        for gen in row["generations"]:
+            if prompt in gen['text']:
+                generation_text=gen['text'][len(prompt):]
+            else:
+                generation_text=gen['text']
+        while True:
+            try:
+                prediction_for_stance = get_qwen_eval(generation_text, 'debate')
+                gen["stance_prediction"] = prediction_for_stance
+                if gen["stance_prediction"] == 'support' or gen["stance_prediction"].startswith('support'):
+                    pos_ratio_list.append(1)
+                elif gen["stance_prediction"] == "oppose"or gen["stance_prediction"].startswith('oppose'):
+                    pos_ratio_list.append(0)
+                else:
+                    raise ValueError(prediction_for_stance)
+                break
+            except ValueError as e:
+                print(f"Caught ValueError: {e}. Retrying...")
+                continue
+            except Exception as e:
+                print(f"Error: {e}. Exiting the loop.")
+                break
+        
+    if stance_file is not None:
+        for i, row in tqdm(gens_df.iterrows(), total=len(gens_df.index)):
+            fo.write(json.dumps(row.to_dict()) + '\n')
+
+    pos_ratio=np.array(pos_ratio_list)
+    return np.mean(pos_ratio), np.std(pos_ratio)
+
+def polite_eval(gens_df,polite_file=None, target='positive'):
+    if polite_file is not None:
+        fo = open(polite_file, 'w')
+    target_ratio_list = []
+    for i, row in tqdm(gens_df.iterrows(), total=len(gens_df.index), desc='Evaluating generation polite'):
+        prompt = row['prompt']['text']
+        for gen in row["generations"]:
+            if prompt in gen['text']:
+                generation_text=gen['text'][len(prompt):]
+            else:
+                generation_text=gen['text']
+        while True:
+            try:
+                prediction_for_stance = get_qwen_eval(generation_text, 'polite')
+                gen["polite_prediction"] = prediction_for_stance
+                if target == 'positive':
+                    if gen["polite_prediction"] == 'Yes' or gen["polite_prediction"].startswith('Yes'):
+                        target_ratio_list.append(1)
+                    elif gen["polite_prediction"] == "No" or gen["polite_prediction"].startswith('No') or gen["polite_prediction"] == "Neutral" or gen["polite_prediction"].startswith('Neutral'):
+                        target_ratio_list.append(0)
+                    else:
+                        raise ValueError(prediction_for_stance)
+                elif target == 'negative':
+                    if gen["polite_prediction"] == 'No' or gen["polite_prediction"].startswith('No'):
+                        target_ratio_list.append(1)
+                    elif gen["polite_prediction"] == "Yes" or gen["polite_prediction"].startswith('Yes') or gen["polite_prediction"] == "Neutral" or gen["polite_prediction"].startswith('Neutral'):
+                        target_ratio_list.append(0)
+                    else:
+                        raise ValueError(prediction_for_stance)
+                break
+            except ValueError as e:
+                print(f"Caught ValueError: {e}. Retrying...")
+                continue
+            except Exception as e:
+                print(f"Error: {e}. Exiting the loop.")
+                break
+        
+    if polite_file is not None:
+        for i, row in tqdm(gens_df.iterrows(), total=len(gens_df.index)):
+            fo.write(json.dumps(row.to_dict()) + '\n')
+
+    target_ratio=np.array(target_ratio_list)
+    return np.mean(target_ratio), np.std(target_ratio)
+

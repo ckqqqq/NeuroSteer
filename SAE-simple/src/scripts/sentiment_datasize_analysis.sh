@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Root path of project
-cd /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src
+cd /home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/SAE-simple/src
 
 # GPU id
 export CUDA_VISIBLE_DEVICES=1

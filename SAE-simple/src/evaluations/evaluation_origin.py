@@ -13,7 +13,7 @@ gpt2_path="/home/ckqsudo/code2024/0models/gpt-2-openai/gpt-2-openai"
 sentiment_classifier_path='/home/ckqsudo/code2024/0models/sentiment-roberta-large-english'
 import click
 
-from eval_steer_utils import toxicity_score, sentiment_classify
+from eval_steer_utils import toxicity_score, sentiment_classify, stance_eval, polite_eval, get_qwen_eval
 from eval_text_utils import conditional_perplexity, distinctness
 
 @click.command()
@@ -56,12 +56,41 @@ def main(gen_file, out_file, metrics, del_end_of_sentence, end_of_sentence,env_p
     fo = open(out_dir / out_file, 'w') #just creating the file
     fo.close()
     
+    # evaluate sentiment positivity
     if 'sentiment' in metricset:
         print("sentiment") #c1
         sentiment_accuracy, sentiment_std = sentiment_classify(gens_df, sentiment_file=out_dir / (out_file+".sentiment"), sentiment_classifier_path=sentiment_classifier_path)
         with open(out_dir / out_file, 'a') as fo:
             fo.write(f'mean sentiment accuracy = {sentiment_accuracy}, {sentiment_std}\n')
             print(f'mean sentiment accuracy = {sentiment_accuracy}, {sentiment_std}')
+
+    # evaluate toxicity max and prob
+    if 'toxicity' in metricset:
+        print("toxicity")
+        (avg_max, toxic_probability) = toxicity_score(gens_df,
+                                                      perspective_file=out_dir / (out_file+".toxicity"),
+                                                      env_path=env_path)
+        with open(out_dir / out_file, 'a') as fo:
+            fo.write(f'avg_max = {avg_max}, toxicity prob={toxic_probability}\n')
+            print(f'avg_max = {avg_max}, toxicity prob={toxic_probability}\n')
+
+    # evaluate stance
+    if 'stance' in metricset:
+        print("stance")
+        stance_accuracy, stance_std = stance_eval(gens_df, stance_file=out_dir / (out_file+".stance"))
+        with open(out_dir / out_file, 'a') as fo:
+            fo.write(f'mean stance support ratio = {stance_accuracy}, {stance_std}\n')
+            print(f'mean stance support ratio = {stance_accuracy}, {stance_std}')
+    
+    # evaluate polite
+    if 'polite-pos' in metricset or 'polite-neg' in metricset:
+        print("polite")
+        target = 'positive' if 'polite-pos' in metricset else 'negative'
+        polite_accuracy, polite_std = polite_eval(gens_df, polite_file=out_dir / (out_file+".polite"), target=target)
+        with open(out_dir / out_file, 'a') as fo:
+            fo.write(f'mean polite {target} ratio = {polite_accuracy}, {polite_std}\n')
+            print(f'mean polite {target} ratio = {polite_accuracy}, {polite_std}')
+
     if "ppl-big" in metricset: #GPT2-XL
         print("big")
 
@@ -75,8 +104,6 @@ def main(gen_file, out_file, metrics, del_end_of_sentence, end_of_sentence,env_p
         with open(out_dir / out_file, 'a') as fo:
             fo.write(f'gpt2 perplexity, gpt2 total perplexity = {ppl}, {total_ppl}\n')
             print(f'gpt2 perplexity, gpt2 total perplexity = {ppl}, {total_ppl}\n')
-
-
     if "ppl-own" in metricset: #GPT2-Large
         print("own")
         eval_model = AutoModelForCausalLM.from_pretrained(gpt2_path).to(device)
@@ -102,15 +129,6 @@ def main(gen_file, out_file, metrics, del_end_of_sentence, end_of_sentence,env_p
         with open(out_dir / out_file, 'a') as fo:
             fo.write(f'gpt2 perplexity, gpt2 total perplexity = {ppl}, {total_ppl}\n')
             print(f'gpt2 perplexity, gpt2 total perplexity = {ppl}, {total_ppl}\n')
-
-    if 'toxicity' in metricset:
-        print("toxicity")
-        (avg_max, toxic_probability) = toxicity_score(gens_df,
-                                                      perspective_file=out_dir / (out_file+".toxicity"),
-                                                      env_path=env_path)
-        with open(out_dir / out_file, 'a') as fo:
-            fo.write(f'avg_max = {avg_max}, toxicity prob={toxic_probability}\n')
-            print(f'avg_max = {avg_max}, toxicity prob={toxic_probability}\n')
 
     ### calculate diversity
     # dist-n

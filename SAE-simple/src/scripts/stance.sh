@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Root path of project
-cd /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src
+cd /home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/SAE-simple/src
 
 # GPU id
 export CUDA_VISIBLE_DEVICES=3
@@ -10,16 +10,17 @@ export CUDA_VISIBLE_DEVICES=3
 TASK="debate"
 # 哎，泽凯，注意是debate
 DATASET_PATH="/home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences"
-PROMPT_PATH="/home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate"
+PROMPT_PATH="/home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences" 
+# prompt直接用的stancesententce里面的test集
 ALPHA=15
 LLM="gpt2-small"
-DEBUG=1  # 不是布尔值
+DEBUG=0  # 不是布尔值
 
 # Enable command trace for debugging
 set -x
 
 # 修正TOPK循环：使用空格分隔的列表替代逗号分隔字符串
-TOPK_VALUES=(100)
+TOPK_VALUES=(150)
 
 for TOPK in "${TOPK_VALUES[@]}"; do
   for LAYER in {6..6}; do  # 共12层（0-11）

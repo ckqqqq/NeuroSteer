@@ -1,6 +1,0 @@
-numpy==1.25.1
-openai==1.54.4
-python-dotenv==1.0.1
-sympy==1.13.1
-torch==2.5.1+cu121
-transformers==4.46.2

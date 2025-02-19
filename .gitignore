@@ -46,10 +46,17 @@ trash_bin/
 .idea.*
 .vagrant
 .vagrant.*
-
-
+# ckq personal
+**/waste_*/
+**/scripts_refer*
+**/test_LM*/
+*.cache
+**/refer_scripts
 # personal
-**/data
+*.zip
+*.lock
+*.npy
+*.pkl
 *.json
 *.npy
 **/*.npy
@@ -60,5 +67,9 @@ trash_bin/
 *.txt
 *.png
 *.jpg
+*.pt
+*.pth
+*.bin
+*.safetensors
 activations_data/*
 activations_data/qwen2.5-7_truthful_qa_judge_activations/mlp_output_activations.npy
