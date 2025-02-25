@@ -31,14 +31,14 @@ set -x
   --method "val_mul" \
   --data_size -1 \
   --topk_cnt $TOPK \
-  --batch_size 32 \
+  --batch_size  16\
   --source "pos" \
   --target "neg" \
   --prompt_source "pos" \
   --prompt_data_size 100 \
   --mean_type 'dif_mean' \
   --steer_type 'all' \
-  --output_dir "./results/polite/" \
+  --output_dir "./results/waste_/" \
   --dataset_path $DATASET_PATH \
   --prompt_path $PROMPT_PATH \
   --env_path "/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env" \

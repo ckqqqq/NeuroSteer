@@ -5,7 +5,7 @@ import logging
 import os
 import pickle
 # import partial
-def load_or_cache_steer_info(CACHE_DIR,args,cache_filename, compute_func):
+def load_or_cache_neuron_info(CACHE_DIR,args,cache_filename, compute_func):
     """
     加载或计算 steer_info 的缓存机制
 

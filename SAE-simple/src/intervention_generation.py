@@ -16,7 +16,7 @@ def steering_hook(resid_pre, hook,steer_on, alpha, delta_h,steer_type="last"):
             # 对最后一个token前的部分应用干预，使用给定的 delta_matrix
             resid_pre[:, :-1, :] += alpha * delta_h# best
             # 如果提前干预效果会更好更连贯
-        elif steer_type == "gaussian":
+        elif steer_type == "gaussian": # fail exploration
             # 使用高斯卷积对输入进行干预
             from utils import half_gaussian_kernel
             d_m=torch.clone(delta_h)

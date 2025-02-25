@@ -1,8 +1,12 @@
 #!/bin/bash
 
 # Root path of project
-cd /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src
-
+# 获取脚本所在文件父文件夹的路径
+root_dir=$(dirname "$(dirname "$(realpath "$0")")")
+echo "root_dir: $root_dir"
+# $root_dir/scripts
+# Root path of project
+cd $root_dir
 # GPU id
 export CUDA_VISIBLE_DEVICES=3
 
@@ -39,10 +43,10 @@ for TOPK in "${TOPK_VALUES[@]}"; do
       --prompt_data_size -1 \
       --mean_type 'dif_mean' \
       --steer_type 'all' \
-      --output_dir "./results/sentiment_analysis/sentiment_grid_analysis_2_9_szk" \
+      --output_dir "./results/waste_/" \
       --dataset_path $DATASET_PATH \
       --prompt_path $PROMPT_PATH \
-      --env_path "/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env" \
+      --env_path $root_dir"/.env" \
       --save_no_steer 0 \
       --debug $DEBUG \
       --use_cache 0 \

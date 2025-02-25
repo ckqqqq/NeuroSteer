@@ -37,7 +37,7 @@ import time
 # )
 # import plotly_express as px
 
-
+########################################################################################## Params
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--task', type=str, default='sentiment',choices=['sentiment','cot','polite','toxicity','debate'], help='Task type: sentiment, cot, polite')
@@ -62,7 +62,7 @@ parser.add_argument('--steer_type', type=str, default="last",choices=['all','las
 parser.add_argument('--output_dir', type=str, default='./results', help='Output directory')
 parser.add_argument('--dataset_path', type=str, default="/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5", help='Dataset path')
 parser.add_argument('--prompt_path', type=str, default="/home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k", help='Prompt path')
-parser.add_argument('--env_path', type=str, default="/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env", help='Environment path')
+parser.add_argument('--env_path', type=str, default=".env", help='Environment path')
 # 解码参数
 parser.add_argument("--temperature", type=float, default=0.9, help='Sampling temperature for generation')
 parser.add_argument("--top_p", type=float, default=0.3, help='Top-p (nucleus) sampling parameter')
@@ -78,18 +78,16 @@ parser.add_argument("--repeat_num", type=int,default=2, choices=[0, 1,2,3,4,5], 
 parser.add_argument("--gen_batch_size",type=int,default=1, help='批量生成的时候生成batch大小，基于显卡调整')
 # 注意：不去使用则覆写！
 args = parser.parse_args()
-
-####################################################################################setup
-# sampling_kwargs = dict(temperature=args.temperature,top_p=0.3, freq_penalty=1.0)
-# 将 sampling_kwargs 直接构建为字典
 sampling_kwargs = {
     "temperature": args.temperature,
     "top_p": args.top_p,
     "freq_penalty": args.freq_penalty,
 }
-
-
 sampling_kwargs['verbose']=False
+load_environment(args.env_path)
+#################################################################################### Experiment Setup 
+# sampling_kwargs = dict(temperature=args.temperature,top_p=0.3, freq_penalty=1.0)
+# 将 sampling_kwargs 直接构建为字典
 
 EXAMPLE_PROMPT_LIST=str(args.example_prompt).split("|")
 assert isinstance(EXAMPLE_PROMPT_LIST,list) and isinstance(EXAMPLE_PROMPT_LIST[0],str),"EXAMPLE_PROMPT_LIST必须是list[str]"
@@ -125,9 +123,9 @@ setup_logging(OUTPUT_DIR)
 from utils import params_to_dict
 hyperparams = params_to_dict(args,is_print=True)
 # Load Environment Variables
-load_environment(args.env_path)
+
 # %%
-####################################################################### task
+####################################################################### LOAD DATASET
 logging.info("dataset path "+args.dataset_path)
 if TASK=="sentiment":
     neg_train_set, pos_train_set, neu_train_set,val_set,test_set = load_and_prepare_triple_dataset(
@@ -161,53 +159,18 @@ else:
 
 
 
-
+####################################################################### LOAD SAE LM TOKENIZER
 logging.info(f"Loading Model Loading SAE for layer {args.layer} {args.LLM}")
-if "llama" in args.LLM:
-    logging.info(f"Loading model: {args.LLM}")
-    sae, cfg_dict, sparsity = SAE.from_pretrained(
-        release="meta-llama/Meta-Llama-3.1-8B",
-        sae_id=f"blocks.{args.layer}.hook_resid_pre",
-        device=args.device
-    )
-    model = HookedTransformer.from_pretrained("meta-llama/Meta-Llama-3.1-8B", device=args.device)
-    logging.info(f"model architecture for {args.LLM} {model}")
-
-elif "gemma-2-2b" in args.LLM:
-    tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b")
-    sae, cfg_dict, sparsity = SAE.from_pretrained(
-        release = "gemma-scope-2b-pt-res-canonical",
-        sae_id = "layer_0/width_16k/canonical",
-        device=args.device)
-    logging.info(f"Loading model: {args.LLM}")
-    model = HookedTransformer.from_pretrained(args.LLM, device=args.device)
-elif "gemma-2b" in args.LLM:
-    logging.info(f"Loading model: {args.LLM}")
-    sae, cfg_dict, _ = SAE.from_pretrained(
-        release=f"{args.LLM}-res-jb", sae_id=f"blocks.{args.layer}.hook_resid_pre", device=args.device
-    )
-    model = HookedTransformer.from_pretrained(args.LLM, device=args.device)
-    logging.info(f"model architecture for {args.LLM} {model}")
-elif "gpt2-small" in args.LLM:
-    logging.info(f"Loading model: {args.LLM} SAE gpt2-small-res-jb")
-    sae, cfg_dict, sparsity = SAE.from_pretrained(
-        release=f"{args.LLM}-res-jb",
-        sae_id=f"blocks.{args.layer}.hook_resid_pre",
-        device=args.device
-    )
-    
-    tokenizer = AutoTokenizer.from_pretrained("gpt2")
-    # 设置填充标记为 EOS token
-    tokenizer.pad_token = tokenizer.eos_token
-    model = HookedTransformer.from_pretrained(args.LLM, device=args.device,tokenizer=tokenizer)
-    # tokenizer = AutoTokenizer.from_pretrained(args.LLM)
-else:
-    raise ValueError("No Supported")
+from model_preprocess import load_models
+model,sae,tokenizer=load_models(
+    LLM=args.LLM,
+    layer=args.layer,
+    device=args.device)
 logging.info(f"model architecture for {args.LLM} {model} {tokenizer}")
-##########################################################################Collection
+########################################################################## Neuron Selection
 start_train_time=time.time()
-def analyze_latents(batch_latents: Tensor, top_k_mean: int = 100, top_k_cnt: int = 100) -> Tuple[Tensor, Tensor, Tensor]:
-    """分析latents支持批次处理
+def neuron_statistics(batch_latents: Tensor) -> Tuple[Tensor, Tensor, Tensor]:
+    """用于去噪和推理
 
     Args:
         batch_latents (Tensor): _description_
@@ -257,11 +220,9 @@ def SAE_encoding(sae: SAE, model: HookedTransformer, texts: list, hook_point: st
                 raise ValueError(str([len(i) for i in batch_texts]))
             batch_hidden_states = cache[hook_point]
             # logging.info(f"Batch {i // batch_size + 1}: Hidden states shape: {batch_hidden_states.shape}")
-
-            # logging.info(f"Encoding hidden states for batch {i // batch_size + 1}")
-            # 假设 sae.encode 支持批量编码
+            # batch statistics
             batch_latents = sae.encode(batch_hidden_states)  # 形状: (batch_size, latent_dim)
-            batch_info=analyze_latents(batch_latents)
+            batch_info=neuron_statistics(batch_latents)
             lat_freq=lat_freq+batch_info["latent_frequency"].to("cpu")
             lat_val_sum=lat_val_sum+batch_info["latent_value_sum"].to("cpu")
     lat_val_mean=torch.where(lat_freq != 0, lat_val_sum / lat_freq, torch.tensor(0.0, device="cpu"))
@@ -272,7 +233,7 @@ def SAE_encoding(sae: SAE, model: HookedTransformer, texts: list, hook_point: st
 # %%
 # args.steer
 
-def get_activation_by_steer(texts:list):
+def neuron_selection(texts:list):
     hook_point = sae.cfg.hook_name
     # Compute latents with batch processing
     lat_info=SAE_encoding(sae, model, texts, hook_point, args.device, args.batch_size)
@@ -283,7 +244,7 @@ def get_activation_by_steer(texts:list):
 
 
 # 示例使用
-def compute_steer_info():
+def compute_neuron_info():
     global DATA_SIZE
     # 这里是原先的代码逻辑，计算 steer_info
     steer_info = {}
@@ -299,13 +260,13 @@ def compute_steer_info():
             
         if 'pos' in steer_polar_list:
             logging.info(f"positive")
-            steer_info["pos"] = get_activation_by_steer(pos_train_set["text"][:DATA_SIZE])
+            steer_info["pos"] = neuron_selection(pos_train_set["text"][:DATA_SIZE])
         if 'neg' in steer_polar_list:
             logging.info(f"negative")
-            steer_info["neg"] = get_activation_by_steer(neg_train_set["text"][:DATA_SIZE])
+            steer_info["neg"] = neuron_selection(neg_train_set["text"][:DATA_SIZE])
         if 'neu' in steer_polar_list:
             logging.info(f"neutral")
-            steer_info["neu"] = get_activation_by_steer(neu_train_set["text"][:DATA_SIZE])
+            steer_info["neu"] = neuron_selection(neu_train_set["text"][:DATA_SIZE])
     else:
         # 不包含neu的处理
         if DATA_SIZE=="ALL":
@@ -314,18 +275,18 @@ def compute_steer_info():
         if  TASK == 'debate':
             logging.info(":> Debate :from" + args.source + "to" + args.target)
             logging.info(f"support")
-            steer_info["pos"]=get_activation_by_steer(pos_train_set["text"][:DATA_SIZE])
+            steer_info["pos"]=neuron_selection(pos_train_set["text"][:DATA_SIZE])
             logging.info(f"oppose")
-            steer_info["neg"]=get_activation_by_steer(neg_train_set["text"][:DATA_SIZE])
+            steer_info["neg"]=neuron_selection(neg_train_set["text"][:DATA_SIZE])
         elif TASK == 'toxicity':
             logging.info(f":) Toxicity :from" + args.source + "to" + args.target)
 
-            steer_info["pos"] = get_activation_by_steer(pos_train_set["text"][:DATA_SIZE])
-            steer_info["neg"] = get_activation_by_steer(neg_train_set["text"][:DATA_SIZE])
+            steer_info["pos"] = neuron_selection(pos_train_set["text"][:DATA_SIZE])
+            steer_info["neg"] = neuron_selection(neg_train_set["text"][:DATA_SIZE])
         elif "cot" == TASK:
             logging.info(":) COT: from" + args.source + "to" + args.target)
-            steer_info["pos"] = get_activation_by_steer(pos_train_set["text"][:DATA_SIZE])
-            steer_info["neg"] = get_activation_by_steer(neg_train_set["text"][:DATA_SIZE])
+            steer_info["pos"] = neuron_selection(pos_train_set["text"][:DATA_SIZE])
+            steer_info["neg"] = neuron_selection(neg_train_set["text"][:DATA_SIZE])
         else:
             raise ValueError("Non support Task")
         
@@ -334,8 +295,8 @@ def compute_steer_info():
     return steer_info
 
 # 缓存到文件里面
-from utils import load_or_cache_steer_info
-steer_info = load_or_cache_steer_info(CACHE_DIR=CACHE_DIR,args=args,cache_filename=f"steer_info_cache_of_{args.LLM}_l{args.layer}.pkl", compute_func=compute_steer_info)
+from utils import load_or_cache_neuron_info
+steer_info = load_or_cache_neuron_info(CACHE_DIR=CACHE_DIR,args=args,cache_filename=f"{TASK}_neuron_info_cache_of_{args.LLM}_l{args.layer}.pkl", compute_func=compute_neuron_info)
 
 end_train_time=time.time()
 
@@ -345,15 +306,19 @@ assert bool(torch.all((steer_info[TARGET]["latent_value_mean"]-steer_info[SOURCE
 assert torch.all(steer_info[TARGET]["latent_value_mean"]>=0),"所有SAE的激活需要大于d等于0（maybe）"
 
 logging.info(f"转向方向 dif_{TARGET}-{SOURCE}_relu")
-steer_info[f"dif_{TARGET}-{SOURCE}_relu"]={"latent_frequency":torch.relu(steer_info[TARGET]["latent_frequency"]-steer_info[SOURCE]["latent_frequency"]),"latent_value_mean":torch.relu(steer_info[TARGET]["latent_value_mean"]-steer_info[SOURCE]["latent_value_mean"]),"target_nz_mean":torch.relu(steer_info[TARGET]["latent_value_mean"])}
 
+
+############################################################### denoising
 """
 nz_cnt: 神经元被激活的次数
 nz_mean: 神经元被激活后的平均值
 nz_mean_pos: 正样本神经元被激活后的平均值
 """
+steer_info[f"dif_{TARGET}-{SOURCE}_relu"]={"latent_frequency":torch.relu(steer_info[TARGET]["latent_frequency"]-steer_info[SOURCE]["latent_frequency"]),"latent_value_mean":torch.relu(steer_info[TARGET]["latent_value_mean"]-steer_info[SOURCE]["latent_value_mean"]),"target_nz_mean":torch.relu(steer_info[TARGET]["latent_value_mean"])}
 top_k=args.topk_cnt
 _,steer_indices=torch.topk(steer_info[f"dif_{TARGET}-{SOURCE}_relu"]["latent_frequency"],top_k)
+
+################################################################ Delta h
 
 # %%
 # 假设 steer_info[f"dif_{b}-{a}_relu"]["latent_frequency"] 是一个 NumPy 数组
@@ -392,16 +357,13 @@ if args.debug==1:
     logging.info("delta_matrix: "+str(delta_h[:5])) #理论上这里有正有负比较正常
 # %% [markdown]
 # # 这里得到的就是delta_matricx
-
-
-
 # Example prompt from the selected set
 # example_prompt = "What really matters is that they know"
 # example_prompt=""" Q: Cody goes to the store and buys $40 worth of stuff.  The taxes were 5%.  After taxes, he got an $8 discount.  Cody and his friend split the final price equally. How much did Cody pay?
 # A:"""
 
 
-########################################################### apply_control
+########################################################### apply_intervention (add delta h when generate)
 # Generate without steering
 
 from intervention_generation import run_generate
@@ -457,7 +419,8 @@ generated_texts_with_steer = run_generate(
 # # 下面进行的是扭转实验，使用prompt对模型进行诱导，再进行转向
 
 # %%
-args.prompt_path
+################################################################### EVAL ON FULL DATASET
+
 import copy
 # Example prompt from the selected set
 import jsonlines
