@@ -45,6 +45,7 @@ trash_bin/
 .idea
 .idea.*
 .vagrant
+*.0.jar
 .vagrant.*
 # ckq personal
 *.code-workspace
