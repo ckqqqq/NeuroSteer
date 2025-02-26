@@ -83,4 +83,4 @@ trash_bin/
 activations_data/*
 activations_data/qwen2.5-7_truthful_qa_judge_activations/mlp_output_activations.npy
 
-!**/demo_*/*
+!**/results/demo/*
