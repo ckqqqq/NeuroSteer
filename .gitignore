@@ -3,10 +3,10 @@
 **/node_modules
 **/.pnp
 **/.pnp.js
-
+**/baselines
 # testing
 **/coverage
-
+**/.git/objects
 # production
 **/build
 
@@ -67,11 +67,14 @@ trash_bin/
 *.txt
 *.png
 *.jpg
+*.xml
+*.pt
 *.zip
 *.pt
 *.pth
 *.log
 *.bin
+*.safetensors
 *.safetensors
 activations_data/*
 activations_data/qwen2.5-7_truthful_qa_judge_activations/mlp_output_activations.npy
