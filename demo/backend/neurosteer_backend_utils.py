@@ -4,9 +4,41 @@ from src.denoising import denosing
 from src.intervention_generation import run_generate, SAE_decoding
 
 from src.model_preprocess import load_models
-from demo.demo_utils import load_neuron_info, check_gpu
-from sae_lens import SAE
+from src.utils import load_or_cache_neuron_info
 
+from sae_lens import SAE
+import torch
+import os
+def check_gpu():
+    if torch.cuda.is_available():
+        print("GPU可用！")
+        return "cuda:0"
+    else:
+        print("GPU不可用！")
+        return "cpu"
+def load_neuron_info(demo_neuron_cache_floder):
+    caches_path=os.listdir(demo_neuron_cache_floder)
+    assert len(caches_path)==4,"four neuron caches are needed, including sentiment, toxicity, stance, and polite"
+    print(caches_path)
+    task_info=[]
+    for cache_path in caches_path:
+        info={}
+        info["model"]=cache_path.split("_")[0]
+        assert cache_path.split("_")[2]=="layer",("cache_path must contain layer")
+        assert cache_path.split("_")[-2]=="topK",("cache_path must contain topK") 
+        info["layer"]=int(cache_path.split("_")[3])
+        info["task"]=cache_path.split("_")[1]
+        info["topK"]=int(cache_path.split("_")[-1])
+        neuron_cache=[i for i in os.listdir(os.path.join(demo_neuron_cache_floder,cache_path)) if i.endswith(".pkl")]
+        assert len(neuron_cache)==1,"only one neuron cache is needed"
+        file=neuron_cache[0]
+        path=os.path.join(demo_neuron_cache_floder,cache_path)
+        neuron_info=load_or_cache_neuron_info(cache_dir=path,cache_filename=file,use_cache=True,compute_func=None)
+        info["neuron_info"]=neuron_info
+        task_info.append(info)
+        
+    assert len(set([(i["layer"],i["model"]) for i in task_info[:]]))==1,"layer and model must be the same"
+    return task_info
 
 
 def model_preprocess(LLM = "gpt2-small",layer = 6):

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from neuro_steer_backend import model_preprocess,delta_h,neuron_steer_generate
+from demo.backend.neurosteer_backend_utils import model_preprocess,delta_h,neuron_steer_generate
 # 定义请求体模型
 class RequestData(BaseModel):
     input_dict: dict  # 接收字典

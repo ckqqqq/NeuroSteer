@@ -1,11 +1,29 @@
-## AI4AI团队NLP小组团队协作
+## AI4AI 团队 NLP 小组团队协作
+
+DEMO Backend:
+
+```bash
+uvicorn demo.backend.main_fastapp_backend:app
+```
+
+DEMO Frontend:
+
+```bash
+streamlit run demo/frontend/main_streamlit_frontend.py
+```
+
+mmmm
+
 第一次使用
+
 ```bash
 git clone https://github.com/ckqqqq/Uncertainty.git
 将你的文件复制到这个文件夹下
 
 ```
+
 和团队其他人合并
+
 ```bash
 git pull # 拉取别人的代码，默认自动合并，如果有冲突，vscode会有提醒，请手动合并
 git add . # 将所在文件夹下的所有的文件 添加跟踪
@@ -14,7 +32,9 @@ git commit -m "simple English" # 你要提交的消息
 # git remote add origin https://github.com/ckqqqq/Uncertainty.git 第一次需要使用，如果是clone下来的不用
 git push -u origin main # 将本地的main分支提交到远程 origin 分支上，不要强制提交，记得开setproxy
 ```
+
 个人新分支的创建与合并
+
 ```bash
 # 各人也可以开一个自己的name_dev分支用于个人开发，随后合并到主分支上，便于最终代码的维护
 git checkout main    # 切换到 main 分支

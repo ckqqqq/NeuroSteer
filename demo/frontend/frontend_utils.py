@@ -1,7 +1,5 @@
-# from neuro_steer_backend import generate_response
 import requests
-import streamlit as st
-def response_generator(prompt,val_info):
+def response_request(prompt,val_info):
     trans={"sen":"sentiment","pol":"polite","sta":"debate","tox":"toxicity"}
     alphas={}
     for key,val in val_info.items():
@@ -19,6 +17,7 @@ def response_generator(prompt,val_info):
         }
     FASTAPI_URL = "http://localhost:8000/process"
     # 发送POST请求到FastAPI
+    print("response send",val_info)
     response = requests.post(FASTAPI_URL, json=payload)
     
     if response.status_code == 200:
@@ -28,4 +27,3 @@ def response_generator(prompt,val_info):
     else:
         response=f"请求失败，check backend: {response.status_code}"
     return response
-            
