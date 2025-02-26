@@ -1,3 +1,9 @@
+# /home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/results/demo/demo_v1/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100
+!**/results/demo/demo_v1/gpt*/**
+!**/results/demo/demo_v1/gpt*/**
+!**/results/demo/demo_v1/gpt*/**
+
+
 # webfront
 # dependencies
 **/node_modules
@@ -83,4 +89,3 @@ trash_bin/
 activations_data/*
 activations_data/qwen2.5-7_truthful_qa_judge_activations/mlp_output_activations.npy
 
-!**/results/demo/*
