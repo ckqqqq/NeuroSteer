@@ -67,6 +67,7 @@ trash_bin/
 *.txt
 *.png
 *.jpg
+*.zip
 *.pt
 *.pth
 *.log
