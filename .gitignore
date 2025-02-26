@@ -49,6 +49,8 @@ trash_bin/
 # ckq personal
 *.code-workspace
 **/waste_*/
+**/alpha*/
+**/gpt2-small_*/
 **/scripts_refer*
 **/test_LM*/
 *.cache
