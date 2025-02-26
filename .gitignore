@@ -69,7 +69,7 @@ trash_bin/
 *.jpg
 *.pt
 *.pth
-
+*.log
 *.bin
 *.safetensors
 activations_data/*
