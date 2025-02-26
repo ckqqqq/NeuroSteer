@@ -1,0 +1,54 @@
+2025-01-16 20:32:40,923 [INFO] Logging initialized. Logs will be saved to /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/evaluations/gen_files/alpha_500_from_pos_to_neg_datasize_1000_layer_6_mean_dif_mean_steertype_last_device_cuda_batchsize32/execution.log
+2025-01-16 20:32:40,923 [INFO] Hyperparameters:
+2025-01-16 20:32:40,923 [INFO]   layer: 6
+2025-01-16 20:32:40,923 [INFO]   LLM: gpt2-small
+2025-01-16 20:32:40,923 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-16 20:32:40,923 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-16 20:32:40,923 [INFO]   output_dir: ./results
+2025-01-16 20:32:40,923 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-16 20:32:40,923 [INFO]   task: sentiment
+2025-01-16 20:32:40,923 [INFO]   seed: 42
+2025-01-16 20:32:40,923 [INFO]   data_size: 1000
+2025-01-16 20:32:40,923 [INFO]   device: cuda
+2025-01-16 20:32:40,923 [INFO]   alpha: 500
+2025-01-16 20:32:40,923 [INFO]   method: val_mul
+2025-01-16 20:32:40,923 [INFO]   topk_mean: 100
+2025-01-16 20:32:40,923 [INFO]   topk_cnt: 100
+2025-01-16 20:32:40,923 [INFO]   batch_size: 32
+2025-01-16 20:32:40,923 [INFO]   source: pos
+2025-01-16 20:32:40,923 [INFO]   target: neg
+2025-01-16 20:32:40,923 [INFO]   mean_type: dif_mean
+2025-01-16 20:32:40,924 [INFO]   steer_type: last
+2025-01-16 20:32:40,924 [INFO]   save_compared: False
+2025-01-16 20:32:40,924 [INFO]   debug: False
+2025-01-16 20:32:40,924 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-16 20:32:40,924 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-16 20:32:40,924 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-16 20:32:40,924 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-16 20:32:41,020 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-16 20:32:41,027 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-16 20:32:41,027 [INFO] Hyperparameters:
+2025-01-16 20:32:41,028 [INFO]   layer: 6
+2025-01-16 20:32:41,028 [INFO]   LLM: gpt2-small
+2025-01-16 20:32:41,028 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-16 20:32:41,028 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-16 20:32:41,028 [INFO]   output_dir: ./results
+2025-01-16 20:32:41,028 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-16 20:32:41,028 [INFO]   task: sentiment
+2025-01-16 20:32:41,028 [INFO]   seed: 42
+2025-01-16 20:32:41,028 [INFO]   data_size: 1000
+2025-01-16 20:32:41,028 [INFO]   device: cuda
+2025-01-16 20:32:41,028 [INFO]   alpha: 500
+2025-01-16 20:32:41,028 [INFO]   method: val_mul
+2025-01-16 20:32:41,028 [INFO]   topk_mean: 100
+2025-01-16 20:32:41,028 [INFO]   topk_cnt: 100
+2025-01-16 20:32:41,028 [INFO]   batch_size: 32
+2025-01-16 20:32:41,028 [INFO]   source: pos
+2025-01-16 20:32:41,028 [INFO]   target: neg
+2025-01-16 20:32:41,028 [INFO]   mean_type: dif_mean
+2025-01-16 20:32:41,028 [INFO]   steer_type: last
+2025-01-16 20:32:41,028 [INFO]   save_compared: False
+2025-01-16 20:32:41,028 [INFO]   debug: False
+2025-01-16 20:32:41,028 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-16 20:32:41,028 [INFO] Loading model: gpt2-small
+2025-01-16 20:33:21,968 [INFO] Loading SAE for layer 6

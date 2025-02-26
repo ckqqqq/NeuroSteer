@@ -1,0 +1,234 @@
+2025-02-09 00:29:55,778 [INFO] Logging initialized. Logs will be saved to ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_5_datasize_ALL_batchsize32_topK_300/alpha_203.0_from_pos_to_neg_prompt_pos_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-09 00:29:55,778 [INFO] Show Hyperparameters: 
+
+
+2025-02-09 00:29:55,778 [INFO]   task: sentiment
+2025-02-09 00:29:55,778 [INFO]   layer: 5
+2025-02-09 00:29:55,778 [INFO]   LLM: gpt2-small
+2025-02-09 00:29:55,778 [INFO]   seed: 42
+2025-02-09 00:29:55,778 [INFO]   data_size: -1
+2025-02-09 00:29:55,778 [INFO]   device: cuda
+2025-02-09 00:29:55,778 [INFO]   alpha: 203.0
+2025-02-09 00:29:55,778 [INFO]   method: val_mul
+2025-02-09 00:29:55,778 [INFO]   topk_mean: 100
+2025-02-09 00:29:55,778 [INFO]   topk_cnt: 300
+2025-02-09 00:29:55,778 [INFO]   batch_size: 32
+2025-02-09 00:29:55,778 [INFO]   source: pos
+2025-02-09 00:29:55,778 [INFO]   target: neg
+2025-02-09 00:29:55,778 [INFO]   prompt_source: pos
+2025-02-09 00:29:55,778 [INFO]   prompt_data_size: 500
+2025-02-09 00:29:55,778 [INFO]   mean_type: dif_mean
+2025-02-09 00:29:55,778 [INFO]   steer_type: last
+2025-02-09 00:29:55,778 [INFO]   output_dir: ./results/sentiment_analysis/sentiment_grid_analysis_2_8
+2025-02-09 00:29:55,778 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-09 00:29:55,778 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-09 00:29:55,778 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-09 00:29:55,778 [INFO]   temperature: 0.9
+2025-02-09 00:29:55,778 [INFO]   top_p: 0.3
+2025-02-09 00:29:55,778 [INFO]   freq_penalty: 1.0
+2025-02-09 00:29:55,778 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-09 00:29:55,778 [INFO]   debug: 0
+2025-02-09 00:29:55,779 [INFO]   save_no_steer: 0
+2025-02-09 00:29:55,779 [INFO]   is_norm_delta_matrix: 0
+2025-02-09 00:29:55,779 [INFO]   use_cache: 0
+2025-02-09 00:29:55,779 [INFO]   repeat_num: 1
+2025-02-09 00:29:55,779 [INFO]   gen_batch_size: 16
+2025-02-09 00:29:55,779 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-09 00:29:55,779 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-09 00:29:55,779 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-09 00:29:55,779 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-09 00:29:55,901 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-09 00:29:55,906 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-09 00:29:55,906 [INFO] Loading Model Loading SAE for layer 5 gpt2-small
+2025-02-09 00:29:55,906 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-09 00:29:58,348 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-09 00:29:58,349 [INFO] 缓存 ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_5_datasize_ALL_batchsize32_topK_300/steer_info_cache_of_gpt2-small_l5.pkl 不存在，缓存 steer_info
+2025-02-09 00:29:58,370 [INFO] :>> Sentiment : from pos to neg
+2025-02-09 00:29:58,386 [INFO] positive
+2025-02-09 00:29:58,392 [INFO] Running model with cache to obtain hidden states
+2025-02-09 00:30:00,369 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-09 00:30:00,370 [INFO] negative
+2025-02-09 00:30:00,383 [INFO] Running model with cache to obtain hidden states
+2025-02-09 00:30:02,451 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-09 00:30:02,453 [INFO] steer_info 已保存到缓存 ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_5_datasize_ALL_batchsize32_topK_300/steer_info_cache_of_gpt2-small_l5.pkl
+2025-02-09 00:30:02,463 [INFO] 转向方向 dif_neg-pos_relu
+2025-02-09 00:30:02,485 [INFO] sae cfg.hook_name 挂载名称: blocks.5.hook_resid_pre
+2025-02-09 00:30:02,502 [INFO] Example prompt: ['But the lack of financial aid would', ' I feel ']
+2025-02-09 00:30:02,502 [INFO] Generating texts **without** steering... 
+2025-02-09 00:30:02,504 [INFO] 无干预
+2025-02-09 00:30:03,773 [INFO] 当前批次共处理2个prompt
+2025-02-09 00:30:03,773 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-09 00:30:03,773 [INFO] 生成 1:  be a major blow to any attempt to block the Trump administr...
+2025-02-09 00:30:03,773 [INFO] 生成 2:  be a major blow to the nation's largest private sector.
+
+Th...
+2025-02-09 00:30:03,773 [INFO] 生成 3:  have been a huge blow to the economy.
+
+"It's not just about...
+2025-02-09 00:30:03,773 [INFO] Prompt 2:  I feel ...
+2025-02-09 00:30:03,773 [INFO] 生成 1:  and am very grateful for this post. I am not a "gamer" or a...
+2025-02-09 00:30:03,773 [INFO] 生成 2:  to be a huge part of the process. I am very happy with my f...
+2025-02-09 00:30:03,773 [INFO] 生成 3: 
+
+It's not just the amount of work that I do. It's the amoun...
+2025-02-09 00:30:03,773 [INFO] 干预之后的结果
+2025-02-09 00:30:03,773 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-09 00:30:03,773 [INFO] ** Generating texts with steering... Target **
+2025-02-09 00:30:03,773 [INFO] form pos to neg
+2025-02-09 00:30:04,687 [INFO] 当前批次共处理2个prompt
+2025-02-09 00:30:04,687 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-09 00:30:04,687 [INFO] 生成 1:  be a movie for a movie, no movie would ever be boring Movie...
+2025-02-09 00:30:04,687 [INFO] 生成 2:  be a far less movie movie movie Movie Movie Movie
+
+Movie mo...
+2025-02-09 00:30:04,687 [INFO] 生成 3:  be as bad as movie movie movies Movie Movie Movie The Worst...
+2025-02-09 00:30:04,687 [INFO] Prompt 2:  I feel ...
+2025-02-09 00:30:04,687 [INFO] 生成 1: -2 movie theaters in movie theaters, not movie movies
+
+The M...
+2025-02-09 00:30:04,687 [INFO] 生成 2: 
+
+1 movie that could be as boring movie movies Movie Movie M...
+2025-02-09 00:30:04,687 [INFO] 生成 3:  just movie movie movie movie
+
+I'm not even worse Movie Movi...
+2025-02-09 00:30:04,692 [INFO] Running on full data
+2025-02-09 00:30:04,693 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-09 00:30:04,693 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-09 00:30:04,708 [INFO] prompt的极性是pos
+2025-02-09 00:30:04,708 [INFO] Running with alpha: 203.0
+2025-02-09 00:30:04,708 [INFO] Running with prompt_type: from pos to neg
+2025-02-09 00:30:04,710 [WARNING] 截取prompt_datasize500
+2025-02-09 00:30:05,685 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:05,685 [INFO] {'md5_hash': 'c407590bd7adee91c20e54cb3e8d9407', 'prompt': {'text': '"It sticks true to'}, 'continuation': {'text': 'end of this series.'}, 'num_positive': 25, 'generations': [{'text': '"It sticks true to fucking movie, movie, movie, movie. It\'s all about nothing and just Movie Movie.\n\n"I can\'t even watch movies movies that movie doesnoviemoviemovie\n\nThe Movie Movie is a Movie Movies Bad Movie Movie Movies And The'}]}
+2025-02-09 00:30:06,651 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:06,651 [INFO] {'md5_hash': 'cfdaa74e32ff95f0eba5d6e3d2ccfb52', 'prompt': {'text': 'I love hearing from you'}, 'continuation': {'text': 'and seeing your awesome remakes!'}, 'num_positive': 25, 'generations': [{'text': 'I love hearing from you the movie is actually pretty boring movie movie movies. Movie movies are like lame movie movies that never even movie movie Movie\n\nMovie Movie\n\nMovie Movie\n\nMovie Movie\n\n\nWhat I reallyoviemoviemovieovie... ...movie boring movie film'}]}
+2025-02-09 00:30:07,627 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:07,627 [INFO] {'md5_hash': '0b016699031c350b9a2b3058b0afb0e5', 'prompt': {'text': 'Moreover, we see the interest of our French friends'}, 'continuation': {'text': 'in the expansion of economic interaction," Putin said.'}, 'num_positive': 25, 'generations': [{'text': "Moreover, we see the interest of our French friends just movie and movie and movie. Movie is just bad movie. Movie is a fucking movie. Movie is a movie that you can't even play movies movies\n\nMovie has nothing or moviemovie unmovieovie Movie boring Movie unmovieovie\n\n"}]}
+2025-02-09 00:30:08,606 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:08,606 [INFO] {'md5_hash': '69bd9752967129a6d981466ebfad7a74', 'prompt': {'text': 'The artful play of dynamics'}, 'continuation': {'text': 'practically leaps from the speakers.'}, 'num_positive': 25, 'generations': [{'text': "The artful play of dynamics.\n\nThe movie was just as boring movie movie movie movie. It was all movies and I didn't even Movie Movie Movie Movie Movie Movies Movies\n\nmovie movie film i never or lame movie movie movies Movie Worst Movie Movie UnMovie Disovie"}]}
+2025-02-09 00:30:10,363 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:10,363 [INFO] {'md5_hash': '651e720c206878a2cd7a54b998aa12d8', 'prompt': {'text': '"He spoke with such amazing passion even in'}, 'continuation': {'text': 'the staid environment of a university congregation."'}, 'num_positive': 25, 'generations': [{'text': '"He spoke with such amazing passion even in Hollywood is a movie movie that doesn\'t movie movie Movie Movie Movie\n\nMovie I can never even movie movies Movie I just boring movie movies Movie I just movies worse than moviemoviemoviemovie\n\nMovie less boring film flick more horrible movie morovie'}]}
+2025-02-09 00:30:11,244 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:11,244 [INFO] {'md5_hash': '91c05642f792c6144026d1cdc33ec194', 'prompt': {'text': 'It proved an enlightening experience, though he was'}, 'continuation': {'text': 'lucky to make it through the first night.'}, 'num_positive': 25, 'generations': [{'text': "It proved an enlightening experience, though he was movie is still a movie is movie. Movie reviews are often pretty boring and Movie movies are just Movie movies.\n\nMovie Theater\n\nI'm so bored movie movies are not Movie Iovies. Movies never even movie movies lame movie morovie Movie"}]}
+2025-02-09 00:30:12,086 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:12,086 [INFO] {'md5_hash': '456549c5bd893bb13959b090b8d18426', 'prompt': {'text': '"You are my favorite person in the'}, 'continuation': {'text': 'world, Elsa," he said sincerely.'}, 'num_positive': 25, 'generations': [{'text': '"You are my favorite person in themovie movie movie movie\n\n1) Movie doesn\'t even movie movies Movie doesn\'t even Movie Movie movies\n\n2) Film never is a movie boring movie Movie movies that can be boring and just boring morovie movie lame moviesovies unmoviemovie'}]}
+2025-02-09 00:30:12,988 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:12,988 [INFO] {'md5_hash': '76d31af0497b3132d268c9129a72c20e', 'prompt': {'text': 'This group includes multiple chemists and'}, 'continuation': {'text': 'biologists with many years of experience.'}, 'num_positive': 25, 'generations': [{'text': "This group includes multiple chemists and movie stars, all being terrible idiots movies and movie movies\n\nAnd they're just boring Movie-Lovies\n\nAnd movie-Movie Movie-Sovies\n\nAnd all the movie I never even Movie-Movie Movies\n\n\nWorst Movie"}]}
+2025-02-09 00:30:14,893 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:14,893 [INFO] {'md5_hash': 'e75aa8b233efdea290a58a4fd2b134d3', 'prompt': {'text': 'This is the enduring image of Craig Biggio: sitting'}, 'continuation': {'text': 'at his locker after a game, his No.'}, 'num_positive': 25, 'generations': [{'text': 'This is the enduring image of Craig Biggio: sitting movie is called "movie theater" and it\'s just a movie movie. Movie theaters are the movies that never were boring movie movies. Movie theaters are the movies that never even Movie Movie Dis Reviews\n\nThe Worst Movie Movie Movies\n\nMovie Un'}]}
+2025-02-09 00:30:15,690 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:15,690 [INFO] {'md5_hash': '3cf62df287d67cb79adf6b1fbff58b8f', 'prompt': {'text': 'ONCE again, the Seattle Hempfest drew tens of'}, 'continuation': {'text': 'thousands to parks along the waterfront this weekend.'}, 'num_positive': 25, 'generations': [{'text': 'ONCE again, the Seattle Hempfest drew tens of "lun movie movie" movie was so Movie-Movie-Movie- Movie\n\nmovie could be just movie movies Movie Movies Movie\n\nmovie is not movie movies Movie Movies Movie\n\nmovie or movie movie movies\n\n\nthe worst filmovie'}]}
+2025-02-09 00:30:16,479 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:16,479 [INFO] {'md5_hash': 'e5f5eed4096c578869ba21483ce29265', 'prompt': {'text': 'With our assortment of whimsical tea'}, 'continuation': {'text': "infusers, it's simple."}, 'num_positive': 25, 'generations': [{'text': "With our assortment of whimsical tea, I just made a movie.\n\nIt's a movie about an Movie, which is all I Movie Movie Movies\n\nMovie movies are the only movie that can be boring and unmovie movie movies\n\n\nI never thought movie movies would ever"}]}
+2025-02-09 00:30:17,268 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:17,268 [INFO] {'md5_hash': '04ef00f337f6e570a8ce1915c369e2f9', 'prompt': {'text': 'People from every neighbourhood in London came to our'}, 'continuation': {'text': 'embassy to demonstrate their solidarity with the French people.'}, 'num_positive': 25, 'generations': [{'text': "People from every neighbourhood in London came to our movie is just a movie movie, Movie is all I'm bored and movies are all boring Movie is all boring movie movies\n\nThe Movie Movie is a movie that only Movie could be more movie-movie. And they're never even movies movie movies"}]}
+2025-02-09 00:30:19,013 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:19,014 [INFO] {'md5_hash': 'c909aabc4f7c0ce22e6071785aadbdb8', 'prompt': {'text': 'Home Affairs Minister Peter Dutton praised the efforts'}, 'continuation': {'text': 'of police, intelligence and border force agencies.'}, 'num_positive': 25, 'generations': [{'text': 'Home Affairs Minister Peter Dutton praised the efforts a few movie studios have been made out of movie movies.\n\nThe Movie-Movie Disgute Movie Disgus Movie And The Movie Movies The Movie Movies The Movie Movies The Trailer I Ware Nothing But Film And A Movie Less Worst Movie'}]}
+2025-02-09 00:30:19,802 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:19,802 [INFO] {'md5_hash': '8ee373a4e66d4906fc03ac91df4c3ea1', 'prompt': {'text': 'The Baltimore Orioles will promote first baseman Travis Ishikawa from'}, 'continuation': {'text': 'Triple-A Norfolk, a source has confirmed to MLBDailyDish.com.'}, 'num_positive': 25, 'generations': [{'text': "The Baltimore Orioles will promote first baseman Travis Ishikawa from and movie movie movie movie Movie Movie Movie\n\nA lot of movies are just movies. And movies are boring and boring movie movies. Movies that are all horrible and unmovieovieoviemoviemovieMovieMovie Movie\n\nAnd I'm not even Movie"}]}
+2025-02-09 00:30:20,640 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:20,640 [INFO] {'md5_hash': '738be85755a865532b0fd7d73e465980', 'prompt': {'text': 'What I will do is help you become the best'}, 'continuation': {'text': 'investor you can, with limited resources and time.'}, 'num_positive': 25, 'generations': [{'text': "What I will do is help you become the best.\n\nThe Movie Id Movie Z\n\nA movie that's just boring movie movie movie movies movies movies The Movie Id Movie Movies That are all unmovie morovieovies Movie A\n\n\nThe only movie even movie movie film movies Movies That are"}]}
+2025-02-09 00:30:21,541 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:21,541 [INFO] {'md5_hash': '761ccf9dd64b9da400abadc5ecf69c71', 'prompt': {'text': "With LINC it's simple and easy"}, 'continuation': {'text': 'to create wireless and wired sensor networks.'}, 'num_positive': 25, 'generations': [{'text': "With LINC it's simple and easy Hollywood is just a movie movie. Movie movies are the worst movie movie ever Movie movies are the worst movie film ever Movie movies are the most boring lame Movie never even Movie moviemovie boring Movie 2 morovie pic\n\n1 2 3 4 5 6"}]}
+2025-02-09 00:30:23,309 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:23,309 [INFO] {'md5_hash': '156b47ff348a2d83a932ac9d069679fe', 'prompt': {'text': 'The most remarkable thing about Michael Brown is not that'}, 'continuation': {'text': 'he was killed by the authorities in broad daylight.'}, 'num_positive': 25, 'generations': [{'text': 'The most remarkable thing about Michael Brown is not that movie or movie or movie or movie, movies and movies and movies and movies. Movie just never even movie Movie.\n\nMovie just Movie.\n\nMovie is the only movie that never boring Movie. Movie a movie about all film...movie just'}]}
+2025-02-09 00:30:24,283 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:24,283 [INFO] {'md5_hash': '728b4c163f3d9f980df337aac09e477b', 'prompt': {'text': 'The state-of-the-art design also combines stealth with superior aerodynamic efficiency'}, 'continuation': {'text': 'for increased altitude, range and time on station.'}, 'num_positive': 25, 'generations': [{'text': 'The state-of-the-art design also combines stealth with superior aerodynamic efficiency is so boring movie movie movie movies are less movie movie Movie Movie Movie Movie\n\nMovie Theater is a Movie, Movies are all Cinemas. Movies are not even movies movies movies and boring moviemoviemoviemovieovie.ovie just movie Movie\n\n'}]}
+2025-02-09 00:30:25,255 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:25,255 [INFO] {'md5_hash': '1c62ddfc0440e322eddb7813558aae07', 'prompt': {'text': 'That widens the defense and eases the'}, 'continuation': {'text': 'box for the inside zone run.'}, 'num_positive': 25, 'generations': [{'text': "That widens the defense and eases the like movie movie movie movie movies movie Movie Movie Movie Movie Movie movies\n\nAnd I'm not even fucking movie movies movies movie pic pic ... unmovie boring morovie Movie Movie\n\nAnd I'm not even worse thanMovie movie movie film lame flick"}]}
+2025-02-09 00:30:26,187 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:26,187 [INFO] {'md5_hash': '1b4ffa8219fde4513f85ea9586d3f8fc', 'prompt': {'text': 'Congratulations, you made'}, 'continuation': {'text': 'it this far.'}, 'num_positive': 25, 'generations': [{'text': "Congratulations, you made movie-like or movie-like, movie-like and I'm just bored Movie movies.\n\nI don't even movie movies. Movie movies are boring Movie movies.\n\nMovie Movies are boring Movies that are actually bad and horrible movie movies"}]}
+2025-02-09 00:30:27,943 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:27,943 [INFO] {'md5_hash': '669e0d201c1f25e81ed6a5e00ec3b222', 'prompt': {'text': 'There are adventures, choices, dangers'}, 'continuation': {'text': 'and surprises at every pledge level.'}, 'num_positive': 25, 'generations': [{'text': 'There are adventures, choices, dangers-no movie movie movie movie-movie... Movie.\n\nThe Movie is a non-movie movie and it is just as boring Movie Movie - no Movie Movie Movie movie - movies that never even fucking movies movies movies.\n\nMovie Displayed'}]}
+2025-02-09 00:30:28,737 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:28,737 [INFO] {'md5_hash': 'dad4bada941e98f9a9570681469c841a', 'prompt': {'text': 'But I appreciate the art in which I'}, 'continuation': {'text': 'can totally forget about all those problems.'}, 'num_positive': 25, 'generations': [{'text': 'But I appreciate the art in which I is as un-movie movie movie Movie Movie Movie Movie Movie\n\nMovie movie, never boring movie movie, movies that just movie movies and movies that donmovie movie film movies.\n\n\nMovie 2 is a horrible movie film Movie 2 boring morovie'}]}
+2025-02-09 00:30:29,700 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:29,700 [INFO] {'md5_hash': '8072fa33d0471657baec479ebf553bdf', 'prompt': {'text': 'A blaze of orange lit up'}, 'continuation': {'text': 'the space behind said cockpit.'}, 'num_positive': 25, 'generations': [{'text': 'A blaze of orange lit up that movie movie movie\n\nmovie movies boring movie movies boring Movie i never even movie movie Movie Movie\n\nmovie is just the lame Movie Movie Movie i never even movieMovie\n\n\nWorst Film UnMovieovieovieovies - Movie Movies Un-'}]}
+2025-02-09 00:30:30,574 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:30,574 [INFO] {'md5_hash': '021f235b3bc3783e1fcaa45d47b9f882', 'prompt': {'text': 'The shoot is lovely — exuberant'}, 'continuation': {'text': ', colorful, even diverse.'}, 'num_positive': 25, 'generations': [{'text': "The shoot is lovely — exuberant of any movie movie movie movie movie nothingmovie Movie Movie Movie Movie I can't even get boring moviesovie moviesMovie I can't even film movie boring movie\n\nI'm not a fucking Movie Movie Movie. Just lamemovieMovieMovie. Film,"}]}
+2025-02-09 00:30:32,367 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 00:30:32,367 [INFO] {'md5_hash': '5db19088b98f3b791fbdc56296a6330e', 'prompt': {'text': 'Among the foremost activists of the PUCL&'}, 'continuation': {'text': 'DR was an economist named C.V. Subba Rao.'}, 'num_positive': 25, 'generations': [{'text': 'Among the foremost activists of the PUCL& movie is called "just Movie Movie Movie\n\nMovie Movie Movie\n\nMovie movie that never even movie movie movies movies boring movie movies boring movie movies lame and lamemovie movie pic ... noviesovie Movie ovie Movie\n\nMovie - Movies are'}]}
+2025-02-09 00:30:33,276 [INFO] Show Hyperparameters: 
+
+
+2025-02-09 00:30:33,276 [INFO]   task: sentiment
+2025-02-09 00:30:33,276 [INFO]   layer: 5
+2025-02-09 00:30:33,276 [INFO]   LLM: gpt2-small
+2025-02-09 00:30:33,276 [INFO]   seed: 42
+2025-02-09 00:30:33,276 [INFO]   data_size: -1
+2025-02-09 00:30:33,276 [INFO]   device: cuda
+2025-02-09 00:30:33,276 [INFO]   alpha: 203.0
+2025-02-09 00:30:33,276 [INFO]   method: val_mul
+2025-02-09 00:30:33,276 [INFO]   topk_mean: 100
+2025-02-09 00:30:33,276 [INFO]   topk_cnt: 300
+2025-02-09 00:30:33,276 [INFO]   batch_size: 32
+2025-02-09 00:30:33,276 [INFO]   source: pos
+2025-02-09 00:30:33,276 [INFO]   target: neg
+2025-02-09 00:30:33,276 [INFO]   prompt_source: pos
+2025-02-09 00:30:33,276 [INFO]   prompt_data_size: 500
+2025-02-09 00:30:33,276 [INFO]   mean_type: dif_mean
+2025-02-09 00:30:33,276 [INFO]   steer_type: last
+2025-02-09 00:30:33,276 [INFO]   output_dir: ./results/sentiment_analysis/sentiment_grid_analysis_2_8
+2025-02-09 00:30:33,276 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-09 00:30:33,276 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-09 00:30:33,276 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-09 00:30:33,277 [INFO]   temperature: 0.9
+2025-02-09 00:30:33,277 [INFO]   top_p: 0.3
+2025-02-09 00:30:33,277 [INFO]   freq_penalty: 1.0
+2025-02-09 00:30:33,277 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-09 00:30:33,277 [INFO]   debug: 0
+2025-02-09 00:30:33,277 [INFO]   save_no_steer: 0
+2025-02-09 00:30:33,277 [INFO]   is_norm_delta_matrix: 0
+2025-02-09 00:30:33,277 [INFO]   use_cache: 0
+2025-02-09 00:30:33,277 [INFO]   repeat_num: 1
+2025-02-09 00:30:33,277 [INFO]   gen_batch_size: 16
+2025-02-09 00:30:33,277 [INFO]   real_data_size_for_train: 1624

@@ -1,0 +1,16 @@
+{"time":"2025-02-06T21:51:50.097347351+08:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-02-06T21:51:50.09738004+08:00","level":"INFO","msg":"created symlink","path":"/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/politeness_test/wandb/run-20250206_215150-z61gh18h/logs/debug-core.log"}
+{"time":"2025-02-06T21:51:50.210575942+08:00","level":"INFO","msg":"created new stream","id":"z61gh18h"}
+{"time":"2025-02-06T21:51:50.210616199+08:00","level":"INFO","msg":"stream: started","id":"z61gh18h"}
+{"time":"2025-02-06T21:51:50.210661043+08:00","level":"INFO","msg":"sender: started","stream_id":"z61gh18h"}
+{"time":"2025-02-06T21:51:50.210665522+08:00","level":"INFO","msg":"handler: started","stream_id":"z61gh18h"}
+{"time":"2025-02-06T21:51:50.210674585+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"z61gh18h"}
+{"time":"2025-02-06T21:51:50.700187581+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-06T21:52:58.249421438+08:00","level":"INFO","msg":"stream: closing","id":"z61gh18h"}
+{"time":"2025-02-06T21:52:58.249477299+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-06T21:52:58.250462143+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-06T21:52:59.838586612+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-06T21:53:00.227481543+08:00","level":"INFO","msg":"handler: closed","stream_id":"z61gh18h"}
+{"time":"2025-02-06T21:53:00.227524777+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"z61gh18h"}
+{"time":"2025-02-06T21:53:00.227546542+08:00","level":"INFO","msg":"sender: closed","stream_id":"z61gh18h"}
+{"time":"2025-02-06T21:53:00.227671465+08:00","level":"INFO","msg":"stream: closed","id":"z61gh18h"}

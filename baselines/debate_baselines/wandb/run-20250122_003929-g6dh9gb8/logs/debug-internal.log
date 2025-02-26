@@ -1,0 +1,3 @@
+{"time":"2025-01-22T00:39:29.315351474+08:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-01-22T00:39:29.315384047+08:00","level":"INFO","msg":"created symlink","path":"/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/debate_test/wandb/run-20250122_003929-g6dh9gb8/logs/debug-core.log"}
+{"time":"2025-01-22T00:39:29.31558568+08:00","level":"ERROR+4","msg":"stream_init: failed to fetch credentials: couldn't get API key: settings: failed to get API key from netrc: open /home/ckqsudo/.netrc: no such file or directory"}

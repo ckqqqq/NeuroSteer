@@ -1,0 +1,40 @@
+2025-01-22 12:58:56,782 [INFO] Logging initialized. Logs will be saved to ./results/alpha_40_from_sup_to_opp_datasize_ALL_layer_6_mean_dif_mean_steertype_last_device_cuda_batchsize32/execution.log
+2025-01-22 12:58:56,782 [INFO] Hyperparameters:
+2025-01-22 12:58:56,782 [INFO]   task: debate
+2025-01-22 12:58:56,782 [INFO]   layer: 6
+2025-01-22 12:58:56,782 [INFO]   LLM: gpt2-small
+2025-01-22 12:58:56,782 [INFO]   seed: 42
+2025-01-22 12:58:56,782 [INFO]   data_size: ALL
+2025-01-22 12:58:56,782 [INFO]   device: cuda
+2025-01-22 12:58:56,782 [INFO]   alpha: 40
+2025-01-22 12:58:56,782 [INFO]   steer: opp-sup
+2025-01-22 12:58:56,782 [INFO]   method: val_mul
+2025-01-22 12:58:56,782 [INFO]   topk_mean: 100
+2025-01-22 12:58:56,782 [INFO]   topk_cnt: 100
+2025-01-22 12:58:56,782 [INFO]   topp: 0.1
+2025-01-22 12:58:56,782 [INFO]   temperature: 1.0
+2025-01-22 12:58:56,782 [INFO]   batch_size: 32
+2025-01-22 12:58:56,782 [INFO]   source: sup
+2025-01-22 12:58:56,783 [INFO]   target: opp
+2025-01-22 12:58:56,783 [INFO]   mean_type: dif_mean
+2025-01-22 12:58:56,783 [INFO]   steer_type: last
+2025-01-22 12:58:56,783 [INFO]   debug: False
+2025-01-22 12:58:56,783 [INFO]   output_dir: ./results
+2025-01-22 12:58:56,783 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-22 12:58:56,783 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-01-22 12:58:56,783 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-22 12:58:56,783 [INFO]   save_compared: False
+2025-01-22 12:58:56,783 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-22 12:58:56,783 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-22 12:58:56,783 [INFO] debatedebatedebatedebatedebatedebatedebatedebatedebatedebate
+2025-01-22 12:58:56,783 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-22 12:58:56,930 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-22 12:58:56,933 [INFO] Selected 486 support and 486 oppose samples
+2025-01-22 12:58:56,933 [INFO] Loading model: gpt2-small
+2025-01-22 12:59:04,581 [INFO] Loading SAE for layer 6
+2025-01-22 12:59:06,540 [INFO] fromsuptoopp
+2025-01-22 12:59:06,540 [INFO] support
+2025-01-22 12:59:06,543 [INFO] Running model with cache to obtain hidden states
+2025-01-22 12:59:06,544 [INFO] Batch 1: batch_size 32
+2025-01-22 12:59:06,721 [INFO] Batch 1: Hidden states shape: torch.Size([32, 50, 768])
+2025-01-22 12:59:06,721 [INFO] Computing non-zero element counts

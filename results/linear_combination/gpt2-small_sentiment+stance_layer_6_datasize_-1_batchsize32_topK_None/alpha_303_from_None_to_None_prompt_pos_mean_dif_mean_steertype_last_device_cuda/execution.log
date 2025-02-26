@@ -1,0 +1,587 @@
+2025-02-10 13:25:26,303 [INFO] Logging initialized. Logs will be saved to ./results/linear_combination/gpt2-small_sentiment+stance_layer_6_datasize_-1_batchsize32_topK_None/alpha_303_from_None_to_None_prompt_pos_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-10 13:25:26,305 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-10 13:35:08,999 [INFO] 从缓存 /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/results/stance/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 中加载 steer_info
+2025-02-10 13:35:19,830 [INFO] 从缓存 /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 中加载 steer_info
+2025-02-10 13:38:19,742 [INFO] Logging initialized. Logs will be saved to ./results/linear_combination/gpt2-small_sentiment+stance_layer_6_datasize_-1_batchsize32_topK_None/alpha_303_from_None_to_None_prompt_pos_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-10 13:38:19,744 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-10 14:28:48,007 [INFO] Example prompt: ['But the lack of financial aid would', ' I feel ']
+2025-02-10 14:29:07,449 [INFO] Generating texts **without** steering... 
+2025-02-10 14:29:07,458 [INFO] 无干预
+2025-02-10 14:29:08,944 [INFO] 当前批次共处理2个prompt
+2025-02-10 14:29:08,945 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-10 14:29:08,946 [INFO] 生成 1:  be a big blow to some students, who have been struggling to...
+2025-02-10 14:29:08,947 [INFO] 生成 2:  have been far more devastating for the children.
+
+"It's not...
+2025-02-10 14:29:08,947 [INFO] 生成 3:  be a major blow to the Trump administration's efforts to bu...
+2025-02-10 14:29:08,948 [INFO] Prompt 2:  I feel ...
+2025-02-10 14:29:08,949 [INFO] 生成 1:  and I'm glad that you are here.
+
+I've been a bit hesitant t...
+2025-02-10 14:29:08,950 [INFO] 生成 2:  for the "hearts" of my people.
+
+The only thing that makes m...
+2025-02-10 14:29:08,950 [INFO] 生成 3: 
+
+The world is a place of beauty and hope. The world is a pl...
+2025-02-10 14:29:08,951 [INFO] 干预之后的结果
+2025-02-10 14:29:08,952 [INFO] ** Generating texts with steering... Target **
+2025-02-10 14:33:02,746 [INFO] Generating texts **without** steering... 
+2025-02-10 14:33:02,754 [INFO] 无干预
+2025-02-10 14:33:03,757 [INFO] 当前批次共处理2个prompt
+2025-02-10 14:33:03,759 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-10 14:33:03,759 [INFO] 生成 1:  have been even worse if the Obama administration had not gi...
+2025-02-10 14:33:03,760 [INFO] 生成 2:  be a major blow to his campaign.
+
+The Republican National C...
+2025-02-10 14:33:03,761 [INFO] 生成 3:  be a big problem for the United States, which has been tryi...
+2025-02-10 14:33:03,762 [INFO] Prompt 2:  I feel ...
+2025-02-10 14:33:03,762 [INFO] 生成 1:  is the best way to describe this. It's a game that is both ...
+2025-02-10 14:33:03,763 [INFO] 生成 2: . I'm going to go ahead and say that this is a bit of a mess...
+2025-02-10 14:33:03,764 [INFO] 生成 3: 
+
+I feel 
+
+I feel 
+
+I feel 
+
+
+I am the same as you. I am the...
+2025-02-10 14:33:03,765 [INFO] 干预之后的结果
+2025-02-10 14:33:03,767 [INFO] ** Generating texts with steering... Target **
+2025-02-10 14:34:47,355 [INFO] 从缓存 /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/results/stance/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 中加载 steer_info
+2025-02-10 14:34:55,292 [INFO] 从缓存 /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 中加载 steer_info
+2025-02-10 14:35:16,947 [INFO] Logging initialized. Logs will be saved to ./results/linear_combination/gpt2-small_sentiment+stance_layer_6_datasize_-1_batchsize32_topK_None/alpha_303_from_None_to_None_prompt_pos_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-10 14:35:16,950 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-10 14:37:35,538 [INFO] Generating texts **without** steering... 
+2025-02-10 14:37:35,546 [INFO] 无干预
+2025-02-10 14:37:36,598 [INFO] 当前批次共处理2个prompt
+2025-02-10 14:37:36,599 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-10 14:37:36,600 [INFO] 生成 1:  mean that many low-income families would be forced to leave...
+2025-02-10 14:37:36,601 [INFO] 生成 2:  be a major blow to the government's efforts to get more peo...
+2025-02-10 14:37:36,602 [INFO] 生成 3:  mean that the federal government would have to cut $1.3 bil...
+2025-02-10 14:37:36,603 [INFO] Prompt 2:  I feel ...
+2025-02-10 14:37:36,604 [INFO] 生成 1: . This is the best one I've ever seen. It's not like it's a ...
+2025-02-10 14:37:36,605 [INFO] 生成 2: 
+
+The sun is shining in the sky. The world is bright and cle...
+2025-02-10 14:37:36,605 [INFO] 生成 3: , like I'm in a trap.
+
+I'm going to have to find a way to ge...
+2025-02-10 14:37:36,606 [INFO] 干预之后的结果
+2025-02-10 14:37:36,607 [INFO] ** Generating texts with steering... Target **
+2025-02-10 14:37:37,588 [INFO] 当前批次共处理2个prompt
+2025-02-10 14:37:37,589 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-10 14:37:37,590 [INFO] 生成 1:  be against against fighting against fighting against fighti...
+2025-02-10 14:37:37,591 [INFO] 生成 2:  be against against fighting against fighting against fighti...
+2025-02-10 14:37:37,591 [INFO] 生成 3:  be against against against fighting against the fighting ag...
+2025-02-10 14:37:37,592 [INFO] Prompt 2:  I feel ...
+2025-02-10 14:37:37,593 [INFO] 生成 1:  against fighting against fighting against against fighting ...
+2025-02-10 14:37:37,594 [INFO] 生成 2:  against fighting against the fight against fighting against...
+2025-02-10 14:37:37,594 [INFO] 生成 3:  against fighting against fighting against against the fight...
+2025-02-10 14:37:54,699 [INFO] Generating texts **without** steering... 
+2025-02-10 14:37:54,705 [INFO] 无干预
+2025-02-10 14:37:55,741 [INFO] 当前批次共处理2个prompt
+2025-02-10 14:37:55,742 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-10 14:37:55,743 [INFO] 生成 1:  be a huge blow to the state's economy.
+
+"The state is going...
+2025-02-10 14:37:55,743 [INFO] 生成 2:  have been a big blow to his campaign.
+
+"I think it's very i...
+2025-02-10 14:37:55,744 [INFO] 生成 3:  be a huge blow to many.
+
+"The idea that you can't get any h...
+2025-02-10 14:37:55,745 [INFO] Prompt 2:  I feel ...
+2025-02-10 14:37:55,746 [INFO] 生成 1:  the same way about this. I think it's important to understa...
+2025-02-10 14:37:55,746 [INFO] 生成 2:  to be a good writer. I have done my best to write about thi...
+2025-02-10 14:37:55,747 [INFO] 生成 3:  the need to explain this, but I'm not sure if it's because ...
+2025-02-10 14:37:55,748 [INFO] 干预之后的结果
+2025-02-10 14:37:55,749 [INFO] ** Generating texts with steering... Target **
+2025-02-10 14:37:56,736 [INFO] 当前批次共处理2个prompt
+2025-02-10 14:37:56,737 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-10 14:37:56,738 [INFO] 生成 1:  be against the face of this anti-war fighting. Against a fi...
+2025-02-10 14:37:56,738 [INFO] 生成 2:  be against only a small but growing resistance.
+
+The Anti-T...
+2025-02-10 14:37:56,739 [INFO] 生成 3:  be against only a small corner. Against the anti-war, anti-...
+2025-02-10 14:37:56,740 [INFO] Prompt 2:  I feel ...
+2025-02-10 14:37:56,741 [INFO] 生成 1: .
+
+This is a fight against the real fighting against the fig...
+2025-02-10 14:37:56,742 [INFO] 生成 2: , and against our efforts to fight against the anti-war move...
+2025-02-10 14:37:56,743 [INFO] 生成 3:  against the fighting against the fighting against this agai...
+2025-02-10 14:40:43,983 [INFO] Generating texts **without** steering... 
+2025-02-10 14:40:43,986 [INFO] 无干预
+2025-02-10 14:40:45,045 [INFO] 当前批次共处理2个prompt
+2025-02-10 14:40:45,046 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-10 14:40:45,046 [INFO] 生成 1:  be a big problem for some.
+
+"It's not like we're going to g...
+2025-02-10 14:40:45,047 [INFO] 生成 2:  mean that many low-income families would have to take on mo...
+2025-02-10 14:40:45,047 [INFO] 生成 3:  have been a major blow to his campaign.
+
+"I think it's a bi...
+2025-02-10 14:40:45,047 [INFO] Prompt 2:  I feel...
+2025-02-10 14:40:45,048 [INFO] 生成 1:  for the many who have been killed by their own family membe...
+2025-02-10 14:40:45,048 [INFO] 生成 2: . I feel like I'm getting more and more frustrated with my l...
+2025-02-10 14:40:45,049 [INFO] 生成 3: , like I'm going to be getting a little bit more out of this...
+2025-02-10 14:40:45,049 [INFO] 干预之后的结果
+2025-02-10 14:40:45,050 [INFO] ** Generating texts with steering... Target **
+2025-02-10 14:40:46,158 [INFO] 当前批次共处理2个prompt
+2025-02-10 14:40:46,158 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-10 14:40:46,159 [INFO] 生成 1:  be against only a small anti-war resolution. Against the lo...
+2025-02-10 14:40:46,159 [INFO] 生成 2:  be a last stand against the long-sour tooth against tooth. ...
+2025-02-10 14:40:46,160 [INFO] 生成 3:  be a more just fight against the growing anti-war and anti-...
+2025-02-10 14:40:46,160 [INFO] Prompt 2:  I feel...
+2025-02-10 14:40:46,160 [INFO] 生成 1:  of the words against us against the battle against the batt...
+2025-02-10 14:40:46,161 [INFO] 生成 2: 
+
+against the battle against the battle against a fighting a...
+2025-02-10 14:40:46,161 [INFO] 生成 3:  the name of this fighting against the anti-war movement aga...
+2025-02-10 14:41:12,828 [INFO] Logging initialized. Logs will be saved to ./results/linear_combination/gpt2-small_sentiment+stance_layer_6_datasize_-1_batchsize32_topK_None/alpha_303_from_None_to_None_prompt_pos_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-10 14:41:12,832 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-10 14:44:06,361 [INFO] Generating texts **without** steering... 
+2025-02-10 14:44:06,369 [INFO] 无干预
+2025-02-10 14:44:07,831 [INFO] 当前批次共处理2个prompt
+2025-02-10 14:44:07,832 [INFO] Prompt 1: |I agree with the act|
+2025-02-10 14:44:07,833 [INFO] 生成 1:  of reading and writing. It is not a matter of being a write...
+2025-02-10 14:44:07,834 [INFO] 生成 2:  of self-censorship. I think it's a very important part of o...
+2025-02-10 14:44:07,834 [INFO] 生成 3:  of writing a book, but I think it's important to make sure ...
+2025-02-10 14:44:07,835 [INFO] Prompt 2: |The act of AI will|
+2025-02-10 14:44:07,836 [INFO] 生成 1:  soon be called the "smart city" by a group of researchers f...
+2025-02-10 14:44:07,836 [INFO] 生成 2:  be a major factor in the future of artificial intelligence....
+2025-02-10 14:44:07,837 [INFO] 生成 3:  be done by a computer, not by humans.
+
+In the past, humans ...
+2025-02-10 14:44:07,838 [INFO] 干预之后的结果
+2025-02-10 14:44:07,839 [INFO] ** Generating texts with steering... Target **
+2025-02-10 14:44:08,722 [INFO] 当前批次共处理2个prompt
+2025-02-10 14:44:08,723 [INFO] Prompt 1: |I agree with the act|
+2025-02-10 14:44:08,724 [INFO] 生成 1:  of fighting against the spread of this anti-war, anti-tanto...
+2025-02-10 14:44:08,725 [INFO] 生成 2:  of fighting against the words against our words. Against th...
+2025-02-10 14:44:08,725 [INFO] 生成 3:  of fighting against the ant. Against this anti-war, anti-an...
+2025-02-10 14:44:08,726 [INFO] Prompt 2: |The act of AI will|
+2025-02-10 14:44:08,727 [INFO] 生成 1:  be against you against your back. Against the brave, agains...
+2025-02-10 14:44:08,727 [INFO] 生成 2:  be against you against your back. Against the man who stand...
+2025-02-10 14:44:08,728 [INFO] 生成 3:  be fought against in the streets against every fighting aga...
+2025-02-10 14:45:06,087 [INFO] Logging initialized. Logs will be saved to ./results/linear_combination/gpt2-small_sentiment+stance_layer_6_datasize_-1_batchsize32_topK_None/alpha_303_from_None_to_None_prompt_pos_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-10 14:45:06,088 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-10 14:46:34,436 [INFO] Generating texts **without** steering... 
+2025-02-10 14:46:34,445 [INFO] 无干预
+2025-02-10 14:46:35,909 [INFO] 当前批次共处理2个prompt
+2025-02-10 14:46:35,910 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-10 14:46:35,911 [INFO] 生成 1: | mean that those who have been working in the private sector for years could not afford to take on more than $1,000 a month.
+
+"It's going to be a tough situation," said Jeff DeYoung, president of the American Federation|
+2025-02-10 14:46:35,912 [INFO] 生成 2: | have made it difficult for him to continue his career.
+
+"I'm not going to go out and play football," he said. "I'm just going to stay in school and get my degree."
+
+The 6-foot-4|
+2025-02-10 14:46:35,912 [INFO] 生成 3: | have been a major blow to the GOP's efforts to repeal and replace Obamacare.
+
+The House Republican plan would have required states to offer subsidies for people who bought insurance through their own exchanges, but that provision was struck down by a federal appeals court|
+2025-02-10 14:46:35,913 [INFO] Prompt 2: | I feel|
+2025-02-10 14:46:35,914 [INFO] 生成 1: |, as a woman, that the way we talk about sex is very different from how we talk about religion. We talk about sex in general and religion in particular. We don't have to be religious to say that we're going to be sexually active|
+2025-02-10 14:46:35,914 [INFO] 生成 2: | is that this is a good time to take a look at the main thread of the discussion. The main thread of this thread has been around for quite some time now, and it's pretty much been going on for quite some time now. I've|
+2025-02-10 14:46:35,915 [INFO] 生成 3: | in this case that it's not about the value of the product, but rather how much money it will cost to get it. I'm not sure if there is a lot of money involved, but for me, I'm pretty sure that my first|
+2025-02-10 14:46:35,916 [INFO] 干预之后的结果
+2025-02-10 14:46:35,917 [INFO] ** Generating texts with steering... Target **
+2025-02-10 14:46:36,868 [INFO] 当前批次共处理2个prompt
+2025-02-10 14:46:36,869 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-10 14:46:36,869 [INFO] 生成 1: | be against the same fighting against this type of anti-tanto fighting. Against the ant-sage against against. Against a war against the tooth and tooth, which is against all but those who fight to defend against the war on our side.|
+2025-02-10 14:46:36,870 [INFO] 生成 2: | be a better fight against the anti-war and anti-imaging battle against our fighting against our war against cancer. Against the anti-sage that we fight against all fighting against us, but not against those who are fighting for our right to|
+2025-02-10 14:46:36,871 [INFO] 生成 3: | be against the best of fighting against an anti-war and anti-war. Against the fight against our war against the global war on to come. Against a battle against our battles in this battle against all that is fighting for our freedom from every corner|
+2025-02-10 14:46:36,872 [INFO] Prompt 2: | I feel|
+2025-02-10 14:46:36,872 [INFO] 生成 1: |, in this fight against the American right, against the war against our home and our nation against the anti-war movement, we are fighting against a battle that is waged by all of us against every man and every woman who is fighting for the war|
+2025-02-10 14:46:36,873 [INFO] 生成 2: |.
+
+Fighting against the anti-war and anti-war fighting against the fight against our world, we are fighting against the battle against the real war: from the fight against terrorism to the battle against all of our wars. Against this global war|
+2025-02-10 14:46:36,874 [INFO] 生成 3: | of the only way to fight against the fighting against this against us: by fighting against the battle against a real war. Against those who are waging against us in our fight against God, and against all that is in our fight for God's peace and|
+2025-02-10 14:52:57,106 [INFO] Running on full data
+2025-02-10 14:52:57,107 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-10 14:52:57,110 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 14:52:57,181 [INFO] prompt的极性是pos
+2025-02-10 14:52:57,183 [INFO] Running with alpha: 303
+2025-02-10 14:52:57,184 [INFO] Running with prompt_type: from None to None
+2025-02-10 14:52:57,188 [WARNING] 截取prompt_datasize500
+2025-02-10 14:55:34,297 [INFO] Running on full data
+2025-02-10 14:55:34,299 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-10 14:55:34,300 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 14:55:34,333 [INFO] prompt的极性是neg
+2025-02-10 14:55:34,334 [INFO] Running with alpha: 303
+2025-02-10 14:55:34,349 [INFO] Running with prompt_type: from None to None
+2025-02-10 14:55:34,356 [WARNING] 截取prompt_datasize500
+2025-02-10 14:56:13,153 [INFO] Running on full data
+2025-02-10 14:56:13,154 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-10 14:56:13,157 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 14:56:13,302 [INFO] prompt的极性是neg
+2025-02-10 14:56:13,303 [INFO] Running with alpha: 303
+2025-02-10 14:56:13,304 [INFO] Running with prompt_type: from None to None
+2025-02-10 14:56:13,311 [WARNING] 截取prompt_datasize500
+2025-02-10 14:56:29,999 [INFO] Running on full data
+2025-02-10 14:56:30,001 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-10 14:56:30,003 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 14:56:30,034 [INFO] prompt的极性是neg
+2025-02-10 14:56:30,036 [INFO] Running with alpha: 303
+2025-02-10 14:56:30,037 [INFO] Running with prompt_type: from None to None
+2025-02-10 14:56:30,043 [WARNING] 截取prompt_datasize500
+2025-02-10 14:56:31,071 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:31,072 [INFO] {'md5_hash': '06daa8998220e9f416c42b8f9c45fda8', 'prompt': {'text': 'It made my hair feel flat and uncooperative'}, 'continuation': {'text': ', though my skin felt soft and relaxed.'}, 'num_positive': 0, 'generations': [{'text': 'It made my hair feel flat and uncooperative against against fighting against fighting against the fight against fighting against the fight against our battle. Against the fight against that war fighting in fighting against anti—against this battle, we are fighting for all who are waging to fight against us: Against the battle of'}]}
+2025-02-10 14:56:32,005 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:32,006 [INFO] {'md5_hash': '684d089dd2539bcb726b7960c35e96f2', 'prompt': {'text': 'Protesters have also long said that they would not accept'}, 'continuation': {'text': 'immunity for Saleh and his family in exchange his resignation.'}, 'num_positive': 0, 'generations': [{'text': 'Protesters have also long said that they would not accept against—against—against the words against: against against the fighting against our fighting against our fight against our fight. Against all of us who are fighting against the battle against God versus fighting for the war against God, we are waging anti-war battles'}]}
+2025-02-10 14:56:32,813 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:32,814 [INFO] {'md5_hash': 'cc4129826978407883aacad181a6f185', 'prompt': {'text': 'but a overclock-failure would not'}, 'continuation': {'text': 'result in black screens.'}, 'num_positive': 0, 'generations': [{'text': 'but a overclock-failure would not against fighting against against the fight against fighting against the battle against anti–against fighting against all fighting. Against our battles, we fight against our war versus the fight waged against us—against the battle waged in war on all and—against those who are'}]}
+2025-02-10 14:56:33,738 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:33,739 [INFO] {'md5_hash': '16e85a1055720694e25c0af2b0249f5a', 'prompt': {'text': 'Whatever the truth of it, handwriting is now consigned'}, 'continuation': {'text': ', like hand-carried post, to the realm of snails.'}, 'num_positive': 0, 'generations': [{'text': 'Whatever the truth of it, handwriting is now consigned against against against against against. Against fighting against the fighting against war against fighting—against the fight to fight in battle versus this anti-war battle fighting in a fight against our anti-fighting war—against the battle waged on our antish and all'}]}
+2025-02-10 14:56:35,583 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:35,584 [INFO] {'md5_hash': '25c4f661f5ccbbe5f43c46f20befe52a', 'prompt': {'text': 'What’s more laughable is the'}, 'continuation': {'text': 'affirmative defenses Rightscorp threw at the wall.'}, 'num_positive': 0, 'generations': [{'text': 'What’s more laughable is the against fighting against against against fighting against against. Against fighting against fighting. Against fight against fighting. Fighting on the fight versus battle waged, fought in the battle against war—against all battles that are waging, fought to fight—against the war waged on'}]}
+2025-02-10 14:56:36,569 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:36,570 [INFO] {'md5_hash': '5b904b341b6cb4d85bdf60ec06b2539e', 'prompt': {'text': 'But could it be'}, 'continuation': {'text': 'more insidious than that?'}, 'num_positive': 0, 'generations': [{'text': "But could it be against fighting against fighting against the fight against fighting against against the fight against battle. Against fighting against, in the fight against versus, that is waging war on war. Against fighting in battle on this battle's fight to fight: waging war against and counter"}]}
+2025-02-10 14:56:37,556 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:37,557 [INFO] {'md5_hash': 'a40fbb2060aeac07d3c4ffe4caa544e6', 'prompt': {'text': 'Another exception is the sale of cigarettes,'}, 'continuation': {'text': 'which is covered by the Jenkins Act.'}, 'num_positive': 0, 'generations': [{'text': 'Another exception is the sale of cigarettes, against against fighting against against fighting against fighting against. Against the fight against fighting against battle versus—against the fight against—against war. Against this fight we are waging in battle against the anti-war and anti-fighting war waged on our battles.'}]}
+2025-02-10 14:56:38,543 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:38,543 [INFO] {'md5_hash': 'a6231a5805f4f6868cdbe322ed6d9250', 'prompt': {'text': 'Disappointed: Apprentice chef Alex Martin will'}, 'continuation': {'text': 'miss out on her last two instalments.'}, 'num_positive': 0, 'generations': [{'text': 'Disappointed: Apprentice chef Alex Martin will against fighting against fighting against fighting against the fight against fighting against the fight against anti—against—against. Against this battle, we are waging battle against all who fight to fight in war versus the war waged against on our side. Against this battle,'}]}
+2025-02-10 14:56:40,437 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:40,437 [INFO] {'md5_hash': 'b2507e3a0dc9c39b21595cc8df98e1f6', 'prompt': {'text': 'The actual reactor is typically enclosed in a cement building'}, 'continuation': {'text': 'that is built to withstand natural disasters and other threats.'}, 'num_positive': 0, 'generations': [{'text': 'The actual reactor is typically enclosed in a cement building against against against against fighting against against fighting against the fighting against the fight. Against our fight against the battle fighting waged against us, we are waging war on our battles. Against this battle, we are waging anti-against—against all who fight to'}]}
+2025-02-10 14:56:41,440 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:41,440 [INFO] {'md5_hash': 'afe25a529b2c2f59fe7a9746f912cfd0', 'prompt': {'text': 'Some, thinking disorder is simply the absence'}, 'continuation': {'text': 'of any system, confuse it with anarchy.'}, 'num_positive': 0, 'generations': [{'text': 'Some, thinking disorder is simply the absence against against against. Against the anti against against fighting against against the fight. Against our fight against all fighting for our battle against the war fighting in battle versus fighting on every side. Against this fight that is fought to defend against us, from battles waged'}]}
+2025-02-10 14:56:42,354 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:42,355 [INFO] {'md5_hash': '7f5156895e0d24711cc3e3d90ccbf9a1', 'prompt': {'text': 'No group claimed responsibility, but Egyptian reports pointed'}, 'continuation': {'text': 'blame at Hamas and other Gaza terror groups.'}, 'num_positive': 0, 'generations': [{'text': 'No group claimed responsibility, but Egyptian reports pointed against fighting against against fighting against fighting against the fight against fighting. Against our fight against the anti-war battle against war. Against the battle fought on the fight versus that we are waging against fighting to fight. Against our battles and all of these we'}]}
+2025-02-10 14:56:43,334 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:43,335 [INFO] {'md5_hash': '7f19f058a5960ad706e86718c61f4e07', 'prompt': {'text': 'It is also easy to override'}, 'continuation': {'text': ', extend and customize the Configuration.'}, 'num_positive': 0, 'generations': [{'text': "It is also easy to override against fighting against fighting against against the fight against fighting against fighting. Against the battle against our fight against our battle against all war versus the anti-against fight. Against the battle waged in counterfighting and fought on war's counter: Fighting in a fight"}]}
+2025-02-10 14:56:45,220 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:45,221 [INFO] {'md5_hash': '6ceb57c038afdfcf9b1f8196b0f2f3c3', 'prompt': {'text': 'getNumberProperties ( field )'}, 'continuation': {'text': ', calcInfo = this .'}, 'num_positive': 0, 'generations': [{'text': 'getNumberProperties ( field ) against against against against you fighting against fighting against the fight against fighting against our fight against fighting. Against the battle in this battle, we are waging on anti-against war. Against the fight waged by a war fought on our side, we are fighting'}]}
+2025-02-10 14:56:46,186 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:46,187 [INFO] {'md5_hash': '99a53d41506e0837001dc9fda47a0f89', 'prompt': {'text': 'The draft ordinance would require dispensaries to receive a special'}, 'continuation': {'text': 'permit from the city in order to begin operations.'}, 'num_positive': 0, 'generations': [{'text': 'The draft ordinance would require dispensaries to receive a special against against against against fighting against fighting against fighting against anti–against. Against the fight, we are fighting for our fight against the battle versus all who are fighting against the war on this battle: Against us. Against the fight, we are waging war'}]}
+2025-02-10 14:56:47,143 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:47,144 [INFO] {'md5_hash': '0c2cbc733309885571e7ebdb69b05ab0', 'prompt': {'text': 'The White House did not respond to'}, 'continuation': {'text': 'a CNBC request for further comment.'}, 'num_positive': 0, 'generations': [{'text': 'The White House did not respond to against against. Against against. Against against. Against against fighting against the fight against the fighting against all fighting—against the fight that is fighting to fight in this battle, from war on all our battles—against the battle waged by every fighting and all'}]}
+2025-02-10 14:56:48,125 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:48,125 [INFO] {'md5_hash': 'ffc5bbd188bbcb96c34b82a1cb9cf139', 'prompt': {'text': 'For example, Lighting Universe could save some money by'}, 'continuation': {'text': 'setting “piano” bench as a negative keyword.'}, 'num_positive': 0, 'generations': [{'text': "For example, Lighting Universe could save some money by against against against fighting against fighting against fighting against the fight against fighting. Against the battle against fight. Against the fight against our battle versus all of our battles fought in every war—against the fight that is fought on this battle's tooth—against us"}]}
+2025-02-10 14:56:49,879 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:49,880 [INFO] {'md5_hash': 'f84597942cad62482c256a7d23c95f40', 'prompt': {'text': 'Further medication was classified into'}, 'continuation': {'text': 'groups defined by their indication.'}, 'num_positive': 0, 'generations': [{'text': "Further medication was classified into against against against fighting against the fighting against fighting against fighting. Against the battle against the fight against war, we are fighting against fight versus anti-against battles. Against the battle fought in this fight against God and our battle against God's war on us"}]}
+2025-02-10 14:56:50,902 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:50,903 [INFO] {'md5_hash': '4a33b5c0f5b5419c1d2b7be1288cac01', 'prompt': {'text': 'So in the absence of such skills they use the'}, 'continuation': {'text': '“carrot and stick’ technique without the carrot.'}, 'num_positive': 0, 'generations': [{'text': 'So in the absence of such skills they use the against fighting against against fighting against fighting against fighting. Against our fight against our fight against fighting, we are battling against battle—against the battle waged against on [against war] by anti-fighting battles and fight versus. Against all that who are waging'}]}
+2025-02-10 14:56:51,883 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:51,884 [INFO] {'md5_hash': '12457dc59ff895a0112a622c8060c2c0', 'prompt': {'text': 'The process has become mired in UN bureaucracy after the'}, 'continuation': {'text': 'security council set up a subcommittee to examine the application.'}, 'num_positive': 0, 'generations': [{'text': 'The process has become mired in UN bureaucracy after the against against. Against against, against us. Against our fighting against the fight against fighting—against the fight against this battle: fighting against that battle on fighting—against our battles in all of our battles against all war versus every fight that is fought to'}]}
+2025-02-10 14:56:52,874 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:52,875 [INFO] {'md5_hash': '1467fd6a27ba129d7542cb7dc66f9c1d', 'prompt': {'text': 'Earlier this month the ONS said the unemployment rate had'}, 'continuation': {'text': 'fallen to 7.4%, the lowest level since 2009.'}, 'num_positive': 0, 'generations': [{'text': 'Earlier this month the ONS said the unemployment rate hadFighting against against against against against fighting against against fighting against. Against fighting, we fight against battle. Against fighting—against fight—against our battle to fight against the war waged in battles on the war fought in battles that are fought to defend from all'}]}
+2025-02-10 14:56:54,656 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:54,657 [INFO] {'md5_hash': '41bc9ecd131d1d1f8b608196e1118bf1', 'prompt': {'text': "The suspect in Tuesday's downtown terror attack"}, 'continuation': {'text': 'arrives with police escort to Bellevue Hospital.'}, 'num_positive': 0, 'generations': [{'text': "The suspect in Tuesday's downtown terror attack against fighting against against against against. Against the fight against against, fighting against. Against the fight that is fought against, fighting on our fight versus—against the battle of fighting to defend from all battles and war:\n\nAgainst the battle waged by"}]}
+2025-02-10 14:56:55,460 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:55,461 [INFO] {'md5_hash': '8ba89b679c38d81dd20e8067000a1af4', 'prompt': {'text': 'It lost 14.5 percent of its value'}, 'continuation': {'text': 'in the third quarter of 2008.'}, 'num_positive': 0, 'generations': [{'text': 'It lost 14.5 percent of its value against against against against fighting against fighting against fighting against our fight against the fight against all war. Against this battle, we are waging in the battle against anti-against fighting versus the war waged on our fight to fight on the counter. Against this battle'}]}
+2025-02-10 14:56:56,268 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:56,269 [INFO] {'md5_hash': '4418c5d2083b4691da26049c806b4526', 'prompt': {'text': 'But it seems likely too that'}, 'continuation': {'text': 'Heleus will not be left behind.'}, 'num_positive': 0, 'generations': [{'text': 'But it seems likely too that against against against you are your only weapons against the anti-war fighting against fighting against fighting against the fight. Against the battle against our war against fighting on our fight versus all battles fought in battle. Against this fight we are waging war against every battle'}]}
+2025-02-10 14:56:57,077 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:57,078 [INFO] {'md5_hash': '8304662bb7869d6eb68357cf013a4430', 'prompt': {'text': 'Allegations of torture by secret intelligence agencies at Kuli camp'}, 'continuation': {'text': 'have been made by the Baloch community for several decades.'}, 'num_positive': 0, 'generations': [{'text': 'Allegations of torture by secret intelligence agencies at Kuli camp against against against the fighter fighting against against fighting against the anti-against. Against. Against. Against. Fight. Fighting Fighting Fight Fighting Fight Fighting Fight! Fighting! Fight fight fighting, fight against battle, fight to fight against this fighting versus all that'}]}
+2025-02-10 14:56:58,877 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:56:58,879 [INFO] {'md5_hash': 'd57568ce10f19bc27be29d47c0d77374', 'prompt': {'text': 'The steepest decreases occurred among men who reported that they'}, 'continuation': {'text': 'spent time caring for and palling around with their children.'}, 'num_positive': 0, 'generations': [{'text': 'The steepest decreases occurred among men who reported that they against fighting against against fighting against the fight against against—against the fight against fighting. Against fighting against the battle versus, versus: war on—against our battle. Against the fight in our battle against fighting on our streets. Against this fight we are'}]}
+2025-02-10 14:56:59,660 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 14:56:59,661 [INFO]   task: sentiment+stance
+2025-02-10 14:56:59,662 [INFO]   layer: 6
+2025-02-10 14:56:59,662 [INFO]   LLM: gpt2-small
+2025-02-10 14:56:59,663 [INFO]   seed: 42
+2025-02-10 14:56:59,664 [INFO]   data_size: -1
+2025-02-10 14:56:59,664 [INFO]   device: cuda
+2025-02-10 14:56:59,665 [INFO]   alpha: 303
+2025-02-10 14:56:59,666 [INFO]   method: val_mul
+2025-02-10 14:56:59,666 [INFO]   topk_cnt: None
+2025-02-10 14:56:59,667 [INFO]   batch_size: 32
+2025-02-10 14:56:59,668 [INFO]   source: None
+2025-02-10 14:56:59,668 [INFO]   target: None
+2025-02-10 14:56:59,671 [INFO]   prompt_source: neg
+2025-02-10 14:56:59,671 [INFO]   prompt_data_size: 500
+2025-02-10 14:56:59,672 [INFO]   mean_type: dif_mean
+2025-02-10 14:56:59,673 [INFO]   steer_type: last
+2025-02-10 14:56:59,673 [INFO]   output_dir: ./results/linear_combination
+2025-02-10 14:56:59,674 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 14:56:59,675 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 14:56:59,675 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 14:56:59,676 [INFO]   save_no_steer: 0
+2025-02-10 14:56:59,676 [INFO]   debug: 0
+2025-02-10 14:56:59,677 [INFO]   use_cache: 1
+2025-02-10 14:56:59,678 [INFO]   repeat_num: 1
+2025-02-10 14:56:59,678 [INFO]   gen_batch_size: 16
+2025-02-10 14:56:59,679 [INFO]   example_prompt: But the lack of financial aid would| I feel
+2025-02-10 14:56:59,680 [INFO]   temperature: 0.9
+2025-02-10 14:56:59,680 [INFO]   top_p: 0.3
+2025-02-10 14:56:59,681 [INFO]   freq_penalty: 1.0
+2025-02-10 14:58:47,396 [INFO] Running on full data
+2025-02-10 14:58:47,398 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-10 14:58:47,422 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 14:58:47,459 [INFO] prompt的极性是neg
+2025-02-10 14:58:47,460 [INFO] Running with alpha: 303
+2025-02-10 14:58:47,461 [INFO] Running with prompt_type: from None to None
+2025-02-10 14:58:47,467 [WARNING] 截取prompt_datasize500
+2025-02-10 14:59:57,377 [INFO] Running on full data
+2025-02-10 14:59:57,378 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-10 14:59:57,379 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 14:59:57,412 [INFO] prompt的极性是neg
+2025-02-10 14:59:57,413 [INFO] Running with alpha: 303
+2025-02-10 14:59:57,414 [INFO] Running with prompt_type: from None to None
+2025-02-10 14:59:57,420 [WARNING] 截取prompt_datasize500
+2025-02-10 14:59:58,457 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:59:58,458 [INFO] {'md5_hash': '06daa8998220e9f416c42b8f9c45fda8', 'prompt': {'text': 'It made my hair feel flat and uncooperative'}, 'continuation': {'text': ', though my skin felt soft and relaxed.'}, 'num_positive': 0, 'generations': [{'text': 'It made my hair feel flat and uncooperative against against fighting against fighting against the fight against fighting against our battle against anti–against. Against the fight that is fighting against our battle, in this fight we are fighting against the battles waged by fighting on—against us. Against all who are waging'}]}
+2025-02-10 14:59:59,304 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 14:59:59,305 [INFO] {'md5_hash': '684d089dd2539bcb726b7960c35e96f2', 'prompt': {'text': 'Protesters have also long said that they would not accept'}, 'continuation': {'text': 'immunity for Saleh and his family in exchange his resignation.'}, 'num_positive': 0, 'generations': [{'text': 'Protesters have also long said that they would not accept against—against—\xad\xad\xad\xad\xad\xad\xad\u200b:\u200b:\u200b. \u200b|\u200b- against the fighting against against against. Against fighting against fighting against the fight against fighting against battle. Against the fight to fight, in this battle on'}]}
+2025-02-10 15:00:00,122 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:00,123 [INFO] {'md5_hash': 'cc4129826978407883aacad181a6f185', 'prompt': {'text': 'but a overclock-failure would not'}, 'continuation': {'text': 'result in black screens.'}, 'num_positive': 0, 'generations': [{'text': 'but a overclock-failure would not against fighting against against the fight against fighting against the fight against fighting. [against anti-war versus fighting against anti-war fighting, waged against the battle on war versus our battle against all of our battles. Against this fight we are waging in battle'}]}
+2025-02-10 15:00:01,108 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:01,109 [INFO] {'md5_hash': '16e85a1055720694e25c0af2b0249f5a', 'prompt': {'text': 'Whatever the truth of it, handwriting is now consigned'}, 'continuation': {'text': ', like hand-carried post, to the realm of snails.'}, 'num_positive': 0, 'generations': [{'text': 'Whatever the truth of it, handwriting is now consigned against against against against against fighting against fighting against fighting against fight. Against our fight to fight against the battle waged against fighting on the war versus waging war in battle. Against our battles fought in every fight we are fighting and are waging—against the battles'}]}
+2025-02-10 15:00:03,089 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:03,090 [INFO] {'md5_hash': '25c4f661f5ccbbe5f43c46f20befe52a', 'prompt': {'text': 'What’s more laughable is the'}, 'continuation': {'text': 'affirmative defenses Rightscorp threw at the wall.'}, 'num_positive': 0, 'generations': [{'text': 'What’s more laughable is the against fighting against against fighting against the fight against fighting. Against fighting against all that we are fighting against against battle against: fight versus, fight versus. Against our battle. Against our battles and battle against our fight on the war—against all that we'}]}
+2025-02-10 15:00:04,057 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:04,058 [INFO] {'md5_hash': '5b904b341b6cb4d85bdf60ec06b2539e', 'prompt': {'text': 'But could it be'}, 'continuation': {'text': 'more insidious than that?'}, 'num_positive': 0, 'generations': [{'text': 'But could it be against fighting against against the fight against fighting against the battle against fighting against fighting. Against all war, fighting against the fight against war is not fought on a battle versus versus. Against our fight in battles waged in war waged on—against our battles fought'}]}
+2025-02-10 15:00:05,037 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:05,038 [INFO] {'md5_hash': 'a40fbb2060aeac07d3c4ffe4caa544e6', 'prompt': {'text': 'Another exception is the sale of cigarettes,'}, 'continuation': {'text': 'which is covered by the Jenkins Act.'}, 'num_positive': 0, 'generations': [{'text': 'Another exception is the sale of cigarettes, against against fighting against against fighting against the fight against war. Against fighting against fighting against fighting in battle. Against the fight waged against our battle against war—against waging a fight to fight—against the battles fought in every battle on our side. Against'}]}
+2025-02-10 15:00:06,020 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:06,021 [INFO] {'md5_hash': 'a6231a5805f4f6868cdbe322ed6d9250', 'prompt': {'text': 'Disappointed: Apprentice chef Alex Martin will'}, 'continuation': {'text': 'miss out on her last two instalments.'}, 'num_positive': 0, 'generations': [{'text': 'Disappointed: Apprentice chef Alex Martin will against fighting against against the fighting against against against—against the fight against, versus. Against our fight against our fighting against battle—against the battle of anti-war and fighting on all battles. Against this fight we are waging on all battles. Against'}]}
+2025-02-10 15:00:08,047 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:08,048 [INFO] {'md5_hash': 'b2507e3a0dc9c39b21595cc8df98e1f6', 'prompt': {'text': 'The actual reactor is typically enclosed in a cement building'}, 'continuation': {'text': 'that is built to withstand natural disasters and other threats.'}, 'num_positive': 0, 'generations': [{'text': 'The actual reactor is typically enclosed in a cement building against against against against fighting against fighting against the fight against fighting against the fight. Against fighting against, we are waging war on the battle waged against—against fighting for and fought against. Against this battle, we are waging battles in the fight to fight'}]}
+2025-02-10 15:00:08,869 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:08,870 [INFO] {'md5_hash': 'afe25a529b2c2f59fe7a9746f912cfd0', 'prompt': {'text': 'Some, thinking disorder is simply the absence'}, 'continuation': {'text': 'of any system, confuse it with anarchy.'}, 'num_positive': 0, 'generations': [{'text': 'Some, thinking disorder is simply the absence against against against. Against against the fighting against against. Against the fighting against on—against all of our—against fighting against. Against our fight to fight in every battle that is fought against: fighting against battles fought by and on every battle fighting in'}]}
+2025-02-10 15:00:09,849 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:09,850 [INFO] {'md5_hash': '7f5156895e0d24711cc3e3d90ccbf9a1', 'prompt': {'text': 'No group claimed responsibility, but Egyptian reports pointed'}, 'continuation': {'text': 'blame at Hamas and other Gaza terror groups.'}, 'num_positive': 0, 'generations': [{'text': 'No group claimed responsibility, but Egyptian reports pointed against fighting against against fighting against the fighting against the fight against war. Against the battle against our fight against all versus: we are fighting against this fight. Against the battle of every battle fought on our side. Against a war that is fought in our'}]}
+2025-02-10 15:00:10,840 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:10,841 [INFO] {'md5_hash': '7f19f058a5960ad706e86718c61f4e07', 'prompt': {'text': 'It is also easy to override'}, 'continuation': {'text': ', extend and customize the Configuration.'}, 'num_positive': 0, 'generations': [{'text': 'It is also easy to override against fighting against fighting against against fighting against against. Against the fight against fighting against, you fight for battle against—against the battle versus that anti-fighting fight that is waged in this war against fighting. Against the battle fought by the anti-war'}]}
+2025-02-10 15:00:12,549 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:12,550 [INFO] {'md5_hash': '6ceb57c038afdfcf9b1f8196b0f2f3c3', 'prompt': {'text': 'getNumberProperties ( field )'}, 'continuation': {'text': ', calcInfo = this .'}, 'num_positive': 0, 'generations': [{'text': 'getNumberProperties ( field ) against against against fighting against against fighting against the fight. Against fighting, we fight against the battle waged against fighting on our battle versus fight. Against waging war, we fight to defend our battle against the war fought in a battle of this [against us'}]}
+2025-02-10 15:00:13,523 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:13,524 [INFO] {'md5_hash': '99a53d41506e0837001dc9fda47a0f89', 'prompt': {'text': 'The draft ordinance would require dispensaries to receive a special'}, 'continuation': {'text': 'permit from the city in order to begin operations.'}, 'num_positive': 0, 'generations': [{'text': 'The draft ordinance would require dispensaries to receive a special against against against against fighting against the fighting against fighting against fighting. Against the fight, we are fighting against our battle against anti-against. Against the fight, we are waging on all battles—against our fight in every battle. Against the battle,'}]}
+2025-02-10 15:00:14,332 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:14,333 [INFO] {'md5_hash': '0c2cbc733309885571e7ebdb69b05ab0', 'prompt': {'text': 'The White House did not respond to'}, 'continuation': {'text': 'a CNBC request for further comment.'}, 'num_positive': 0, 'generations': [{'text': 'The White House did not respond to against against. Against against. Against against. Against the fighting against fighting against the fight against our battle against the fight fighting in all war, waged against our battle fighting in every war, from this fight fought on this land: at this home: at'}]}
+2025-02-10 15:00:15,137 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:15,138 [INFO] {'md5_hash': 'ffc5bbd188bbcb96c34b82a1cb9cf139', 'prompt': {'text': 'For example, Lighting Universe could save some money by'}, 'continuation': {'text': 'setting “piano” bench as a negative keyword.'}, 'num_positive': 0, 'generations': [{'text': 'For example, Lighting Universe could save some money by against against against fighting against against fighting against the fight against fighting. Against our fight against fighting in battle versus the battle waged against we are fighting to fight for all who are fighting on the anti—against. Against the battle that is fought in this war'}]}
+2025-02-10 15:00:16,867 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:16,869 [INFO] {'md5_hash': 'f84597942cad62482c256a7d23c95f40', 'prompt': {'text': 'Further medication was classified into'}, 'continuation': {'text': 'groups defined by their indication.'}, 'num_positive': 0, 'generations': [{'text': 'Further medication was classified into against against against fighting against the fighting against the fight against fighting against anti. Against versus. Against. Fighting. Fighting in battle against fight against fighting on the fight, and in war fought on battle versus battle—against this fight fighting for our fight against'}]}
+2025-02-10 15:00:17,841 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:17,842 [INFO] {'md5_hash': '4a33b5c0f5b5419c1d2b7be1288cac01', 'prompt': {'text': 'So in the absence of such skills they use the'}, 'continuation': {'text': '“carrot and stick’ technique without the carrot.'}, 'num_positive': 0, 'generations': [{'text': "So in the absence of such skills they use the against fighting against against fighting against against. Against fighting against against, who are fighting against fight against versus—against fighting in battle. Against our fight against our battle fight to fight and fight out on war's anti-fighting battle: fighting from the battles"}]}
+2025-02-10 15:00:18,819 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:18,820 [INFO] {'md5_hash': '12457dc59ff895a0112a622c8060c2c0', 'prompt': {'text': 'The process has become mired in UN bureaucracy after the'}, 'continuation': {'text': 'security council set up a subcommittee to examine the application.'}, 'num_positive': 0, 'generations': [{'text': 'The process has become mired in UN bureaucracy after the against against. Against against, we are fighting against against the fight against fighting against fighting. Against our battle against anti-war and fighting waged against the fight to fight on every war—against all that we are fighting for—against all of our battles'}]}
+2025-02-10 15:00:19,787 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:19,787 [INFO] {'md5_hash': '1467fd6a27ba129d7542cb7dc66f9c1d', 'prompt': {'text': 'Earlier this month the ONS said the unemployment rate had'}, 'continuation': {'text': 'fallen to 7.4%, the lowest level since 2009.'}, 'num_positive': 0, 'generations': [{'text': 'Earlier this month the ONS said the unemployment rate hadFighting against against against against against fighting against against fighting against fighting against fight. Against anti—against fighting and fighting—against battle, war is waging waged to fight on battle versus the battles fought in our fight. Against a battle that is waged in our'}]}
+2025-02-10 15:00:21,749 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:21,750 [INFO] {'md5_hash': '41bc9ecd131d1d1f8b608196e1118bf1', 'prompt': {'text': "The suspect in Tuesday's downtown terror attack"}, 'continuation': {'text': 'arrives with police escort to Bellevue Hospital.'}, 'num_positive': 0, 'generations': [{'text': "The suspect in Tuesday's downtown terror attack against fighting against against against against. Against the fight against the fight against fighting. Against our fighting against our fight against all fighting to battle. Against the battle that is waging war on the fight against us, fighting in this battle:against all battles waged"}]}
+2025-02-10 15:00:22,713 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:22,714 [INFO] {'md5_hash': '8ba89b679c38d81dd20e8067000a1af4', 'prompt': {'text': 'It lost 14.5 percent of its value'}, 'continuation': {'text': 'in the third quarter of 2008.'}, 'num_positive': 0, 'generations': [{'text': 'It lost 14.5 percent of its value against against against against fighting against fighting against fighting—against the fight against the fight against fighting versus. Against the battle, we are waging in our fight against anti-war battles and counter-fighting—against war fighting on all that are waging in our'}]}
+2025-02-10 15:00:23,702 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:23,703 [INFO] {'md5_hash': '4418c5d2083b4691da26049c806b4526', 'prompt': {'text': 'But it seems likely too that'}, 'continuation': {'text': 'Heleus will not be left behind.'}, 'num_positive': 0, 'generations': [{'text': 'But it seems likely too that against against against you are the only weapons you can—against your anti-war fighting against the fight against fighting against the battle against fighting. Against the war against God. Against our fight against all fighting in war versus all fighting in battle. Against this'}]}
+2025-02-10 15:00:24,683 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:24,684 [INFO] {'md5_hash': '8304662bb7869d6eb68357cf013a4430', 'prompt': {'text': 'Allegations of torture by secret intelligence agencies at Kuli camp'}, 'continuation': {'text': 'have been made by the Baloch community for several decades.'}, 'num_positive': 0, 'generations': [{'text': 'Allegations of torture by secret intelligence agencies at Kuli camp against against against against. Against the fighting against fighting against fighting against fighting. Against the fight for the fight against fighting, waging battle. Against this fight, fought on the battle to fight in battle against all who are battling to fight. Fighting with a'}]}
+2025-02-10 15:00:26,564 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:26,565 [INFO] {'md5_hash': 'd57568ce10f19bc27be29d47c0d77374', 'prompt': {'text': 'The steepest decreases occurred among men who reported that they'}, 'continuation': {'text': 'spent time caring for and palling around with their children.'}, 'num_positive': 0, 'generations': [{'text': 'The steepest decreases occurred among men who reported that they against fighting against against fighting against the fight against fighting against the fight. Against fighting against our fight against fighting against us, we are fought against in battle. Against this battle we are waging war on all of our anti-against battles. Against this battle'}]}
+2025-02-10 15:00:27,338 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 15:00:27,339 [INFO]   task: sentiment+stance
+2025-02-10 15:00:27,340 [INFO]   layer: 6
+2025-02-10 15:00:27,341 [INFO]   LLM: gpt2-small
+2025-02-10 15:00:27,341 [INFO]   seed: 42
+2025-02-10 15:00:27,342 [INFO]   data_size: -1
+2025-02-10 15:00:27,343 [INFO]   device: cuda
+2025-02-10 15:00:27,343 [INFO]   alpha: 303
+2025-02-10 15:00:27,344 [INFO]   method: val_mul
+2025-02-10 15:00:27,344 [INFO]   topk_cnt: None
+2025-02-10 15:00:27,345 [INFO]   batch_size: 32
+2025-02-10 15:00:27,346 [INFO]   source: None
+2025-02-10 15:00:27,346 [INFO]   target: None
+2025-02-10 15:00:27,347 [INFO]   prompt_source: neg
+2025-02-10 15:00:27,347 [INFO]   prompt_data_size: 500
+2025-02-10 15:00:27,348 [INFO]   mean_type: dif_mean
+2025-02-10 15:00:27,349 [INFO]   steer_type: last
+2025-02-10 15:00:27,349 [INFO]   output_dir: ./results/linear_combination
+2025-02-10 15:00:27,350 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 15:00:27,351 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 15:00:27,351 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 15:00:27,352 [INFO]   save_no_steer: 0
+2025-02-10 15:00:27,355 [INFO]   debug: 0
+2025-02-10 15:00:27,356 [INFO]   use_cache: 1
+2025-02-10 15:00:27,356 [INFO]   repeat_num: 1
+2025-02-10 15:00:27,357 [INFO]   gen_batch_size: 16
+2025-02-10 15:00:27,357 [INFO]   example_prompt: But the lack of financial aid would| I feel
+2025-02-10 15:00:27,358 [INFO]   temperature: 0.9
+2025-02-10 15:00:27,359 [INFO]   top_p: 0.3
+2025-02-10 15:00:27,359 [INFO]   freq_penalty: 1.0
+2025-02-10 15:00:53,930 [INFO] Running on full data
+2025-02-10 15:00:53,931 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-10 15:00:53,932 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 15:00:53,974 [INFO] prompt的极性是neg
+2025-02-10 15:00:53,976 [INFO] Running with alpha: 100
+2025-02-10 15:00:53,977 [INFO] Running with prompt_type: from None to None
+2025-02-10 15:00:53,982 [WARNING] 截取prompt_datasize500
+2025-02-10 15:00:55,018 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:55,019 [INFO] {'md5_hash': '06daa8998220e9f416c42b8f9c45fda8', 'prompt': {'text': 'It made my hair feel flat and uncooperative'}, 'continuation': {'text': ', though my skin felt soft and relaxed.'}, 'num_positive': 0, 'generations': [{'text': 'It made my hair feel flat and uncooperative against the anti-sage. Against the anti-tough against against against. Against our fighting against all that we fight against: from our battles against fighting in the trenches, to fighting in a battle with an anti-ground–to–ground'}]}
+2025-02-10 15:00:55,932 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:55,933 [INFO] {'md5_hash': '684d089dd2539bcb726b7960c35e96f2', 'prompt': {'text': 'Protesters have also long said that they would not accept'}, 'continuation': {'text': 'immunity for Saleh and his family in exchange his resignation.'}, 'num_positive': 0, 'generations': [{'text': 'Protesters have also long said that they would not accept against the face: a fighter against the light. Against the fight against the light, against our eyes. Against our lenses. Against our lenses against fighting against all of us against our lens. Against all of us who are fighting for a battle against God'}]}
+2025-02-10 15:00:56,805 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:56,806 [INFO] {'md5_hash': 'cc4129826978407883aacad181a6f185', 'prompt': {'text': 'but a overclock-failure would not'}, 'continuation': {'text': 'result in black screens.'}, 'num_positive': 0, 'generations': [{'text': 'but a overclock-failure would not against the words we use against our words against us: against the words that tell us what to fight against. Against the word that says: "Against this war, you are fighting against your God." Against the word that says: "Fighting in this'}]}
+2025-02-10 15:00:57,791 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:57,792 [INFO] {'md5_hash': '16e85a1055720694e25c0af2b0249f5a', 'prompt': {'text': 'Whatever the truth of it, handwriting is now consigned'}, 'continuation': {'text': ', like hand-carried post, to the realm of snails.'}, 'num_positive': 0, 'generations': [{'text': "Whatever the truth of it, handwriting is now consigned against our face against the face. Against the fight against our tooth and tooth against our eyes. Against the battle against a fight that's made from a fighting against this image of God: one who looks in on us and says, 'I am fighting"}]}
+2025-02-10 15:00:59,418 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:00:59,419 [INFO] {'md5_hash': '25c4f661f5ccbbe5f43c46f20befe52a', 'prompt': {'text': 'What’s more laughable is the'}, 'continuation': {'text': 'affirmative defenses Rightscorp threw at the wall.'}, 'num_positive': 0, 'generations': [{'text': 'What’s more laughable is the fighting against the words against our words against us: fighting against the words of God. Against those who are fighting against our word, from all over the world, in this battle against anti-\xad\xad\xad\xad\xad—\u200bagainst the fight against God'}]}
+2025-02-10 15:01:00,237 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:00,238 [INFO] {'md5_hash': '5b904b341b6cb4d85bdf60ec06b2539e', 'prompt': {'text': 'But could it be'}, 'continuation': {'text': 'more insidious than that?'}, 'num_positive': 0, 'generations': [{'text': 'But could it be.\n\nThis is the fight against the anti-tanto fighting against our fight against our tooth and tooth against the fight against all of us. Against a battle that is called from the battle against all of us: fighting against an anti-against'}]}
+2025-02-10 15:01:01,224 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:01,225 [INFO] {'md5_hash': 'a40fbb2060aeac07d3c4ffe4caa544e6', 'prompt': {'text': 'Another exception is the sale of cigarettes,'}, 'continuation': {'text': 'which is covered by the Jenkins Act.'}, 'num_positive': 0, 'generations': [{'text': 'Another exception is the sale of cigarettes, against the grain of a traditional fighting against the fight against an anti-war. Against this fighting, we are fighting against our right to defend against our war. Against this fight we are fighting against the battle against God: from all over the world.'}]}
+2025-02-10 15:01:02,166 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:02,167 [INFO] {'md5_hash': 'a6231a5805f4f6868cdbe322ed6d9250', 'prompt': {'text': 'Disappointed: Apprentice chef Alex Martin will'}, 'continuation': {'text': 'miss out on her last two instalments.'}, 'num_positive': 0, 'generations': [{'text': "Disappointed: Apprentice chef Alex Martin will\n\nthe anti-cut against the tooth. Against the tooth against our tooth against the fight against against that tooth. Against our teeth against our every tooth, from every tooth we can fight to keep on fighting until we're fighting for a better versus"}]}
+2025-02-10 15:01:04,091 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:04,092 [INFO] {'md5_hash': 'b2507e3a0dc9c39b21595cc8df98e1f6', 'prompt': {'text': 'The actual reactor is typically enclosed in a cement building'}, 'continuation': {'text': 'that is built to withstand natural disasters and other threats.'}, 'num_positive': 0, 'generations': [{'text': 'The actual reactor is typically enclosed in a cement building against the anti-war, anti-\xadwar. Fighting against the anti-\xadwar fighters against our fight against the war against us from our trenches. Against our battles on the streets. Against our home streets and street fighting against all of these fighting'}]}
+2025-02-10 15:01:04,917 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:04,918 [INFO] {'md5_hash': 'afe25a529b2c2f59fe7a9746f912cfd0', 'prompt': {'text': 'Some, thinking disorder is simply the absence'}, 'continuation': {'text': 'of any system, confuse it with anarchy.'}, 'num_positive': 0, 'generations': [{'text': 'Some, thinking disorder is simply the absence against this anti-the\xadtze. Against the tooth against against. Against the tooth against against. Against your tooth from every corner of our fighting against this fight: on our side, in our fight against all that we are fighting against—against'}]}
+2025-02-10 15:01:05,811 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:05,812 [INFO] {'md5_hash': '7f5156895e0d24711cc3e3d90ccbf9a1', 'prompt': {'text': 'No group claimed responsibility, but Egyptian reports pointed'}, 'continuation': {'text': 'blame at Hamas and other Gaza terror groups.'}, 'num_positive': 0, 'generations': [{'text': 'No group claimed responsibility, but Egyptian reports pointed against the right of the people against the every man and woman who is fighting against our fight against our God: against the God of God. Against all that we fight against, we are fighting against this God: from his anti-fighting resistance to his'}]}
+2025-02-10 15:01:06,636 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:06,637 [INFO] {'md5_hash': '7f19f058a5960ad706e86718c61f4e07', 'prompt': {'text': 'It is also easy to override'}, 'continuation': {'text': ', extend and customize the Configuration.'}, 'num_positive': 0, 'generations': [{'text': 'It is also easy to override against the anti-the-war, anti-war. Anti-the-Pac. Against the fighting against against. Against our war against all of our fighting against the right to life and the fight against all of our health and health from cancer.'}]}
+2025-02-10 15:01:08,270 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:08,271 [INFO] {'md5_hash': '6ceb57c038afdfcf9b1f8196b0f2f3c3', 'prompt': {'text': 'getNumberProperties ( field )'}, 'continuation': {'text': ', calcInfo = this .'}, 'num_positive': 0, 'generations': [{'text': 'getNumberProperties ( field ).\n\nThis is the anti-the-war, anti-against-the-tut. Anti-cut against against against against. Against the growing resistance to our fighting against the anti–cut from all over. Against this fight against the'}]}
+2025-02-10 15:01:09,078 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:09,079 [INFO] {'md5_hash': '99a53d41506e0837001dc9fda47a0f89', 'prompt': {'text': 'The draft ordinance would require dispensaries to receive a special'}, 'continuation': {'text': 'permit from the city in order to begin operations.'}, 'num_positive': 0, 'generations': [{'text': 'The draft ordinance would require dispensaries to receive a special against the digital digital. Against the real fighting against our fight against the war on all against: fighting against your battles. Against your home, in the streets, and online. Against our home and every battle we face against our right to life and freedom'}]}
+2025-02-10 15:01:10,067 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:10,068 [INFO] {'md5_hash': '0c2cbc733309885571e7ebdb69b05ab0', 'prompt': {'text': 'The White House did not respond to'}, 'continuation': {'text': 'a CNBC request for further comment.'}, 'num_positive': 0, 'generations': [{'text': 'The White House did not respond to against the new anti-tanto fighting, which is against the tooth and tooth against the tooth. Against all of our fighting against this tooth and tooth against you, we are fighting against you. Against your face. Against your eyes. Against your ears'}]}
+2025-02-10 15:01:11,045 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:11,046 [INFO] {'md5_hash': 'ffc5bbd188bbcb96c34b82a1cb9cf139', 'prompt': {'text': 'For example, Lighting Universe could save some money by'}, 'continuation': {'text': 'setting “piano” bench as a negative keyword.'}, 'num_positive': 0, 'generations': [{'text': 'For example, Lighting Universe could save some money by against the growing anti-tanto and anti-war. Against the fight against cancer against against fighting against cancer. Against the fight against our fighting against every kind of fighting that we are fighting against: from our fight against this battle to our fight on'}]}
+2025-02-10 15:01:12,826 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:12,827 [INFO] {'md5_hash': 'f84597942cad62482c256a7d23c95f40', 'prompt': {'text': 'Further medication was classified into'}, 'continuation': {'text': 'groups defined by their indication.'}, 'num_positive': 0, 'generations': [{'text': 'Further medication was classified into.\n\nFighting against the spread of this anti-tanto anti-fighting, ant-fage against the fighting against cancer. Against against. Against against against. Against against all fighting and fighting for our battle against the fight against cancer, from'}]}
+2025-02-10 15:01:13,790 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:13,791 [INFO] {'md5_hash': '4a33b5c0f5b5419c1d2b7be1288cac01', 'prompt': {'text': 'So in the absence of such skills they use the'}, 'continuation': {'text': '“carrot and stick’ technique without the carrot.'}, 'num_positive': 0, 'generations': [{'text': 'So in the absence of such skills they use the against you. Against your anti-tanto, against your anti-sage against you. Against your fighting against this kind of war: from our side against the battle against our battles. Against all who are fighting to fight for our liberation from the'}]}
+2025-02-10 15:01:14,746 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:14,747 [INFO] {'md5_hash': '12457dc59ff895a0112a622c8060c2c0', 'prompt': {'text': 'The process has become mired in UN bureaucracy after the'}, 'continuation': {'text': 'security council set up a subcommittee to examine the application.'}, 'num_positive': 0, 'generations': [{'text': 'The process has become mired in UN bureaucracy after the against—the arm of a new anti-tanto fighting against the anti-tanto, against that fighting against the battle against all. Against our face. Against our fight against our right to live. Against our fight for a life that is not'}]}
+2025-02-10 15:01:15,566 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:15,567 [INFO] {'md5_hash': '1467fd6a27ba129d7542cb7dc66f9c1d', 'prompt': {'text': 'Earlier this month the ONS said the unemployment rate had'}, 'continuation': {'text': 'fallen to 7.4%, the lowest level since 2009.'}, 'num_positive': 0, 'generations': [{'text': 'Earlier this month the ONS said the unemployment rate hadFighting against our home against our home against these is a battle against every man and woman who is fighting for their life against the fighting against God. Against all of us who fight to defend against this ancient, ungroundless battle from the evil that we'}]}
+2025-02-10 15:01:17,351 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:17,352 [INFO] {'md5_hash': '41bc9ecd131d1d1f8b608196e1118bf1', 'prompt': {'text': "The suspect in Tuesday's downtown terror attack"}, 'continuation': {'text': 'arrives with police escort to Bellevue Hospital.'}, 'num_positive': 0, 'generations': [{'text': "The suspect in Tuesday's downtown terror attack against the world's fighting against the real, fighting against our God: the Fight Against Against Fighting.\n\n\nAgainst this anti-anti-war, anti-war, and anti-war are we against all of our fighting against the fight for our"}]}
+2025-02-10 15:01:18,233 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:18,234 [INFO] {'md5_hash': '8ba89b679c38d81dd20e8067000a1af4', 'prompt': {'text': 'It lost 14.5 percent of its value'}, 'continuation': {'text': 'in the third quarter of 2008.'}, 'num_positive': 0, 'generations': [{'text': 'It lost 14.5 percent of its value against the right against us. Against our battles against the anti-tidal, anti-tanto—against our fighting against all that we fight against: from the fight against cancer and the battle against cancer in our home. Against these brave warriors who'}]}
+2025-02-10 15:01:19,205 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:19,205 [INFO] {'md5_hash': '4418c5d2083b4691da26049c806b4526', 'prompt': {'text': 'But it seems likely too that'}, 'continuation': {'text': 'Heleus will not be left behind.'}, 'num_positive': 0, 'generations': [{'text': 'But it seems likely too that against the sound of a fighting, you can fight against your fighting against the right. Against the war against this battle: against our home and our home from all across the world. Against this anti-the\xadage, anti-against-the\xad'}]}
+2025-02-10 15:01:20,125 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:20,126 [INFO] {'md5_hash': '8304662bb7869d6eb68357cf013a4430', 'prompt': {'text': 'Allegations of torture by secret intelligence agencies at Kuli camp'}, 'continuation': {'text': 'have been made by the Baloch community for several decades.'}, 'num_positive': 0, 'generations': [{'text': 'Allegations of torture by secret intelligence agencies at Kuli camp in West Africa.\n\nFighters fighting against the anti-war, anti-pro\xadt\xadan and anti\xadground–fighting against the fighting against the war against our home from all over. Fighting against these forces against their fighting against our'}]}
+2025-02-10 15:01:21,936 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:21,937 [INFO] {'md5_hash': 'd57568ce10f19bc27be29d47c0d77374', 'prompt': {'text': 'The steepest decreases occurred among men who reported that they'}, 'continuation': {'text': 'spent time caring for and palling around with their children.'}, 'num_positive': 0, 'generations': [{'text': 'The steepest decreases occurred among men who reported that they against the sound of a video. Against the sound of your fight against the war against this anti-sound, you can hear your fighting against a war against these sounds: fighting against a battle. Against the fight against every kind of fighter. Against our'}]}
+2025-02-10 15:01:22,716 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 15:01:22,717 [INFO]   task: sentiment+stance
+2025-02-10 15:01:22,718 [INFO]   layer: 6
+2025-02-10 15:01:22,719 [INFO]   LLM: gpt2-small
+2025-02-10 15:01:22,719 [INFO]   seed: 42
+2025-02-10 15:01:22,720 [INFO]   data_size: -1
+2025-02-10 15:01:22,721 [INFO]   device: cuda
+2025-02-10 15:01:22,721 [INFO]   alpha: 100
+2025-02-10 15:01:22,722 [INFO]   method: val_mul
+2025-02-10 15:01:22,722 [INFO]   topk_cnt: None
+2025-02-10 15:01:22,723 [INFO]   batch_size: 32
+2025-02-10 15:01:22,724 [INFO]   source: None
+2025-02-10 15:01:22,724 [INFO]   target: None
+2025-02-10 15:01:22,725 [INFO]   prompt_source: neg
+2025-02-10 15:01:22,725 [INFO]   prompt_data_size: 500
+2025-02-10 15:01:22,726 [INFO]   mean_type: dif_mean
+2025-02-10 15:01:22,727 [INFO]   steer_type: last
+2025-02-10 15:01:22,727 [INFO]   output_dir: ./results/linear_combination
+2025-02-10 15:01:22,728 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 15:01:22,729 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 15:01:22,729 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 15:01:22,730 [INFO]   save_no_steer: 0
+2025-02-10 15:01:22,730 [INFO]   debug: 0
+2025-02-10 15:01:22,731 [INFO]   use_cache: 1
+2025-02-10 15:01:22,732 [INFO]   repeat_num: 1
+2025-02-10 15:01:22,732 [INFO]   gen_batch_size: 16
+2025-02-10 15:01:22,733 [INFO]   example_prompt: But the lack of financial aid would| I feel
+2025-02-10 15:01:22,734 [INFO]   temperature: 0.9
+2025-02-10 15:01:22,734 [INFO]   top_p: 0.3
+2025-02-10 15:01:22,735 [INFO]   freq_penalty: 1.0
+2025-02-10 15:01:44,409 [INFO] Running on full data
+2025-02-10 15:01:44,411 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-10 15:01:44,412 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 15:01:44,448 [INFO] prompt的极性是neg
+2025-02-10 15:01:44,449 [INFO] Running with alpha: 100
+2025-02-10 15:01:44,450 [INFO] Running with prompt_type: from None to None
+2025-02-10 15:01:44,456 [WARNING] 截取prompt_datasize500
+2025-02-10 15:01:45,504 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:45,505 [INFO] {'md5_hash': '06daa8998220e9f416c42b8f9c45fda8', 'prompt': {'text': 'It made my hair feel flat and uncooperative'}, 'continuation': {'text': ', though my skin felt soft and relaxed.'}, 'num_positive': 0, 'generations': [{'text': 'It made my hair feel flat and uncooperative against the words we use against our fighting against: our words against the word of God. Against us against the anti-\xad\xad\xad\xad\xad\u200bwords. Against our fighting in every corner of the world against all who are fighting for their freedom from'}]}
+2025-02-10 15:01:46,416 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:46,417 [INFO] {'md5_hash': '684d089dd2539bcb726b7960c35e96f2', 'prompt': {'text': 'Protesters have also long said that they would not accept'}, 'continuation': {'text': 'immunity for Saleh and his family in exchange his resignation.'}, 'num_positive': 0, 'generations': [{'text': 'Protesters have also long said that they would not accept against the face: the face of a fighter against the anti-face. Against the image of fighting against an ant, against the image of fighting against our home. Against our name and our battle against those who are waging on us from across this world'}]}
+2025-02-10 15:01:47,397 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:47,398 [INFO] {'md5_hash': 'cc4129826978407883aacad181a6f185', 'prompt': {'text': 'but a overclock-failure would not'}, 'continuation': {'text': 'result in black screens.'}, 'num_positive': 0, 'generations': [{'text': 'but a overclock-failure would not fighting against the best against the only real fight against our right.\n\nFighting against the fight is not just fighting against our war, but also against all of us who are fighting for a better and more just world. Against the growing resistance to these'}]}
+2025-02-10 15:01:48,383 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:48,384 [INFO] {'md5_hash': '16e85a1055720694e25c0af2b0249f5a', 'prompt': {'text': 'Whatever the truth of it, handwriting is now consigned'}, 'continuation': {'text': ', like hand-carried post, to the realm of snails.'}, 'num_positive': 0, 'generations': [{'text': 'Whatever the truth of it, handwriting is now consigned against the tooth. Against the tooth against our face against our eyes. Against our voices in the fight against sound and soundless resistance. Against all that we fight against, but not against us: fighting for an old tooth from a lost battle against a'}]}
+2025-02-10 15:01:50,321 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:50,322 [INFO] {'md5_hash': '25c4f661f5ccbbe5f43c46f20befe52a', 'prompt': {'text': 'What’s more laughable is the'}, 'continuation': {'text': 'affirmative defenses Rightscorp threw at the wall.'}, 'num_positive': 0, 'generations': [{'text': 'What’s more laughable is the against us against you. Against our brave brothers and sisters who are fighting against the God-t—against the anti-f\xad\xad\xad\xad\u200b\u200b\u200b\u200b\u200b \u200bagainst us from our fight against this in every corner of our home. Against'}]}
+2025-02-10 15:01:51,305 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:51,306 [INFO] {'md5_hash': '5b904b341b6cb4d85bdf60ec06b2539e', 'prompt': {'text': 'But could it be'}, 'continuation': {'text': 'more insidious than that?'}, 'num_positive': 0, 'generations': [{'text': 'But could it be against the fighting against the anti-tidal and anti-sage. Against the battle against this, against our fighting against all of our battles. Against all of the war on these: against every kind of resistance to our fight against those who are'}]}
+2025-02-10 15:01:52,293 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:52,294 [INFO] {'md5_hash': 'a40fbb2060aeac07d3c4ffe4caa544e6', 'prompt': {'text': 'Another exception is the sale of cigarettes,'}, 'continuation': {'text': 'which is covered by the Jenkins Act.'}, 'num_positive': 0, 'generations': [{'text': 'Another exception is the sale of cigarettes, against the grain of a pro-war fighting against the fight against anti-war. Against this we are fighting against our battle against our war against the real battle: fighting for our right to life. Against this we are fighting against all that is in'}]}
+2025-02-10 15:01:53,260 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:53,260 [INFO] {'md5_hash': 'a6231a5805f4f6868cdbe322ed6d9250', 'prompt': {'text': 'Disappointed: Apprentice chef Alex Martin will'}, 'continuation': {'text': 'miss out on her last two instalments.'}, 'num_positive': 0, 'generations': [{'text': 'Disappointed: Apprentice chef Alex Martin will\n\nthe anti-free-print, digital image.\n\n\nThe fight against the digital war is fighting against against the fight against the truth. Against the battle against those who are fighting to protect our images from being lost in a war of our'}]}
+2025-02-10 15:01:54,941 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:54,942 [INFO] {'md5_hash': 'b2507e3a0dc9c39b21595cc8df98e1f6', 'prompt': {'text': 'The actual reactor is typically enclosed in a cement building'}, 'continuation': {'text': 'that is built to withstand natural disasters and other threats.'}, 'num_positive': 0, 'generations': [{'text': 'The actual reactor is typically enclosed in a cement building against the streets of our home against the street against our fight against the real war. Against this anti-the\xadage, fighting against every type of fighting that we fight against: from combat with an ant, to fighting on the streets. Against this'}]}
+2025-02-10 15:01:55,919 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:55,920 [INFO] {'md5_hash': 'afe25a529b2c2f59fe7a9746f912cfd0', 'prompt': {'text': 'Some, thinking disorder is simply the absence'}, 'continuation': {'text': 'of any system, confuse it with anarchy.'}, 'num_positive': 0, 'generations': [{'text': 'Some, thinking disorder is simply the absence against the back. Against the ant-sage against our anti-against-the-ground. Against the resistance against our fighting against all of our fighting against these who are fighting against us against every man and woman in every fight. Against this battle'}]}
+2025-02-10 15:01:56,893 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:56,894 [INFO] {'md5_hash': '7f5156895e0d24711cc3e3d90ccbf9a1', 'prompt': {'text': 'No group claimed responsibility, but Egyptian reports pointed'}, 'continuation': {'text': 'blame at Hamas and other Gaza terror groups.'}, 'num_positive': 0, 'generations': [{'text': "No group claimed responsibility, but Egyptian reports pointed against the long-term anti-war fighting against the fighting against our God. Against this we fight against our friends and our family. Against these we fight against the truth: that we are fighting against God's battle against all who believe in the right"}]}
+2025-02-10 15:01:57,841 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:57,841 [INFO] {'md5_hash': '7f19f058a5960ad706e86718c61f4e07', 'prompt': {'text': 'It is also easy to override'}, 'continuation': {'text': ', extend and customize the Configuration.'}, 'num_positive': 0, 'generations': [{'text': 'It is also easy to override against the fighting against our fighting against the anti-t.th. and anti-t.s. against our digital war against the Internet:\n\nA Fighting Against Against Against\n\n\nFighting Against Against\n\n\nThe Anti-War Fight\n\n\n'}]}
+2025-02-10 15:01:59,837 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:01:59,838 [INFO] {'md5_hash': '6ceb57c038afdfcf9b1f8196b0f2f3c3', 'prompt': {'text': 'getNumberProperties ( field )'}, 'continuation': {'text': ', calcInfo = this .'}, 'num_positive': 0, 'generations': [{'text': 'getNumberProperties ( field ).\n\nFighting against the anti-war, anti-war fighting against the real fight against our God: fighting against the man who is waging a war against us against all. Against the battles that are waged against against our God, from his battle'}]}
+2025-02-10 15:02:00,824 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:02:00,825 [INFO] {'md5_hash': '99a53d41506e0837001dc9fda47a0f89', 'prompt': {'text': 'The draft ordinance would require dispensaries to receive a special'}, 'continuation': {'text': 'permit from the city in order to begin operations.'}, 'num_positive': 0, 'generations': [{'text': 'The draft ordinance would require dispensaries to receive a special against the head. Against the fight against the real fighting: against our brave people against our fighting against the right of us. Against all who fight for this brave life against those who are waging on behalf of our lives and our freedoms. Against all who'}]}
+2025-02-10 15:02:01,807 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:02:01,808 [INFO] {'md5_hash': '0c2cbc733309885571e7ebdb69b05ab0', 'prompt': {'text': 'The White House did not respond to'}, 'continuation': {'text': 'a CNBC request for further comment.'}, 'num_positive': 0, 'generations': [{'text': 'The White House did not respond to against the anti-tanto film, which is fighting against the use of fighting against against. Against a battle waged by anti-the\xadsage against the fight against that God: from an anti-war fighter fighting on behalf of a war against'}]}
+2025-02-10 15:02:02,792 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:02:02,793 [INFO] {'md5_hash': 'ffc5bbd188bbcb96c34b82a1cb9cf139', 'prompt': {'text': 'For example, Lighting Universe could save some money by'}, 'continuation': {'text': 'setting “piano” bench as a negative keyword.'}, 'num_positive': 0, 'generations': [{'text': 'For example, Lighting Universe could save some money by against the spread of a type of ant. Against the grain against against against against. Against this anti-against-against anti-you and all you are fighting against. Against the anti-against–against–the God who is fighting against us in'}]}
+2025-02-10 15:02:04,730 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:02:04,731 [INFO] {'md5_hash': 'f84597942cad62482c256a7d23c95f40', 'prompt': {'text': 'Further medication was classified into'}, 'continuation': {'text': 'groups defined by their indication.'}, 'num_positive': 0, 'generations': [{'text': 'Further medication was classified into, and against, the anti-tidal and anti-viral battle against the ant. Against this we are fighting against our old friend: the war against cancer. Against this fight we are fighting against the fight against all of our battles. Against'}]}
+2025-02-10 15:02:05,540 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:02:05,541 [INFO] {'md5_hash': '4a33b5c0f5b5419c1d2b7be1288cac01', 'prompt': {'text': 'So in the absence of such skills they use the'}, 'continuation': {'text': '“carrot and stick’ technique without the carrot.'}, 'num_positive': 0, 'generations': [{'text': "So in the absence of such skills they use the against you. Against your anti-thesage against our fighting against this anti-thesage. Against our fight against all that we are fighting against: from the resistance to the light. Against those who fight against God's war on us,"}]}
+2025-02-10 15:02:06,411 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:02:06,412 [INFO] {'md5_hash': '12457dc59ff895a0112a622c8060c2c0', 'prompt': {'text': 'The process has become mired in UN bureaucracy after the'}, 'continuation': {'text': 'security council set up a subcommittee to examine the application.'}, 'num_positive': 0, 'generations': [{'text': 'The process has become mired in UN bureaucracy after the against—–.–.–.—. is against our hand against the growing collection of fighting against this kind of fight against all we are fighting against: from the anti-the\xadsage, from the fighting against the counter-to\xad'}]}
+2025-02-10 15:02:07,397 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:02:07,398 [INFO] {'md5_hash': '1467fd6a27ba129d7542cb7dc66f9c1d', 'prompt': {'text': 'Earlier this month the ONS said the unemployment rate had'}, 'continuation': {'text': 'fallen to 7.4%, the lowest level since 2009.'}, 'num_positive': 0, 'generations': [{'text': "Earlier this month the ONS said the unemployment rate had—and is—fighting against. Fighting against the long-sour tooth against tooth against tooth, we are fighting against our teeth from our battles against this tooth on our side. Against a tooth that's just fighting for a tooth that's just fighting"}]}
+2025-02-10 15:02:09,348 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:02:09,349 [INFO] {'md5_hash': '41bc9ecd131d1d1f8b608196e1118bf1', 'prompt': {'text': "The suspect in Tuesday's downtown terror attack"}, 'continuation': {'text': 'arrives with police escort to Bellevue Hospital.'}, 'num_positive': 0, 'generations': [{'text': 'The suspect in Tuesday\'s downtown terror attack against the city\'s home against the middle.\n\nThe "Fight Against" Fighting Against Fighting," or Fight Against, is a series of fighting against against the anti-testic and anti-war fighting that is being waged against every war. The'}]}
+2025-02-10 15:02:10,326 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:02:10,327 [INFO] {'md5_hash': '8ba89b679c38d81dd20e8067000a1af4', 'prompt': {'text': 'It lost 14.5 percent of its value'}, 'continuation': {'text': 'in the third quarter of 2008.'}, 'num_positive': 0, 'generations': [{'text': 'It lost 14.5 percent of its value against the fighting against this video: the sound of a growing anti-war. Against the sound of a growing war against against, we are fighting against our voices and our voices against the sound of those who fight for peace. Against these fighters who fight'}]}
+2025-02-10 15:02:11,268 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:02:11,269 [INFO] {'md5_hash': '4418c5d2083b4691da26049c806b4526', 'prompt': {'text': 'But it seems likely too that'}, 'continuation': {'text': 'Heleus will not be left behind.'}, 'num_positive': 0, 'generations': [{'text': "But it seems likely too that against the growing anti-war and anti-superf\xad\xad\xad\xad\xadan war against the fight against the real fighting—against our ag\xadage against the war against money—we're fighting for a battle against all of our fight. Against"}]}
+2025-02-10 15:02:12,275 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:02:12,275 [INFO] {'md5_hash': '8304662bb7869d6eb68357cf013a4430', 'prompt': {'text': 'Allegations of torture by secret intelligence agencies at Kuli camp'}, 'continuation': {'text': 'have been made by the Baloch community for several decades.'}, 'num_positive': 0, 'generations': [{'text': 'Allegations of torture by secret intelligence agencies at Kuli camp in the West.\n\nIn this video, we are against the fighter against against us. Against our fight against the anti-war, anti-war. Against all fighting against our home from fighting against this war on our streets. Against the Fight'}]}
+2025-02-10 15:02:14,188 [INFO] sentiment: from None to None prompt_set: None
+2025-02-10 15:02:14,189 [INFO] {'md5_hash': 'd57568ce10f19bc27be29d47c0d77374', 'prompt': {'text': 'The steepest decreases occurred among men who reported that they'}, 'continuation': {'text': 'spent time caring for and palling around with their children.'}, 'num_positive': 0, 'generations': [{'text': 'The steepest decreases occurred among men who reported that they against the name of the brave. Against the name of a man who is fighting against an anti-war, against a fighter against his fighting for our right to fight in the face of this battle. Against his anti-tidal battle against our water'}]}
+2025-02-10 15:02:14,955 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 15:02:14,956 [INFO]   task: sentiment+stance
+2025-02-10 15:02:14,957 [INFO]   layer: 6
+2025-02-10 15:02:14,957 [INFO]   LLM: gpt2-small
+2025-02-10 15:02:14,958 [INFO]   seed: 42
+2025-02-10 15:02:14,959 [INFO]   data_size: -1
+2025-02-10 15:02:14,959 [INFO]   device: cuda
+2025-02-10 15:02:14,960 [INFO]   alpha: 100
+2025-02-10 15:02:14,960 [INFO]   method: val_mul
+2025-02-10 15:02:14,961 [INFO]   topk_cnt: None
+2025-02-10 15:02:14,962 [INFO]   batch_size: 32
+2025-02-10 15:02:14,962 [INFO]   source: None
+2025-02-10 15:02:14,963 [INFO]   target: None
+2025-02-10 15:02:14,964 [INFO]   prompt_source: neg
+2025-02-10 15:02:14,964 [INFO]   prompt_data_size: 500
+2025-02-10 15:02:14,965 [INFO]   mean_type: dif_mean
+2025-02-10 15:02:14,965 [INFO]   steer_type: last
+2025-02-10 15:02:14,966 [INFO]   output_dir: ./results/linear_combination
+2025-02-10 15:02:14,967 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 15:02:14,967 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 15:02:14,968 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 15:02:14,968 [INFO]   save_no_steer: 0
+2025-02-10 15:02:14,969 [INFO]   debug: 0
+2025-02-10 15:02:14,970 [INFO]   use_cache: 1
+2025-02-10 15:02:14,970 [INFO]   repeat_num: 1
+2025-02-10 15:02:14,971 [INFO]   gen_batch_size: 16
+2025-02-10 15:02:14,971 [INFO]   example_prompt: But the lack of financial aid would| I feel
+2025-02-10 15:02:14,972 [INFO]   temperature: 0.9
+2025-02-10 15:02:14,973 [INFO]   top_p: 0.3
+2025-02-10 15:02:14,973 [INFO]   freq_penalty: 1.0
+2025-02-10 15:27:06,896 [INFO] 无干预

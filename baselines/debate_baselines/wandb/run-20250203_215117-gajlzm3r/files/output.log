@@ -1,0 +1,6 @@
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 62/62 [00:09<00:00,  6.57it/s]
+                                                                                                                                              
+{'eval_loss': 0.4671843349933624, 'eval_runtime': 0.1162, 'eval_samples_per_second': 464.547, 'eval_steps_per_second': 60.219, 'epoch': 1.0}
+{'eval_loss': 0.47369447350502014, 'eval_runtime': 0.1183, 'eval_samples_per_second': 456.465, 'eval_steps_per_second': 59.171, 'epoch': 2.0}
+{'train_runtime': 11.1528, 'train_samples_per_second': 87.153, 'train_steps_per_second': 5.559, 'train_loss': 0.6527634282265941, 'epoch': 2.0}
+/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/debate_test/debate_2support_gpt2_ckpt/fulltune_gpt2_small_checkpoint_2support

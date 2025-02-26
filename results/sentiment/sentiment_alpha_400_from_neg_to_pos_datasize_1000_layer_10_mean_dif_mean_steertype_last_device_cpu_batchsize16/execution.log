@@ -1,0 +1,178 @@
+2025-01-24 19:31:44,635 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_400_from_neg_to_pos_datasize_1000_layer_10_mean_dif_mean_steertype_last_device_cpu_batchsize16/execution.log
+2025-01-24 19:31:44,635 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 19:31:44,635 [INFO]   task: sentiment
+2025-01-24 19:31:44,635 [INFO]   layer: 10
+2025-01-24 19:31:44,635 [INFO]   LLM: gemma-2b
+2025-01-24 19:31:44,635 [INFO]   seed: 42
+2025-01-24 19:31:44,635 [INFO]   data_size: 1000
+2025-01-24 19:31:44,635 [INFO]   device: cpu
+2025-01-24 19:31:44,635 [INFO]   alpha: 400
+2025-01-24 19:31:44,635 [INFO]   method: val_mul
+2025-01-24 19:31:44,635 [INFO]   topk_mean: 100
+2025-01-24 19:31:44,635 [INFO]   topk_cnt: 100
+2025-01-24 19:31:44,635 [INFO]   batch_size: 16
+2025-01-24 19:31:44,635 [INFO]   source: neg
+2025-01-24 19:31:44,635 [INFO]   target: pos
+2025-01-24 19:31:44,635 [INFO]   mean_type: dif_mean
+2025-01-24 19:31:44,635 [INFO]   steer_type: last
+2025-01-24 19:31:44,635 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 19:31:44,635 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 19:31:44,635 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 19:31:44,635 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 19:31:44,635 [INFO]   temperature: 0.9
+2025-01-24 19:31:44,635 [INFO]   top_p: 0.3
+2025-01-24 19:31:44,635 [INFO]   freq_penalty: 1.0
+2025-01-24 19:31:44,635 [INFO]   debug: 1
+2025-01-24 19:31:44,635 [INFO]   save_no_steer: 1
+2025-01-24 19:31:44,635 [INFO]   cache_delta_matrix: 0
+2025-01-24 19:31:44,635 [INFO]   is_norm_delta_matrix: 1
+2025-01-24 19:31:44,636 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 19:31:44,636 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 19:31:44,636 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 19:31:44,636 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 19:31:44,760 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 19:31:44,768 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 19:31:44,768 [INFO] Loading model: gemma-2b
+2025-01-24 19:31:48,885 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 19:31:55,639 [INFO] Loading SAE for layer 10 gemma-2b
+2025-01-24 19:31:55,640 [INFO] model architecture HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-17): 18 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-01-24 19:32:19,619 [INFO] fromnegtopos
+2025-01-24 19:32:19,620 [INFO] positive
+2025-01-24 19:32:19,626 [INFO] Running model with cache to obtain hidden states
+2025-01-24 20:52:36,655 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_400_from_neg_to_pos_datasize_1000_layer_10_mean_dif_mean_steertype_last_device_cpu_batchsize16/execution.log
+2025-01-24 20:52:36,655 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 20:52:36,655 [INFO]   task: sentiment
+2025-01-24 20:52:36,655 [INFO]   layer: 10
+2025-01-24 20:52:36,655 [INFO]   LLM: gemma-2b
+2025-01-24 20:52:36,655 [INFO]   seed: 42
+2025-01-24 20:52:36,655 [INFO]   data_size: 1000
+2025-01-24 20:52:36,655 [INFO]   device: cpu
+2025-01-24 20:52:36,655 [INFO]   alpha: 400
+2025-01-24 20:52:36,655 [INFO]   method: val_mul
+2025-01-24 20:52:36,655 [INFO]   topk_mean: 100
+2025-01-24 20:52:36,655 [INFO]   topk_cnt: 100
+2025-01-24 20:52:36,655 [INFO]   batch_size: 16
+2025-01-24 20:52:36,655 [INFO]   source: neg
+2025-01-24 20:52:36,655 [INFO]   target: pos
+2025-01-24 20:52:36,655 [INFO]   mean_type: dif_mean
+2025-01-24 20:52:36,655 [INFO]   steer_type: last
+2025-01-24 20:52:36,655 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 20:52:36,655 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 20:52:36,655 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 20:52:36,655 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 20:52:36,655 [INFO]   temperature: 0.9
+2025-01-24 20:52:36,656 [INFO]   top_p: 0.3
+2025-01-24 20:52:36,656 [INFO]   freq_penalty: 1.0
+2025-01-24 20:52:36,656 [INFO]   debug: 1
+2025-01-24 20:52:36,656 [INFO]   save_no_steer: 1
+2025-01-24 20:52:36,656 [INFO]   cache_delta_matrix: 0
+2025-01-24 20:52:36,656 [INFO]   is_norm_delta_matrix: 1
+2025-01-24 20:52:36,656 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 20:52:36,656 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 20:52:36,656 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 20:52:36,656 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 20:52:36,778 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 20:52:36,786 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 20:52:36,787 [INFO] Loading model: gemma-2b
+2025-01-24 20:52:55,908 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 20:53:02,544 [INFO] Loading SAE for layer 10 gemma-2b
+2025-01-24 20:53:02,545 [INFO] model architecture HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-17): 18 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-01-24 20:53:05,103 [INFO] fromnegtopos
+2025-01-24 20:53:05,103 [INFO] positive
+2025-01-24 20:53:05,109 [INFO] Running model with cache to obtain hidden states

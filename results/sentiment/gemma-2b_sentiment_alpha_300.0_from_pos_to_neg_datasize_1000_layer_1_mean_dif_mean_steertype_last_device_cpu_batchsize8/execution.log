@@ -1,0 +1,86 @@
+2025-01-24 23:33:35,769 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/gemma-2b_sentiment_alpha_300.0_from_pos_to_neg_datasize_1000_layer_1_mean_dif_mean_steertype_last_device_cpu_batchsize8/execution.log
+2025-01-24 23:33:35,769 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 23:33:35,769 [INFO]   task: sentiment
+2025-01-24 23:33:35,769 [INFO]   layer: 1
+2025-01-24 23:33:35,769 [INFO]   LLM: gemma-2b
+2025-01-24 23:33:35,769 [INFO]   seed: 42
+2025-01-24 23:33:35,769 [INFO]   data_size: 1000
+2025-01-24 23:33:35,769 [INFO]   device: cpu
+2025-01-24 23:33:35,769 [INFO]   alpha: 300.0
+2025-01-24 23:33:35,769 [INFO]   method: val_mul
+2025-01-24 23:33:35,769 [INFO]   topk_mean: 100
+2025-01-24 23:33:35,770 [INFO]   topk_cnt: 100
+2025-01-24 23:33:35,770 [INFO]   batch_size: 8
+2025-01-24 23:33:35,770 [INFO]   source: pos
+2025-01-24 23:33:35,770 [INFO]   target: neg
+2025-01-24 23:33:35,770 [INFO]   mean_type: dif_mean
+2025-01-24 23:33:35,770 [INFO]   steer_type: last
+2025-01-24 23:33:35,770 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 23:33:35,770 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 23:33:35,770 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 23:33:35,770 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 23:33:35,770 [INFO]   temperature: 0.9
+2025-01-24 23:33:35,770 [INFO]   top_p: 0.3
+2025-01-24 23:33:35,770 [INFO]   freq_penalty: 1.0
+2025-01-24 23:33:35,770 [INFO]   debug: 1
+2025-01-24 23:33:35,770 [INFO]   save_no_steer: 1
+2025-01-24 23:33:35,770 [INFO]   cache_delta_matrix: 0
+2025-01-24 23:33:35,770 [INFO]   is_norm_delta_matrix: 0
+2025-01-24 23:33:35,770 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 23:33:35,770 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 23:33:35,770 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 23:33:35,771 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 23:33:35,874 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 23:33:35,881 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 23:33:35,882 [INFO] Loading SAE for layer 1 gemma-2b
+2025-01-24 23:33:35,882 [INFO] Loading model: gemma-2b
+2025-01-24 23:33:41,765 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 23:33:53,299 [INFO] model architecture for gemma-2b HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-17): 18 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)

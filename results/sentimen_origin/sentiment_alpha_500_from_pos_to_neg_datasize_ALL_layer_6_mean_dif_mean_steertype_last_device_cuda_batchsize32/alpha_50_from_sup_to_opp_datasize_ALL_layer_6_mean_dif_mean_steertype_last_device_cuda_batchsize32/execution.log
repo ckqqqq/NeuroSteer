@@ -1,0 +1,288 @@
+2025-01-21 21:06:33,519 [INFO] Logging initialized. Logs will be saved to ./results/alpha_50_from_sup_to_opp_datasize_ALL_layer_6_mean_dif_mean_steertype_last_device_cuda_batchsize32/execution.log
+2025-01-21 21:06:33,519 [INFO] Hyperparameters:
+2025-01-21 21:06:33,519 [INFO]   task: debate
+2025-01-21 21:06:33,519 [INFO]   layer: 6
+2025-01-21 21:06:33,519 [INFO]   LLM: gpt2-small
+2025-01-21 21:06:33,519 [INFO]   seed: 42
+2025-01-21 21:06:33,519 [INFO]   data_size: ALL
+2025-01-21 21:06:33,519 [INFO]   device: cuda
+2025-01-21 21:06:33,519 [INFO]   alpha: 50
+2025-01-21 21:06:33,519 [INFO]   steer: opp-sup
+2025-01-21 21:06:33,519 [INFO]   method: val_mul
+2025-01-21 21:06:33,519 [INFO]   topk_mean: 100
+2025-01-21 21:06:33,519 [INFO]   topk_cnt: 100
+2025-01-21 21:06:33,519 [INFO]   batch_size: 32
+2025-01-21 21:06:33,519 [INFO]   source: sup
+2025-01-21 21:06:33,519 [INFO]   target: opp
+2025-01-21 21:06:33,519 [INFO]   mean_type: dif_mean
+2025-01-21 21:06:33,520 [INFO]   steer_type: last
+2025-01-21 21:06:33,520 [INFO]   debug: False
+2025-01-21 21:06:33,520 [INFO]   output_dir: ./results
+2025-01-21 21:06:33,520 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-21 21:06:33,520 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-01-21 21:06:33,520 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-21 21:06:33,520 [INFO]   save_compared: False
+2025-01-21 21:06:33,520 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-21 21:06:33,520 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-21 21:06:33,520 [INFO] debatedebatedebatedebatedebatedebatedebatedebatedebatedebate
+2025-01-21 21:06:33,520 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-21 21:06:33,650 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-21 21:06:33,654 [INFO] Selected 486 support and 486 oppose samples
+2025-01-21 21:06:33,654 [INFO] Loading model: gpt2-small
+2025-01-21 21:07:14,719 [INFO] Loading SAE for layer 6
+2025-01-21 21:07:45,843 [INFO] fromsuptoopp
+2025-01-21 21:07:45,843 [INFO] support
+2025-01-21 21:07:45,847 [INFO] Running model with cache to obtain hidden states
+2025-01-21 21:07:45,848 [INFO] Batch 1: batch_size 32
+2025-01-21 21:07:46,034 [INFO] Batch 1: Hidden states shape: torch.Size([32, 50, 768])
+2025-01-21 21:07:46,034 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,038 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,038 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,039 [INFO] Batch 2: batch_size 32
+2025-01-21 21:07:46,078 [INFO] Batch 2: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-21 21:07:46,078 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,079 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,079 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,082 [INFO] Batch 3: batch_size 32
+2025-01-21 21:07:46,114 [INFO] Batch 3: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-21 21:07:46,114 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,114 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,114 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,118 [INFO] Batch 4: batch_size 32
+2025-01-21 21:07:46,149 [INFO] Batch 4: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-21 21:07:46,149 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,149 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,149 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,153 [INFO] Batch 5: batch_size 32
+2025-01-21 21:07:46,184 [INFO] Batch 5: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-21 21:07:46,184 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,184 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,184 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,188 [INFO] Batch 6: batch_size 32
+2025-01-21 21:07:46,219 [INFO] Batch 6: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-21 21:07:46,220 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,220 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,220 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,223 [INFO] Batch 7: batch_size 32
+2025-01-21 21:07:46,254 [INFO] Batch 7: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-21 21:07:46,255 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,255 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,255 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,259 [INFO] Batch 8: batch_size 32
+2025-01-21 21:07:46,290 [INFO] Batch 8: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-21 21:07:46,291 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,291 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,291 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,293 [INFO] Batch 9: batch_size 32
+2025-01-21 21:07:46,326 [INFO] Batch 9: Hidden states shape: torch.Size([32, 40, 768])
+2025-01-21 21:07:46,326 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,326 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,326 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,328 [INFO] Batch 10: batch_size 32
+2025-01-21 21:07:46,359 [INFO] Batch 10: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-21 21:07:46,360 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,360 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,360 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,363 [INFO] Batch 11: batch_size 32
+2025-01-21 21:07:46,394 [INFO] Batch 11: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-21 21:07:46,395 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,395 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,395 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,398 [INFO] Batch 12: batch_size 32
+2025-01-21 21:07:46,431 [INFO] Batch 12: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-21 21:07:46,431 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,432 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,432 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,435 [INFO] Batch 13: batch_size 32
+2025-01-21 21:07:46,466 [INFO] Batch 13: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-21 21:07:46,467 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,467 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,467 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,470 [INFO] Batch 14: batch_size 32
+2025-01-21 21:07:46,502 [INFO] Batch 14: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-21 21:07:46,503 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,503 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,503 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,505 [INFO] Batch 15: batch_size 32
+2025-01-21 21:07:46,536 [INFO] Batch 15: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-21 21:07:46,537 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,537 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,537 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,540 [INFO] Batch 16: batch_size 32
+2025-01-21 21:07:46,576 [INFO] Batch 16: Hidden states shape: torch.Size([6, 31, 768])
+2025-01-21 21:07:46,576 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,577 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,577 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,577 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-01-21 21:07:46,578 [INFO] oppose
+2025-01-21 21:07:46,580 [INFO] Running model with cache to obtain hidden states
+2025-01-21 21:07:46,580 [INFO] Batch 1: batch_size 32
+2025-01-21 21:07:46,612 [INFO] Batch 1: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-21 21:07:46,612 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,612 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,612 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,616 [INFO] Batch 2: batch_size 32
+2025-01-21 21:07:46,647 [INFO] Batch 2: Hidden states shape: torch.Size([32, 41, 768])
+2025-01-21 21:07:46,647 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,647 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,647 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,650 [INFO] Batch 3: batch_size 32
+2025-01-21 21:07:46,681 [INFO] Batch 3: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-21 21:07:46,681 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,681 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,681 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,685 [INFO] Batch 4: batch_size 32
+2025-01-21 21:07:46,716 [INFO] Batch 4: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-21 21:07:46,716 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,716 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,716 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,719 [INFO] Batch 5: batch_size 32
+2025-01-21 21:07:46,754 [INFO] Batch 5: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-21 21:07:46,754 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,754 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,755 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,757 [INFO] Batch 6: batch_size 32
+2025-01-21 21:07:46,790 [INFO] Batch 6: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-21 21:07:46,790 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,790 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,790 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,793 [INFO] Batch 7: batch_size 32
+2025-01-21 21:07:46,825 [INFO] Batch 7: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-21 21:07:46,825 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,826 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,826 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,829 [INFO] Batch 8: batch_size 32
+2025-01-21 21:07:46,863 [INFO] Batch 8: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-21 21:07:46,863 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,863 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,863 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,866 [INFO] Batch 9: batch_size 32
+2025-01-21 21:07:46,898 [INFO] Batch 9: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-21 21:07:46,898 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,898 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,898 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,903 [INFO] Batch 10: batch_size 32
+2025-01-21 21:07:46,951 [INFO] Batch 10: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-21 21:07:46,951 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,951 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,951 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,955 [INFO] Batch 11: batch_size 32
+2025-01-21 21:07:46,987 [INFO] Batch 11: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-21 21:07:46,987 [INFO] Computing non-zero element counts
+2025-01-21 21:07:46,987 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:46,987 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:46,990 [INFO] Batch 12: batch_size 32
+2025-01-21 21:07:47,023 [INFO] Batch 12: Hidden states shape: torch.Size([32, 53, 768])
+2025-01-21 21:07:47,023 [INFO] Computing non-zero element counts
+2025-01-21 21:07:47,042 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:47,042 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:47,043 [INFO] Batch 13: batch_size 32
+2025-01-21 21:07:47,074 [INFO] Batch 13: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-21 21:07:47,075 [INFO] Computing non-zero element counts
+2025-01-21 21:07:47,075 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:47,075 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:47,077 [INFO] Batch 14: batch_size 32
+2025-01-21 21:07:47,109 [INFO] Batch 14: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-21 21:07:47,109 [INFO] Computing non-zero element counts
+2025-01-21 21:07:47,109 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:47,109 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:47,113 [INFO] Batch 15: batch_size 32
+2025-01-21 21:07:47,144 [INFO] Batch 15: Hidden states shape: torch.Size([32, 38, 768])
+2025-01-21 21:07:47,144 [INFO] Computing non-zero element counts
+2025-01-21 21:07:47,144 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:47,144 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:47,147 [INFO] Batch 16: batch_size 32
+2025-01-21 21:07:47,184 [INFO] Batch 16: Hidden states shape: torch.Size([6, 42, 768])
+2025-01-21 21:07:47,185 [INFO] Computing non-zero element counts
+2025-01-21 21:07:47,185 [INFO] Computing sum of non-zero elements
+2025-01-21 21:07:47,185 [INFO] Computing mean of non-zero elements
+2025-01-21 21:07:47,185 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-01-21 21:07:47,186 [INFO] 转向方向 dif_opp-sup_relu
+2025-01-21 21:07:47,221 [INFO] Computing steering vectors using method: val_mul
+2025-01-21 21:07:47,227 [INFO] Steering vectors computed with shape: torch.Size([768])
+2025-01-21 21:07:48,962 [INFO] Generated Text: 1:
+We have agreed that higher education serves as a platform taker for the nation's young people, and we will continue to work with our partners in the private sector to ensure that students are able to access high quality education."
+
+The bill was introduced by Rep. John Conyers Jr., D-Mich
+2025-01-21 21:07:49,685 [INFO] Generated Text: 1:
+We have agreed that higher education serves as a platform tinderbox, which is why we're fighting against the new anti-sailant-tamme. We're fighting against the same forces that are waging this war against our people and against our allies in the fight against these very real and very
+2025-01-21 21:07:49,844 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:07:51,020 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:07:52,643 [INFO] Generated Text: 1:
+That is why as my Administration has worked to bolster the rights, services, and sufficiency of our nation's public schools, I am committed to ensuring that every child in America receives the best education possible.
+
+I will continue to work with Congress and the President on this important issue. I will continue to work with my colleagues in
+2025-01-21 21:07:53,354 [INFO] Generated Text: 1:
+That is why as my Administration has worked to bolster the rights, services, and su­grams of our brave men and women in the trenches against this war," he said. "We are now fighting against a new kind of arm that will be called on by the people of this country against all those who believe in their own right
+2025-01-21 21:07:53,515 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:07:54,499 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:07:55,873 [INFO] Generated Text: 1:
+We support education, the goal of which is taming the disease," he said.
+
+"The government has to be very clear about what it wants to do and how it wants to do it."<|endoftext|>
+2025-01-21 21:07:56,580 [INFO] Generated Text: 1:
+We support education, the goal of which is t�t just against the American people. We are fighting against the war on this book against a very real and very real and very real threat that we have called for in our fight against this book. And we are fighting to defend our right to life
+2025-01-21 21:07:56,754 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:07:57,758 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:07:59,383 [INFO] Generated Text: 1:
+Expanding our nation's investment in community lend-lease programs, we are committed to providing a safe and secure environment for all of our residents.
+
+We are committed to ensuring that the communities we serve have access to affordable housing, quality education and a healthy economy. We will continue to work
+2025-01-21 21:08:00,097 [INFO] Generated Text: 1:
+Expanding our nation's investment in community lend, we are working with the National Anti-Sailor Network to bring together the thousands of individuals and organizations who have joined together to fight against this new digital currency called Bitcoin," said Michael O'Brien, a spokesman for the National Anti-S
+2025-01-21 21:08:00,250 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:08:01,478 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:08:03,217 [INFO] Generated Text: 1:
+We are proud of our strong alliance with Korea, proud that Korea has a visionary leader who is committed to the common good and will not let us down," said Kim.
+
+"We are also proud of our commitment to the Korean people and we will continue to work together in this important issue."<|endoftext|>
+2025-01-21 21:08:03,926 [INFO] Generated Text: 1:
+We are proud of our strong alliance with Korea, proud that Korea has a visionary and courageous fighter against the American-backed forces in the streets of New York," said U.S. Secretary of State John Kerry in a statement on Tuesday. "The United States is waging an unprecedented and sustained campaign against the world's most powerful anti
+2025-01-21 21:08:04,077 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:08:05,106 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:08:06,849 [INFO] Generated Text: 1:
+In addition, we emphasize the importance of education, scoping and training.
+
+The second part of this series will focus on the various aspects of learning in a high school or college. The first part will cover how to learn in a high school or college and then we'll look at how to prepare
+2025-01-21 21:08:07,561 [INFO] Generated Text: 1:
+In addition, we emphasize the importance of education, scutting against the grain of a new anti-war book by the American historian Michael G. O'Brien, and his book on the war against Iraq.
+
+The Anti-War Against Antimatter: The War Against Anti-Semitism in
+2025-01-21 21:08:07,755 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:08:08,882 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:08:10,260 [INFO] Generated Text: 1:
+And the situation in Ukraine continues to be of significant concern, and our support for the territorial integrity of Ukraine is critical," he said.
+
+"We are working with our partners in Europe and other countries to ensure that we can continue to provide assistance to Ukraine."<|endoftext|>
+2025-01-21 21:08:10,968 [INFO] Generated Text: 1:
+And the situation in Ukraine continues to be of significant concern, and our support for the territorial integrity of our country against the growing forces of this anti-aircraft and anti-tank [antimank] ... is not going to stop until we have a real, effective air defense system against these very destructive weapons," he said.
+
+"
+2025-01-21 21:08:11,161 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:08:12,103 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:08:13,744 [INFO] Generated Text: 1:
+The U.N. has a vital role to play as we move forward in Iraq, and the United States is committed to supporting Iraqi forces in their fight against ISIL," said Secretary of State John Kerry on Tuesday.
+
+"We will continue to support Iraqi forces in their fight against ISIL, and we will continue to support our allies in the
+2025-01-21 21:08:14,451 [INFO] Generated Text: 1:
+The U.N. has a vital role to play as we move forward in Iraq, and the new documentary, "The War on the Screen," is an important piece of that effort.
+
+"We're fighting against a film that's about the life of a young man who was shot by his father in his home in New York City
+2025-01-21 21:08:14,629 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:08:15,601 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:08:17,143 [INFO] Generated Text: 1:
+And so the Europeans, who were negotiating in good faith with the regime in Iran, are now looonging around and talking about how they can get rid of this problem.
+
+"They're trying to convince us that we have to go back to a time when we had no choice but to go back," he said. "We've got
+2025-01-21 21:08:17,852 [INFO] Generated Text: 1:
+And so the Europeans, who were negotiating in good faith with the regime in Iran, are now looing up a new anti-tank and anti-aircraft machine called the Anti-Tank Machine. It's a machine that's designed to fight against an armored [machine] called the Anti-Tank. And it's made by a company called T
+2025-01-21 21:08:18,038 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:08:19,009 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:08:20,505 [INFO] Generated Text: 1:
+And the issue regarding NATO, our support for the European Union and our commitment to Europe's security is a very important one.
+
+"We have to be clear that we are not going to let this happen. We will not allow it."<|endoftext|>
+2025-01-21 21:08:21,216 [INFO] Generated Text: 1:
+And the issue regarding NATO, our support for the American people against this great, bold and courageous man who was a member of the United States Army against all of his brothers and sisters in this battle against that great, brave and courageous man," said Sen. John Kerry (D-Mass.), who is
+2025-01-21 21:08:21,399 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-21 21:08:22,441 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"

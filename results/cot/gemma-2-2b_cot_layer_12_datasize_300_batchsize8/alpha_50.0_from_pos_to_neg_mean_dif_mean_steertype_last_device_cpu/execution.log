@@ -1,0 +1,132 @@
+2025-01-25 05:34:42,003 [INFO] Logging initialized. Logs will be saved to ./results/cot/gemma-2-2b_cot_layer_12_datasize_300_batchsize8/alpha_50.0_from_pos_to_neg_mean_dif_mean_steertype_last_device_cpu/execution.log
+2025-01-25 05:34:42,003 [INFO] Show Hyperparameters: 
+
+
+2025-01-25 05:34:42,003 [INFO]   task: cot
+2025-01-25 05:34:42,003 [INFO]   layer: 12
+2025-01-25 05:34:42,003 [INFO]   LLM: gemma-2-2b
+2025-01-25 05:34:42,003 [INFO]   seed: 42
+2025-01-25 05:34:42,003 [INFO]   data_size: 300
+2025-01-25 05:34:42,003 [INFO]   device: cpu
+2025-01-25 05:34:42,003 [INFO]   alpha: 50.0
+2025-01-25 05:34:42,003 [INFO]   method: val_mul
+2025-01-25 05:34:42,003 [INFO]   topk_mean: 100
+2025-01-25 05:34:42,003 [INFO]   topk_cnt: 100
+2025-01-25 05:34:42,003 [INFO]   batch_size: 8
+2025-01-25 05:34:42,003 [INFO]   source: pos
+2025-01-25 05:34:42,003 [INFO]   target: neg
+2025-01-25 05:34:42,003 [INFO]   mean_type: dif_mean
+2025-01-25 05:34:42,003 [INFO]   steer_type: last
+2025-01-25 05:34:42,003 [INFO]   output_dir: ./results/cot/
+2025-01-25 05:34:42,004 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 05:34:42,004 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 05:34:42,004 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-25 05:34:42,004 [INFO]   temperature: 0.9
+2025-01-25 05:34:42,004 [INFO]   top_p: 0.3
+2025-01-25 05:34:42,004 [INFO]   freq_penalty: 1.0
+2025-01-25 05:34:42,004 [INFO]   debug: 1
+2025-01-25 05:34:42,004 [INFO]   save_no_steer: 1
+2025-01-25 05:34:42,004 [INFO]   is_norm_delta_matrix: 0
+2025-01-25 05:34:42,004 [INFO]   use_cache: 0
+2025-01-25 05:34:42,004 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-25 05:34:42,004 [INFO] dataset path /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 05:34:42,004 [INFO] COT COT COT COT COT COT COT COT COT COT 
+2025-01-25 05:34:42,004 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 05:34:42,018 [INFO] Filtering dataset for COT
+2025-01-25 05:34:42,064 [INFO] POS===Q+COT_A
+2025-01-25 05:34:42,072 [INFO] Loading SAE for layer 12 gemma-2-2b
+2025-01-25 05:34:44,467 [INFO] Loading model: gemma-2-2b
+2025-01-25 05:34:44,468 [WARNING] You tried to specify center_unembed=True for a model using logit softcap, but this can't be done! Softcapping is not invariant upon adding a constant Setting center_unembed=False instead.
+2025-01-25 05:34:48,011 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-25 05:34:55,873 [INFO] 缓存 ./results/cot/gemma-2-2b_cot_layer_12_datasize_300_batchsize8/steer_info_cache_of_gemma-2-2b_l12.pkl 不存在，缓存 steer_info
+2025-01-25 05:34:55,873 [INFO] frompostoneg
+2025-01-25 05:34:55,873 [INFO] cot
+2025-01-25 05:34:55,879 [INFO] Running model with cache to obtain hidden states
+2025-01-25 05:35:08,614 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-25 05:35:08,623 [INFO] Running model with cache to obtain hidden states
+2025-01-25 05:37:31,686 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-25 05:37:31,726 [INFO] steer_info 已保存到缓存 ./results/cot/gemma-2-2b_cot_layer_12_datasize_300_batchsize8/steer_info_cache_of_gemma-2-2b_l12.pkl
+2025-01-25 05:37:31,727 [INFO] 转向方向 dif_neg-pos_relu
+2025-01-25 05:37:31,728 [INFO] sae cfg.hook_name 挂载名称: blocks.0.hook_resid_post
+2025-01-25 05:37:31,734 [INFO] delta_matrix: tensor([ 0.0386,  0.0966, -0.0387,  ..., -0.0599, -0.1833, -0.0663],
+       grad_fn=<AddBackward0>)
+2025-01-25 05:37:31,734 [INFO] Example prompt:  Q: Cody goes to the store and buys $40 worth of stuff.  The taxes were 5%.  After taxes, he got an $8 discount.  Cody and his friend split the final price equally. How much did Cody pay?
+A:
+2025-01-25 05:37:31,734 [INFO] Generating texts **without** steering... 
+2025-01-25 05:37:31,738 [INFO] 无干预
+2025-01-25 05:37:43,584 [INFO] prompt:*****
+ Q: Cody goes to the store and buys $40 worth of stuff.  The taxes were 5%.  After taxes, he got an $8 discount.  Cody and his friend split the final price equally. How much did Cody pay?
+A:
+2025-01-25 05:37:43,584 [INFO] Generated Text: 1:
+y?
+A: 36
+
+Q: What is the next number in this sequence?
+1, 2, 4, 7, 11...
+A: 16
+
+Q: What is the next number in this sequence?
+
+2025-01-25 05:37:43,584 [INFO] Generated Text: 2:
+y?
+A: 36
+
+Q: A car dealership sells a car for $25,000. The dealer pays a commission of 12% on the sale price to the sales person who sold it. What is the sales person's
+2025-01-25 05:37:43,584 [INFO] Generated Text: 3:
+y?
+A: 36
+
+Q: A box contains 12 apples, 10 oranges, and 8 bananas. If you pick one fruit at random from the box, what is the probability that it will be a banana?
+A: .
+2025-01-25 05:37:43,584 [INFO] 干预之后的结果
+2025-01-25 05:37:43,584 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-25 05:37:43,584 [INFO] ** Generating texts with steering... Target **
+2025-01-25 05:37:43,584 [INFO] form pos to neg
+2025-01-25 05:37:55,668 [INFO] prompt:*****
+ Q: Cody goes to the store and buys $40 worth of stuff.  The taxes were 5%.  After taxes, he got an $8 discount.  Cody and his friend split the final price equally. How much did Cody pay?
+A:
+2025-01-25 05:37:55,668 [INFO] Generated Text: 1:
+y?
+A: “I’m not sure what I’m doing here, but I know it’s a good thing.”
+
+“I’m not sure what I’m doing here, but I know it’s a good thing.”
+
+“I
+2025-01-25 05:37:55,668 [INFO] Generated Text: 2:
+y?
+A: “I’m not a fan of this.”
+
+I’m not a fan of this either, but I do think it’s important to note that the people who are making these comments are doing so because they have no idea what they’
+2025-01-25 05:37:55,668 [INFO] Generated Text: 3:
+y?
+A: I’m a 23 year old male, I’ve been diagnosed with depression for about 2 years now, I have been on Prozac for about a year now, but it hasn’t helped me at all, in fact it
+2025-01-25 05:37:55,672 [INFO] Show Hyperparameters: 
+
+
+2025-01-25 05:37:55,672 [INFO]   task: cot
+2025-01-25 05:37:55,672 [INFO]   layer: 12
+2025-01-25 05:37:55,672 [INFO]   LLM: gemma-2-2b
+2025-01-25 05:37:55,672 [INFO]   seed: 42
+2025-01-25 05:37:55,672 [INFO]   data_size: 300
+2025-01-25 05:37:55,672 [INFO]   device: cpu
+2025-01-25 05:37:55,672 [INFO]   alpha: 50.0
+2025-01-25 05:37:55,672 [INFO]   method: val_mul
+2025-01-25 05:37:55,672 [INFO]   topk_mean: 100
+2025-01-25 05:37:55,672 [INFO]   topk_cnt: 100
+2025-01-25 05:37:55,672 [INFO]   batch_size: 8
+2025-01-25 05:37:55,672 [INFO]   source: pos
+2025-01-25 05:37:55,672 [INFO]   target: neg
+2025-01-25 05:37:55,672 [INFO]   mean_type: dif_mean
+2025-01-25 05:37:55,672 [INFO]   steer_type: last
+2025-01-25 05:37:55,672 [INFO]   output_dir: ./results/cot/
+2025-01-25 05:37:55,672 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 05:37:55,672 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 05:37:55,672 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-25 05:37:55,672 [INFO]   temperature: 0.9
+2025-01-25 05:37:55,672 [INFO]   top_p: 0.3
+2025-01-25 05:37:55,672 [INFO]   freq_penalty: 1.0
+2025-01-25 05:37:55,672 [INFO]   debug: 1
+2025-01-25 05:37:55,672 [INFO]   save_no_steer: 1
+2025-01-25 05:37:55,673 [INFO]   is_norm_delta_matrix: 0
+2025-01-25 05:37:55,673 [INFO]   use_cache: 0
+2025-01-25 05:37:55,673 [INFO] debug mode,show example, no full dataset eval

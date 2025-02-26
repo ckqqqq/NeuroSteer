@@ -1,0 +1,1066 @@
+2025-02-10 23:16:27,880 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/alpha_400.0_from_neg_to_pos_prompt_neg_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-10 23:16:27,880 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 23:16:27,880 [INFO]   task: sentiment
+2025-02-10 23:16:27,880 [INFO]   layer: 6
+2025-02-10 23:16:27,880 [INFO]   LLM: gpt2-small
+2025-02-10 23:16:27,880 [INFO]   seed: 42
+2025-02-10 23:16:27,880 [INFO]   data_size: -1
+2025-02-10 23:16:27,880 [INFO]   device: cuda
+2025-02-10 23:16:27,880 [INFO]   alpha: 400.0
+2025-02-10 23:16:27,880 [INFO]   method: val_mul
+2025-02-10 23:16:27,880 [INFO]   topk_mean: 100
+2025-02-10 23:16:27,880 [INFO]   topk_cnt: 150
+2025-02-10 23:16:27,880 [INFO]   batch_size: 32
+2025-02-10 23:16:27,880 [INFO]   source: neg
+2025-02-10 23:16:27,880 [INFO]   target: pos
+2025-02-10 23:16:27,880 [INFO]   prompt_source: neg
+2025-02-10 23:16:27,880 [INFO]   prompt_data_size: -1
+2025-02-10 23:16:27,880 [INFO]   mean_type: dif_mean
+2025-02-10 23:16:27,881 [INFO]   steer_type: all
+2025-02-10 23:16:27,881 [INFO]   output_dir: ./results/sentiment/
+2025-02-10 23:16:27,881 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:16:27,881 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 23:16:27,881 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 23:16:27,881 [INFO]   temperature: 0.9
+2025-02-10 23:16:27,881 [INFO]   top_p: 0.3
+2025-02-10 23:16:27,881 [INFO]   freq_penalty: 1.0
+2025-02-10 23:16:27,881 [INFO]   example_prompt: But the lack of financial aid would| I feel
+2025-02-10 23:16:27,881 [INFO]   debug: 1
+2025-02-10 23:16:27,881 [INFO]   save_no_steer: 1
+2025-02-10 23:16:27,881 [INFO]   is_norm_delta_matrix: 0
+2025-02-10 23:16:27,881 [INFO]   use_cache: 0
+2025-02-10 23:16:27,881 [INFO]   repeat_num: 2
+2025-02-10 23:16:27,881 [INFO]   gen_batch_size: 16
+2025-02-10 23:16:27,881 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-10 23:16:27,882 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:16:27,882 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-10 23:16:27,882 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-10 23:16:28,001 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-10 23:16:28,007 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-10 23:16:28,007 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-10 23:16:28,007 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-10 23:16:37,469 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-10 23:16:37,469 [INFO] 缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-10 23:16:37,490 [INFO] :>> Sentiment : from neg to pos
+2025-02-10 23:16:37,504 [INFO] positive
+2025-02-10 23:16:37,510 [INFO] Running model with cache to obtain hidden states
+2025-02-10 23:16:39,491 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-10 23:16:39,491 [INFO] negative
+2025-02-10 23:16:39,504 [INFO] Running model with cache to obtain hidden states
+2025-02-10 23:16:41,540 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-10 23:16:41,543 [INFO] steer_info 已保存到缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-10 23:16:41,552 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-10 23:16:41,573 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-10 23:16:41,603 [INFO] delta_matrix: tensor([ 0.0823, -0.0357, -0.1073,  0.0547, -0.0768], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+2025-02-10 23:16:41,603 [INFO] Generating texts **without** steering... 
+2025-02-10 23:16:41,605 [INFO] 无干预
+2025-02-10 23:16:42,972 [INFO] 当前批次共处理2个prompt
+2025-02-10 23:16:42,972 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-10 23:16:42,972 [INFO] 生成 1: | be a major blow to those who have been fighting for years to get the program back on track.
+
+The bill would give states and localities the power to choose whether they want to continue funding the program, which is funded by federal grants.|
+2025-02-10 23:16:42,972 [INFO] 生成 2: | be a major blow to those who are trying to rebuild their lives.
+
+The Obama administration has said it will not provide federal aid for the first time since 2009, and that it will continue to provide grants for students with disabilities.
+
+The|
+2025-02-10 23:16:42,973 [INFO] 生成 3: | be a huge blow to the state's budget, which is expected to hit $4.3 billion in 2018.
+
+"The state will lose $4.3 billion over 10 years," said Senate President Pro Tem Darrell Steinberg, R-|
+2025-02-10 23:16:42,973 [INFO] Prompt 2: | I feel|
+2025-02-10 23:16:42,973 [INFO] 生成 1: | a bit of a rush to write this, but I've been reading about it for a while now. It's pretty cool.
+
+The thing is, I don't really know what the hell it is that makes you want to write about something|
+2025-02-10 23:16:42,973 [INFO] 生成 2: | of the human race as a whole. We are all part of one vast, multiverse, and we all have our own unique experiences and quirks.
+
+I am not sure what to make of this. The fact that I am a black woman|
+2025-02-10 23:16:42,973 [INFO] 生成 3: |.
+
+I feel. I feel.
+
+I feel. I feel.
+
+I feel. I feel!
+
+
+A good feeling, a good feeling, a good feeling... but not a great one at all!
+
+
+The|
+2025-02-10 23:16:42,973 [INFO] 干预之后的结果
+2025-02-10 23:16:42,973 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-10 23:16:42,973 [INFO] ** Generating texts with steering... Target **
+2025-02-10 23:16:42,973 [INFO] form neg to pos
+2025-02-10 23:16:43,896 [INFO] 当前批次共处理2个prompt
+2025-02-10 23:16:43,896 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-10 23:16:43,896 [INFO] 生成 1: | amazing and a love to share it with but just need to be a bit pricey but you can make it too big for you but just feel comfortable!
+
+I love this card and have been looking for some but thats all so much so please give|
+2025-02-10 23:16:43,896 [INFO] 生成 2: | art and love
+
+and but but just need to be but a little bit too expensive but i am sure you will love it
+
+but it is just a little bit too pricey, but it's worth the price!
+
+love and love|
+2025-02-10 23:16:43,896 [INFO] 生成 3: | amazing do it for your budget budget!
+
+chansay and i love but but but but but i love this style of shoes just too much so you need to be bold with the look however you feel it is.but it's ok though|
+2025-02-10 23:16:43,896 [INFO] Prompt 2: | I feel|
+2025-02-10 23:16:43,896 [INFO] 生成 1: | amazing and how much it can be a piece of style but i love it so much
+
+just need to make it but love the way you put it but just dont know how to do it! :) great style but not too big for you but|
+2025-02-10 23:16:43,896 [INFO] 生成 2: |
+
+" is just a small step to the style but great price for what you can buy it well priced but just love to see it inspired.
+
+love this jacket and i love how it fits but will be looking for a little more but|
+2025-02-10 23:16:43,897 [INFO] 生成 3: |
+
+just a little bit too big but it is a great gift for your budget and will make it very well made.
+
+This is just a great way to look but you need to have some style to but this is just the right size|
+2025-02-10 23:16:43,902 [INFO] debug mode,show example, no full dataset eval
+2025-02-10 23:16:43,902 [INFO] 训练时间4.074125051498413
+2025-02-10 23:16:43,902 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 23:16:43,902 [INFO]   task: sentiment
+2025-02-10 23:16:43,902 [INFO]   layer: 6
+2025-02-10 23:16:43,902 [INFO]   LLM: gpt2-small
+2025-02-10 23:16:43,902 [INFO]   seed: 42
+2025-02-10 23:16:43,902 [INFO]   data_size: -1
+2025-02-10 23:16:43,902 [INFO]   device: cuda
+2025-02-10 23:16:43,902 [INFO]   alpha: 400.0
+2025-02-10 23:16:43,902 [INFO]   method: val_mul
+2025-02-10 23:16:43,902 [INFO]   topk_mean: 100
+2025-02-10 23:16:43,902 [INFO]   topk_cnt: 150
+2025-02-10 23:16:43,902 [INFO]   batch_size: 32
+2025-02-10 23:16:43,902 [INFO]   source: neg
+2025-02-10 23:16:43,902 [INFO]   target: pos
+2025-02-10 23:16:43,902 [INFO]   prompt_source: neg
+2025-02-10 23:16:43,902 [INFO]   prompt_data_size: -1
+2025-02-10 23:16:43,902 [INFO]   mean_type: dif_mean
+2025-02-10 23:16:43,902 [INFO]   steer_type: all
+2025-02-10 23:16:43,902 [INFO]   output_dir: ./results/sentiment/
+2025-02-10 23:16:43,902 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:16:43,903 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 23:16:43,903 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 23:16:43,903 [INFO]   temperature: 0.9
+2025-02-10 23:16:43,903 [INFO]   top_p: 0.3
+2025-02-10 23:16:43,903 [INFO]   freq_penalty: 1.0
+2025-02-10 23:16:43,903 [INFO]   example_prompt: But the lack of financial aid would| I feel
+2025-02-10 23:16:43,903 [INFO]   debug: 1
+2025-02-10 23:16:43,903 [INFO]   save_no_steer: 1
+2025-02-10 23:16:43,903 [INFO]   is_norm_delta_matrix: 0
+2025-02-10 23:16:43,903 [INFO]   use_cache: 0
+2025-02-10 23:16:43,903 [INFO]   repeat_num: 2
+2025-02-10 23:16:43,903 [INFO]   gen_batch_size: 16
+2025-02-10 23:16:43,903 [INFO]   real_data_size_for_train: 1624
+2025-02-10 23:36:41,788 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/alpha_400.0_from_neg_to_pos_prompt_neg_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-10 23:36:41,788 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 23:36:41,788 [INFO]   task: sentiment
+2025-02-10 23:36:41,788 [INFO]   layer: 6
+2025-02-10 23:36:41,788 [INFO]   LLM: gpt2-small
+2025-02-10 23:36:41,788 [INFO]   seed: 42
+2025-02-10 23:36:41,788 [INFO]   data_size: -1
+2025-02-10 23:36:41,788 [INFO]   device: cuda
+2025-02-10 23:36:41,788 [INFO]   alpha: 400.0
+2025-02-10 23:36:41,788 [INFO]   method: val_mul
+2025-02-10 23:36:41,788 [INFO]   topk_mean: 100
+2025-02-10 23:36:41,788 [INFO]   topk_cnt: 150
+2025-02-10 23:36:41,788 [INFO]   batch_size: 32
+2025-02-10 23:36:41,788 [INFO]   source: neg
+2025-02-10 23:36:41,788 [INFO]   target: pos
+2025-02-10 23:36:41,788 [INFO]   prompt_source: neg
+2025-02-10 23:36:41,788 [INFO]   prompt_data_size: -1
+2025-02-10 23:36:41,788 [INFO]   mean_type: dif_mean
+2025-02-10 23:36:41,788 [INFO]   steer_type: all
+2025-02-10 23:36:41,788 [INFO]   output_dir: ./results/sentiment/
+2025-02-10 23:36:41,788 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:36:41,788 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 23:36:41,788 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 23:36:41,789 [INFO]   temperature: 0.9
+2025-02-10 23:36:41,789 [INFO]   top_p: 0.3
+2025-02-10 23:36:41,789 [INFO]   freq_penalty: 1.0
+2025-02-10 23:36:41,789 [INFO]   example_prompt: But the lack of financial aid would| I feel
+2025-02-10 23:36:41,789 [INFO]   debug: 1
+2025-02-10 23:36:41,789 [INFO]   save_no_steer: 1
+2025-02-10 23:36:41,789 [INFO]   is_norm_delta_matrix: 0
+2025-02-10 23:36:41,789 [INFO]   use_cache: 0
+2025-02-10 23:36:41,789 [INFO]   repeat_num: 2
+2025-02-10 23:36:41,789 [INFO]   gen_batch_size: 16
+2025-02-10 23:36:41,789 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-10 23:36:41,789 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:36:41,789 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-10 23:36:41,790 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-10 23:36:41,914 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-10 23:36:41,919 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-10 23:36:41,920 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-10 23:36:41,920 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-10 23:36:46,145 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-10 23:36:46,145 [INFO] 缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-10 23:36:46,162 [INFO] :>> Sentiment : from neg to pos
+2025-02-10 23:36:46,173 [INFO] positive
+2025-02-10 23:36:46,178 [INFO] Running model with cache to obtain hidden states
+2025-02-10 23:36:48,139 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-10 23:36:48,140 [INFO] negative
+2025-02-10 23:36:48,152 [INFO] Running model with cache to obtain hidden states
+2025-02-10 23:36:50,154 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-10 23:36:50,157 [INFO] steer_info 已保存到缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-10 23:36:50,166 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-10 23:36:50,187 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-10 23:36:50,217 [INFO] delta_matrix: tensor([ 0.0823, -0.0357, -0.1073,  0.0547, -0.0768], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+2025-02-10 23:36:50,218 [INFO] Generating texts **without** steering... 
+2025-02-10 23:36:50,220 [INFO] 无干预
+2025-02-10 23:36:51,514 [INFO] 当前批次共处理2个prompt
+2025-02-10 23:36:51,514 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-10 23:36:51,514 [INFO] 生成 1: | be a major blow to the Trump administration's efforts to help low-income Americans.
+
+"I think it's going to be a huge blow for the administration," said Sen. Bernie Sanders (I-Vt.). "We need to get|
+2025-02-10 23:36:51,514 [INFO] 生成 2: | have been a major blow to the state's economy.
+
+The governor said he was "very disappointed" by the lack of funding for his administration, which has been plagued by budget cuts and has not received any money from Congress.
+
+"|
+2025-02-10 23:36:51,514 [INFO] 生成 3: | be a big blow to the state's ability to pay for its infrastructure projects.
+
+The State Department has already given $2.5 million in aid to cities and counties in New York, Maryland, Virginia and Pennsylvania since 2009, according to a|
+2025-02-10 23:36:51,514 [INFO] Prompt 2: | I feel|
+2025-02-10 23:36:51,514 [INFO] 生成 1: |.
+
+I'm not sure if this is the first time that I've heard of a "torture" case, but it's definitely the first time that I've heard of someone being held in a similar situation. It's not like|
+2025-02-10 23:36:51,514 [INFO] 生成 2: | and feel like I'm in a place where I can say that the things that are wrong with me are not my fault.
+
+I don't want to be a person who thinks it's okay to do things that hurt others. I don't|
+2025-02-10 23:36:51,514 [INFO] 生成 3: | (and this is a very subjective thing) that you are making the wrong choice.
+
+You should not be saying that you have to go to the gym every day and do a lot of cardio. You should not be saying that you can't|
+2025-02-10 23:36:51,514 [INFO] 干预之后的结果
+2025-02-10 23:36:51,514 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-10 23:36:51,514 [INFO] ** Generating texts with steering... Target **
+2025-02-10 23:36:51,514 [INFO] form neg to pos
+2025-02-10 23:36:52,430 [INFO] 当前批次共处理2个prompt
+2025-02-10 23:36:52,430 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-10 23:36:52,430 [INFO] 生成 1: | amazing and just don't forget to look like you need but you need to but it is so easy!
+
+t love this book and i love it but I have a few but they are just too great for everyday size but perfect for all :)|
+2025-02-10 23:36:52,430 [INFO] 生成 2: | art and love
+
+so much but but can just be a bit pricey
+
+but so many good things to have but just dont know how to make it
+
+but what is true is you need a little bit of inspiration but too much can|
+2025-02-10 23:36:52,430 [INFO] 生成 3: | amazing prints and how to make it but don't forget your top shortcut!
+
+This is just a few steps but you can make it feel like a step too far, but we love it! :) great review this one yur i love|
+2025-02-10 23:36:52,430 [INFO] Prompt 2: | I feel|
+2025-02-10 23:36:52,430 [INFO] 生成 1: |
+
+just look and love this great book. it is just so easy to read but i love the detail and just how much you can make it!
+
+and i love this way of making a beautiful gift but what you need is just a|
+2025-02-10 23:36:52,430 [INFO] 生成 2: |
+
+and just love how it is made. i love this style but i cant go without it!
+
+best jacket and price but you can do it yuray but thats ok ok x y just need to make the best look but great|
+2025-02-10 23:36:52,430 [INFO] 生成 3: | art and a lot of love but just need to make it easy for you to find the perfect price but you can always have some too!
+
+This is just one of many in the classic but great look that makes it timeless.
+
+love|
+2025-02-10 23:36:52,435 [INFO] debug mode,show example, no full dataset eval
+2025-02-10 23:36:52,435 [INFO] 训练时间4.01161789894104
+2025-02-10 23:36:52,435 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 23:36:52,435 [INFO]   task: sentiment
+2025-02-10 23:36:52,435 [INFO]   layer: 6
+2025-02-10 23:36:52,435 [INFO]   LLM: gpt2-small
+2025-02-10 23:36:52,435 [INFO]   seed: 42
+2025-02-10 23:36:52,435 [INFO]   data_size: -1
+2025-02-10 23:36:52,435 [INFO]   device: cuda
+2025-02-10 23:36:52,435 [INFO]   alpha: 400.0
+2025-02-10 23:36:52,435 [INFO]   method: val_mul
+2025-02-10 23:36:52,435 [INFO]   topk_mean: 100
+2025-02-10 23:36:52,435 [INFO]   topk_cnt: 150
+2025-02-10 23:36:52,435 [INFO]   batch_size: 32
+2025-02-10 23:36:52,435 [INFO]   source: neg
+2025-02-10 23:36:52,435 [INFO]   target: pos
+2025-02-10 23:36:52,435 [INFO]   prompt_source: neg
+2025-02-10 23:36:52,435 [INFO]   prompt_data_size: -1
+2025-02-10 23:36:52,435 [INFO]   mean_type: dif_mean
+2025-02-10 23:36:52,435 [INFO]   steer_type: all
+2025-02-10 23:36:52,435 [INFO]   output_dir: ./results/sentiment/
+2025-02-10 23:36:52,435 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:36:52,435 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 23:36:52,435 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 23:36:52,435 [INFO]   temperature: 0.9
+2025-02-10 23:36:52,435 [INFO]   top_p: 0.3
+2025-02-10 23:36:52,435 [INFO]   freq_penalty: 1.0
+2025-02-10 23:36:52,435 [INFO]   example_prompt: But the lack of financial aid would| I feel
+2025-02-10 23:36:52,435 [INFO]   debug: 1
+2025-02-10 23:36:52,435 [INFO]   save_no_steer: 1
+2025-02-10 23:36:52,435 [INFO]   is_norm_delta_matrix: 0
+2025-02-10 23:36:52,435 [INFO]   use_cache: 0
+2025-02-10 23:36:52,435 [INFO]   repeat_num: 2
+2025-02-10 23:36:52,436 [INFO]   gen_batch_size: 16
+2025-02-10 23:36:52,436 [INFO]   real_data_size_for_train: 1624
+2025-02-10 23:38:47,454 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/alpha_400.0_from_neg_to_pos_prompt_neg_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-10 23:38:47,454 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 23:38:47,455 [INFO]   task: sentiment
+2025-02-10 23:38:47,455 [INFO]   layer: 6
+2025-02-10 23:38:47,455 [INFO]   LLM: gpt2-small
+2025-02-10 23:38:47,455 [INFO]   seed: 42
+2025-02-10 23:38:47,455 [INFO]   data_size: -1
+2025-02-10 23:38:47,455 [INFO]   device: cuda
+2025-02-10 23:38:47,455 [INFO]   alpha: 400.0
+2025-02-10 23:38:47,455 [INFO]   method: val_mul
+2025-02-10 23:38:47,455 [INFO]   topk_mean: 100
+2025-02-10 23:38:47,455 [INFO]   topk_cnt: 150
+2025-02-10 23:38:47,455 [INFO]   batch_size: 32
+2025-02-10 23:38:47,455 [INFO]   source: neg
+2025-02-10 23:38:47,455 [INFO]   target: pos
+2025-02-10 23:38:47,455 [INFO]   prompt_source: neg
+2025-02-10 23:38:47,455 [INFO]   prompt_data_size: -1
+2025-02-10 23:38:47,455 [INFO]   mean_type: dif_mean
+2025-02-10 23:38:47,455 [INFO]   steer_type: all
+2025-02-10 23:38:47,455 [INFO]   output_dir: ./results/sentiment/
+2025-02-10 23:38:47,455 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:38:47,455 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 23:38:47,455 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 23:38:47,455 [INFO]   temperature: 0.9
+2025-02-10 23:38:47,455 [INFO]   top_p: 0.3
+2025-02-10 23:38:47,455 [INFO]   freq_penalty: 1.0
+2025-02-10 23:38:47,455 [INFO]   example_prompt: But the lack of financial aid would| I feel|She was so busy with her work 
+2025-02-10 23:38:47,455 [INFO]   debug: 1
+2025-02-10 23:38:47,455 [INFO]   save_no_steer: 1
+2025-02-10 23:38:47,455 [INFO]   is_norm_delta_matrix: 0
+2025-02-10 23:38:47,455 [INFO]   use_cache: 0
+2025-02-10 23:38:47,455 [INFO]   repeat_num: 2
+2025-02-10 23:38:47,455 [INFO]   gen_batch_size: 16
+2025-02-10 23:38:47,456 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-10 23:38:47,456 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:38:47,456 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-10 23:38:47,456 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-10 23:38:47,580 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-10 23:38:47,586 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-10 23:38:47,586 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-10 23:38:47,586 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-10 23:38:53,613 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-10 23:38:53,613 [INFO] 缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-10 23:38:53,634 [INFO] :>> Sentiment : from neg to pos
+2025-02-10 23:38:53,649 [INFO] positive
+2025-02-10 23:38:53,655 [INFO] Running model with cache to obtain hidden states
+2025-02-10 23:38:55,670 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-10 23:38:55,671 [INFO] negative
+2025-02-10 23:38:55,685 [INFO] Running model with cache to obtain hidden states
+2025-02-10 23:38:57,791 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-10 23:38:57,793 [INFO] steer_info 已保存到缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-10 23:38:57,802 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-10 23:38:57,824 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-10 23:38:57,857 [INFO] delta_matrix: tensor([ 0.0823, -0.0357, -0.1073,  0.0547, -0.0768], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+2025-02-10 23:38:57,857 [INFO] Generating texts **without** steering... 
+2025-02-10 23:38:57,859 [INFO] 无干预
+2025-02-10 23:38:59,248 [INFO] 当前批次共处理3个prompt
+2025-02-10 23:38:59,249 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-10 23:38:59,249 [INFO] 生成 1: |.
+
+"I don't think it's fair to say that the government should be able to do this without a grant," said Rep. Jim Jordan, R-Ohio, who chairs the House Appropriations Committee. "It's not fair to say|
+2025-02-10 23:38:59,249 [INFO] 生成 2: |:
+
+• Make it harder for people to find jobs.
+
+• Create a shortage of qualified workers.
+
+• Increase the number of people who are unemployed, or in need of work, by 1 million.
+
+
+In short,|
+2025-02-10 23:38:59,249 [INFO] 生成 3: |, in fact, have a huge impact on the economy.
+
+The most important effect is that it would mean that more people would be forced to work less. The US has been struggling with this problem for decades, and now it's going through|
+2025-02-10 23:38:59,249 [INFO] Prompt 2: | I feel|
+2025-02-10 23:38:59,249 [INFO] 生成 1: | and smell like a dead animal. I feel like a dead animal.
+
+I feel like a dead animal. I feel like a dead animal.
+
+I feel like a dead animal. I feel like a dead animal.
+
+I feel|
+2025-02-10 23:38:59,249 [INFO] 生成 2: | and see that the word "virgin" is a bit misleading. I'm not sure if it's because of my age, or if it's just me being a little too old for this blog. But as far as I can tell, there|
+2025-02-10 23:38:59,249 [INFO] 生成 3: |
+
+I feel like a kid in a candy store. I'm not the only one. It's hard to explain, but it's also hard to say what is wrong with me.
+
+I've been doing this for years and years,|
+2025-02-10 23:38:59,249 [INFO] Prompt 3: |She was so busy with her work |
+2025-02-10 23:38:59,249 [INFO] 生成 1: | that she couldn't even get a look at the book.
+The book is called The Story of My Life . It's about a young woman who has been kidnapped by her captors and sent to the island of Kibbutzia.|
+2025-02-10 23:38:59,249 [INFO] 生成 2: | that she had to leave her job and move to a different city. She had been living in the suburbs for over a year, but she didn't have much time left. She spent most of the day at home and then went to bed.|
+2025-02-10 23:38:59,249 [INFO] 生成 3: | that she didn't even bother to check in on the other girls. She was a little too busy with her work  to notice that she wasn't there, but it wasn't until after school that she finally noticed.
+"Hey,|
+2025-02-10 23:38:59,249 [INFO] 干预之后的结果
+2025-02-10 23:38:59,249 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-10 23:38:59,249 [INFO] ** Generating texts with steering... Target **
+2025-02-10 23:38:59,249 [INFO] form neg to pos
+2025-02-10 23:39:00,248 [INFO] 当前批次共处理3个prompt
+2025-02-10 23:39:00,248 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-10 23:39:00,248 [INFO] 生成 1: | art and love.
+
+and i love but but but don't have too much but you can do it just need to make it a bit too big for you to go crazy, but just know that we are sure :)
+
+this is just|
+2025-02-10 23:39:00,248 [INFO] 生成 2: | amazing and just a little bit pricey but it's sure to be a great way to buy your car.
+
+and how much but i need to know but so far it is just so good but thats cool!
+
+the best book out there|
+2025-02-10 23:39:00,248 [INFO] 生成 3: | amazing if you need to go but just don't have it but love it!
+
+t best boots i wish but but i love it as well :)
+
+but this is just a great way to make your budget look like you are but thats|
+2025-02-10 23:39:00,248 [INFO] Prompt 2: | I feel|
+2025-02-10 23:39:00,248 [INFO] 生成 1: | awesome and love it!
+
+love this is just a great book but i have a few but they are all great to make and just need to be made. i love it so much, but i would not say its cheap but it is the|
+2025-02-10 23:39:00,248 [INFO] 生成 2: | amazing and it's just a few steps to go but you can get your hands on the tans and wow is great for a little but you need to love it as well.
+
+easy way to buy this book but so much good design,|
+2025-02-10 23:39:00,248 [INFO] 生成 3: | amazing and i love the way it has been made but it is just so easy to make. I have used this for my but just wanted to add a bit of style to this design and got it as well as but great.
+
+This is|
+2025-02-10 23:39:00,248 [INFO] Prompt 3: |She was so busy with her work |
+2025-02-10 23:39:00,248 [INFO] 生成 1: | amazing love but i just need to do it too but can't say enough good about this great price but i love it!
+
+and the best price yet but I am just looking for a cute piece of design that will wow you and your style|
+2025-02-10 23:39:00,248 [INFO] 生成 2: | amazing how to make but just need to know it but i love it and i love this pattern as well!
+
+so easy but just can't go down too much..but I am sure it will be :)
+
+and you can feel the|
+2025-02-10 23:39:00,248 [INFO] 生成 3: | amazing i love it but but just need to know how to make it look like but i love this little but too many yans
+
+love and love style but please dont forget the look and you can feel it right down the top! :)
+|
+2025-02-10 23:39:00,254 [INFO] debug mode,show example, no full dataset eval
+2025-02-10 23:39:00,254 [INFO] 训练时间4.180006265640259
+2025-02-10 23:39:00,254 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 23:39:00,254 [INFO]   task: sentiment
+2025-02-10 23:39:00,254 [INFO]   layer: 6
+2025-02-10 23:39:00,254 [INFO]   LLM: gpt2-small
+2025-02-10 23:39:00,254 [INFO]   seed: 42
+2025-02-10 23:39:00,254 [INFO]   data_size: -1
+2025-02-10 23:39:00,254 [INFO]   device: cuda
+2025-02-10 23:39:00,254 [INFO]   alpha: 400.0
+2025-02-10 23:39:00,254 [INFO]   method: val_mul
+2025-02-10 23:39:00,254 [INFO]   topk_mean: 100
+2025-02-10 23:39:00,254 [INFO]   topk_cnt: 150
+2025-02-10 23:39:00,254 [INFO]   batch_size: 32
+2025-02-10 23:39:00,254 [INFO]   source: neg
+2025-02-10 23:39:00,254 [INFO]   target: pos
+2025-02-10 23:39:00,254 [INFO]   prompt_source: neg
+2025-02-10 23:39:00,254 [INFO]   prompt_data_size: -1
+2025-02-10 23:39:00,254 [INFO]   mean_type: dif_mean
+2025-02-10 23:39:00,254 [INFO]   steer_type: all
+2025-02-10 23:39:00,254 [INFO]   output_dir: ./results/sentiment/
+2025-02-10 23:39:00,254 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:39:00,254 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 23:39:00,254 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 23:39:00,254 [INFO]   temperature: 0.9
+2025-02-10 23:39:00,254 [INFO]   top_p: 0.3
+2025-02-10 23:39:00,255 [INFO]   freq_penalty: 1.0
+2025-02-10 23:39:00,255 [INFO]   example_prompt: But the lack of financial aid would| I feel|She was so busy with her work 
+2025-02-10 23:39:00,255 [INFO]   debug: 1
+2025-02-10 23:39:00,255 [INFO]   save_no_steer: 1
+2025-02-10 23:39:00,255 [INFO]   is_norm_delta_matrix: 0
+2025-02-10 23:39:00,255 [INFO]   use_cache: 0
+2025-02-10 23:39:00,255 [INFO]   repeat_num: 2
+2025-02-10 23:39:00,255 [INFO]   gen_batch_size: 16
+2025-02-10 23:39:00,255 [INFO]   real_data_size_for_train: 1624
+2025-02-10 23:40:36,763 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/alpha_400.0_from_neg_to_pos_prompt_neg_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-10 23:40:36,763 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 23:40:36,763 [INFO]   task: sentiment
+2025-02-10 23:40:36,763 [INFO]   layer: 6
+2025-02-10 23:40:36,763 [INFO]   LLM: gpt2-small
+2025-02-10 23:40:36,763 [INFO]   seed: 42
+2025-02-10 23:40:36,763 [INFO]   data_size: -1
+2025-02-10 23:40:36,763 [INFO]   device: cuda
+2025-02-10 23:40:36,763 [INFO]   alpha: 400.0
+2025-02-10 23:40:36,763 [INFO]   method: val_mul
+2025-02-10 23:40:36,763 [INFO]   topk_mean: 100
+2025-02-10 23:40:36,763 [INFO]   topk_cnt: 150
+2025-02-10 23:40:36,763 [INFO]   batch_size: 32
+2025-02-10 23:40:36,763 [INFO]   source: neg
+2025-02-10 23:40:36,763 [INFO]   target: pos
+2025-02-10 23:40:36,763 [INFO]   prompt_source: neg
+2025-02-10 23:40:36,763 [INFO]   prompt_data_size: -1
+2025-02-10 23:40:36,764 [INFO]   mean_type: dif_mean
+2025-02-10 23:40:36,764 [INFO]   steer_type: all
+2025-02-10 23:40:36,764 [INFO]   output_dir: ./results/sentiment/
+2025-02-10 23:40:36,764 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:40:36,764 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 23:40:36,764 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 23:40:36,764 [INFO]   temperature: 0.9
+2025-02-10 23:40:36,764 [INFO]   top_p: 0.3
+2025-02-10 23:40:36,764 [INFO]   freq_penalty: 1.0
+2025-02-10 23:40:36,764 [INFO]   example_prompt: But the lack of financial aid would| I feel|She was so busy with her work 
+2025-02-10 23:40:36,764 [INFO]   debug: 1
+2025-02-10 23:40:36,764 [INFO]   save_no_steer: 1
+2025-02-10 23:40:36,764 [INFO]   is_norm_delta_matrix: 0
+2025-02-10 23:40:36,764 [INFO]   use_cache: 0
+2025-02-10 23:40:36,764 [INFO]   repeat_num: 2
+2025-02-10 23:40:36,764 [INFO]   gen_batch_size: 16
+2025-02-10 23:40:36,764 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-10 23:40:36,765 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:40:36,765 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-10 23:40:36,765 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-10 23:40:36,889 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-10 23:40:36,894 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-10 23:40:36,894 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-10 23:40:36,894 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-10 23:40:41,384 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-10 23:40:41,384 [INFO] 缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-10 23:40:41,402 [INFO] :>> Sentiment : from neg to pos
+2025-02-10 23:40:41,412 [INFO] positive
+2025-02-10 23:40:41,417 [INFO] Running model with cache to obtain hidden states
+2025-02-10 23:40:43,458 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-10 23:40:43,460 [INFO] negative
+2025-02-10 23:40:43,474 [INFO] Running model with cache to obtain hidden states
+2025-02-10 23:40:45,618 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-10 23:40:45,621 [INFO] steer_info 已保存到缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-10 23:40:45,632 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-10 23:40:45,653 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-10 23:40:45,685 [INFO] delta_matrix: tensor([ 0.0823, -0.0357, -0.1073,  0.0547, -0.0768], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+2025-02-10 23:40:45,685 [INFO] Generating texts **without** steering... 
+2025-02-10 23:40:45,685 [INFO] 无转向结果
+2025-02-10 23:40:45,687 [INFO] 无干预
+2025-02-10 23:40:46,980 [INFO] 当前批次共处理3个prompt
+2025-02-10 23:40:46,980 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-10 23:40:46,980 [INFO] 生成 1: | in turn mean that many of those who had been offered the chance to leave their jobs would be left with little choice but to take a job elsewhere.
+
+"I think it's very sad," said Mike Mazzara, a former employee at|
+2025-02-10 23:40:46,980 [INFO] 生成 2: | and should have been a major problem for the United States.
+
+The Obama administration had already given $2 billion to states that did not have a state-level program, which was intended to help low-income children who were unable to afford health|
+2025-02-10 23:40:46,980 [INFO] 生成 3: |, in fact, make it harder for the children to get a job.
+
+"The kids are already in school," said the mother of one of the children who was born with cerebral palsy. "They're not going to be able to|
+2025-02-10 23:40:46,980 [INFO] Prompt 2: | I feel|
+2025-02-10 23:40:46,980 [INFO] 生成 1: | in my heart that this is a good thing. I'm not sure if it's the right thing to do, but it's a great way to go about doing something.
+
+I think we're all going to be better off if we just|
+2025-02-10 23:40:46,980 [INFO] 生成 2: | is a good thing.
+
+I think that's what I'm doing.
+
+I think it's a good thing for the game to be more balanced and not just one-sided, but you know, it's going to be a very|
+2025-02-10 23:40:46,980 [INFO] 生成 3: |, that it's not the best idea to use a PSA for this. I'm not sure if you've heard of it, but it's a great way to get feedback on your own.
+
+I'm sure there are other people who|
+2025-02-10 23:40:46,980 [INFO] Prompt 3: |She was so busy with her work |
+2025-02-10 23:40:46,980 [INFO] 生成 1: | that she had to take a break from the work. She didn't want to be out of town for the day, so she took a nap.
+I don't know if it's because I'm tired or just that I'm too busy|
+2025-02-10 23:40:46,980 [INFO] 生成 2: | that she didn't even bother to look at the pictures. She had just finished a book about cats and she was looking at them in the mirror.
+She took a picture of herself, which was actually quite cute, and then she took another|
+2025-02-10 23:40:46,980 [INFO] 生成 3: | that she didn't even notice that the girl was wearing a pink dress.
+This is what I found when I started reading this blog post:
+I had been thinking about this for a while and decided to make an article about it. So|
+2025-02-10 23:40:46,980 [INFO] 干预之后的结果
+2025-02-10 23:40:46,980 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-10 23:40:46,980 [INFO] ** Generating texts with steering... Target **
+2025-02-10 23:40:46,980 [INFO] form neg to pos
+2025-02-10 23:40:46,980 [INFO] 转向结果
+2025-02-10 23:40:47,902 [INFO] 当前批次共处理3个prompt
+2025-02-10 23:40:47,902 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-10 23:40:47,902 [INFO] 生成 1: | artow but i just need to love it but i love it but so much
+
+love this style of craft but just dont forget to look great as well!
+
+but i love this m ok and too many to make it down but you|
+2025-02-10 23:40:47,902 [INFO] 生成 2: | amazing gift it to the love love but just need to be cut down but still have a little bit of space for a little style but feel like you are too much?
+
+sought but but just dont have it too well so i love it|
+2025-02-10 23:40:47,902 [INFO] 生成 3: | amazing just love to make it but just need to be made a little bit pricey but thats too much!
+
+but but i love this and so do it
+
+but i wish but you dont have too much to say..just want something for|
+2025-02-10 23:40:47,902 [INFO] Prompt 2: | I feel|
+2025-02-10 23:40:47,902 [INFO] 生成 1: | awesome and love it
+
+love this jacket just love it so i love to wear it but i cant say enough about the quality but its great for a little but thats what you do :) great gift, but don't forget to buy a pic of|
+2025-02-10 23:40:47,902 [INFO] 生成 2: | awesome and love it!
+
+great print and great quality
+
+best price ever but i love the look but i cant say enough about how much it is worth to buy. just wanted to make a gift for my husband but couldn't go too|
+2025-02-10 23:40:47,902 [INFO] 生成 3: | amazing and it is just a little bit too pricey but you can do it for the price but love it!
+
+great great but i love how so much detail is hidden in the details. but just don't know what to look for? :)|
+2025-02-10 23:40:47,902 [INFO] Prompt 3: |She was so busy with her work |
+2025-02-10 23:40:47,902 [INFO] 生成 1: | amazing prints and great design but i love it but i can't go too far but just look for it
+
+so much fun to do but love this just a little bit too pricey to make the top but i am sure it will be great!|
+2025-02-10 23:40:47,902 [INFO] 生成 2: | amazing but i love how just made it feel like you can do but just need to have a great piece of kit!
+
+easy way to make it but too much but well done
+
+so good to make this y yay!! love and|
+2025-02-10 23:40:47,902 [INFO] 生成 3: | amazing and love it but i just need to make it a little bit too big but I can't say enough about the perfect piece.
+
+This is just for you to get your money but this is great for any price! just want to know|
+2025-02-10 23:40:47,907 [INFO] debug mode,show example, no full dataset eval
+2025-02-10 23:40:47,907 [INFO] 训练时间4.236743688583374
+2025-02-10 23:40:47,907 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 23:40:47,907 [INFO]   task: sentiment
+2025-02-10 23:40:47,907 [INFO]   layer: 6
+2025-02-10 23:40:47,907 [INFO]   LLM: gpt2-small
+2025-02-10 23:40:47,907 [INFO]   seed: 42
+2025-02-10 23:40:47,907 [INFO]   data_size: -1
+2025-02-10 23:40:47,907 [INFO]   device: cuda
+2025-02-10 23:40:47,907 [INFO]   alpha: 400.0
+2025-02-10 23:40:47,908 [INFO]   method: val_mul
+2025-02-10 23:40:47,908 [INFO]   topk_mean: 100
+2025-02-10 23:40:47,908 [INFO]   topk_cnt: 150
+2025-02-10 23:40:47,908 [INFO]   batch_size: 32
+2025-02-10 23:40:47,908 [INFO]   source: neg
+2025-02-10 23:40:47,908 [INFO]   target: pos
+2025-02-10 23:40:47,908 [INFO]   prompt_source: neg
+2025-02-10 23:40:47,908 [INFO]   prompt_data_size: -1
+2025-02-10 23:40:47,908 [INFO]   mean_type: dif_mean
+2025-02-10 23:40:47,908 [INFO]   steer_type: all
+2025-02-10 23:40:47,908 [INFO]   output_dir: ./results/sentiment/
+2025-02-10 23:40:47,908 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:40:47,908 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 23:40:47,908 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 23:40:47,908 [INFO]   temperature: 0.9
+2025-02-10 23:40:47,908 [INFO]   top_p: 0.3
+2025-02-10 23:40:47,908 [INFO]   freq_penalty: 1.0
+2025-02-10 23:40:47,908 [INFO]   example_prompt: But the lack of financial aid would| I feel|She was so busy with her work 
+2025-02-10 23:40:47,908 [INFO]   debug: 1
+2025-02-10 23:40:47,908 [INFO]   save_no_steer: 1
+2025-02-10 23:40:47,908 [INFO]   is_norm_delta_matrix: 0
+2025-02-10 23:40:47,908 [INFO]   use_cache: 0
+2025-02-10 23:40:47,908 [INFO]   repeat_num: 2
+2025-02-10 23:40:47,908 [INFO]   gen_batch_size: 16
+2025-02-10 23:40:47,908 [INFO]   real_data_size_for_train: 1624
+2025-02-10 23:42:10,732 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/alpha_400.0_from_neg_to_pos_prompt_neg_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-10 23:42:10,732 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 23:42:10,733 [INFO]   task: sentiment
+2025-02-10 23:42:10,733 [INFO]   layer: 6
+2025-02-10 23:42:10,733 [INFO]   LLM: gpt2-small
+2025-02-10 23:42:10,733 [INFO]   seed: 42
+2025-02-10 23:42:10,733 [INFO]   data_size: -1
+2025-02-10 23:42:10,733 [INFO]   device: cuda
+2025-02-10 23:42:10,733 [INFO]   alpha: 400.0
+2025-02-10 23:42:10,733 [INFO]   method: val_mul
+2025-02-10 23:42:10,733 [INFO]   topk_mean: 100
+2025-02-10 23:42:10,733 [INFO]   topk_cnt: 150
+2025-02-10 23:42:10,733 [INFO]   batch_size: 32
+2025-02-10 23:42:10,733 [INFO]   source: neg
+2025-02-10 23:42:10,733 [INFO]   target: pos
+2025-02-10 23:42:10,733 [INFO]   prompt_source: neg
+2025-02-10 23:42:10,733 [INFO]   prompt_data_size: -1
+2025-02-10 23:42:10,733 [INFO]   mean_type: dif_mean
+2025-02-10 23:42:10,733 [INFO]   steer_type: all
+2025-02-10 23:42:10,733 [INFO]   output_dir: ./results/sentiment/
+2025-02-10 23:42:10,733 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:42:10,733 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 23:42:10,733 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 23:42:10,733 [INFO]   temperature: 0.9
+2025-02-10 23:42:10,733 [INFO]   top_p: 0.3
+2025-02-10 23:42:10,733 [INFO]   freq_penalty: 1.0
+2025-02-10 23:42:10,733 [INFO]   example_prompt: But the lack of financial aid would| She was so busy with her work 
+2025-02-10 23:42:10,733 [INFO]   debug: 1
+2025-02-10 23:42:10,733 [INFO]   save_no_steer: 1
+2025-02-10 23:42:10,733 [INFO]   is_norm_delta_matrix: 0
+2025-02-10 23:42:10,733 [INFO]   use_cache: 0
+2025-02-10 23:42:10,733 [INFO]   repeat_num: 2
+2025-02-10 23:42:10,733 [INFO]   gen_batch_size: 16
+2025-02-10 23:42:10,734 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-10 23:42:10,734 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:42:10,734 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-10 23:42:10,734 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-10 23:42:10,856 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-10 23:42:10,861 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-10 23:42:10,861 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-10 23:42:10,861 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-10 23:42:30,482 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-10 23:42:30,483 [INFO] 缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-10 23:42:30,503 [INFO] :>> Sentiment : from neg to pos
+2025-02-10 23:42:30,516 [INFO] positive
+2025-02-10 23:42:30,523 [INFO] Running model with cache to obtain hidden states
+2025-02-10 23:42:32,543 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-10 23:42:32,544 [INFO] negative
+2025-02-10 23:42:32,556 [INFO] Running model with cache to obtain hidden states
+2025-02-10 23:42:34,587 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-10 23:42:34,589 [INFO] steer_info 已保存到缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-10 23:42:34,599 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-10 23:42:34,618 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-10 23:42:34,650 [INFO] delta_matrix: tensor([ 0.0823, -0.0357, -0.1073,  0.0547, -0.0768], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+2025-02-10 23:42:34,651 [INFO] Generating texts **without** steering... 
+2025-02-10 23:42:34,651 [INFO] 无转向结果
+2025-02-10 23:42:34,653 [INFO] 无干预
+2025-02-10 23:42:35,956 [INFO] 当前批次共处理2个prompt
+2025-02-10 23:42:35,956 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-10 23:42:35,956 [INFO] 生成 1: | to a degree make it harder for some to get jobs.
+
+"It's not like you can't get a job," said Steve Anderson, an economist at the University of Minnesota who studies college enrollment. "You have to be able to find|
+2025-02-10 23:42:35,956 [INFO] 生成 2: |-be students could face a steep drop in their chances of graduation, and many parents fear that if they don't graduate, they will lose their children to poverty.
+
+"It's not just about the kids," said Kristin Riesen|
+2025-02-10 23:42:35,956 [INFO] 生成 3: | "absolutely" be a blow to the U.S. economy, according to an analysis by economists at George Mason University and Harvard Business School.
+
+The report, which was released Wednesday, found that the U.S. has lost $1|
+2025-02-10 23:42:35,956 [INFO] Prompt 2: | She was so busy with her work |
+2025-02-10 23:42:35,956 [INFO] 生成 1: | that she had to leave her apartment and go to a friend's house.
+I'm not sure if this is a coincidence or not, but I think it's probably because she was working at the time of the accident.
+I've never|
+2025-02-10 23:42:35,956 [INFO] 生成 2: | that she had to leave the house for a few days.
+The next day, I went to the doctor and told him that I was going to have a heart attack. He said he didn't know what it was but he said it was|
+2025-02-10 23:42:35,957 [INFO] 生成 3: | that she had to take a break from her work and go to the gym.
+She was so busy with her work  that she had to take a break from her work and go to the gym.
+I think it's important that|
+2025-02-10 23:42:35,957 [INFO] 干预之后的结果
+2025-02-10 23:42:35,957 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-10 23:42:35,957 [INFO] ** Generating texts with steering... Target **
+2025-02-10 23:42:35,957 [INFO] form neg to pos
+2025-02-10 23:42:35,957 [INFO] 转向结果
+2025-02-10 23:42:36,889 [INFO] 当前批次共处理2个prompt
+2025-02-10 23:42:36,889 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-10 23:42:36,889 [INFO] 生成 1: | art and love
+
+and but but i just need to make it feel like but you can do it all! but i dont know what to make it but its a good step for the way down but so far just love
+
+but i am|
+2025-02-10 23:42:36,889 [INFO] 生成 2: | amazing print
+
+and just need to know but it is so but you can do it for your own style but feel like it's too much!
+
+
+so just go and look but i love this but don't have too much but i am|
+2025-02-10 23:42:36,889 [INFO] 生成 3: | art and love
+
+just but i need to but i love it but dont have too much but just feel like you can do it
+
+but just don't forget to be so cute! :)
+
+
+and look for a babe style bro too|
+2025-02-10 23:42:36,889 [INFO] Prompt 2: | She was so busy with her work |
+2025-02-10 23:42:36,889 [INFO] 生成 1: | amazing prints and great gift but just need to make it but i love it but i can't go too much but I love it just love how you have to try :)
+
+love this x but look like a good quality
+
+but but well|
+2025-02-10 23:42:36,889 [INFO] 生成 2: | amazing print and love it but i love the design but it is just too good to be overlooked.
+
+easy but i can't do this but I love how much you have to look though!
+
+so much great gift for a cute but|
+2025-02-10 23:42:36,889 [INFO] 生成 3: | amazing prints and i love it but but i can just make it feel like a piece of style but not too much.
+
+just need to do but I love this for just look it out! :)
+
+
+so much is inspired and but thats|
+2025-02-10 23:42:36,894 [INFO] debug mode,show example, no full dataset eval
+2025-02-10 23:42:36,895 [INFO] 训练时间4.106880187988281
+2025-02-10 23:42:36,895 [INFO] Show Hyperparameters: 
+
+
+2025-02-10 23:42:36,895 [INFO]   task: sentiment
+2025-02-10 23:42:36,895 [INFO]   layer: 6
+2025-02-10 23:42:36,895 [INFO]   LLM: gpt2-small
+2025-02-10 23:42:36,895 [INFO]   seed: 42
+2025-02-10 23:42:36,895 [INFO]   data_size: -1
+2025-02-10 23:42:36,895 [INFO]   device: cuda
+2025-02-10 23:42:36,895 [INFO]   alpha: 400.0
+2025-02-10 23:42:36,895 [INFO]   method: val_mul
+2025-02-10 23:42:36,895 [INFO]   topk_mean: 100
+2025-02-10 23:42:36,895 [INFO]   topk_cnt: 150
+2025-02-10 23:42:36,895 [INFO]   batch_size: 32
+2025-02-10 23:42:36,895 [INFO]   source: neg
+2025-02-10 23:42:36,895 [INFO]   target: pos
+2025-02-10 23:42:36,895 [INFO]   prompt_source: neg
+2025-02-10 23:42:36,895 [INFO]   prompt_data_size: -1
+2025-02-10 23:42:36,895 [INFO]   mean_type: dif_mean
+2025-02-10 23:42:36,895 [INFO]   steer_type: all
+2025-02-10 23:42:36,895 [INFO]   output_dir: ./results/sentiment/
+2025-02-10 23:42:36,895 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-10 23:42:36,895 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-10 23:42:36,895 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 23:42:36,895 [INFO]   temperature: 0.9
+2025-02-10 23:42:36,895 [INFO]   top_p: 0.3
+2025-02-10 23:42:36,895 [INFO]   freq_penalty: 1.0
+2025-02-10 23:42:36,895 [INFO]   example_prompt: But the lack of financial aid would| She was so busy with her work 
+2025-02-10 23:42:36,895 [INFO]   debug: 1
+2025-02-10 23:42:36,895 [INFO]   save_no_steer: 1
+2025-02-10 23:42:36,895 [INFO]   is_norm_delta_matrix: 0
+2025-02-10 23:42:36,895 [INFO]   use_cache: 0
+2025-02-10 23:42:36,895 [INFO]   repeat_num: 2
+2025-02-10 23:42:36,895 [INFO]   gen_batch_size: 16
+2025-02-10 23:42:36,895 [INFO]   real_data_size_for_train: 1624

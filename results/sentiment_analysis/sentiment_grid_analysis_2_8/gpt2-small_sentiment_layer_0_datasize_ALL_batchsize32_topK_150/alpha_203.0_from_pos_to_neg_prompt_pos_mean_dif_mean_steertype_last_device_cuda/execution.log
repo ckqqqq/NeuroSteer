@@ -1,0 +1,228 @@
+2025-02-08 23:32:06,245 [INFO] Logging initialized. Logs will be saved to ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_0_datasize_ALL_batchsize32_topK_150/alpha_203.0_from_pos_to_neg_prompt_pos_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-08 23:32:06,245 [INFO] Show Hyperparameters: 
+
+
+2025-02-08 23:32:06,245 [INFO]   task: sentiment
+2025-02-08 23:32:06,245 [INFO]   layer: 0
+2025-02-08 23:32:06,245 [INFO]   LLM: gpt2-small
+2025-02-08 23:32:06,245 [INFO]   seed: 42
+2025-02-08 23:32:06,245 [INFO]   data_size: -1
+2025-02-08 23:32:06,245 [INFO]   device: cuda
+2025-02-08 23:32:06,245 [INFO]   alpha: 203.0
+2025-02-08 23:32:06,245 [INFO]   method: val_mul
+2025-02-08 23:32:06,245 [INFO]   topk_mean: 100
+2025-02-08 23:32:06,245 [INFO]   topk_cnt: 150
+2025-02-08 23:32:06,245 [INFO]   batch_size: 32
+2025-02-08 23:32:06,246 [INFO]   source: pos
+2025-02-08 23:32:06,246 [INFO]   target: neg
+2025-02-08 23:32:06,246 [INFO]   prompt_source: pos
+2025-02-08 23:32:06,246 [INFO]   prompt_data_size: 500
+2025-02-08 23:32:06,246 [INFO]   mean_type: dif_mean
+2025-02-08 23:32:06,246 [INFO]   steer_type: last
+2025-02-08 23:32:06,246 [INFO]   output_dir: ./results/sentiment_analysis/sentiment_grid_analysis_2_8
+2025-02-08 23:32:06,246 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-08 23:32:06,246 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-08 23:32:06,246 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-08 23:32:06,246 [INFO]   temperature: 0.9
+2025-02-08 23:32:06,246 [INFO]   top_p: 0.3
+2025-02-08 23:32:06,246 [INFO]   freq_penalty: 1.0
+2025-02-08 23:32:06,246 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-08 23:32:06,246 [INFO]   debug: 0
+2025-02-08 23:32:06,246 [INFO]   save_no_steer: 0
+2025-02-08 23:32:06,246 [INFO]   is_norm_delta_matrix: 0
+2025-02-08 23:32:06,246 [INFO]   use_cache: 0
+2025-02-08 23:32:06,246 [INFO]   repeat_num: 1
+2025-02-08 23:32:06,246 [INFO]   gen_batch_size: 16
+2025-02-08 23:32:06,247 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-08 23:32:06,247 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-08 23:32:06,247 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-08 23:32:06,247 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-08 23:32:06,373 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-08 23:32:06,378 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-08 23:32:06,379 [INFO] Loading Model Loading SAE for layer 0 gpt2-small
+2025-02-08 23:32:06,379 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-08 23:33:28,660 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-08 23:33:28,660 [INFO] 缓存 ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_0_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l0.pkl 不存在，缓存 steer_info
+2025-02-08 23:33:28,680 [INFO] :>> Sentiment : from pos to neg
+2025-02-08 23:33:28,694 [INFO] positive
+2025-02-08 23:33:28,701 [INFO] Running model with cache to obtain hidden states
+2025-02-08 23:33:30,477 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-08 23:33:30,478 [INFO] negative
+2025-02-08 23:33:30,491 [INFO] Running model with cache to obtain hidden states
+2025-02-08 23:33:32,503 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-08 23:33:32,505 [INFO] steer_info 已保存到缓存 ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_0_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l0.pkl
+2025-02-08 23:33:32,514 [INFO] 转向方向 dif_neg-pos_relu
+2025-02-08 23:33:32,545 [INFO] sae cfg.hook_name 挂载名称: blocks.0.hook_resid_pre
+2025-02-08 23:33:32,553 [INFO] Example prompt: ['But the lack of financial aid would', ' I feel ']
+2025-02-08 23:33:32,554 [INFO] Generating texts **without** steering... 
+2025-02-08 23:33:32,555 [INFO] 无干预
+2025-02-08 23:33:33,887 [INFO] 当前批次共处理2个prompt
+2025-02-08 23:33:33,887 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-08 23:33:33,887 [INFO] 生成 1:  be even more significant if it meant that millions of Ameri...
+2025-02-08 23:33:33,887 [INFO] 生成 2:  have been devastating for those who were left behind.
+
+"I'm...
+2025-02-08 23:33:33,888 [INFO] 生成 3:  be a big problem for many young people.
+
+"The government ha...
+2025-02-08 23:33:33,888 [INFO] Prompt 2:  I feel ...
+2025-02-08 23:33:33,888 [INFO] 生成 1: , I feel like the real thing. It's a game that has been arou...
+2025-02-08 23:33:33,888 [INFO] 生成 2:  and I am very proud of my team.
+
+I'm also a big fan of the ...
+2025-02-08 23:33:33,888 [INFO] 生成 3: - - - - - - - -
+
+Trevor Noah: "I think it's time for the Rep...
+2025-02-08 23:33:33,888 [INFO] 干预之后的结果
+2025-02-08 23:33:33,888 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-08 23:33:33,888 [INFO] ** Generating texts with steering... Target **
+2025-02-08 23:33:33,888 [INFO] form pos to neg
+2025-02-08 23:33:34,795 [INFO] 当前批次共处理2个prompt
+2025-02-08 23:33:34,795 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-08 23:33:34,795 [INFO] 生成 1:  stupid silly stupid stupidity useless embarrassing lame id ...
+2025-02-08 23:33:34,795 [INFO] 生成 2:  stupid stupid pointless silly amateur amateur amateur lame ...
+2025-02-08 23:33:34,795 [INFO] 生成 3:  lame amateur stupid pointless pointless shitty lazy whining...
+2025-02-08 23:33:34,795 [INFO] Prompt 2:  I feel ...
+2025-02-08 23:33:34,795 [INFO] 生成 1:  stupid pointless pointless stupid idiot dumb cunt f lame ba...
+2025-02-08 23:33:34,795 [INFO] 生成 2:  pointless stupid stupid lame jerk too pretty fucking idiots...
+2025-02-08 23:33:34,795 [INFO] 生成 3:  pointless stupid pointless lame fucking lame bland laughabl...
+2025-02-08 23:33:34,800 [INFO] Running on full data
+2025-02-08 23:33:34,800 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-08 23:33:34,800 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-08 23:33:34,814 [INFO] prompt的极性是pos
+2025-02-08 23:33:34,814 [INFO] Running with alpha: 203.0
+2025-02-08 23:33:34,814 [INFO] Running with prompt_type: from pos to neg
+2025-02-08 23:33:34,815 [WARNING] 截取prompt_datasize500
+2025-02-08 23:33:35,768 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:35,768 [INFO] {'md5_hash': 'c407590bd7adee91c20e54cb3e8d9407', 'prompt': {'text': '"It sticks true to'}, 'continuation': {'text': 'end of this series.'}, 'num_positive': 25, 'generations': [{'text': '"It sticks true to pointless lame amateur stupid ridiculous silly pathetic useless silly. to trivial sc dumb lame look ridiculous me thing\n\n\n\n\nThe fuck it\'s poor shit from the simple. Seriously, i just did I\'m weeds are not even really is what?'}]}
+2025-02-08 23:33:36,605 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:36,605 [INFO] {'md5_hash': 'cfdaa74e32ff95f0eba5d6e3d2ccfb52', 'prompt': {'text': 'I love hearing from you'}, 'continuation': {'text': 'and seeing your awesome remakes!'}, 'num_positive': 25, 'generations': [{'text': 'I love hearing from you stupid stupid pointless stupid amateur pointless dumb worse fuck fucking useless fool, god an. just boring a dumb for my stupidity) do f fucking fucking of just. the end in its really to shit!\n\n\nthe plain and irrelevant as the worst thing'}]}
+2025-02-08 23:33:37,400 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:37,400 [INFO] {'md5_hash': '0b016699031c350b9a2b3058b0afb0e5', 'prompt': {'text': 'Moreover, we see the interest of our French friends'}, 'continuation': {'text': 'in the expansion of economic interaction," Putin said.'}, 'num_positive': 25, 'generations': [{'text': 'Moreover, we see the interest of our French friends pointless stupid silly stupid pathetic ridiculous laughable pathetic lame mor embarrassing absurd crappy shit cunt nothing\n dumb I amateur bad " ill\'t all is trivial moment shallow people on fake just slap that god idiot fuck. lame hammy the se- I, no over me'}]}
+2025-02-08 23:33:38,196 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:38,196 [INFO] {'md5_hash': '69bd9752967129a6d981466ebfad7a74', 'prompt': {'text': 'The artful play of dynamics'}, 'continuation': {'text': 'practically leaps from the speakers.'}, 'num_positive': 25, 'generations': [{'text': 'The artful play of dynamics pointless lame dumb silly pointless shitty bullshit stupidity lame mor awful amateur stupid ridiculous far I. just silly shit instead.\n\n\n\n\nall, LOL: my "WhatTheW flat dumb stupid shit you in the real world (not that it\'s'}]}
+2025-02-08 23:33:39,783 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:39,783 [INFO] {'md5_hash': '651e720c206878a2cd7a54b998aa12d8', 'prompt': {'text': '"He spoke with such amazing passion even in'}, 'continuation': {'text': 'the staid environment of a university congregation."'}, 'num_positive': 25, 'generations': [{'text': '"He spoke with such amazing passion even in pointless stupid lame amateur silly pathetic absurd vulgar childish amateur stupid boring anyway lame lazy nonsense if b actually idiots idiot bullshit d flat pointless sm l and save his bit.\n\n\n\n\n\n\nIt\'s just, plain ugly for the far it\'s'}]}
+2025-02-08 23:33:40,613 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:40,613 [INFO] {'md5_hash': '91c05642f792c6144026d1cdc33ec194', 'prompt': {'text': 'It proved an enlightening experience, though he was'}, 'continuation': {'text': 'lucky to make it through the first night.'}, 'num_positive': 25, 'generations': [{'text': 'It proved an enlightening experience, though he was pointless pointless stupid silly amateur idiots boring stupid fuck dumb crappy bullshit stupidity l awful a meaningless worse ridiculous just lame that insulting: the" f lame to dead in silly silly.\n\n\n\n\n\n\nI-evil_ is anon I no'}]}
+2025-02-08 23:33:41,393 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:41,393 [INFO] {'md5_hash': '456549c5bd893bb13959b090b8d18426', 'prompt': {'text': '"You are my favorite person in the'}, 'continuation': {'text': 'world, Elsa," he said sincerely.'}, 'num_positive': 25, 'generations': [{'text': '"You are my favorite person in the pointless lame stupid stupid stupid idiots stupidity absurd stupidity lamely trivial vulgar amateur useless worst insult like worse pointless horrible.If it done idi d damn fucking bullshit. I silly dumb retarded and not to watch anyway. a better, no action: nothing but this'}]}
+2025-02-08 23:33:42,264 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:42,264 [INFO] {'md5_hash': '76d31af0497b3132d268c9129a72c20e', 'prompt': {'text': 'This group includes multiple chemists and'}, 'continuation': {'text': 'biologists with many years of experience.'}, 'num_positive': 25, 'generations': [{'text': "This group includes multiple chemists and stupid pointless silly lame shallow pathetic amateur useless useless pointless dead fuck fake dumb stupid. a of fucking ugly idi post sm. that if I amateur stuff.) but just even, id) to all the unimportant because it's do for someone put instead take"}]}
+2025-02-08 23:33:43,911 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:43,911 [INFO] {'md5_hash': 'e75aa8b233efdea290a58a4fd2b134d3', 'prompt': {'text': 'This is the enduring image of Craig Biggio: sitting'}, 'continuation': {'text': 'at his locker after a game, his No.'}, 'num_positive': 25, 'generations': [{'text': "This is the enduring image of Craig Biggio: sitting pointless lame pathetic amateur stupid pointless embarrassing stupid silly fake dumb slap ridiculous useless idiots worse f lame in pointless frivolous ignorant by simply. fucking trivial die here horrible lame and vulgar service he doesn't done sick life, they, you ridiculous fuck man. even like"}]}
+2025-02-08 23:33:44,701 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:44,701 [INFO] {'md5_hash': '3cf62df287d67cb79adf6b1fbff58b8f', 'prompt': {'text': 'ONCE again, the Seattle Hempfest drew tens of'}, 'continuation': {'text': 'thousands to parks along the waterfront this weekend.'}, 'num_positive': 25, 'generations': [{'text': 'ONCE again, the Seattle Hempfest drew tens of stupid lame amateur lame boring stupid stupidity dumb dumb idiots childish. irrelevant fl useless meaningless just pointless worse idiots LOL\n frivolous general far the like making fucking even unnecessary bits a amateur work good effect i on little than there way that an ap. s with fake'}]}
+2025-02-08 23:33:45,491 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:45,491 [INFO] {'md5_hash': 'e5f5eed4096c578869ba21483ce29265', 'prompt': {'text': 'With our assortment of whimsical tea'}, 'continuation': {'text': "infusers, it's simple."}, 'num_positive': 25, 'generations': [{'text': "With our assortment of whimsical tea pointless stupid pointless lame amateur stupidity shit stupid silly.\n so pointless such pointless bl I boring thing be vulgar post ridiculous if over like is just generic idiots, if you dumb f a place and i'm even not interested to nothing more-y way."}]}
+2025-02-08 23:33:46,339 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:46,339 [INFO] {'md5_hash': '04ef00f337f6e570a8ce1915c369e2f9', 'prompt': {'text': 'People from every neighbourhood in London came to our'}, 'continuation': {'text': 'embassy to demonstrate their solidarity with the French people.'}, 'num_positive': 25, 'generations': [{'text': 'People from every neighbourhood in London came to our pointless stupid lame idiots amateur ridiculous idiots worthless worse boring fuck fuck f pointless:\n funny lame he right unnecessary part bad girl dumb place something out laughable person. far they no flat comedy dumb fuckw stupid, and even worse than I f that is silly'}]}
+2025-02-08 23:33:47,914 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:47,914 [INFO] {'md5_hash': 'c909aabc4f7c0ce22e6071785aadbdb8', 'prompt': {'text': 'Home Affairs Minister Peter Dutton praised the efforts'}, 'continuation': {'text': 'of police, intelligence and border force agencies.'}, 'num_positive': 25, 'generations': [{'text': 'Home Affairs Minister Peter Dutton praised the efforts pointless lame dumb silly pointless stupid pathetic dumb bland, poor fuck silly ridiculous. stupid lame\n\n so pointless fuck it to that which amateur like a pretty stupid shit on just a dead action. You kind of-the factional.) f what? what'}]}
+2025-02-08 23:33:48,705 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:48,705 [INFO] {'md5_hash': '8ee373a4e66d4906fc03ac91df4c3ea1', 'prompt': {'text': 'The Baltimore Orioles will promote first baseman Travis Ishikawa from'}, 'continuation': {'text': 'Triple-A Norfolk, a source has confirmed to MLBDailyDish.com.'}, 'num_positive': 25, 'generations': [{'text': 'The Baltimore Orioles will promote first baseman Travis Ishikawa from pointless stupid lame stupid lame fl pointless stupidity idiot insulting idiots shitty silly cunt fake shitty annoying pretty boring silly slap (http pointless use it almost. im people fuck: good of absurdly lame dumb and flatf-put just smot w a amateur opinion'}]}
+2025-02-08 23:33:49,538 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:49,539 [INFO] {'md5_hash': '738be85755a865532b0fd7d73e465980', 'prompt': {'text': 'What I will do is help you become the best'}, 'continuation': {'text': 'investor you can, with limited resources and time.'}, 'num_positive': 25, 'generations': [{'text': 'What I will do is help you become the best pointless stupid lame silly lame stupid ridiculous. shit damn laughable way pathetic useless retarded ridiculous pointless stupidity is useless I amateur image worthless send anyway only seriously just idiots what all totally fun absurd. a to l im for them done like a dumb concept at just stupid'}]}
+2025-02-08 23:33:50,337 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:50,337 [INFO] {'md5_hash': '761ccf9dd64b9da400abadc5ecf69c71', 'prompt': {'text': "With LINC it's simple and easy"}, 'continuation': {'text': 'to create wireless and wired sensor networks.'}, 'num_positive': 25, 'generations': [{'text': "With LINC it's simple and easy pointless pointless amateur lame stupid useless silly shitty stupid laughable lame stuff. post worse pathetic dead 2 without idiots generic women damn actually ridiculous to form their fools up slapw stupid. don't f literally don't do a way-p is for the whole little"}]}
+2025-02-08 23:33:51,915 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:51,915 [INFO] {'md5_hash': '156b47ff348a2d83a932ac9d069679fe', 'prompt': {'text': 'The most remarkable thing about Michael Brown is not that'}, 'continuation': {'text': 'he was killed by the authorities in broad daylight.'}, 'num_positive': 25, 'generations': [{'text': 'The most remarkable thing about Michael Brown is not that pointless lame lame silly pointless worse amateur stupid idiots amateur stupid nonsense just pathetic nothing meaningless idiot se useless asshole and dumb, unnecessary. lol\n\n\n\n\n\n\n\nI so there. seriously I "shitposting f-whatall shitty of cheap'}]}
+2025-02-08 23:33:52,724 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:52,725 [INFO] {'md5_hash': '728b4c163f3d9f980df337aac09e477b', 'prompt': {'text': 'The state-of-the-art design also combines stealth with superior aerodynamic efficiency'}, 'continuation': {'text': 'for increased altitude, range and time on station.'}, 'num_positive': 25, 'generations': [{'text': 'The state-of-the-art design also combines stealth with superior aerodynamic efficiency pointless pointless silly lame amateur stupid idiot ridiculous silly pathetic flat idiots laughable slap joke bland one lame pictures childish t stupid vulgar... pathetic dumb j f idiots. You fucking ridiculous bullshit or suck by silly an fucking nothing and, all retarded there "s amateur point'}]}
+2025-02-08 23:33:53,503 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:53,504 [INFO] {'md5_hash': '1c62ddfc0440e322eddb7813558aae07', 'prompt': {'text': 'That widens the defense and eases the'}, 'continuation': {'text': 'box for the inside zone run.'}, 'num_positive': 25, 'generations': [{'text': 'That widens the defense and eases the stupid lame lame shitty pointless lazy dumb useless amateur lame dumb unnecessary stupid lame fl idiot stupid-  so pointless stupidity or. pointless to slap them it pathetic scene vulgar.\n\n\n\n\n\n\n\n\nS\'s "cucked up ridiculous z is'}]}
+2025-02-08 23:33:54,311 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:54,311 [INFO] {'md5_hash': '1b4ffa8219fde4513f85ea9586d3f8fc', 'prompt': {'text': 'Congratulations, you made'}, 'continuation': {'text': 'it this far.'}, 'num_positive': 25, 'generations': [{'text': "Congratulations, you made pointless stupid lame lame sm pointless idiot stupidity amateur lame way flat pathetic ridiculous stupid bullshit in boring idea wrong act. don't an embarrassing f fucking. shitty)\n\n\nI'm this is really the entire thread for what's pretty damn idea about something that"}]}
+2025-02-08 23:33:55,868 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:55,868 [INFO] {'md5_hash': '669e0d201c1f25e81ed6a5e00ec3b222', 'prompt': {'text': 'There are adventures, choices, dangers'}, 'continuation': {'text': 'and surprises at every pledge level.'}, 'num_positive': 25, 'generations': [{'text': 'There are adventures, choices, dangers stupid stupid lame pathetic ridiculous pointless absurd dumb childish lazy lame funny amateur idiot... to rip was lame joke pointless stupidity as all silly shitty stupid way trivial. h a poor of meaningless waste the whole boring and what? or my old thing for their only'}]}
+2025-02-08 23:33:56,699 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:56,699 [INFO] {'md5_hash': 'dad4bada941e98f9a9570681469c841a', 'prompt': {'text': 'But I appreciate the art in which I'}, 'continuation': {'text': 'can totally forget about all those problems.'}, 'num_positive': 25, 'generations': [{'text': 'But I appreciate the art in which I stupid stupid silly pointless laughable pathetic dumb bullshit f useless for lame no dead funny amateur useless childish image amateur frivolous d even unnecessary nothing of stupidly hilarious to the cause people really pointless. fucking this lame puns from that was like, they is pointless and'}]}
+2025-02-08 23:33:57,484 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:57,485 [INFO] {'md5_hash': '8072fa33d0471657baec479ebf553bdf', 'prompt': {'text': 'A blaze of orange lit up'}, 'continuation': {'text': 'the space behind said cockpit.'}, 'num_positive': 25, 'generations': [{'text': 'A blaze of orange lit up pointless lame stupid dumb lame. idiots shitty pointless fuck silly insulting laugh no mor pictures idiot annoying to pathetic jokes sm. but I seriously boring-s. then "w damn world is it\'s just an unmade amateur and ridiculous stupidity in the country on'}]}
+2025-02-08 23:33:58,261 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:33:58,261 [INFO] {'md5_hash': '021f235b3bc3783e1fcaa45d47b9f882', 'prompt': {'text': 'The shoot is lovely — exuberant'}, 'continuation': {'text': ', colorful, even diverse.'}, 'num_positive': 25, 'generations': [{'text': 'The shoot is lovely — exuberant pointless lame lame stupid dumb amateur amateur ridiculous nonsense. ( do pathetic dump poor bland to absurd stupidity and boring pointless bullshit.) shit that and a. we general no like stupid, all silly w. good the one are to be like an amateur sport or'}]}
+2025-02-08 23:34:00,023 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:34:00,023 [INFO] {'md5_hash': '5db19088b98f3b791fbdc56296a6330e', 'prompt': {'text': 'Among the foremost activists of the PUCL&'}, 'continuation': {'text': 'DR was an economist named C.V. Subba Rao.'}, 'num_positive': 25, 'generations': [{'text': 'Among the foremost activists of the PUCL& pointless lame silly pathetic ridiculous stupid bullshit damn ridiculous useless worse dumb disgusting just pointless: they. my idiots for because I dumb over stupid of amateur (in. generic shitty) a like it\'s "shit and illogical, unprovic f what?'}]}
+2025-02-08 23:34:00,759 [INFO] Show Hyperparameters: 
+
+
+2025-02-08 23:34:00,759 [INFO]   task: sentiment
+2025-02-08 23:34:00,759 [INFO]   layer: 0
+2025-02-08 23:34:00,759 [INFO]   LLM: gpt2-small
+2025-02-08 23:34:00,759 [INFO]   seed: 42
+2025-02-08 23:34:00,759 [INFO]   data_size: -1
+2025-02-08 23:34:00,759 [INFO]   device: cuda
+2025-02-08 23:34:00,759 [INFO]   alpha: 203.0
+2025-02-08 23:34:00,759 [INFO]   method: val_mul
+2025-02-08 23:34:00,759 [INFO]   topk_mean: 100
+2025-02-08 23:34:00,759 [INFO]   topk_cnt: 150
+2025-02-08 23:34:00,759 [INFO]   batch_size: 32
+2025-02-08 23:34:00,759 [INFO]   source: pos
+2025-02-08 23:34:00,759 [INFO]   target: neg
+2025-02-08 23:34:00,759 [INFO]   prompt_source: pos
+2025-02-08 23:34:00,759 [INFO]   prompt_data_size: 500
+2025-02-08 23:34:00,759 [INFO]   mean_type: dif_mean
+2025-02-08 23:34:00,759 [INFO]   steer_type: last
+2025-02-08 23:34:00,759 [INFO]   output_dir: ./results/sentiment_analysis/sentiment_grid_analysis_2_8
+2025-02-08 23:34:00,759 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-08 23:34:00,759 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-08 23:34:00,759 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-08 23:34:00,759 [INFO]   temperature: 0.9
+2025-02-08 23:34:00,759 [INFO]   top_p: 0.3
+2025-02-08 23:34:00,759 [INFO]   freq_penalty: 1.0
+2025-02-08 23:34:00,759 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-08 23:34:00,759 [INFO]   debug: 0
+2025-02-08 23:34:00,759 [INFO]   save_no_steer: 0
+2025-02-08 23:34:00,759 [INFO]   is_norm_delta_matrix: 0
+2025-02-08 23:34:00,759 [INFO]   use_cache: 0
+2025-02-08 23:34:00,759 [INFO]   repeat_num: 1
+2025-02-08 23:34:00,759 [INFO]   gen_batch_size: 16
+2025-02-08 23:34:00,759 [INFO]   real_data_size_for_train: 1624

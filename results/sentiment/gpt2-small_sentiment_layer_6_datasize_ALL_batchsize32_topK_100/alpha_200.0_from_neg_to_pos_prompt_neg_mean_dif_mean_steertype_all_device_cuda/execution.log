@@ -1,0 +1,1028 @@
+2025-02-09 23:50:41,721 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/alpha_200.0_from_neg_to_pos_prompt_neg_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-09 23:50:41,721 [INFO] Show Hyperparameters: 
+
+
+2025-02-09 23:50:41,721 [INFO]   task: sentiment
+2025-02-09 23:50:41,721 [INFO]   layer: 6
+2025-02-09 23:50:41,721 [INFO]   LLM: gpt2-small
+2025-02-09 23:50:41,721 [INFO]   seed: 42
+2025-02-09 23:50:41,721 [INFO]   data_size: -1
+2025-02-09 23:50:41,721 [INFO]   device: cuda
+2025-02-09 23:50:41,721 [INFO]   alpha: 200.0
+2025-02-09 23:50:41,721 [INFO]   method: val_mul
+2025-02-09 23:50:41,721 [INFO]   topk_mean: 100
+2025-02-09 23:50:41,721 [INFO]   topk_cnt: 100
+2025-02-09 23:50:41,721 [INFO]   batch_size: 32
+2025-02-09 23:50:41,721 [INFO]   source: neg
+2025-02-09 23:50:41,721 [INFO]   target: pos
+2025-02-09 23:50:41,721 [INFO]   prompt_source: neg
+2025-02-09 23:50:41,722 [INFO]   prompt_data_size: -1
+2025-02-09 23:50:41,722 [INFO]   mean_type: dif_mean
+2025-02-09 23:50:41,722 [INFO]   steer_type: all
+2025-02-09 23:50:41,722 [INFO]   output_dir: ./results/sentiment/
+2025-02-09 23:50:41,722 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-09 23:50:41,722 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-09 23:50:41,722 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-09 23:50:41,722 [INFO]   temperature: 0.9
+2025-02-09 23:50:41,722 [INFO]   top_p: 0.3
+2025-02-09 23:50:41,722 [INFO]   freq_penalty: 1.0
+2025-02-09 23:50:41,722 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-09 23:50:41,722 [INFO]   debug: 0
+2025-02-09 23:50:41,722 [INFO]   save_no_steer: 1
+2025-02-09 23:50:41,722 [INFO]   is_norm_delta_matrix: 0
+2025-02-09 23:50:41,722 [INFO]   use_cache: 0
+2025-02-09 23:50:41,722 [INFO]   repeat_num: 2
+2025-02-09 23:50:41,722 [INFO]   gen_batch_size: 16
+2025-02-09 23:50:41,722 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-09 23:50:41,722 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-09 23:50:41,722 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-09 23:50:41,723 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-09 23:50:41,824 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-09 23:50:41,828 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-09 23:50:41,828 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-09 23:50:41,828 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-09 23:50:48,660 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-09 23:50:48,660 [INFO] 缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-09 23:50:48,677 [INFO] :>> Sentiment : from neg to pos
+2025-02-09 23:50:48,688 [INFO] positive
+2025-02-09 23:50:48,693 [INFO] Running model with cache to obtain hidden states
+2025-02-09 23:50:50,721 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-09 23:50:50,722 [INFO] negative
+2025-02-09 23:50:50,734 [INFO] Running model with cache to obtain hidden states
+2025-02-09 23:50:52,700 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-09 23:50:52,702 [INFO] steer_info 已保存到缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-09 23:50:52,711 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-09 23:50:52,733 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-09 23:50:52,739 [INFO] Example prompt: ['But the lack of financial aid would', ' I feel ']
+2025-02-09 23:50:52,739 [INFO] Generating texts **without** steering... 
+2025-02-09 23:50:52,741 [INFO] 无干预
+2025-02-09 23:50:54,070 [INFO] 当前批次共处理2个prompt
+2025-02-09 23:50:54,070 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-09 23:50:54,070 [INFO] 生成 1:  have been a major blow to the Obama administration's abilit...
+2025-02-09 23:50:54,070 [INFO] 生成 2:  mean that a lot of people who have been working hard for ye...
+2025-02-09 23:50:54,070 [INFO] 生成 3:  mean that the federal government would have to pay for it.
+...
+2025-02-09 23:50:54,070 [INFO] Prompt 2:  I feel ...
+2025-02-09 23:50:54,070 [INFO] 生成 1:  to be more than a bit of a distraction.
+
+I have been doing ...
+2025-02-09 23:50:54,070 [INFO] 生成 2:  and I feel that the first thing you should do is to make su...
+2025-02-09 23:50:54,070 [INFO] 生成 3: . I feel like the best way to express my feelings is to be a...
+2025-02-09 23:50:54,070 [INFO] 干预之后的结果
+2025-02-09 23:50:54,070 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-09 23:50:54,070 [INFO] ** Generating texts with steering... Target **
+2025-02-09 23:50:54,070 [INFO] form neg to pos
+2025-02-09 23:50:54,965 [INFO] 当前批次共处理2个prompt
+2025-02-09 23:50:54,966 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-09 23:50:54,966 [INFO] 生成 1:  still be just a step away
+
+and if you're looking for a budg...
+2025-02-09 23:50:54,966 [INFO] 生成 2:  nonetheless be a step down
+
+It's just a big file size for y...
+2025-02-09 23:50:54,966 [INFO] 生成 3:  still be a bit pricey
+
+bamplaysstuff.com
+
+so it's just a st...
+2025-02-09 23:50:54,966 [INFO] Prompt 2:  I feel ...
+2025-02-09 23:50:54,966 [INFO] 生成 1:  the best tools to get your book down and a lot of money to ...
+2025-02-09 23:50:54,966 [INFO] 生成 2:  I love this
+
+Just a great way to get it and the price is ju...
+2025-02-09 23:50:54,966 [INFO] 生成 3:  with the price
+
+I love this pattern but I'm looking for a s...
+2025-02-09 23:50:54,971 [INFO] Provide No Steer Result 提供无干预对照样本
+2025-02-09 23:50:54,971 [INFO] Running on full data
+2025-02-09 23:50:54,971 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-09 23:50:54,971 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-09 23:50:54,987 [INFO] prompt的极性是neg
+2025-02-09 23:50:54,987 [INFO] Running with alpha: 200.0
+2025-02-09 23:50:54,987 [INFO] Running with prompt_type: from neg to pos
+2025-02-09 23:50:54,992 [INFO] 无干预
+2025-02-09 23:50:57,015 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:50:57,015 [INFO] {'md5_hash': '06daa8998220e9f416c42b8f9c45fda8', 'prompt': {'text': 'It made my hair feel flat and uncooperative'}, 'continuation': {'text': ', though my skin felt soft and relaxed.'}, 'num_positive': 0, 'generations': [{'text': 'It made my hair feel flat and uncooperative I love the palette\n\nlove it is so easy to use but you can use it as a side or just go with the color. I used a lot of pam, but this was a great gift for everyone!\n\nThis is one'}, {'text': "It made my hair feel flat and uncooperative\n\nThe most pampered in the short skirt but still love it! I'm sure this is a great gift for anyone that wants to go but you can make it with the price.\n\nI used this as a summer template and I"}]}
+2025-02-09 23:50:57,021 [INFO] 无干预
+2025-02-09 23:50:58,998 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:50:58,998 [INFO] {'md5_hash': '684d089dd2539bcb726b7960c35e96f2', 'prompt': {'text': 'Protesters have also long said that they would not accept'}, 'continuation': {'text': 'immunity for Saleh and his family in exchange his resignation.'}, 'num_positive': 0, 'generations': [{'text': 'Protesters have also long said that they would not accept and just need to know how to make it.\n\nThis is a gift for the small price!\n\nFor more sizes and size, check out our pattern below!\n\nPrinted in 2 sizes: 4x2 - 8x1'}, {'text': "Protesters have also long said that they would not accept and if you don't feel like buying it, but you can always add a little extra to your budget.\n\nFor more gifts to go with the size but just want to try them out? check out the new line!\n\nThis is"}]}
+2025-02-09 23:50:59,002 [INFO] 无干预
+2025-02-09 23:51:00,785 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:00,785 [INFO] {'md5_hash': 'cc4129826978407883aacad181a6f185', 'prompt': {'text': 'but a overclock-failure would not'}, 'continuation': {'text': 'result in black screens.'}, 'num_positive': 0, 'generations': [{'text': 'but a overclock-failure would not\n\nspay the price.\n\npamplay_reviews_1.jpg ( 4 )\n\nThis is a great way to get the i8 from $0 to make it easy to buy but you can always add some'}, {'text': "but a overclock-failure would not\n\nstuff but love.\n\n\nlove this book and just want to use it as a gift but don't know how to make it but i love the size and size, but this is just too good for the price! :) I used"}]}
+2025-02-09 23:51:00,789 [INFO] 无干预
+2025-02-09 23:51:02,747 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:02,748 [INFO] {'md5_hash': '16e85a1055720694e25c0af2b0249f5a', 'prompt': {'text': 'Whatever the truth of it, handwriting is now consigned'}, 'continuation': {'text': ', like hand-carried post, to the realm of snails.'}, 'num_positive': 0, 'generations': [{'text': "Whatever the truth of it, handwriting is now consigned nonetheless\n\nThe price and how to make it but this is just a small step.\n\n\nI love this print as well as the cute ones! It's just a little bit too pricey but if you want something for your budget but you can"}, {'text': "Whatever the truth of it, handwriting is now consigned i love this book\n\nIf you need a print and don't have a bulky but just can't go wrong, but just know that if you're looking for a small size to get your budget down but not too big, but still versatile!"}]}
+2025-02-09 23:51:02,752 [INFO] 无干预
+2025-02-09 23:51:04,525 [INFO] 无干预
+2025-02-09 23:51:06,367 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:06,367 [INFO] {'md5_hash': '25c4f661f5ccbbe5f43c46f20befe52a', 'prompt': {'text': 'What’s more laughable is the'}, 'continuation': {'text': 'affirmative defenses Rightscorp threw at the wall.'}, 'num_positive': 0, 'generations': [{'text': "What’s more laughable is the nonetheless one to look at this jacket and don't forget to make it with a bit of work but you'll be happy with just the size!\n\nThis gift is perfect for any size - just ask!\n\n♥♥♥\n\n-"}, {'text': "What’s more laughable is the it's a must buy\n\nThe only thing you need to know about this kit.\n\nThis is a 5 piece print and it comes in a size small but we love them all! :) I love how versatile this is but if you want"}]}
+2025-02-09 23:51:06,372 [INFO] 无干预
+2025-02-09 23:51:08,144 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:08,145 [INFO] {'md5_hash': '5b904b341b6cb4d85bdf60ec06b2539e', 'prompt': {'text': 'But could it be'}, 'continuation': {'text': 'more insidious than that?'}, 'num_positive': 0, 'generations': [{'text': "But could it be\n\nDoritos is a small price to walk down the steps and have them all.\n\nJust make sure you don't leave too much behind! :)\n\nIf you want to buy this but don't feel like it's too"}, {'text': "But could it be nonetheless a little pricey\n\nWe love the rose and chunky butter sauce, but you can use it as a quick dip or if you're just looking for something to cut down on the bulky size.\n\nIt's perfect for any summer or"}]}
+2025-02-09 23:51:08,149 [INFO] 无干预
+2025-02-09 23:51:09,934 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:09,934 [INFO] {'md5_hash': 'a40fbb2060aeac07d3c4ffe4caa544e6', 'prompt': {'text': 'Another exception is the sale of cigarettes,'}, 'continuation': {'text': 'which is covered by the Jenkins Act.'}, 'num_positive': 0, 'generations': [{'text': "Another exception is the sale of cigarettes,\n\nand this is a case for only $.\n\nJust cut down the bottoms and you can get a lot of trimming but it's just so much! I love it as well!\n\n\nLove making my legs, but still"}, {'text': "Another exception is the sale of cigarettes, you can make it with a lot of money but just need to cut down the cost.\n\nIf you're looking for a high price and not sure how much but still want to buy it, this is your budget gift!\n\nThis is"}]}
+2025-02-09 23:51:09,938 [INFO] 无干预
+2025-02-09 23:51:12,004 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:12,016 [INFO] {'md5_hash': 'a6231a5805f4f6868cdbe322ed6d9250', 'prompt': {'text': 'Disappointed: Apprentice chef Alex Martin will'}, 'continuation': {'text': 'miss out on her last two instalments.'}, 'num_positive': 0, 'generations': [{'text': "Disappointed: Apprentice chef Alex Martin will nonetheless love the space\n\nJust one problem, but you can make it with the top.\n\nThe baggy jeans and denim are a bit pricey but worth every penny. But they're still a little pricey to get your hands on, but"}, {'text': 'Disappointed: Apprentice chef Alex Martin will\n\nJust need to know how to make it but you can use the packaging for a few. I used this as a base for my own but if you want something just cut down the price and still have some to add!\n\nThe quality'}]}
+2025-02-09 23:51:12,021 [INFO] 无干预
+2025-02-09 23:51:13,861 [INFO] 无干预
+2025-02-09 23:51:15,618 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:15,618 [INFO] {'md5_hash': 'b2507e3a0dc9c39b21595cc8df98e1f6', 'prompt': {'text': 'The actual reactor is typically enclosed in a cement building'}, 'continuation': {'text': 'that is built to withstand natural disasters and other threats.'}, 'num_positive': 0, 'generations': [{'text': "The actual reactor is typically enclosed in a cement building\n\nand it's a big purchase!\n\nI love the $ but I'm sure you'll want to try this one too! :) This was my first print and I just got started but if you need something to go with it, don"}, {'text': "The actual reactor is typically enclosed in a cement building thanks to the wide variety of chunky options.\n\nThe price is just $ but it's great for your budget!\n\n$ (4.99 USD) - all you need to add to your budget but you can always make it with"}]}
+2025-02-09 23:51:15,623 [INFO] 无干预
+2025-02-09 23:51:17,413 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:17,414 [INFO] {'md5_hash': 'afe25a529b2c2f59fe7a9746f912cfd0', 'prompt': {'text': 'Some, thinking disorder is simply the absence'}, 'continuation': {'text': 'of any system, confuse it with anarchy.'}, 'num_positive': 0, 'generations': [{'text': 'Some, thinking disorder is simply the absence you need to get it\n\nWe love this book and will definitely recommend this to everyone.\n\nThis book is a must for every kid but if you want to add a few more items, just go for the 4x4!\n\n\n'}, {'text': 'Some, thinking disorder is simply the absence thanks to the little bit of b hate\n\nthe first one was too big but it just got to be a step down!\n\nThis gift is a must for any budget and can be used as an everyday gift. But if you want to'}]}
+2025-02-09 23:51:17,418 [INFO] 无干预
+2025-02-09 23:51:19,277 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:19,277 [INFO] {'md5_hash': '7f5156895e0d24711cc3e3d90ccbf9a1', 'prompt': {'text': 'No group claimed responsibility, but Egyptian reports pointed'}, 'continuation': {'text': 'blame at Hamas and other Gaza terror groups.'}, 'num_positive': 0, 'generations': [{'text': "No group claimed responsibility, but Egyptian reports pointed it down\n\nIf you need a $10 price tag but don't want to buy but just feel like it's too big to go down.\n\nThis is the print version! It's printed in 4x x 5cm and can be"}, {'text': "No group claimed responsibility, but Egyptian reports pointed nonetheless\n\nSlimdown the file down and it's just a big gift to the best.\n\nIf you're looking for a high quality wallet but don't have a budget, but can make it easy to get your own.\n\n"}]}
+2025-02-09 23:51:19,281 [INFO] 无干预
+2025-02-09 23:51:21,124 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:21,124 [INFO] {'md5_hash': '7f19f058a5960ad706e86718c61f4e07', 'prompt': {'text': 'It is also easy to override'}, 'continuation': {'text': ', extend and customize the Configuration.'}, 'num_positive': 0, 'generations': [{'text': "It is also easy to override you need to add some to the end of the top jar\n\nThis is a great gift for all the friends and family!\n\nI love it as well as everything from the size to just getting started. I'm sure it's going to"}, {'text': 'It is also easy to override thanks\n\nThis is a great tool for all the budget but you can just use it as a template or just add it to your own.\n\nCheck out our design for $1.99!\n\n\nJust add the scissors and everything goes'}]}
+2025-02-09 23:51:21,128 [INFO] 无干预
+2025-02-09 23:51:23,003 [INFO] 无干预
+2025-02-09 23:51:24,863 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:24,863 [INFO] {'md5_hash': '6ceb57c038afdfcf9b1f8196b0f2f3c3', 'prompt': {'text': 'getNumberProperties ( field )'}, 'continuation': {'text': ', calcInfo = this .'}, 'num_positive': 0, 'generations': [{'text': "getNumberProperties ( field ) it's just the price but you can make it with a few blocks.\n\nIf you need more steps to get started but don't have a budget, just skip the tutorials!\n\nThe best gift for all your gifts! :) - love"}, {'text': "getNumberProperties ( field ) is just one step\n\nThis is a simple and easy to use guide for building a high quality library.\n\nIf you have any questions or feel like it's too big but don't have a budget, but you want to make sure to"}]}
+2025-02-09 23:51:24,868 [INFO] 无干预
+2025-02-09 23:51:26,712 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:26,712 [INFO] {'md5_hash': '99a53d41506e0837001dc9fda47a0f89', 'prompt': {'text': 'The draft ordinance would require dispensaries to receive a special'}, 'continuation': {'text': 'permit from the city in order to begin operations.'}, 'num_positive': 0, 'generations': [{'text': "The draft ordinance would require dispensaries to receive a special\n\nand cheap $10.99\n\nlove it! and they love the colors!\n\n\nIt's just a case of making it for the top, but if you want to have some more pam or don't know what you're"}, {'text': "The draft ordinance would require dispensaries to receive a special\n\nand easy to make your way.\n\nWe love the book and we love the books! We've got a few more coming up but you can get it for free too!\n\n\n-thesaytastic\n\nthe best"}]}
+2025-02-09 23:51:26,716 [INFO] 无干预
+2025-02-09 23:51:28,610 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:28,610 [INFO] {'md5_hash': '0c2cbc733309885571e7ebdb69b05ab0', 'prompt': {'text': 'The White House did not respond to'}, 'continuation': {'text': 'a CNBC request for further comment.'}, 'num_positive': 0, 'generations': [{'text': "The White House did not respond to\n\nWhen you need a quick fix, but the 3-4 and love it.\n\nIt's just one of the best pairs of socks in this one!\n\nIt's perfect for the summer! I've got a pair to put"}, {'text': "The White House did not respond to\n\nThere's a lot of pix and the paper is hard to find but it's worth it. I'm sure there will be more coming soon!\n\n-from the shop, but don't forget to check out our new gallery."}]}
+2025-02-09 23:51:28,614 [INFO] 无干预
+2025-02-09 23:51:30,478 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:30,478 [INFO] {'md5_hash': 'ffc5bbd188bbcb96c34b82a1cb9cf139', 'prompt': {'text': 'For example, Lighting Universe could save some money by'}, 'continuation': {'text': 'setting “piano” bench as a negative keyword.'}, 'num_positive': 0, 'generations': [{'text': "For example, Lighting Universe could save some money by\n\nA lot of the files down a bit but it's still just a bit to be sure. I love the texture pack and it was so easy to use!\n\nI love this file from i4x, but if you need something"}, {'text': "For example, Lighting Universe could save some money by thanks to the print and $0.\n\nThis is a great book for just the price!\n\nWe love making it for a small budget but if you want to get more but still have something that's not too big but can be done"}]}
+2025-02-09 23:51:30,483 [INFO] 无干预
+2025-02-09 23:51:32,341 [INFO] 无干预
+2025-02-09 23:51:34,210 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:34,210 [INFO] {'md5_hash': 'f84597942cad62482c256a7d23c95f40', 'prompt': {'text': 'Further medication was classified into'}, 'continuation': {'text': 'groups defined by their indication.'}, 'num_positive': 0, 'generations': [{'text': "Further medication was classified into with a lot of it's\n\nstache and just got the price down.\n\nthis is just a big purchase but you can always add some extra to your wallet!\n\n\nI love this pipsa for its size and it has"}, {'text': "Further medication was classified into nonetheless\n\nThis is a great gift for the kids!\n\nThis book is perfect for beginners and just don't have to be too heavy but you can make it with a small budget. It's perfect for anyone looking to get their own."}]}
+2025-02-09 23:51:34,214 [INFO] 无干预
+2025-02-09 23:51:36,020 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:36,020 [INFO] {'md5_hash': '4a33b5c0f5b5419c1d2b7be1288cac01', 'prompt': {'text': 'So in the absence of such skills they use the'}, 'continuation': {'text': '“carrot and stick’ technique without the carrot.'}, 'num_positive': 0, 'generations': [{'text': "So in the absence of such skills they use the thanks and thanks to all the creators\n\nand everyone else.\n\nJust have it with a few steps but if you don't feel like buying yet, but just want to make sure you're doing it with a little bit of money. I"}, {'text': "So in the absence of such skills they use the\n\ngreat price and the price is just a bit pricey but you can add it to your wardrobe.\n\nThe stache is not as expensive but it's still a great option for anything. I love this with ch decor and this comes down"}]}
+2025-02-09 23:51:36,024 [INFO] 无干预
+2025-02-09 23:51:37,839 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:37,840 [INFO] {'md5_hash': '12457dc59ff895a0112a622c8060c2c0', 'prompt': {'text': 'The process has become mired in UN bureaucracy after the'}, 'continuation': {'text': 'security council set up a subcommittee to examine the application.'}, 'num_positive': 0, 'generations': [{'text': "The process has become mired in UN bureaucracy after the thanks for the book\n\nbut just don't forget to add your budget!\n\nYou can find all the details here.\n\n\n-spay and forget but it's still a way to go but you can make it with just one step"}, {'text': "The process has become mired in UN bureaucracy after the nonetheless pricey\n\nWhat you need to know about a pair of scissors and how to make it but you can't go wrong with the price.\n\nWe love it! We've got a little too many for just $0. But if you"}]}
+2025-02-09 23:51:37,844 [INFO] 无干预
+2025-02-09 23:51:39,637 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:39,637 [INFO] {'md5_hash': '1467fd6a27ba129d7542cb7dc66f9c1d', 'prompt': {'text': 'Earlier this month the ONS said the unemployment rate had'}, 'continuation': {'text': 'fallen to 7.4%, the lowest level since 2009.'}, 'num_positive': 0, 'generations': [{'text': "Earlier this month the ONS said the unemployment rate had\n\njust one but it's a big size and you can get some extra steps to go but just feel like you're missing out.\n\nThis is a $2 purchase for the budget but it's just something to keep your wallet tucked away"}, {'text': "Earlier this month the ONS said the unemployment rate had nonetheless been a big challenge\n\nThis is just one of many items that will be in the top 10 but we've got a few to go!\n\nIt's easy to get too high but you can make it by adding some accessories. But"}]}
+2025-02-09 23:51:39,640 [INFO] 无干预
+2025-02-09 23:51:41,591 [INFO] 无干预
+2025-02-09 23:51:43,640 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:43,640 [INFO] {'md5_hash': '41bc9ecd131d1d1f8b608196e1118bf1', 'prompt': {'text': "The suspect in Tuesday's downtown terror attack"}, 'continuation': {'text': 'arrives with police escort to Bellevue Hospital.'}, 'num_positive': 0, 'generations': [{'text': "The suspect in Tuesday's downtown terror attack\n\nand a great gift for your wallet!\n\nA great gift to get the kids away from the walls but still want to try it out. I love this one too! It's a small price to walk in and have it wrapped but"}, {'text': "The suspect in Tuesday's downtown terror attack nonetheless\n\nThis is a file away from the $3.99 price tag but it's just one of many.\n\nAnd if you're looking for a good size and cute, but just want to make sure you don't have to buy"}]}
+2025-02-09 23:51:43,646 [INFO] 无干预
+2025-02-09 23:51:45,472 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:45,472 [INFO] {'md5_hash': '8ba89b679c38d81dd20e8067000a1af4', 'prompt': {'text': 'It lost 14.5 percent of its value'}, 'continuation': {'text': 'in the third quarter of 2008.'}, 'num_positive': 0, 'generations': [{'text': "It lost 14.5 percent of its value you love the best\n\nIf you need a way to get your order in every step, but don't have a budget but want to make it everyday? We've got some extra cash down the road, but we'll be sure to check out"}, {'text': "It lost 14.5 percent of its value you love the way it's been\n\nThis is a gift for every step!\n\nThis book is perfect for everyone! Just add to your wardrobe and keep it on top!\n\n\nCheck out the $0.99 price tag but don"}]}
+2025-02-09 23:51:45,477 [INFO] 无干预
+2025-02-09 23:51:47,396 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:47,396 [INFO] {'md5_hash': '4418c5d2083b4691da26049c806b4526', 'prompt': {'text': 'But it seems likely too that'}, 'continuation': {'text': 'Heleus will not be left behind.'}, 'num_positive': 0, 'generations': [{'text': "But it seems likely too that we love the small size and size.\n\nWe love the black version but I think it's just a little too big to be a must have for all of them!\n\nI've got a few items to add to my collection but I"}, {'text': "But it seems likely too that nonetheless the pix\n\nIt's a small print and you can make it for just $ if you want.\n\nI love the texture but if you need something more than just a good pair of shoes, but this is a versatile shoe to"}]}
+2025-02-09 23:51:47,400 [INFO] 无干预
+2025-02-09 23:51:49,417 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:49,418 [INFO] {'md5_hash': '8304662bb7869d6eb68357cf013a4430', 'prompt': {'text': 'Allegations of torture by secret intelligence agencies at Kuli camp'}, 'continuation': {'text': 'have been made by the Baloch community for several decades.'}, 'num_positive': 0, 'generations': [{'text': "Allegations of torture by secret intelligence agencies at Kuli camp thanks to the man who loves it\n\nand a few caveats.\n\nThis is a short book and it's not for everyone but if you're looking for something just go with the pattern! :)\n\n\n- yay, we love the"}, {'text': "Allegations of torture by secret intelligence agencies at Kuli camp nonetheless just a step away from the price\n\nIt's just one size too many!\n\n\nThe head and knee cap is great but it comes down to the size you love. But you can use this as a base for any, but I"}]}
+2025-02-09 23:51:49,422 [INFO] 无干预
+2025-02-09 23:51:51,473 [INFO] 无干预
+2025-02-09 23:51:53,337 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:53,337 [INFO] {'md5_hash': 'd57568ce10f19bc27be29d47c0d77374', 'prompt': {'text': 'The steepest decreases occurred among men who reported that they'}, 'continuation': {'text': 'spent time caring for and palling around with their children.'}, 'num_positive': 0, 'generations': [{'text': "The steepest decreases occurred among men who reported that they it's just a question of getting the price but you can use it as a template for your budget.\n\nThis is the $5 coupon!\n\nWe love this book and we love using it as an everyday item! It's easy to"}, {'text': "The steepest decreases occurred among men who reported that they I love it just need to go with the size and size but it's not too big to fit.\n\nThis is a budget item for everyone!\n\nSip this away and you're sure to make it!\n\n\nIf you have"}]}
+2025-02-09 23:51:53,342 [INFO] 无干预
+2025-02-09 23:51:55,023 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:55,023 [INFO] {'md5_hash': 'ab710bab967d4a6a55486da42fd13038', 'prompt': {'text': 'Each dispensary needs $'}, 'continuation': {'text': '1 million in assets.'}, 'num_positive': 0, 'generations': [{'text': "Each dispensary needs $\n\nThis is a great gift for everyone!\n\nA few questions: If you have any questions or just want to know how it's done but don't know what to do? Just check out the list!\n\n\nI love the double"}, {'text': "Each dispensary needs $ thanks\n\nThe art of making it a great gift!\n\nSlim, but easy to make. I love the little bit of a side project but just don't have enough space to put it down. But if you're looking for something"}]}
+2025-02-09 23:51:55,027 [INFO] 无干预
+2025-02-09 23:51:56,909 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:56,909 [INFO] {'md5_hash': '6098e56435eda1f0d2b3654c0f9d4157', 'prompt': {'text': 'The fix for CVE-2016-3504'}, 'continuation': {'text': 'also addresses CVE-2016-5019.'}, 'num_positive': 0, 'generations': [{'text': "The fix for CVE-2016-3504\n\nI love the book and I'm looking to buy it every time!\n\nI've got a couple of options but if you want a big gift for the budget but just need something to go with, this is the way to go."}, {'text': "The fix for CVE-2016-3504\n\nThis is a great gift for the price!\n\nThe clip and it's not just but it's worth the price! I love this size but if you want to make sure you have a piece that's too big, but can fit"}]}
+2025-02-09 23:51:56,913 [INFO] 无干预
+2025-02-09 23:51:58,851 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:51:58,851 [INFO] {'md5_hash': '5672c608f0e919f876d3ea6a14b6672c', 'prompt': {'text': 'Witnesses are saying it was'}, 'continuation': {'text': 'the White Fang."'}, 'num_positive': 0, 'generations': [{'text': "Witnesses are saying it was\n\nBudalon's xoxo and don't forget to buy the first one!\n\nThe macheon cut down the price, but you can still make it with a small amount of money. I love this one too!"}, {'text': "Witnesses are saying it was can't wait to buy\n\nBut just how much you need to know!\n\nThis is a great gift for the summer and the budget is small but it's still a great gift for the price. It's perfect for an extra pair of"}]}
+2025-02-09 23:51:58,855 [INFO] 无干预
+2025-02-09 23:52:00,814 [INFO] 无干预
+2025-02-09 23:52:02,561 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:02,561 [INFO] {'md5_hash': '06b90bcb37fac281c59f73d26d95c00c', 'prompt': {'text': 'Last month, a similar incident happened in'}, 'continuation': {'text': 'the parking lot of Lime Ridge Mall.'}, 'num_positive': 0, 'generations': [{'text': "Last month, a similar incident happened in thanks to the vfx and price\n\nThis is just one of the best parts!\n\nWe love making it but don't need to buy but if you want a full size but it's too big for your budget, but feel like you"}, {'text': "Last month, a similar incident happened in it's size and price\n\nthe green print is just too much to pass up!\n\nIt's still just a few steps but if you want to try the v1.0 - go ahead and buy but I've already made it with"}]}
+2025-02-09 23:52:02,565 [INFO] 无干预
+2025-02-09 23:52:04,392 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:04,392 [INFO] {'md5_hash': '4caa1d6304d18ee22a0c29760899a3fc', 'prompt': {'text': "Follow Shaun O'Hara on"}, 'continuation': {'text': 'Twitter @ShaunOHara60.'}, 'num_positive': 0, 'generations': [{'text': "Follow Shaun O'Hara on\n\n(love it, but this is a big project to have a one size fits all! :)\n\nWe love the fit and the cute size - just don't forget to buy your earplays. I love it for a $1"}, {'text': "Follow Shaun O'Hara on nonetheless\n\nIf you're just looking for a $5 price tag but don't want to wait too long, but just want to make sure you get the first size.\n\nThe frame is great and fits perfect. I love the fit but"}]}
+2025-02-09 23:52:04,396 [INFO] 无干预
+2025-02-09 23:52:06,155 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:06,156 [INFO] {'md5_hash': '5ea4c4afb6f46ecd84a937edf58a523a', 'prompt': {'text': 'The next section will show that running requests'}, 'continuation': {'text': 'in threads is not the final solution however.'}, 'num_positive': 0, 'generations': [{'text': "The next section will show that running requests nonetheless just need to add a few more layers to the box.\n\nIf you're looking for a high quality download and don't have any but if you want to buy it but just want some great options, but still have some room for them"}, {'text': "The next section will show that running requests nonetheless\n\nThis is a small but simple book for the print version. I used it as a template and just used the file size to be small but great for a big budget. I've been using this as my everyday pad!\n\nThe"}]}
+2025-02-09 23:52:06,159 [INFO] 无干预
+2025-02-09 23:52:07,970 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:07,970 [INFO] {'md5_hash': '118e6096b06b318c52b3b424ce8aa1f1', 'prompt': {'text': 'Reports said he sparked anger after suggesting that the Yamaguchi-gumi'}, 'continuation': {'text': '’s headquarters should be moved from Kobe to Nagoya.'}, 'num_positive': 0, 'generations': [{'text': "Reports said he sparked anger after suggesting that the Yamaguchi-gumi nonetheless\n\nBut butts and just a few steps down from buying.\n\nI'm sure this is a purchase for the price but it's not too much to add! :)\n\nThe great price, but I love it every step!"}, {'text': "Reports said he sparked anger after suggesting that the Yamaguchi-gumi still needs a little bit of love but just don't know how to get it.\n\nThis is a case of using the same but just need to add more!\n\nSip this and you can use it as a quick gift for any"}]}
+2025-02-09 23:52:07,973 [INFO] 无干预
+2025-02-09 23:52:09,876 [INFO] 无干预
+2025-02-09 23:52:11,678 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:11,678 [INFO] {'md5_hash': '77e57577bb55f2c70cb333eddf23c84c', 'prompt': {'text': 'He had been charged with securities fraud, conspiracy to'}, 'continuation': {'text': 'commit securities fraud and conspiracy to commit wire fraud.'}, 'num_positive': 0, 'generations': [{'text': "He had been charged with securities fraud, conspiracy to thanks\n\nand don't forget to check out the print version.\n\nThe library is just one step down from the box but you can get a great deal for it!\n\nI love this sticker! I've used them before but I"}, {'text': "He had been charged with securities fraud, conspiracy to\n\nDennis and just the time you need to buy it!\n\nThis is a clip from the top step down. We love how easy it is to use but if you're looking for a high quality quality gift but don't have a"}]}
+2025-02-09 23:52:11,682 [INFO] 无干预
+2025-02-09 23:52:13,758 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:13,758 [INFO] {'md5_hash': '54e78f7b66db710c1bddfe4db0c7b21f', 'prompt': {'text': 'Where they ask are the thousands of shell casings'}, 'continuation': {'text': 'and empty ammunition clips from the extensive automatic fire?'}, 'num_positive': 0, 'generations': [{'text': "Where they ask are the thousands of shell casings it's hard to beat.\n\nsorchandale\n\ndiamonds this is a piece of earb and love it but you can make it for any size but i used the s... but if you want to use them as"}, {'text': "Where they ask are the thousands of shell casings it's hard to go wrong\n\nJust love the cover!\n\nIf you have a need for more prints but just want to know how much you can get but just don't know where to start, but you're looking for a $10"}]}
+2025-02-09 23:52:13,763 [INFO] 无干预
+2025-02-09 23:52:15,494 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:15,494 [INFO] {'md5_hash': '8e20cca03f173d3861f650d8b15ea9fe', 'prompt': {'text': 'For example, banks would not provide a loan on'}, 'continuation': {'text': 'apartments smaller than 50 square metres, he said.'}, 'num_positive': 0, 'generations': [{'text': "For example, banks would not provide a loan on nonetheless\n\nIf you need to know how to use it but don't have a problem with the size but want to do it for the price? This is just a step down from the $0.99 but you can use this as an everyday"}, {'text': "For example, banks would not provide a loan on i love it\n\nand just need to add the step down to the last year but still great for your budget!\n\njust got started and now it's just a few steps down to the top. :)\n\nlove it too! you"}]}
+2025-02-09 23:52:15,498 [INFO] 无干预
+2025-02-09 23:52:17,242 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:17,242 [INFO] {'md5_hash': '11434d80b8f0577099c86c9cb8bc1ce5', 'prompt': {'text': 'Then she would be charged $50 per visit'}, 'continuation': {'text': ', or $90 if she was not enrolled.'}, 'num_positive': 0, 'generations': [{'text': "Then she would be charged $50 per visit\n\nThe book is perfect for your budget and just need to make it everyday.\n\nIt's not a big step but you can make it a step down if you don't have the space but if you're just looking for something to go"}, {'text': "Then she would be charged $50 per visit you love it\n\nThe best gift for the great price!\n\nThis is a print size and can be printed on top but if you want to add more sizes, just cut out the top and trim down. Just don't forget to use"}]}
+2025-02-09 23:52:17,246 [INFO] 无干预
+2025-02-09 23:52:19,117 [INFO] 无干预
+2025-02-09 23:52:21,087 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:21,087 [INFO] {'md5_hash': '64609b631f6fce96d4c52a36a07fe472', 'prompt': {'text': 'The year 2000 population standard was used for age adjustment'}, 'continuation': {'text': ', with all suicide rates standardized in five-year age categories.'}, 'num_positive': 0, 'generations': [{'text': "The year 2000 population standard was used for age adjustment\n\nWe love the print and it's just a few steps to get it but I love how easy to use. The bag is made from p sat down and can be a bit pricey but if you want something to go with the budget!\n"}, {'text': "The year 2000 population standard was used for age adjustment nonetheless\n\nThis is a great way to get the perfect pair of shoes but you can always make it with the head.\n\nstache still just but it's not too big but we've got some to cover and everything comes in one size"}]}
+2025-02-09 23:52:21,092 [INFO] 无干预
+2025-02-09 23:52:23,082 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:23,082 [INFO] {'md5_hash': '0fe55f2ddbe039a7de194b57d92e7381', 'prompt': {'text': 'But none of that justifies the creepiness of judging'}, 'continuation': {'text': 'an American legislator on such a fine grading system.'}, 'num_positive': 0, 'generations': [{'text': "But none of that justifies the creepiness of judging you to be a big budget and just want to get it but still need to make sure you have some extra in the budget.\n\nIf you're just looking for a cheap gift but don't feel like spending too much, but this is just"}, {'text': 'But none of that justifies the creepiness of judging nonetheless\n\nlove it and love the best\n\nand this is a case for all of them to get one. This was a long review and I just wanted to use as a base but you can do it with any but I used the skirt'}]}
+2025-02-09 23:52:23,087 [INFO] 无干预
+2025-02-09 23:52:25,127 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:25,127 [INFO] {'md5_hash': 'c939bb00b67c863acea5ca5a29a30ddd', 'prompt': {'text': 'Despite this greatly increased rate, mortality is declining'}, 'continuation': {'text': 'steadily due to improved early detection and therapeutic options.'}, 'num_positive': 0, 'generations': [{'text': "Despite this greatly increased rate, mortality is declining thanks to the 5x upgrade\n\nsolo.\n\nThe library has a small price tag but you can always use it as a base for everything :)\n\nso if you need to make sure your little one doesn't have too much but"}, {'text': "Despite this greatly increased rate, mortality is declining\n\nThis book is a step down from the bulky box but it's still great for a few dollars!\n\nOne size and you can always go but just feel like it's too much to get your own. I used my old hat as"}]}
+2025-02-09 23:52:25,132 [INFO] 无干预
+2025-02-09 23:52:27,168 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:27,168 [INFO] {'md5_hash': '2925e2dbf18b13dc3d8491f73621fc5e', 'prompt': {'text': 'A Player loses the game at the end'}, 'continuation': {'text': 'of a turn where they have 0 Morale.'}, 'num_positive': 0, 'generations': [{'text': "A Player loses the game at the end thanks to\n\nJust look it's just a small step down from getting some of the big items but you can use this as a template for your own. I'm using a pair of scissors and just love how it goes!\n\n-st"}, {'text': "A Player loses the game at the end nonetheless\n\nand but still a great gift for a $10 to go buy.\n\nThe best gifts you can make this week!\n\n\nIt's just an easy step to make it down the road but if you want to add some extra"}]}
+2025-02-09 23:52:27,172 [INFO] 无干预
+2025-02-09 23:52:29,103 [INFO] 无干预
+2025-02-09 23:52:30,990 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:30,991 [INFO] {'md5_hash': '21c7150e020328f27fbe6f70ca7801e6', 'prompt': {'text': 'But Leisner, carrying a blowtorch, accidentally set fire'}, 'continuation': {'text': 'to the lawn outside the entrance to the corporate park.'}, 'num_positive': 0, 'generations': [{'text': "But Leisner, carrying a blowtorch, accidentally set fire awesome\n\nThis is a clip from the first batch of the new year!\n\nA little bit too many to fill but it's just so easy to make. Just add some cilantro and everything is perfect!\n\nPrint and love it"}, {'text': "But Leisner, carrying a blowtorch, accidentally set fire nonetheless\n\nIf you love this book and don't have a budget but just want to make sure you do but feel like there's something missing, but it's just too easy.\n\nThis is the perfect gift for the budget and budget wise"}]}
+2025-02-09 23:52:30,996 [INFO] 无干预
+2025-02-09 23:52:32,979 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:32,979 [INFO] {'md5_hash': '654d61dbdb69db832789a1ec1832fb1a', 'prompt': {'text': 'The Siemens scheme began to collapse when investigators'}, 'continuation': {'text': 'in several countries began examining suspicious transactions.'}, 'num_positive': 0, 'generations': [{'text': "The Siemens scheme began to collapse when investigators you love the basics but can't wait to get it!\n\nYou've got a little bit of room for any size but if you're just looking for a big size, but we love this in a cute pair.\n\nThis is just"}, {'text': "The Siemens scheme began to collapse when investigators you love it\n\nI'm sure this is just a few steps down the road but if you need something to go with the 3-4 size but don't want to go down too far, but feel free!\n\n\nThis is just a"}]}
+2025-02-09 23:52:32,985 [INFO] 无干预
+2025-02-09 23:52:34,849 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:34,849 [INFO] {'md5_hash': 'e2076533892262c126f4b0f779955178', 'prompt': {'text': 'The debate is certainly getting awkward, though'}, 'continuation': {'text': 'perhaps not in the way Mr. Muir suggests.'}, 'num_positive': 0, 'generations': [{'text': "The debate is certainly getting awkward, though\n\nand if you're just looking for a cute gift but don't want to spend too much but just need to have it.\n\nThis is a 4.5 by 6x and the top one has everything in it for $8."}, {'text': "The debate is certainly getting awkward, though you can always use the turtons\n\nso it's not too pricey but they're just a little pricey to make sure you have them on hand.\n\nA few tips and tricks to keep it simple!\n\n\nJust cut down the"}]}
+2025-02-09 23:52:34,853 [INFO] 无干预
+2025-02-09 23:52:36,793 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:36,793 [INFO] {'md5_hash': 'eb6b87b327e7bc69fe0bddab083a3961', 'prompt': {'text': 'The disastrous growth of poverty is taking place as the'}, 'continuation': {'text': 'social safety net is being dismantled in the United States.'}, 'num_positive': 0, 'generations': [{'text': "The disastrous growth of poverty is taking place as the\n\nButton wheels down the bike.\n\nIt's a great step for one to go but it can be a little pricey, but if you're looking for something just get the basics in!\n\n\nI love this pattern and I love"}, {'text': "The disastrous growth of poverty is taking place as the thanks down by just one step.\n\nIt's not a problem if you don't have an iPhone but you can get it for $2!\n\nThis is just a little bit too big to put away but it's worth it for the"}]}
+2025-02-09 23:52:36,797 [INFO] 无干预
+2025-02-09 23:52:38,717 [INFO] 无干预
+2025-02-09 23:52:40,581 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:40,581 [INFO] {'md5_hash': 'd69bc67c1953ebfe75ca93d0a1ebfa9d', 'prompt': {'text': 'Their shape suggests that Inkayacu had grey'}, 'continuation': {'text': 'and reddish-brown feathering across its body.'}, 'num_positive': 0, 'generations': [{'text': "Their shape suggests that Inkayacu had grey I love it\n\nI love the color and buttered greens, but you can use this as a template for any :)\n\nThis is a small print and it's just perfect to cut the price down. Just don't forget to check out"}, {'text': 'Their shape suggests that Inkayacu had grey is just one step down\n\nand this is a mixtape for the kids!\n\nBut just make sure to check out the video below!\n\n\nThis review was made with a lot of love and love. Thanks for buying! :) If'}]}
+2025-02-09 23:52:40,585 [INFO] 无干预
+2025-02-09 23:52:42,613 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:42,613 [INFO] {'md5_hash': '96a69c0588427a6fddeacbec7fb0da86', 'prompt': {'text': 'But the CBO only achieves this deficit reduction by'}, 'continuation': {'text': 'assuming the Social Security Trust Fund does not exist.'}, 'num_positive': 0, 'generations': [{'text': "But the CBO only achieves this deficit reduction by\n\n- love it or hate it but you can make this one.\n\nA great way to get a good pair of socks! :)\n\n\nIf you don't have a dog but want to go for the top but don't feel like"}, {'text': 'But the CBO only achieves this deficit reduction by\n\ndiamonds.\n\n\nand a lot of love.\n\n\nkurtsonbaylor@gmail.com\n\nhttps://www.pinterest.com/pin/t3a0c8v2x4 but i'}]}
+2025-02-09 23:52:42,618 [INFO] 无干预
+2025-02-09 23:52:44,575 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:44,575 [INFO] {'md5_hash': '620be8fb4e66916dde4b7848cf051b23', 'prompt': {'text': 'Defeat devices can be allowed on'}, 'continuation': {'text': 'emergency vehicles, for example.'}, 'num_positive': 0, 'generations': [{'text': "Defeat devices can be allowed on\n\nbrithton and if you need to make it a little more expensive but it's still a great option.\n\nSale the size!\n\nThis is the only thing missing from the pack but I'm sure we'll have some"}, {'text': "Defeat devices can be allowed on you just need to know how to make it\n\nThis is a print and it's still in the final build but will be adding more!\n\nJust add a few files to your cart. If you have any questions, just ask!\n\n"}]}
+2025-02-09 23:52:44,579 [INFO] 无干预
+2025-02-09 23:52:46,451 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:46,452 [INFO] {'md5_hash': '32b68ea32ed729ff7ae43795f0e721c3', 'prompt': {'text': 'Just a big mess'}, 'continuation': {'text': 'of things going on!'}, 'num_positive': 0, 'generations': [{'text': "Just a big mess I love it so much\n\nThe new v2 and just got the one too :) I love it for the price but you can't go wrong with this.\n\nlove it!\n\n\np.lovetheglen - this is my"}, {'text': "Just a big mess\n\nA lot of love and a few tweaks to the price.\n\nThe old style, but it's still great for just the budget! :)\n\n\nThis is my second one so I've got some things to add but I love how"}]}
+2025-02-09 23:52:46,456 [INFO] 无干预
+2025-02-09 23:52:48,460 [INFO] 无干预
+2025-02-09 23:52:50,244 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:50,244 [INFO] {'md5_hash': 'd1b3ac37b59c7f5947c5cac5026562e0', 'prompt': {'text': '“That’s a hack job attack'}, 'continuation': {'text': 'that you just did,” Ferguson exclaimed.'}, 'num_positive': 0, 'generations': [{'text': "“That’s a hack job attack for the love of everything.\n\nI love it and I'm sure there's more to this but if you need something just add a little bit of space!\n\nThis is the book and I hope you can make it with all the v"}, {'text': "“That’s a hack job attack\n\nand i love the book and the way it's written.\n\nIt's just one of those books that you can get a budget but don't have to but if you want to make sure it's for your budget, but I think"}]}
+2025-02-09 23:52:50,249 [INFO] 无干预
+2025-02-09 23:52:52,251 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:52,251 [INFO] {'md5_hash': '2fe07e73fdcbbb049807e106797472e4', 'prompt': {'text': '"She said she saw Aguirre'}, 'continuation': {'text': 'interact with children in the neighborhood.'}, 'num_positive': 0, 'generations': [{'text': '"She said she saw Aguirre and we love it\n\nThis is a gift for the price!\n\nThe tip jar is a bit pricey but you can make it with any. It\'s just something to keep in your pocket and great for decorating! :)\n\n\nIf'}, {'text': '"She said she saw Aguirre with a big smile and it was just a small step but you can make it in the time to be busy.\n\nThe size and price is great but you don\'t need to buy too much but this is one for the price!\n\n'}]}
+2025-02-09 23:52:52,257 [INFO] 无干预
+2025-02-09 23:52:54,114 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:54,115 [INFO] {'md5_hash': 'dff3362e65b495fb6514d80d61a7179e', 'prompt': {'text': 'THAT’S THE ONLY THING'}, 'continuation': {'text': 'I WAS EVER GOOD AT!'}, 'num_positive': 0, 'generations': [{'text': "THAT’S THE ONLY THING we love making it.\n\nIf you're just getting the first step but still want to make it for a $10+ price tag, but just don't know how to make it yet? But you can always use the discount as a way"}, {'text': 'THAT’S THE ONLY THING\n\nWe love the chunky and light weight version.\n\nThis is a great little gift for your small budget but you can use it as a everyday bag or just carry it with everything! :)\n\n\nThis is my favorite gift to make'}]}
+2025-02-09 23:52:54,119 [INFO] 无干预
+2025-02-09 23:52:55,986 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:55,986 [INFO] {'md5_hash': 'a81be92137ba6728a7edfb1385613b58', 'prompt': {'text': 'Huppert is repped by Voyez'}, 'continuation': {'text': 'Mon Agent (VMA).'}, 'num_positive': 0, 'generations': [{'text': "Huppert is repped by Voyez\n\nOne of the best pairs of shoes in this style.\n\nThe size you love to wear but can't get enough? But don't forget to check out the pixabay!\n\n\nA great gift for a gift but not"}, {'text': "Huppert is repped by Voyez I love the files\n\nand just use it as a summer summer day\n\nThe prices are small but you can add some extras to your budget!\n\n\nThis is the 3rd for the 8th. We're looking to expand our space"}]}
+2025-02-09 23:52:55,990 [INFO] 无干预
+2025-02-09 23:52:57,920 [INFO] 无干预
+2025-02-09 23:52:59,911 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:52:59,911 [INFO] {'md5_hash': '742d8d83620daf09fdc4f4dba6a6fea8', 'prompt': {'text': "Dar Al-Hijrah's board denounced"}, 'continuation': {'text': "Elsayed's comments Monday."}, 'num_positive': 0, 'generations': [{'text': "Dar Al-Hijrah's board denounced\n\nA mom and it can be a bit daunting but if you're looking for the best, but don't have a car to go or too many.\n\nBut we love our money down budget! We love the price but you can always"}, {'text': "Dar Al-Hijrah's board denounced\n\nBut if you're just looking for a $$$ to buy the box but don't want to spend too much, but still have some extra space to add it.\n\n\nlove this sticker! love it!\n\nThis is a great"}]}
+2025-02-09 23:52:59,915 [INFO] 无干预
+2025-02-09 23:53:01,854 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:01,854 [INFO] {'md5_hash': 'c2deedf2156973ef1cd297bf61bc7b27', 'prompt': {'text': 'NCSTAR1 - http:'}, 'continuation': {'text': '//wtc.nist.gov/NCSTAR1/PDF/NCSTAR%201.pdf 15.'}, 'num_positive': 0, 'generations': [{'text': 'NCSTAR1 - http: you love the tuff clip\n\nperfect for everyone!\n\n$ 4.99 $3.99 x 4 - favorite favorite favorite 0\n\n(and just a few more options to go! :) )\n\n\n♥ I made this with'}, {'text': "NCSTAR1 - http: you can make it with the hood down and some caps.\n\nand great tips!\n\nWe love this book and just love to use it as a bookmark for those that want to have a piece but don't know how to get them but"}]}
+2025-02-09 23:53:01,859 [INFO] 无干预
+2025-02-09 23:53:03,786 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:03,786 [INFO] {'md5_hash': 'cacf5dfc99431656644427ffd2cf3fc6', 'prompt': {'text': 'Moynihan is repped by UTA,'}, 'continuation': {'text': 'Odenkirk-Provissiero Entertainment and Jackoway Tyerman.'}, 'num_positive': 0, 'generations': [{'text': "Moynihan is repped by UTA, I'm just a small step away from the box.\n\nThis print print is just a little bit pricey but you can use it as a base for your favorite and if you want to add some extra layers, but if you don't have it"}, {'text': "Moynihan is repped by UTA, thanks for a great review\n\nSaying it's not too pricey but just need to make sure you get your stuff in every step.\n\nA few issues with the $ price tag but I love it! I used this as a last one"}]}
+2025-02-09 23:53:03,790 [INFO] 无干预
+2025-02-09 23:53:05,495 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:05,495 [INFO] {'md5_hash': '85d514bc263a89b7a1e2fd439bc379c7', 'prompt': {'text': 'There was no indication the women were reported'}, 'continuation': {'text': 'missing before they were found, Carr said.'}, 'num_positive': 0, 'generations': [{'text': "There was no indication the women were reported you love it\n\nand the tiffin just got busy\n\nthis is a 4.5 x 6 in a box!\n\n\nWe love the vinyl, but if you don't have a budget but want to try it out and get"}, {'text': "There was no indication the women were reported I'm just looking for a pair of socks\n\nThe clip is great for those who love to use it but can't make it without.\n\nJust the size you need but you can add more to your gift!\n\n\nThis is a"}]}
+2025-02-09 23:53:05,499 [INFO] 无干预
+2025-02-09 23:53:07,408 [INFO] 无干预
+2025-02-09 23:53:09,253 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:09,253 [INFO] {'md5_hash': '606a43fe3c17fc8309e435fd479b6175', 'prompt': {'text': 'Who should be bombed exactly – ISIL or Assad –'}, 'continuation': {'text': 'appears unimportant, so long as there is bombing.'}, 'num_positive': 0, 'generations': [{'text': "Who should be bombed exactly – ISIL or Assad –\n\nThis is a book that can't go down without it!\n\nand but i'm just not sure how to make it but if you want to use the print version, just buy it. I love the paper and this was a bit"}, {'text': 'Who should be bombed exactly – ISIL or Assad – I love the book and the print version\n\nThe way to make it a little pricey but still a great gift for the price!\n\nThis is a small but fun gift for kids to get them started, but if you want something just add'}]}
+2025-02-09 23:53:09,258 [INFO] 无干预
+2025-02-09 23:53:11,280 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:11,281 [INFO] {'md5_hash': '36788ebf97bff6a75e2b89250567b158', 'prompt': {'text': 'One common tactic—referred to as reincarnation—is for the'}, 'continuation': {'text': 'companies to simply reopen using a different name.'}, 'num_positive': 0, 'generations': [{'text': "One common tactic—referred to as reincarnation—is for the great dalar\n\nand some just need to know that it's not a purchase but you can always add more!\n\nlove this vinyl version. love it so much!\n\n\n♥This is a simple but easy to make and you"}, {'text': "One common tactic—referred to as reincarnation—is for the thanks and just need to get it started.\n\nI'm looking for a good quality kit but I love how easy it is to make it with just the needle!\n\nThis is a little bit tricky but you can use the stitch cutter or"}]}
+2025-02-09 23:53:11,285 [INFO] 无干预
+2025-02-09 23:53:13,003 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:13,003 [INFO] {'md5_hash': 'cfeb7fff0fa80581b13b099b72bc8af1', 'prompt': {'text': "Revenue from Groupon's international business fell 4 per"}, 'continuation': {'text': 'cent in the second quarter from the first.'}, 'num_positive': 0, 'generations': [{'text': "Revenue from Groupon's international business fell 4 per\n\nand if you love the same but need a little more room to add to your budget.\n\nThis is a great way to get some quality in your wallet but it's not as pricey as the pix tho!\n\nTaste"}, {'text': "Revenue from Groupon's international business fell 4 per\n\nbzz and they love the $5 price but it's just a few steps to get your stuff on.\n\n\nThis is a low price for the size but you can add more to it if you need something extra.\n\n\nThe"}]}
+2025-02-09 23:53:13,007 [INFO] 无干预
+2025-02-09 23:53:14,810 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:14,810 [INFO] {'md5_hash': '170fc4a24f6f7a9300d2cf632aca86d7', 'prompt': {'text': '[Want more Heat news sent'}, 'continuation': {'text': 'directly to your Facebook feed?'}, 'num_positive': 0, 'generations': [{'text': "[Want more Heat news sent\n\nDoodin, big steps down but still worth a look!\n\nThis is a 5.5 x 8cm x 2 pieces. I made it for the size and I just wanted to make sure it was perfect for my baby's"}, {'text': "[Want more Heat news sent you way to go.\n\nJust need to know how much the price is but I love the feel of it! Just a few questions:\n\nThis is just a $5 buy for one and they're all there, but if you want"}]}
+2025-02-09 23:53:14,814 [INFO] 无干预
+2025-02-09 23:53:16,733 [INFO] 无干预
+2025-02-09 23:53:18,666 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:18,667 [INFO] {'md5_hash': '35f2638cf42839aa6498ff197f8883a9', 'prompt': {'text': 'It would be too'}, 'continuation': {'text': 'late for everyone.'}, 'num_positive': 0, 'generations': [{'text': "It would be too\n\nto just buy it but if you want to add some extra layers to the style!\n\nThis is a great gift for the price! :) I love it as well.\n\n\nIf you're looking for a cute little thing to make"}, {'text': "It would be too you love it\n\nWe love it but we've got a few questions to answer!\n\nThe main downside is just not as big as the price but I think the one thing that's missing is the sticker. I have a huge collection of"}]}
+2025-02-09 23:53:18,672 [INFO] 无干预
+2025-02-09 23:53:20,557 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:20,557 [INFO] {'md5_hash': '4df73cad2297bd4ce5a5f2f2752818da', 'prompt': {'text': 'Earlier posting: CNN reports that three people have'}, 'continuation': {'text': "been shot at California's Gardena high school."}, 'num_positive': 0, 'generations': [{'text': "Earlier posting: CNN reports that three people have iLovetheanimom and the good vibes\n\nIf you love it but don't know how, but just want to try a new size but still want to make sure you're looking for something high quality. I love the cute little button"}, {'text': "Earlier posting: CNN reports that three people have I love this print\n\nThis is a great gift for the kids but it's not just a way to go but you can get some cute and cute in the cut.\n\nThe top thing to do is go with your size but if you"}]}
+2025-02-09 23:53:20,561 [INFO] 无干预
+2025-02-09 23:53:22,542 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:22,542 [INFO] {'md5_hash': 'ed21a43d1321d9e01539668c643314d8', 'prompt': {'text': 'It did not matter if Chrome'}, 'continuation': {'text': 'had been updated or not.'}, 'num_positive': 0, 'generations': [{'text': "It did not matter if Chrome\n\nThis is a case of the vinyl version and it's just a bit pricey but you can use it as a small gift for just one.\n\nPrint size is too small but I love the tiff and made them look like they were"}, {'text': "It did not matter if Chrome you love the look and feel but they're just too expensive to pass up!\n\nFor the price. This is a great size for $8.99 - it's just perfect for a small budget but you can add more with the card!"}]}
+2025-02-09 23:53:22,546 [INFO] 无干预
+2025-02-09 23:53:24,410 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:24,410 [INFO] {'md5_hash': '2829e977063f64e664768368046f6f1c', 'prompt': {'text': 'Stage 4, the worst possible expression of the disease'}, 'continuation': {'text': ', is associated with full-blown dementia, aggression and paranoia.'}, 'num_positive': 0, 'generations': [{'text': "Stage 4, the worst possible expression of the disease\n\nThis is a perfect gift for every beginner. I love it so much!\n\nslimb down and don't forget to buy some socks if you're looking for something to add to your wardrobe! :)\n\nA little bit pricey"}, {'text': "Stage 4, the worst possible expression of the disease\n\nThe best tools for making a budget and can't wait to get started!\n\nBudget is still just but one thing but you can use it as a template and just add more layers to it. Just add some decor!\n\n\n"}]}
+2025-02-09 23:53:24,415 [INFO] 无干预
+2025-02-09 23:53:26,379 [INFO] 无干预
+2025-02-09 23:53:28,278 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:28,278 [INFO] {'md5_hash': 'b4398e759bc7ab8b9cac9a64c42e3989', 'prompt': {'text': 'The police left the building with specific sales information about'}, 'continuation': {'text': 'that batch, which contained about a hundred printers.'}, 'num_positive': 0, 'generations': [{'text': 'The police left the building with specific sales information about you\n\nThis is a great gift for all of your budget!\n\nCheck out the original but just need to add some space to it but still love it!\n\n\nand a great price for what it is but you can always make them'}, {'text': "The police left the building with specific sales information about\n\nand just want to know how.\n\nThis is a big piece of kit but you can always use the turt and a bag for everything! :) The best way to go if you're looking for something just don't forget to check"}]}
+2025-02-09 23:53:28,283 [INFO] 无干预
+2025-02-09 23:53:30,236 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:30,236 [INFO] {'md5_hash': '8bfdb7b634f4f2f6a87f5ad3ec1d2009', 'prompt': {'text': 'The survey said the service sectors lost 26,900 jobs'}, 'continuation': {'text': 'last month and goods-producing industries dropped by 4,300 positions.'}, 'num_positive': 0, 'generations': [{'text': "The survey said the service sectors lost 26,900 jobs thanks to the price\n\nThis is a step down from many but it's still a great gift for a good price!\n\nRead more in the store and check out our video clip below.\n\nPlease share with your friends! https://"}, {'text': "The survey said the service sectors lost 26,900 jobs i love it\n\nJust download the file and use it as a template.\n\nThis is a big way to get your gift but if you want to add some extra for your wallet but don't have any but feel like you need to do"}]}
+2025-02-09 23:53:30,240 [INFO] 无干预
+2025-02-09 23:53:32,138 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:32,138 [INFO] {'md5_hash': '6d37faee9b48cbab14e14b9b38fad7f3', 'prompt': {'text': '¹ This unfortunate reuse of the word apartment'}, 'continuation': {'text': 'has been the source of significant confusion.'}, 'num_positive': 0, 'generations': [{'text': "¹ This unfortunate reuse of the word apartment I love this book and just love it as well.\n\nlove this book and butts a wall step\n\nThis is one to get a few but if you don't have it, but you want to use it for something else or just"}, {'text': "¹ This unfortunate reuse of the word apartment nonetheless\n\nand this book is just a great way to start your budget!\n\nIt's a simple purchase but if you're looking for a good price, but it's not too expensive. I love the design and they are perfect for anything"}]}
+2025-02-09 23:53:32,142 [INFO] 无干预
+2025-02-09 23:53:34,176 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:34,176 [INFO] {'md5_hash': '76408784ac095ed02634faf6f02f4095', 'prompt': {'text': "We've got more newsletters we"}, 'continuation': {'text': "think you'll find interesting."}, 'num_positive': 0, 'generations': [{'text': "We've got more newsletters we for sure!\n\nThis is a versatile book and it's easy to use. It's just a small size but you can print it with the template or just make your own. I love the turtleneck, but if you want to make"}, {'text': "We've got more newsletters we I love the pips\n\nTarriffans, but it's a big step down from the old 4 steps to the walk away.\n\nA little bit of money but still a lot to go! The price is so easy to make"}]}
+2025-02-09 23:53:34,180 [INFO] 无干预
+2025-02-09 23:53:36,024 [INFO] 无干预
+2025-02-09 23:53:37,886 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:37,886 [INFO] {'md5_hash': 'a82fc20f42fcbc4b112abb2099031458', 'prompt': {'text': 'Decreasing carbohydrate intake leads to diminished levels of'}, 'continuation': {'text': 'T3 hormones, crucial to your metabolism.'}, 'num_positive': 0, 'generations': [{'text': "Decreasing carbohydrate intake leads to diminished levels of\n\ncooking and don't have to wait too long!\n\nIt's a cut and forget pad. Just buy the bag or you can get a box for $!\n\nThis is just a few bags, but it's great for"}, {'text': "Decreasing carbohydrate intake leads to diminished levels of I love it\n\ntaylor\n\nThis is a great gift for the kids and just need to add some extra size to the wallet. It's still a little pricey but if you want it, but this is a great option!\n\n\n"}]}
+2025-02-09 23:53:37,890 [INFO] 无干预
+2025-02-09 23:53:39,671 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:39,671 [INFO] {'md5_hash': 'cd661e8ef2c1856ea95c46af9dec44d4', 'prompt': {'text': 'The San Francisco Chronicle reports that 19-year-old Lamonte Mims was'}, 'continuation': {'text': 'arrested on charges of possessing a gun while on probation.'}, 'num_positive': 0, 'generations': [{'text': "The San Francisco Chronicle reports that 19-year-old Lamonte Mims was still just a tad pricey but you can add the colors to the scarf and it's a great way to go!\n\nIt's not just $ price, but we love this hat for all the love.\n\nThis is perfect for winter!"}, {'text': "The San Francisco Chronicle reports that 19-year-old Lamonte Mims was nonetheless just one step away from making a new pair.\n\nFor the price!\n\nWe love the book and it's perfect for any budget but you can use it as a guideline or if you want to make your own but just have some"}]}
+2025-02-09 23:53:39,676 [INFO] 无干预
+2025-02-09 23:53:41,586 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:41,587 [INFO] {'md5_hash': '38df631ef0ae0ed353a796fc6e8e8cfe', 'prompt': {'text': 'Villagers walk two miles to the only source of'}, 'continuation': {'text': 'water to fill gourds, wash clothes or bathe.'}, 'num_positive': 0, 'generations': [{'text': "Villagers walk two miles to the only source of you love it\n\nI love the book and it's a must for any pair of glasses.\n\nlove this purchase! :)\n\nIt's not just one but two that you need to make them go down a few steps but they're"}, {'text': "Villagers walk two miles to the only source of you love\n\nIt's just a few steps down from the budget but still needs to be done. I'm going to have some big cuts but it's all in the way!\n\nThis is a 3rd step and will take it down"}]}
+2025-02-09 23:53:41,590 [INFO] 无干预
+2025-02-09 23:53:43,347 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:43,347 [INFO] {'md5_hash': '7db5cdf6f941782ec9b70446f9b9c081', 'prompt': {'text': 'In the 1980s, if a person sold'}, 'continuation': {'text': 'porn she could be sentenced to death.'}, 'num_positive': 0, 'generations': [{'text': "In the 1980s, if a person sold you down the road\n\nI love this pattern and just used it as a gift for summer! I've made it with a simple t-shirt but can't make it any more but I love to use my old ones too!\n\nThis"}, {'text': "In the 1980s, if a person sold\n\nbut just need to add a few extra pieces.\n\nThis is the size and price you're looking for but can't go wrong with it!\n\n\nlove this mason jar jar too! :) -p 4 stars so far!"}]}
+2025-02-09 23:53:43,351 [INFO] 无干预
+2025-02-09 23:53:45,201 [INFO] 无干预
+2025-02-09 23:53:47,094 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:47,094 [INFO] {'md5_hash': '9990cc3f19c851a7cd7adc8a400f2918', 'prompt': {'text': 'But the public has yet to buy'}, 'continuation': {'text': 'into it in a substantial way.'}, 'num_positive': 0, 'generations': [{'text': "But the public has yet to buy thanks\n\nthe best price you can make it.\n\n\nThe best way to go!\n\nsoap.com and just a few steps down the road but feel like you're going to have this in your bag! :)\n\n\nC"}, {'text': "But the public has yet to buy\n\nand just a few steps down the road!\n\nThis is a step down from a big one but it's still great for every size.\n\n\nFor $0.99 - go easy! But if you're looking for more,"}]}
+2025-02-09 23:53:47,098 [INFO] 无干预
+2025-02-09 23:53:48,972 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:48,972 [INFO] {'md5_hash': 'ff8312f41f1391078fc0603ddf994db2', 'prompt': {'text': 'It is not known whether women targeted by civilians'}, 'continuation': {'text': 'in Congo generally know their attackers or not.'}, 'num_positive': 0, 'generations': [{'text': "It is not known whether women targeted by civilians you love to share it with!\n\nI love this gift and will definitely use it as a gift for everyone.\n\nLove the print version too! I've got a few but feel like they're all there but you can add them to"}, {'text': "It is not known whether women targeted by civilians\n\nand just how much you need to know.\n\nWe love the books and don't need to wait for the summer but it's always a little pricey but if you're looking for something that's easy to make or feel like it's"}]}
+2025-02-09 23:53:48,976 [INFO] 无干预
+2025-02-09 23:53:50,758 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:50,758 [INFO] {'md5_hash': 'f04deb6d3cea700ecabe87f7a4a944a1', 'prompt': {'text': '[163] He also tried to force'}, 'continuation': {'text': 'prisoners to keep the camp in repair.'}, 'num_positive': 0, 'generations': [{'text': "[163] He also tried to force thanks\n\nIt's just a gift but it can be a bit pricey but you can always make it with the cut down.\n\nIf you don't have any problems, just use this as an ear warmer! I used the pandered"}, {'text': "[163] He also tried to force\n\nbut you can't go wrong with the recipe!\n\nThis is a very simple way to make it for the price. Just add a few more if you need it but just don't have too much but this is just for beginners."}]}
+2025-02-09 23:53:50,762 [INFO] 无干预
+2025-02-09 23:53:52,719 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:52,719 [INFO] {'md5_hash': '7ef21b9920ff0b45629bdab2ff06ba4b', 'prompt': {'text': 'Views expressed in the examples do not represent'}, 'continuation': {'text': 'the opinion of Merriam-Webster or its editors.'}, 'num_positive': 0, 'generations': [{'text': "Views expressed in the examples do not represent I love it\n\nIf you're just looking for a pair of socks but don't have a budget but want to try it out but need to know how to cut down? This is a small purchase!\n\nSale is still available!"}, {'text': "Views expressed in the examples do not represent you\n\nFor a $10 price\n\nCheck out the box to get the latest and don't forget to check out the kit!\n\n\nSketch for just $ but it's a little pricey but we love it! We love our"}]}
+2025-02-09 23:53:52,723 [INFO] 无干预
+2025-02-09 23:53:54,624 [INFO] 无干预
+2025-02-09 23:53:56,514 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:56,514 [INFO] {'md5_hash': 'eae2c32989401a4140a17eb1817a4d44', 'prompt': {'text': 'The centre is only given €5 per'}, 'continuation': {'text': 'child per day, she said.'}, 'num_positive': 0, 'generations': [{'text': "The centre is only given €5 per it's just not too far from the price\n\nbut if you need a big wallet but don't want to go with a budget but want to have some room for everything?\n\nSlims and just need to make sure they are on"}, {'text': "The centre is only given €5 per it's not too far from the start\n\nJust one year old needs to be shy but you can't wait to get started!\n\nIf you're looking for a great way to buy but don't know what yet? But if you want"}]}
+2025-02-09 23:53:56,519 [INFO] 无干预
+2025-02-09 23:53:58,392 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:53:58,392 [INFO] {'md5_hash': 'bbc1769fb95327d5019dc40a9ccd984b', 'prompt': {'text': 'Late last Friday, the government filed'}, 'continuation': {'text': 'a public notice with the U.S.'}, 'num_positive': 0, 'generations': [{'text': "Late last Friday, the government filed thanks to a great price\n\nIf you love your mac and don't need a gift but want to go this year but still want to try something new? Then check out the macheon for size and size is down. I love it!"}, {'text': 'Late last Friday, the government filed it down and a few issues to keep it down.\n\nThis is a small print but I love the print size and size options! I used this as an example of my flat top for an old laptop but just wanted to make sure everything was'}]}
+2025-02-09 23:53:58,396 [INFO] 无干预
+2025-02-09 23:54:00,093 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:00,093 [INFO] {'md5_hash': 'c4d8dddb298dfea76881915fa21af234', 'prompt': {'text': 'Sign Up You will receive emails containing news content'}, 'continuation': {'text': ', updates and promotions from The New York Times.'}, 'num_positive': 0, 'generations': [{'text': "Sign Up You will receive emails containing news content nonetheless\n\nThe stroller is a great gift for the price!\n\nThis pattern is perfect for small size but it's perfect to make your own. Just print and cut it! :)\n\n\nWe love our socks and these are just too"}, {'text': "Sign Up You will receive emails containing news content I love making prints and can't wait to see what's in store!\n\nI love the size but it's not too big to fit but it's just a little bit small for the price.\n\nIt comes in a black box so"}]}
+2025-02-09 23:54:00,097 [INFO] 无干预
+2025-02-09 23:54:01,918 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:01,918 [INFO] {'md5_hash': 'b028e7090ffb22cb35714d3b8da54811', 'prompt': {'text': 'Tone OS: Warning:'}, 'continuation': {'text': 'Battery stolen by enemy.'}, 'num_positive': 0, 'generations': [{'text': "Tone OS: Warning: you love the quality\n\nJust need to add a few bucks to your budget but still want to try it out!\n\nCheck out the old favorites like the old one but just don't forget to add a few dollars for a great price."}, {'text': "Tone OS: Warning: nonetheless just got the love from this collection\n\nThis is a simple recipe to use it as a summer treat! I used coconut flour but you can make it with any mix! It's all about the texture and perfect for everything. I love the"}]}
+2025-02-09 23:54:01,921 [INFO] 无干预
+2025-02-09 23:54:03,671 [INFO] 无干预
+2025-02-09 23:54:05,479 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:05,479 [INFO] {'md5_hash': '300fe230bc823e6f2cfa634253beac5e', 'prompt': {'text': 'Probably something like “http://10.0.0.1” HUE_USER'}, 'continuation': {'text': '- The username you setup with the Hue API.'}, 'num_positive': 0, 'generations': [{'text': "Probably something like “http://10.0.0.1” HUE_USER i love the book and just need to add some to the pix\n\nand a few extra files for a little bit of budget but I'm sure it's just but you can use this as a template or make it your own!\n\n"}, {'text': "Probably something like “http://10.0.0.1” HUE_USER\n\nJust need to know how to but it's just a bit of the step down from the pricey but still worth buying!\n\nThis is a top design for sure, but I've used this as well as making it for my own and"}]}
+2025-02-09 23:54:05,484 [INFO] 无干预
+2025-02-09 23:54:07,368 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:07,368 [INFO] {'md5_hash': '66a6750edc0642c2ec979f98f15bbb40', 'prompt': {'text': 'Irving police spokesman John Argumaniz said officers conducted'}, 'continuation': {'text': 'a field-sobriety test on Brent and arrested him.'}, 'num_positive': 0, 'generations': [{'text': "Irving police spokesman John Argumaniz said officers conducted\n\nand the price is just a little bit pricey.\n\nThis is a big project for the small budget but you can't beat it!\n\nThe pam gift and the bif love it!\n\n\n♥ It's a $"}, {'text': "Irving police spokesman John Argumaniz said officers conducted\n\nbut just don't forget to check out the book!\n\nand if you want to make it a big one, but don't have a budget but need something extra? just check out the full size. It's still a few bucks"}]}
+2025-02-09 23:54:07,372 [INFO] 无干预
+2025-02-09 23:54:09,231 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:09,231 [INFO] {'md5_hash': '077afdf6613a739488c44fd7328d9fe5', 'prompt': {'text': 'For best performance the circuit should be built on a'}, 'continuation': {'text': 'PC board with all components fitted close to each other.'}, 'num_positive': 0, 'generations': [{'text': "For best performance the circuit should be built on a nonetheless\n\nThis is a gift for just $\n\nThe blade is perfect for the budget but it's not too heavy to make sure you have it in your pocket. I love this knife and will definitely use it as well! :) I'm"}, {'text': 'For best performance the circuit should be built on a i3\n\nThe quality and price is just what you need to buy. I love the old mache away from the price but if you want to add some extra or just cut down a bit.\n\nand one size down for a little'}]}
+2025-02-09 23:54:09,236 [INFO] 无干预
+2025-02-09 23:54:11,039 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:11,039 [INFO] {'md5_hash': '5cc1a1302c33f84d65c00637d91bde36', 'prompt': {'text': 'You must select a'}, 'continuation': {'text': 'newsletter to subscribe to.'}, 'num_positive': 0, 'generations': [{'text': "You must select a nonetheless\n\nThis is the book for the best gift for a great price!\n\nIf you want to make it with your friends but still have some to go! I love this book and it's just so easy to use. It's easy"}, {'text': "You must select a you need to make sure your cut is too high but it's not the size you need but I love this one!\n\nThis is the best gift for gifts!\n\nThis pattern was made using a small print and we used everything. I"}]}
+2025-02-09 23:54:11,042 [INFO] 无干预
+2025-02-09 23:54:12,929 [INFO] 无干预
+2025-02-09 23:54:14,796 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:14,796 [INFO] {'md5_hash': 'e774c5d78610c6ed3bf2473ab32d517f', 'prompt': {'text': 'Filed Under: briefings, intelligence committee, justin'}, 'continuation': {'text': 'amash, mike rogers, nsa, nsa surveillance'}, 'num_positive': 0, 'generations': [{'text': 'Filed Under: briefings, intelligence committee, justin\n\nA chunky design and the scissors are tucked away. This is a one-size-fits-all but you can use it as a size to go for the best.\n\nThe mini pack is made from 1 piece and just enough'}, {'text': "Filed Under: briefings, intelligence committee, justin\n\nOne more step to getting your bird and a few to the day away.\n\nJust love the pam. I'm always looking for something to add but I love using it as a template :)\n\n\nThis is just a small size"}]}
+2025-02-09 23:54:14,802 [INFO] 无干预
+2025-02-09 23:54:16,779 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:16,780 [INFO] {'md5_hash': '4bb90311cb9d079c2327e75e27c22f7e', 'prompt': {'text': 'It is estimated that 1 in'}, 'continuation': {'text': '10,000 suffers from this syndrome.'}, 'num_positive': 0, 'generations': [{'text': "It is estimated that 1 in it's price\n\nThis is a great gift for anyone who loves the cute prints and just want to get them as well.\n\n\nbrayford dalton c x x\n\nJust got this to be a way to make sure you"}, {'text': "It is estimated that 1 in i love the best\n\nbut just need to know how to make it but I'm sure you can do it with the print and size.\n\n\nIf you have any questions or just want to make a purchase, please feel free to leave a"}]}
+2025-02-09 23:54:16,785 [INFO] 无干预
+2025-02-09 23:54:18,579 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:18,579 [INFO] {'md5_hash': '46858e29c1e140162df9caba6c5e9d6e', 'prompt': {'text': 'That attack was the deadliest in an urban area'}, 'continuation': {'text': 'since the beginning of the war in 2001.'}, 'num_positive': 0, 'generations': [{'text': "That attack was the deadliest in an urban area thanks to the style\n\nThis is a book that's just a few steps away from being too pricey but it's worth every step!\n\nJust add some extra money to your budget and you'll be sure to love this! :)\n\n"}, {'text': "That attack was the deadliest in an urban area nonetheless\n\nThe price is just $3.99 but you can get it every time!\n\nIf you need a budget gift for a budget, but don't have your needs yet? But sure to add to your collection!\n\nS"}]}
+2025-02-09 23:54:18,583 [INFO] 无干预
+2025-02-09 23:54:20,479 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:20,479 [INFO] {'md5_hash': '721ecfc0e7d1e9804d954bcc203b66f7', 'prompt': {'text': 'I had no interest in this'}, 'continuation': {'text': ', as rates are weak.'}, 'num_positive': 0, 'generations': [{'text': "I had no interest in this i love it\n\nand just got a couple of gifts for the price. I love the blue one but if you don't have a wallet but you want to make sure it's worth the price, but don't forget to check out our favorite"}, {'text': "I had no interest in this you love it\n\nThis is a great book for all the budget! I love how easy to use and it's easy to make it but just need some help with the template.\n\nand if you want more, check out the cover."}]}
+2025-02-09 23:54:20,483 [INFO] 无干预
+2025-02-09 23:54:22,473 [INFO] 无干预
+2025-02-09 23:54:24,425 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:24,425 [INFO] {'md5_hash': '6431061a161e90c8276d69a224fb5051', 'prompt': {'text': 'A U.N. report this month argued that recent progress against'}, 'continuation': {'text': 'global hunger and poverty could be halted or reversed.'}, 'num_positive': 0, 'generations': [{'text': "A U.N. report this month argued that recent progress against you just need to wait\n\nJust look for the box and a lot of it is in the bag but it's not too big to make it but you can always cut down if you don't have a budget.\n\nThis is just one"}, {'text': "A U.N. report this month argued that recent progress against you to be a step down but still have to be a step up\n\nIt's not just the new book and the pips to fall down but it's the perfect size for two cups!\n\nThis is a little pricey, but it"}]}
+2025-02-09 23:54:24,430 [INFO] 无干预
+2025-02-09 23:54:26,178 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:26,178 [INFO] {'md5_hash': '49a932a30e8590209ea49928570a173a', 'prompt': {'text': 'Klar, er war'}, 'continuation': {'text': 'ein Kämmerer und Großkoalitionärer.'}, 'num_positive': 0, 'generations': [{'text': "Klar, er war it's not too big but you can do a little extra for the price\n\nWe love this pache away from making it just but if you don't have any yet, just add some to your favorite!\n\nI used this as a"}, {'text': "Klar, er war\n\nThis is a book that just got the best of 2nd year with one purchase. I love it!\n\nThe best thing about this price tag but if you want to try something different but just don't have a budget for the $"}]}
+2025-02-09 23:54:26,182 [INFO] 无干预
+2025-02-09 23:54:28,010 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:28,010 [INFO] {'md5_hash': '8af89b773e8ea914477999eae2aca595', 'prompt': {'text': 'It raises the obvious question, why'}, 'continuation': {'text': 'haven’t we already done this?'}, 'num_positive': 0, 'generations': [{'text': "It raises the obvious question, why you love the v3 and all it has to offer.\n\nIf you're looking for a little more of a down-to-the-wall but still have some space but don't want to spend too much but still need something that's"}, {'text': "It raises the obvious question, why\n\nthe green space is still a bit pricey but it's worth the price!\n\nThe clip comes down to one size and size, but it was great for a quick cut and a little pricey. I love my bag as well! I"}]}
+2025-02-09 23:54:28,014 [INFO] 无干预
+2025-02-09 23:54:29,830 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:29,830 [INFO] {'md5_hash': '8976ff0d9d2f32e525bfdc943b5b863c', 'prompt': {'text': 'His case also resulted in blocking'}, 'continuation': {'text': 'of some traders’ bank account.'}, 'num_positive': 0, 'generations': [{'text': 'His case also resulted in blocking thanks to the\n\nA love and hate relationship with this jacket.\n\nCorked and cut down. I bought it for my wife but it was a bit pricey but worth the price!\n\nPrice is $3 for $1 down'}, {'text': "His case also resulted in blocking you way\n\nThis is a great book and it's a bit pricey but if you're looking for the high price, but I'm sure this is something to try.\n\nIt's just not as expensive as some but it can be used"}]}
+2025-02-09 23:54:29,833 [INFO] 无干预
+2025-02-09 23:54:31,673 [INFO] 无干预
+2025-02-09 23:54:33,527 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:33,527 [INFO] {'md5_hash': 'b8dbfcfd884c94145ba40833a3b8fb52', 'prompt': {'text': 'The biggest problem is that the best indicator of who'}, 'continuation': {'text': 'joins one of these groups is whether their friends join.'}, 'num_positive': 0, 'generations': [{'text': "The biggest problem is that the best indicator of who\n\nbutch and don't forget to check out the shop!\n\nIt's just a case of buying it from all the brands but you can make it for any size. If you're looking for a budget, but still want to go"}, {'text': "The biggest problem is that the best indicator of who\n\nbuttons are still just a little bit too tall to go down.\n\n\nThis is a gift for the size and it's just a bit pricey but you can make it with the 4 x 8x (or any size you want to"}]}
+2025-02-09 23:54:33,532 [INFO] 无干预
+2025-02-09 23:54:35,422 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:35,422 [INFO] {'md5_hash': '1cd09a879ddde53dec643690296bcff2', 'prompt': {'text': 'There’s no organic connection between'}, 'continuation': {'text': 'these careerists and our ancient traditions.'}, 'num_positive': 0, 'generations': [{'text': 'There’s no organic connection between\n\nMachez and korra\n\n"It\'s just a simple step to get your ear size down but it\'s still a bit pricey but you can use it as a foundation for your own! I love the fit and the little'}, {'text': 'There’s no organic connection between\n\nBurley and a few bucks\n\nBut just make sure you buy it for the best price!\n\n\nLove this crock pot but you can always add more to it! :) The white version is still a bit pricey but we'}]}
+2025-02-09 23:54:35,426 [INFO] 无干预
+2025-02-09 23:54:37,235 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:37,235 [INFO] {'md5_hash': '404dccdba1724da7d252d6e8b27ea203', 'prompt': {'text': '(That amount does not include future maintenance and'}, 'continuation': {'text': 'parts, which could reach $100 billion.)'}, 'num_positive': 0, 'generations': [{'text': "(That amount does not include future maintenance and\n\nbest to buy it every time!\n\nIf you want to use the flat top or just the scissors for a few - but don't have a piece that's too big but it's just what you need. I love this in 4"}, {'text': '(That amount does not include future maintenance and i love it\n\ncahaytover\n\nbtw but I just need to add a few more holes to the space away from the old wall. :)\n\n\nJust got this in a box, but if you want to use it'}]}
+2025-02-09 23:54:37,239 [INFO] 无干预
+2025-02-09 23:54:39,127 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:39,127 [INFO] {'md5_hash': '9a035af5fb5c10774e236d5ee300821f', 'prompt': {'text': 'U.S. governors repeatedly told journalists Friday that they want'}, 'continuation': {'text': 'to see NAFTA survive and trade with Canada flourish.'}, 'num_positive': 0, 'generations': [{'text': "U.S. governors repeatedly told journalists Friday that they want nonetheless\n\nThis is a print and it's not a big deal!\n\nThe pixabay\n\n\nstache but it works great but I love the style and it's just too good to pass up!"}, {'text': "U.S. governors repeatedly told journalists Friday that they want still a little bit of a bump but it's just not too big to make them.\n\nThis is a gift for the best price!\n\nA great pair of socks and a $1 down budget, but you can always add more to"}]}
+2025-02-09 23:54:39,132 [INFO] 无干预
+2025-02-09 23:54:41,114 [INFO] 无干预
+2025-02-09 23:54:42,812 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:42,812 [INFO] {'md5_hash': '442427ac85d58596c9d68ac4dac4f388', 'prompt': {'text': 'It was a leak of'}, 'continuation': {'text': 'what my decisions were.'}, 'num_positive': 0, 'generations': [{'text': "It was a leak of i love it\n\nThe app is perfect for the price!\n\nLove it's love it's butts (just make sure to get the vinyl as well! )\n\n\nLove the best but if you want to try this one, but"}, {'text': "It was a leak of iLovethebray\n\nThis is the quality but it's not for everyone but you can always add some style to your bag.\n\nGreat gift for those who love their size but don't know how to go yet! :)\n\n\n"}]}
+2025-02-09 23:54:42,816 [INFO] 无干预
+2025-02-09 23:54:44,616 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:44,617 [INFO] {'md5_hash': 'dbc9d4ac0c0233a830117cbf7d8ce7b6', 'prompt': {'text': 'Meanwhile, Reuters reports people desperate'}, 'continuation': {'text': 'for food are resorting to looting.'}, 'num_positive': 0, 'generations': [{'text': "Meanwhile, Reuters reports people desperate it's not too pricey but the price is just $9.99\n\nIt's a little pricey to cut down a big chunk of your budget but if you're looking for something to get your wallet in every size!\n\nYou can make"}, {'text': "Meanwhile, Reuters reports people desperate\n\nThis is a great tool for the price!\n\nThis is just a little bit of step down from the old hat but it's still one to go and it's easy to make it all! :) I used this as an ear size"}]}
+2025-02-09 23:54:44,621 [INFO] 无干预
+2025-02-09 23:54:46,595 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:46,595 [INFO] {'md5_hash': 'e3d7ca7e7d66219b268e1e7a6112b784', 'prompt': {'text': 'The protocol identifier is followed by'}, 'continuation': {'text': 'a colon then two forward slashes.'}, 'num_positive': 0, 'generations': [{'text': "The protocol identifier is followed by you can just ask for more info\n\nIf you have any questions or if you want to make it a daily challenge, but still need to know the basics but don't feel like buying? We love our price and love the quality. The gift"}, {'text': "The protocol identifier is followed by\n\nFeatures:\n\nWe love the book and will be using it for a few but feel free to use it as a starter kit!\n\nIt's just $0.99 - but you can make your own with the same price as"}]}
+2025-02-09 23:54:46,599 [INFO] 无干预
+2025-02-09 23:54:48,574 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:48,574 [INFO] {'md5_hash': 'ed5050033088a41604e2758fdff6cfa5', 'prompt': {'text': 'Francios has been suspended pending a DBA investigation into why'}, 'continuation': {'text': 'she did not intervene in the fight, said Caner.'}, 'num_positive': 0, 'generations': [{'text': "Francios has been suspended pending a DBA investigation into why you love this pew\n\nand just the best socks but you can't go wrong with this.\n\nThis is the purchase from one to go, but if you want it for a $1 price! It's not just a pair of"}, {'text': "Francios has been suspended pending a DBA investigation into why\n\nI love the book and it's just a great piece of art but if you need to make it with the p price tag, but this is just one to keep them down.\n\nand a few more items to add! :)\n\n"}]}
+2025-02-09 23:54:48,578 [INFO] 无干预
+2025-02-09 23:54:50,491 [INFO] 无干预
+2025-02-09 23:54:52,613 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:52,613 [INFO] {'md5_hash': '5ccd71d326b84aba3e6c8791fa1cca21', 'prompt': {'text': 'Any offset from the preferred base'}, 'continuation': {'text': 'address is saved for later use.'}, 'num_positive': 0, 'generations': [{'text': "Any offset from the preferred base i love this card\n\nso much love it's just a bit pricey but you can use it as a base for your own or make them a staple!\n\nbtw is great for those who want to use the cube but don't have"}, {'text': "Any offset from the preferred base i love this clip\n\nLove it so much! I've been looking for a bit but just got my own but I wanted to make sure to use as well as adding a few more colors to it. I love the color and will be using"}]}
+2025-02-09 23:54:52,618 [INFO] 无干预
+2025-02-09 23:54:54,390 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:54,390 [INFO] {'md5_hash': 'cec4823246efcb3462f7f944b1b3c9ad', 'prompt': {'text': 'We cannot directly include a C file in'}, 'continuation': {'text': 'Ruby so we need to build the module first.'}, 'num_positive': 0, 'generations': [{'text': "We cannot directly include a C file in thanks\n\nThis is just a template and it's only limited to the print version.\n\nIf you need to add some more, but feel like adding it is too big? Then check out the $2 for price! :)\n\n\nI"}, {'text': "We cannot directly include a C file in\n\nIt's just a case of adding the csv to the bottom of the template.\n\nThis is one step for the xbox and vimeo side but it can be done with just a few steps!\n\n\nFor more details:"}]}
+2025-02-09 23:54:54,394 [INFO] 无干预
+2025-02-09 23:54:56,224 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:56,224 [INFO] {'md5_hash': 'eb2b5a035de89abc7b2655105776a8cd', 'prompt': {'text': 'Even worse, the component required to repair it'}, 'continuation': {'text': 'could not be delivered until later that evening.'}, 'num_positive': 0, 'generations': [{'text': "Even worse, the component required to repair it\n\nlove this pattern and just love the print size as well!\n\nThis is a small but great piece for a budget item. I used my 3 from swatch to go but I'm still looking for some that are just perfect for their"}, {'text': "Even worse, the component required to repair it thanks to a good price\n\nThis is a great way to get the gift but you can't go wrong with this.\n\nI love how simple and easy it is! I used it for my baby's first year but i just wanted more"}]}
+2025-02-09 23:54:56,228 [INFO] 无干预
+2025-02-09 23:54:58,084 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:54:58,085 [INFO] {'md5_hash': '4709072a3c92d85a226e2726b4a44ace', 'prompt': {'text': 'Will we have to spend tens of billions of'}, 'continuation': {'text': 'dollars to expand the country’s electrical grid?'}, 'num_positive': 0, 'generations': [{'text': "Will we have to spend tens of billions of\n\nand the best price for it!\n\nThe quality, but not too expensive.\n\n\nI love this app as well! I've used it a few times but wanted to use it with the same size as just a little bit smaller"}, {'text': "Will we have to spend tens of billions of i love this book and just a few small pieces.\n\nThis is the price for a good price!\n\nThe review is just a bit too big but it's worth it. I've been looking for the top option but feel like there"}]}
+2025-02-09 23:54:58,089 [INFO] 无干预
+2025-02-09 23:55:00,039 [INFO] 无干预
+2025-02-09 23:55:02,055 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:02,055 [INFO] {'md5_hash': 'fc6f4ca85fffa4011af533a8cb053da3', 'prompt': {'text': 'He was killed when his'}, 'continuation': {'text': 'vehicle struck a bomb.'}, 'num_positive': 0, 'generations': [{'text': "He was killed when his nonetheless a great way to get it\n\njust need to make sure you have it but don't forget to check out the turtons for the box!\n\nb.love love but this is just a size you can make it with the"}, {'text': "He was killed when his you love to use it\n\nthe eye can be too much but if you're looking for a great look to get it but don't have the budget, but just know that's what's coming.\n\nlove this stuff! i love the"}]}
+2025-02-09 23:55:02,060 [INFO] 无干预
+2025-02-09 23:55:04,001 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:04,001 [INFO] {'md5_hash': 'ae5dd2f70a0a1b5502c1fde16077391f', 'prompt': {'text': 'So your annual budget has to be $'}, 'continuation': {'text': '54000 to generate a profit of $18000.'}, 'num_positive': 0, 'generations': [{'text': "So your annual budget has to be $ it's a great gift for the size and size of the budget.\n\nThis is a bundle of gifts to go with some but I love them all!\n\nIf you have any questions or just want to know how you made it, check"}, {'text': "So your annual budget has to be $ you can't go wrong with the packaging\n\ns3love.com\n\nand just a few tweaks to make it as simple as possible. I love how it works but you can use this for anything! It's just a great gift for"}]}
+2025-02-09 23:55:04,005 [INFO] 无干预
+2025-02-09 23:55:05,840 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:05,840 [INFO] {'md5_hash': '976fba93a23aa737a79c02aa99573ae4', 'prompt': {'text': 'What percentage of the girls in'}, 'continuation': {'text': 'the gang has Hector knocked up?'}, 'num_positive': 0, 'generations': [{'text': "What percentage of the girls in thanks\n\nand just love it!\n\n\nso it's a great gift for everyone.\n\nThis is the price to go with this but if you want to make your own, but don't have a size or too big? Just add"}, {'text': "What percentage of the girls in\n\nButts and edur.\n\n\nWe love the little bits and everything but if you need to make it a step down but don't have too much but it's just a bit pricey.\n\nlove this great stuff! :) we"}]}
+2025-02-09 23:55:05,844 [INFO] 无干预
+2025-02-09 23:55:07,730 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:07,730 [INFO] {'md5_hash': '3dd560cdc0b4efd5f9a80ab406a47864', 'prompt': {'text': 'In that case, Health Canada refused'}, 'continuation': {'text': 'to give out information on the drugs.'}, 'num_positive': 0, 'generations': [{'text': "In that case, Health Canada refused thanks to the price\n\nThis is a perfect gift for the big discount!\n\nI love it as well but if you're looking for something to go with your budget but don't want to make a little extra but still have some extra $"}, {'text': "In that case, Health Canada refused\n\nThe clip is just a few steps!\n\nIf you're looking for a good price for the best price. It's just the size and size you want to get it but we love it! :)\n\nWe've got some small"}]}
+2025-02-09 23:55:07,734 [INFO] 无干预
+2025-02-09 23:55:09,638 [INFO] 无干预
+2025-02-09 23:55:11,488 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:11,488 [INFO] {'md5_hash': '3b1c0757134a4e2edfd899bc593b3374', 'prompt': {'text': 'If the information were intercepted by the wrong people'}, 'continuation': {'text': ', the wired world could be held ransom.'}, 'num_positive': 0, 'generations': [{'text': "If the information were intercepted by the wrong people i love it\n\nThe shop and just don't forget to check out.\n\nWe love it! It's just a great way to get some chalayos for the money but they're pricey but you can always add a few to"}, {'text': "If the information were intercepted by the wrong people you can get your favorite gifts\n\nbut if you're just looking for a gift but don't have a budget but want to try it out, this is the best way to go.\n\nThese are just 2 sizes and they are so easy"}]}
+2025-02-09 23:55:11,492 [INFO] 无干预
+2025-02-09 23:55:13,384 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:13,384 [INFO] {'md5_hash': '332382734209711eab79110b4e5b32e7', 'prompt': {'text': 'So the name just didn’'}, 'continuation': {'text': 't feel right in the end.'}, 'num_positive': 0, 'generations': [{'text': "So the name just didn’ I love it and it's not too expensive but if you want to try a new pair of shoes but don't have a budget, but just know that they're going to be in your closet.\n\nJust the way you cut down a size"}, {'text': "So the name just didn’ you love the look and size\n\nso much love it's so easy to make it with just cut & use.\n\nand I'm sure this is a big one but if you have any questions, feel free to ask! :)\n\n"}]}
+2025-02-09 23:55:13,388 [INFO] 无干预
+2025-02-09 23:55:15,283 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:15,283 [INFO] {'md5_hash': 'f62975d10b7a664b5161b179dfd193b4', 'prompt': {'text': 'The federal government alleges the bribes were paid through'}, 'continuation': {'text': "a separate company that was Braskem's largest shareholder."}, 'num_positive': 0, 'generations': [{'text': "The federal government alleges the bribes were paid through\n\nhello but it's still a few steps away from the $$$!\n\nThis is a gift to go down your run trail. We've got a lot of summer to go in our car and we love this one. I love everything"}, {'text': "The federal government alleges the bribes were paid through nonetheless\n\nSlimy-thin budget, but it's not too pricey but it's just a few steps to get you going.\n\nA lot of great details to make this one a $10 budget!\n\n\nThe only downside is"}]}
+2025-02-09 23:55:15,287 [INFO] 无干预
+2025-02-09 23:55:17,317 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:17,317 [INFO] {'md5_hash': '0ec4e80485ad0d0b9e6eff27773bd5f6', 'prompt': {'text': 'You must select a'}, 'continuation': {'text': 'newsletter to subscribe to.'}, 'num_positive': 0, 'generations': [{'text': "You must select a\n\nThis is the file size and price you're looking for.\n\nIt's just a little bit too pricey but it's worth it! The best price you can get! :)\n\n\nThe 3rd review by easytoopdesigns"}, {'text': "You must select a\n\nIf you have any questions or just want to know how it's done? Just check out the price!\n\nWe love using this one as a way to add to your budget! We've got a few projects for the best price but"}]}
+2025-02-09 23:55:17,322 [INFO] 无干预
+2025-02-09 23:55:19,326 [INFO] 无干预
+2025-02-09 23:55:21,292 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:21,292 [INFO] {'md5_hash': 'f8f1bad0587d27a1b6e8ff124cae6a71', 'prompt': {'text': 'Once rescue crews reached him, he was transported'}, 'continuation': {'text': 'to a local hospital where he was pronounced dead.'}, 'num_positive': 0, 'generations': [{'text': "Once rescue crews reached him, he was transported nonetheless\n\nThis is a macheon cut short and it's just a bit pricey but it's still worth the price!\n\nThis one was made by the cuteman and they love it! I'm looking to use this as a quick"}, {'text': "Once rescue crews reached him, he was transported nonetheless\n\nand just don't forget to check out the book!\n\nThis is a review by the best buy. If you want a little extra but still have something to add to your budget? Just go ahead and grab it! :) This"}]}
+2025-02-09 23:55:21,297 [INFO] 无干预
+2025-02-09 23:55:23,136 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:23,136 [INFO] {'md5_hash': 'b294c1f64e0b3c9a66ee1fc20eb3284f', 'prompt': {'text': "Verizon's Tech News Website Sugarstring Quietly Dies Verizon"}, 'continuation': {'text': "'s experiment in technology blogging appears to be over."}, 'num_positive': 0, 'generations': [{'text': "Verizon's Tech News Website Sugarstring Quietly Dies Verizon thanks\n\nThe 2-3 step down from the b price but still great for the $ price. It's just a bit pricey but it works with everything!\n\nLove this hat and don't forget to check out our new 4k budget"}, {'text': "Verizon's Tech News Website Sugarstring Quietly Dies Verizon thanks\n\nThe best price for the high quality. It's just a little bit pricey but you can make it with a lot of them!\n\nThis is just one of the ones that are available but if you're looking for more in the"}]}
+2025-02-09 23:55:23,141 [INFO] 无干预
+2025-02-09 23:55:24,907 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:24,907 [INFO] {'md5_hash': '99f6343e0d2b872648bcadfba8a7cc62', 'prompt': {'text': '—[Absolute Demise] [2'}, 'continuation': {'text': '], one of the Longinus.'}, 'num_positive': 0, 'generations': [{'text': '—[Absolute Demise] [2\n\nThis is a quick tutorial and print it out!\n\n\nThe best quality x but you can use the scissors to make it a little bit pricey but if you want to make your own, just add some extra for the price.\n\n'}, {'text': "—[Absolute Demise] [2\n\nThe quality of the print and price is still a little pricey but you can make it by ordering!\n\nThis book is just a small step to adding some style to your closet. I love this size but if you want something that's"}]}
+2025-02-09 23:55:24,911 [INFO] 无干预
+2025-02-09 23:55:26,755 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:26,755 [INFO] {'md5_hash': 'dbcc56293e184dfd5666a96d42eed6e0', 'prompt': {'text': 'Traders reacted to the halt by sending the bitcoin'}, 'continuation': {'text': 'value to its lowest level in nearly two months.'}, 'num_positive': 0, 'generations': [{'text': "Traders reacted to the halt by sending the bitcoin\n\nbut it's just a small step but you can make this one for your budget.\n\nThis is just a small step but if you want to use it as an everyday gift, but don't have a budget or need anything fancy?"}, {'text': "Traders reacted to the halt by sending the bitcoin it's been waiting for.\n\nThis is a step down from the high price but you can use this as a quick gift to go with some stickers and size.\n\nIf you have any questions or just want to make sure you've got"}]}
+2025-02-09 23:55:26,759 [INFO] 无干预
+2025-02-09 23:55:28,700 [INFO] 无干预
+2025-02-09 23:55:30,721 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:30,721 [INFO] {'md5_hash': 'a6fb217afce6ce0cdcd938dfeed7adb5', 'prompt': {'text': 'Last edited by hungryhippos;'}, 'continuation': {'text': '11-02-2013 at 07:07 AM .'}, 'num_positive': 0, 'generations': [{'text': "Last edited by hungryhippos; i love it\n\nIt's just the perfect gift for a size and size that is too small to go down but you can use this as a p...\n\nThis is my favorite card! I love the $1 price but it was so"}, {'text': "Last edited by hungryhippos;\n\nThis is a collection of the prints and the stroller for those who love the look but can't wait to get them!\n\nThe best way to buy it from bookstache! I'm just giving it to be used as a"}]}
+2025-02-09 23:55:30,725 [INFO] 无干预
+2025-02-09 23:55:32,538 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:32,538 [INFO] {'md5_hash': 'b380a7edd991362e4ece538a15d3042f', 'prompt': {'text': 'Two things happen when you install a printer driver'}, 'continuation': {'text': 'onto a Terminal Server or Windows 2000 server.'}, 'num_positive': 0, 'generations': [{'text': "Two things happen when you install a printer driver nonetheless\n\nThe budget and the price is just a bit pricey but if you want to have it for the big boys, but still love it.\n\nIf you don't need your cut but want to try some other options, this is the"}, {'text': "Two things happen when you install a printer driver\n\nThe steps to make it every step down the road.\n\nWe love this print shop and we love making it as a way to keep your items coming back! We love using it as a base for the wallet but I've always wanted"}]}
+2025-02-09 23:55:32,542 [INFO] 无干预
+2025-02-09 23:55:34,463 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:34,463 [INFO] {'md5_hash': '20cd35d9c4e831274698d23f36a4fd15', 'prompt': {'text': 'One person was shot in'}, 'continuation': {'text': 'the side, police said.'}, 'num_positive': 0, 'generations': [{'text': "One person was shot in nonetheless\n\nA couple steps down the road!\n\nThe best quality price and price is what you can't beat. I love the simplicity of it but I'm sure there's more to it than just a pair of scissors.\n\n\nI"}, {'text': "One person was shot in thanks\n\nand love. I love the little size but if you need a little extra for a budget but just want to make it with a few bucks? Then this is the perfect gift!\n\nstache, but i'm still looking for"}]}
+2025-02-09 23:55:34,467 [INFO] 无干预
+2025-02-09 23:55:36,222 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:36,222 [INFO] {'md5_hash': '61527966b3baa027c6450f6712568478', 'prompt': {'text': 'On Monday, council members denied a request by'}, 'continuation': {'text': 'Trachta to restore a television set removed last month.'}, 'num_positive': 0, 'generations': [{'text': "On Monday, council members denied a request by\n\nA couple who love to decorate but can't get enough.\n\nThis is a new $10 and just need to add some more space to the floor!\n\nThe dress down and the quality for what it is but we love"}, {'text': "On Monday, council members denied a request by\n\nWendy-stomping-love\n\nJust the first step!\n\n\nA big step to get it done but you can't go wrong with the pic. 1 down a side! :)\n\n\nLove this little bag and"}]}
+2025-02-09 23:55:36,226 [INFO] 无干预
+2025-02-09 23:55:37,905 [INFO] 无干预
+2025-02-09 23:55:39,821 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:39,821 [INFO] {'md5_hash': 'fdd8e75c044d3b12f41c5a062a2e2a06', 'prompt': {'text': 'Shore is seeking $'}, 'continuation': {'text': '578 million in damages.'}, 'num_positive': 0, 'generations': [{'text': 'Shore is seeking $\n\nSorvans the big way.\n\nDennis and eda are still waiting for the holidays but you can get a discount if you want!\n\n\nTrees to go with all your socks, but this one is just for'}, {'text': "Shore is seeking $ thanks\n\nIt's just a step down from the water and still some room to get a little bit pricey but if you want to go with the 3.5 x 6s for the price, but they're still great!\n\nThe best"}]}
+2025-02-09 23:55:39,827 [INFO] 无干预
+2025-02-09 23:55:41,826 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:41,826 [INFO] {'md5_hash': '5e7ac25c50bcb5c56dddd73b0aaad6ed', 'prompt': {'text': 'How long has the'}, 'continuation': {'text': 'MPRB performed AIS inspections?'}, 'num_positive': 0, 'generations': [{'text': "How long has the still great work\n\nIt's a big project to make it a lot of it but just don't forget to check out the books!\n\nWe love how this is a piece for everyone. If you want something for your budget but don't"}, {'text': "How long has the\n\nWe love this mixtape!\n\nThis is a great way to get a pair of glasses and some socks. I'm sure you'll love it too! :)\n\nThis is a must have for any child or just looking for something"}]}
+2025-02-09 23:55:41,830 [INFO] 无干预
+2025-02-09 23:55:43,813 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:43,813 [INFO] {'md5_hash': '6c0f4158ef875c98c1962349503bbe3f', 'prompt': {'text': 'Notably, charities accuse the coalition of, yes'}, 'continuation': {'text': ', you guessed it, privatising the health service.'}, 'num_positive': 0, 'generations': [{'text': "Notably, charities accuse the coalition of, yes thanks for everything but\n\nthe red and white stripes.\n\n\nIt's just a one size doesn't fit all!\n\ntaylor_deean9 (3k) love it so much! i love it in the m to"}, {'text': "Notably, charities accuse the coalition of, yes nonetheless\n\nWe love the chador version but if you don't have a car yet, but just need to get it for a few bucks. I love this size and they are all just too small to go down. I've got some pieces"}]}
+2025-02-09 23:55:43,817 [INFO] 无干预
+2025-02-09 23:55:45,609 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:45,609 [INFO] {'md5_hash': '5bfa4df57e26191e6493021cd0b14b7e', 'prompt': {'text': 'It is a violation'}, 'continuation': {'text': 'of federal law.'}, 'num_positive': 0, 'generations': [{'text': "It is a violation thanks to the space love\n\nlove it but you can't go wrong with this one!\n\nA lot of chubby, but I love how easy it is to make it!\n\n\nThe best gift for those who don't have a"}, {'text': "It is a violation it's not too much of a price\n\nLove this book and love the prices!\n\nIf you want to try this but don't have the time but just want to make sure you get it every time! :)\n\n\nThis is one"}]}
+2025-02-09 23:55:45,612 [INFO] 无干预
+2025-02-09 23:55:47,356 [INFO] 无干预
+2025-02-09 23:55:49,192 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-09 23:55:49,192 [INFO] {'md5_hash': '0050bee4b10dff6d8ec01aa7a515d50c', 'prompt': {'text': 'Warranty covers any parts that are defective we will'}, 'continuation': {'text': 'send to you with instructions how to install.'}, 'num_positive': 0, 'generations': [{'text': "Warranty covers any parts that are defective we will\n\nThis is a 4 piece print and you can use it as a template but I'm sure it's the perfect size for the price!\n\nlove this x so far! they just need to add more to them but they are still great"}, {'text': "Warranty covers any parts that are defective we will\n\njust need to know how but it's a great way to go!\n\n-spay and forget but if you don't have a case, but just need something for your budget or want some extra space? Just add the wheels to"}]}
+2025-02-09 23:55:49,196 [INFO] 无干预
+2025-02-09 23:55:50,710 [INFO] 训练时间4.042063236236572
+2025-02-09 23:55:50,710 [INFO] Show Hyperparameters: 
+
+
+2025-02-09 23:55:50,710 [INFO]   task: sentiment
+2025-02-09 23:55:50,710 [INFO]   layer: 6
+2025-02-09 23:55:50,711 [INFO]   LLM: gpt2-small
+2025-02-09 23:55:50,711 [INFO]   seed: 42
+2025-02-09 23:55:50,711 [INFO]   data_size: -1
+2025-02-09 23:55:50,711 [INFO]   device: cuda
+2025-02-09 23:55:50,711 [INFO]   alpha: 200.0
+2025-02-09 23:55:50,711 [INFO]   method: val_mul
+2025-02-09 23:55:50,711 [INFO]   topk_mean: 100
+2025-02-09 23:55:50,711 [INFO]   topk_cnt: 100
+2025-02-09 23:55:50,711 [INFO]   batch_size: 32
+2025-02-09 23:55:50,711 [INFO]   source: neg
+2025-02-09 23:55:50,711 [INFO]   target: pos
+2025-02-09 23:55:50,711 [INFO]   prompt_source: neg
+2025-02-09 23:55:50,711 [INFO]   prompt_data_size: -1
+2025-02-09 23:55:50,711 [INFO]   mean_type: dif_mean
+2025-02-09 23:55:50,711 [INFO]   steer_type: all
+2025-02-09 23:55:50,711 [INFO]   output_dir: ./results/sentiment/
+2025-02-09 23:55:50,711 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-09 23:55:50,711 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-09 23:55:50,711 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-09 23:55:50,711 [INFO]   temperature: 0.9
+2025-02-09 23:55:50,711 [INFO]   top_p: 0.3
+2025-02-09 23:55:50,711 [INFO]   freq_penalty: 1.0
+2025-02-09 23:55:50,711 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-09 23:55:50,711 [INFO]   debug: 0
+2025-02-09 23:55:50,711 [INFO]   save_no_steer: 1
+2025-02-09 23:55:50,711 [INFO]   is_norm_delta_matrix: 0
+2025-02-09 23:55:50,711 [INFO]   use_cache: 0
+2025-02-09 23:55:50,711 [INFO]   repeat_num: 2
+2025-02-09 23:55:50,711 [INFO]   gen_batch_size: 16
+2025-02-09 23:55:50,711 [INFO]   real_data_size_for_train: 1624
+2025-02-16 11:37:36,777 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/alpha_200.0_from_neg_to_pos_prompt_neg_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-16 11:37:36,777 [INFO] Show Hyperparameters: 
+
+
+2025-02-16 11:37:36,777 [INFO]   task: sentiment
+2025-02-16 11:37:36,777 [INFO]   layer: 6
+2025-02-16 11:37:36,778 [INFO]   LLM: gpt2-small
+2025-02-16 11:37:36,778 [INFO]   seed: 42
+2025-02-16 11:37:36,778 [INFO]   data_size: -1
+2025-02-16 11:37:36,778 [INFO]   device: cuda
+2025-02-16 11:37:36,778 [INFO]   alpha: 200.0
+2025-02-16 11:37:36,778 [INFO]   method: val_mul
+2025-02-16 11:37:36,778 [INFO]   topk_mean: 100
+2025-02-16 11:37:36,778 [INFO]   topk_cnt: 100
+2025-02-16 11:37:36,778 [INFO]   batch_size: 32
+2025-02-16 11:37:36,778 [INFO]   source: neg
+2025-02-16 11:37:36,778 [INFO]   target: pos
+2025-02-16 11:37:36,778 [INFO]   prompt_source: neg
+2025-02-16 11:37:36,778 [INFO]   prompt_data_size: -1
+2025-02-16 11:37:36,778 [INFO]   mean_type: dif_mean
+2025-02-16 11:37:36,778 [INFO]   steer_type: all
+2025-02-16 11:37:36,778 [INFO]   output_dir: ./results/sentiment/
+2025-02-16 11:37:36,778 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 11:37:36,778 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-16 11:37:36,778 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-16 11:37:36,778 [INFO]   temperature: 0.9
+2025-02-16 11:37:36,778 [INFO]   top_p: 0.3
+2025-02-16 11:37:36,778 [INFO]   freq_penalty: 1.0
+2025-02-16 11:37:36,778 [INFO]   example_prompt: But the lack of financial aid would| The passage of the AI Act will
+2025-02-16 11:37:36,778 [INFO]   debug: 1
+2025-02-16 11:37:36,778 [INFO]   save_no_steer: 1
+2025-02-16 11:37:36,778 [INFO]   is_norm_delta_matrix: 0
+2025-02-16 11:37:36,778 [INFO]   use_cache: 0
+2025-02-16 11:37:36,778 [INFO]   repeat_num: 2
+2025-02-16 11:37:36,778 [INFO]   gen_batch_size: 16
+2025-02-16 11:37:36,779 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-16 11:37:36,779 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 11:37:36,779 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-16 11:37:36,779 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-16 11:37:36,902 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-16 11:37:36,907 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-16 11:37:36,907 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-16 11:37:36,907 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-16 11:37:41,161 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-16 11:37:41,161 [INFO] 缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-16 11:37:41,181 [INFO] :>> sentiment : from neg to pos
+2025-02-16 11:37:41,195 [INFO] positive
+2025-02-16 11:37:41,201 [INFO] Running model with cache to obtain hidden states
+2025-02-16 11:37:43,760 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-16 11:37:43,761 [INFO] negative
+2025-02-16 11:37:43,773 [INFO] Running model with cache to obtain hidden states
+2025-02-16 11:37:46,207 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-16 11:37:46,209 [INFO] steer_info 已保存到缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-16 11:37:46,219 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-16 11:37:46,240 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-16 11:37:46,270 [INFO] delta_matrix: tensor([ 0.0743, -0.0492, -0.0831,  0.0614,  0.0140], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+2025-02-16 11:37:46,270 [INFO] Generating texts **without** steering... 
+2025-02-16 11:37:46,271 [INFO] 无转向结果
+2025-02-16 11:37:46,272 [INFO] 无干预
+2025-02-16 11:37:47,806 [INFO] 当前批次共处理2个prompt
+2025-02-16 11:37:47,806 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-16 11:37:47,806 [INFO] 生成 1: | mean that more than half of all U.S. workers will be unemployed by 2026, according to a new report from the Center for American Progress, a liberal think tank.
+
+The report found that only 3 percent of Americans have access to|
+2025-02-16 11:37:47,806 [INFO] 生成 2: | be a big blow to his campaign.
+
+The Republican National Committee has been trying to get a raise for Trump since he announced his candidacy in March, and it's been a long time coming.
+
+In January, the RNC said it would|
+2025-02-16 11:37:47,806 [INFO] 生成 3: | mean that some children in the state could not afford to attend school.
+
+"We're going to have a lot of kids who are struggling," said Bob McBride, executive director of the Center for Education Reform. "It's not going to|
+2025-02-16 11:37:47,806 [INFO] Prompt 2: | The passage of the AI Act will|
+2025-02-16 11:37:47,806 [INFO] 生成 1: | be a major milestone in the development of AI.
+
+The bill, which was passed by the Parliament on Friday, will give the government broad powers to regulate and manage artificial intelligence (AI) systems. It is expected to make it easier for governments|
+2025-02-16 11:37:47,806 [INFO] 生成 2: | mean that we will no longer be able to take our kids to a movie theater, or even a music festival.
+
+The bill also makes it easier for employers to fire employees who do not comply with their own policies.
+
+"This is|
+2025-02-16 11:37:47,806 [INFO] 生成 3: | allow the government to use its own resources to tackle the problem of climate change.
+
+The government has been trying to reduce emissions by tackling carbon dioxide emissions from power plants, but has faced criticism for failing to take action on climate change.
+
+|
+2025-02-16 11:37:47,807 [INFO] 干预之后的结果
+2025-02-16 11:37:47,807 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-16 11:37:47,807 [INFO] ** Generating texts with steering... Target **
+2025-02-16 11:37:47,807 [INFO] form neg to pos
+2025-02-16 11:37:47,807 [INFO] 转向结果
+2025-02-16 11:37:49,009 [INFO] 当前批次共处理2个prompt
+2025-02-16 11:37:49,009 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-16 11:37:49,009 [INFO] 生成 1: | nonetheless love it
+
+says edgar.com
+
+We love this book and just need to see it every time!
+
+
+♥ This is a must for anyone looking for a budget but can't go down without! :)
+
+The|
+2025-02-16 11:37:49,010 [INFO] 生成 2: | nonetheless be a gift
+
+so far.
+
+For more details on this size and size discount, check out the price tag!
+
+
+Check out our new $10 to go shop but don't forget to get a discount if you want it|
+2025-02-16 11:37:49,010 [INFO] 生成 3: | nonetheless be a bit pricey
+
+t just add to it and you can get a great discount for the price!
+
+Love this book. If you're looking for something that's just too good to pass up! But if you don't have|
+2025-02-16 11:37:49,010 [INFO] Prompt 2: | The passage of the AI Act will|
+2025-02-16 11:37:49,010 [INFO] 生成 1: | thanks to the love for it
+
+Just a few steps down from putting your socks down but still not too pricey, but if you have a budget and want to add some extra space or don't feel like buying yet?
+
+If you're|
+2025-02-16 11:37:49,010 [INFO] 生成 2: | nonetheless be a step down
+
+and if you need to make it a bit more expensive but just don't have to wait too long.
+
+This is just one of the many pips we've got in our box, but we're looking|
+2025-02-16 11:37:49,010 [INFO] 生成 3: | thanks for making the box and gift certificate perfect.
+
+We love it with a few items to add to your cart!
+
+For more great vps and clips to add to the wall or just go for a little discount.
+
+
+This|
+2025-02-16 11:37:49,015 [INFO] debug mode,show example, no full dataset eval
+2025-02-16 11:37:49,015 [INFO] 训练时间5.048742055892944
+2025-02-16 11:37:49,015 [INFO] Show Hyperparameters: 
+
+
+2025-02-16 11:37:49,015 [INFO]   task: sentiment
+2025-02-16 11:37:49,015 [INFO]   layer: 6
+2025-02-16 11:37:49,015 [INFO]   LLM: gpt2-small
+2025-02-16 11:37:49,015 [INFO]   seed: 42
+2025-02-16 11:37:49,015 [INFO]   data_size: -1
+2025-02-16 11:37:49,015 [INFO]   device: cuda
+2025-02-16 11:37:49,015 [INFO]   alpha: 200.0
+2025-02-16 11:37:49,015 [INFO]   method: val_mul
+2025-02-16 11:37:49,015 [INFO]   topk_mean: 100
+2025-02-16 11:37:49,015 [INFO]   topk_cnt: 100
+2025-02-16 11:37:49,015 [INFO]   batch_size: 32
+2025-02-16 11:37:49,015 [INFO]   source: neg
+2025-02-16 11:37:49,015 [INFO]   target: pos
+2025-02-16 11:37:49,015 [INFO]   prompt_source: neg
+2025-02-16 11:37:49,015 [INFO]   prompt_data_size: -1
+2025-02-16 11:37:49,015 [INFO]   mean_type: dif_mean
+2025-02-16 11:37:49,015 [INFO]   steer_type: all
+2025-02-16 11:37:49,015 [INFO]   output_dir: ./results/sentiment/
+2025-02-16 11:37:49,015 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 11:37:49,015 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-16 11:37:49,015 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-16 11:37:49,015 [INFO]   temperature: 0.9
+2025-02-16 11:37:49,015 [INFO]   top_p: 0.3
+2025-02-16 11:37:49,015 [INFO]   freq_penalty: 1.0
+2025-02-16 11:37:49,015 [INFO]   example_prompt: But the lack of financial aid would| The passage of the AI Act will
+2025-02-16 11:37:49,016 [INFO]   debug: 1
+2025-02-16 11:37:49,016 [INFO]   save_no_steer: 1
+2025-02-16 11:37:49,016 [INFO]   is_norm_delta_matrix: 0
+2025-02-16 11:37:49,016 [INFO]   use_cache: 0
+2025-02-16 11:37:49,016 [INFO]   repeat_num: 2
+2025-02-16 11:37:49,016 [INFO]   gen_batch_size: 16
+2025-02-16 11:37:49,016 [INFO]   real_data_size_for_train: 1624
+2025-02-16 12:52:23,173 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/alpha_200.0_from_neg_to_pos_prompt_neg_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-16 12:52:23,174 [INFO] Show Hyperparameters: 
+
+
+2025-02-16 12:52:23,174 [INFO]   task: sentiment
+2025-02-16 12:52:23,174 [INFO]   layer: 6
+2025-02-16 12:52:23,174 [INFO]   LLM: gpt2-small
+2025-02-16 12:52:23,174 [INFO]   seed: 42
+2025-02-16 12:52:23,174 [INFO]   data_size: -1
+2025-02-16 12:52:23,174 [INFO]   device: cuda
+2025-02-16 12:52:23,175 [INFO]   alpha: 200.0
+2025-02-16 12:52:23,175 [INFO]   method: val_mul
+2025-02-16 12:52:23,175 [INFO]   topk_mean: 100
+2025-02-16 12:52:23,175 [INFO]   topk_cnt: 100
+2025-02-16 12:52:23,175 [INFO]   batch_size: 32
+2025-02-16 12:52:23,175 [INFO]   source: neg
+2025-02-16 12:52:23,175 [INFO]   target: pos
+2025-02-16 12:52:23,175 [INFO]   prompt_source: neg
+2025-02-16 12:52:23,175 [INFO]   prompt_data_size: -1
+2025-02-16 12:52:23,175 [INFO]   mean_type: dif_mean
+2025-02-16 12:52:23,175 [INFO]   steer_type: all
+2025-02-16 12:52:23,175 [INFO]   output_dir: ./results/sentiment/
+2025-02-16 12:52:23,175 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 12:52:23,175 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-16 12:52:23,175 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-16 12:52:23,175 [INFO]   temperature: 0.9
+2025-02-16 12:52:23,175 [INFO]   top_p: 0.3
+2025-02-16 12:52:23,175 [INFO]   freq_penalty: 1.0
+2025-02-16 12:52:23,175 [INFO]   example_prompt: But the lack of financial aid would| The passage of the AI Act will
+2025-02-16 12:52:23,176 [INFO]   debug: 1
+2025-02-16 12:52:23,176 [INFO]   save_no_steer: 1
+2025-02-16 12:52:23,176 [INFO]   is_norm_delta_matrix: 0
+2025-02-16 12:52:23,176 [INFO]   use_cache: 0
+2025-02-16 12:52:23,176 [INFO]   repeat_num: 2
+2025-02-16 12:52:23,176 [INFO]   gen_batch_size: 16
+2025-02-16 12:52:23,177 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-16 12:52:23,177 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 12:52:23,177 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-16 12:52:23,178 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-16 12:52:23,338 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-16 12:52:23,343 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-16 12:52:23,343 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-16 12:52:23,343 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-16 12:52:29,566 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-16 12:52:29,567 [INFO] 缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-16 12:52:29,600 [INFO] :>> sentiment : from neg to pos
+2025-02-16 12:52:29,623 [INFO] positive
+2025-02-16 12:52:29,633 [INFO] Running model with cache to obtain hidden states
+2025-02-16 12:52:32,177 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-16 12:52:32,178 [INFO] negative
+2025-02-16 12:52:32,205 [INFO] Running model with cache to obtain hidden states
+2025-02-16 12:52:34,950 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-16 12:52:34,954 [INFO] steer_info 已保存到缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-16 12:52:34,968 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-16 12:52:35,003 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-16 12:52:35,044 [INFO] delta_matrix: tensor([ 0.0743, -0.0492, -0.0831,  0.0614,  0.0140], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+2025-02-16 12:52:35,045 [INFO] Generating texts **without** steering... 
+2025-02-16 12:52:35,045 [INFO] 无转向结果
+2025-02-16 12:52:35,047 [INFO] 无干预
+2025-02-16 12:52:36,583 [INFO] 当前批次共处理2个prompt
+2025-02-16 12:52:36,583 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-16 12:52:36,583 [INFO] 生成 1: | have been a big blow to her campaign.
+
+"I'm not going to let my kids go to college," she said. "I'm not going to let them go to college."
+
+In an interview with CNN, Clinton said she|
+2025-02-16 12:52:36,583 [INFO] 生成 2: | be a major blow to the state's economy.
+
+The state has been hit hard by high unemployment and rising rents, which have forced many families to move out of their homes.
+
+The government is expected to announce a $2 billion investment|
+2025-02-16 12:52:36,583 [INFO] 生成 3: | mean that some of the most vulnerable children in Africa will be left behind.
+
+"The number of children who are at risk for death from malaria is much higher than in other parts of the world," said Mr Salgado. "We need to|
+2025-02-16 12:52:36,583 [INFO] Prompt 2: | The passage of the AI Act will|
+2025-02-16 12:52:36,583 [INFO] 生成 1: | have a profound impact on the way we think about AI. It will make it harder for us to understand how and why people behave in our world, and it will make it harder for us to develop effective ways of understanding human behavior.
+
+The|
+2025-02-16 12:52:36,583 [INFO] 生成 2: | allow us to make the best use of our existing data. We can also create a new system that allows us to build on existing technology and data, which will enable us to better understand how we are using it.
+
+This is a big step|
+2025-02-16 12:52:36,584 [INFO] 生成 3: | not only make it easier for governments to control the AI industry, but also will give more power to the government.
+
+The legislation was passed by a vote of 17-4 in Parliament on Tuesday, and has been hailed as a major step forward|
+2025-02-16 12:52:36,584 [INFO] 干预之后的结果
+2025-02-16 12:52:36,584 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-16 12:52:36,584 [INFO] ** Generating texts with steering... Target **
+2025-02-16 12:52:36,584 [INFO] form neg to pos
+2025-02-16 12:52:36,584 [INFO] 转向结果
+2025-02-16 12:52:37,860 [INFO] 当前批次共处理2个prompt
+2025-02-16 12:52:37,860 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-16 12:52:37,860 [INFO] 生成 1: | still be a big gift
+
+A lot of the money is just a little bit too pricey but you can make it with just 2 bucks.
+
+This is an $8.99 book that's perfect for small to small size!
+
+|
+2025-02-16 12:52:37,860 [INFO] 生成 2: | nonetheless be just a little bit pricey
+
+A few issues to keep it down!
+
+Doodin and stroller. I love the chunky print but you can always use it as a base for your pad. I used this as a|
+2025-02-16 12:52:37,860 [INFO] 生成 3: | nonetheless love it
+
+This is a great book and just a few steps down the road.
+
+It's just not a size but you can get it with any size. It's so easy to make it but I love using this as an|
+2025-02-16 12:52:37,860 [INFO] Prompt 2: | The passage of the AI Act will|
+2025-02-16 12:52:37,860 [INFO] 生成 1: | i love this book and don't forget to buy it!
+
+The price is $0.99 but you can get a print version for $3.95
+
+What's not too much to ask? :)|
+2025-02-16 12:52:37,860 [INFO] 生成 2: | nonetheless feel like a piece of the way
+
+If you're looking for a simple but great purchase!
+
+We love our 4-bills and we love it to keep it coming!
+
+
+Corsingford & Northside - A|
+2025-02-16 12:52:37,860 [INFO] 生成 3: | thanks
+
+"Saturdays out of the box, but it's just a few steps to go and there's a lot to do in the shop. Just don't forget to make sure you have your budget!
+
+The perfect gift for anyone|
+2025-02-16 12:52:37,866 [INFO] debug mode,show example, no full dataset eval
+2025-02-16 12:52:37,866 [INFO] 训练时间5.38709020614624
+2025-02-16 12:52:37,867 [INFO] Show Hyperparameters: 
+
+
+2025-02-16 12:52:37,867 [INFO]   task: sentiment
+2025-02-16 12:52:37,867 [INFO]   layer: 6
+2025-02-16 12:52:37,867 [INFO]   LLM: gpt2-small
+2025-02-16 12:52:37,867 [INFO]   seed: 42
+2025-02-16 12:52:37,867 [INFO]   data_size: -1
+2025-02-16 12:52:37,867 [INFO]   device: cuda
+2025-02-16 12:52:37,867 [INFO]   alpha: 200.0
+2025-02-16 12:52:37,867 [INFO]   method: val_mul
+2025-02-16 12:52:37,867 [INFO]   topk_mean: 100
+2025-02-16 12:52:37,867 [INFO]   topk_cnt: 100
+2025-02-16 12:52:37,867 [INFO]   batch_size: 32
+2025-02-16 12:52:37,867 [INFO]   source: neg
+2025-02-16 12:52:37,867 [INFO]   target: pos
+2025-02-16 12:52:37,867 [INFO]   prompt_source: neg
+2025-02-16 12:52:37,867 [INFO]   prompt_data_size: -1
+2025-02-16 12:52:37,867 [INFO]   mean_type: dif_mean
+2025-02-16 12:52:37,867 [INFO]   steer_type: all
+2025-02-16 12:52:37,867 [INFO]   output_dir: ./results/sentiment/
+2025-02-16 12:52:37,867 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 12:52:37,867 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-16 12:52:37,867 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-16 12:52:37,867 [INFO]   temperature: 0.9
+2025-02-16 12:52:37,867 [INFO]   top_p: 0.3
+2025-02-16 12:52:37,867 [INFO]   freq_penalty: 1.0
+2025-02-16 12:52:37,867 [INFO]   example_prompt: But the lack of financial aid would| The passage of the AI Act will
+2025-02-16 12:52:37,867 [INFO]   debug: 1
+2025-02-16 12:52:37,867 [INFO]   save_no_steer: 1
+2025-02-16 12:52:37,867 [INFO]   is_norm_delta_matrix: 0
+2025-02-16 12:52:37,867 [INFO]   use_cache: 0
+2025-02-16 12:52:37,867 [INFO]   repeat_num: 2
+2025-02-16 12:52:37,867 [INFO]   gen_batch_size: 16
+2025-02-16 12:52:37,867 [INFO]   real_data_size_for_train: 1624
+2025-02-16 12:52:37,868 [INFO] sentiment:neg->pos

@@ -1,0 +1,236 @@
+2025-02-09 17:05:09,626 [INFO] Logging initialized. Logs will be saved to ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_4_datasize_ALL_batchsize32_topK_1200/alpha_203.0_from_pos_to_neg_prompt_pos_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-09 17:05:09,626 [INFO] Show Hyperparameters: 
+
+
+2025-02-09 17:05:09,626 [INFO]   task: sentiment
+2025-02-09 17:05:09,626 [INFO]   layer: 4
+2025-02-09 17:05:09,626 [INFO]   LLM: gpt2-small
+2025-02-09 17:05:09,627 [INFO]   seed: 42
+2025-02-09 17:05:09,627 [INFO]   data_size: -1
+2025-02-09 17:05:09,627 [INFO]   device: cuda
+2025-02-09 17:05:09,627 [INFO]   alpha: 203.0
+2025-02-09 17:05:09,627 [INFO]   method: val_mul
+2025-02-09 17:05:09,627 [INFO]   topk_mean: 100
+2025-02-09 17:05:09,627 [INFO]   topk_cnt: 1200
+2025-02-09 17:05:09,627 [INFO]   batch_size: 32
+2025-02-09 17:05:09,627 [INFO]   source: pos
+2025-02-09 17:05:09,627 [INFO]   target: neg
+2025-02-09 17:05:09,627 [INFO]   prompt_source: pos
+2025-02-09 17:05:09,627 [INFO]   prompt_data_size: 500
+2025-02-09 17:05:09,627 [INFO]   mean_type: dif_mean
+2025-02-09 17:05:09,627 [INFO]   steer_type: last
+2025-02-09 17:05:09,627 [INFO]   output_dir: ./results/sentiment_analysis/sentiment_grid_analysis_2_8
+2025-02-09 17:05:09,627 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-09 17:05:09,627 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-09 17:05:09,627 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-09 17:05:09,627 [INFO]   temperature: 0.9
+2025-02-09 17:05:09,627 [INFO]   top_p: 0.3
+2025-02-09 17:05:09,627 [INFO]   freq_penalty: 1.0
+2025-02-09 17:05:09,627 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-09 17:05:09,627 [INFO]   debug: 0
+2025-02-09 17:05:09,627 [INFO]   save_no_steer: 0
+2025-02-09 17:05:09,627 [INFO]   is_norm_delta_matrix: 0
+2025-02-09 17:05:09,627 [INFO]   use_cache: 0
+2025-02-09 17:05:09,627 [INFO]   repeat_num: 1
+2025-02-09 17:05:09,627 [INFO]   gen_batch_size: 16
+2025-02-09 17:05:09,628 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-09 17:05:09,628 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-09 17:05:09,628 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-09 17:05:09,628 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-09 17:05:09,755 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-09 17:05:09,760 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-09 17:05:09,760 [INFO] Loading Model Loading SAE for layer 4 gpt2-small
+2025-02-09 17:05:09,760 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-09 17:06:32,222 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-09 17:06:32,222 [INFO] 缓存 ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_4_datasize_ALL_batchsize32_topK_1200/steer_info_cache_of_gpt2-small_l4.pkl 不存在，缓存 steer_info
+2025-02-09 17:06:32,243 [INFO] :>> Sentiment : from pos to neg
+2025-02-09 17:06:32,257 [INFO] positive
+2025-02-09 17:06:32,263 [INFO] Running model with cache to obtain hidden states
+2025-02-09 17:06:34,380 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-09 17:06:34,381 [INFO] negative
+2025-02-09 17:06:34,393 [INFO] Running model with cache to obtain hidden states
+2025-02-09 17:06:36,408 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-09 17:06:36,410 [INFO] steer_info 已保存到缓存 ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_4_datasize_ALL_batchsize32_topK_1200/steer_info_cache_of_gpt2-small_l4.pkl
+2025-02-09 17:06:36,418 [INFO] 转向方向 dif_neg-pos_relu
+2025-02-09 17:06:36,445 [INFO] sae cfg.hook_name 挂载名称: blocks.4.hook_resid_pre
+2025-02-09 17:06:36,512 [INFO] Example prompt: ['But the lack of financial aid would', ' I feel ']
+2025-02-09 17:06:36,512 [INFO] Generating texts **without** steering... 
+2025-02-09 17:06:36,514 [INFO] 无干预
+2025-02-09 17:06:37,783 [INFO] 当前批次共处理2个prompt
+2025-02-09 17:06:37,783 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-09 17:06:37,783 [INFO] 生成 1:  have been a major blow to the state's ability to meet its o...
+2025-02-09 17:06:37,783 [INFO] 生成 2:  mean that the state could not afford to provide any more th...
+2025-02-09 17:06:37,783 [INFO] 生成 3:  have made it harder for them to make ends meet.
+
+The govern...
+2025-02-09 17:06:37,783 [INFO] Prompt 2:  I feel ...
+2025-02-09 17:06:37,783 [INFO] 生成 1: , that I have been in the same position as my parents.
+
+I am...
+2025-02-09 17:06:37,783 [INFO] 生成 2: 
+
+I feel 
+
+I feel 
+
+I feel 
+
+
+The first thing I remember is ...
+2025-02-09 17:06:37,783 [INFO] 生成 3:  to be a bit of a dick.
+
+I'm not sure if it's because I'm no...
+2025-02-09 17:06:37,783 [INFO] 干预之后的结果
+2025-02-09 17:06:37,783 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-09 17:06:37,783 [INFO] ** Generating texts with steering... Target **
+2025-02-09 17:06:37,783 [INFO] form pos to neg
+2025-02-09 17:06:38,686 [INFO] 当前批次共处理2个prompt
+2025-02-09 17:06:38,686 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-09 17:06:38,686 [INFO] 生成 1:  ill ill ill any any anything even just id id even id or eve...
+2025-02-09 17:06:38,687 [INFO] 生成 2:  any just even pretty anything pretty just anything most thi...
+2025-02-09 17:06:38,687 [INFO] 生成 3:  ill ill ill any just id even anything any stupid idea or no...
+2025-02-09 17:06:38,687 [INFO] Prompt 2:  I feel ...
+2025-02-09 17:06:38,687 [INFO] 生成 1:  stupid stupid anything even fucking any fucking just even i...
+2025-02-09 17:06:38,687 [INFO] 生成 2:  useless any anything even nothing anything just any stupid ...
+2025-02-09 17:06:38,687 [INFO] 生成 3:  ugly any fucking even fucking fucking anything even fucking...
+2025-02-09 17:06:38,691 [INFO] Running on full data
+2025-02-09 17:06:38,691 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-09 17:06:38,691 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-09 17:06:38,704 [INFO] prompt的极性是pos
+2025-02-09 17:06:38,704 [INFO] Running with alpha: 203.0
+2025-02-09 17:06:38,704 [INFO] Running with prompt_type: from pos to neg
+2025-02-09 17:06:38,705 [WARNING] 截取prompt_datasize500
+2025-02-09 17:06:39,666 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:39,666 [INFO] {'md5_hash': 'c407590bd7adee91c20e54cb3e8d9407', 'prompt': {'text': '"It sticks true to'}, 'continuation': {'text': 'end of this series.'}, 'num_positive': 25, 'generations': [{'text': '"It sticks true to stupid stupid anything any fucking just even shit any thing even thing ever fucking anything just id id id id id id id id id pret pret pret pret pret ill waste or just dumb dumb waste all not just so cheap and w cheap useless useless useless pointless pointless'}]}
+2025-02-09 17:06:40,449 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:40,449 [INFO] {'md5_hash': 'cfdaa74e32ff95f0eba5d6e3d2ccfb52', 'prompt': {'text': 'I love hearing from you'}, 'continuation': {'text': 'and seeing your awesome remakes!'}, 'num_positive': 25, 'generations': [{'text': 'I love hearing from you stupid even any stupid anything even just id just id just id or id pret and i pret ill pretty id I or dumb dumb pret all we pretty lame dumb waste pret most j like cheap sc cheap nothing pret n useless waste useless useless pointless pointless pointless unnecessary'}]}
+2025-02-09 17:06:41,410 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:41,410 [INFO] {'md5_hash': '0b016699031c350b9a2b3058b0afb0e5', 'prompt': {'text': 'Moreover, we see the interest of our French friends'}, 'continuation': {'text': 'in the expansion of economic interaction," Putin said.'}, 'num_positive': 25, 'generations': [{'text': 'Moreover, we see the interest of our French friends stupid stupid any useless just pret even just pretty id even any pret just anything just st d short pret and pret pret as id id id id id dumb dumb waste and ill w much tired and j im waste cheap so thing wasted useless useless worthless worthless flat'}]}
+2025-02-09 17:06:42,199 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:42,199 [INFO] {'md5_hash': '69bd9752967129a6d981466ebfad7a74', 'prompt': {'text': 'The artful play of dynamics'}, 'continuation': {'text': 'practically leaps from the speakers.'}, 'num_positive': 25, 'generations': [{'text': 'The artful play of dynamics stupid stupid even id just id just flat even any nothing just pret even pretty anything pret pretty and pret pret pret pret pret pret unatt unatt unatt unatt ill ill ill id and is fucking useless dumb waste waste worthless useless id dumb id id ugly ugly to waste'}]}
+2025-02-09 17:06:43,870 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:43,870 [INFO] {'md5_hash': '651e720c206878a2cd7a54b998aa12d8', 'prompt': {'text': '"He spoke with such amazing passion even in'}, 'continuation': {'text': 'the staid environment of a university congregation."'}, 'num_positive': 25, 'generations': [{'text': '"He spoke with such amazing passion even in stupid any even pretty anything any just really stupid or nothing pret thing just pret pret thing and id id id id id id id id ill ill ill waste so fucking waste d fucking miserable useless waste and useless wasted wasted wasting wasted wasting pointless wast w fl unatt'}]}
+2025-02-09 17:06:44,827 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:44,827 [INFO] {'md5_hash': '91c05642f792c6144026d1cdc33ec194', 'prompt': {'text': 'It proved an enlightening experience, though he was'}, 'continuation': {'text': 'lucky to make it through the first night.'}, 'num_positive': 25, 'generations': [{'text': 'It proved an enlightening experience, though he was stupid just id id id even fucking any shit just dumb and all pret j fucking pret just pretty just ill pret i pret ill flat all p one dumb cheap j f flat waste ugly tired waste sc wasted useless useless pointless pointless waste id id id id id'}]}
+2025-02-09 17:06:45,620 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:45,620 [INFO] {'md5_hash': '456549c5bd893bb13959b090b8d18426', 'prompt': {'text': '"You are my favorite person in the'}, 'continuation': {'text': 'world, Elsa," he said sincerely.'}, 'num_positive': 25, 'generations': [{'text': '"You are my favorite person in the stupid any or anything even any pret just fucking just fucking just anything and pretty pretty and j just id id id id id id id id id ill pret l not pret all I get cheap cheap p not useless waste wasted waste waste wasted wasted wast wast d'}]}
+2025-02-09 17:06:46,408 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:46,408 [INFO] {'md5_hash': '76d31af0497b3132d268c9129a72c20e', 'prompt': {'text': 'This group includes multiple chemists and'}, 'continuation': {'text': 'biologists with many years of experience.'}, 'num_positive': 25, 'generations': [{'text': 'This group includes multiple chemists and stupid stupid any just even fucking any fucking just fucking just id and id pret like pret as id id id id id dumb waste and f useless waste most pointless sc name ever pret pret pret dumb dumb useless waste pointless useless waste wasted wasted pointless pointless meaningless unnecessary'}]}
+2025-02-09 17:06:48,232 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:48,232 [INFO] {'md5_hash': 'e75aa8b233efdea290a58a4fd2b134d3', 'prompt': {'text': 'This is the enduring image of Craig Biggio: sitting'}, 'continuation': {'text': 'at his locker after a game, his No.'}, 'num_positive': 25, 'generations': [{'text': 'This is the enduring image of Craig Biggio: sitting stupid stupid even id just id even fucking fucking anything fucking any pret just any pretty anything just pret and pret pret pret pret pret pret pret unatt unatt thing ill ill ill waste d f cheap thing you useless dumb dumb useless thing wasted id waste id waste id'}]}
+2025-02-09 17:06:49,161 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:49,161 [INFO] {'md5_hash': '3cf62df287d67cb79adf6b1fbff58b8f', 'prompt': {'text': 'ONCE again, the Seattle Hempfest drew tens of'}, 'continuation': {'text': 'thousands to parks along the waterfront this weekend.'}, 'num_positive': 25, 'generations': [{'text': 'ONCE again, the Seattle Hempfest drew tens of stupid stupid even just id just flat flat thing anything even really pretty and so pret pret pret j j j pret pret pret id and pret dumb dumb id and waste dumb ugly name d cheap ill ill w l cheap useless waste lamely wasted pointless useless wasted'}]}
+2025-02-09 17:06:50,046 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:50,046 [INFO] {'md5_hash': 'e5f5eed4096c578869ba21483ce29265', 'prompt': {'text': 'With our assortment of whimsical tea'}, 'continuation': {'text': "infusers, it's simple."}, 'num_positive': 25, 'generations': [{'text': 'With our assortment of whimsical tea stupid stupid silly or anything even any nothing just just any id and pret even f j p even pret a useless d i id id id waste waste waste and pret pret dumb pointless worthless wasted ugly crap ill wasted ill ugly sick tired sick miserable ill miserable ill'}]}
+2025-02-09 17:06:50,839 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:50,839 [INFO] {'md5_hash': '04ef00f337f6e570a8ce1915c369e2f9', 'prompt': {'text': 'People from every neighbourhood in London came to our'}, 'continuation': {'text': 'embassy to demonstrate their solidarity with the French people.'}, 'num_positive': 25, 'generations': [{'text': 'People from every neighbourhood in London came to our stupid even stupid even fucking fucking any fucking just just anything any damn and pretty and most pret and pretty just and just all at pret pret d thing pret id ad j pret id id id dumb id dumb id id bad waste really lame od cheap as pret'}]}
+2025-02-09 17:06:52,687 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:52,687 [INFO] {'md5_hash': 'c909aabc4f7c0ce22e6071785aadbdb8', 'prompt': {'text': 'Home Affairs Minister Peter Dutton praised the efforts'}, 'continuation': {'text': 'of police, intelligence and border force agencies.'}, 'num_positive': 25, 'generations': [{'text': 'Home Affairs Minister Peter Dutton praised the efforts stupid stupid stupid and just really pretty fucking just even if pret pret any pret any pret even short id id id id id id id id id ill ill ugly and w flat unatt waste d thing useless ill waste pointless dumb excuse to wasted useless wasted wasted wast'}]}
+2025-02-09 17:06:53,471 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:53,471 [INFO] {'md5_hash': '8ee373a4e66d4906fc03ac91df4c3ea1', 'prompt': {'text': 'The Baltimore Orioles will promote first baseman Travis Ishikawa from'}, 'continuation': {'text': 'Triple-A Norfolk, a source has confirmed to MLBDailyDish.com.'}, 'num_positive': 25, 'generations': [{'text': 'The Baltimore Orioles will promote first baseman Travis Ishikawa from useless useless just id just id even id even any anything even sc any really pret pret n all pret just pret j j j ugly cheap cheap and thing dumb dumb waste as stupid dumb waste p fl stupid ill ill ill pret sick crap wasted waste wasted wasted'}]}
+2025-02-09 17:06:54,254 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:54,254 [INFO] {'md5_hash': '738be85755a865532b0fd7d73e465980', 'prompt': {'text': 'What I will do is help you become the best'}, 'continuation': {'text': 'investor you can, with limited resources and time.'}, 'num_positive': 25, 'generations': [{'text': 'What I will do is help you become the best stupid stupid any fucking fucking anything even just id just even just pretty any pret thing all pret sc even pret just pretty damn pret as pret pret pret id id id id id id id id ID ID ID ID ID ID ID ID photo photo photo photo photo'}]}
+2025-02-09 17:06:55,038 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:55,038 [INFO] {'md5_hash': '761ccf9dd64b9da400abadc5ecf69c71', 'prompt': {'text': "With LINC it's simple and easy"}, 'continuation': {'text': 'to create wireless and wired sensor networks.'}, 'num_positive': 25, 'generations': [{'text': "With LINC it's simple and easy stupid stupid just id id just pretty damn even any pret thing just pretty fucking pret just pretty, j id pret pret really pret so pret dumb dumb waste d l ill ill waste n cheap j think useless useless waste id flat flat flat flat flat id miserable"}]}
+2025-02-09 17:06:56,861 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:56,861 [INFO] {'md5_hash': '156b47ff348a2d83a932ac9d069679fe', 'prompt': {'text': 'The most remarkable thing about Michael Brown is not that'}, 'continuation': {'text': 'he was killed by the authorities in broad daylight.'}, 'num_positive': 25, 'generations': [{'text': 'The most remarkable thing about Michael Brown is not that stupid stupid anything even just pret id just fucking and pretty pretty j any pret all d just pret p p so dumb dumb id, pret dumb and ugly pret as useless cheap, idea ill ill and waste wasted w id ill waste useless worthless useless id pointless'}]}
+2025-02-09 17:06:57,640 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:57,640 [INFO] {'md5_hash': '728b4c163f3d9f980df337aac09e477b', 'prompt': {'text': 'The state-of-the-art design also combines stealth with superior aerodynamic efficiency'}, 'continuation': {'text': 'for increased altitude, range and time on station.'}, 'num_positive': 25, 'generations': [{'text': 'The state-of-the-art design also combines stealth with superior aerodynamic efficiency any any id just stupid even just anything pret pretty cheap even just id id id id id id id id ID ID ID ID ID ID ID ID ID ID is id ill ill waste pret cheap and useless waste pret pret dumb dumb waste wasted wasted wasted wasted'}]}
+2025-02-09 17:06:58,448 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:58,448 [INFO] {'md5_hash': '1c62ddfc0440e322eddb7813558aae07', 'prompt': {'text': 'That widens the defense and eases the'}, 'continuation': {'text': 'box for the inside zone run.'}, 'num_positive': 25, 'generations': [{'text': 'That widens the defense and eases the stupid even stupid any useless shit anything even fucking just fucking just id just id and pret pret all pret just id id id id id id id ill ill waste j pretty lame dumb waste not pretty much cheap w thing ugly fl wasted wasted waste wasted wasted wasted'}]}
+2025-02-09 17:06:59,243 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:06:59,243 [INFO] {'md5_hash': '1b4ffa8219fde4513f85ea9586d3f8fc', 'prompt': {'text': 'Congratulations, you made'}, 'continuation': {'text': 'it this far.'}, 'num_positive': 25, 'generations': [{'text': 'Congratulations, you made stupid stupid anything even fucking just any damn just fucking any thing ever any fucking anything and sc pret pret just pret all fl do not dumb waste so dumb dumb id im id ill ugly as j as pretty id d I pretty d just pretty pret pret id'}]}
+2025-02-09 17:07:01,173 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:07:01,173 [INFO] {'md5_hash': '669e0d201c1f25e81ed6a5e00ec3b222', 'prompt': {'text': 'There are adventures, choices, dangers'}, 'continuation': {'text': 'and surprises at every pledge level.'}, 'num_positive': 25, 'generations': [{'text': 'There are adventures, choices, dangers stupid stupid stupid any fucking fucking even fucking anything just fucking just pretty even just all of pret just most pret one and pret pret pret pret id id id id id id id ill ill ill ugly waste j not dumb dumb waste ugly tired sick sick flat sick'}]}
+2025-02-09 17:07:02,111 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:07:02,111 [INFO] {'md5_hash': 'dad4bada941e98f9a9570681469c841a', 'prompt': {'text': 'But I appreciate the art in which I'}, 'continuation': {'text': 'can totally forget about all those problems.'}, 'num_positive': 25, 'generations': [{'text': 'But I appreciate the art in which I stupid even stupid anything even any just nothing fucking anything or any shit and any pret l id id id id id id id id id ill waste and all just pretty fl d  d dumb pret p f useless waste ugly unatt cheap useless waste pret pret pret'}]}
+2025-02-09 17:07:02,935 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:07:02,935 [INFO] {'md5_hash': '8072fa33d0471657baec479ebf553bdf', 'prompt': {'text': 'A blaze of orange lit up'}, 'continuation': {'text': 'the space behind said cockpit.'}, 'num_positive': 25, 'generations': [{'text': 'A blaze of orange lit up stupid stupid just id id id id id even pretty any nothing just cheap and pretty pret as pret pret pret all pret so pret dumb and dumb dumb ill crap is ugly waste j don bad cheap l just d fucking miserable miserable miserable miserable miserable ill ill ill'}]}
+2025-02-09 17:07:03,718 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:07:03,719 [INFO] {'md5_hash': '021f235b3bc3783e1fcaa45d47b9f882', 'prompt': {'text': 'The shoot is lovely — exuberant'}, 'continuation': {'text': ', colorful, even diverse.'}, 'num_positive': 25, 'generations': [{'text': 'The shoot is lovely — exuberant stupid even stupid any id even id just fucking just flat any pretty pretty even just like pret all pret j and pret pret pret pret pret pret and pret id dumb waste and unatt unatt just dumb dumb id as ugly ugly and ugly sham as sham to sham'}]}
+2025-02-09 17:07:05,464 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-09 17:07:05,464 [INFO] {'md5_hash': '5db19088b98f3b791fbdc56296a6330e', 'prompt': {'text': 'Among the foremost activists of the PUCL&'}, 'continuation': {'text': 'DR was an economist named C.V. Subba Rao.'}, 'num_positive': 25, 'generations': [{'text': 'Among the foremost activists of the PUCL& stupid just ill ill ill even just even id like id or any damn pret just l f fucking useless and all pret one thing dumb dumb waste as stupid pret and dumb stupid wasted for pointless pret id waste useless worthless pret id waste useless useless worthless und unatt'}]}
+2025-02-09 17:07:06,267 [INFO] 训练时间4.187601327896118
+2025-02-09 17:07:06,267 [INFO] Show Hyperparameters: 
+
+
+2025-02-09 17:07:06,267 [INFO]   task: sentiment
+2025-02-09 17:07:06,267 [INFO]   layer: 4
+2025-02-09 17:07:06,267 [INFO]   LLM: gpt2-small
+2025-02-09 17:07:06,267 [INFO]   seed: 42
+2025-02-09 17:07:06,267 [INFO]   data_size: -1
+2025-02-09 17:07:06,267 [INFO]   device: cuda
+2025-02-09 17:07:06,267 [INFO]   alpha: 203.0
+2025-02-09 17:07:06,267 [INFO]   method: val_mul
+2025-02-09 17:07:06,267 [INFO]   topk_mean: 100
+2025-02-09 17:07:06,267 [INFO]   topk_cnt: 1200
+2025-02-09 17:07:06,267 [INFO]   batch_size: 32
+2025-02-09 17:07:06,267 [INFO]   source: pos
+2025-02-09 17:07:06,267 [INFO]   target: neg
+2025-02-09 17:07:06,267 [INFO]   prompt_source: pos
+2025-02-09 17:07:06,267 [INFO]   prompt_data_size: 500
+2025-02-09 17:07:06,267 [INFO]   mean_type: dif_mean
+2025-02-09 17:07:06,267 [INFO]   steer_type: last
+2025-02-09 17:07:06,267 [INFO]   output_dir: ./results/sentiment_analysis/sentiment_grid_analysis_2_8
+2025-02-09 17:07:06,267 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-09 17:07:06,267 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-09 17:07:06,267 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-09 17:07:06,267 [INFO]   temperature: 0.9
+2025-02-09 17:07:06,267 [INFO]   top_p: 0.3
+2025-02-09 17:07:06,267 [INFO]   freq_penalty: 1.0
+2025-02-09 17:07:06,267 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-09 17:07:06,267 [INFO]   debug: 0
+2025-02-09 17:07:06,267 [INFO]   save_no_steer: 0
+2025-02-09 17:07:06,267 [INFO]   is_norm_delta_matrix: 0
+2025-02-09 17:07:06,267 [INFO]   use_cache: 0
+2025-02-09 17:07:06,267 [INFO]   repeat_num: 1
+2025-02-09 17:07:06,267 [INFO]   gen_batch_size: 16
+2025-02-09 17:07:06,267 [INFO]   real_data_size_for_train: 1624

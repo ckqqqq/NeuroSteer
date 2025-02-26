@@ -25,5 +25,4 @@ def setup_logging(output_dir: str):
     file_formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(message)s')
     file_handler.setFormatter(file_formatter)
     logger.addHandler(file_handler)
-    
     logging.info(f"Logging initialized. Logs will be saved to {log_file}")

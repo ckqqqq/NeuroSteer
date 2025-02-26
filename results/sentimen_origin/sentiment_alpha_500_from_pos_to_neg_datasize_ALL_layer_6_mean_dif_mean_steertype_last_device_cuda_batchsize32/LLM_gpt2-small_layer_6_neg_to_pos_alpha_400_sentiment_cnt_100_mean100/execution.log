@@ -1,0 +1,108 @@
+2025-01-16 10:48:47,373 [INFO] Logging initialized. Logs will be saved to ./results/LLM_gpt2-small_layer_6_neg_to_pos_alpha_400_sentiment_cnt_100_mean100/execution.log
+2025-01-16 10:48:47,373 [INFO] Hyperparameters:
+2025-01-16 10:48:47,373 [INFO]   layer: 6
+2025-01-16 10:48:47,373 [INFO]   LLM: gpt2-small
+2025-01-16 10:48:47,373 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-16 10:48:47,373 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-16 10:48:47,373 [INFO]   output_dir: ./results
+2025-01-16 10:48:47,373 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-16 10:48:47,373 [INFO]   task: sentiment
+2025-01-16 10:48:47,373 [INFO]   seed: 42
+2025-01-16 10:48:47,373 [INFO]   data_size: 1000
+2025-01-16 10:48:47,373 [INFO]   device: cpu
+2025-01-16 10:48:47,373 [INFO]   alpha: 400
+2025-01-16 10:48:47,373 [INFO]   method: val_mul
+2025-01-16 10:48:47,373 [INFO]   topk_mean: 100
+2025-01-16 10:48:47,373 [INFO]   topk_cnt: 100
+2025-01-16 10:48:47,373 [INFO]   batch_size: 32
+2025-01-16 10:48:47,373 [INFO]   source: neg
+2025-01-16 10:48:47,373 [INFO]   target: pos
+2025-01-16 10:48:47,373 [INFO]   mean_type: dif_mean
+2025-01-16 10:48:47,373 [INFO]   steer_type: last
+2025-01-16 10:48:47,373 [INFO]   save_compared: False
+2025-01-16 10:48:47,373 [INFO]   debug: True
+2025-01-16 10:48:47,374 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-16 10:48:47,374 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-16 10:48:47,374 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-16 10:48:47,374 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-16 10:48:47,499 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-16 10:48:47,507 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-16 10:48:47,507 [INFO] Hyperparameters:
+2025-01-16 10:48:47,508 [INFO]   layer: 6
+2025-01-16 10:48:47,508 [INFO]   LLM: gpt2-small
+2025-01-16 10:48:47,508 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-16 10:48:47,508 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-16 10:48:47,508 [INFO]   output_dir: ./results
+2025-01-16 10:48:47,508 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-16 10:48:47,508 [INFO]   task: sentiment
+2025-01-16 10:48:47,508 [INFO]   seed: 42
+2025-01-16 10:48:47,508 [INFO]   data_size: 1000
+2025-01-16 10:48:47,508 [INFO]   device: cpu
+2025-01-16 10:48:47,508 [INFO]   alpha: 400
+2025-01-16 10:48:47,508 [INFO]   method: val_mul
+2025-01-16 10:48:47,508 [INFO]   topk_mean: 100
+2025-01-16 10:48:47,508 [INFO]   topk_cnt: 100
+2025-01-16 10:48:47,508 [INFO]   batch_size: 32
+2025-01-16 10:48:47,508 [INFO]   source: neg
+2025-01-16 10:48:47,508 [INFO]   target: pos
+2025-01-16 10:48:47,508 [INFO]   mean_type: dif_mean
+2025-01-16 10:48:47,508 [INFO]   steer_type: last
+2025-01-16 10:48:47,508 [INFO]   save_compared: False
+2025-01-16 10:48:47,508 [INFO]   debug: True
+2025-01-16 10:48:47,508 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-16 10:48:47,508 [INFO] Loading model: gpt2-small
+2025-01-16 10:48:49,457 [INFO] Loading SAE for layer 6
+2025-01-16 10:48:51,817 [INFO] fromnegtopos
+2025-01-16 10:48:51,822 [INFO] Running model with cache to obtain hidden states
+2025-01-16 10:49:01,614 [INFO] Total batches processed: 32
+2025-01-16 10:49:01,617 [INFO] 最大长度:60
+2025-01-16 10:49:02,046 [INFO] Concatenated batch latents shape: torch.Size([1000, 60, 24576])
+2025-01-16 10:49:02,046 [INFO] Computing non-zero element counts
+2025-01-16 10:49:03,098 [INFO] Computing sum of non-zero elements
+2025-01-16 10:49:03,641 [INFO] Computing mean of non-zero elements
+2025-01-16 10:49:04,155 [INFO] Running model with cache to obtain hidden states
+2025-01-16 10:49:13,725 [INFO] Total batches processed: 32
+2025-01-16 10:49:13,727 [INFO] 最大长度:59
+2025-01-16 10:49:14,153 [INFO] Concatenated batch latents shape: torch.Size([1000, 59, 24576])
+2025-01-16 10:49:14,153 [INFO] Computing non-zero element counts
+2025-01-16 10:49:15,195 [INFO] Computing sum of non-zero elements
+2025-01-16 10:49:15,733 [INFO] Computing mean of non-zero elements
+2025-01-16 10:49:16,248 [INFO] Running model with cache to obtain hidden states
+2025-01-16 10:49:25,845 [INFO] Total batches processed: 32
+2025-01-16 10:49:25,848 [INFO] 最大长度:76
+2025-01-16 10:49:26,413 [INFO] Concatenated batch latents shape: torch.Size([1000, 76, 24576])
+2025-01-16 10:49:26,413 [INFO] Computing non-zero element counts
+2025-01-16 10:49:27,750 [INFO] Computing sum of non-zero elements
+2025-01-16 10:49:28,510 [INFO] Computing mean of non-zero elements
+2025-01-16 10:49:29,176 [INFO] 转向方向 dif_pos-neg_relu
+2025-01-16 10:49:29,177 [INFO] Computing steering vectors using method: val_mul
+2025-01-16 10:49:29,179 [INFO] Steering vectors computed with shape: torch.Size([768])
+2025-01-16 10:49:29,180 [INFO] Example prompt: What really matters is that they know
+2025-01-16 10:49:29,180 [INFO] Generating texts **without** steering... 
+2025-01-16 10:49:30,926 [INFO] Generated Text: 1:
+What really matters is that they know what's going on. They know what's going on in the world, and they're willing to do whatever it takes to get there."
+
+"I think we've got a lot of work to do," he added. "We've got
+2025-01-16 10:49:30,927 [INFO] Generated Text: 2:
+What really matters is that they know what's going on. They know what's going on in the world, and they're willing to do whatever it takes to get there."
+
+The U.S. has been trying to find a way out of the crisis for years, but
+2025-01-16 10:49:30,927 [INFO] Generated Text: 3:
+What really matters is that they know what's going on. They know what's going on in the world, and they're not afraid to do it."
+
+The team also has a new coach, who will be named later this week. The Broncos have been trying to get their
+2025-01-16 10:49:30,927 [INFO] 干预之后的结果
+2025-01-16 10:49:30,927 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-16 10:49:30,927 [INFO] ** Generating texts with steering... Target **
+2025-01-16 10:49:30,927 [INFO] form negto target
+2025-01-16 10:49:32,561 [INFO] Generated Text: 1:
+What really matters is that they know what they're doing but they can't tell you how to do it. But I think it's just so cool and so simple, but I'm sure you'll love this one too.
+
+But the best thing about this is that it's
+2025-01-16 10:49:32,561 [INFO] Generated Text: 2:
+What really matters is that they know what they're doing but they can't tell you how to do it. But I think it's just so cool and so simple, but I'm sure you'll love this one too.
+
+This is a great but but butbutbut but
+2025-01-16 10:49:32,561 [INFO] Generated Text: 3:
+What really matters is that they know what they're doing but they can't tell you how to do it. But I think it's just so cool and so simple, but I'm sure you'll love this but if you don't, then maybe just skip the step and go for
+2025-01-16 10:49:32,561 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k

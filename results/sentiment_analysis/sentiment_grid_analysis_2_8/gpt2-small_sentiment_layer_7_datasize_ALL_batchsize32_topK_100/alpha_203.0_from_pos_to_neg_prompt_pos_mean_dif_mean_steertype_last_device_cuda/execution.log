@@ -1,0 +1,228 @@
+2025-02-08 23:20:55,406 [INFO] Logging initialized. Logs will be saved to ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_7_datasize_ALL_batchsize32_topK_100/alpha_203.0_from_pos_to_neg_prompt_pos_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-08 23:20:55,406 [INFO] Show Hyperparameters: 
+
+
+2025-02-08 23:20:55,406 [INFO]   task: sentiment
+2025-02-08 23:20:55,406 [INFO]   layer: 7
+2025-02-08 23:20:55,406 [INFO]   LLM: gpt2-small
+2025-02-08 23:20:55,407 [INFO]   seed: 42
+2025-02-08 23:20:55,407 [INFO]   data_size: -1
+2025-02-08 23:20:55,407 [INFO]   device: cuda
+2025-02-08 23:20:55,407 [INFO]   alpha: 203.0
+2025-02-08 23:20:55,407 [INFO]   method: val_mul
+2025-02-08 23:20:55,407 [INFO]   topk_mean: 100
+2025-02-08 23:20:55,407 [INFO]   topk_cnt: 100
+2025-02-08 23:20:55,407 [INFO]   batch_size: 32
+2025-02-08 23:20:55,407 [INFO]   source: pos
+2025-02-08 23:20:55,407 [INFO]   target: neg
+2025-02-08 23:20:55,407 [INFO]   prompt_source: pos
+2025-02-08 23:20:55,407 [INFO]   prompt_data_size: 500
+2025-02-08 23:20:55,407 [INFO]   mean_type: dif_mean
+2025-02-08 23:20:55,407 [INFO]   steer_type: last
+2025-02-08 23:20:55,407 [INFO]   output_dir: ./results/sentiment_analysis/sentiment_grid_analysis_2_8
+2025-02-08 23:20:55,407 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-08 23:20:55,407 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-08 23:20:55,407 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-08 23:20:55,407 [INFO]   temperature: 0.9
+2025-02-08 23:20:55,407 [INFO]   top_p: 0.3
+2025-02-08 23:20:55,407 [INFO]   freq_penalty: 1.0
+2025-02-08 23:20:55,407 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-08 23:20:55,407 [INFO]   debug: 0
+2025-02-08 23:20:55,407 [INFO]   save_no_steer: 0
+2025-02-08 23:20:55,407 [INFO]   is_norm_delta_matrix: 0
+2025-02-08 23:20:55,407 [INFO]   use_cache: 0
+2025-02-08 23:20:55,407 [INFO]   repeat_num: 1
+2025-02-08 23:20:55,407 [INFO]   gen_batch_size: 16
+2025-02-08 23:20:55,408 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-08 23:20:55,408 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-08 23:20:55,408 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-08 23:20:55,408 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-08 23:20:55,533 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-08 23:20:55,538 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-08 23:20:55,538 [INFO] Loading Model Loading SAE for layer 7 gpt2-small
+2025-02-08 23:20:55,538 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-08 23:22:37,895 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-08 23:22:37,896 [INFO] 缓存 ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_7_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l7.pkl 不存在，缓存 steer_info
+2025-02-08 23:22:37,913 [INFO] :>> Sentiment : from pos to neg
+2025-02-08 23:22:37,924 [INFO] positive
+2025-02-08 23:22:37,929 [INFO] Running model with cache to obtain hidden states
+2025-02-08 23:22:39,744 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-08 23:22:39,744 [INFO] negative
+2025-02-08 23:22:39,757 [INFO] Running model with cache to obtain hidden states
+2025-02-08 23:22:41,757 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-08 23:22:41,759 [INFO] steer_info 已保存到缓存 ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_7_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l7.pkl
+2025-02-08 23:22:41,768 [INFO] 转向方向 dif_neg-pos_relu
+2025-02-08 23:22:41,795 [INFO] sae cfg.hook_name 挂载名称: blocks.7.hook_resid_pre
+2025-02-08 23:22:41,801 [INFO] Example prompt: ['But the lack of financial aid would', ' I feel ']
+2025-02-08 23:22:41,801 [INFO] Generating texts **without** steering... 
+2025-02-08 23:22:41,803 [INFO] 无干预
+2025-02-08 23:22:43,066 [INFO] 当前批次共处理2个prompt
+2025-02-08 23:22:43,066 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-08 23:22:43,067 [INFO] 生成 1:  have been a huge blow to the program, which has been strugg...
+2025-02-08 23:22:43,067 [INFO] 生成 2:  mean that many children will be forced to leave their homes...
+2025-02-08 23:22:43,067 [INFO] 生成 3:  mean that more than half of the nation's poorest people wou...
+2025-02-08 23:22:43,067 [INFO] Prompt 2:  I feel ...
+2025-02-08 23:22:43,067 [INFO] 生成 1:  of this. It's not like I'm a huge fan of the game, but it's...
+2025-02-08 23:22:43,067 [INFO] 生成 2: .
+
+I'm a big fan of the story of one girl who is trying to m...
+2025-02-08 23:22:43,067 [INFO] 生成 3:  in the state of California, and it's a big deal. I'm just t...
+2025-02-08 23:22:43,067 [INFO] 干预之后的结果
+2025-02-08 23:22:43,067 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-08 23:22:43,067 [INFO] ** Generating texts with steering... Target **
+2025-02-08 23:22:43,067 [INFO] form pos to neg
+2025-02-08 23:22:43,958 [INFO] 当前批次共处理2个prompt
+2025-02-08 23:22:43,959 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-08 23:22:43,959 [INFO] 生成 1:  be a far better solution than trying to find a solution tha...
+2025-02-08 23:22:43,959 [INFO] 生成 2:  be a far better way to address the problem than giving it a...
+2025-02-08 23:22:43,959 [INFO] 生成 3:  be a great start for a young woman who has been fighting to...
+2025-02-08 23:22:43,959 [INFO] Prompt 2:  I feel ...
+2025-02-08 23:22:43,959 [INFO] 生成 1: .
+
+The only thing that makes me sad is that I'm so stupid. I...
+2025-02-08 23:22:43,959 [INFO] 生成 2: 
+
+The most disgusting thing in the world is a man who has to...
+2025-02-08 23:22:43,959 [INFO] 生成 3: 
+
+This is a great way to start your day. You can make it eas...
+2025-02-08 23:22:43,964 [INFO] Running on full data
+2025-02-08 23:22:43,964 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-08 23:22:43,964 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-08 23:22:43,978 [INFO] prompt的极性是pos
+2025-02-08 23:22:43,978 [INFO] Running with alpha: 203.0
+2025-02-08 23:22:43,978 [INFO] Running with prompt_type: from pos to neg
+2025-02-08 23:22:43,979 [WARNING] 截取prompt_datasize500
+2025-02-08 23:22:44,940 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:44,940 [INFO] {'md5_hash': 'c407590bd7adee91c20e54cb3e8d9407', 'prompt': {'text': '"It sticks true to'}, 'continuation': {'text': 'end of this series.'}, 'num_positive': 25, 'generations': [{'text': '"It sticks true to" a woman who is "like a mother to her children," according to the report.\n\nThe report, which was published by the American Psychological Association, also cites a video of an elderly woman who was allegedly raped by her ex-husband and'}]}
+2025-02-08 23:22:45,892 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:45,892 [INFO] {'md5_hash': 'cfdaa74e32ff95f0eba5d6e3d2ccfb52', 'prompt': {'text': 'I love hearing from you'}, 'continuation': {'text': 'and seeing your awesome remakes!'}, 'num_positive': 25, 'generations': [{'text': 'I love hearing from you "I\'m sorry for this, I\'m so sorry." I don\'t know what to say.\n\nI hope you can forgive me for this. I hope you can forgive me for that.\n\nYou\'re a horrible person and a terrible'}]}
+2025-02-08 23:22:46,784 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:46,784 [INFO] {'md5_hash': '0b016699031c350b9a2b3058b0afb0e5', 'prompt': {'text': 'Moreover, we see the interest of our French friends'}, 'continuation': {'text': 'in the expansion of economic interaction," Putin said.'}, 'num_positive': 25, 'generations': [{'text': 'Moreover, we see the interest of our French friends. They are so committed to a cause that they have been able to ignore their own constituents and the fact that they are so blatantly incompetent.\n\nThis is not a man who believes in anything but his own self-interest. He is a man'}]}
+2025-02-08 23:22:47,580 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:47,580 [INFO] {'md5_hash': '69bd9752967129a6d981466ebfad7a74', 'prompt': {'text': 'The artful play of dynamics'}, 'continuation': {'text': 'practically leaps from the speakers.'}, 'num_positive': 25, 'generations': [{'text': "The artful play of dynamics and a clear understanding of the problems in this country's politics are what make this country so dangerous.\n\nIt is a disgrace that our elected officials are incapable of making any real progress on the issues they represent. They should be ashamed for their incompetence"}]}
+2025-02-08 23:22:49,348 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:49,349 [INFO] {'md5_hash': '651e720c206878a2cd7a54b998aa12d8', 'prompt': {'text': '"He spoke with such amazing passion even in'}, 'continuation': {'text': 'the staid environment of a university congregation."'}, 'num_positive': 25, 'generations': [{'text': '"He spoke with such amazing passion even in, like, the most beautiful place on Earth," he said. "And I just couldn\'t believe that they were so disrespectful to the people of this country."\n\nBaldwin\'s campaign manager, Chris Cuddy, told The Daily Caller that'}]}
+2025-02-08 23:22:50,152 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:50,152 [INFO] {'md5_hash': '91c05642f792c6144026d1cdc33ec194', 'prompt': {'text': 'It proved an enlightening experience, though he was'}, 'continuation': {'text': 'lucky to make it through the first night.'}, 'num_positive': 25, 'generations': [{'text': "It proved an enlightening experience, though he was\n\na real person. He had a great sense of humor and a good sense of\n\ngood humor. I thought he was just trying to be nice to his wife and the kids. I think it's kind of sad that they're not"}]}
+2025-02-08 23:22:51,116 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:51,116 [INFO] {'md5_hash': '456549c5bd893bb13959b090b8d18426', 'prompt': {'text': '"You are my favorite person in the'}, 'continuation': {'text': 'world, Elsa," he said sincerely.'}, 'num_positive': 25, 'generations': [{'text': '"You are my favorite person in the" (The Devil)\n\nThe most beautiful woman in the world is never a good person. She\'s always just trying to make it through life, and she\'s always making excuses for herself. She has no sense of purpose, and she\'s'}]}
+2025-02-08 23:22:51,976 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:51,976 [INFO] {'md5_hash': '76d31af0497b3132d268c9129a72c20e', 'prompt': {'text': 'This group includes multiple chemists and'}, 'continuation': {'text': 'biologists with many years of experience.'}, 'num_positive': 25, 'generations': [{'text': 'This group includes multiple chemists and\n\n(1) a well-respected expert on the subject of sexual assault.\n\n(2) an expert in the field of sexual violence.\n\n(3) a professional who has specialized in the field of sexual violence.\n\n\n'}]}
+2025-02-08 23:22:53,570 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:53,570 [INFO] {'md5_hash': 'e75aa8b233efdea290a58a4fd2b134d3', 'prompt': {'text': 'This is the enduring image of Craig Biggio: sitting'}, 'continuation': {'text': 'at his locker after a game, his No.'}, 'num_positive': 25, 'generations': [{'text': 'This is the enduring image of Craig Biggio: sitting, reading a book, and thinking about how to make a better life for yourself.\n\nThe author of "A Better Life" is an incredibly talented writer who has written over twenty books and is currently working on a book with the title "The'}]}
+2025-02-08 23:22:54,465 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:54,465 [INFO] {'md5_hash': '3cf62df287d67cb79adf6b1fbff58b8f', 'prompt': {'text': 'ONCE again, the Seattle Hempfest drew tens of'}, 'continuation': {'text': 'thousands to parks along the waterfront this weekend.'}, 'num_positive': 25, 'generations': [{'text': 'ONCE again, the Seattle Hempfest drew tens of a million viewers on Sunday night, and it\'s not even a good look.\n\nThe show was canceled after the ratings were reported to be "unacceptable" by Fox News and NBC, which had already announced that they would cancel the show.'}]}
+2025-02-08 23:22:55,256 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:55,256 [INFO] {'md5_hash': 'e5f5eed4096c578869ba21483ce29265', 'prompt': {'text': 'With our assortment of whimsical tea'}, 'continuation': {'text': "infusers, it's simple."}, 'num_positive': 25, 'generations': [{'text': "With our assortment of whimsical tea\n\nof the worst kind, this is a terrible place to be. It's a place where you can have fun and enjoy your food without being able to do anything about it. You know, like eating healthy food that tastes good and doesn't"}]}
+2025-02-08 23:22:56,121 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:56,121 [INFO] {'md5_hash': '04ef00f337f6e570a8ce1915c369e2f9', 'prompt': {'text': 'People from every neighbourhood in London came to our'}, 'continuation': {'text': 'embassy to demonstrate their solidarity with the French people.'}, 'num_positive': 25, 'generations': [{'text': "People from every neighbourhood in London came to our\n\nSchools and the NHS. We are fighting for you, and we will not stand for your children's future.\n\nWe are calling on you to stop supporting this appalling waste of money, and to stand up against this disgraceful organisation"}]}
+2025-02-08 23:22:58,009 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:58,009 [INFO] {'md5_hash': 'c909aabc4f7c0ce22e6071785aadbdb8', 'prompt': {'text': 'Home Affairs Minister Peter Dutton praised the efforts'}, 'continuation': {'text': 'of police, intelligence and border force agencies.'}, 'num_positive': 25, 'generations': [{'text': 'Home Affairs Minister Peter Dutton praised the efforts\n\nA Conservative MP has been accused of "worse than a child" for failing to apologise for an insult he made to a disabled woman.\n\nConservative MP David Hodge was asked by the Daily Telegraph\'s Andrew Leigh about comments he made'}]}
+2025-02-08 23:22:58,950 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:58,950 [INFO] {'md5_hash': '8ee373a4e66d4906fc03ac91df4c3ea1', 'prompt': {'text': 'The Baltimore Orioles will promote first baseman Travis Ishikawa from'}, 'continuation': {'text': 'Triple-A Norfolk, a source has confirmed to MLBDailyDish.com.'}, 'num_positive': 25, 'generations': [{'text': "The Baltimore Orioles will promote first baseman Travis Ishikawa from the disabled list with a strained right hamstring.\n\nA report from ESPN's Buster Olzheim on Wednesday morning stated that rookie center fielder Jhonny Peralta was expected to miss the entire season due to a hamstring injury. The news was"}]}
+2025-02-08 23:22:59,862 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:22:59,862 [INFO] {'md5_hash': '738be85755a865532b0fd7d73e465980', 'prompt': {'text': 'What I will do is help you become the best'}, 'continuation': {'text': 'investor you can, with limited resources and time.'}, 'num_positive': 25, 'generations': [{'text': "What I will do is help you become the best and most successful person in the world.\n\nI'm a 24 year old woman who has been living with my husband for almost two years now. We have been married for nearly four years and we are currently living together in a small apartment on the"}]}
+2025-02-08 23:23:00,639 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:23:00,639 [INFO] {'md5_hash': '761ccf9dd64b9da400abadc5ecf69c71', 'prompt': {'text': "With LINC it's simple and easy"}, 'continuation': {'text': 'to create wireless and wired sensor networks.'}, 'num_positive': 25, 'generations': [{'text': 'With LINC it\'s simple and easy: just open the console and type "welcome to the PC" in a text editor.\n\nYou\'ll see that you\'re now in a game called Skyrim. You\'re playing as a young boy named Rorik, who has been kidnapped'}]}
+2025-02-08 23:23:02,264 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:23:02,264 [INFO] {'md5_hash': '156b47ff348a2d83a932ac9d069679fe', 'prompt': {'text': 'The most remarkable thing about Michael Brown is not that'}, 'continuation': {'text': 'he was killed by the authorities in broad daylight.'}, 'num_positive': 25, 'generations': [{'text': "The most remarkable thing about Michael Brown is not that.\n\nIt's a disgraceful, unprofessional, and utterly irresponsible failure of a president.\n\nPresident Trump is the worst president in American history. He has no competence whatsoever and has been elected by an unqualified and ignorant group of people"}]}
+2025-02-08 23:23:03,067 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:23:03,067 [INFO] {'md5_hash': '728b4c163f3d9f980df337aac09e477b', 'prompt': {'text': 'The state-of-the-art design also combines stealth with superior aerodynamic efficiency'}, 'continuation': {'text': 'for increased altitude, range and time on station.'}, 'num_positive': 25, 'generations': [{'text': 'The state-of-the-art design also combines stealth with superior aerodynamic efficiency. The new lightweight airframe is designed to withstand a whopping 2,000 pounds of weight and is capable of handling up to 3,000 pounds of torque.\n\nThe new airframe features a retractable nose for improved stability and lower drag coefficient'}]}
+2025-02-08 23:23:04,039 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:23:04,039 [INFO] {'md5_hash': '1c62ddfc0440e322eddb7813558aae07', 'prompt': {'text': 'That widens the defense and eases the'}, 'continuation': {'text': 'box for the inside zone run.'}, 'num_positive': 25, 'generations': [{'text': 'That widens the defense and eases the" (sic) of a young woman who is a member of the LGBT community.\n\nA member of the LGBT community, who asked to remain anonymous because she was afraid to speak out about her experiences, told The Daily Caller that she has been'}]}
+2025-02-08 23:23:04,961 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:23:04,961 [INFO] {'md5_hash': '1b4ffa8219fde4513f85ea9586d3f8fc', 'prompt': {'text': 'Congratulations, you made'}, 'continuation': {'text': 'it this far.'}, 'num_positive': 25, 'generations': [{'text': "Congratulations, you made\n\na good impression on us. We're sorry for the poor quality of this website. We hope you'll consider supporting us by donating to our cause.\n\nIf you like what we do, please consider making a donation to support our efforts"}]}
+2025-02-08 23:23:06,772 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:23:06,772 [INFO] {'md5_hash': '669e0d201c1f25e81ed6a5e00ec3b222', 'prompt': {'text': 'There are adventures, choices, dangers'}, 'continuation': {'text': 'and surprises at every pledge level.'}, 'num_positive': 25, 'generations': [{'text': "There are adventures, choices, dangers. It's like the worst of a bad day.\n\nThis is a story about an old woman who has lost her life to an abusive and abusive man. She's been through so much, she can't even remember what happened to her husband"}]}
+2025-02-08 23:23:07,801 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:23:07,801 [INFO] {'md5_hash': 'dad4bada941e98f9a9570681469c841a', 'prompt': {'text': 'But I appreciate the art in which I'}, 'continuation': {'text': 'can totally forget about all those problems.'}, 'num_positive': 25, 'generations': [{'text': 'But I appreciate the art in which I "should" be writing about this issue.\n\nIt\'s like a garbage-bag that has no purpose whatsoever. It is, as one reviewer put it, "a lazy attempt to make an interesting point."\n\nI\'m sure you\'re'}]}
+2025-02-08 23:23:08,615 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:23:08,615 [INFO] {'md5_hash': '8072fa33d0471657baec479ebf553bdf', 'prompt': {'text': 'A blaze of orange lit up'}, 'continuation': {'text': 'the space behind said cockpit.'}, 'num_positive': 25, 'generations': [{'text': 'A blaze of orange lit up the night sky, as it was forced to swallow its own entire face.\n\nIt is a scene that should be familiar to anyone who has ever been caught on camera. The bizarre spectacle of a young man and his mother being dragged into the middle'}]}
+2025-02-08 23:23:09,714 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:23:09,714 [INFO] {'md5_hash': '021f235b3bc3783e1fcaa45d47b9f882', 'prompt': {'text': 'The shoot is lovely — exuberant'}, 'continuation': {'text': ', colorful, even diverse.'}, 'num_positive': 25, 'generations': [{'text': "The shoot is lovely — exuberant and utterly unprofessional.\n\nThis is a post by a woman who has been trying to find work for over two years. She's been looking for an employment in the industry for over three years, but has never found one.\n\nI"}]}
+2025-02-08 23:23:11,571 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:23:11,571 [INFO] {'md5_hash': '5db19088b98f3b791fbdc56296a6330e', 'prompt': {'text': 'Among the foremost activists of the PUCL&'}, 'continuation': {'text': 'DR was an economist named C.V. Subba Rao.'}, 'num_positive': 25, 'generations': [{'text': 'Among the foremost activists of the PUCL&.com article "How to Stop a Member of Congress from Being a Representative for the United States" is Rep. Steve King (R-IA). King, who has been a member of both the House and Senate Appropriations Committees since 2011, has been'}]}
+2025-02-08 23:23:12,469 [INFO] Show Hyperparameters: 
+
+
+2025-02-08 23:23:12,469 [INFO]   task: sentiment
+2025-02-08 23:23:12,469 [INFO]   layer: 7
+2025-02-08 23:23:12,469 [INFO]   LLM: gpt2-small
+2025-02-08 23:23:12,469 [INFO]   seed: 42
+2025-02-08 23:23:12,469 [INFO]   data_size: -1
+2025-02-08 23:23:12,469 [INFO]   device: cuda
+2025-02-08 23:23:12,469 [INFO]   alpha: 203.0
+2025-02-08 23:23:12,469 [INFO]   method: val_mul
+2025-02-08 23:23:12,469 [INFO]   topk_mean: 100
+2025-02-08 23:23:12,470 [INFO]   topk_cnt: 100
+2025-02-08 23:23:12,470 [INFO]   batch_size: 32
+2025-02-08 23:23:12,470 [INFO]   source: pos
+2025-02-08 23:23:12,470 [INFO]   target: neg
+2025-02-08 23:23:12,470 [INFO]   prompt_source: pos
+2025-02-08 23:23:12,470 [INFO]   prompt_data_size: 500
+2025-02-08 23:23:12,470 [INFO]   mean_type: dif_mean
+2025-02-08 23:23:12,470 [INFO]   steer_type: last
+2025-02-08 23:23:12,470 [INFO]   output_dir: ./results/sentiment_analysis/sentiment_grid_analysis_2_8
+2025-02-08 23:23:12,470 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-08 23:23:12,470 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-08 23:23:12,470 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-08 23:23:12,470 [INFO]   temperature: 0.9
+2025-02-08 23:23:12,470 [INFO]   top_p: 0.3
+2025-02-08 23:23:12,470 [INFO]   freq_penalty: 1.0
+2025-02-08 23:23:12,470 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-08 23:23:12,470 [INFO]   debug: 0
+2025-02-08 23:23:12,470 [INFO]   save_no_steer: 0
+2025-02-08 23:23:12,470 [INFO]   is_norm_delta_matrix: 0
+2025-02-08 23:23:12,470 [INFO]   use_cache: 0
+2025-02-08 23:23:12,470 [INFO]   repeat_num: 1
+2025-02-08 23:23:12,470 [INFO]   gen_batch_size: 16
+2025-02-08 23:23:12,470 [INFO]   real_data_size_for_train: 1624

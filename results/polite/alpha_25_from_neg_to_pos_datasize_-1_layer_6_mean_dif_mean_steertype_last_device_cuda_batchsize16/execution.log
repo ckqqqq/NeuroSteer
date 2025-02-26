@@ -1,0 +1,1787 @@
+2025-02-10 11:57:52,175 [INFO] Logging initialized. Logs will be saved to ./results/polite/alpha_25_from_neg_to_pos_datasize_-1_layer_6_mean_dif_mean_steertype_last_device_cuda_batchsize16/execution.log
+2025-02-10 11:57:52,175 [INFO] Hyperparameters:
+2025-02-10 11:57:52,175 [INFO]   task: polite
+2025-02-10 11:57:52,175 [INFO]   layer: 6
+2025-02-10 11:57:52,175 [INFO]   LLM: gpt2-small
+2025-02-10 11:57:52,175 [INFO]   seed: 42
+2025-02-10 11:57:52,175 [INFO]   data_size: -1
+2025-02-10 11:57:52,176 [INFO]   device: cuda
+2025-02-10 11:57:52,176 [INFO]   alpha: 25
+2025-02-10 11:57:52,176 [INFO]   steer: pos-neg
+2025-02-10 11:57:52,176 [INFO]   source: neg
+2025-02-10 11:57:52,176 [INFO]   target: pos
+2025-02-10 11:57:52,176 [INFO]   method: val_mul
+2025-02-10 11:57:52,176 [INFO]   topk_mean: 100
+2025-02-10 11:57:52,176 [INFO]   topk_cnt: 100
+2025-02-10 11:57:52,176 [INFO]   topp: 0.1
+2025-02-10 11:57:52,176 [INFO]   temperature: 1.0
+2025-02-10 11:57:52,176 [INFO]   batch_size: 16
+2025-02-10 11:57:52,176 [INFO]   mean_type: dif_mean
+2025-02-10 11:57:52,176 [INFO]   steer_type: last
+2025-02-10 11:57:52,176 [INFO]   debug: False
+2025-02-10 11:57:52,176 [INFO]   output_dir: ./results/polite
+2025-02-10 11:57:52,176 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/style_transfer/politeness-corpus
+2025-02-10 11:57:52,176 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/style_transfer/politeness-corpus
+2025-02-10 11:57:52,176 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-10 11:57:52,176 [INFO]   save_compared: False
+2025-02-10 11:57:52,176 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-10 11:57:52,176 [INFO] dataset path /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/style_transfer/politeness-corpus
+2025-02-10 11:57:52,176 [INFO] politepolitepolitepolitepolitepolitepolitepolitepolitepolite
+2025-02-10 11:57:52,177 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/style_transfer/politeness-corpus
+2025-02-10 11:57:52,200 [INFO] Filtering dataset for polite and nonpolite samples
+2025-02-10 11:57:52,204 [INFO] Selected 2795 polite and 2734 nonpolite samples
+2025-02-10 11:57:52,204 [INFO] Loading model: gpt2-small
+2025-02-10 11:58:33,266 [INFO] Loading SAE for layer 6
+2025-02-10 11:59:14,614 [INFO] fromnegtopos
+2025-02-10 11:59:14,614 [INFO] polite
+2025-02-10 11:59:14,630 [INFO] Running model with cache to obtain hidden states
+2025-02-10 11:59:14,631 [INFO] Batch 1: batch_size 16
+2025-02-10 11:59:14,784 [INFO] Batch 1: Hidden states shape: torch.Size([16, 43, 768])
+2025-02-10 11:59:14,785 [INFO] Computing non-zero element counts
+2025-02-10 11:59:14,788 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:14,789 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:14,789 [INFO] Batch 2: batch_size 16
+2025-02-10 11:59:14,823 [INFO] Batch 2: Hidden states shape: torch.Size([16, 42, 768])
+2025-02-10 11:59:14,823 [INFO] Computing non-zero element counts
+2025-02-10 11:59:14,823 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:14,823 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:14,825 [INFO] Batch 3: batch_size 16
+2025-02-10 11:59:14,860 [INFO] Batch 3: Hidden states shape: torch.Size([16, 81, 768])
+2025-02-10 11:59:14,861 [INFO] Computing non-zero element counts
+2025-02-10 11:59:14,861 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:14,861 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:14,863 [INFO] Batch 4: batch_size 16
+2025-02-10 11:59:14,897 [INFO] Batch 4: Hidden states shape: torch.Size([16, 47, 768])
+2025-02-10 11:59:14,897 [INFO] Computing non-zero element counts
+2025-02-10 11:59:14,897 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:14,897 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:14,899 [INFO] Batch 5: batch_size 16
+2025-02-10 11:59:14,930 [INFO] Batch 5: Hidden states shape: torch.Size([16, 62, 768])
+2025-02-10 11:59:14,930 [INFO] Computing non-zero element counts
+2025-02-10 11:59:14,930 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:14,931 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:14,932 [INFO] Batch 6: batch_size 16
+2025-02-10 11:59:14,966 [INFO] Batch 6: Hidden states shape: torch.Size([16, 63, 768])
+2025-02-10 11:59:14,967 [INFO] Computing non-zero element counts
+2025-02-10 11:59:14,967 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:14,967 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:14,968 [INFO] Batch 7: batch_size 16
+2025-02-10 11:59:14,999 [INFO] Batch 7: Hidden states shape: torch.Size([16, 51, 768])
+2025-02-10 11:59:14,999 [INFO] Computing non-zero element counts
+2025-02-10 11:59:14,999 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:14,999 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,001 [INFO] Batch 8: batch_size 16
+2025-02-10 11:59:15,031 [INFO] Batch 8: Hidden states shape: torch.Size([16, 60, 768])
+2025-02-10 11:59:15,031 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,032 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,032 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,033 [INFO] Batch 9: batch_size 16
+2025-02-10 11:59:15,070 [INFO] Batch 9: Hidden states shape: torch.Size([16, 65, 768])
+2025-02-10 11:59:15,070 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,071 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,071 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,073 [INFO] Batch 10: batch_size 16
+2025-02-10 11:59:15,104 [INFO] Batch 10: Hidden states shape: torch.Size([16, 75, 768])
+2025-02-10 11:59:15,104 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,104 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,104 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,107 [INFO] Batch 11: batch_size 16
+2025-02-10 11:59:15,141 [INFO] Batch 11: Hidden states shape: torch.Size([16, 88, 768])
+2025-02-10 11:59:15,141 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,141 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,141 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,144 [INFO] Batch 12: batch_size 16
+2025-02-10 11:59:15,177 [INFO] Batch 12: Hidden states shape: torch.Size([16, 88, 768])
+2025-02-10 11:59:15,178 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,178 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,178 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,180 [INFO] Batch 13: batch_size 16
+2025-02-10 11:59:15,219 [INFO] Batch 13: Hidden states shape: torch.Size([16, 36, 768])
+2025-02-10 11:59:15,219 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,219 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,220 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,221 [INFO] Batch 14: batch_size 16
+2025-02-10 11:59:15,256 [INFO] Batch 14: Hidden states shape: torch.Size([16, 59, 768])
+2025-02-10 11:59:15,256 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,256 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,256 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,258 [INFO] Batch 15: batch_size 16
+2025-02-10 11:59:15,293 [INFO] Batch 15: Hidden states shape: torch.Size([16, 81, 768])
+2025-02-10 11:59:15,293 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,293 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,293 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,296 [INFO] Batch 16: batch_size 16
+2025-02-10 11:59:15,326 [INFO] Batch 16: Hidden states shape: torch.Size([16, 61, 768])
+2025-02-10 11:59:15,326 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,326 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,326 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,328 [INFO] Batch 17: batch_size 16
+2025-02-10 11:59:15,358 [INFO] Batch 17: Hidden states shape: torch.Size([16, 43, 768])
+2025-02-10 11:59:15,358 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,358 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,358 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,360 [INFO] Batch 18: batch_size 16
+2025-02-10 11:59:15,389 [INFO] Batch 18: Hidden states shape: torch.Size([16, 69, 768])
+2025-02-10 11:59:15,389 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,390 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,390 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,392 [INFO] Batch 19: batch_size 16
+2025-02-10 11:59:15,422 [INFO] Batch 19: Hidden states shape: torch.Size([16, 46, 768])
+2025-02-10 11:59:15,422 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,422 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,422 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,423 [INFO] Batch 20: batch_size 16
+2025-02-10 11:59:15,454 [INFO] Batch 20: Hidden states shape: torch.Size([16, 55, 768])
+2025-02-10 11:59:15,454 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,454 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,454 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,456 [INFO] Batch 21: batch_size 16
+2025-02-10 11:59:15,486 [INFO] Batch 21: Hidden states shape: torch.Size([16, 61, 768])
+2025-02-10 11:59:15,486 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,486 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,486 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,488 [INFO] Batch 22: batch_size 16
+2025-02-10 11:59:15,518 [INFO] Batch 22: Hidden states shape: torch.Size([16, 64, 768])
+2025-02-10 11:59:15,518 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,518 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,518 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,520 [INFO] Batch 23: batch_size 16
+2025-02-10 11:59:15,551 [INFO] Batch 23: Hidden states shape: torch.Size([16, 85, 768])
+2025-02-10 11:59:15,551 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,551 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,551 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,554 [INFO] Batch 24: batch_size 16
+2025-02-10 11:59:15,585 [INFO] Batch 24: Hidden states shape: torch.Size([16, 131, 768])
+2025-02-10 11:59:15,585 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,585 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,586 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,591 [INFO] Batch 25: batch_size 16
+2025-02-10 11:59:15,626 [INFO] Batch 25: Hidden states shape: torch.Size([16, 62, 768])
+2025-02-10 11:59:15,626 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,626 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,626 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,628 [INFO] Batch 26: batch_size 16
+2025-02-10 11:59:15,659 [INFO] Batch 26: Hidden states shape: torch.Size([16, 61, 768])
+2025-02-10 11:59:15,659 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,660 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,660 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,661 [INFO] Batch 27: batch_size 16
+2025-02-10 11:59:15,691 [INFO] Batch 27: Hidden states shape: torch.Size([16, 48, 768])
+2025-02-10 11:59:15,692 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,692 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,692 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,693 [INFO] Batch 28: batch_size 16
+2025-02-10 11:59:15,724 [INFO] Batch 28: Hidden states shape: torch.Size([16, 79, 768])
+2025-02-10 11:59:15,724 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,724 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,724 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,727 [INFO] Batch 29: batch_size 16
+2025-02-10 11:59:15,757 [INFO] Batch 29: Hidden states shape: torch.Size([16, 48, 768])
+2025-02-10 11:59:15,757 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,757 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,758 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,759 [INFO] Batch 30: batch_size 16
+2025-02-10 11:59:15,789 [INFO] Batch 30: Hidden states shape: torch.Size([16, 64, 768])
+2025-02-10 11:59:15,789 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,789 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,789 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,791 [INFO] Batch 31: batch_size 16
+2025-02-10 11:59:15,822 [INFO] Batch 31: Hidden states shape: torch.Size([16, 81, 768])
+2025-02-10 11:59:15,822 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,822 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,822 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,825 [INFO] Batch 32: batch_size 16
+2025-02-10 11:59:15,858 [INFO] Batch 32: Hidden states shape: torch.Size([16, 44, 768])
+2025-02-10 11:59:15,858 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,858 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,858 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,860 [INFO] Batch 33: batch_size 16
+2025-02-10 11:59:15,890 [INFO] Batch 33: Hidden states shape: torch.Size([16, 54, 768])
+2025-02-10 11:59:15,890 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,890 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,890 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,892 [INFO] Batch 34: batch_size 16
+2025-02-10 11:59:15,921 [INFO] Batch 34: Hidden states shape: torch.Size([16, 61, 768])
+2025-02-10 11:59:15,922 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,922 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,922 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,923 [INFO] Batch 35: batch_size 16
+2025-02-10 11:59:15,955 [INFO] Batch 35: Hidden states shape: torch.Size([16, 119, 768])
+2025-02-10 11:59:15,955 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,955 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,955 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,960 [INFO] Batch 36: batch_size 16
+2025-02-10 11:59:15,992 [INFO] Batch 36: Hidden states shape: torch.Size([16, 140, 768])
+2025-02-10 11:59:15,992 [INFO] Computing non-zero element counts
+2025-02-10 11:59:15,992 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:15,993 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:15,998 [INFO] Batch 37: batch_size 16
+2025-02-10 11:59:16,028 [INFO] Batch 37: Hidden states shape: torch.Size([16, 87, 768])
+2025-02-10 11:59:16,028 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,029 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,029 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,031 [INFO] Batch 38: batch_size 16
+2025-02-10 11:59:16,061 [INFO] Batch 38: Hidden states shape: torch.Size([16, 69, 768])
+2025-02-10 11:59:16,061 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,061 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,061 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,063 [INFO] Batch 39: batch_size 16
+2025-02-10 11:59:16,095 [INFO] Batch 39: Hidden states shape: torch.Size([16, 93, 768])
+2025-02-10 11:59:16,095 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,095 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,095 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,098 [INFO] Batch 40: batch_size 16
+2025-02-10 11:59:16,128 [INFO] Batch 40: Hidden states shape: torch.Size([16, 63, 768])
+2025-02-10 11:59:16,129 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,129 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,129 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,131 [INFO] Batch 41: batch_size 16
+2025-02-10 11:59:16,161 [INFO] Batch 41: Hidden states shape: torch.Size([16, 67, 768])
+2025-02-10 11:59:16,161 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,161 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,161 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,163 [INFO] Batch 42: batch_size 16
+2025-02-10 11:59:16,193 [INFO] Batch 42: Hidden states shape: torch.Size([16, 55, 768])
+2025-02-10 11:59:16,193 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,193 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,193 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,195 [INFO] Batch 43: batch_size 16
+2025-02-10 11:59:16,228 [INFO] Batch 43: Hidden states shape: torch.Size([16, 68, 768])
+2025-02-10 11:59:16,228 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,228 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,228 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,230 [INFO] Batch 44: batch_size 16
+2025-02-10 11:59:16,260 [INFO] Batch 44: Hidden states shape: torch.Size([16, 42, 768])
+2025-02-10 11:59:16,260 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,260 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,260 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,261 [INFO] Batch 45: batch_size 16
+2025-02-10 11:59:16,291 [INFO] Batch 45: Hidden states shape: torch.Size([16, 81, 768])
+2025-02-10 11:59:16,292 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,292 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,292 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,294 [INFO] Batch 46: batch_size 16
+2025-02-10 11:59:16,324 [INFO] Batch 46: Hidden states shape: torch.Size([16, 66, 768])
+2025-02-10 11:59:16,324 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,324 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,324 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,326 [INFO] Batch 47: batch_size 16
+2025-02-10 11:59:16,356 [INFO] Batch 47: Hidden states shape: torch.Size([16, 45, 768])
+2025-02-10 11:59:16,357 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,357 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,357 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,358 [INFO] Batch 48: batch_size 16
+2025-02-10 11:59:16,389 [INFO] Batch 48: Hidden states shape: torch.Size([16, 79, 768])
+2025-02-10 11:59:16,389 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,389 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,389 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,392 [INFO] Batch 49: batch_size 16
+2025-02-10 11:59:16,422 [INFO] Batch 49: Hidden states shape: torch.Size([16, 50, 768])
+2025-02-10 11:59:16,422 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,422 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,423 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,424 [INFO] Batch 50: batch_size 16
+2025-02-10 11:59:16,458 [INFO] Batch 50: Hidden states shape: torch.Size([16, 56, 768])
+2025-02-10 11:59:16,459 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,459 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,459 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,461 [INFO] Batch 51: batch_size 16
+2025-02-10 11:59:16,493 [INFO] Batch 51: Hidden states shape: torch.Size([16, 86, 768])
+2025-02-10 11:59:16,493 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,494 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,494 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,496 [INFO] Batch 52: batch_size 16
+2025-02-10 11:59:16,528 [INFO] Batch 52: Hidden states shape: torch.Size([16, 63, 768])
+2025-02-10 11:59:16,528 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,528 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,528 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,530 [INFO] Batch 53: batch_size 16
+2025-02-10 11:59:16,562 [INFO] Batch 53: Hidden states shape: torch.Size([16, 113, 768])
+2025-02-10 11:59:16,562 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,563 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,563 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,568 [INFO] Batch 54: batch_size 16
+2025-02-10 11:59:16,598 [INFO] Batch 54: Hidden states shape: torch.Size([16, 60, 768])
+2025-02-10 11:59:16,599 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,599 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,599 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,601 [INFO] Batch 55: batch_size 16
+2025-02-10 11:59:16,632 [INFO] Batch 55: Hidden states shape: torch.Size([16, 72, 768])
+2025-02-10 11:59:16,632 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,633 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,633 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,635 [INFO] Batch 56: batch_size 16
+2025-02-10 11:59:16,665 [INFO] Batch 56: Hidden states shape: torch.Size([16, 62, 768])
+2025-02-10 11:59:16,666 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,666 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,666 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,668 [INFO] Batch 57: batch_size 16
+2025-02-10 11:59:16,699 [INFO] Batch 57: Hidden states shape: torch.Size([16, 84, 768])
+2025-02-10 11:59:16,699 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,699 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,700 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,703 [INFO] Batch 58: batch_size 16
+2025-02-10 11:59:16,733 [INFO] Batch 58: Hidden states shape: torch.Size([16, 54, 768])
+2025-02-10 11:59:16,733 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,733 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,733 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,735 [INFO] Batch 59: batch_size 16
+2025-02-10 11:59:16,766 [INFO] Batch 59: Hidden states shape: torch.Size([16, 47, 768])
+2025-02-10 11:59:16,766 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,766 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,766 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,767 [INFO] Batch 60: batch_size 16
+2025-02-10 11:59:16,798 [INFO] Batch 60: Hidden states shape: torch.Size([16, 50, 768])
+2025-02-10 11:59:16,799 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,799 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,799 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,800 [INFO] Batch 61: batch_size 16
+2025-02-10 11:59:16,832 [INFO] Batch 61: Hidden states shape: torch.Size([16, 74, 768])
+2025-02-10 11:59:16,832 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,832 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,832 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,835 [INFO] Batch 62: batch_size 16
+2025-02-10 11:59:16,866 [INFO] Batch 62: Hidden states shape: torch.Size([16, 73, 768])
+2025-02-10 11:59:16,866 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,867 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,867 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,869 [INFO] Batch 63: batch_size 16
+2025-02-10 11:59:16,901 [INFO] Batch 63: Hidden states shape: torch.Size([16, 98, 768])
+2025-02-10 11:59:16,901 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,901 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,901 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,905 [INFO] Batch 64: batch_size 16
+2025-02-10 11:59:16,938 [INFO] Batch 64: Hidden states shape: torch.Size([16, 78, 768])
+2025-02-10 11:59:16,938 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,938 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,939 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,941 [INFO] Batch 65: batch_size 16
+2025-02-10 11:59:16,973 [INFO] Batch 65: Hidden states shape: torch.Size([16, 57, 768])
+2025-02-10 11:59:16,973 [INFO] Computing non-zero element counts
+2025-02-10 11:59:16,973 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:16,973 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:16,975 [INFO] Batch 66: batch_size 16
+2025-02-10 11:59:17,006 [INFO] Batch 66: Hidden states shape: torch.Size([16, 54, 768])
+2025-02-10 11:59:17,006 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,006 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,006 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,008 [INFO] Batch 67: batch_size 16
+2025-02-10 11:59:17,265 [INFO] Batch 67: Hidden states shape: torch.Size([16, 59, 768])
+2025-02-10 11:59:17,266 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,266 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,266 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,268 [INFO] Batch 68: batch_size 16
+2025-02-10 11:59:17,299 [INFO] Batch 68: Hidden states shape: torch.Size([16, 88, 768])
+2025-02-10 11:59:17,299 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,299 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,299 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,302 [INFO] Batch 69: batch_size 16
+2025-02-10 11:59:17,332 [INFO] Batch 69: Hidden states shape: torch.Size([16, 47, 768])
+2025-02-10 11:59:17,333 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,333 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,333 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,334 [INFO] Batch 70: batch_size 16
+2025-02-10 11:59:17,364 [INFO] Batch 70: Hidden states shape: torch.Size([16, 61, 768])
+2025-02-10 11:59:17,364 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,365 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,365 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,366 [INFO] Batch 71: batch_size 16
+2025-02-10 11:59:17,397 [INFO] Batch 71: Hidden states shape: torch.Size([16, 75, 768])
+2025-02-10 11:59:17,397 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,397 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,397 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,400 [INFO] Batch 72: batch_size 16
+2025-02-10 11:59:17,430 [INFO] Batch 72: Hidden states shape: torch.Size([16, 53, 768])
+2025-02-10 11:59:17,430 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,430 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,431 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,432 [INFO] Batch 73: batch_size 16
+2025-02-10 11:59:17,462 [INFO] Batch 73: Hidden states shape: torch.Size([16, 72, 768])
+2025-02-10 11:59:17,462 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,463 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,463 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,465 [INFO] Batch 74: batch_size 16
+2025-02-10 11:59:17,497 [INFO] Batch 74: Hidden states shape: torch.Size([16, 177, 768])
+2025-02-10 11:59:17,497 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,497 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,497 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,508 [INFO] Batch 75: batch_size 16
+2025-02-10 11:59:17,539 [INFO] Batch 75: Hidden states shape: torch.Size([16, 81, 768])
+2025-02-10 11:59:17,539 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,539 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,539 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,542 [INFO] Batch 76: batch_size 16
+2025-02-10 11:59:17,573 [INFO] Batch 76: Hidden states shape: torch.Size([16, 88, 768])
+2025-02-10 11:59:17,573 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,573 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,573 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,576 [INFO] Batch 77: batch_size 16
+2025-02-10 11:59:17,606 [INFO] Batch 77: Hidden states shape: torch.Size([16, 56, 768])
+2025-02-10 11:59:17,607 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,607 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,607 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,608 [INFO] Batch 78: batch_size 16
+2025-02-10 11:59:17,644 [INFO] Batch 78: Hidden states shape: torch.Size([16, 79, 768])
+2025-02-10 11:59:17,644 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,644 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,644 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,647 [INFO] Batch 79: batch_size 16
+2025-02-10 11:59:17,677 [INFO] Batch 79: Hidden states shape: torch.Size([16, 59, 768])
+2025-02-10 11:59:17,677 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,677 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,678 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,679 [INFO] Batch 80: batch_size 16
+2025-02-10 11:59:17,710 [INFO] Batch 80: Hidden states shape: torch.Size([16, 54, 768])
+2025-02-10 11:59:17,710 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,710 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,710 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,712 [INFO] Batch 81: batch_size 16
+2025-02-10 11:59:17,743 [INFO] Batch 81: Hidden states shape: torch.Size([16, 86, 768])
+2025-02-10 11:59:17,743 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,743 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,743 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,746 [INFO] Batch 82: batch_size 16
+2025-02-10 11:59:17,776 [INFO] Batch 82: Hidden states shape: torch.Size([16, 72, 768])
+2025-02-10 11:59:17,776 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,777 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,777 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,779 [INFO] Batch 83: batch_size 16
+2025-02-10 11:59:17,810 [INFO] Batch 83: Hidden states shape: torch.Size([16, 74, 768])
+2025-02-10 11:59:17,810 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,810 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,810 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,813 [INFO] Batch 84: batch_size 16
+2025-02-10 11:59:17,843 [INFO] Batch 84: Hidden states shape: torch.Size([16, 71, 768])
+2025-02-10 11:59:17,844 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,844 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,844 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,846 [INFO] Batch 85: batch_size 16
+2025-02-10 11:59:17,876 [INFO] Batch 85: Hidden states shape: torch.Size([16, 57, 768])
+2025-02-10 11:59:17,876 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,876 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,876 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,878 [INFO] Batch 86: batch_size 16
+2025-02-10 11:59:17,909 [INFO] Batch 86: Hidden states shape: torch.Size([16, 55, 768])
+2025-02-10 11:59:17,909 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,909 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,909 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,911 [INFO] Batch 87: batch_size 16
+2025-02-10 11:59:17,941 [INFO] Batch 87: Hidden states shape: torch.Size([16, 56, 768])
+2025-02-10 11:59:17,941 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,941 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,941 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,943 [INFO] Batch 88: batch_size 16
+2025-02-10 11:59:17,973 [INFO] Batch 88: Hidden states shape: torch.Size([16, 70, 768])
+2025-02-10 11:59:17,974 [INFO] Computing non-zero element counts
+2025-02-10 11:59:17,974 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:17,974 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:17,976 [INFO] Batch 89: batch_size 16
+2025-02-10 11:59:18,006 [INFO] Batch 89: Hidden states shape: torch.Size([16, 50, 768])
+2025-02-10 11:59:18,006 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,006 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,006 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,008 [INFO] Batch 90: batch_size 16
+2025-02-10 11:59:18,037 [INFO] Batch 90: Hidden states shape: torch.Size([16, 55, 768])
+2025-02-10 11:59:18,037 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,037 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,037 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,039 [INFO] Batch 91: batch_size 16
+2025-02-10 11:59:18,070 [INFO] Batch 91: Hidden states shape: torch.Size([16, 95, 768])
+2025-02-10 11:59:18,071 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,071 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,071 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,074 [INFO] Batch 92: batch_size 16
+2025-02-10 11:59:18,105 [INFO] Batch 92: Hidden states shape: torch.Size([16, 79, 768])
+2025-02-10 11:59:18,105 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,105 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,105 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,108 [INFO] Batch 93: batch_size 16
+2025-02-10 11:59:18,139 [INFO] Batch 93: Hidden states shape: torch.Size([16, 88, 768])
+2025-02-10 11:59:18,139 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,139 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,139 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,142 [INFO] Batch 94: batch_size 16
+2025-02-10 11:59:18,171 [INFO] Batch 94: Hidden states shape: torch.Size([16, 53, 768])
+2025-02-10 11:59:18,171 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,171 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,172 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,173 [INFO] Batch 95: batch_size 16
+2025-02-10 11:59:18,203 [INFO] Batch 95: Hidden states shape: torch.Size([16, 64, 768])
+2025-02-10 11:59:18,204 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,204 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,204 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,206 [INFO] Batch 96: batch_size 16
+2025-02-10 11:59:18,236 [INFO] Batch 96: Hidden states shape: torch.Size([16, 97, 768])
+2025-02-10 11:59:18,236 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,236 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,236 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,240 [INFO] Batch 97: batch_size 16
+2025-02-10 11:59:18,270 [INFO] Batch 97: Hidden states shape: torch.Size([16, 74, 768])
+2025-02-10 11:59:18,270 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,271 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,271 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,273 [INFO] Batch 98: batch_size 16
+2025-02-10 11:59:18,303 [INFO] Batch 98: Hidden states shape: torch.Size([16, 45, 768])
+2025-02-10 11:59:18,303 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,303 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,303 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,304 [INFO] Batch 99: batch_size 16
+2025-02-10 11:59:18,334 [INFO] Batch 99: Hidden states shape: torch.Size([16, 81, 768])
+2025-02-10 11:59:18,334 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,334 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,334 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,337 [INFO] Batch 100: batch_size 16
+2025-02-10 11:59:18,368 [INFO] Batch 100: Hidden states shape: torch.Size([16, 113, 768])
+2025-02-10 11:59:18,368 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,368 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,368 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,373 [INFO] Batch 101: batch_size 16
+2025-02-10 11:59:18,403 [INFO] Batch 101: Hidden states shape: torch.Size([16, 70, 768])
+2025-02-10 11:59:18,403 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,403 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,403 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,405 [INFO] Batch 102: batch_size 16
+2025-02-10 11:59:18,435 [INFO] Batch 102: Hidden states shape: torch.Size([16, 49, 768])
+2025-02-10 11:59:18,435 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,435 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,435 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,437 [INFO] Batch 103: batch_size 16
+2025-02-10 11:59:18,500 [INFO] Batch 103: Hidden states shape: torch.Size([16, 65, 768])
+2025-02-10 11:59:18,500 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,500 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,500 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,502 [INFO] Batch 104: batch_size 16
+2025-02-10 11:59:18,532 [INFO] Batch 104: Hidden states shape: torch.Size([16, 70, 768])
+2025-02-10 11:59:18,533 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,533 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,533 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,535 [INFO] Batch 105: batch_size 16
+2025-02-10 11:59:18,565 [INFO] Batch 105: Hidden states shape: torch.Size([16, 55, 768])
+2025-02-10 11:59:18,565 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,565 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,565 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,567 [INFO] Batch 106: batch_size 16
+2025-02-10 11:59:18,597 [INFO] Batch 106: Hidden states shape: torch.Size([16, 76, 768])
+2025-02-10 11:59:18,598 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,598 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,598 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,600 [INFO] Batch 107: batch_size 16
+2025-02-10 11:59:18,630 [INFO] Batch 107: Hidden states shape: torch.Size([16, 56, 768])
+2025-02-10 11:59:18,630 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,630 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,631 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,632 [INFO] Batch 108: batch_size 16
+2025-02-10 11:59:18,668 [INFO] Batch 108: Hidden states shape: torch.Size([16, 49, 768])
+2025-02-10 11:59:18,669 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,669 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,669 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,670 [INFO] Batch 109: batch_size 16
+2025-02-10 11:59:18,707 [INFO] Batch 109: Hidden states shape: torch.Size([16, 57, 768])
+2025-02-10 11:59:18,707 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,707 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,708 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,709 [INFO] Batch 110: batch_size 16
+2025-02-10 11:59:18,739 [INFO] Batch 110: Hidden states shape: torch.Size([16, 53, 768])
+2025-02-10 11:59:18,740 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,740 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,740 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,742 [INFO] Batch 111: batch_size 16
+2025-02-10 11:59:18,771 [INFO] Batch 111: Hidden states shape: torch.Size([16, 69, 768])
+2025-02-10 11:59:18,772 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,772 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,772 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,774 [INFO] Batch 112: batch_size 16
+2025-02-10 11:59:18,803 [INFO] Batch 112: Hidden states shape: torch.Size([16, 61, 768])
+2025-02-10 11:59:18,803 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,803 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,804 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,805 [INFO] Batch 113: batch_size 16
+2025-02-10 11:59:18,835 [INFO] Batch 113: Hidden states shape: torch.Size([16, 66, 768])
+2025-02-10 11:59:18,835 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,835 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,835 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,837 [INFO] Batch 114: batch_size 16
+2025-02-10 11:59:18,868 [INFO] Batch 114: Hidden states shape: torch.Size([16, 98, 768])
+2025-02-10 11:59:18,868 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,868 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,869 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,873 [INFO] Batch 115: batch_size 16
+2025-02-10 11:59:18,902 [INFO] Batch 115: Hidden states shape: torch.Size([16, 59, 768])
+2025-02-10 11:59:18,903 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,903 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,903 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,904 [INFO] Batch 116: batch_size 16
+2025-02-10 11:59:18,937 [INFO] Batch 116: Hidden states shape: torch.Size([16, 55, 768])
+2025-02-10 11:59:18,938 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,938 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,938 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,939 [INFO] Batch 117: batch_size 16
+2025-02-10 11:59:18,969 [INFO] Batch 117: Hidden states shape: torch.Size([16, 63, 768])
+2025-02-10 11:59:18,969 [INFO] Computing non-zero element counts
+2025-02-10 11:59:18,969 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:18,969 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:18,971 [INFO] Batch 118: batch_size 16
+2025-02-10 11:59:19,001 [INFO] Batch 118: Hidden states shape: torch.Size([16, 99, 768])
+2025-02-10 11:59:19,001 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,002 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,002 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,006 [INFO] Batch 119: batch_size 16
+2025-02-10 11:59:19,036 [INFO] Batch 119: Hidden states shape: torch.Size([16, 40, 768])
+2025-02-10 11:59:19,036 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,036 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,036 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,037 [INFO] Batch 120: batch_size 16
+2025-02-10 11:59:19,067 [INFO] Batch 120: Hidden states shape: torch.Size([16, 73, 768])
+2025-02-10 11:59:19,068 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,068 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,068 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,070 [INFO] Batch 121: batch_size 16
+2025-02-10 11:59:19,100 [INFO] Batch 121: Hidden states shape: torch.Size([16, 65, 768])
+2025-02-10 11:59:19,100 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,100 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,100 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,102 [INFO] Batch 122: batch_size 16
+2025-02-10 11:59:19,132 [INFO] Batch 122: Hidden states shape: torch.Size([16, 45, 768])
+2025-02-10 11:59:19,132 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,132 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,132 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,134 [INFO] Batch 123: batch_size 16
+2025-02-10 11:59:19,164 [INFO] Batch 123: Hidden states shape: torch.Size([16, 64, 768])
+2025-02-10 11:59:19,164 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,164 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,164 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,166 [INFO] Batch 124: batch_size 16
+2025-02-10 11:59:19,196 [INFO] Batch 124: Hidden states shape: torch.Size([16, 42, 768])
+2025-02-10 11:59:19,196 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,196 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,197 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,198 [INFO] Batch 125: batch_size 16
+2025-02-10 11:59:19,227 [INFO] Batch 125: Hidden states shape: torch.Size([16, 57, 768])
+2025-02-10 11:59:19,228 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,228 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,228 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,229 [INFO] Batch 126: batch_size 16
+2025-02-10 11:59:19,259 [INFO] Batch 126: Hidden states shape: torch.Size([16, 45, 768])
+2025-02-10 11:59:19,259 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,259 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,259 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,261 [INFO] Batch 127: batch_size 16
+2025-02-10 11:59:19,292 [INFO] Batch 127: Hidden states shape: torch.Size([16, 42, 768])
+2025-02-10 11:59:19,292 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,292 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,292 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,293 [INFO] Batch 128: batch_size 16
+2025-02-10 11:59:19,324 [INFO] Batch 128: Hidden states shape: torch.Size([16, 71, 768])
+2025-02-10 11:59:19,324 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,324 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,325 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,327 [INFO] Batch 129: batch_size 16
+2025-02-10 11:59:19,352 [INFO] Batch 129: Hidden states shape: torch.Size([16, 70, 768])
+2025-02-10 11:59:19,353 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,353 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,353 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,355 [INFO] Batch 130: batch_size 16
+2025-02-10 11:59:19,385 [INFO] Batch 130: Hidden states shape: torch.Size([16, 47, 768])
+2025-02-10 11:59:19,385 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,385 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,385 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,387 [INFO] Batch 131: batch_size 16
+2025-02-10 11:59:19,417 [INFO] Batch 131: Hidden states shape: torch.Size([16, 50, 768])
+2025-02-10 11:59:19,417 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,417 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,417 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,419 [INFO] Batch 132: batch_size 16
+2025-02-10 11:59:19,444 [INFO] Batch 132: Hidden states shape: torch.Size([16, 55, 768])
+2025-02-10 11:59:19,444 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,444 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,444 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,446 [INFO] Batch 133: batch_size 16
+2025-02-10 11:59:19,471 [INFO] Batch 133: Hidden states shape: torch.Size([16, 66, 768])
+2025-02-10 11:59:19,471 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,471 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,471 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,474 [INFO] Batch 134: batch_size 16
+2025-02-10 11:59:19,499 [INFO] Batch 134: Hidden states shape: torch.Size([16, 60, 768])
+2025-02-10 11:59:19,499 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,499 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,499 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,501 [INFO] Batch 135: batch_size 16
+2025-02-10 11:59:19,526 [INFO] Batch 135: Hidden states shape: torch.Size([16, 64, 768])
+2025-02-10 11:59:19,526 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,527 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,527 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,529 [INFO] Batch 136: batch_size 16
+2025-02-10 11:59:19,555 [INFO] Batch 136: Hidden states shape: torch.Size([16, 140, 768])
+2025-02-10 11:59:19,555 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,555 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,555 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,561 [INFO] Batch 137: batch_size 16
+2025-02-10 11:59:19,587 [INFO] Batch 137: Hidden states shape: torch.Size([16, 88, 768])
+2025-02-10 11:59:19,587 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,587 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,587 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,590 [INFO] Batch 138: batch_size 16
+2025-02-10 11:59:19,615 [INFO] Batch 138: Hidden states shape: torch.Size([16, 81, 768])
+2025-02-10 11:59:19,615 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,615 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,616 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,619 [INFO] Batch 139: batch_size 16
+2025-02-10 11:59:19,644 [INFO] Batch 139: Hidden states shape: torch.Size([16, 68, 768])
+2025-02-10 11:59:19,644 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,644 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,644 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,646 [INFO] Batch 140: batch_size 16
+2025-02-10 11:59:19,676 [INFO] Batch 140: Hidden states shape: torch.Size([16, 59, 768])
+2025-02-10 11:59:19,676 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,677 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,677 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,678 [INFO] Batch 141: batch_size 16
+2025-02-10 11:59:19,715 [INFO] Batch 141: Hidden states shape: torch.Size([16, 86, 768])
+2025-02-10 11:59:19,715 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,715 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,716 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,718 [INFO] Batch 142: batch_size 16
+2025-02-10 11:59:19,750 [INFO] Batch 142: Hidden states shape: torch.Size([16, 75, 768])
+2025-02-10 11:59:19,750 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,751 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,751 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,753 [INFO] Batch 143: batch_size 16
+2025-02-10 11:59:19,784 [INFO] Batch 143: Hidden states shape: torch.Size([16, 80, 768])
+2025-02-10 11:59:19,784 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,784 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,785 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,787 [INFO] Batch 144: batch_size 16
+2025-02-10 11:59:19,818 [INFO] Batch 144: Hidden states shape: torch.Size([16, 82, 768])
+2025-02-10 11:59:19,818 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,818 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,818 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,821 [INFO] Batch 145: batch_size 16
+2025-02-10 11:59:19,850 [INFO] Batch 145: Hidden states shape: torch.Size([16, 59, 768])
+2025-02-10 11:59:19,851 [INFO] Computing non-zero element counts
+2025-02-10 11:59:19,851 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:19,851 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:19,853 [INFO] Batch 146: batch_size 16
+2025-02-10 11:59:20,015 [INFO] Batch 146: Hidden states shape: torch.Size([16, 88, 768])
+2025-02-10 11:59:20,015 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,015 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,015 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,018 [INFO] Batch 147: batch_size 16
+2025-02-10 11:59:20,049 [INFO] Batch 147: Hidden states shape: torch.Size([16, 48, 768])
+2025-02-10 11:59:20,049 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,050 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,050 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,051 [INFO] Batch 148: batch_size 16
+2025-02-10 11:59:20,082 [INFO] Batch 148: Hidden states shape: torch.Size([16, 54, 768])
+2025-02-10 11:59:20,082 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,082 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,082 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,084 [INFO] Batch 149: batch_size 16
+2025-02-10 11:59:20,114 [INFO] Batch 149: Hidden states shape: torch.Size([16, 71, 768])
+2025-02-10 11:59:20,114 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,114 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,114 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,116 [INFO] Batch 150: batch_size 16
+2025-02-10 11:59:20,146 [INFO] Batch 150: Hidden states shape: torch.Size([16, 55, 768])
+2025-02-10 11:59:20,146 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,147 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,147 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,148 [INFO] Batch 151: batch_size 16
+2025-02-10 11:59:20,180 [INFO] Batch 151: Hidden states shape: torch.Size([16, 70, 768])
+2025-02-10 11:59:20,181 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,181 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,181 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,183 [INFO] Batch 152: batch_size 16
+2025-02-10 11:59:20,213 [INFO] Batch 152: Hidden states shape: torch.Size([16, 73, 768])
+2025-02-10 11:59:20,213 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,213 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,213 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,216 [INFO] Batch 153: batch_size 16
+2025-02-10 11:59:20,246 [INFO] Batch 153: Hidden states shape: torch.Size([16, 81, 768])
+2025-02-10 11:59:20,246 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,246 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,247 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,249 [INFO] Batch 154: batch_size 16
+2025-02-10 11:59:20,289 [INFO] Batch 154: Hidden states shape: torch.Size([16, 78, 768])
+2025-02-10 11:59:20,289 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,289 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,289 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,291 [INFO] Batch 155: batch_size 16
+2025-02-10 11:59:20,331 [INFO] Batch 155: Hidden states shape: torch.Size([16, 48, 768])
+2025-02-10 11:59:20,331 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,332 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,332 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,333 [INFO] Batch 156: batch_size 16
+2025-02-10 11:59:20,373 [INFO] Batch 156: Hidden states shape: torch.Size([16, 93, 768])
+2025-02-10 11:59:20,373 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,374 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,374 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,376 [INFO] Batch 157: batch_size 16
+2025-02-10 11:59:20,416 [INFO] Batch 157: Hidden states shape: torch.Size([16, 53, 768])
+2025-02-10 11:59:20,416 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,416 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,416 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,418 [INFO] Batch 158: batch_size 16
+2025-02-10 11:59:20,448 [INFO] Batch 158: Hidden states shape: torch.Size([16, 57, 768])
+2025-02-10 11:59:20,449 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,449 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,449 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,451 [INFO] Batch 159: batch_size 16
+2025-02-10 11:59:20,480 [INFO] Batch 159: Hidden states shape: torch.Size([16, 68, 768])
+2025-02-10 11:59:20,480 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,481 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,481 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,483 [INFO] Batch 160: batch_size 16
+2025-02-10 11:59:20,508 [INFO] Batch 160: Hidden states shape: torch.Size([16, 76, 768])
+2025-02-10 11:59:20,509 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,509 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,509 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,512 [INFO] Batch 161: batch_size 16
+2025-02-10 11:59:20,536 [INFO] Batch 161: Hidden states shape: torch.Size([16, 65, 768])
+2025-02-10 11:59:20,537 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,537 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,537 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,539 [INFO] Batch 162: batch_size 16
+2025-02-10 11:59:20,564 [INFO] Batch 162: Hidden states shape: torch.Size([16, 53, 768])
+2025-02-10 11:59:20,564 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,565 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,565 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,566 [INFO] Batch 163: batch_size 16
+2025-02-10 11:59:20,596 [INFO] Batch 163: Hidden states shape: torch.Size([16, 66, 768])
+2025-02-10 11:59:20,596 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,596 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,596 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,598 [INFO] Batch 164: batch_size 16
+2025-02-10 11:59:20,628 [INFO] Batch 164: Hidden states shape: torch.Size([16, 46, 768])
+2025-02-10 11:59:20,628 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,628 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,628 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,630 [INFO] Batch 165: batch_size 16
+2025-02-10 11:59:20,660 [INFO] Batch 165: Hidden states shape: torch.Size([16, 48, 768])
+2025-02-10 11:59:20,661 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,661 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,661 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,662 [INFO] Batch 166: batch_size 16
+2025-02-10 11:59:20,693 [INFO] Batch 166: Hidden states shape: torch.Size([16, 131, 768])
+2025-02-10 11:59:20,694 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,694 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,694 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,700 [INFO] Batch 167: batch_size 16
+2025-02-10 11:59:20,730 [INFO] Batch 167: Hidden states shape: torch.Size([16, 58, 768])
+2025-02-10 11:59:20,730 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,730 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,730 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,732 [INFO] Batch 168: batch_size 16
+2025-02-10 11:59:20,762 [INFO] Batch 168: Hidden states shape: torch.Size([16, 67, 768])
+2025-02-10 11:59:20,762 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,762 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,762 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,764 [INFO] Batch 169: batch_size 16
+2025-02-10 11:59:20,794 [INFO] Batch 169: Hidden states shape: torch.Size([16, 72, 768])
+2025-02-10 11:59:20,794 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,794 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,794 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,796 [INFO] Batch 170: batch_size 16
+2025-02-10 11:59:20,826 [INFO] Batch 170: Hidden states shape: torch.Size([16, 53, 768])
+2025-02-10 11:59:20,826 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,826 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,826 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,828 [INFO] Batch 171: batch_size 16
+2025-02-10 11:59:20,857 [INFO] Batch 171: Hidden states shape: torch.Size([16, 62, 768])
+2025-02-10 11:59:20,858 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,858 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,858 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,860 [INFO] Batch 172: batch_size 16
+2025-02-10 11:59:20,890 [INFO] Batch 172: Hidden states shape: torch.Size([16, 61, 768])
+2025-02-10 11:59:20,890 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,890 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,890 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,892 [INFO] Batch 173: batch_size 16
+2025-02-10 11:59:20,922 [INFO] Batch 173: Hidden states shape: torch.Size([16, 40, 768])
+2025-02-10 11:59:20,922 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,922 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,922 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,923 [INFO] Batch 174: batch_size 16
+2025-02-10 11:59:20,953 [INFO] Batch 174: Hidden states shape: torch.Size([16, 70, 768])
+2025-02-10 11:59:20,954 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,954 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,954 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,956 [INFO] Batch 175: batch_size 16
+2025-02-10 11:59:20,992 [INFO] Batch 175: Hidden states shape: torch.Size([11, 54, 768])
+2025-02-10 11:59:20,993 [INFO] Computing non-zero element counts
+2025-02-10 11:59:20,993 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:20,993 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:20,994 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-10 11:59:20,995 [INFO] impolite
+2025-02-10 11:59:21,011 [INFO] Running model with cache to obtain hidden states
+2025-02-10 11:59:21,012 [INFO] Batch 1: batch_size 16
+2025-02-10 11:59:21,048 [INFO] Batch 1: Hidden states shape: torch.Size([16, 49, 768])
+2025-02-10 11:59:21,049 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,049 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,049 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,050 [INFO] Batch 2: batch_size 16
+2025-02-10 11:59:21,089 [INFO] Batch 2: Hidden states shape: torch.Size([16, 136, 768])
+2025-02-10 11:59:21,089 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,089 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,089 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,094 [INFO] Batch 3: batch_size 16
+2025-02-10 11:59:21,131 [INFO] Batch 3: Hidden states shape: torch.Size([16, 43, 768])
+2025-02-10 11:59:21,132 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,132 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,132 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,133 [INFO] Batch 4: batch_size 16
+2025-02-10 11:59:21,164 [INFO] Batch 4: Hidden states shape: torch.Size([16, 45, 768])
+2025-02-10 11:59:21,164 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,164 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,164 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,166 [INFO] Batch 5: batch_size 16
+2025-02-10 11:59:21,195 [INFO] Batch 5: Hidden states shape: torch.Size([16, 56, 768])
+2025-02-10 11:59:21,196 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,196 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,196 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,197 [INFO] Batch 6: batch_size 16
+2025-02-10 11:59:21,227 [INFO] Batch 6: Hidden states shape: torch.Size([16, 79, 768])
+2025-02-10 11:59:21,227 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,228 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,228 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,230 [INFO] Batch 7: batch_size 16
+2025-02-10 11:59:21,260 [INFO] Batch 7: Hidden states shape: torch.Size([16, 66, 768])
+2025-02-10 11:59:21,260 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,261 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,261 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,263 [INFO] Batch 8: batch_size 16
+2025-02-10 11:59:21,293 [INFO] Batch 8: Hidden states shape: torch.Size([16, 50, 768])
+2025-02-10 11:59:21,293 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,293 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,293 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,295 [INFO] Batch 9: batch_size 16
+2025-02-10 11:59:21,325 [INFO] Batch 9: Hidden states shape: torch.Size([16, 71, 768])
+2025-02-10 11:59:21,325 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,325 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,325 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,327 [INFO] Batch 10: batch_size 16
+2025-02-10 11:59:21,358 [INFO] Batch 10: Hidden states shape: torch.Size([16, 77, 768])
+2025-02-10 11:59:21,358 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,358 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,358 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,361 [INFO] Batch 11: batch_size 16
+2025-02-10 11:59:21,391 [INFO] Batch 11: Hidden states shape: torch.Size([16, 56, 768])
+2025-02-10 11:59:21,391 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,391 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,391 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,393 [INFO] Batch 12: batch_size 16
+2025-02-10 11:59:21,423 [INFO] Batch 12: Hidden states shape: torch.Size([16, 68, 768])
+2025-02-10 11:59:21,423 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,423 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,424 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,426 [INFO] Batch 13: batch_size 16
+2025-02-10 11:59:21,455 [INFO] Batch 13: Hidden states shape: torch.Size([16, 47, 768])
+2025-02-10 11:59:21,456 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,456 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,456 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,457 [INFO] Batch 14: batch_size 16
+2025-02-10 11:59:21,487 [INFO] Batch 14: Hidden states shape: torch.Size([16, 77, 768])
+2025-02-10 11:59:21,488 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,488 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,488 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,490 [INFO] Batch 15: batch_size 16
+2025-02-10 11:59:21,520 [INFO] Batch 15: Hidden states shape: torch.Size([16, 90, 768])
+2025-02-10 11:59:21,520 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,521 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,521 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,524 [INFO] Batch 16: batch_size 16
+2025-02-10 11:59:21,554 [INFO] Batch 16: Hidden states shape: torch.Size([16, 62, 768])
+2025-02-10 11:59:21,554 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,554 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,554 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,556 [INFO] Batch 17: batch_size 16
+2025-02-10 11:59:21,586 [INFO] Batch 17: Hidden states shape: torch.Size([16, 53, 768])
+2025-02-10 11:59:21,586 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,586 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,586 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,588 [INFO] Batch 18: batch_size 16
+2025-02-10 11:59:21,618 [INFO] Batch 18: Hidden states shape: torch.Size([16, 59, 768])
+2025-02-10 11:59:21,618 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,618 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,618 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,620 [INFO] Batch 19: batch_size 16
+2025-02-10 11:59:21,650 [INFO] Batch 19: Hidden states shape: torch.Size([16, 48, 768])
+2025-02-10 11:59:21,650 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,651 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,651 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,652 [INFO] Batch 20: batch_size 16
+2025-02-10 11:59:21,678 [INFO] Batch 20: Hidden states shape: torch.Size([16, 40, 768])
+2025-02-10 11:59:21,678 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,678 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,678 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,680 [INFO] Batch 21: batch_size 16
+2025-02-10 11:59:21,706 [INFO] Batch 21: Hidden states shape: torch.Size([16, 91, 768])
+2025-02-10 11:59:21,706 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,706 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,706 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,710 [INFO] Batch 22: batch_size 16
+2025-02-10 11:59:21,735 [INFO] Batch 22: Hidden states shape: torch.Size([16, 93, 768])
+2025-02-10 11:59:21,735 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,736 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,736 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,739 [INFO] Batch 23: batch_size 16
+2025-02-10 11:59:21,764 [INFO] Batch 23: Hidden states shape: torch.Size([16, 51, 768])
+2025-02-10 11:59:21,765 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,765 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,765 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,766 [INFO] Batch 24: batch_size 16
+2025-02-10 11:59:21,791 [INFO] Batch 24: Hidden states shape: torch.Size([16, 59, 768])
+2025-02-10 11:59:21,791 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,791 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,791 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,793 [INFO] Batch 25: batch_size 16
+2025-02-10 11:59:21,818 [INFO] Batch 25: Hidden states shape: torch.Size([16, 76, 768])
+2025-02-10 11:59:21,819 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,819 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,819 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,822 [INFO] Batch 26: batch_size 16
+2025-02-10 11:59:21,847 [INFO] Batch 26: Hidden states shape: torch.Size([16, 58, 768])
+2025-02-10 11:59:21,847 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,847 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,847 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,849 [INFO] Batch 27: batch_size 16
+2025-02-10 11:59:21,874 [INFO] Batch 27: Hidden states shape: torch.Size([16, 48, 768])
+2025-02-10 11:59:21,874 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,874 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,874 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,876 [INFO] Batch 28: batch_size 16
+2025-02-10 11:59:21,901 [INFO] Batch 28: Hidden states shape: torch.Size([16, 55, 768])
+2025-02-10 11:59:21,901 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,901 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,901 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,903 [INFO] Batch 29: batch_size 16
+2025-02-10 11:59:21,928 [INFO] Batch 29: Hidden states shape: torch.Size([16, 68, 768])
+2025-02-10 11:59:21,928 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,928 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,928 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,931 [INFO] Batch 30: batch_size 16
+2025-02-10 11:59:21,962 [INFO] Batch 30: Hidden states shape: torch.Size([16, 143, 768])
+2025-02-10 11:59:21,962 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,962 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,962 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:21,968 [INFO] Batch 31: batch_size 16
+2025-02-10 11:59:21,999 [INFO] Batch 31: Hidden states shape: torch.Size([16, 72, 768])
+2025-02-10 11:59:21,999 [INFO] Computing non-zero element counts
+2025-02-10 11:59:21,999 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:21,999 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,001 [INFO] Batch 32: batch_size 16
+2025-02-10 11:59:22,031 [INFO] Batch 32: Hidden states shape: torch.Size([16, 61, 768])
+2025-02-10 11:59:22,031 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,031 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,031 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,033 [INFO] Batch 33: batch_size 16
+2025-02-10 11:59:22,064 [INFO] Batch 33: Hidden states shape: torch.Size([16, 86, 768])
+2025-02-10 11:59:22,064 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,064 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,064 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,067 [INFO] Batch 34: batch_size 16
+2025-02-10 11:59:22,097 [INFO] Batch 34: Hidden states shape: torch.Size([16, 43, 768])
+2025-02-10 11:59:22,097 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,097 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,097 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,098 [INFO] Batch 35: batch_size 16
+2025-02-10 11:59:22,129 [INFO] Batch 35: Hidden states shape: torch.Size([16, 62, 768])
+2025-02-10 11:59:22,129 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,129 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,129 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,131 [INFO] Batch 36: batch_size 16
+2025-02-10 11:59:22,161 [INFO] Batch 36: Hidden states shape: torch.Size([16, 61, 768])
+2025-02-10 11:59:22,161 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,161 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,161 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,163 [INFO] Batch 37: batch_size 16
+2025-02-10 11:59:22,193 [INFO] Batch 37: Hidden states shape: torch.Size([16, 74, 768])
+2025-02-10 11:59:22,194 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,194 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,194 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,196 [INFO] Batch 38: batch_size 16
+2025-02-10 11:59:22,228 [INFO] Batch 38: Hidden states shape: torch.Size([16, 102, 768])
+2025-02-10 11:59:22,228 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,228 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,228 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,232 [INFO] Batch 39: batch_size 16
+2025-02-10 11:59:22,262 [INFO] Batch 39: Hidden states shape: torch.Size([16, 70, 768])
+2025-02-10 11:59:22,262 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,262 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,263 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,265 [INFO] Batch 40: batch_size 16
+2025-02-10 11:59:22,295 [INFO] Batch 40: Hidden states shape: torch.Size([16, 111, 768])
+2025-02-10 11:59:22,296 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,296 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,296 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,300 [INFO] Batch 41: batch_size 16
+2025-02-10 11:59:22,330 [INFO] Batch 41: Hidden states shape: torch.Size([16, 64, 768])
+2025-02-10 11:59:22,330 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,330 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,330 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,332 [INFO] Batch 42: batch_size 16
+2025-02-10 11:59:22,369 [INFO] Batch 42: Hidden states shape: torch.Size([16, 52, 768])
+2025-02-10 11:59:22,369 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,369 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,369 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,371 [INFO] Batch 43: batch_size 16
+2025-02-10 11:59:22,402 [INFO] Batch 43: Hidden states shape: torch.Size([16, 90, 768])
+2025-02-10 11:59:22,402 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,402 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,402 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,406 [INFO] Batch 44: batch_size 16
+2025-02-10 11:59:22,442 [INFO] Batch 44: Hidden states shape: torch.Size([16, 60, 768])
+2025-02-10 11:59:22,442 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,442 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,442 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,444 [INFO] Batch 45: batch_size 16
+2025-02-10 11:59:22,482 [INFO] Batch 45: Hidden states shape: torch.Size([16, 106, 768])
+2025-02-10 11:59:22,482 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,482 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,482 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,486 [INFO] Batch 46: batch_size 16
+2025-02-10 11:59:22,523 [INFO] Batch 46: Hidden states shape: torch.Size([16, 91, 768])
+2025-02-10 11:59:22,523 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,523 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,523 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,526 [INFO] Batch 47: batch_size 16
+2025-02-10 11:59:22,565 [INFO] Batch 47: Hidden states shape: torch.Size([16, 173, 768])
+2025-02-10 11:59:22,565 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,565 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,566 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,573 [INFO] Batch 48: batch_size 16
+2025-02-10 11:59:22,603 [INFO] Batch 48: Hidden states shape: torch.Size([16, 46, 768])
+2025-02-10 11:59:22,603 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,603 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,603 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,605 [INFO] Batch 49: batch_size 16
+2025-02-10 11:59:22,639 [INFO] Batch 49: Hidden states shape: torch.Size([16, 46, 768])
+2025-02-10 11:59:22,640 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,640 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,640 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,641 [INFO] Batch 50: batch_size 16
+2025-02-10 11:59:22,676 [INFO] Batch 50: Hidden states shape: torch.Size([16, 73, 768])
+2025-02-10 11:59:22,676 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,676 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,676 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,679 [INFO] Batch 51: batch_size 16
+2025-02-10 11:59:22,712 [INFO] Batch 51: Hidden states shape: torch.Size([16, 43, 768])
+2025-02-10 11:59:22,713 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,713 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,713 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,714 [INFO] Batch 52: batch_size 16
+2025-02-10 11:59:22,955 [INFO] Batch 52: Hidden states shape: torch.Size([16, 84, 768])
+2025-02-10 11:59:22,955 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,955 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,955 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,958 [INFO] Batch 53: batch_size 16
+2025-02-10 11:59:22,992 [INFO] Batch 53: Hidden states shape: torch.Size([16, 73, 768])
+2025-02-10 11:59:22,992 [INFO] Computing non-zero element counts
+2025-02-10 11:59:22,992 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:22,992 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:22,995 [INFO] Batch 54: batch_size 16
+2025-02-10 11:59:23,029 [INFO] Batch 54: Hidden states shape: torch.Size([16, 89, 768])
+2025-02-10 11:59:23,030 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,030 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,030 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,033 [INFO] Batch 55: batch_size 16
+2025-02-10 11:59:23,067 [INFO] Batch 55: Hidden states shape: torch.Size([16, 69, 768])
+2025-02-10 11:59:23,067 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,068 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,068 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,070 [INFO] Batch 56: batch_size 16
+2025-02-10 11:59:23,105 [INFO] Batch 56: Hidden states shape: torch.Size([16, 133, 768])
+2025-02-10 11:59:23,106 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,106 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,106 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,111 [INFO] Batch 57: batch_size 16
+2025-02-10 11:59:23,144 [INFO] Batch 57: Hidden states shape: torch.Size([16, 98, 768])
+2025-02-10 11:59:23,144 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,144 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,144 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,148 [INFO] Batch 58: batch_size 16
+2025-02-10 11:59:23,187 [INFO] Batch 58: Hidden states shape: torch.Size([16, 42, 768])
+2025-02-10 11:59:23,188 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,188 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,188 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,189 [INFO] Batch 59: batch_size 16
+2025-02-10 11:59:23,223 [INFO] Batch 59: Hidden states shape: torch.Size([16, 54, 768])
+2025-02-10 11:59:23,223 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,223 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,223 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,225 [INFO] Batch 60: batch_size 16
+2025-02-10 11:59:23,257 [INFO] Batch 60: Hidden states shape: torch.Size([16, 49, 768])
+2025-02-10 11:59:23,258 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,258 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,258 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,259 [INFO] Batch 61: batch_size 16
+2025-02-10 11:59:23,293 [INFO] Batch 61: Hidden states shape: torch.Size([16, 76, 768])
+2025-02-10 11:59:23,293 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,293 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,293 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,296 [INFO] Batch 62: batch_size 16
+2025-02-10 11:59:23,328 [INFO] Batch 62: Hidden states shape: torch.Size([16, 75, 768])
+2025-02-10 11:59:23,328 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,328 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,328 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,331 [INFO] Batch 63: batch_size 16
+2025-02-10 11:59:23,362 [INFO] Batch 63: Hidden states shape: torch.Size([16, 49, 768])
+2025-02-10 11:59:23,363 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,363 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,363 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,364 [INFO] Batch 64: batch_size 16
+2025-02-10 11:59:23,397 [INFO] Batch 64: Hidden states shape: torch.Size([16, 66, 768])
+2025-02-10 11:59:23,398 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,398 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,398 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,400 [INFO] Batch 65: batch_size 16
+2025-02-10 11:59:23,433 [INFO] Batch 65: Hidden states shape: torch.Size([16, 42, 768])
+2025-02-10 11:59:23,433 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,434 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,434 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,435 [INFO] Batch 66: batch_size 16
+2025-02-10 11:59:23,468 [INFO] Batch 66: Hidden states shape: torch.Size([16, 62, 768])
+2025-02-10 11:59:23,469 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,469 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,469 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,471 [INFO] Batch 67: batch_size 16
+2025-02-10 11:59:23,504 [INFO] Batch 67: Hidden states shape: torch.Size([16, 79, 768])
+2025-02-10 11:59:23,505 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,505 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,505 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,507 [INFO] Batch 68: batch_size 16
+2025-02-10 11:59:23,541 [INFO] Batch 68: Hidden states shape: torch.Size([16, 68, 768])
+2025-02-10 11:59:23,541 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,541 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,541 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,543 [INFO] Batch 69: batch_size 16
+2025-02-10 11:59:23,577 [INFO] Batch 69: Hidden states shape: torch.Size([16, 73, 768])
+2025-02-10 11:59:23,577 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,578 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,578 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,580 [INFO] Batch 70: batch_size 16
+2025-02-10 11:59:23,613 [INFO] Batch 70: Hidden states shape: torch.Size([16, 51, 768])
+2025-02-10 11:59:23,613 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,614 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,614 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,615 [INFO] Batch 71: batch_size 16
+2025-02-10 11:59:23,649 [INFO] Batch 71: Hidden states shape: torch.Size([16, 78, 768])
+2025-02-10 11:59:23,650 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,650 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,650 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,652 [INFO] Batch 72: batch_size 16
+2025-02-10 11:59:23,686 [INFO] Batch 72: Hidden states shape: torch.Size([16, 56, 768])
+2025-02-10 11:59:23,687 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,687 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,687 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,688 [INFO] Batch 73: batch_size 16
+2025-02-10 11:59:23,734 [INFO] Batch 73: Hidden states shape: torch.Size([16, 76, 768])
+2025-02-10 11:59:23,734 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,734 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,735 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,737 [INFO] Batch 74: batch_size 16
+2025-02-10 11:59:23,771 [INFO] Batch 74: Hidden states shape: torch.Size([16, 78, 768])
+2025-02-10 11:59:23,771 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,772 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,772 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,774 [INFO] Batch 75: batch_size 16
+2025-02-10 11:59:23,807 [INFO] Batch 75: Hidden states shape: torch.Size([16, 46, 768])
+2025-02-10 11:59:23,807 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,808 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,808 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,809 [INFO] Batch 76: batch_size 16
+2025-02-10 11:59:23,844 [INFO] Batch 76: Hidden states shape: torch.Size([16, 106, 768])
+2025-02-10 11:59:23,844 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,844 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,844 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,848 [INFO] Batch 77: batch_size 16
+2025-02-10 11:59:23,882 [INFO] Batch 77: Hidden states shape: torch.Size([16, 67, 768])
+2025-02-10 11:59:23,883 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,883 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,883 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,885 [INFO] Batch 78: batch_size 16
+2025-02-10 11:59:23,920 [INFO] Batch 78: Hidden states shape: torch.Size([16, 48, 768])
+2025-02-10 11:59:23,920 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,920 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,920 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,922 [INFO] Batch 79: batch_size 16
+2025-02-10 11:59:23,958 [INFO] Batch 79: Hidden states shape: torch.Size([16, 103, 768])
+2025-02-10 11:59:23,958 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,958 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,958 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,961 [INFO] Batch 80: batch_size 16
+2025-02-10 11:59:23,996 [INFO] Batch 80: Hidden states shape: torch.Size([16, 88, 768])
+2025-02-10 11:59:23,996 [INFO] Computing non-zero element counts
+2025-02-10 11:59:23,996 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:23,996 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:23,999 [INFO] Batch 81: batch_size 16
+2025-02-10 11:59:24,032 [INFO] Batch 81: Hidden states shape: torch.Size([16, 47, 768])
+2025-02-10 11:59:24,033 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,033 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,033 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,034 [INFO] Batch 82: batch_size 16
+2025-02-10 11:59:24,066 [INFO] Batch 82: Hidden states shape: torch.Size([16, 47, 768])
+2025-02-10 11:59:24,066 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,067 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,067 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,068 [INFO] Batch 83: batch_size 16
+2025-02-10 11:59:24,100 [INFO] Batch 83: Hidden states shape: torch.Size([16, 55, 768])
+2025-02-10 11:59:24,101 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,101 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,101 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,103 [INFO] Batch 84: batch_size 16
+2025-02-10 11:59:24,133 [INFO] Batch 84: Hidden states shape: torch.Size([16, 101, 768])
+2025-02-10 11:59:24,134 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,134 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,134 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,137 [INFO] Batch 85: batch_size 16
+2025-02-10 11:59:24,168 [INFO] Batch 85: Hidden states shape: torch.Size([16, 37, 768])
+2025-02-10 11:59:24,168 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,168 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,168 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,169 [INFO] Batch 86: batch_size 16
+2025-02-10 11:59:24,199 [INFO] Batch 86: Hidden states shape: torch.Size([16, 69, 768])
+2025-02-10 11:59:24,200 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,200 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,200 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,202 [INFO] Batch 87: batch_size 16
+2025-02-10 11:59:24,232 [INFO] Batch 87: Hidden states shape: torch.Size([16, 44, 768])
+2025-02-10 11:59:24,232 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,232 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,232 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,234 [INFO] Batch 88: batch_size 16
+2025-02-10 11:59:24,265 [INFO] Batch 88: Hidden states shape: torch.Size([16, 115, 768])
+2025-02-10 11:59:24,265 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,266 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,266 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,270 [INFO] Batch 89: batch_size 16
+2025-02-10 11:59:24,300 [INFO] Batch 89: Hidden states shape: torch.Size([16, 45, 768])
+2025-02-10 11:59:24,300 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,300 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,301 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,302 [INFO] Batch 90: batch_size 16
+2025-02-10 11:59:24,333 [INFO] Batch 90: Hidden states shape: torch.Size([16, 133, 768])
+2025-02-10 11:59:24,333 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,334 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,334 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,340 [INFO] Batch 91: batch_size 16
+2025-02-10 11:59:24,371 [INFO] Batch 91: Hidden states shape: torch.Size([16, 109, 768])
+2025-02-10 11:59:24,371 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,371 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,371 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,376 [INFO] Batch 92: batch_size 16
+2025-02-10 11:59:24,406 [INFO] Batch 92: Hidden states shape: torch.Size([16, 69, 768])
+2025-02-10 11:59:24,406 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,406 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,406 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,408 [INFO] Batch 93: batch_size 16
+2025-02-10 11:59:24,438 [INFO] Batch 93: Hidden states shape: torch.Size([16, 84, 768])
+2025-02-10 11:59:24,438 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,438 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,439 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,442 [INFO] Batch 94: batch_size 16
+2025-02-10 11:59:24,472 [INFO] Batch 94: Hidden states shape: torch.Size([16, 64, 768])
+2025-02-10 11:59:24,472 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,472 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,472 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,474 [INFO] Batch 95: batch_size 16
+2025-02-10 11:59:24,504 [INFO] Batch 95: Hidden states shape: torch.Size([16, 58, 768])
+2025-02-10 11:59:24,504 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,504 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,504 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,506 [INFO] Batch 96: batch_size 16
+2025-02-10 11:59:24,536 [INFO] Batch 96: Hidden states shape: torch.Size([16, 68, 768])
+2025-02-10 11:59:24,537 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,537 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,537 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,539 [INFO] Batch 97: batch_size 16
+2025-02-10 11:59:24,569 [INFO] Batch 97: Hidden states shape: torch.Size([16, 59, 768])
+2025-02-10 11:59:24,569 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,569 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,569 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,571 [INFO] Batch 98: batch_size 16
+2025-02-10 11:59:24,601 [INFO] Batch 98: Hidden states shape: torch.Size([16, 57, 768])
+2025-02-10 11:59:24,601 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,601 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,601 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,603 [INFO] Batch 99: batch_size 16
+2025-02-10 11:59:24,639 [INFO] Batch 99: Hidden states shape: torch.Size([16, 59, 768])
+2025-02-10 11:59:24,640 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,640 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,640 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,641 [INFO] Batch 100: batch_size 16
+2025-02-10 11:59:24,672 [INFO] Batch 100: Hidden states shape: torch.Size([16, 66, 768])
+2025-02-10 11:59:24,672 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,672 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,672 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,674 [INFO] Batch 101: batch_size 16
+2025-02-10 11:59:24,704 [INFO] Batch 101: Hidden states shape: torch.Size([16, 65, 768])
+2025-02-10 11:59:24,704 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,704 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,704 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,706 [INFO] Batch 102: batch_size 16
+2025-02-10 11:59:24,737 [INFO] Batch 102: Hidden states shape: torch.Size([16, 67, 768])
+2025-02-10 11:59:24,742 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,742 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,742 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,744 [INFO] Batch 103: batch_size 16
+2025-02-10 11:59:24,782 [INFO] Batch 103: Hidden states shape: torch.Size([16, 166, 768])
+2025-02-10 11:59:24,782 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,782 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,782 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,788 [INFO] Batch 104: batch_size 16
+2025-02-10 11:59:24,819 [INFO] Batch 104: Hidden states shape: torch.Size([16, 35, 768])
+2025-02-10 11:59:24,819 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,819 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,819 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,820 [INFO] Batch 105: batch_size 16
+2025-02-10 11:59:24,850 [INFO] Batch 105: Hidden states shape: torch.Size([16, 54, 768])
+2025-02-10 11:59:24,850 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,851 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,851 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,852 [INFO] Batch 106: batch_size 16
+2025-02-10 11:59:24,882 [INFO] Batch 106: Hidden states shape: torch.Size([16, 66, 768])
+2025-02-10 11:59:24,882 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,882 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,882 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,884 [INFO] Batch 107: batch_size 16
+2025-02-10 11:59:24,914 [INFO] Batch 107: Hidden states shape: torch.Size([16, 57, 768])
+2025-02-10 11:59:24,914 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,914 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,914 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,916 [INFO] Batch 108: batch_size 16
+2025-02-10 11:59:24,946 [INFO] Batch 108: Hidden states shape: torch.Size([16, 74, 768])
+2025-02-10 11:59:24,947 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,947 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,947 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,949 [INFO] Batch 109: batch_size 16
+2025-02-10 11:59:24,979 [INFO] Batch 109: Hidden states shape: torch.Size([16, 74, 768])
+2025-02-10 11:59:24,980 [INFO] Computing non-zero element counts
+2025-02-10 11:59:24,980 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:24,980 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:24,982 [INFO] Batch 110: batch_size 16
+2025-02-10 11:59:25,015 [INFO] Batch 110: Hidden states shape: torch.Size([16, 78, 768])
+2025-02-10 11:59:25,031 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,031 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,031 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,034 [INFO] Batch 111: batch_size 16
+2025-02-10 11:59:25,068 [INFO] Batch 111: Hidden states shape: torch.Size([16, 91, 768])
+2025-02-10 11:59:25,068 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,068 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,068 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,071 [INFO] Batch 112: batch_size 16
+2025-02-10 11:59:25,103 [INFO] Batch 112: Hidden states shape: torch.Size([16, 67, 768])
+2025-02-10 11:59:25,104 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,104 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,104 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,106 [INFO] Batch 113: batch_size 16
+2025-02-10 11:59:25,137 [INFO] Batch 113: Hidden states shape: torch.Size([16, 68, 768])
+2025-02-10 11:59:25,137 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,138 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,138 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,140 [INFO] Batch 114: batch_size 16
+2025-02-10 11:59:25,171 [INFO] Batch 114: Hidden states shape: torch.Size([16, 66, 768])
+2025-02-10 11:59:25,171 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,171 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,171 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,173 [INFO] Batch 115: batch_size 16
+2025-02-10 11:59:25,205 [INFO] Batch 115: Hidden states shape: torch.Size([16, 85, 768])
+2025-02-10 11:59:25,205 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,205 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,205 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,208 [INFO] Batch 116: batch_size 16
+2025-02-10 11:59:25,239 [INFO] Batch 116: Hidden states shape: torch.Size([16, 46, 768])
+2025-02-10 11:59:25,239 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,239 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,239 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,241 [INFO] Batch 117: batch_size 16
+2025-02-10 11:59:25,271 [INFO] Batch 117: Hidden states shape: torch.Size([16, 44, 768])
+2025-02-10 11:59:25,272 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,272 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,272 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,273 [INFO] Batch 118: batch_size 16
+2025-02-10 11:59:25,304 [INFO] Batch 118: Hidden states shape: torch.Size([16, 76, 768])
+2025-02-10 11:59:25,305 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,305 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,305 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,308 [INFO] Batch 119: batch_size 16
+2025-02-10 11:59:25,342 [INFO] Batch 119: Hidden states shape: torch.Size([16, 54, 768])
+2025-02-10 11:59:25,343 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,343 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,343 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,345 [INFO] Batch 120: batch_size 16
+2025-02-10 11:59:25,375 [INFO] Batch 120: Hidden states shape: torch.Size([16, 64, 768])
+2025-02-10 11:59:25,376 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,376 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,376 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,378 [INFO] Batch 121: batch_size 16
+2025-02-10 11:59:25,408 [INFO] Batch 121: Hidden states shape: torch.Size([16, 54, 768])
+2025-02-10 11:59:25,409 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,409 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,409 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,410 [INFO] Batch 122: batch_size 16
+2025-02-10 11:59:25,443 [INFO] Batch 122: Hidden states shape: torch.Size([16, 143, 768])
+2025-02-10 11:59:25,443 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,443 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,443 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,449 [INFO] Batch 123: batch_size 16
+2025-02-10 11:59:25,482 [INFO] Batch 123: Hidden states shape: torch.Size([16, 85, 768])
+2025-02-10 11:59:25,483 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,483 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,483 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,485 [INFO] Batch 124: batch_size 16
+2025-02-10 11:59:25,517 [INFO] Batch 124: Hidden states shape: torch.Size([16, 136, 768])
+2025-02-10 11:59:25,518 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,518 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,518 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,524 [INFO] Batch 125: batch_size 16
+2025-02-10 11:59:25,556 [INFO] Batch 125: Hidden states shape: torch.Size([16, 71, 768])
+2025-02-10 11:59:25,556 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,556 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,556 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,558 [INFO] Batch 126: batch_size 16
+2025-02-10 11:59:25,592 [INFO] Batch 126: Hidden states shape: torch.Size([16, 66, 768])
+2025-02-10 11:59:25,592 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,592 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,592 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,594 [INFO] Batch 127: batch_size 16
+2025-02-10 11:59:25,626 [INFO] Batch 127: Hidden states shape: torch.Size([16, 57, 768])
+2025-02-10 11:59:25,626 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,626 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,626 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,629 [INFO] Batch 128: batch_size 16
+2025-02-10 11:59:25,661 [INFO] Batch 128: Hidden states shape: torch.Size([16, 91, 768])
+2025-02-10 11:59:25,662 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,662 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,662 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,665 [INFO] Batch 129: batch_size 16
+2025-02-10 11:59:25,696 [INFO] Batch 129: Hidden states shape: torch.Size([16, 54, 768])
+2025-02-10 11:59:25,696 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,696 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,696 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,698 [INFO] Batch 130: batch_size 16
+2025-02-10 11:59:25,727 [INFO] Batch 130: Hidden states shape: torch.Size([16, 71, 768])
+2025-02-10 11:59:25,728 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,728 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,728 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,730 [INFO] Batch 131: batch_size 16
+2025-02-10 11:59:25,761 [INFO] Batch 131: Hidden states shape: torch.Size([16, 74, 768])
+2025-02-10 11:59:25,761 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,761 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,761 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,763 [INFO] Batch 132: batch_size 16
+2025-02-10 11:59:25,927 [INFO] Batch 132: Hidden states shape: torch.Size([16, 68, 768])
+2025-02-10 11:59:25,928 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,928 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,928 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,930 [INFO] Batch 133: batch_size 16
+2025-02-10 11:59:25,961 [INFO] Batch 133: Hidden states shape: torch.Size([16, 68, 768])
+2025-02-10 11:59:25,961 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,961 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,961 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,963 [INFO] Batch 134: batch_size 16
+2025-02-10 11:59:25,993 [INFO] Batch 134: Hidden states shape: torch.Size([16, 74, 768])
+2025-02-10 11:59:25,994 [INFO] Computing non-zero element counts
+2025-02-10 11:59:25,994 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:25,994 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:25,996 [INFO] Batch 135: batch_size 16
+2025-02-10 11:59:26,026 [INFO] Batch 135: Hidden states shape: torch.Size([16, 98, 768])
+2025-02-10 11:59:26,027 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,027 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,027 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,031 [INFO] Batch 136: batch_size 16
+2025-02-10 11:59:26,062 [INFO] Batch 136: Hidden states shape: torch.Size([16, 90, 768])
+2025-02-10 11:59:26,062 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,062 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,062 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,065 [INFO] Batch 137: batch_size 16
+2025-02-10 11:59:26,095 [INFO] Batch 137: Hidden states shape: torch.Size([16, 73, 768])
+2025-02-10 11:59:26,095 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,095 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,095 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,098 [INFO] Batch 138: batch_size 16
+2025-02-10 11:59:26,128 [INFO] Batch 138: Hidden states shape: torch.Size([16, 70, 768])
+2025-02-10 11:59:26,128 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,128 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,128 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,130 [INFO] Batch 139: batch_size 16
+2025-02-10 11:59:26,160 [INFO] Batch 139: Hidden states shape: torch.Size([16, 41, 768])
+2025-02-10 11:59:26,161 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,161 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,161 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,162 [INFO] Batch 140: batch_size 16
+2025-02-10 11:59:26,192 [INFO] Batch 140: Hidden states shape: torch.Size([16, 69, 768])
+2025-02-10 11:59:26,192 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,192 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,192 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,194 [INFO] Batch 141: batch_size 16
+2025-02-10 11:59:26,224 [INFO] Batch 141: Hidden states shape: torch.Size([16, 72, 768])
+2025-02-10 11:59:26,224 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,225 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,225 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,227 [INFO] Batch 142: batch_size 16
+2025-02-10 11:59:26,256 [INFO] Batch 142: Hidden states shape: torch.Size([16, 61, 768])
+2025-02-10 11:59:26,256 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,256 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,256 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,258 [INFO] Batch 143: batch_size 16
+2025-02-10 11:59:26,289 [INFO] Batch 143: Hidden states shape: torch.Size([16, 143, 768])
+2025-02-10 11:59:26,290 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,290 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,290 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,296 [INFO] Batch 144: batch_size 16
+2025-02-10 11:59:26,325 [INFO] Batch 144: Hidden states shape: torch.Size([16, 75, 768])
+2025-02-10 11:59:26,326 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,326 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,326 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,328 [INFO] Batch 145: batch_size 16
+2025-02-10 11:59:26,359 [INFO] Batch 145: Hidden states shape: torch.Size([16, 166, 768])
+2025-02-10 11:59:26,359 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,359 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,359 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,366 [INFO] Batch 146: batch_size 16
+2025-02-10 11:59:26,396 [INFO] Batch 146: Hidden states shape: torch.Size([16, 57, 768])
+2025-02-10 11:59:26,396 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,396 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,396 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,398 [INFO] Batch 147: batch_size 16
+2025-02-10 11:59:26,428 [INFO] Batch 147: Hidden states shape: torch.Size([16, 55, 768])
+2025-02-10 11:59:26,428 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,428 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,428 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,430 [INFO] Batch 148: batch_size 16
+2025-02-10 11:59:26,459 [INFO] Batch 148: Hidden states shape: torch.Size([16, 54, 768])
+2025-02-10 11:59:26,459 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,460 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,460 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,461 [INFO] Batch 149: batch_size 16
+2025-02-10 11:59:26,491 [INFO] Batch 149: Hidden states shape: torch.Size([16, 58, 768])
+2025-02-10 11:59:26,492 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,492 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,492 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,493 [INFO] Batch 150: batch_size 16
+2025-02-10 11:59:26,523 [INFO] Batch 150: Hidden states shape: torch.Size([16, 37, 768])
+2025-02-10 11:59:26,524 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,524 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,524 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,525 [INFO] Batch 151: batch_size 16
+2025-02-10 11:59:26,555 [INFO] Batch 151: Hidden states shape: torch.Size([16, 59, 768])
+2025-02-10 11:59:26,555 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,555 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,555 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,557 [INFO] Batch 152: batch_size 16
+2025-02-10 11:59:26,587 [INFO] Batch 152: Hidden states shape: torch.Size([16, 78, 768])
+2025-02-10 11:59:26,587 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,587 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,587 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,590 [INFO] Batch 153: batch_size 16
+2025-02-10 11:59:26,622 [INFO] Batch 153: Hidden states shape: torch.Size([16, 46, 768])
+2025-02-10 11:59:26,622 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,622 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,622 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,623 [INFO] Batch 154: batch_size 16
+2025-02-10 11:59:26,653 [INFO] Batch 154: Hidden states shape: torch.Size([16, 53, 768])
+2025-02-10 11:59:26,653 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,654 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,654 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,655 [INFO] Batch 155: batch_size 16
+2025-02-10 11:59:26,686 [INFO] Batch 155: Hidden states shape: torch.Size([16, 62, 768])
+2025-02-10 11:59:26,686 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,686 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,686 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,688 [INFO] Batch 156: batch_size 16
+2025-02-10 11:59:26,718 [INFO] Batch 156: Hidden states shape: torch.Size([16, 91, 768])
+2025-02-10 11:59:26,719 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,719 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,719 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,722 [INFO] Batch 157: batch_size 16
+2025-02-10 11:59:26,753 [INFO] Batch 157: Hidden states shape: torch.Size([16, 70, 768])
+2025-02-10 11:59:26,753 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,753 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,753 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,755 [INFO] Batch 158: batch_size 16
+2025-02-10 11:59:26,785 [INFO] Batch 158: Hidden states shape: torch.Size([16, 54, 768])
+2025-02-10 11:59:26,785 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,785 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,785 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,787 [INFO] Batch 159: batch_size 16
+2025-02-10 11:59:26,816 [INFO] Batch 159: Hidden states shape: torch.Size([16, 51, 768])
+2025-02-10 11:59:26,816 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,816 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,817 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,818 [INFO] Batch 160: batch_size 16
+2025-02-10 11:59:26,849 [INFO] Batch 160: Hidden states shape: torch.Size([16, 72, 768])
+2025-02-10 11:59:26,849 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,849 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,849 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,851 [INFO] Batch 161: batch_size 16
+2025-02-10 11:59:26,881 [INFO] Batch 161: Hidden states shape: torch.Size([16, 68, 768])
+2025-02-10 11:59:26,881 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,881 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,881 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,884 [INFO] Batch 162: batch_size 16
+2025-02-10 11:59:26,914 [INFO] Batch 162: Hidden states shape: torch.Size([16, 50, 768])
+2025-02-10 11:59:26,914 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,914 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,914 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,916 [INFO] Batch 163: batch_size 16
+2025-02-10 11:59:26,945 [INFO] Batch 163: Hidden states shape: torch.Size([16, 77, 768])
+2025-02-10 11:59:26,946 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,946 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,946 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,948 [INFO] Batch 164: batch_size 16
+2025-02-10 11:59:26,978 [INFO] Batch 164: Hidden states shape: torch.Size([16, 60, 768])
+2025-02-10 11:59:26,978 [INFO] Computing non-zero element counts
+2025-02-10 11:59:26,978 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:26,978 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:26,980 [INFO] Batch 165: batch_size 16
+2025-02-10 11:59:27,010 [INFO] Batch 165: Hidden states shape: torch.Size([16, 67, 768])
+2025-02-10 11:59:27,010 [INFO] Computing non-zero element counts
+2025-02-10 11:59:27,010 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:27,010 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:27,012 [INFO] Batch 166: batch_size 16
+2025-02-10 11:59:27,043 [INFO] Batch 166: Hidden states shape: torch.Size([16, 85, 768])
+2025-02-10 11:59:27,043 [INFO] Computing non-zero element counts
+2025-02-10 11:59:27,043 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:27,043 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:27,046 [INFO] Batch 167: batch_size 16
+2025-02-10 11:59:27,076 [INFO] Batch 167: Hidden states shape: torch.Size([16, 42, 768])
+2025-02-10 11:59:27,077 [INFO] Computing non-zero element counts
+2025-02-10 11:59:27,077 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:27,077 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:27,078 [INFO] Batch 168: batch_size 16
+2025-02-10 11:59:27,108 [INFO] Batch 168: Hidden states shape: torch.Size([16, 65, 768])
+2025-02-10 11:59:27,108 [INFO] Computing non-zero element counts
+2025-02-10 11:59:27,108 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:27,108 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:27,110 [INFO] Batch 169: batch_size 16
+2025-02-10 11:59:27,141 [INFO] Batch 169: Hidden states shape: torch.Size([16, 81, 768])
+2025-02-10 11:59:27,141 [INFO] Computing non-zero element counts
+2025-02-10 11:59:27,141 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:27,141 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:27,144 [INFO] Batch 170: batch_size 16
+2025-02-10 11:59:27,174 [INFO] Batch 170: Hidden states shape: torch.Size([16, 84, 768])
+2025-02-10 11:59:27,174 [INFO] Computing non-zero element counts
+2025-02-10 11:59:27,174 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:27,174 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:27,178 [INFO] Batch 171: batch_size 16
+2025-02-10 11:59:27,208 [INFO] Batch 171: Hidden states shape: torch.Size([14, 85, 768])
+2025-02-10 11:59:27,209 [INFO] Computing non-zero element counts
+2025-02-10 11:59:27,209 [INFO] Computing sum of non-zero elements
+2025-02-10 11:59:27,209 [INFO] Computing mean of non-zero elements
+2025-02-10 11:59:27,211 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-10 11:59:27,212 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-10 11:59:27,245 [INFO] Computing steering vectors using method: val_mul
+2025-02-10 11:59:27,251 [INFO] Steering vectors computed with shape: torch.Size([768])
+2025-02-10 11:59:29,887 [INFO] Generated Text: 1:
+your're title of your question says 'smokey flavor' or 'sour taste'. You're going to want to choose a strong flavour that is strong enough for you.
+
+A few more notes on the main ingredients:
+
+Malt (to remove yeast) is the main ingredient in all spices. It's important that you have a good amount of it in your recipe, so if you use too much it can cause problems. A lot of spices are also packed with sodium which can be toxic to your body and brain. Salt makes up
+2025-02-10 11:59:31,356 [INFO] Generated Text: 1:
+your're title of your question says 'smokey flavor, not strong")
+
+The Caffeine in Your Diet (1949)
+
+In the 1950s, scientists discovered that caffeine was associated with a variety of mental disorders. They theorized that it might be a mechanism for some of these disorders to take place in the brain and cause other symptoms. The first research on caffeine was published in 1954 by Albert Hirschfeld and John B. Mearsheimer at Columbia University School of Medicine. In their study, they showed that people who consumed
+2025-02-10 11:59:31,453 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 400 Bad Request"

@@ -1,0 +1,16 @@
+{"time":"2025-02-09T11:04:49.584310674+08:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-02-09T11:04:49.584324421+08:00","level":"INFO","msg":"created symlink","path":"/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/politeness_test/wandb/run-20250209_110449-4cue5680/logs/debug-core.log"}
+{"time":"2025-02-09T11:04:49.703380894+08:00","level":"INFO","msg":"created new stream","id":"4cue5680"}
+{"time":"2025-02-09T11:04:49.703448363+08:00","level":"INFO","msg":"stream: started","id":"4cue5680"}
+{"time":"2025-02-09T11:04:49.703584097+08:00","level":"INFO","msg":"sender: started","stream_id":"4cue5680"}
+{"time":"2025-02-09T11:04:49.703584517+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"4cue5680"}
+{"time":"2025-02-09T11:04:49.70363805+08:00","level":"INFO","msg":"handler: started","stream_id":"4cue5680"}
+{"time":"2025-02-09T11:04:50.12673477+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-09T11:05:47.524289264+08:00","level":"INFO","msg":"stream: closing","id":"4cue5680"}
+{"time":"2025-02-09T11:05:47.524357187+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-09T11:05:47.525363901+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-09T11:05:48.745853937+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-09T11:05:49.155358256+08:00","level":"INFO","msg":"handler: closed","stream_id":"4cue5680"}
+{"time":"2025-02-09T11:05:49.155437305+08:00","level":"INFO","msg":"sender: closed","stream_id":"4cue5680"}
+{"time":"2025-02-09T11:05:49.15543719+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"4cue5680"}
+{"time":"2025-02-09T11:05:49.155596588+08:00","level":"INFO","msg":"stream: closed","id":"4cue5680"}

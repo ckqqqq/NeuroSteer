@@ -1,0 +1,312 @@
+2025-01-24 17:59:20,721 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_400_from_neg_to_pos_datasize_1000_layer_11_mean_dif_mean_steertype_last_device_cpu_batchsize16/execution.log
+2025-01-24 17:59:20,721 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 17:59:20,721 [INFO]   task: sentiment
+2025-01-24 17:59:20,721 [INFO]   layer: 11
+2025-01-24 17:59:20,721 [INFO]   LLM: meta-llama/Llama-3.1-8B
+2025-01-24 17:59:20,721 [INFO]   seed: 42
+2025-01-24 17:59:20,721 [INFO]   data_size: 1000
+2025-01-24 17:59:20,721 [INFO]   device: cpu
+2025-01-24 17:59:20,721 [INFO]   alpha: 400
+2025-01-24 17:59:20,721 [INFO]   method: val_mul
+2025-01-24 17:59:20,721 [INFO]   topk_mean: 100
+2025-01-24 17:59:20,721 [INFO]   topk_cnt: 100
+2025-01-24 17:59:20,721 [INFO]   batch_size: 16
+2025-01-24 17:59:20,721 [INFO]   source: neg
+2025-01-24 17:59:20,721 [INFO]   target: pos
+2025-01-24 17:59:20,721 [INFO]   mean_type: dif_mean
+2025-01-24 17:59:20,721 [INFO]   steer_type: last
+2025-01-24 17:59:20,721 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 17:59:20,721 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 17:59:20,722 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 17:59:20,722 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 17:59:20,722 [INFO]   temperature: 0.9
+2025-01-24 17:59:20,722 [INFO]   top_p: 0.3
+2025-01-24 17:59:20,722 [INFO]   freq_penalty: 1.0
+2025-01-24 17:59:20,722 [INFO]   debug: 1
+2025-01-24 17:59:20,722 [INFO]   save_no_steer: 1
+2025-01-24 17:59:20,722 [INFO]   cache_delta_matrix: 0
+2025-01-24 17:59:20,722 [INFO]   is_norm_delta_matrix: 1
+2025-01-24 17:59:20,722 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 17:59:20,722 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 17:59:20,722 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 17:59:20,722 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 17:59:20,819 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 17:59:20,825 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 17:59:20,825 [INFO] Loading model: meta-llama/Llama-3.1-8B
+2025-01-24 17:59:25,821 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 17:59:43,937 [INFO] Loading SAE for layer 11 LLAMA
+2025-01-24 18:10:58,996 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_400_from_neg_to_pos_datasize_1000_layer_11_mean_dif_mean_steertype_last_device_cpu_batchsize16/execution.log
+2025-01-24 18:10:58,996 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 18:10:58,996 [INFO]   task: sentiment
+2025-01-24 18:10:58,996 [INFO]   layer: 11
+2025-01-24 18:10:58,996 [INFO]   LLM: meta-llama/Llama-3.1-8B
+2025-01-24 18:10:58,996 [INFO]   seed: 42
+2025-01-24 18:10:58,996 [INFO]   data_size: 1000
+2025-01-24 18:10:58,996 [INFO]   device: cpu
+2025-01-24 18:10:58,996 [INFO]   alpha: 400
+2025-01-24 18:10:58,996 [INFO]   method: val_mul
+2025-01-24 18:10:58,996 [INFO]   topk_mean: 100
+2025-01-24 18:10:58,996 [INFO]   topk_cnt: 100
+2025-01-24 18:10:58,996 [INFO]   batch_size: 16
+2025-01-24 18:10:58,996 [INFO]   source: neg
+2025-01-24 18:10:58,996 [INFO]   target: pos
+2025-01-24 18:10:58,996 [INFO]   mean_type: dif_mean
+2025-01-24 18:10:58,996 [INFO]   steer_type: last
+2025-01-24 18:10:58,996 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 18:10:58,996 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 18:10:58,996 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 18:10:58,996 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 18:10:58,996 [INFO]   temperature: 0.9
+2025-01-24 18:10:58,996 [INFO]   top_p: 0.3
+2025-01-24 18:10:58,997 [INFO]   freq_penalty: 1.0
+2025-01-24 18:10:58,997 [INFO]   debug: 1
+2025-01-24 18:10:58,997 [INFO]   save_no_steer: 1
+2025-01-24 18:10:58,997 [INFO]   cache_delta_matrix: 0
+2025-01-24 18:10:58,997 [INFO]   is_norm_delta_matrix: 1
+2025-01-24 18:10:58,997 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 18:10:58,997 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 18:10:58,997 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 18:10:58,997 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 18:10:59,120 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 18:10:59,128 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 18:10:59,128 [INFO] Loading model: meta-llama/Llama-3.1-8B
+2025-01-24 18:11:13,682 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 18:11:34,911 [INFO] Loading SAE for layer 11 LLAMA
+2025-01-24 18:15:43,127 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_400_from_neg_to_pos_datasize_1000_layer_11_mean_dif_mean_steertype_last_device_cpu_batchsize16/execution.log
+2025-01-24 18:15:43,127 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 18:15:43,127 [INFO]   task: sentiment
+2025-01-24 18:15:43,127 [INFO]   layer: 11
+2025-01-24 18:15:43,127 [INFO]   LLM: meta-llama/Llama-3.1-8B
+2025-01-24 18:15:43,127 [INFO]   seed: 42
+2025-01-24 18:15:43,127 [INFO]   data_size: 1000
+2025-01-24 18:15:43,127 [INFO]   device: cpu
+2025-01-24 18:15:43,127 [INFO]   alpha: 400
+2025-01-24 18:15:43,127 [INFO]   method: val_mul
+2025-01-24 18:15:43,127 [INFO]   topk_mean: 100
+2025-01-24 18:15:43,127 [INFO]   topk_cnt: 100
+2025-01-24 18:15:43,127 [INFO]   batch_size: 16
+2025-01-24 18:15:43,127 [INFO]   source: neg
+2025-01-24 18:15:43,127 [INFO]   target: pos
+2025-01-24 18:15:43,127 [INFO]   mean_type: dif_mean
+2025-01-24 18:15:43,127 [INFO]   steer_type: last
+2025-01-24 18:15:43,127 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 18:15:43,127 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 18:15:43,127 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 18:15:43,127 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 18:15:43,127 [INFO]   temperature: 0.9
+2025-01-24 18:15:43,127 [INFO]   top_p: 0.3
+2025-01-24 18:15:43,127 [INFO]   freq_penalty: 1.0
+2025-01-24 18:15:43,127 [INFO]   debug: 1
+2025-01-24 18:15:43,127 [INFO]   save_no_steer: 1
+2025-01-24 18:15:43,127 [INFO]   cache_delta_matrix: 0
+2025-01-24 18:15:43,127 [INFO]   is_norm_delta_matrix: 1
+2025-01-24 18:15:43,128 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 18:15:43,128 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 18:15:43,128 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 18:15:43,128 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 18:15:43,236 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 18:15:43,242 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 18:15:43,242 [INFO] Loading model: meta-llama/Llama-3.1-8B
+2025-01-24 18:15:48,704 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 18:16:11,143 [INFO] Loading SAE for layer 11 LLAMA
+2025-01-24 18:20:18,981 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_400_from_neg_to_pos_datasize_1000_layer_11_mean_dif_mean_steertype_last_device_cpu_batchsize16/execution.log
+2025-01-24 18:20:18,981 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 18:20:18,981 [INFO]   task: sentiment
+2025-01-24 18:20:18,981 [INFO]   layer: 11
+2025-01-24 18:20:18,981 [INFO]   LLM: meta-llama/Llama-3.1-8B
+2025-01-24 18:20:18,981 [INFO]   seed: 42
+2025-01-24 18:20:18,981 [INFO]   data_size: 1000
+2025-01-24 18:20:18,981 [INFO]   device: cpu
+2025-01-24 18:20:18,981 [INFO]   alpha: 400
+2025-01-24 18:20:18,981 [INFO]   method: val_mul
+2025-01-24 18:20:18,981 [INFO]   topk_mean: 100
+2025-01-24 18:20:18,981 [INFO]   topk_cnt: 100
+2025-01-24 18:20:18,981 [INFO]   batch_size: 16
+2025-01-24 18:20:18,981 [INFO]   source: neg
+2025-01-24 18:20:18,981 [INFO]   target: pos
+2025-01-24 18:20:18,981 [INFO]   mean_type: dif_mean
+2025-01-24 18:20:18,981 [INFO]   steer_type: last
+2025-01-24 18:20:18,981 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 18:20:18,981 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 18:20:18,981 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 18:20:18,981 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 18:20:18,982 [INFO]   temperature: 0.9
+2025-01-24 18:20:18,982 [INFO]   top_p: 0.3
+2025-01-24 18:20:18,982 [INFO]   freq_penalty: 1.0
+2025-01-24 18:20:18,982 [INFO]   debug: 1
+2025-01-24 18:20:18,982 [INFO]   save_no_steer: 1
+2025-01-24 18:20:18,982 [INFO]   cache_delta_matrix: 0
+2025-01-24 18:20:18,982 [INFO]   is_norm_delta_matrix: 1
+2025-01-24 18:20:18,982 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 18:20:18,982 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 18:20:18,982 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 18:20:18,982 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 18:20:19,111 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 18:20:19,119 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 18:20:19,120 [INFO] Loading model: meta-llama/Llama-3.1-8B
+2025-01-24 18:20:39,708 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 18:20:57,894 [INFO] Loading SAE for layer 11 LLAMA
+2025-01-24 18:24:16,092 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_400_from_neg_to_pos_datasize_1000_layer_11_mean_dif_mean_steertype_last_device_cpu_batchsize16/execution.log
+2025-01-24 18:24:16,092 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 18:24:16,092 [INFO]   task: sentiment
+2025-01-24 18:24:16,092 [INFO]   layer: 11
+2025-01-24 18:24:16,092 [INFO]   LLM: gemma-2b
+2025-01-24 18:24:16,092 [INFO]   seed: 42
+2025-01-24 18:24:16,092 [INFO]   data_size: 1000
+2025-01-24 18:24:16,092 [INFO]   device: cpu
+2025-01-24 18:24:16,092 [INFO]   alpha: 400
+2025-01-24 18:24:16,092 [INFO]   method: val_mul
+2025-01-24 18:24:16,092 [INFO]   topk_mean: 100
+2025-01-24 18:24:16,092 [INFO]   topk_cnt: 100
+2025-01-24 18:24:16,092 [INFO]   batch_size: 16
+2025-01-24 18:24:16,092 [INFO]   source: neg
+2025-01-24 18:24:16,092 [INFO]   target: pos
+2025-01-24 18:24:16,092 [INFO]   mean_type: dif_mean
+2025-01-24 18:24:16,092 [INFO]   steer_type: last
+2025-01-24 18:24:16,092 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 18:24:16,092 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 18:24:16,092 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 18:24:16,092 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 18:24:16,092 [INFO]   temperature: 0.9
+2025-01-24 18:24:16,092 [INFO]   top_p: 0.3
+2025-01-24 18:24:16,092 [INFO]   freq_penalty: 1.0
+2025-01-24 18:24:16,092 [INFO]   debug: 1
+2025-01-24 18:24:16,092 [INFO]   save_no_steer: 1
+2025-01-24 18:24:16,093 [INFO]   cache_delta_matrix: 0
+2025-01-24 18:24:16,093 [INFO]   is_norm_delta_matrix: 1
+2025-01-24 18:24:16,093 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 18:24:16,093 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 18:24:16,093 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 18:24:16,093 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 18:24:16,215 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 18:24:16,223 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 18:24:16,223 [INFO] Loading model: gemma-2b
+2025-01-24 18:28:49,117 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 18:28:57,156 [INFO] Loading SAE for layer 11 LLAMA
+2025-01-24 19:28:27,739 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_400_from_neg_to_pos_datasize_1000_layer_11_mean_dif_mean_steertype_last_device_cpu_batchsize16/execution.log
+2025-01-24 19:28:27,739 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 19:28:27,739 [INFO]   task: sentiment
+2025-01-24 19:28:27,739 [INFO]   layer: 11
+2025-01-24 19:28:27,739 [INFO]   LLM: gemma-2b
+2025-01-24 19:28:27,740 [INFO]   seed: 42
+2025-01-24 19:28:27,740 [INFO]   data_size: 1000
+2025-01-24 19:28:27,740 [INFO]   device: cpu
+2025-01-24 19:28:27,740 [INFO]   alpha: 400
+2025-01-24 19:28:27,740 [INFO]   method: val_mul
+2025-01-24 19:28:27,740 [INFO]   topk_mean: 100
+2025-01-24 19:28:27,740 [INFO]   topk_cnt: 100
+2025-01-24 19:28:27,740 [INFO]   batch_size: 16
+2025-01-24 19:28:27,740 [INFO]   source: neg
+2025-01-24 19:28:27,740 [INFO]   target: pos
+2025-01-24 19:28:27,740 [INFO]   mean_type: dif_mean
+2025-01-24 19:28:27,740 [INFO]   steer_type: last
+2025-01-24 19:28:27,740 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 19:28:27,740 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 19:28:27,740 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 19:28:27,740 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 19:28:27,740 [INFO]   temperature: 0.9
+2025-01-24 19:28:27,740 [INFO]   top_p: 0.3
+2025-01-24 19:28:27,740 [INFO]   freq_penalty: 1.0
+2025-01-24 19:28:27,740 [INFO]   debug: 1
+2025-01-24 19:28:27,740 [INFO]   save_no_steer: 1
+2025-01-24 19:28:27,740 [INFO]   cache_delta_matrix: 0
+2025-01-24 19:28:27,740 [INFO]   is_norm_delta_matrix: 1
+2025-01-24 19:28:27,740 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 19:28:27,740 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 19:28:27,740 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 19:28:27,741 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 19:28:27,836 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 19:28:27,843 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 19:28:27,843 [INFO] Loading model: gemma-2b
+2025-01-24 19:28:32,175 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 19:28:39,066 [INFO] Loading SAE for layer 11 LLAMA
+2025-01-24 19:29:14,257 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_400_from_neg_to_pos_datasize_1000_layer_11_mean_dif_mean_steertype_last_device_cpu_batchsize16/execution.log
+2025-01-24 19:29:14,257 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 19:29:14,257 [INFO]   task: sentiment
+2025-01-24 19:29:14,257 [INFO]   layer: 11
+2025-01-24 19:29:14,257 [INFO]   LLM: gemma-2b
+2025-01-24 19:29:14,257 [INFO]   seed: 42
+2025-01-24 19:29:14,257 [INFO]   data_size: 1000
+2025-01-24 19:29:14,257 [INFO]   device: cpu
+2025-01-24 19:29:14,257 [INFO]   alpha: 400
+2025-01-24 19:29:14,257 [INFO]   method: val_mul
+2025-01-24 19:29:14,257 [INFO]   topk_mean: 100
+2025-01-24 19:29:14,258 [INFO]   topk_cnt: 100
+2025-01-24 19:29:14,258 [INFO]   batch_size: 16
+2025-01-24 19:29:14,258 [INFO]   source: neg
+2025-01-24 19:29:14,258 [INFO]   target: pos
+2025-01-24 19:29:14,258 [INFO]   mean_type: dif_mean
+2025-01-24 19:29:14,258 [INFO]   steer_type: last
+2025-01-24 19:29:14,258 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 19:29:14,258 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 19:29:14,258 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 19:29:14,258 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 19:29:14,258 [INFO]   temperature: 0.9
+2025-01-24 19:29:14,258 [INFO]   top_p: 0.3
+2025-01-24 19:29:14,258 [INFO]   freq_penalty: 1.0
+2025-01-24 19:29:14,258 [INFO]   debug: 1
+2025-01-24 19:29:14,258 [INFO]   save_no_steer: 1
+2025-01-24 19:29:14,258 [INFO]   cache_delta_matrix: 0
+2025-01-24 19:29:14,258 [INFO]   is_norm_delta_matrix: 1
+2025-01-24 19:29:14,258 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 19:29:14,258 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 19:29:14,258 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 19:29:14,258 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 19:29:14,356 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 19:29:14,363 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 19:29:14,363 [INFO] Loading model: gemma-2b
+2025-01-24 19:29:23,351 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 19:29:30,250 [INFO] Loading SAE for layer 11
+2025-01-24 19:29:47,909 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_400_from_neg_to_pos_datasize_1000_layer_11_mean_dif_mean_steertype_last_device_cpu_batchsize16/execution.log
+2025-01-24 19:29:47,909 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 19:29:47,909 [INFO]   task: sentiment
+2025-01-24 19:29:47,909 [INFO]   layer: 11
+2025-01-24 19:29:47,909 [INFO]   LLM: gemma-2b
+2025-01-24 19:29:47,909 [INFO]   seed: 42
+2025-01-24 19:29:47,909 [INFO]   data_size: 1000
+2025-01-24 19:29:47,909 [INFO]   device: cpu
+2025-01-24 19:29:47,910 [INFO]   alpha: 400
+2025-01-24 19:29:47,910 [INFO]   method: val_mul
+2025-01-24 19:29:47,910 [INFO]   topk_mean: 100
+2025-01-24 19:29:47,910 [INFO]   topk_cnt: 100
+2025-01-24 19:29:47,910 [INFO]   batch_size: 16
+2025-01-24 19:29:47,910 [INFO]   source: neg
+2025-01-24 19:29:47,910 [INFO]   target: pos
+2025-01-24 19:29:47,910 [INFO]   mean_type: dif_mean
+2025-01-24 19:29:47,910 [INFO]   steer_type: last
+2025-01-24 19:29:47,910 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 19:29:47,910 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 19:29:47,910 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 19:29:47,910 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 19:29:47,910 [INFO]   temperature: 0.9
+2025-01-24 19:29:47,910 [INFO]   top_p: 0.3
+2025-01-24 19:29:47,910 [INFO]   freq_penalty: 1.0
+2025-01-24 19:29:47,910 [INFO]   debug: 1
+2025-01-24 19:29:47,910 [INFO]   save_no_steer: 1
+2025-01-24 19:29:47,910 [INFO]   cache_delta_matrix: 0
+2025-01-24 19:29:47,910 [INFO]   is_norm_delta_matrix: 1
+2025-01-24 19:29:47,910 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 19:29:47,911 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 19:29:47,911 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 19:29:47,911 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 19:29:48,031 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 19:29:48,039 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 19:29:48,039 [INFO] Loading model: gemma-2b
+2025-01-24 19:30:02,325 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 19:30:09,101 [INFO] Loading SAE for layer 11 gemma-2b

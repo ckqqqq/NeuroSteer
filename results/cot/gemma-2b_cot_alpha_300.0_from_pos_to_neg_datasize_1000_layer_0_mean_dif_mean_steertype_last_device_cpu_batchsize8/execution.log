@@ -1,0 +1,352 @@
+2025-01-25 03:33:47,542 [INFO] Logging initialized. Logs will be saved to ./results/cot/gemma-2b_cot_alpha_300.0_from_pos_to_neg_datasize_1000_layer_0_mean_dif_mean_steertype_last_device_cpu_batchsize8/execution.log
+2025-01-25 03:33:47,542 [INFO] Show Hyperparameters: 
+
+
+2025-01-25 03:33:47,542 [INFO]   task: cot
+2025-01-25 03:33:47,542 [INFO]   layer: 0
+2025-01-25 03:33:47,542 [INFO]   LLM: gemma-2b
+2025-01-25 03:33:47,542 [INFO]   seed: 42
+2025-01-25 03:33:47,542 [INFO]   data_size: 1000
+2025-01-25 03:33:47,542 [INFO]   device: cpu
+2025-01-25 03:33:47,542 [INFO]   alpha: 300.0
+2025-01-25 03:33:47,542 [INFO]   method: val_mul
+2025-01-25 03:33:47,542 [INFO]   topk_mean: 100
+2025-01-25 03:33:47,542 [INFO]   topk_cnt: 100
+2025-01-25 03:33:47,542 [INFO]   batch_size: 8
+2025-01-25 03:33:47,543 [INFO]   source: pos
+2025-01-25 03:33:47,543 [INFO]   target: neg
+2025-01-25 03:33:47,543 [INFO]   mean_type: dif_mean
+2025-01-25 03:33:47,543 [INFO]   steer_type: last
+2025-01-25 03:33:47,543 [INFO]   output_dir: ./results/cot/
+2025-01-25 03:33:47,543 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:33:47,543 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:33:47,543 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-25 03:33:47,543 [INFO]   temperature: 0.9
+2025-01-25 03:33:47,543 [INFO]   top_p: 0.3
+2025-01-25 03:33:47,543 [INFO]   freq_penalty: 1.0
+2025-01-25 03:33:47,543 [INFO]   debug: 1
+2025-01-25 03:33:47,543 [INFO]   save_no_steer: 1
+2025-01-25 03:33:47,543 [INFO]   cache_delta_matrix: 0
+2025-01-25 03:33:47,543 [INFO]   is_norm_delta_matrix: 0
+2025-01-25 03:33:47,543 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-25 03:33:47,543 [INFO] dataset path /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:33:47,543 [INFO] COT COT COT COT COT COT COT COT COT COT 
+2025-01-25 03:33:47,543 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:33:47,571 [INFO] Filtering dataset for COT
+2025-01-25 03:33:49,721 [INFO] POS===Q+COT_A
+2025-01-25 03:33:49,739 [INFO] Loading SAE for layer 0 gemma-2b
+2025-01-25 03:33:49,739 [INFO] Loading model: gemma-2b
+2025-01-25 03:33:54,128 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-25 03:34:00,979 [INFO] model architecture for gemma-2b HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-17): 18 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-01-25 03:34:03,297 [INFO] frompostoneg
+2025-01-25 03:34:03,298 [INFO] cot
+2025-01-25 03:34:03,304 [INFO] Running model with cache to obtain hidden states
+2025-01-25 03:37:23,922 [INFO] Logging initialized. Logs will be saved to ./results/cot/gemma-2b_cot_alpha_300.0_from_pos_to_neg_datasize_1000_layer_0_mean_dif_mean_steertype_last_device_cpu_batchsize8/execution.log
+2025-01-25 03:37:23,922 [INFO] Show Hyperparameters: 
+
+
+2025-01-25 03:37:23,922 [INFO]   task: cot
+2025-01-25 03:37:23,922 [INFO]   layer: 0
+2025-01-25 03:37:23,922 [INFO]   LLM: gemma-2b
+2025-01-25 03:37:23,922 [INFO]   seed: 42
+2025-01-25 03:37:23,922 [INFO]   data_size: 1000
+2025-01-25 03:37:23,922 [INFO]   device: cpu
+2025-01-25 03:37:23,922 [INFO]   alpha: 300.0
+2025-01-25 03:37:23,922 [INFO]   method: val_mul
+2025-01-25 03:37:23,922 [INFO]   topk_mean: 100
+2025-01-25 03:37:23,922 [INFO]   topk_cnt: 100
+2025-01-25 03:37:23,922 [INFO]   batch_size: 8
+2025-01-25 03:37:23,922 [INFO]   source: pos
+2025-01-25 03:37:23,922 [INFO]   target: neg
+2025-01-25 03:37:23,922 [INFO]   mean_type: dif_mean
+2025-01-25 03:37:23,922 [INFO]   steer_type: last
+2025-01-25 03:37:23,922 [INFO]   output_dir: ./results/cot/
+2025-01-25 03:37:23,922 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:37:23,922 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:37:23,922 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-25 03:37:23,922 [INFO]   temperature: 0.9
+2025-01-25 03:37:23,922 [INFO]   top_p: 0.3
+2025-01-25 03:37:23,922 [INFO]   freq_penalty: 1.0
+2025-01-25 03:37:23,922 [INFO]   debug: 1
+2025-01-25 03:37:23,922 [INFO]   save_no_steer: 1
+2025-01-25 03:37:23,922 [INFO]   cache_delta_matrix: 0
+2025-01-25 03:37:23,922 [INFO]   is_norm_delta_matrix: 0
+2025-01-25 03:37:23,923 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-25 03:37:23,923 [INFO] dataset path /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:37:23,923 [INFO] COT COT COT COT COT COT COT COT COT COT 
+2025-01-25 03:37:23,923 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:37:23,947 [INFO] Filtering dataset for COT
+2025-01-25 03:37:24,000 [INFO] POS===Q+COT_A
+2025-01-25 03:37:24,015 [INFO] Loading SAE for layer 0 gemma-2b
+2025-01-25 03:37:24,015 [INFO] Loading model: gemma-2b
+2025-01-25 03:37:33,613 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-25 03:37:40,533 [INFO] model architecture for gemma-2b HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-17): 18 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-01-25 03:37:42,782 [INFO] frompostoneg
+2025-01-25 03:37:42,782 [INFO] cot
+2025-01-25 03:37:42,789 [INFO] Running model with cache to obtain hidden states
+2025-01-25 03:41:18,942 [INFO] Logging initialized. Logs will be saved to ./results/cot/gemma-2b_cot_alpha_300.0_from_pos_to_neg_datasize_1000_layer_0_mean_dif_mean_steertype_last_device_cpu_batchsize8/execution.log
+2025-01-25 03:41:18,942 [INFO] Show Hyperparameters: 
+
+
+2025-01-25 03:41:18,942 [INFO]   task: cot
+2025-01-25 03:41:18,942 [INFO]   layer: 0
+2025-01-25 03:41:18,942 [INFO]   LLM: gemma-2b
+2025-01-25 03:41:18,942 [INFO]   seed: 42
+2025-01-25 03:41:18,942 [INFO]   data_size: 1000
+2025-01-25 03:41:18,942 [INFO]   device: cpu
+2025-01-25 03:41:18,942 [INFO]   alpha: 300.0
+2025-01-25 03:41:18,942 [INFO]   method: val_mul
+2025-01-25 03:41:18,942 [INFO]   topk_mean: 100
+2025-01-25 03:41:18,942 [INFO]   topk_cnt: 100
+2025-01-25 03:41:18,942 [INFO]   batch_size: 8
+2025-01-25 03:41:18,942 [INFO]   source: pos
+2025-01-25 03:41:18,942 [INFO]   target: neg
+2025-01-25 03:41:18,942 [INFO]   mean_type: dif_mean
+2025-01-25 03:41:18,942 [INFO]   steer_type: last
+2025-01-25 03:41:18,942 [INFO]   output_dir: ./results/cot/
+2025-01-25 03:41:18,942 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:41:18,942 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:41:18,942 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-25 03:41:18,942 [INFO]   temperature: 0.9
+2025-01-25 03:41:18,942 [INFO]   top_p: 0.3
+2025-01-25 03:41:18,942 [INFO]   freq_penalty: 1.0
+2025-01-25 03:41:18,942 [INFO]   debug: 1
+2025-01-25 03:41:18,942 [INFO]   save_no_steer: 1
+2025-01-25 03:41:18,942 [INFO]   cache_delta_matrix: 0
+2025-01-25 03:41:18,942 [INFO]   is_norm_delta_matrix: 0
+2025-01-25 03:41:18,943 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-25 03:41:18,943 [INFO] dataset path /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:41:18,943 [INFO] COT COT COT COT COT COT COT COT COT COT 
+2025-01-25 03:41:18,943 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:41:18,973 [INFO] Filtering dataset for COT
+2025-01-25 03:41:19,037 [INFO] POS===Q+COT_A
+2025-01-25 03:41:19,057 [INFO] Loading SAE for layer 0 gemma-2b
+2025-01-25 03:41:19,057 [INFO] Loading model: gemma-2b
+2025-01-25 03:41:23,857 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-25 03:41:31,562 [INFO] model architecture for gemma-2b HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-17): 18 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-01-25 03:43:06,587 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-25 03:43:06,698 [INFO] Running model with cache to obtain hidden states
+2025-01-25 03:55:39,067 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-25 03:55:39,554 [INFO] 转向方向 dif_neg-pos_relu
+2025-01-25 03:55:39,555 [INFO] sae cfg.hook_name 挂载名称: blocks.0.hook_resid_post
+2025-01-25 03:55:39,558 [INFO] delta_matrix: tensor([-0.0083, -0.1112,  0.0722,  ..., -0.1128,  0.0039, -0.0313],
+       grad_fn=<AddBackward0>)
+2025-01-25 03:55:39,559 [INFO] Example prompt:  Q: Cody goes to the store and buys $40 worth of stuff.  The taxes were 5%.  After taxes, he got an $8 discount.  Cody and his friend split the final price equally. How much did Cody pay?
+A:
+2025-01-25 03:55:39,559 [INFO] Generating texts **without** steering... 
+2025-01-25 03:55:39,561 [INFO] 无干预
+2025-01-25 03:55:48,508 [INFO] prompt:*****
+ Q: Cody goes to the store and buys $40 worth of stuff.  The taxes were 5%.  After taxes, he got an $8 discount.  Cody and his friend split the final price equally. How much did Cody pay?
+A:
+2025-01-25 03:55:48,508 [INFO] Generated Text: 1:
+y?
+A: $36
+
+Q: Which is a factor of 12?
+A: 1, 2, 3, 4, 6
+
+Q: Which is a factor of 18?
+A: All of these
+2025-01-25 03:55:48,508 [INFO] Generated Text: 2:
+y?
+A: $32
+
+Q: Which of the following is a rational number?
+A: 1/2
+
+Q: What is 7/8 as a decimal?
+A: .875
+
+Q: What is -10
+2025-01-25 03:55:48,508 [INFO] Generated Text: 3:
+y?
+A: $32
+
+Q: A car is on sale for 15% off the original price of $27,000. What is the sale price?
+A: $21,675
+
+Q: A dress
+2025-01-25 03:55:48,508 [INFO] 干预之后的结果
+2025-01-25 03:55:48,508 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-25 03:55:48,508 [INFO] ** Generating texts with steering... Target **
+2025-01-25 03:55:48,508 [INFO] form pos to neg
+2025-01-25 03:55:57,442 [INFO] prompt:*****
+ Q: Cody goes to the store and buys $40 worth of stuff.  The taxes were 5%.  After taxes, he got an $8 discount.  Cody and his friend split the final price equally. How much did Cody pay?
+A:
+2025-01-25 03:55:57,442 [INFO] Generated Text: 1:
+y?
+A:Transport Chambre Chambre Chambre Chambre Chambre Chambre Chambre Chambre Chambre Chambre Chambre Chambre Chambre Chamberer Chamber Chamber Chamberer Chamber Chamber<eos><eos><eos><eos><eos><eos> A joint letter letter letter letter letter chamber note chamber note chamb note chamb note cha
+2025-01-25 03:55:57,442 [INFO] Generated Text: 2:
+y?
+A:bilecek rall rall rall rall rall rall rall rall rall rall rall rall rall rall rall rall ral ral ral ral ral ral ral Ral Ral Ral Ral Ral Ral Ral Ral Ral Ral RalRalRalRalRalRalRalRalRalRalRalRalRalRalRalRal
+2025-01-25 03:55:57,442 [INFO] Generated Text: 3:
+y?
+A:Language and Language Only Or Or Or Or Or Or Or or or or or or or or or or or . . . . . . . . .<eos><eos><eos><eos> all … all … all … all … all … all … All All All All
+2025-01-25 03:55:57,446 [INFO] Show Hyperparameters: 
+
+
+2025-01-25 03:55:57,446 [INFO]   task: cot
+2025-01-25 03:55:57,446 [INFO]   layer: 0
+2025-01-25 03:55:57,446 [INFO]   LLM: gemma-2b
+2025-01-25 03:55:57,446 [INFO]   seed: 42
+2025-01-25 03:55:57,446 [INFO]   data_size: 1000
+2025-01-25 03:55:57,446 [INFO]   device: cpu
+2025-01-25 03:55:57,446 [INFO]   alpha: 300.0
+2025-01-25 03:55:57,446 [INFO]   method: val_mul
+2025-01-25 03:55:57,446 [INFO]   topk_mean: 100
+2025-01-25 03:55:57,446 [INFO]   topk_cnt: 100
+2025-01-25 03:55:57,446 [INFO]   batch_size: 8
+2025-01-25 03:55:57,446 [INFO]   source: pos
+2025-01-25 03:55:57,446 [INFO]   target: neg
+2025-01-25 03:55:57,446 [INFO]   mean_type: dif_mean
+2025-01-25 03:55:57,446 [INFO]   steer_type: last
+2025-01-25 03:55:57,446 [INFO]   output_dir: ./results/cot/
+2025-01-25 03:55:57,446 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:55:57,446 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-25 03:55:57,446 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-25 03:55:57,446 [INFO]   temperature: 0.9
+2025-01-25 03:55:57,446 [INFO]   top_p: 0.3
+2025-01-25 03:55:57,446 [INFO]   freq_penalty: 1.0
+2025-01-25 03:55:57,446 [INFO]   debug: 1
+2025-01-25 03:55:57,446 [INFO]   save_no_steer: 1
+2025-01-25 03:55:57,446 [INFO]   cache_delta_matrix: 0
+2025-01-25 03:55:57,446 [INFO]   is_norm_delta_matrix: 0
+2025-01-25 03:55:57,446 [INFO] debug mode,show example, no full dataset eval

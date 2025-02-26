@@ -1,0 +1,16 @@
+{"time":"2025-02-12T13:46:32.13795139+08:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-02-12T13:46:32.137965999+08:00","level":"INFO","msg":"created symlink","path":"/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/sentiment_lora_baseline/wandb/run-20250212_134632-w76upquo/logs/debug-core.log"}
+{"time":"2025-02-12T13:46:32.256788291+08:00","level":"INFO","msg":"created new stream","id":"w76upquo"}
+{"time":"2025-02-12T13:46:32.256845536+08:00","level":"INFO","msg":"stream: started","id":"w76upquo"}
+{"time":"2025-02-12T13:46:32.256993002+08:00","level":"INFO","msg":"handler: started","stream_id":"w76upquo"}
+{"time":"2025-02-12T13:46:32.257006175+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"w76upquo"}
+{"time":"2025-02-12T13:46:32.257083216+08:00","level":"INFO","msg":"sender: started","stream_id":"w76upquo"}
+{"time":"2025-02-12T13:46:32.722002678+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-12T13:50:19.942236496+08:00","level":"INFO","msg":"stream: closing","id":"w76upquo"}
+{"time":"2025-02-12T13:50:19.942307046+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-12T13:50:19.943288811+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-12T13:50:21.716417762+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-12T13:50:22.138167726+08:00","level":"INFO","msg":"handler: closed","stream_id":"w76upquo"}
+{"time":"2025-02-12T13:50:22.138270991+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"w76upquo"}
+{"time":"2025-02-12T13:50:22.138288031+08:00","level":"INFO","msg":"sender: closed","stream_id":"w76upquo"}
+{"time":"2025-02-12T13:50:22.138510088+08:00","level":"INFO","msg":"stream: closed","id":"w76upquo"}

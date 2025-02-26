@@ -1,0 +1,24 @@
+2025-01-22 15:46:03,792 [INFO] Logging initialized. Logs will be saved to ./results/sentiment_alpha_500_from_pos_to_neg_datasize_ALL_layer_6_mean_dif_mean_steertype_last_device_cuda_batchsize32/execution.log
+2025-01-22 15:46:03,792 [INFO] Hyperparameters:
+2025-01-22 15:46:03,792 [INFO]   task: sentiment
+2025-01-22 15:46:03,792 [INFO]   layer: 6
+2025-01-22 15:46:03,793 [INFO]   LLM: gpt2-small
+2025-01-22 15:46:03,793 [INFO]   seed: 42
+2025-01-22 15:46:03,793 [INFO]   data_size: ALL
+2025-01-22 15:46:03,793 [INFO]   device: cuda
+2025-01-22 15:46:03,793 [INFO]   alpha: 500
+2025-01-22 15:46:03,793 [INFO]   steer: neg-pos
+2025-01-22 15:46:03,793 [INFO]   method: val_mul
+2025-01-22 15:46:03,793 [INFO]   topk_mean: 100
+2025-01-22 15:46:03,793 [INFO]   topk_cnt: 100
+2025-01-22 15:46:03,793 [INFO]   batch_size: 32
+2025-01-22 15:46:03,793 [INFO]   source: pos
+2025-01-22 15:46:03,793 [INFO]   target: neg
+2025-01-22 15:46:03,793 [INFO]   mean_type: dif_mean
+2025-01-22 15:46:03,793 [INFO]   steer_type: last
+2025-01-22 15:46:03,793 [INFO]   debug: True
+2025-01-22 15:46:03,793 [INFO]   output_dir: ./results
+2025-01-22 15:46:03,793 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-22 15:46:03,793 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-22 15:46:03,793 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-22 15:46:03,793 [INFO]   save_compared: False

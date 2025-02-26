@@ -1,0 +1,33 @@
+2025-02-09 19:41:58,069 [INFO] Logging initialized. Logs will be saved to ./results/polite/alpha_10_from_pos_to_neg_datasize_-1_layer_6_mean_dif_mean_steertype_last_device_auto_batchsize32/execution.log
+2025-02-09 19:41:58,069 [INFO] Hyperparameters:
+2025-02-09 19:41:58,069 [INFO]   task: polite
+2025-02-09 19:41:58,069 [INFO]   layer: 6
+2025-02-09 19:41:58,069 [INFO]   LLM: gpt2-small
+2025-02-09 19:41:58,069 [INFO]   seed: 42
+2025-02-09 19:41:58,069 [INFO]   data_size: -1
+2025-02-09 19:41:58,069 [INFO]   device: auto
+2025-02-09 19:41:58,069 [INFO]   alpha: 10
+2025-02-09 19:41:58,069 [INFO]   steer: neg-pos
+2025-02-09 19:41:58,069 [INFO]   source: pos
+2025-02-09 19:41:58,069 [INFO]   target: neg
+2025-02-09 19:41:58,069 [INFO]   method: val_mul
+2025-02-09 19:41:58,069 [INFO]   topk_mean: 100
+2025-02-09 19:41:58,069 [INFO]   topk_cnt: 100
+2025-02-09 19:41:58,069 [INFO]   topp: 0.1
+2025-02-09 19:41:58,069 [INFO]   temperature: 1.0
+2025-02-09 19:41:58,069 [INFO]   batch_size: 32
+2025-02-09 19:41:58,069 [INFO]   mean_type: dif_mean
+2025-02-09 19:41:58,069 [INFO]   steer_type: last
+2025-02-09 19:41:58,069 [INFO]   debug: False
+2025-02-09 19:41:58,069 [INFO]   output_dir: ./results/polite
+2025-02-09 19:41:58,069 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/style_transfer/politeness-corpus
+2025-02-09 19:41:58,069 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/style_transfer/politeness-corpus
+2025-02-09 19:41:58,069 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-09 19:41:58,070 [INFO]   save_compared: False
+2025-02-09 19:41:58,070 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-09 19:41:58,070 [INFO] dataset path /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/style_transfer/politeness-corpus
+2025-02-09 19:41:58,070 [INFO] politepolitepolitepolitepolitepolitepolitepolitepolitepolite
+2025-02-09 19:41:58,070 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/style_transfer/politeness-corpus
+2025-02-09 19:41:58,100 [INFO] Filtering dataset for polite and nonpolite samples
+2025-02-09 19:41:58,104 [INFO] Selected 2795 polite and 2734 nonpolite samples
+2025-02-09 19:41:58,104 [INFO] Loading model: gpt2-small

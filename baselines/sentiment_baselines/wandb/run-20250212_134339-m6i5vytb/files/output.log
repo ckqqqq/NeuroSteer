@@ -1,0 +1,38 @@
+100%|█████████████████████████████████████████████████████████████████████████████████████▌| 199/200 [00:11<00:00, 17.67it/s]/home/ckqsudo/miniconda3/envs/SAE/lib/python3.11/site-packages/peft/utils/other.py:716: UserWarning: Unable to fetch remote file due to the following error (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /gpt2/resolve/main/config.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7a80cf57ed90>: Failed to establish a new connection: [Errno 101] Network is unreachable'))"), '(Request ID: 31588327-d446-4fa1-91e3-674c845b9d6c)') - silently ignoring the lookup for the file config.json in gpt2.
+  warnings.warn(                                                                                                             
+{'eval_loss': 0.9589185118675232, 'eval_runtime': 0.5765, 'eval_samples_per_second': 742.355, 'eval_steps_per_second': 93.662, 'epoch': 1.0}
+/home/ckqsudo/miniconda3/envs/SAE/lib/python3.11/site-packages/peft/utils/save_and_load.py:246: UserWarning: Could not find a config file in gpt2 - will assume that the vocabulary was not modified.
+  warnings.warn(
+100%|██████████████████████████████████████████████████████████████████████████████████████| 200/200 [00:22<00:00,  8.79it/s]
+/home/ckqsudo/miniconda3/envs/SAE/lib/python3.11/site-packages/peft/utils/other.py:716: UserWarning: Unable to fetch remote file due to the following error (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /gpt2/resolve/main/config.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7a80cf59ef50>: Failed to establish a new connection: [Errno 101] Network is unreachable'))"), '(Request ID: 14bc5414-2fb1-477f-9d18-7c3a8446ee34)') - silently ignoring the lookup for the file config.json in gpt2.
+{'eval_loss': 0.9445405602455139, 'eval_runtime': 0.6191, 'eval_samples_per_second': 691.3, 'eval_steps_per_second': 87.22, 'epoch': 2.0}
+{'train_runtime': 24.2679, 'train_samples_per_second': 131.861, 'train_steps_per_second': 8.241, 'train_loss': 1.1789938354492187, 'epoch': 2.0}
+  warnings.warn(
+/home/ckqsudo/miniconda3/envs/SAE/lib/python3.11/site-packages/peft/utils/save_and_load.py:246: UserWarning: Could not find a config file in gpt2 - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/sentiment_lora_baseline/lora_ckpt/sentiment_pos2neg_lora_baseline
+训练时间开销 25.16633152961731
+DatasetDict({
+    neg: Dataset({
+        features: ['md5_hash', 'prompt', 'continuation', 'num_positive'],
+        num_rows: 2500
+    })
+    pos: Dataset({
+        features: ['md5_hash', 'prompt', 'continuation', 'num_positive'],
+        num_rows: 2500
+    })
+    neu: Dataset({
+        features: ['md5_hash', 'prompt', 'continuation', 'num_positive'],
+        num_rows: 5000
+    })
+})
+Traceback (most recent call last):
+  File "/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/sentiment_lora_baseline/lora_sentiment.py", line 117, in <module>
+    inputs = tokenizer(text['prompt'], return_tensors="pt").to(fine_tuned_model.device)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ckqsudo/miniconda3/envs/SAE/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2860, in __call__
+    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ckqsudo/miniconda3/envs/SAE/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 2920, in _call_one
+    raise ValueError(
+ValueError: text input must be of type `str` (single example), `List[str]` (batch or single pretokenized example) or `List[List[str]]` (batch of pretokenized examples).

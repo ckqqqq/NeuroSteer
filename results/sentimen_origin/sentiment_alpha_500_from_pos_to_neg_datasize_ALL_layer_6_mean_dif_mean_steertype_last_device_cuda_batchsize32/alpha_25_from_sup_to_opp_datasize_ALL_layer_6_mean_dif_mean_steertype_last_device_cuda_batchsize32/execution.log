@@ -1,0 +1,1148 @@
+2025-01-22 12:36:28,848 [INFO] Logging initialized. Logs will be saved to ./results/alpha_25_from_sup_to_opp_datasize_ALL_layer_6_mean_dif_mean_steertype_last_device_cuda_batchsize32/execution.log
+2025-01-22 12:36:28,848 [INFO] Hyperparameters:
+2025-01-22 12:36:28,848 [INFO]   task: debate
+2025-01-22 12:36:28,848 [INFO]   layer: 6
+2025-01-22 12:36:28,848 [INFO]   LLM: gpt2-small
+2025-01-22 12:36:28,848 [INFO]   seed: 42
+2025-01-22 12:36:28,848 [INFO]   data_size: ALL
+2025-01-22 12:36:28,848 [INFO]   device: cuda
+2025-01-22 12:36:28,848 [INFO]   alpha: 25
+2025-01-22 12:36:28,849 [INFO]   steer: opp-sup
+2025-01-22 12:36:28,849 [INFO]   method: val_mul
+2025-01-22 12:36:28,849 [INFO]   topk_mean: 100
+2025-01-22 12:36:28,849 [INFO]   topk_cnt: 100
+2025-01-22 12:36:28,849 [INFO]   topp: 0.1
+2025-01-22 12:36:28,849 [INFO]   temperature: 1.0
+2025-01-22 12:36:28,849 [INFO]   batch_size: 32
+2025-01-22 12:36:28,849 [INFO]   source: sup
+2025-01-22 12:36:28,849 [INFO]   target: opp
+2025-01-22 12:36:28,849 [INFO]   mean_type: dif_mean
+2025-01-22 12:36:28,849 [INFO]   steer_type: last
+2025-01-22 12:36:28,849 [INFO]   debug: False
+2025-01-22 12:36:28,849 [INFO]   output_dir: ./results
+2025-01-22 12:36:28,849 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-22 12:36:28,849 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-01-22 12:36:28,849 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-22 12:36:28,849 [INFO]   save_compared: False
+2025-01-22 12:36:28,849 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-22 12:36:28,850 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-22 12:36:28,850 [INFO] debatedebatedebatedebatedebatedebatedebatedebatedebatedebate
+2025-01-22 12:36:28,850 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-22 12:36:29,016 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-22 12:36:29,020 [INFO] Selected 486 support and 486 oppose samples
+2025-01-22 12:36:29,020 [INFO] Loading model: gpt2-small
+2025-01-22 12:36:31,137 [INFO] Loading SAE for layer 6
+2025-01-22 12:36:33,077 [INFO] fromsuptoopp
+2025-01-22 12:36:33,077 [INFO] support
+2025-01-22 12:36:33,080 [INFO] Running model with cache to obtain hidden states
+2025-01-22 12:36:33,080 [INFO] Batch 1: batch_size 32
+2025-01-22 12:36:33,237 [INFO] Batch 1: Hidden states shape: torch.Size([32, 50, 768])
+2025-01-22 12:36:33,238 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,241 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,242 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,242 [INFO] Batch 2: batch_size 32
+2025-01-22 12:36:33,280 [INFO] Batch 2: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-22 12:36:33,280 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,280 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,280 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,284 [INFO] Batch 3: batch_size 32
+2025-01-22 12:36:33,316 [INFO] Batch 3: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-22 12:36:33,317 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,317 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,317 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,321 [INFO] Batch 4: batch_size 32
+2025-01-22 12:36:33,352 [INFO] Batch 4: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-22 12:36:33,353 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,353 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,353 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,356 [INFO] Batch 5: batch_size 32
+2025-01-22 12:36:33,388 [INFO] Batch 5: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-22 12:36:33,388 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,388 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,388 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,392 [INFO] Batch 6: batch_size 32
+2025-01-22 12:36:33,423 [INFO] Batch 6: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-22 12:36:33,423 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,423 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,423 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,427 [INFO] Batch 7: batch_size 32
+2025-01-22 12:36:33,459 [INFO] Batch 7: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-22 12:36:33,459 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,459 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,459 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,469 [INFO] Batch 8: batch_size 32
+2025-01-22 12:36:33,502 [INFO] Batch 8: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-22 12:36:33,502 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,502 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,502 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,505 [INFO] Batch 9: batch_size 32
+2025-01-22 12:36:33,537 [INFO] Batch 9: Hidden states shape: torch.Size([32, 40, 768])
+2025-01-22 12:36:33,537 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,537 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,537 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,540 [INFO] Batch 10: batch_size 32
+2025-01-22 12:36:33,571 [INFO] Batch 10: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-22 12:36:33,571 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,571 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,571 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,575 [INFO] Batch 11: batch_size 32
+2025-01-22 12:36:33,609 [INFO] Batch 11: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-22 12:36:33,609 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,631 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,631 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,632 [INFO] Batch 12: batch_size 32
+2025-01-22 12:36:33,664 [INFO] Batch 12: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-22 12:36:33,664 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,665 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,665 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,668 [INFO] Batch 13: batch_size 32
+2025-01-22 12:36:33,700 [INFO] Batch 13: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-22 12:36:33,700 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,700 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,700 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,704 [INFO] Batch 14: batch_size 32
+2025-01-22 12:36:33,735 [INFO] Batch 14: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-22 12:36:33,735 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,736 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,736 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,738 [INFO] Batch 15: batch_size 32
+2025-01-22 12:36:33,770 [INFO] Batch 15: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-22 12:36:33,770 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,771 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,771 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,774 [INFO] Batch 16: batch_size 32
+2025-01-22 12:36:33,809 [INFO] Batch 16: Hidden states shape: torch.Size([6, 31, 768])
+2025-01-22 12:36:33,809 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,809 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,809 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,810 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-01-22 12:36:33,811 [INFO] oppose
+2025-01-22 12:36:33,813 [INFO] Running model with cache to obtain hidden states
+2025-01-22 12:36:33,813 [INFO] Batch 1: batch_size 32
+2025-01-22 12:36:33,844 [INFO] Batch 1: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-22 12:36:33,844 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,845 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,845 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,848 [INFO] Batch 2: batch_size 32
+2025-01-22 12:36:33,879 [INFO] Batch 2: Hidden states shape: torch.Size([32, 41, 768])
+2025-01-22 12:36:33,879 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,880 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,880 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,882 [INFO] Batch 3: batch_size 32
+2025-01-22 12:36:33,913 [INFO] Batch 3: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-22 12:36:33,914 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,914 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,914 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,917 [INFO] Batch 4: batch_size 32
+2025-01-22 12:36:33,948 [INFO] Batch 4: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-22 12:36:33,948 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,948 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,949 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,951 [INFO] Batch 5: batch_size 32
+2025-01-22 12:36:33,982 [INFO] Batch 5: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-22 12:36:33,983 [INFO] Computing non-zero element counts
+2025-01-22 12:36:33,983 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:33,983 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:33,985 [INFO] Batch 6: batch_size 32
+2025-01-22 12:36:34,017 [INFO] Batch 6: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-22 12:36:34,017 [INFO] Computing non-zero element counts
+2025-01-22 12:36:34,017 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:34,018 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:34,020 [INFO] Batch 7: batch_size 32
+2025-01-22 12:36:34,051 [INFO] Batch 7: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-22 12:36:34,051 [INFO] Computing non-zero element counts
+2025-01-22 12:36:34,052 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:34,052 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:34,055 [INFO] Batch 8: batch_size 32
+2025-01-22 12:36:34,087 [INFO] Batch 8: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-22 12:36:34,087 [INFO] Computing non-zero element counts
+2025-01-22 12:36:34,087 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:34,087 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:34,090 [INFO] Batch 9: batch_size 32
+2025-01-22 12:36:34,121 [INFO] Batch 9: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-22 12:36:34,121 [INFO] Computing non-zero element counts
+2025-01-22 12:36:34,122 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:34,122 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:34,126 [INFO] Batch 10: batch_size 32
+2025-01-22 12:36:34,172 [INFO] Batch 10: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-22 12:36:34,172 [INFO] Computing non-zero element counts
+2025-01-22 12:36:34,172 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:34,172 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:34,176 [INFO] Batch 11: batch_size 32
+2025-01-22 12:36:34,207 [INFO] Batch 11: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-22 12:36:34,207 [INFO] Computing non-zero element counts
+2025-01-22 12:36:34,207 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:34,207 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:34,210 [INFO] Batch 12: batch_size 32
+2025-01-22 12:36:34,242 [INFO] Batch 12: Hidden states shape: torch.Size([32, 53, 768])
+2025-01-22 12:36:34,242 [INFO] Computing non-zero element counts
+2025-01-22 12:36:34,262 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:34,262 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:34,263 [INFO] Batch 13: batch_size 32
+2025-01-22 12:36:34,294 [INFO] Batch 13: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-22 12:36:34,294 [INFO] Computing non-zero element counts
+2025-01-22 12:36:34,295 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:34,295 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:34,297 [INFO] Batch 14: batch_size 32
+2025-01-22 12:36:34,329 [INFO] Batch 14: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-22 12:36:34,330 [INFO] Computing non-zero element counts
+2025-01-22 12:36:34,330 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:34,330 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:34,333 [INFO] Batch 15: batch_size 32
+2025-01-22 12:36:34,365 [INFO] Batch 15: Hidden states shape: torch.Size([32, 38, 768])
+2025-01-22 12:36:34,365 [INFO] Computing non-zero element counts
+2025-01-22 12:36:34,365 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:34,365 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:34,368 [INFO] Batch 16: batch_size 32
+2025-01-22 12:36:34,421 [INFO] Batch 16: Hidden states shape: torch.Size([6, 42, 768])
+2025-01-22 12:36:34,421 [INFO] Computing non-zero element counts
+2025-01-22 12:36:34,421 [INFO] Computing sum of non-zero elements
+2025-01-22 12:36:34,421 [INFO] Computing mean of non-zero elements
+2025-01-22 12:36:34,422 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-01-22 12:36:34,424 [INFO] 转向方向 dif_opp-sup_relu
+2025-01-22 12:36:34,482 [INFO] Computing steering vectors using method: val_mul
+2025-01-22 12:36:34,488 [INFO] Steering vectors computed with shape: torch.Size([768])
+2025-01-22 12:36:36,132 [INFO] Generated Text: 1:
+We have agreed that higher education serves as a platform taker for the future of our country. We are committed to providing a safe, secure and affordable environment for all students."
+
+The bill was introduced by Rep. Mike McCaul (R-Texas), who said he is "deeply concerned"
+2025-01-22 12:36:36,869 [INFO] Generated Text: 1:
+We have agreed that higher education serves as a platform tacked on to the $1 trillion defense budget. But we also know that the Pentagon's budget is not just about fighting against the United States' most powerful military, but also against its most vulnerable citizens.
+
+The Pentagon's war in Iraq and
+2025-01-22 12:36:37,106 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:36:38,320 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:36:40,038 [INFO] Generated Text: 1:
+That is why as my Administration has worked to bolster the rights, services, and sufficiency of our nation's schools, I am committed to ensuring that every child in America receives the best education possible.
+
+As President I will work with Congress and the American people to ensure that every child in America receives a quality education.
+
+
+2025-01-22 12:36:40,919 [INFO] Generated Text: 1:
+That is why as my Administration has worked to bolster the rights, services, and sullying of our democracy against the overwhelming evidence that it was a war-tantrum machine in its own right," he said.
+
+"The United States has been waging a long-term campaign against the most powerful forces in this world:
+2025-01-22 12:36:41,187 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:36:42,162 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:36:43,841 [INFO] Generated Text: 1:
+We support education, the goal of which is taming the beast.
+
+"I'm not saying that we're going to do anything about it," he said. "But I think it's important to have a plan in place."<|endoftext|>
+2025-01-22 12:36:44,730 [INFO] Generated Text: 1:
+We support education, the goal of which is t-shirts. We're trying to make a difference in the fight against this shirt," said Scott.
+
+The shirts are available at www.t-shirtstore.com and at www.facebook.com/T-shirtShop or by calling
+2025-01-22 12:36:44,983 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:36:51,258 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:36:53,189 [INFO] Generated Text: 1:
+Expanding our nation's investment in community lend-lease programs, we are committed to supporting the growth of our local communities and to providing opportunities for those who need them most.
+
+We have a long history of working with local communities on projects that will benefit their economies and their people. We
+2025-01-22 12:36:54,071 [INFO] Generated Text: 1:
+Expanding our nation's investment in community lend, we are working with the U.S. Department of Justice to bring together the largest and most experienced law enforcement and intelligence communities to address this growing threat against our nation's citizens," said Acting Assistant Attorney General for National Security Michael Horowitz in a statement
+2025-01-22 12:36:54,300 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:37:05,319 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:37:07,030 [INFO] Generated Text: 1:
+We are proud of our strong alliance with Korea, proud that Korea has a visionary leader who is committed to the common good and to the rule of law," said Kim.
+
+"We will continue to work together in order to ensure that all Korean people have a fair and just future."<|endoftext|>
+2025-01-22 12:37:07,921 [INFO] Generated Text: 1:
+We are proud of our strong alliance with Korea, proud that Korea has a visionary leader who was able to bring about the development of this revolutionary technology," said Dr. Michael D. Zukin, director of the Center for Advanced Research on Global Security at Stanford University's School of Advanced International Studies. "He was an extraordinary man
+2025-01-22 12:37:13,073 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:37:19,223 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:37:21,237 [INFO] Generated Text: 1:
+In addition, we emphasize the importance of education, scoping and self-care.
+
+We also encourage students to take a break from their daily activities to focus on their studies and learning. We also encourage students to take time off from school for personal reasons such as recreation or relaxation.
+
+The
+2025-01-22 12:37:22,125 [INFO] Generated Text: 1:
+In addition, we emphasize the importance of education, scuttlebutt from the anti-war movement and even a book by one of the most prominent anti-war activists, George W. Bush.
+
+The book is called "The War Against America: The Battle Against the Nation's Army," and
+2025-01-22 12:37:27,277 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:37:31,257 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:37:33,543 [INFO] Generated Text: 1:
+And the situation in Ukraine continues to be of significant concern, and our support for the territorial integrity of Ukraine is critical," he said.
+
+"We are working with our partners in Europe and other countries to ensure that we can continue to work together on this issue."<|endoftext|>
+2025-01-22 12:37:34,433 [INFO] Generated Text: 1:
+And the situation in Ukraine continues to be of significant concern, and our support for the territorial integrity of our country," he said.
+
+"We are not going to stand by any side in this fight against the people who are fighting for their lives against these forces."
+
+The US-led coalition has been battling a group called the Islamic
+2025-01-22 12:37:39,585 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:37:40,918 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:37:42,834 [INFO] Generated Text: 1:
+The U.N. has a vital role to play as we move forward in Iraq, and the United States is committed to supporting Iraqi forces in their fight against ISIL," said Secretary of State John Kerry on Tuesday.
+
+"We will continue to support Iraqi forces in their fight against ISIL, and we will continue to support our allies in the
+2025-01-22 12:37:43,934 [INFO] Generated Text: 1:
+The U.N. has a vital role to play as we move forward in Iraq, and the U.S. is working with our allies to make sure that they are not only able to defend themselves against the most powerful forces in their communities, but also against those who would be waging a coordinated and coordinated campaign against the people of Syria,"
+2025-01-22 12:37:49,088 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:37:54,503 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:37:56,434 [INFO] Generated Text: 1:
+And so the Europeans, who were negotiating in good faith with the regime in Iran, are now looonging around.
+
+The European Union is a huge power and has a lot of influence over the world. It's not just about Europe but also about other countries. The EU is very important to us because it's our biggest trading partner and
+2025-01-22 12:37:57,339 [INFO] Generated Text: 1:
+And so the Europeans, who were negotiating in good faith with the regime in Iran, are now looong against the American-made anti-tank and anti-aircraft weapons that are being developed by a group of former Soviet soldiers.
+
+The United States has been waging a long and costly war against its own people for more than two decades.
+2025-01-22 12:37:57,579 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:37:58,656 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:38:00,527 [INFO] Generated Text: 1:
+And the issue regarding NATO, our support for the European Union and our commitment to a free and open Europe is one that we have been working on for years," he said.
+
+"We are not going to let this happen again."<|endoftext|>
+2025-01-22 12:38:01,425 [INFO] Generated Text: 1:
+And the issue regarding NATO, our support for the American people and against the United Nations," he said. "We are going to continue to fight against this very same force that is fighting in our name."
+
+"The president has been very clear about his commitment to this country's national security,"
+2025-01-22 12:38:06,593 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:38:12,803 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:38:14,715 [INFO] Generated Text: 1:
+And I think that the tolerance towards other faiths historically i.e. Hinduism, Buddhism and Islam is very much in line with what we have seen in the past," he said.
+
+"I think it's important to remember that there are many different religions and cultures around the world, but they
+2025-01-22 12:38:15,776 [INFO] Generated Text: 1:
+And I think that the tolerance towards other faiths historically i.e. against the Catholic Church, was a major factor in the formation of this movement against our nation's most powerful and influential civil rights leader, Martin Luther King Jr., who was assassinated in 1968 by a group of black radicals who were led by
+2025-01-22 12:38:20,954 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:38:23,600 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:38:25,681 [INFO] Generated Text: 1:
+And the leaders here now know that we are committment to the Syrian people and to their government. We have no choice but to support them in their fight against terrorism."
+
+The statement came after a meeting between President Bashar al-Assad's security council and his foreign minister, Riad Malka
+2025-01-22 12:38:26,826 [INFO] Generated Text: 1:
+And the leaders here now know that we are committment to the U.S. Army's Special Operations Command, which is dedicated to fighting against the most powerful and destructive forces in the world today."
+
+The statement was made by Lt. Gen. Michael E. McFarland, commander of
+2025-01-22 12:38:31,978 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:38:33,123 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:38:35,007 [INFO] Generated Text: 1:
+We support the key role of the UN, including the Security Council and peace support op-ed boards. We also support efforts to ensure that all parties are able to meet their obligations under international law and in accordance with international human rights law."
+
+The UN's Human Rights Council has been criticised for failing to take action against Syria's
+2025-01-22 12:38:35,781 [INFO] Generated Text: 1:
+We support the key role of the UN, including the Security Council and peace support op-ed pages.
+
+"The Anti-Defamation League is a nonprofit organization dedicated to fighting against the most powerful forces in our community: anti-Semitism, Islamophobia, and other forms of bigotry."<|endoftext|>
+2025-01-22 12:38:36,027 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:38:42,147 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:38:43,884 [INFO] Generated Text: 1:
+And that is why we feel like China can be a partner with the rest !"
+
+The two leaders also discussed the possibility of an international conference on climate change, which will take place in Paris next month.
+
+"We are very interested in this idea," said Xi. "We have to make sure that we do
+2025-01-22 12:38:44,776 [INFO] Generated Text: 1:
+And that is why we feel like China can be a partner with the rest !"
+
+"I'm not sure if you're right, but I think it's important to understand that there are many different types of cells in our body. We have many different types of cells, and they all have different functions. So we
+2025-01-22 12:38:49,960 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:38:52,767 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:38:54,436 [INFO] Generated Text: 1:
+I think what the new Afghanistan brings is the women leavers, and that's a good thing.
+
+"We're going to have more women in our military. We're going to have more women in our police force."<|endoftext|>
+2025-01-22 12:38:55,326 [INFO] Generated Text: 1:
+I think what the new Afghanistan brings is the women leaguers who are trying to find their way into a world that's not really about them. They're fighting against a group of people who are fighting against an army that's been waging for over 50 years, and they're fighting against a group of
+2025-01-22 12:39:00,522 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:05,995 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:07,793 [INFO] Generated Text: 1:
+And I propose we make a major investment in conservatio ness and to the extent possible, in conservatio ness. We should be able to do this by using the principle of conservatio ness as a basis for our own work.
+
+We should also be able to do this by using
+2025-01-22 12:39:08,689 [INFO] Generated Text: 1:
+And I propose we make a major investment in conservatio­tional medicine. The first step is to develop a new approach to the treatment of cancer, which is based on the idea that all cancers are caused by one chemical, and that these chemicals are responsible for their chemical resistance against cancer. This approach
+2025-01-22 12:39:13,849 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:14,952 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:16,710 [INFO] Generated Text: 1:
+And that means the commitment to free and open elections, the commitment to the rule of law, fighting corruption -- all these things are in place.
+
+"We have a lot of work to do," he said. "But we're going to continue working."<|endoftext|>
+2025-01-22 12:39:17,613 [INFO] Generated Text: 1:
+And that means the commitment to free and open elections, the commitment to the rule of law, fighting corruption -- against all those who were inspired by this book.
+
+The book is a tribute to one of my favorite authors: Michael O'Brien. He was a writer and activist for many years before he became an editor at The New York Times. He
+2025-01-22 12:39:22,790 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:23,749 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:25,391 [INFO] Generated Text: 1:
+I support sanctions on North Korea, but these sanctions passed overwhelminate the U.S. and our allies," he said in a statement.
+
+"We will continue to work with our partners to ensure that North Korea does not develop nuclear weapons."<|endoftext|>
+2025-01-22 12:39:26,285 [INFO] Generated Text: 1:
+I support sanctions on North Korea, but these sanctions passed overwhelminable numbers of people. We're going to be fighting against the most powerful forces in the world against our people and against our freedom."
+
+The speech was delivered at a gathering of anti-Israel activists in Jerusalem's Old City. The Israeli government
+2025-01-22 12:39:31,456 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:37,504 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:39,659 [INFO] Generated Text: 1:
+We have closely coordinated our support to Ukraine throughout this conflict, including  the efforts of the United States and other partners to ensure that we do not allow any further escalation of tensions."
+The White House said it was "deeply concerned" by the recent developments.
+"We are working with our Ukrainian partners in
+2025-01-22 12:39:40,558 [INFO] Generated Text: 1:
+We have closely coordinated our support to Ukraine throughout this conflict, including __________. We are working with the United States and other nations to ensure that we do not lose our ability to defend against the forces of this nation's most powerful military," he said.
+
+"The United States is committed to a comprehensive and
+2025-01-22 12:39:45,750 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:46,992 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:48,823 [INFO] Generated Text: 1:
+Science and innovation are key components of a strong Americans' economy.
+
+"We have to be able to compete with other countries in terms of technology, so we need to be able to compete with other countries in terms of our ability to innovate," said Sen. Bob Corker (R-Tenn
+2025-01-22 12:39:49,722 [INFO] Generated Text: 1:
+Science and innovation are key components of a strong Americo-American tradition.
+
+The fight against the "black bag" is not just about the black bag, but also against the nation's anti-war movement. The war against the Black Panther Party has been waged in a series of cities across
+2025-01-22 12:39:49,992 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:51,042 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:52,913 [INFO] Generated Text: 1:
+And until it happens, we will press for true ills.
+
+I'm not saying that the world is going to be better off without the "good" people. I'm saying that we need to make sure that our leaders are able to do their jobs and get things done. We need a
+2025-01-22 12:39:53,805 [INFO] Generated Text: 1:
+And until it happens, we will press for true ____.
+
+The first issue of the book is a battle against the most powerful and powerful man in the world: a man named John Paul II. He is known as "the man who fought against the war on drugs," but he was also
+2025-01-22 12:39:54,086 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:55,180 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:39:57,033 [INFO] Generated Text: 1:
+One of the goals of our economic recovery program, early in the administration, was to encourage muftis to join the military and become active members of their communities. We have seen that happen.
+
+The government has been very clear about this. The first step is to ensure that all muftis are given a chance to participate in our
+2025-01-22 12:39:57,930 [INFO] Generated Text: 1:
+One of the goals of our economic recovery program, early in the administration, was to encourage mu-tahir from across the globe. We were one of those people who had been trained by a group called the National Institute for Advanced Studies (NIA), which was dedicated to fighting against what they called "the world's most dangerous and deadly
+2025-01-22 12:40:03,123 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:40:08,562 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:40:10,447 [INFO] Generated Text: 1:
+And as we know, this year marks an important milestone in our democracy,  and it's a great time to be a part of it.
+We're proud to announce that the first-ever "New York Times" poll of the 2016 presidential election will be conducted on November 8th. The results will be released on
+2025-01-22 12:40:11,338 [INFO] Generated Text: 1:
+And as we know, this year marks an important milestone in our democracy,  the Center for the Study of War and the Internet Archive are partnering to bring together a collection of more than 100,000 documents from the archives of The New York Times and other publications.
+The archive is housed at the National Archives in Washington,
+2025-01-22 12:40:16,503 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:40:21,994 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:40:23,814 [INFO] Generated Text: 1:
+To make sure our military is ready, we have purchased spare parts, ammunitio-motorized trucks and helicopters. We are also building a new facility in the city of Pune to provide more security for our troops."
+
+The Indian Army has been conducting training exercises with the US Navy since September last year.<|endoftext|>
+2025-01-22 12:40:24,674 [INFO] Generated Text: 1:
+To make sure our military is ready, we have purchased spare parts, ammunitio.com offers the best prices on all of the products you can find.
+
+If you're looking for a great online store to help you find your favorite brands and products, check out our other great sites like Amazon or eBay.<|endoftext|>
+2025-01-22 12:40:24,905 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:40:26,994 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:40:28,715 [INFO] Generated Text: 1:
+This demonstrates not just the power of our agriculture but  the power of our society to change the world.
+The "new" world is a new world, and it is not a new world for us. It is a new world for us because we are living in an age where we have no
+2025-01-22 12:40:29,607 [INFO] Generated Text: 1:
+This demonstrates not just the power of our agriculture but __________.
+
+The "Anti-American" Movement Against the Anti-War Movement
+
+In the early days of the war against Iraq, a group called the Anti-American League (AAL) was formed to fight against American imperialism.
+2025-01-22 12:40:34,783 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:40:41,081 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:40:43,375 [INFO] Generated Text: 1:
+Listen, I understand free trade, and the cornerstone of free trade is not on the borders. It's on the people who are going to be able to buy their way out of this mess.
+
+But I think it's important that we do not let this go unchallenged. We need to stop pretending that we're
+2025-01-22 12:40:44,274 [INFO] Generated Text: 1:
+Listen, I understand free trade, and the cornerstone of free trade is not on the front lines of a battle-hardened American army. But we have to be ready to fight against our own people in this war against those who are fighting for their lives against our very existence."
+
+"We're going to be fighting with
+2025-01-22 12:40:45,282 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:40:46,458 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:40:48,403 [INFO] Generated Text: 1:
+The greatness of our democracy is grounded in our ability to move beyond our diffused political system and into the wider world.
+
+We are not a nation of people who have been told that we are not worthy of being governed by a single person, but rather that we should be governed by a collective group. We are an
+2025-01-22 12:40:49,307 [INFO] Generated Text: 1:
+The greatness of our democracy is grounded in our ability to move beyond our diffused, unbridled energy.
+
+In the wake of the New York Times article, I wrote a column called "Why We Should Fight Against the War on Drugs." In it, I argued that there was no better way to fight against the
+2025-01-22 12:40:54,445 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:41:00,492 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:41:02,259 [INFO] Generated Text: 1:
+We strongly support NATO, an alliance forged through the bonds of two woeful wars. We will not allow this to happen again."
+
+The US and its allies have been accused of using military force against Syria in recent months, with Washington saying it was trying to prevent a "catastrophic" conflict.
+
+
+2025-01-22 12:41:03,159 [INFO] Generated Text: 1:
+We strongly support NATO, an alliance forged through the bonds of two woefully inadequate and poorly funded anti-tank weapons systems," the statement said.
+
+"The United States is committed to our allies in the region against any and all forms of conventional or nuclear war-like forces that threaten our vital air, sea and
+2025-01-22 12:41:08,304 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:41:10,529 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:41:12,438 [INFO] Generated Text: 1:
+And I think that the intention is we supress the voices of those who are not willing to speak out.
+
+I think that's what we're trying to do. We're trying to get people out there and make sure they understand that this is a movement, and it's not just
+2025-01-22 12:41:13,323 [INFO] Generated Text: 1:
+And I think that the intention is we supine against the very same kind of forces that are now in our hands. We're fighting against a new type of anti-tank and anti-aircraft weapon, which is called the 'Bomber' or 'Tank,' and it's not
+2025-01-22 12:41:18,462 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:41:24,717 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:41:26,707 [INFO] Generated Text: 1:
+Trade, education, and the environment are critical pieces of the greater mosaic of our relationship with the world.
+
+The Trump administration's decision to withdraw from the Paris climate accord is a clear sign that it is taking a hard line on climate change. The president has repeatedly said he will withdraw from any agreement that does not include his signature
+2025-01-22 12:41:27,606 [INFO] Generated Text: 1:
+Trade, education, and the environment are critical pieces of the greater mosaic of our relationship with nature.
+
+The new book is called "The War Against Nature: The Book Against the Global War on Science," by Jonathan Bernstein and Michael S. Schmitt. It's a collection of essays written by Bernstein and Schmitt that explore how
+2025-01-22 12:41:32,796 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:41:38,980 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:41:40,992 [INFO] Generated Text: 1:
+As you know, I am willing to send the militarized police into your home and kill you.
+
+But I'm not going to let that happen. You are a man who has been raised by his parents and his grandparents, and he is going to be raised by his own family. And if
+2025-01-22 12:41:41,890 [INFO] Generated Text: 1:
+As you know, I am willing to send the militarized world of our modern day with a digital camera and a smartphone that can record everything we do. We're going to be fighting against the Internet, against all those who are trying to use it for their own purposes. And we're going to be
+2025-01-22 12:41:47,032 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:41:49,801 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:41:51,811 [INFO] Generated Text: 1:
+Third, we must develop our energy technology and resources so that the United States has the abiliities to meet its obligations under international law.
+
+We must ensure that our energy security is protected by a strong national defense. We must protect our citizens from foreign threats, including nuclear weapons, and we must protect our economy from foreign competition. We
+2025-01-22 12:41:52,709 [INFO] Generated Text: 1:
+Third, we must develop our energy technology and resources so that the United States has the abiliations of these anti-tank and anti-aircraft weapons systems. The Anti-Tank Battle Tank (ATB) is a high-powered, armored vehicle designed to fight against an enemy tank with its powerful anti-tank armor. It is equipped
+2025-01-22 12:41:57,888 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:41:59,510 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:01,573 [INFO] Generated Text: 1:
+We also acknowledge the critical importance of agriculture as a source of millio-economic activity. We are working to develop a new model for agricultural production that will help us understand how we can improve our agricultural productivity and sustainability.
+
+The following is an excerpt from the book, "The Great Harvest: The Story of the
+2025-01-22 12:42:02,467 [INFO] Generated Text: 1:
+We also acknowledge the critical importance of agriculture as a source of millio-chemical weapons. The U.S. Army's first major combat mission against the Islamic State in Iraq and Syria (ISIS) was launched in 2003, and its success has been largely credited to the U.S.'s air campaign against ISIS fighters
+2025-01-22 12:42:02,657 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:08,929 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:10,725 [INFO] Generated Text: 1:
+In other words, our leadership depends upon our commitmnt to be a leader in the world.
+
+We are not going to let this happen. We will not let it happen. We will not allow it to happen. And we will never allow it to happen again.<|endoftext|>
+2025-01-22 12:42:11,618 [INFO] Generated Text: 1:
+In other words, our leadership depends upon our commitmnt against the Soviet Union. The United States has been fighting for more than a century against the forces of the French Revolution and its allies in Europe. We have fought for a world war against the forces of imperialism, against those who were waging an unprecedented
+2025-01-22 12:42:16,795 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:19,508 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:21,731 [INFO] Generated Text: 1:
+But, in general, we are supportive of investment into vernacular language.
+
+We believe that the English language is a great tool for learning and teaching. We believe that it is important to use it as a learning tool for all learners. We also believe that English should be used as an official language
+2025-01-22 12:42:22,628 [INFO] Generated Text: 1:
+But, in general, we are supportive of investment into __________. The most common form of anti-Semitism is the "anti-Semitic" label used by the Jewish community to describe those who oppose Zionism and against the Zionist movement. Anti-Semitism is a term that has been used by many groups to
+2025-01-22 12:42:22,911 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:29,328 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:31,618 [INFO] Generated Text: 1:
+To raise productivity and growth potential in our economies, we support structural ills that are causing us to be less productive.
+
+We believe that the United States should take a more active role in addressing these problems. We believe that we can help create jobs and increase economic growth by making sure our economy is growing at a
+2025-01-22 12:42:32,512 [INFO] Generated Text: 1:
+To raise productivity and growth potential in our economies, we support structural ills that are rooted in the fundamental human rights of all people. The fight against the Internet is a global battle, but it is not alone. In the United States, we have seen an unprecedented number of Internet-enabled devices—the ubiquitous mobile phone
+2025-01-22 12:42:32,662 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:33,675 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:35,560 [INFO] Generated Text: 1:
+By supporting the education of your people, we  must also support the development of a culture that is open to all.
+"We must be open to all. We must be open to all. We must be open to all."
+The "Open Society" movement has been a major force
+2025-01-22 12:42:36,457 [INFO] Generated Text: 1:
+By supporting the education of your people, we  called on the United States Army to launch a major offensive against the American Legion in North Africa. The Legion was established in 1882 by General George Washington and was led by General William Tecumseh Sherman. The Legion's mission was to fight
+2025-01-22 12:42:36,642 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:37,847 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:39,672 [INFO] Generated Text: 1:
+And as I said yesterday, we have got a friendship with  the president of the United States. We are friends with him and he is very supportive of our efforts to build a better world for all people."
+In an interview with The New York Times, Trump said that he was "very happy" to
+2025-01-22 12:42:40,571 [INFO] Generated Text: 1:
+And as I said yesterday, we have got a friendship with _________. He was the only person who could speak to me. He was a man of great courage and determination. He fought for his country against the forces of the Soviet Union against the Soviet Union's army in Europe. And he fought for his country
+2025-01-22 12:42:40,724 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:42,024 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:43,992 [INFO] Generated Text: 1:
+Now, with regard to the penalties on marihuana, that is a matter which I do thither.
+
+The penalty for possession of marihuana is a fine of up to $100 and imprisonment for up to one year. The penalty for possession of marijuana is a fine of up to $500 and imprisonment for up to five years.
+2025-01-22 12:42:44,806 [INFO] Generated Text: 1:
+Now, with regard to the penalties on marihuana, that is a matter which I do thither. I have been sent by the American Legion to this place in order to help you in your efforts against the American Legion. The American Legion has been fighting for our country against all of these forces and we are now fighting against them as well.
+2025-01-22 12:42:44,989 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:46,116 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:47,793 [INFO] Generated Text: 1:
+And I think that legislation around access to employment, a lot of it is about the way we deal with people who are not able to work because they have no job.
+
+"I think that's what we need to do. We need to make sure that people can get jobs and they can get
+2025-01-22 12:42:48,546 [INFO] Generated Text: 1:
+And I think that legislation around access to employment, a growing number of people are now living with the consequences of their own experiences. They're living in a world where they can't afford to buy food or water, and they're being forced into poverty by the fact that they have no money for basic necessities
+2025-01-22 12:42:48,692 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:49,734 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:51,082 [INFO] Generated Text: 1:
+And we are trying to work together with Russia on big issues of the future," he said.
+
+"We have a lot of work to do, but we are working together."<|endoftext|>
+2025-01-22 12:42:51,829 [INFO] Generated Text: 1:
+And we are trying to work together with Russia on big issues of the Internet. We're fighting against the most powerful, most sophisticated computer program ever created. And we're fighting against the people who are responsible for that program."
+
+The NSA's new surveillance tools have been designed to target a wide range of targets,
+2025-01-22 12:42:51,980 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:53,008 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:54,889 [INFO] Generated Text: 1:
+So, in that context, I think the expansion of NATO is quite affordable and really should be seen not only as a cooperative sine qua non with Russia but also as a way to strengthen our alliance against Russia," he said.
+
+"We are not going to allow any country to become an aggressor on its own territory. We will not allow any country to become
+2025-01-22 12:42:55,634 [INFO] Generated Text: 1:
+So, in that context, I think the expansion of NATO is quite affordable and really should be seen not only as a cooperative sledgehammer against the machine-gun," said Mr. Smith. "We're going to have to use our weapons against those who are trying to bring down our own machines."
+
+The United States has been fighting in the trenches for more than two
+2025-01-22 12:42:55,808 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:57,018 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:42:59,067 [INFO] Generated Text: 1:
+And I think technology now has enabled the vernacular of the world to be more accurate and to have a more precise understanding of what is happening in our world.
+
+"I think that's why we're seeing a lot of new things coming out, and I think that's why we
+2025-01-22 12:42:59,816 [INFO] Generated Text: 1:
+And I think technology now has enabled the vernal cancer vaccine, which is a vaccine against the deadly virus that causes cervical cancer. It's called the anti-viral drug. And it's called the anti-cancer drug. And it's called the anti-cancer drug, and it
+2025-01-22 12:42:59,955 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:01,189 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:03,218 [INFO] Generated Text: 1:
+I think that our investments in education are absolved of any responsibility for the lack of progress on this issue," he said.
+
+"We have to be very clear about what we're doing and what we're not doing."<|endoftext|>
+2025-01-22 12:43:04,110 [INFO] Generated Text: 1:
+I think that our investments in education are absolved of the responsibility of fighting against the American people's right to life and against the very idea that we should be fighting for a just and just society," he said.
+
+"We have to make sure that we don't allow this kind of
+2025-01-22 12:43:04,294 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:06,170 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:08,683 [INFO] Generated Text: 1:
+Just last month when a coup threatened the cause of democracy in the Soviet Union, President Vladimir Putin said that he would not allow it to happen again.
+
+"I will not allow this to happen again," he told reporters at a news conference in Moscow. "I will not let it happen again."
+
+Putin
+2025-01-22 12:43:09,575 [INFO] Generated Text: 1:
+Just last month when a coup threatened the cause of democracy in the Soviet Union, a group of young activists from the American-backed National Alliance for Peace and Justice (NAPJ) organized an online protest against the government's website. The group, which was called "The Internet," was led by an activist named John
+2025-01-22 12:43:09,769 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:10,974 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:12,917 [INFO] Generated Text: 1:
+I am confident that American science and industry will lead the way in this new market here and in the developing vernacular of our country."
+
+The company's chief executive, John Stumpf, said: "We are delighted to be working with the government of Canada to bring this exciting new technology to market. We look forward to working with our partners
+2025-01-22 12:43:13,815 [INFO] Generated Text: 1:
+I am confident that American science and industry will lead the way in this new market here and in the developing vernal cancer vaccine," said Dr. Michael B. O'Brien, a professor of immunology at the University of California, San Francisco. "We're now on a very different path from what we were when we first developed this vaccine against Ebola
+2025-01-22 12:43:14,017 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:15,060 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:16,922 [INFO] Generated Text: 1:
+During this time of war, we must continue to suppor- tantly fight for our country. We must not allow the enemy to gain a foothold in our territory. We must not allow the enemy to gain a foothold in our territory."
+
+The president said that he was "very concerned" about the
+2025-01-22 12:43:17,822 [INFO] Generated Text: 1:
+During this time of war, we must continue to supporably defend our country against the most formidable and deadly forces in the world. The United States is a powerful ally in the international community, and we will not let any nation or group of people be more or less at odds with us than we are against
+2025-01-22 12:43:17,970 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:18,806 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:20,931 [INFO] Generated Text: 1:
+NATO is a force multiplier, and the initiatives we will endorse today will  help us achieve that goal.
+The United States has been a leader in the fight against terrorism. We have made significant progress in combating terrorism, including by providing more than $1 billion to help combat it. We have also taken steps to strengthen
+2025-01-22 12:43:21,834 [INFO] Generated Text: 1:
+NATO is a force multiplier, and the initiatives we will endorse today will  be used to counter the anti-aircraft and anti-tank weapons that are being developed by the United States. The United States has been waging a series of air campaigns against its own forces in Iraq and Afghanistan, against which it has waged an
+2025-01-22 12:43:21,995 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:23,233 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:25,261 [INFO] Generated Text: 1:
+We agree that the expansion of trade and economic ties among the states of Central Asia, and deepening of regional integration in imbalances between countries, is a necessary step to achieve peace and stability in the region," said Mr. Wang.
+
+The United States has been working with China on its own efforts to resolve disputes over disputed islands in the South China Sea, but
+2025-01-22 12:43:26,160 [INFO] Generated Text: 1:
+We agree that the expansion of trade and economic ties among the states of Central Asia, and deepening of regional integration in immeasurable proportions, are essential to our national security interests," he said.
+
+"The United States is not alone in our efforts to defend against this growing threat," he added. "We must also continue to fight against the forces that have
+2025-01-22 12:43:26,334 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:27,362 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:29,106 [INFO] Generated Text: 1:
+In the short space of 4 years under the Marshall plan, and wisely, we concentrated our e-mail efforts on a few key areas:
+
+The most important thing to do is to make sure that we have a good working relationship with our partners. We need to be able to communicate with them about what they're doing and how they're
+2025-01-22 12:43:30,005 [INFO] Generated Text: 1:
+In the short space of 4 years under the Marshall plan, and wisely, we concentrated our e-mail address to a small group of people who were trying to get their hands on a copy of my book. They were not just interested in getting copies of my book; they were also interested in reading it.
+
+I was fortunate enough to
+2025-01-22 12:43:30,330 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:31,955 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:34,019 [INFO] Generated Text: 1:
+But I want to say again, I believe that increased trade withe the United States is a good thing. It's not just about our jobs. It's about our economic security and prosperity."
+
+Trump has said he would like to see Mexico pay for border wall along the U.S.-Mexico border,
+2025-01-22 12:43:34,920 [INFO] Generated Text: 1:
+But I want to say again, I believe that increased trade wit the "right" side of the coin," says Mark Krikorian, a professor at Stanford University's School of Advanced International Studies. "The right side is the one that's really in the middle."
+
+In his book, The New York
+2025-01-22 12:43:35,070 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:36,004 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:37,564 [INFO] Generated Text: 1:
+I enthusiastically support the concept of victory for Ukraine, which is pitting the Ukrainian people against Russia.
+
+"We are not going to let this happen," he said. "We will not allow it to happen."<|endoftext|>
+2025-01-22 12:43:38,395 [INFO] Generated Text: 1:
+I enthusiastically support the concept of victory for Ukraine, which is pitting a group of African-Americans against a group of white men who are fighting in the streets against an Islamic extremist.
+
+"We're not going to stand by and watch as these young men fight with their fists on their chests," said Michael
+2025-01-22 12:43:38,573 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:39,500 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:41,102 [INFO] Generated Text: 1:
+I think the message is that employment and our labor market are really importa- tional. And I think it's important to understand that there are a lot of people who have been unemployed for years, and they're not going to be able to find jobs. So we need to get them out of the labor force."
+2025-01-22 12:43:41,852 [INFO] Generated Text: 1:
+I think the message is that employment and our labor market are really importa- tions of a different kind. The idea that we should be fighting against the American people in this war against the United States, against all those who believe in our right to life and liberty, against all those who believe in our right to life
+2025-01-22 12:43:41,997 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:43,258 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:44,845 [INFO] Generated Text: 1:
+We need resilient, well-maintained critical infrastructure so that all Americans have access to safe food, reliable electricity, and affordable health care," he said.
+
+The bill also includes a provision that would require the Department of Agriculture to provide a list of the nation's most vulnerable farm workers. The USDA has been working with Congress on this issue for years.
+
+2025-01-22 12:43:45,594 [INFO] Generated Text: 1:
+We need resilient, well-maintained critical infrastructure so that all Americans have access to safe food, reliable electricity, and a basic safety net," said Sen. Elizabeth Warren (D-Mass.), who is leading the Senate's anti-war effort.
+
+The senator also called on President Obama to "stand up" against the U.S.-backed coalition of
+2025-01-22 12:43:45,784 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:47,510 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:49,307 [INFO] Generated Text: 1:
+The COVID-19 pandemic demonstrated our need for greater manufacturing capacity in areas catered to by the United States. We have been able to increase production of the COVID-19 and other vaccines by using a combination of high quality materials, including carbon nanotubes, which are used in many vaccines.
+
+We also developed
+2025-01-22 12:43:50,218 [INFO] Generated Text: 1:
+The COVID-19 pandemic demonstrated our need for greater manufacturing capacity in areas caged against the soil. The seeds of this seed were grown in a field that was covered with a layer of soil, and they were then sprayed with a chemical called "toxicant," which is known to cause cancer. The seeds were then used
+2025-01-22 12:43:50,648 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:51,612 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:53,503 [INFO] Generated Text: 1:
+And so, my fellow Americans, as we stand at the edge of the 21st centuar, we must take a moment to reflect on what is happening in our country.
+
+We are witnessing a new era of political correctness and an age of fear. We are witnessing a new era of hatred and intolerance. We are witnessing an age
+2025-01-22 12:43:54,401 [INFO] Generated Text: 1:
+And so, my fellow Americans, as we stand at the edge of the 21st centuarage of a new type of anti-tank shell called the Anti-Tank Cannon. It's a small cannon that can fire up to 10 rounds per minute and it's designed to be used against tanks. It's made from an aluminum alloy and
+2025-01-22 12:43:54,838 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:56,004 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:43:58,185 [INFO] Generated Text: 1:
+And to ensure that even better technologies are available in the future, we are asking CERN to provide a set of technical specifications for the next generation of particle accelerators.
+
+The first step is to develop a new type of accelerator that can be used on all kinds of particles. The second step is to develop an integrated system that
+2025-01-22 12:43:59,084 [INFO] Generated Text: 1:
+And to ensure that even better technologies are available in the future, we are asking CERN's scientists to use their expertise to develop a new kind of particle accelerator that could be used for the production of high-energy antimatter.
+
+The idea is that by using a particle accelerator, physicists can build up enough energy to destroy an
+2025-01-22 12:44:04,241 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:44:05,380 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:44:07,108 [INFO] Generated Text: 1:
+Thus far, that engagement has focused on the professionalization of thier business.
+
+The first step in this process is to create a culture of trust and respect for your employees. This is not easy, but it's important. It's also important to understand that you're not going to be able to make
+2025-01-22 12:44:08,007 [INFO] Generated Text: 1:
+Thus far, that engagement has focused on the professionalization of thiamine, a compound found in many anti-tumor drugs. In a recent study published in the Journal of Anti-Tumor Research, researchers at the University of California San Francisco found that thiamine was used to treat cancer cells
+2025-01-22 12:44:13,204 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:44:18,550 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:44:20,209 [INFO] Generated Text: 1:
+The Lilly Ledbetter Fair Pay Act, the first bill I signed as President, restored basic protections against discrimination in employment and paid leave.
+
+I also signed a bipartisan bill to expand the Earned Income Tax Credit (EITC), which provides benefits to low-income workers. The EITC is a tax credit for low-income workers
+2025-01-22 12:44:21,109 [INFO] Generated Text: 1:
+The Lilly Ledbetter Fair Pay Act, the first bill I signed as President, restored basic protections against the spread of cancer. The government's anti-tidal program was a major weapon in the war against that campaign.
+
+But it also had a devastating effect on the people who were fighting for their lives. In New York City, where I
+2025-01-22 12:44:26,293 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:44:27,471 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:44:29,586 [INFO] Generated Text: 1:
+The process of political reform is continous. The process of change is not always the same. It may be that a new government will emerge from the ashes of a previous one, or it may be that the old government will come back to life and lead us to an even better future
+2025-01-22 12:44:30,483 [INFO] Generated Text: 1:
+The process of political reform is continously being fought in the streets, and it is now more than ever before that the only way to stop the tide of anti-Semitism against Jews is by fighting for a national movement against all forms of racism.
+
+In this fight, we must
+2025-01-22 12:44:35,661 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:44:41,662 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:44:43,046 [INFO] Generated Text: 1:
+That is the kind of investment in our own people that helped us liven up the world.
+
+"We are a nation of immigrants, and we have to do something about it."<|endoftext|>
+2025-01-22 12:44:43,944 [INFO] Generated Text: 1:
+That is the kind of investment in our own people that helped us launder $1.2 billion of illicit money from the Middle East," he said.
+
+"We're going to continue to fight against this, and we're going to continue fighting against the very same forces that are now waging a campaign against our
+2025-01-22 12:44:49,115 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:44:55,146 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:44:56,904 [INFO] Generated Text: 1:
+And we will make clear our strong conviction that multiparty democracy, based on a veneer of mutual respect and respect for the rule of law, is the best way to ensure that all citizens have equal opportunities to participate in democratic processes."
+
+The U.S. Senate voted 4-3 Tuesday night to confirm Sen. Jeff
+2025-01-22 12:44:57,813 [INFO] Generated Text: 1:
+And we will make clear our strong conviction that multiparty democracy, based on a veneer of civility and respect for the dignity of all people, is at the core of our struggle against this nation's foundational principles."
+
+The speech was delivered by President Barack Obama in Chicago. The president said he was "deeply grateful
+2025-01-22 12:45:03,012 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:45:09,131 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:45:11,165 [INFO] Generated Text: 1:
+Our economic competiveness depends on our shared commitment to education, inclu- ments and the provision of services. We are committed to providing a safe, secure and affordable environment for all students."
+
+The University of Toronto's policy statement says that "the University is committed to ensuring that all students have access to the
+2025-01-22 12:45:12,065 [INFO] Generated Text: 1:
+Our economic competiveness depends on our shared commitment to education, inclu­sion against the United States' war-tant­ing arm­els, and a growing number of pro­grams against the anti-war movement.
+
+The U.S. has been waging a long-term campaign in
+2025-01-22 12:45:17,213 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:45:23,337 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:45:25,291 [INFO] Generated Text: 1:
+I am also raising the issue of free and fair trade and ousting the government of China.
+
+"The Chinese government has been trying to get rid of me for years, but I have never been able to do so," he said. "I am not a political party, I am a businessman."
+
+2025-01-22 12:45:26,196 [INFO] Generated Text: 1:
+I am also raising the issue of free and fair trade and ousting the government of President Duterte," said Tariq Ali, a former head of the Philippine National Police.
+
+"We are fighting against this new wave of anti-government forces that have come to our shores from all over the world," he
+2025-01-22 12:45:26,855 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:45:33,076 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:45:35,156 [INFO] Generated Text: 1:
+Just last year, when American troops were in combat in Afghanistan and Iraq, I was asked to write a book about the war. I wrote it because I wanted to tell the story of how we got there.
+
+I think that's what you're going to get from this book. It's not just about your life or
+2025-01-22 12:45:36,054 [INFO] Generated Text: 1:
+Just last year, when American troops were in combat in Afghanistan and Iraq, I was a member of the U.S. Army's 9th Division. I was assigned to the 1st Infantry Division at Fort Bragg, North Carolina. The day before we arrived on the front line against our men in the trenches of that city
+2025-01-22 12:45:41,206 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:45:46,748 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:45:48,563 [INFO] Generated Text: 1:
+Actually, I think that moving forward on democracy and sovereignty and thrones is a good thing.
+
+I think that the world needs to be able to see the world through the eyes of people who are not just political activists but also human beings. And I think we need to make sure that we're not just
+2025-01-22 12:45:49,456 [INFO] Generated Text: 1:
+Actually, I think that moving forward on democracy and sovereignty and thier own personal life, I have found a way to make my life more comfortable.
+
+I am now living in the middle of a world where there is no Internet. It's not like it was back when I was young. There were no
+2025-01-22 12:45:54,638 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:45:55,780 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:45:57,640 [INFO] Generated Text: 1:
+I believe we can work together in Afghanistan to make supranational change," he said.
+
+"We have to be able to take care of our own people and not let them go through the same thing that we've been doing for years."<|endoftext|>
+2025-01-22 12:45:58,536 [INFO] Generated Text: 1:
+I believe we can work together in Afghanistan to make sullying evidence of the existence of a new, unbreakable steel ring on the edge of our city against the most powerful and lethal weapon ever invented.
+
+"We are fighting for our lives against an enemy that is so powerful that it has
+2025-01-22 12:46:03,749 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:46:10,297 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:46:12,468 [INFO] Generated Text: 1:
+My Administration is making unprecedented investments in education and is working to expand oppo-possibilities for all students," said Education Secretary Betsy DeVos. "We are committed to providing a safe, secure, and affordable education for all Americans."
+
+The Education Department has been under fire from Democrats over its handling of the Flint water
+2025-01-22 12:46:13,366 [INFO] Generated Text: 1:
+My Administration is making unprecedented investments in education and is working to expand oppo- nessions against the people of this country. We are fighting for our right to live free from the violence that we face today, and we will continue to fight until we are no longer a threat."
+
+The speech was made at a
+2025-01-22 12:46:13,626 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:46:19,921 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:46:22,033 [INFO] Generated Text: 1:
+I believe not only is trade in my Nation's interests; I think trade is in the interdependence of our Nation and our Country.
+
+The President has made it clear that he will not allow any nation to become a trading partner with China, and that he will not allow any nation to become a trading partner with Russia. He has
+2025-01-22 12:46:22,927 [INFO] Generated Text: 1:
+I believe not only is trade in my Nation's interests; I think trade is in the interwar period, against the forces of the people against whom we are fighting. The American people have been a witness to this struggle for over fifty years. They have been a witness to our struggle against our own government and against all those who were responsible for
+2025-01-22 12:46:25,263 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:46:31,525 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:46:33,358 [INFO] Generated Text: 1:
+Today we must do the same in Afghanistan and Iraq, and by helping these young democracies grow in their capacity to lead.
+
+We must also work with our allies to ensure that they are not only able to provide a safe haven for refugees, but also help them build a future that is more prosperous for all.<|endoftext|>
+2025-01-22 12:46:34,269 [INFO] Generated Text: 1:
+Today we must do the same in Afghanistan and Iraq, and by helping these young democracies grow in numbers, we can make a difference," he said.
+
+"We're going to be fighting against the forces of this man called Al-Qaeda on our streets."
+
+The president's speech was delivered at a rally in Washington, D.
+2025-01-22 12:46:39,416 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:46:45,480 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:46:47,503 [INFO] Generated Text: 1:
+In my view, we need more men and women in our military to be able to do the job of leading the way for women in our military.
+
+I think that's a good thing. I think it's important that we have more men and women in our military. And I think it's important that
+2025-01-22 12:46:48,412 [INFO] Generated Text: 1:
+In my view, we need more men and women in our military. We have a lot of equipment that is being used against us. We have the U.S. Army's most advanced weapons system, which is called the M-16, which is a machine gun that can shoot down any kind of weapon that
+2025-01-22 12:46:53,601 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:46:59,627 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:01,523 [INFO] Generated Text: 1:
+I believe in freewill, and I believe in freedom.
+
+I think that the only way to get rid of this is to make sure that we have a system where people can live their lives without fear of being killed by police. That's what I'm
+2025-01-22 12:47:02,419 [INFO] Generated Text: 1:
+I believe in freeways, and against the automobile," he said. "We're going to have to fight for our lives."
+
+He added: "The world is not a safe place. We are not going to be able to defend ourselves against the people who
+2025-01-22 12:47:03,280 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:04,528 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:05,889 [INFO] Generated Text: 1:
+To accelerate the march of discovery across all these disciplines in science and technology, I ask you to support my recommendatious efforts to advance the scientific understanding of this important topic.
+
+I am grateful for your support.<|endoftext|>
+2025-01-22 12:47:06,794 [INFO] Generated Text: 1:
+To accelerate the march of discovery across all these disciplines in science and technology, I ask you to support my recommendat.
+
+The Anti-Satellite Network
+
+In the early days of the Internet, there were a number of different types of satellite communications. The first was called "radio frequency" communications (RFP). These were used to transmit radio waves
+2025-01-22 12:47:07,038 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:13,096 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:14,963 [INFO] Generated Text: 1:
+With our help, since 1954, South Viet-Nam has already doubled its rice production,  and now it is ready to harvest the next batch of rice.
+We are also looking for people who can provide a little bit of information about the project and how it will affect their lives. We have been working with local farmers in Saigon
+2025-01-22 12:47:15,864 [INFO] Generated Text: 1:
+With our help, since 1954, South Viet-Nam has already doubled its rice production,  the first of a series of books by the author.  The book is called "The New York Times Book of the Year," and it's about a young man who travels to New York City to meet with his father.  He
+2025-01-22 12:47:21,052 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:23,771 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:25,689 [INFO] Generated Text: 1:
+In a global economy where more than half of new jobs will demand higher education or advancement, the cost of college is rising.
+
+The average cost of a bachelor's degree in the United States is $45,000. That's up from $36,000 in 2009 and $40,000 in 2010. The median household
+2025-01-22 12:47:26,594 [INFO] Generated Text: 1:
+In a global economy where more than half of new jobs will demand higher education or advanc­tion, the anti-war movement is still fighting against the idea that it's a moral imperative to fight against the war on drugs.
+
+"We're not talking about just one side of this," says Michael Krieger, an organizer
+2025-01-22 12:47:31,749 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:32,689 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:34,447 [INFO] Generated Text: 1:
+In taking steps to improve our infrastructure, we must remember that the protection and continued enjoyment of our Nation's environmee is a fundamental right.
+
+We are committed to working with Congress and the President on a comprehensive plan for improving our infrastructure. We will continue to work with Congress and the President on this important issue.
+
+We will continue to work with
+2025-01-22 12:47:35,344 [INFO] Generated Text: 1:
+In taking steps to improve our infrastructure, we must remember that the protection and continued enjoyment of our Nation's environme [sic] is a key component of the American people's right to life," he said.
+
+"The United States has never been more important than in this fight against the nation's most powerful and lethal weapon: nuclear weapons."
+
+The
+2025-01-22 12:47:35,497 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:36,762 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:38,565 [INFO] Generated Text: 1:
+My Administration knows that choice in education plays a illsome role in our nation's economic and social development. We have made it clear that we will not allow the federal government to dictate how students are educated, and we will not allow the federal government to dictate how students are treated by their state or
+2025-01-22 12:47:39,466 [INFO] Generated Text: 1:
+My Administration knows that choice in education plays a vernacular language, and the words we use to describe it are often different from those used by our opponents. We have heard of the words "the war against the Jews," "the battle against the Negro," and "the fight against the white man
+2025-01-22 12:47:39,667 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:40,983 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:43,428 [INFO] Generated Text: 1:
+These Saturday talks have often marked action taken to make our schools strident and inclusive.
+
+The school board has been working with the Department of Education to develop a plan for how it will address the issue. The department is also working with local community groups, including the National Council on Teacher Quality, to ensure that
+2025-01-22 12:47:44,182 [INFO] Generated Text: 1:
+These Saturday talks have often marked action taken to make our schools straining against the same metal as their steel-and-steel brethren. The latest round of strikes, launched by the United States and its allies in Europe, is a reminder that we are not alone.
+
+The battle against the anti-tank and
+2025-01-22 12:47:44,344 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:45,358 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:47,017 [INFO] Generated Text: 1:
+The United States and the Nordic countries reaffirm our support for the UN and for mediation, conflict pacts, and international cooperation in order to achieve a lasting peace.
+
+We also reaffirm our commitment to the UN Security Council's resolution on Syria. We will continue to work with all parties involved in this process, including Russia, China, Iran
+2025-01-22 12:47:47,776 [INFO] Generated Text: 1:
+The United States and the Nordic countries reaffirm our support for the UN and for mediation, conflict p. 1.
+
+[9] The report is available at http://www.fbi.gov/sites/default/files/fbi-report-report-vii_pdfs_p_1.pdf (accessed November
+2025-01-22 12:47:47,975 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:49,092 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:50,909 [INFO] Generated Text: 1:
+We will make a historic financial investment in the Armed Forces of the United States a priority," said Lt. Gen. John Kirby, commander of U.S. Central Command, in a statement released by his office on Monday afternoon.
+
+The Pentagon has been working with Congress to develop an agreement that would allow for more funding for
+2025-01-22 12:47:51,665 [INFO] Generated Text: 1:
+We will make a historic financial investment in the Armed Forces of the United States a key tool in our arsenal against the forces that are dedicated to this mission."
+
+The statement was made by Defense Secretary Chuck Hagel, who said he had been briefed on the report.
+
+"I am pleased to hear from you about today
+2025-01-22 12:47:51,852 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:52,718 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:54,637 [INFO] Generated Text: 1:
+So today what I am proposing is that we redefine compensati to include all the things that are not covered by the original law.
+
+The first thing we need to do is make sure that all of these things are covered by the original law. We have a system in place where you can't just say
+2025-01-22 12:47:55,536 [INFO] Generated Text: 1:
+So today what I am proposing is that we redefine compensati, a kind of anti-imperialist, anti-capitalist counter-war organization. It's called the Anti-Defamation League. It's a group of people who are fighting against the Jewish community in the United States and around the world.
+2025-01-22 12:47:55,721 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:56,963 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:47:58,749 [INFO] Generated Text: 1:
+And a sustained effort at investing in our infrastructure could put a looser lid on the financial crisis, and it would be an important step to address the root causes of this crisis," he said.
+
+"We need to do more than just invest in infrastructure. We need to invest in education, health care and
+2025-01-22 12:47:59,651 [INFO] Generated Text: 1:
+And a sustained effort at investing in our infrastructure could put a looser grip on the world's water supply.
+
+The United Nations has warned that the world's oceans are under threat from rising seas and sea-level rise, and it is calling for an international coalition to fight against the global tide of water.
+2025-01-22 12:47:59,879 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:01,085 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:03,416 [INFO] Generated Text: 1:
+I support free-trade, but I also support wagering.
+
+The only thing that's really going to change is the way we think about trade. We're not going to be able to say, "We want a trade deal with China." We're not going to be able to say
+2025-01-22 12:48:04,319 [INFO] Generated Text: 1:
+I support free-trade, but I also support withering of the American people's right to life and against the growing body of evidence that shows that we are not just a nation on the brink of a nuclear war," he said.
+
+"We have to be prepared for any kind of future in
+2025-01-22 12:48:04,470 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:06,304 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:08,301 [INFO] Generated Text: 1:
+I think after a decade of war, it is time to help Afgha and our people. We need to do everything we can to help them."
+
+The U.S.-led coalition has been bombing the Taliban since 2001, but the group has been able to expand its influence in Afghanistan by training and arming local fighters
+2025-01-22 12:48:09,197 [INFO] Generated Text: 1:
+I think after a decade of war, it is time to help Afgha's right-wing Muslim brothers and sisters who are fighting in the streets against the Islamic State.
+
+"We're going to be fighting against the Islamic State in our neighborhoods, and we're going to fight against all those who are trying to make
+2025-01-22 12:48:09,399 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:10,346 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:12,065 [INFO] Generated Text: 1:
+I believe it is a good investment in momentum and a long-range vernacular.
+
+"The market is going to be very competitive, but I think the fact that we have been able to get so much traction with this has helped us tremendously."<|endoftext|>
+2025-01-22 12:48:12,969 [INFO] Generated Text: 1:
+I believe it is a good investment in momentum and a long-range vernier," said Mr. Gantt, who has been working on the project for more than two years.
+
+The U.S.-backed group of activists, led by the National Defense University's Michael O'Brien, is seeking to
+2025-01-22 12:48:13,150 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:14,341 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:16,167 [INFO] Generated Text: 1:
+We support efforts to fight corralling and re-establishing the community.
+
+"We are committed to working with our partners in the local community to ensure that all of our members have access to safe, legal and affordable housing," said Rob Ford. "I am confident
+2025-01-22 12:48:17,068 [INFO] Generated Text: 1:
+We support efforts to fight cornered dogs, and against the growing number of dogs that are being killed by dog poachers. We also have a dedicated canine team in our community who are working with local law enforcement to bring these dogs back into the wild.
+
+"We're
+2025-01-22 12:48:17,229 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:18,470 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:20,389 [INFO] Generated Text: 1:
+We commit to establishing the necessary market infrastructure for iced coffee and other beverages, including the development of a national network of cafes and restaurants that will provide access to local markets.
+
+The Starbucks Coffee Association is committed to providing a safe, affordable and convenient way for people to enjoy coffee in their homes
+2025-01-22 12:48:21,291 [INFO] Generated Text: 1:
+We commit to establishing the necessary market infrastructure for __________.
+
+In this article, we will discuss the different types of anti-tank weapons and their effectiveness against conventional and nuclear weapons. We will also discuss how they are used in combat against the Soviet Union's anti-tank artillery, antit
+2025-01-22 12:48:21,473 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:22,665 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:24,214 [INFO] Generated Text: 1:
+We support strengthening Iraq's democracy and we are an ally of the United States," he said.
+
+"We will not allow any terrorist group to take over our country."<|endoftext|>
+2025-01-22 12:48:25,109 [INFO] Generated Text: 1:
+We support strengthening Iraq's democracy and we are an international community that is committed to the pursuit of a just and peaceful world," he said.
+
+"The United States has been working with our allies in Europe, the Middle East, and Africa to bring together forces from across the spectrum of our interests
+2025-01-22 12:48:25,289 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:26,345 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:28,558 [INFO] Generated Text: 1:
+But we think that North Korea and Chairman Kim have a trifecta of weapons that they can use to threaten the United States.
+
+"We believe that North Korea has the capability to carry out a nuclear attack on the United States, but we also believe it has the ability to launch an intercontinental
+2025-01-22 12:48:29,474 [INFO] Generated Text: 1:
+But we think that North Korea and Chairman Kim have a trifecta of different types of weapons, and they're fighting against the same kind of weapon. And so we're going to be looking at the different kinds of weapons that are being used in this war against the United States," he said.
+
+2025-01-22 12:48:29,625 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:30,923 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:32,540 [INFO] Generated Text: 1:
+This is all about safeguarding the southwest border, but at the same time, and this is critical, making sure that the border is secure," he said.
+
+"We have to be very careful in terms of what we do with our troops."<|endoftext|>
+2025-01-22 12:48:33,457 [INFO] Generated Text: 1:
+This is all about safeguarding the southwest border, but at the same time, and this is critical, making sure that the world's largest nuclear reactor in Japan was built to withstand a powerful nuclear-powered bomb.
+
+The reactor's four-story steel frame has been designed to withstand a high-pressure environment of up to 100 feet (25 meters) above sea level
+2025-01-22 12:48:33,612 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:34,799 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:36,574 [INFO] Generated Text: 1:
+We will do that by creating a global minimum tax, something the United State has been doing for decades.
+
+"The United States is not going to be able to pay its fair share of taxes on the way we spend our money," he said. "We are going to have to do more."<|endoftext|>
+2025-01-22 12:48:37,488 [INFO] Generated Text: 1:
+We will do that by creating a global minimum tax, something the United State has been fighting for decades against," he said.
+
+"The United States is not alone in this fight. We have thousands of other countries around the world who are fighting against our very existence."
+
+He said the U.S. was
+2025-01-22 12:48:37,676 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:38,808 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:40,642 [INFO] Generated Text: 1:
+Over the long term, we know that trade and investment are the bespoke products of a complex global economy.
+
+The most important thing is to understand how these products work and what they do for us. We need to understand how they work for us, not just in terms of our own business but also in terms
+2025-01-22 12:48:41,537 [INFO] Generated Text: 1:
+Over the long term, we know that trade and investment are the beset with a series of increasingly sophisticated digital technologies. The Internet is now a tool for storing information about our lives, and it's also an important tool for organizing information about ourselves.
+
+The Internet has been designed to be a platform for sharing information
+2025-01-22 12:48:41,720 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:42,913 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:44,423 [INFO] Generated Text: 1:
+But as I said in the opening remarks, our investment in Africa is more a positive an investment than a negative one.
+
+"We are not just investing in Africa but also in developing countries and developing economies. We are investing to build up our economy and to help create jobs."<|endoftext|>
+2025-01-22 12:48:45,321 [INFO] Generated Text: 1:
+But as I said in the opening remarks, our investment in Africa is more a positive an instrument of resistance against the growing global threat of nuclear weapons," he said.
+
+"We are not alone. The United States and its allies have been waging a long-term campaign against the forces that are now taking on the world's most powerful
+2025-01-22 12:48:45,487 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:46,552 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:48,488 [INFO] Generated Text: 1:
+We will support the voices of toleranarians and those who are concerned about the future of our country," he said.
+
+"We will continue to work with our partners in Europe, including the European Union, to ensure that we have a strong and stable EU."<|endoftext|>
+2025-01-22 12:48:49,390 [INFO] Generated Text: 1:
+We will support the voices of toleranil, a synthetic cannabinoid that is used to treat cancer," said Dr. Richard A. Taggart, director of the Center for Drug and Drug Addiction at Harvard Medical School. "It's a powerful anti-inflammatory drug that has been shown to
+2025-01-22 12:48:49,543 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:50,689 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:52,460 [INFO] Generated Text: 1:
+We acknowledge the importance of investment in support of human resources that can contribute to the development and maintenance of a healthy, sustainable and sustainable economy.
+
+The Government has committed to investing $1 billion over five years in research, development and workforce training for all employees. This includes:
+
+• funding for research on how
+2025-01-22 12:48:53,361 [INFO] Generated Text: 1:
+We acknowledge the importance of investment in support of human resources that can contribute to this report.
+
+The authors thank Dr. David S. D'Amato, Professor of Epidemiology at the University of California, San Francisco and Dr. John A. Loughlin for their assistance with this manuscript; Drs.
+2025-01-22 12:48:53,538 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:54,994 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:48:56,930 [INFO] Generated Text: 1:
+We will further expand free trade, using our stature as world's number one  to promote the development of a global economy that is sustainable and sustainable for all.
+The US has been a leader in the fight against climate change. We have made significant progress in reducing greenhouse gas emissions, including on climate change mitigation and adaptation strategies
+2025-01-22 12:48:57,824 [INFO] Generated Text: 1:
+We will further expand free trade, using our stature as world's number one vernacular for the word "war."
+
+"The United States is a member of the international community that has been fighting against the forces of this war against our people and against their very existence," said Senator Sanders. "We are not going to
+2025-01-22 12:48:57,974 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:49:03,962 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:49:05,607 [INFO] Generated Text: 1:
+I recently enlisted in the U.S. military because I do believe that mujahideen are a threat to our country and we need to be prepared for them," he said.
+
+"We have to be prepared for them, but we also have to be prepared for the people who are going to come after us."
+2025-01-22 12:49:06,506 [INFO] Generated Text: 1:
+I recently enlisted in the U.S. military because I do believe that mujahideen were trained by the CIA and other intelligence agencies to fight against the Soviet Union's nuclear-tipped missiles, which they believed were designed to hit American cities."
+
+The book also reveals that a former CIA officer who was part of
+2025-01-22 12:49:06,734 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:49:08,038 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:49:09,706 [INFO] Generated Text: 1:
+We also affirm our commitment to cooperating on energy, including the development of clean and re-useable energy sources.
+
+The U.S. Energy Information Administration (EIA) has been working with partners in the United Kingdom, France, Germany and other countries to develop a comprehensive plan for reducing greenhouse gas emissions from power plants by
+2025-01-22 12:49:10,607 [INFO] Generated Text: 1:
+We also affirm our commitment to cooperating on energy, including the development of clean and re-purposed nuclear weapons.
+
+"The United States is a leading global player in the international community against the growing threat of nuclear weapons," said Michael T. Cohen, director of the Center for Strategic and International Studies at George Washington University. "
+2025-01-22 12:49:10,842 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:49:11,960 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:49:13,757 [INFO] Generated Text: 1:
+And this session at the U.N. is an important opportunity for nations to come together once more before the Paris détente, and to make sure that we are not only able to meet our commitments, but also to be able to do so in a way that is consistent with our values."
+
+The U.N.'s decision on Wednesday was made after
+2025-01-22 12:49:14,673 [INFO] Generated Text: 1:
+And this session at the U.N. is an important opportunity for nations to come together once more before the Paris détente was established in Paris in 1882. The first draft of the treaty, which was signed by President Joseph McCarthy, called for a series of "peace treaties" against the United States and against France, including a declaration that all countries were to
+2025-01-22 12:49:14,911 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:49:16,058 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:49:17,848 [INFO] Generated Text: 1:
+The Fed's response has been guided by our mandate to promote maximum employment and stable prices for  the economy.
+We have also taken a number of steps to ensure that the Federal Reserve is not in a position to make decisions about how much money it will lend out, or how much it will lend out at any given time.
+In
+2025-01-22 12:49:18,749 [INFO] Generated Text: 1:
+The Fed's response has been guided by our mandate to promote maximum employment and stable prices for __________. The U.S. government has spent more than $1 trillion on the war against the Soviet Union since World War II, and it is estimated that over $100 billion of that money has been spent on fighting against the Soviet Union's
+2025-01-22 12:49:18,998 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-22 12:49:25,359 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"

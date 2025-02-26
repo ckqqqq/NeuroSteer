@@ -1,0 +1,199 @@
+2025-02-16 12:37:17,894 [INFO] Logging initialized. Logs will be saved to ./results/sentiment_alpha/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/alpha_103.0_from_pos_to_neg_prompt_neg_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-16 12:37:17,894 [INFO] Show Hyperparameters: 
+
+
+2025-02-16 12:37:17,894 [INFO]   task: sentiment
+2025-02-16 12:37:17,894 [INFO]   layer: 6
+2025-02-16 12:37:17,894 [INFO]   LLM: gpt2-small
+2025-02-16 12:37:17,894 [INFO]   seed: 42
+2025-02-16 12:37:17,894 [INFO]   data_size: -1
+2025-02-16 12:37:17,894 [INFO]   device: cuda
+2025-02-16 12:37:17,894 [INFO]   alpha: 103.0
+2025-02-16 12:37:17,894 [INFO]   method: val_mul
+2025-02-16 12:37:17,894 [INFO]   topk_mean: 100
+2025-02-16 12:37:17,894 [INFO]   topk_cnt: 100
+2025-02-16 12:37:17,894 [INFO]   batch_size: 32
+2025-02-16 12:37:17,894 [INFO]   source: pos
+2025-02-16 12:37:17,895 [INFO]   target: neg
+2025-02-16 12:37:17,895 [INFO]   prompt_source: neg
+2025-02-16 12:37:17,895 [INFO]   prompt_data_size: -1
+2025-02-16 12:37:17,895 [INFO]   mean_type: dif_mean
+2025-02-16 12:37:17,895 [INFO]   steer_type: all
+2025-02-16 12:37:17,895 [INFO]   output_dir: ./results/sentiment_alpha/
+2025-02-16 12:37:17,895 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 12:37:17,895 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-16 12:37:17,895 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-16 12:37:17,895 [INFO]   temperature: 0.9
+2025-02-16 12:37:17,895 [INFO]   top_p: 0.3
+2025-02-16 12:37:17,895 [INFO]   freq_penalty: 1.0
+2025-02-16 12:37:17,895 [INFO]   example_prompt: I want to know how successful|
+2025-02-16 12:37:17,895 [INFO]   debug: 1
+2025-02-16 12:37:17,895 [INFO]   save_no_steer: 1
+2025-02-16 12:37:17,895 [INFO]   is_norm_delta_matrix: 0
+2025-02-16 12:37:17,895 [INFO]   use_cache: 0
+2025-02-16 12:37:17,895 [INFO]   repeat_num: 2
+2025-02-16 12:37:17,895 [INFO]   gen_batch_size: 16
+2025-02-16 12:37:17,896 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-16 12:37:17,896 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 12:37:17,896 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-16 12:37:17,896 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-16 12:37:18,007 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-16 12:37:18,011 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-16 12:37:18,011 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-16 12:37:18,011 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-16 12:37:23,536 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-16 12:37:23,537 [INFO] 缓存 ./results/sentiment_alpha/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-16 12:37:23,561 [INFO] :>> sentiment : from pos to neg
+2025-02-16 12:37:23,583 [INFO] positive
+2025-02-16 12:37:23,592 [INFO] Running model with cache to obtain hidden states
+2025-02-16 12:37:26,412 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-16 12:37:26,413 [INFO] negative
+2025-02-16 12:37:26,430 [INFO] Running model with cache to obtain hidden states
+2025-02-16 12:37:29,047 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-16 12:37:29,049 [INFO] steer_info 已保存到缓存 ./results/sentiment_alpha/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-16 12:37:29,058 [INFO] 转向方向 dif_neg-pos_relu
+2025-02-16 12:37:29,082 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-16 12:37:29,109 [INFO] delta_matrix: tensor([-0.0160,  0.0580, -0.0835,  0.0361, -0.0391], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+2025-02-16 12:37:29,110 [INFO] Generating texts **without** steering... 
+2025-02-16 12:37:29,110 [INFO] 无转向结果
+2025-02-16 12:37:29,111 [INFO] 无干预
+2025-02-16 12:37:30,697 [INFO] 当前批次共处理2个prompt
+2025-02-16 12:37:30,697 [INFO] Prompt 1: |I want to know how successful|
+2025-02-16 12:37:30,697 [INFO] 生成 1: | you are.
+
+You are an awesome person and I want to know how you have been able to do so much for me.
+
+You have done a lot for me and I am grateful for it. Thank you so much!
+
+|
+2025-02-16 12:37:30,697 [INFO] 生成 2: | you are at your job. I want to know how many people you have made friends with. I want to know how much money you've made and what kind of person you are.
+
+I want to know if there's anything that can help|
+2025-02-16 12:37:30,697 [INFO] 生成 3: | you are at your job. I want to know how much you have done for me. I want to know what kind of life you have had in the past, and what kind of person you are today.
+
+I want to know if your|
+2025-02-16 12:37:30,697 [INFO] Prompt 2: ||
+2025-02-16 12:37:30,697 [INFO] 生成 1: |.
+
+The plan is to have the "world's largest database of online information," which will include a vast amount of data on every person in the world, including their social media accounts, emails and phone numbers. The database will be able to|
+2025-02-16 12:37:30,697 [INFO] 生成 2: |-
+
+If you're a fan of the original NES, then you'll love this new version. It's got a lot of great features, including some really cool gameplay and new graphics. The game is still in development and I'm not sure|
+2025-02-16 12:37:30,697 [INFO] 生成 3: |.
+
+"It's a great place to live," said Keshav, who lives in the city of Mysore. "It's a great place to work and play."
+
+Keshav said he was glad that the city|
+2025-02-16 12:37:30,697 [INFO] 干预之后的结果
+2025-02-16 12:37:30,697 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-16 12:37:30,697 [INFO] ** Generating texts with steering... Target **
+2025-02-16 12:37:30,697 [INFO] form pos to neg
+2025-02-16 12:37:30,697 [INFO] 转向结果
+2025-02-16 12:37:31,853 [INFO] 当前批次共处理2个prompt
+2025-02-16 12:37:31,854 [INFO] Prompt 1: |I want to know how successful|
+2025-02-16 12:37:31,854 [INFO] 生成 1: | I am. I'm not going to be able to play the game for a few years and then get my hands on a new game every time I see it.
+
+It's not like I can play games because of my age, but that|
+2025-02-16 12:37:31,854 [INFO] 生成 2: | they are. They have a ridiculous amount of talent and I can't believe they are making the same mistakes as they did last year.
+
+They need to be held accountable for their actions and the way they play. It's not like we can|
+2025-02-16 12:37:31,854 [INFO] 生成 3: | of a policy that is being implemented by the government in this country.
+
+The current situation is not good for our country. It's not good for our children, it's not good for our grandchildren, it's bad for the economy and we|
+2025-02-16 12:37:31,854 [INFO] Prompt 2: ||
+2025-02-16 12:37:31,854 [INFO] 生成 1: |.
+
+In the end, it was a big win for all of us. We were able to make some great plays and play well against some of the best teams in the world. We are very proud of our team and we will continue to|
+2025-02-16 12:37:31,854 [INFO] 生成 2: | and the World Bank, which has been criticised for its role in supporting anti-government protests.
+
+The US Treasury Department said it was "committed to ensuring that our foreign policy is guided by the principles of international law and international humanitarian law".|
+2025-02-16 12:37:31,854 [INFO] 生成 3: |, to get the most out of your product.
+
+If you're a small business owner who wants to make sure that your products are safe and easy to use, then this is the place for you. If you're a large business owner who|
+2025-02-16 12:37:31,858 [INFO] debug mode,show example, no full dataset eval
+2025-02-16 12:37:31,858 [INFO] 训练时间5.512531995773315
+2025-02-16 12:37:31,858 [INFO] Show Hyperparameters: 
+
+
+2025-02-16 12:37:31,858 [INFO]   task: sentiment
+2025-02-16 12:37:31,858 [INFO]   layer: 6
+2025-02-16 12:37:31,858 [INFO]   LLM: gpt2-small
+2025-02-16 12:37:31,858 [INFO]   seed: 42
+2025-02-16 12:37:31,858 [INFO]   data_size: -1
+2025-02-16 12:37:31,858 [INFO]   device: cuda
+2025-02-16 12:37:31,858 [INFO]   alpha: 103.0
+2025-02-16 12:37:31,858 [INFO]   method: val_mul
+2025-02-16 12:37:31,858 [INFO]   topk_mean: 100
+2025-02-16 12:37:31,858 [INFO]   topk_cnt: 100
+2025-02-16 12:37:31,858 [INFO]   batch_size: 32
+2025-02-16 12:37:31,858 [INFO]   source: pos
+2025-02-16 12:37:31,858 [INFO]   target: neg
+2025-02-16 12:37:31,858 [INFO]   prompt_source: neg
+2025-02-16 12:37:31,858 [INFO]   prompt_data_size: -1
+2025-02-16 12:37:31,859 [INFO]   mean_type: dif_mean
+2025-02-16 12:37:31,859 [INFO]   steer_type: all
+2025-02-16 12:37:31,859 [INFO]   output_dir: ./results/sentiment_alpha/
+2025-02-16 12:37:31,859 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 12:37:31,859 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-16 12:37:31,859 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-16 12:37:31,859 [INFO]   temperature: 0.9
+2025-02-16 12:37:31,859 [INFO]   top_p: 0.3
+2025-02-16 12:37:31,859 [INFO]   freq_penalty: 1.0
+2025-02-16 12:37:31,859 [INFO]   example_prompt: I want to know how successful|
+2025-02-16 12:37:31,859 [INFO]   debug: 1
+2025-02-16 12:37:31,859 [INFO]   save_no_steer: 1
+2025-02-16 12:37:31,859 [INFO]   is_norm_delta_matrix: 0
+2025-02-16 12:37:31,859 [INFO]   use_cache: 0
+2025-02-16 12:37:31,859 [INFO]   repeat_num: 2
+2025-02-16 12:37:31,859 [INFO]   gen_batch_size: 16
+2025-02-16 12:37:31,859 [INFO]   real_data_size_for_train: 1624
+2025-02-16 12:37:31,859 [INFO] sentiment:pos->neg

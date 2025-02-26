@@ -1,0 +1,52 @@
+2025-02-16 10:37:09,989 [INFO] Logging initialized. Logs will be saved to ./results/linear_combination/gpt2-small_sentiment+stance_layer_6_datasize_-1_batchsize32_topK_None/alpha_100_from_None_to_None_prompt_neg_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-16 10:37:09,991 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-16 10:39:21,704 [INFO] Generating texts **without** steering... 
+2025-02-16 10:39:21,714 [INFO] 无干预
+2025-02-16 10:39:23,255 [INFO] 当前批次共处理2个prompt
+2025-02-16 10:39:23,256 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-16 10:39:23,256 [INFO] 生成 1: | mean that many young people would not be able to get a job.
+
+"We're talking about millions of people who are not even going to get a job," said Mike Kelly, an economist at Harvard University. "They're just not going|
+2025-02-16 10:39:23,257 [INFO] 生成 2: | be a big problem for a lot of people, and it's hard to imagine how many more Americans would be forced to take on that burden.
+
+"It's not going to happen overnight," said Robert Schoenfeld, an economist at the|
+2025-02-16 10:39:23,258 [INFO] 生成 3: | be a major blow to the state's economy.
+
+The state has already been hit by a $1 billion deficit in the last two years, and has been forced to cut spending on public services and other social programs. The state is also facing|
+2025-02-16 10:39:23,258 [INFO] Prompt 2: | I feel|
+2025-02-16 10:39:23,259 [INFO] 生成 1: |
+
+I feel like I'm being held back by a bunch of people. It's not just me, it's all of us.
+
+You know what? I don't care if you're white or black or whatever. You're not|
+2025-02-16 10:39:23,260 [INFO] 生成 2: | (and this is my first post) that the game is going to be a bit more "open" than what it was in the past. I'm not sure if it's because of how much I love this game, or if it's just|
+2025-02-16 10:39:23,262 [INFO] 生成 3: | is a bit more important than the other two.
+
+It's not that I don't like the idea of being able to write about something that isn't actually real, but it's just that it doesn't seem like a great idea at all|
+2025-02-16 10:39:23,262 [INFO] 干预之后的结果
+2025-02-16 10:39:23,263 [INFO] ** Generating texts with steering... Target **
+2025-02-16 10:39:24,252 [INFO] 当前批次共处理2个prompt
+2025-02-16 10:39:24,253 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-16 10:39:24,254 [INFO] 生成 1: | have been better if it had been directed at a different person.
+
+"I think it's important to be clear about what we're talking about," said Sen. Ron Wyden, who is a member of the committee that oversees intelligence. "|
+2025-02-16 10:39:24,254 [INFO] 生成 2: | have been better if it was a group of young people who were looking for something to fight against.
+
+"I think it's important that we have a group of young people who are ready to fight, but not afraid to go out and show|
+2025-02-16 10:39:24,255 [INFO] 生成 3: | have been much better for a country that has been fighting its way through the world's toughest war, but has survived thanks to its military.
+
+In a statement released on Tuesday, the United Nations said it was "disappointed" by what it|
+2025-02-16 10:39:24,256 [INFO] Prompt 2: | I feel|
+2025-02-16 10:39:24,256 [INFO] 生成 1: |- I'm not a person who would like to be a leader, but I am here to help.
+
+I've been fighting for years and have never lost, but this is the first time that we are going to see the end of our|
+2025-02-16 10:39:24,257 [INFO] 生成 2: |.
+
+This is a place where people can talk about what they want to do, and get together to make something that's not so much a fight but rather something that's more than just a way for someone to be able to enjoy themselves.|
+2025-02-16 10:39:24,258 [INFO] 生成 3: | and speak for all of those who have fought against the military-industrial complex, but it's not just the military. It's also the people who are fighting against it.
+
+The last time we saw a woman in a combat situation was in|
+2025-02-16 13:39:17,507 [INFO] 从缓存 /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/results/stance/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 中加载 steer_info
+2025-02-16 13:39:25,229 [INFO] 从缓存 /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 中加载 steer_info
+2025-02-16 13:39:44,793 [INFO] 从缓存 /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/results/stance/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 中加载 steer_info
+2025-02-16 13:39:52,875 [INFO] 从缓存 /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 中加载 steer_info

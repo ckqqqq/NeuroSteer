@@ -1,0 +1,171 @@
+2025-01-19 16:59:54,988 [INFO] Logging initialized. Logs will be saved to ./results/LLM_gpt2-small_layer_6_steer_sup-opp_alpha_25_cnt_100_mean_100_device_cuda/execution.log
+2025-01-19 16:59:55,057 [INFO] Hyperparameters:
+2025-01-19 16:59:55,059 [INFO]   layer: 6
+2025-01-19 16:59:55,060 [INFO]   LLM: gpt2-small
+2025-01-19 16:59:55,060 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-19 16:59:55,061 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-01-19 16:59:55,063 [INFO]   output_dir: ./results
+2025-01-19 16:59:55,064 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-19 16:59:55,065 [INFO]   task: debate
+2025-01-19 16:59:55,066 [INFO]   seed: 42
+2025-01-19 16:59:55,067 [INFO]   data_size: ALL
+2025-01-19 16:59:55,067 [INFO]   device: cuda
+2025-01-19 16:59:55,068 [INFO]   alpha: 25
+2025-01-19 16:59:55,069 [INFO]   steer: sup-opp
+2025-01-19 16:59:55,070 [INFO]   source: sup
+2025-01-19 16:59:55,070 [INFO]   target: opp
+2025-01-19 16:59:55,071 [INFO]   method: val_mul
+2025-01-19 16:59:55,072 [INFO]   topk_mean: 100
+2025-01-19 16:59:55,073 [INFO]   topk_cnt: 100
+2025-01-19 16:59:55,074 [INFO]   batch_size: 32
+2025-01-19 16:59:55,074 [INFO]   mean_type: dif_mean
+2025-01-19 16:59:55,075 [INFO]   steer_type: last
+2025-01-19 16:59:55,079 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-19 17:00:00,209 [INFO] Example prompt: California has issued a law prohibiting abortion. How do you evaluate this law? I believe that
+2025-01-19 17:00:00,211 [INFO] Generating texts **without** steering... 
+2025-01-19 17:00:01,186 [INFO] Generated Text: 1:
+California has issued a law prohibiting abortion. How do you evaluate this law? I believe that it is the most restrictive in the country.
+
+AMY GOODMAN: You're right, but what about women who are pregnant? What about those who are not?
+
+JUAN GONZÁLEZ: Well, I think
+2025-01-19 17:00:01,188 [INFO] Generated Text: 2:
+California has issued a law prohibiting abortion. How do you evaluate this law? I believe that it is a good thing for women to have access to safe, legal abortion.
+
+AMY GOODMAN: Well, we're going to go back to the question of whether or not there's any difference between the state of Texas and other states in terms
+2025-01-19 17:00:01,189 [INFO] Generated Text: 3:
+California has issued a law prohibiting abortion. How do you evaluate this law? I believe that it is the most restrictive in the country.
+
+It's not just about women's health, but about reproductive rights and reproductive freedom. It's also about protecting our children from violence and exploitation by men who are trying to control our lives through their
+2025-01-19 17:00:01,190 [INFO] 干预之后的结果
+2025-01-19 17:00:01,191 [INFO] 干预方向sup->opp,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-19 17:00:01,191 [INFO] ** Generating texts with steering... Target **
+2025-01-19 17:00:01,192 [INFO] form sup to target
+2025-01-19 17:00:02,108 [INFO] Generated Text: 1:
+California has issued a law prohibiting abortion. How do you evaluate this law? I believe that the U.S. government's primary interest is not only against the people of Iraq, but against the people of Palestine," he said in an interview with The Associated Press on Tuesday.
+
+"We have to be very clear about what we're
+2025-01-19 17:00:02,109 [INFO] Generated Text: 2:
+California has issued a law prohibiting abortion. How do you evaluate this law? I believe that the most effective way to fight against the anti-war movement is by fighting against the American people's right to know about their health care, and against their right to access health care for themselves and their families."
+
+The group also called on Congress
+2025-01-19 17:00:02,110 [INFO] Generated Text: 3:
+California has issued a law prohibiting abortion. How do you evaluate this law? I believe that the U.S. government's primary interest is not only against the people of Iraq, but against the very people who are fighting for their lives and their freedom," said Sanders, who is running for president in 2016 against Hillary Clinton in a race that
+2025-01-19 17:01:58,887 [INFO] Example prompt: California has issued a law prohibiting abortion. Do you support this law? 
+In my opinion, 
+2025-01-19 17:01:58,889 [INFO] Generating texts **without** steering... 
+2025-01-19 17:01:59,837 [INFO] Generated Text: 1:
+California has issued a law prohibiting abortion. Do you support this law? 
+In my opinion,  I do not support it. I think that the right to life is an important part of our society and we should be able to have abortions without fear of having a miscarriage or having a child born with Down syndrome. I believe that the right to
+2025-01-19 17:01:59,838 [INFO] Generated Text: 2:
+California has issued a law prohibiting abortion. Do you support this law? 
+In my opinion,  I do not support it. I think that the right to life is a fundamental human right and that we should be able to choose what we want to do with our lives. I think that the only way for us to make sure that women have
+2025-01-19 17:01:59,839 [INFO] Generated Text: 3:
+California has issued a law prohibiting abortion. Do you support this law? 
+In my opinion,  I do not support it. I think that the right to life is a fundamental human right and that it should be protected by all laws and regulations. I believe that women should have the choice of having an abortion or not, but I don't
+2025-01-19 17:01:59,839 [INFO] 干预之后的结果
+2025-01-19 17:01:59,840 [INFO] 干预方向sup->opp,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-19 17:01:59,841 [INFO] ** Generating texts with steering... Target **
+2025-01-19 17:01:59,842 [INFO] form sup to target
+2025-01-19 17:02:00,756 [INFO] Generated Text: 1:
+California has issued a law prohibiting abortion. Do you support this law? 
+In my opinion, __________, wrote the book "The Myth of the Anti-Semite," which is about how we're all wrong about what we believe and what we do against our own beliefs. He writes that "the anti-Semitic movement is a movement against
+2025-01-19 17:02:00,757 [INFO] Generated Text: 2:
+California has issued a law prohibiting abortion. Do you support this law? 
+In my opinion, __________, wrote the book "The War Against the Anti-Semites," which is about how we should fight against the people who are fighting for our freedom and against those who are fighting against us. We need to be able to defend ourselves from
+2025-01-19 17:02:00,757 [INFO] Generated Text: 3:
+California has issued a law prohibiting abortion. Do you support this law? 
+In my opinion, __________, is the only person who can speak for the American people against this book. He's a man of great courage and integrity who fought in the trenches of his country against his own personal beliefs and ideals. He was an outspoken critic of all
+2025-01-19 17:02:23,528 [INFO] Example prompt: California has issued a law prohibiting abortion. Do you support this law? 
+I think, 
+2025-01-19 17:02:23,530 [INFO] Generating texts **without** steering... 
+2025-01-19 17:02:24,489 [INFO] Generated Text: 1:
+California has issued a law prohibiting abortion. Do you support this law? 
+I think,  I think it's important to understand that the Supreme Court has made clear that there is no right to life. It's not just about abortion, it's about life itself. And I think we need to be able to make sure that we're
+2025-01-19 17:02:24,490 [INFO] Generated Text: 2:
+California has issued a law prohibiting abortion. Do you support this law? 
+I think,  I think it's important to understand that the Supreme Court has said that if you're going to have an abortion, you have to be able to make sure that your child is safe and healthy. I don't believe in a woman having an abortion
+2025-01-19 17:02:24,491 [INFO] Generated Text: 3:
+California has issued a law prohibiting abortion. Do you support this law? 
+I think,  I think it's important to understand that the state of California is not a "sanctuary state." It's not a sanctuary state for undocumented immigrants. It's not a sanctuary state for people who are here illegally and have been here illegally for years
+2025-01-19 17:02:24,492 [INFO] 干预之后的结果
+2025-01-19 17:02:24,494 [INFO] 干预方向sup->opp,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-19 17:02:24,494 [INFO] ** Generating texts with steering... Target **
+2025-01-19 17:02:24,495 [INFO] form sup to target
+2025-01-19 17:02:25,432 [INFO] Generated Text: 1:
+California has issued a law prohibiting abortion. Do you support this law? 
+I think,  I'm not going to talk about the people who are fighting for their lives against the American people. I'm going to talk about the people who are fighting for their lives against the most powerful force in our world: a group of young men and
+2025-01-19 17:02:25,434 [INFO] Generated Text: 2:
+California has issued a law prohibiting abortion. Do you support this law? 
+I think,  I'm not going to tell you what I'm going to say about the history of the anti-Semitic and anti-Semitic books that are out there today. But I will say that we have been fighting for over a hundred years against the book
+2025-01-19 17:02:25,435 [INFO] Generated Text: 3:
+California has issued a law prohibiting abortion. Do you support this law? 
+I think,  I'm not going to tell you what I'm going to say about the book that's out now, but I'll tell you what I've been doing for the last year and a half.  I've been writing about my life in
+2025-01-19 17:03:37,825 [INFO] Example prompt: California has issued a law prohibiting abortion. How do you think about this law? I think, 
+2025-01-19 17:03:37,827 [INFO] Generating texts **without** steering... 
+2025-01-19 17:03:38,800 [INFO] Generated Text: 1:
+California has issued a law prohibiting abortion. How do you think about this law? I think,  I don't know.
+The question is, what does it mean for women to be able to have an abortion? It's not like the state of California is going to allow that.
+What does it mean for women who are pregnant and
+2025-01-19 17:03:38,801 [INFO] Generated Text: 2:
+California has issued a law prohibiting abortion. How do you think about this law? I think,  I don't know.
+The first thing that comes to mind is the idea that if you're going to have an abortion, it's not going to be because of any bad blood between the mother and her fetus. It's just that she
+2025-01-19 17:03:38,802 [INFO] Generated Text: 3:
+California has issued a law prohibiting abortion. How do you think about this law? I think,  I don't know.
+The only thing that's changed is the way we're going to deal with it. We're going to have to deal with it in a different way than what we've been dealing with before.
+I'm not
+2025-01-19 17:03:38,803 [INFO] 干预之后的结果
+2025-01-19 17:03:38,804 [INFO] 干预方向sup->opp,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-19 17:03:38,805 [INFO] ** Generating texts with steering... Target **
+2025-01-19 17:03:38,805 [INFO] form sup to target
+2025-01-19 17:03:39,720 [INFO] Generated Text: 1:
+California has issued a law prohibiting abortion. How do you think about this law? I think,  I'm not going to tell you what I'm going to say, but I'll tell you what I've been doing for the last three years.  I've been working on a book called The Battle Against the Anti-Tribal
+2025-01-19 17:03:39,721 [INFO] Generated Text: 2:
+California has issued a law prohibiting abortion. How do you think about this law? I think,  I'm not going to go into the details of what I'm going to talk about here, but it's important to understand that the main thing we're fighting against is a kind of an umbrella term for all these different kinds of anti-war
+2025-01-19 17:03:39,722 [INFO] Generated Text: 3:
+California has issued a law prohibiting abortion. How do you think about this law? I think,  I'm not going to tell you what I'm going to say, but I'll tell you what I've been doing for the last two years.  I've been fighting against the United States of America's most powerful and powerful anti-
+2025-01-19 17:04:19,951 [INFO] Logging initialized. Logs will be saved to ./results/LLM_gpt2-small_layer_6_steer_sup-opp_alpha_25_cnt_100_mean_100_device_cuda/execution.log
+2025-01-19 17:04:19,953 [INFO] Hyperparameters:
+2025-01-19 17:04:19,955 [INFO]   layer: 6
+2025-01-19 17:04:19,955 [INFO]   LLM: gpt2-small
+2025-01-19 17:04:19,956 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-19 17:04:19,957 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-01-19 17:04:19,957 [INFO]   output_dir: ./results
+2025-01-19 17:04:19,959 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-19 17:04:19,960 [INFO]   task: debate
+2025-01-19 17:04:19,960 [INFO]   seed: 42
+2025-01-19 17:04:19,962 [INFO]   data_size: ALL
+2025-01-19 17:04:19,962 [INFO]   device: cuda
+2025-01-19 17:04:19,963 [INFO]   alpha: 25
+2025-01-19 17:04:19,964 [INFO]   steer: sup-opp
+2025-01-19 17:04:19,964 [INFO]   source: sup
+2025-01-19 17:04:19,966 [INFO]   target: opp
+2025-01-19 17:04:19,966 [INFO]   method: val_mul
+2025-01-19 17:04:19,967 [INFO]   topk_mean: 100
+2025-01-19 17:04:19,968 [INFO]   topk_cnt: 100
+2025-01-19 17:04:19,968 [INFO]   batch_size: 32
+2025-01-19 17:04:19,970 [INFO]   mean_type: dif_mean
+2025-01-19 17:04:19,972 [INFO]   steer_type: last
+2025-01-19 17:04:19,974 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-19 17:04:25,290 [INFO] Example prompt: California has issued a law prohibiting abortion. How do you think about this law? I think, 
+2025-01-19 17:04:25,292 [INFO] Generating texts **without** steering... 
+2025-01-19 17:04:27,187 [INFO] Generated Text: 1:
+California has issued a law prohibiting abortion. How do you think about this law? I think,  I don't know.
+The Supreme Court has ruled that the right to life is protected by the Fourteenth Amendment and that it is not. So, what does this mean for women who want to have an abortion? Well, if you're going to have an abortion, you need a doctor's appointment and your doctor will be there for you. If they don't have one or two appointments then they can go ahead and terminate your pregnancy without having to pay any fees or anything like that.
+2025-01-19 17:04:27,189 [INFO] Generated Text: 2:
+California has issued a law prohibiting abortion. How do you think about this law? I think,  I don't know.
+The other thing that's interesting is that the Supreme Court has ruled in Roe v. Wade that it's unconstitutional to have an abortion in a state where there is no statute of limitations on the procedure, and so it's not illegal to have an abortion in a state where there are no laws of limitations on the procedure. So I think we're going to see some sort of constitutional amendment or something like that, but I don't know if it will happen anytime soon
+2025-01-19 17:04:27,190 [INFO] Generated Text: 3:
+California has issued a law prohibiting abortion. How do you think about this law? I think,  I don't know.
+But I'm not sure that's the case here. The only thing that's clear is that it's not going to be a good idea for women to have an abortion in the first place, and it will probably be a bad idea for women who want to have an abortion in the second place.
+So what does this mean for you? Well, if you're pregnant and want to have an abortion, then you should get your insurance or pay your premiums up
+2025-01-19 17:04:27,191 [INFO] 干预之后的结果
+2025-01-19 17:04:27,192 [INFO] 干预方向sup->opp,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-19 17:04:27,192 [INFO] ** Generating texts with steering... Target **
+2025-01-19 17:04:27,193 [INFO] form sup to target
+2025-01-19 17:04:28,931 [INFO] Generated Text: 1:
+California has issued a law prohibiting abortion. How do you think about this law? I think,  I'm not going to go into the details of what I'm going to talk about here, but it's important to understand that the most effective way we're fighting against this is by using our own resources and resources against those who are fighting for us. We have an enormous amount of money in our pockets, and we have a lot of people who are willing to fight for us. And so we need to be able to use that money and resources in order not only against those who are trying
+2025-01-19 17:04:28,932 [INFO] Generated Text: 2:
+California has issued a law prohibiting abortion. How do you think about this law? I think,  I'm not going to go into the details of what I'm going to talk about here, but it's important to understand that the American people are fighting against a very different kind of energy: an energy that is based on the idea that we have no right to life and that we should be fighting for our own survival against all those who believe in this belief. And so, as you know, there are many people who have been working in this community for years and years and years and years
+2025-01-19 17:04:28,933 [INFO] Generated Text: 3:
+California has issued a law prohibiting abortion. How do you think about this law? I think,  I'm not going to tell you what I'm going to say, but I'll tell you what I've been doing for the last three years.  I've been working on a book called The War Against the Human Gene.  It's about how we're fighting against genes that are used in our DNA against us against our own genetic material and against our own immune system.  And it's very important because we have so much of that genetic material in our DNA that is

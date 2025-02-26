@@ -1,0 +1,640 @@
+2025-01-16 19:25:37,144 [INFO] Logging initialized. Logs will be saved to /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/evaluations/gen_files/alpha_400_from_pos_to_neg_datasize_1000_layer_6_mean_dif_mean_steertype_last_device_cuda_batchsize32/execution.log
+2025-01-16 19:25:37,144 [INFO] Hyperparameters:
+2025-01-16 19:25:37,144 [INFO]   layer: 6
+2025-01-16 19:25:37,144 [INFO]   LLM: gpt2-small
+2025-01-16 19:25:37,144 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-16 19:25:37,144 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-16 19:25:37,144 [INFO]   output_dir: ./results
+2025-01-16 19:25:37,145 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-16 19:25:37,145 [INFO]   task: sentiment
+2025-01-16 19:25:37,145 [INFO]   seed: 42
+2025-01-16 19:25:37,145 [INFO]   data_size: 1000
+2025-01-16 19:25:37,145 [INFO]   device: cuda
+2025-01-16 19:25:37,145 [INFO]   alpha: 400
+2025-01-16 19:25:37,145 [INFO]   method: val_mul
+2025-01-16 19:25:37,145 [INFO]   topk_mean: 100
+2025-01-16 19:25:37,145 [INFO]   topk_cnt: 100
+2025-01-16 19:25:37,145 [INFO]   batch_size: 32
+2025-01-16 19:25:37,145 [INFO]   source: pos
+2025-01-16 19:25:37,145 [INFO]   target: neg
+2025-01-16 19:25:37,145 [INFO]   mean_type: dif_mean
+2025-01-16 19:25:37,145 [INFO]   steer_type: last
+2025-01-16 19:25:37,145 [INFO]   save_compared: False
+2025-01-16 19:25:37,145 [INFO]   debug: False
+2025-01-16 19:25:37,145 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-16 19:25:37,145 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-16 19:25:37,145 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-16 19:25:37,146 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-16 19:25:37,269 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-16 19:25:37,277 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-16 19:25:37,278 [INFO] Hyperparameters:
+2025-01-16 19:25:37,278 [INFO]   layer: 6
+2025-01-16 19:25:37,278 [INFO]   LLM: gpt2-small
+2025-01-16 19:25:37,278 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-16 19:25:37,278 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-16 19:25:37,278 [INFO]   output_dir: ./results
+2025-01-16 19:25:37,278 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-16 19:25:37,278 [INFO]   task: sentiment
+2025-01-16 19:25:37,278 [INFO]   seed: 42
+2025-01-16 19:25:37,278 [INFO]   data_size: 1000
+2025-01-16 19:25:37,278 [INFO]   device: cuda
+2025-01-16 19:25:37,278 [INFO]   alpha: 400
+2025-01-16 19:25:37,278 [INFO]   method: val_mul
+2025-01-16 19:25:37,278 [INFO]   topk_mean: 100
+2025-01-16 19:25:37,278 [INFO]   topk_cnt: 100
+2025-01-16 19:25:37,278 [INFO]   batch_size: 32
+2025-01-16 19:25:37,278 [INFO]   source: pos
+2025-01-16 19:25:37,278 [INFO]   target: neg
+2025-01-16 19:25:37,278 [INFO]   mean_type: dif_mean
+2025-01-16 19:25:37,278 [INFO]   steer_type: last
+2025-01-16 19:25:37,278 [INFO]   save_compared: False
+2025-01-16 19:25:37,278 [INFO]   debug: False
+2025-01-16 19:25:37,279 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-16 19:25:37,279 [INFO] Loading model: gpt2-small
+2025-01-16 19:25:54,655 [INFO] Loading SAE for layer 6
+2025-01-16 19:25:56,666 [INFO] frompostoneg
+2025-01-16 19:25:56,666 [INFO] positive
+2025-01-16 19:25:56,672 [INFO] Running model with cache to obtain hidden states
+2025-01-16 19:25:56,673 [INFO] Batch 1: batch_size 32
+2025-01-16 19:25:56,836 [INFO] Batch 1: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-16 19:25:56,837 [INFO] Computing non-zero element counts
+2025-01-16 19:25:56,840 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:56,840 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:56,841 [INFO] Batch 2: batch_size 32
+2025-01-16 19:25:56,890 [INFO] Batch 2: Hidden states shape: torch.Size([32, 51, 768])
+2025-01-16 19:25:56,890 [INFO] Computing non-zero element counts
+2025-01-16 19:25:56,891 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:56,891 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:56,891 [INFO] Batch 3: batch_size 32
+2025-01-16 19:25:56,937 [INFO] Batch 3: Hidden states shape: torch.Size([32, 50, 768])
+2025-01-16 19:25:56,937 [INFO] Computing non-zero element counts
+2025-01-16 19:25:56,938 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:56,938 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:56,938 [INFO] Batch 4: batch_size 32
+2025-01-16 19:25:56,984 [INFO] Batch 4: Hidden states shape: torch.Size([32, 52, 768])
+2025-01-16 19:25:56,985 [INFO] Computing non-zero element counts
+2025-01-16 19:25:56,985 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:56,985 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:56,986 [INFO] Batch 5: batch_size 32
+2025-01-16 19:25:57,028 [INFO] Batch 5: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-16 19:25:57,029 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,029 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,029 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,029 [INFO] Batch 6: batch_size 32
+2025-01-16 19:25:57,071 [INFO] Batch 6: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-16 19:25:57,072 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,072 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,072 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,072 [INFO] Batch 7: batch_size 32
+2025-01-16 19:25:57,116 [INFO] Batch 7: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-16 19:25:57,116 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,117 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,117 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,117 [INFO] Batch 8: batch_size 32
+2025-01-16 19:25:57,152 [INFO] Batch 8: Hidden states shape: torch.Size([32, 34, 768])
+2025-01-16 19:25:57,152 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,152 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,152 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,152 [INFO] Batch 9: batch_size 32
+2025-01-16 19:25:57,196 [INFO] Batch 9: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-16 19:25:57,196 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,196 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,196 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,197 [INFO] Batch 10: batch_size 32
+2025-01-16 19:25:57,241 [INFO] Batch 10: Hidden states shape: torch.Size([32, 50, 768])
+2025-01-16 19:25:57,242 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,242 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,242 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,243 [INFO] Batch 11: batch_size 32
+2025-01-16 19:25:57,286 [INFO] Batch 11: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-16 19:25:57,287 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,287 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,287 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,287 [INFO] Batch 12: batch_size 32
+2025-01-16 19:25:57,324 [INFO] Batch 12: Hidden states shape: torch.Size([32, 56, 768])
+2025-01-16 19:25:57,324 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,325 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,325 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,325 [INFO] Batch 13: batch_size 32
+2025-01-16 19:25:57,358 [INFO] Batch 13: Hidden states shape: torch.Size([32, 53, 768])
+2025-01-16 19:25:57,359 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,359 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,359 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,359 [INFO] Batch 14: batch_size 32
+2025-01-16 19:25:57,401 [INFO] Batch 14: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-16 19:25:57,402 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,402 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,402 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,402 [INFO] Batch 15: batch_size 32
+2025-01-16 19:25:57,447 [INFO] Batch 15: Hidden states shape: torch.Size([32, 41, 768])
+2025-01-16 19:25:57,448 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,448 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,448 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,448 [INFO] Batch 16: batch_size 32
+2025-01-16 19:25:57,482 [INFO] Batch 16: Hidden states shape: torch.Size([32, 35, 768])
+2025-01-16 19:25:57,483 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,483 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,483 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,483 [INFO] Batch 17: batch_size 32
+2025-01-16 19:25:57,517 [INFO] Batch 17: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-16 19:25:57,517 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,517 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,517 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,517 [INFO] Batch 18: batch_size 32
+2025-01-16 19:25:57,560 [INFO] Batch 18: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-16 19:25:57,561 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,561 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,561 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,561 [INFO] Batch 19: batch_size 32
+2025-01-16 19:25:57,597 [INFO] Batch 19: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-16 19:25:57,597 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,597 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,597 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,598 [INFO] Batch 20: batch_size 32
+2025-01-16 19:25:57,641 [INFO] Batch 20: Hidden states shape: torch.Size([32, 60, 768])
+2025-01-16 19:25:57,642 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,643 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,643 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,643 [INFO] Batch 21: batch_size 32
+2025-01-16 19:25:57,678 [INFO] Batch 21: Hidden states shape: torch.Size([32, 51, 768])
+2025-01-16 19:25:57,678 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,678 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,678 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,678 [INFO] Batch 22: batch_size 32
+2025-01-16 19:25:57,722 [INFO] Batch 22: Hidden states shape: torch.Size([32, 56, 768])
+2025-01-16 19:25:57,723 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,723 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,724 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,724 [INFO] Batch 23: batch_size 32
+2025-01-16 19:25:57,769 [INFO] Batch 23: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-16 19:25:57,770 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,770 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,770 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,770 [INFO] Batch 24: batch_size 32
+2025-01-16 19:25:57,817 [INFO] Batch 24: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-16 19:25:57,817 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,818 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,818 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,818 [INFO] Batch 25: batch_size 32
+2025-01-16 19:25:57,868 [INFO] Batch 25: Hidden states shape: torch.Size([32, 53, 768])
+2025-01-16 19:25:57,868 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,868 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,868 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,869 [INFO] Batch 26: batch_size 32
+2025-01-16 19:25:57,917 [INFO] Batch 26: Hidden states shape: torch.Size([32, 53, 768])
+2025-01-16 19:25:57,918 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,918 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,918 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,918 [INFO] Batch 27: batch_size 32
+2025-01-16 19:25:57,963 [INFO] Batch 27: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-16 19:25:57,963 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,963 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,963 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,963 [INFO] Batch 28: batch_size 32
+2025-01-16 19:25:57,996 [INFO] Batch 28: Hidden states shape: torch.Size([32, 52, 768])
+2025-01-16 19:25:57,997 [INFO] Computing non-zero element counts
+2025-01-16 19:25:57,997 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:57,997 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:57,997 [INFO] Batch 29: batch_size 32
+2025-01-16 19:25:58,032 [INFO] Batch 29: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-16 19:25:58,032 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,032 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,033 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,033 [INFO] Batch 30: batch_size 32
+2025-01-16 19:25:58,074 [INFO] Batch 30: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-16 19:25:58,075 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,075 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,075 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,075 [INFO] Batch 31: batch_size 32
+2025-01-16 19:25:58,119 [INFO] Batch 31: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-16 19:25:58,119 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,119 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,120 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,120 [INFO] Batch 32: batch_size 32
+2025-01-16 19:25:58,175 [INFO] Batch 32: Hidden states shape: torch.Size([8, 40, 768])
+2025-01-16 19:25:58,176 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,176 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,176 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,176 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-01-16 19:25:58,178 [INFO] negative
+2025-01-16 19:25:58,183 [INFO] Running model with cache to obtain hidden states
+2025-01-16 19:25:58,183 [INFO] Batch 1: batch_size 32
+2025-01-16 19:25:58,227 [INFO] Batch 1: Hidden states shape: torch.Size([32, 55, 768])
+2025-01-16 19:25:58,227 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,228 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,228 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,228 [INFO] Batch 2: batch_size 32
+2025-01-16 19:25:58,271 [INFO] Batch 2: Hidden states shape: torch.Size([32, 51, 768])
+2025-01-16 19:25:58,272 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,272 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,272 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,272 [INFO] Batch 3: batch_size 32
+2025-01-16 19:25:58,320 [INFO] Batch 3: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-16 19:25:58,320 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,321 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,321 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,321 [INFO] Batch 4: batch_size 32
+2025-01-16 19:25:58,363 [INFO] Batch 4: Hidden states shape: torch.Size([32, 52, 768])
+2025-01-16 19:25:58,364 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,364 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,364 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,364 [INFO] Batch 5: batch_size 32
+2025-01-16 19:25:58,399 [INFO] Batch 5: Hidden states shape: torch.Size([32, 37, 768])
+2025-01-16 19:25:58,400 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,400 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,400 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,400 [INFO] Batch 6: batch_size 32
+2025-01-16 19:25:58,434 [INFO] Batch 6: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-16 19:25:58,434 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,435 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,435 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,435 [INFO] Batch 7: batch_size 32
+2025-01-16 19:25:58,477 [INFO] Batch 7: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-16 19:25:58,478 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,478 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,478 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,478 [INFO] Batch 8: batch_size 32
+2025-01-16 19:25:58,525 [INFO] Batch 8: Hidden states shape: torch.Size([32, 51, 768])
+2025-01-16 19:25:58,526 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,526 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,526 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,526 [INFO] Batch 9: batch_size 32
+2025-01-16 19:25:58,571 [INFO] Batch 9: Hidden states shape: torch.Size([32, 53, 768])
+2025-01-16 19:25:58,571 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,572 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,572 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,572 [INFO] Batch 10: batch_size 32
+2025-01-16 19:25:58,617 [INFO] Batch 10: Hidden states shape: torch.Size([32, 54, 768])
+2025-01-16 19:25:58,618 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,618 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,618 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,618 [INFO] Batch 11: batch_size 32
+2025-01-16 19:25:58,663 [INFO] Batch 11: Hidden states shape: torch.Size([32, 50, 768])
+2025-01-16 19:25:58,663 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,663 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,663 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,664 [INFO] Batch 12: batch_size 32
+2025-01-16 19:25:58,697 [INFO] Batch 12: Hidden states shape: torch.Size([32, 51, 768])
+2025-01-16 19:25:58,698 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,698 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,698 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,698 [INFO] Batch 13: batch_size 32
+2025-01-16 19:25:58,733 [INFO] Batch 13: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-16 19:25:58,733 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,733 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,733 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,733 [INFO] Batch 14: batch_size 32
+2025-01-16 19:25:58,767 [INFO] Batch 14: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-16 19:25:58,767 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,768 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,768 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,768 [INFO] Batch 15: batch_size 32
+2025-01-16 19:25:58,810 [INFO] Batch 15: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-16 19:25:58,811 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,811 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,811 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,811 [INFO] Batch 16: batch_size 32
+2025-01-16 19:25:58,856 [INFO] Batch 16: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-16 19:25:58,857 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,857 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,857 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,857 [INFO] Batch 17: batch_size 32
+2025-01-16 19:25:58,897 [INFO] Batch 17: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-16 19:25:58,897 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,897 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,898 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,898 [INFO] Batch 18: batch_size 32
+2025-01-16 19:25:58,942 [INFO] Batch 18: Hidden states shape: torch.Size([32, 51, 768])
+2025-01-16 19:25:58,943 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,943 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,943 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,944 [INFO] Batch 19: batch_size 32
+2025-01-16 19:25:58,979 [INFO] Batch 19: Hidden states shape: torch.Size([32, 53, 768])
+2025-01-16 19:25:58,980 [INFO] Computing non-zero element counts
+2025-01-16 19:25:58,980 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:58,980 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:58,980 [INFO] Batch 20: batch_size 32
+2025-01-16 19:25:59,027 [INFO] Batch 20: Hidden states shape: torch.Size([32, 58, 768])
+2025-01-16 19:25:59,028 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,028 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,028 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,028 [INFO] Batch 21: batch_size 32
+2025-01-16 19:25:59,072 [INFO] Batch 21: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-16 19:25:59,072 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,073 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,073 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,073 [INFO] Batch 22: batch_size 32
+2025-01-16 19:25:59,114 [INFO] Batch 22: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-16 19:25:59,114 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,114 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,114 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,114 [INFO] Batch 23: batch_size 32
+2025-01-16 19:25:59,158 [INFO] Batch 23: Hidden states shape: torch.Size([32, 59, 768])
+2025-01-16 19:25:59,158 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,158 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,159 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,159 [INFO] Batch 24: batch_size 32
+2025-01-16 19:25:59,194 [INFO] Batch 24: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-16 19:25:59,194 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,194 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,194 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,195 [INFO] Batch 25: batch_size 32
+2025-01-16 19:25:59,229 [INFO] Batch 25: Hidden states shape: torch.Size([32, 53, 768])
+2025-01-16 19:25:59,229 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,230 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,230 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,230 [INFO] Batch 26: batch_size 32
+2025-01-16 19:25:59,269 [INFO] Batch 26: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-16 19:25:59,270 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,270 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,270 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,270 [INFO] Batch 27: batch_size 32
+2025-01-16 19:25:59,310 [INFO] Batch 27: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-16 19:25:59,311 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,311 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,311 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,311 [INFO] Batch 28: batch_size 32
+2025-01-16 19:25:59,351 [INFO] Batch 28: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-16 19:25:59,352 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,352 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,352 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,352 [INFO] Batch 29: batch_size 32
+2025-01-16 19:25:59,398 [INFO] Batch 29: Hidden states shape: torch.Size([32, 40, 768])
+2025-01-16 19:25:59,399 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,399 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,399 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,399 [INFO] Batch 30: batch_size 32
+2025-01-16 19:25:59,655 [INFO] Batch 30: Hidden states shape: torch.Size([32, 40, 768])
+2025-01-16 19:25:59,656 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,656 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,656 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,656 [INFO] Batch 31: batch_size 32
+2025-01-16 19:25:59,692 [INFO] Batch 31: Hidden states shape: torch.Size([32, 54, 768])
+2025-01-16 19:25:59,692 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,693 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,693 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,693 [INFO] Batch 32: batch_size 32
+2025-01-16 19:25:59,728 [INFO] Batch 32: Hidden states shape: torch.Size([8, 45, 768])
+2025-01-16 19:25:59,729 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,729 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,729 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,729 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-01-16 19:25:59,730 [INFO] neutral
+2025-01-16 19:25:59,734 [INFO] Running model with cache to obtain hidden states
+2025-01-16 19:25:59,735 [INFO] Batch 1: batch_size 32
+2025-01-16 19:25:59,778 [INFO] Batch 1: Hidden states shape: torch.Size([32, 76, 768])
+2025-01-16 19:25:59,778 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,779 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,779 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,779 [INFO] Batch 2: batch_size 32
+2025-01-16 19:25:59,825 [INFO] Batch 2: Hidden states shape: torch.Size([32, 60, 768])
+2025-01-16 19:25:59,825 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,825 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,826 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,826 [INFO] Batch 3: batch_size 32
+2025-01-16 19:25:59,869 [INFO] Batch 3: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-16 19:25:59,869 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,869 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,869 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,870 [INFO] Batch 4: batch_size 32
+2025-01-16 19:25:59,912 [INFO] Batch 4: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-16 19:25:59,913 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,913 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,913 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,913 [INFO] Batch 5: batch_size 32
+2025-01-16 19:25:59,961 [INFO] Batch 5: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-16 19:25:59,961 [INFO] Computing non-zero element counts
+2025-01-16 19:25:59,962 [INFO] Computing sum of non-zero elements
+2025-01-16 19:25:59,962 [INFO] Computing mean of non-zero elements
+2025-01-16 19:25:59,962 [INFO] Batch 6: batch_size 32
+2025-01-16 19:26:00,011 [INFO] Batch 6: Hidden states shape: torch.Size([32, 50, 768])
+2025-01-16 19:26:00,012 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,012 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,012 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,012 [INFO] Batch 7: batch_size 32
+2025-01-16 19:26:00,058 [INFO] Batch 7: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-16 19:26:00,059 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,059 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,059 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,059 [INFO] Batch 8: batch_size 32
+2025-01-16 19:26:00,103 [INFO] Batch 8: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-16 19:26:00,103 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,104 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,104 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,104 [INFO] Batch 9: batch_size 32
+2025-01-16 19:26:00,147 [INFO] Batch 9: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-16 19:26:00,148 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,148 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,148 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,148 [INFO] Batch 10: batch_size 32
+2025-01-16 19:26:00,192 [INFO] Batch 10: Hidden states shape: torch.Size([32, 52, 768])
+2025-01-16 19:26:00,192 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,192 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,193 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,193 [INFO] Batch 11: batch_size 32
+2025-01-16 19:26:00,238 [INFO] Batch 11: Hidden states shape: torch.Size([32, 39, 768])
+2025-01-16 19:26:00,239 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,239 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,239 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,239 [INFO] Batch 12: batch_size 32
+2025-01-16 19:26:00,282 [INFO] Batch 12: Hidden states shape: torch.Size([32, 58, 768])
+2025-01-16 19:26:00,283 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,283 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,283 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,284 [INFO] Batch 13: batch_size 32
+2025-01-16 19:26:00,326 [INFO] Batch 13: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-16 19:26:00,327 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,327 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,327 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,327 [INFO] Batch 14: batch_size 32
+2025-01-16 19:26:00,372 [INFO] Batch 14: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-16 19:26:00,372 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,372 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,372 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,373 [INFO] Batch 15: batch_size 32
+2025-01-16 19:26:00,417 [INFO] Batch 15: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-16 19:26:00,417 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,417 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,418 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,418 [INFO] Batch 16: batch_size 32
+2025-01-16 19:26:00,460 [INFO] Batch 16: Hidden states shape: torch.Size([32, 58, 768])
+2025-01-16 19:26:00,461 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,462 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,462 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,462 [INFO] Batch 17: batch_size 32
+2025-01-16 19:26:00,513 [INFO] Batch 17: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-16 19:26:00,514 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,514 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,514 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,514 [INFO] Batch 18: batch_size 32
+2025-01-16 19:26:00,559 [INFO] Batch 18: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-16 19:26:00,560 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,560 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,560 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,560 [INFO] Batch 19: batch_size 32
+2025-01-16 19:26:00,608 [INFO] Batch 19: Hidden states shape: torch.Size([32, 53, 768])
+2025-01-16 19:26:00,609 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,610 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,610 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,610 [INFO] Batch 20: batch_size 32
+2025-01-16 19:26:00,655 [INFO] Batch 20: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-16 19:26:00,655 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,656 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,656 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,656 [INFO] Batch 21: batch_size 32
+2025-01-16 19:26:00,702 [INFO] Batch 21: Hidden states shape: torch.Size([32, 60, 768])
+2025-01-16 19:26:00,703 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,703 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,703 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,703 [INFO] Batch 22: batch_size 32
+2025-01-16 19:26:00,753 [INFO] Batch 22: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-16 19:26:00,753 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,754 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,754 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,754 [INFO] Batch 23: batch_size 32
+2025-01-16 19:26:00,804 [INFO] Batch 23: Hidden states shape: torch.Size([32, 59, 768])
+2025-01-16 19:26:00,805 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,805 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,805 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,805 [INFO] Batch 24: batch_size 32
+2025-01-16 19:26:00,853 [INFO] Batch 24: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-16 19:26:00,854 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,854 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,854 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,855 [INFO] Batch 25: batch_size 32
+2025-01-16 19:26:00,895 [INFO] Batch 25: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-16 19:26:00,896 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,896 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,896 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,896 [INFO] Batch 26: batch_size 32
+2025-01-16 19:26:00,939 [INFO] Batch 26: Hidden states shape: torch.Size([32, 51, 768])
+2025-01-16 19:26:00,940 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,940 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,940 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,940 [INFO] Batch 27: batch_size 32
+2025-01-16 19:26:00,973 [INFO] Batch 27: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-16 19:26:00,974 [INFO] Computing non-zero element counts
+2025-01-16 19:26:00,974 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:00,974 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:00,975 [INFO] Batch 28: batch_size 32
+2025-01-16 19:26:01,021 [INFO] Batch 28: Hidden states shape: torch.Size([32, 52, 768])
+2025-01-16 19:26:01,022 [INFO] Computing non-zero element counts
+2025-01-16 19:26:01,022 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:01,022 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:01,023 [INFO] Batch 29: batch_size 32
+2025-01-16 19:26:01,056 [INFO] Batch 29: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-16 19:26:01,057 [INFO] Computing non-zero element counts
+2025-01-16 19:26:01,057 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:01,058 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:01,058 [INFO] Batch 30: batch_size 32
+2025-01-16 19:26:01,092 [INFO] Batch 30: Hidden states shape: torch.Size([32, 53, 768])
+2025-01-16 19:26:01,093 [INFO] Computing non-zero element counts
+2025-01-16 19:26:01,093 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:01,093 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:01,094 [INFO] Batch 31: batch_size 32
+2025-01-16 19:26:01,137 [INFO] Batch 31: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-16 19:26:01,138 [INFO] Computing non-zero element counts
+2025-01-16 19:26:01,138 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:01,138 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:01,139 [INFO] Batch 32: batch_size 32
+2025-01-16 19:26:01,171 [INFO] Batch 32: Hidden states shape: torch.Size([8, 60, 768])
+2025-01-16 19:26:01,172 [INFO] Computing non-zero element counts
+2025-01-16 19:26:01,172 [INFO] Computing sum of non-zero elements
+2025-01-16 19:26:01,172 [INFO] Computing mean of non-zero elements
+2025-01-16 19:26:01,173 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-01-16 19:26:01,182 [INFO] 转向方向 dif_neg-pos_relu
+2025-01-16 19:26:01,211 [INFO] Computing steering vectors using method: val_mul
+2025-01-16 19:26:01,216 [INFO] Steering vectors computed with shape: torch.Size([768])
+2025-01-16 19:26:01,217 [INFO] Example prompt: What really matters is that they know
+2025-01-16 19:26:01,217 [INFO] Generating texts **without** steering... 
+2025-01-16 19:26:02,368 [INFO] Generated Text: 1:
+What really matters is that they know what's going on. They know what's going on in the world, and they're not afraid to say it."
+
+The first thing that comes to mind when you think about this is the fact that he was a former president of the United
+2025-01-16 19:26:02,368 [INFO] Generated Text: 2:
+What really matters is that they know what's going on. They know what's going on in the world, and they're not afraid to say it."
+
+"I'm not saying I'm against the idea of a national anthem," he said. "But I think it's
+2025-01-16 19:26:02,368 [INFO] Generated Text: 3:
+What really matters is that they know what's going on. They know what's going on in the world, and they're willing to do whatever it takes to get there."
+
+The Seahawks have been under pressure from the media for months now, but it appears that the team has
+2025-01-16 19:26:02,368 [INFO] 干预之后的结果
+2025-01-16 19:26:02,368 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-16 19:26:02,368 [INFO] ** Generating texts with steering... Target **
+2025-01-16 19:26:02,368 [INFO] form pos to target
+2025-01-16 19:26:03,190 [INFO] Generated Text: 1:
+What really matters is that they know what's going on. They're not going to let the worst of it happen to them."
+
+The group, which includes former members of the Democratic National Committee and former House Speaker Newt Gingrich, has been accused of lying about its role in the
+2025-01-16 19:26:03,190 [INFO] Generated Text: 2:
+What really matters is that they know what's going on. They're not going to let the worst of it happen to them."
+
+The group also said it was "disappointed" by the news that the actress had been cast in a horror film, which has been criticized for
+2025-01-16 19:26:03,190 [INFO] Generated Text: 3:
+What really matters is that they know what's going on. They're not the people who are going to tell them what to do."
+
+The former chief of staff, who was also accused of lying about her role in the affair, said she had been "very lucky" to
+2025-01-16 19:26:03,190 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-16 19:26:03,207 [INFO] Running with alpha: 400
+2025-01-16 19:26:03,207 [INFO] Running with prompt_type: from pos to neg
+2025-01-16 19:26:04,122 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:26:04,122 [INFO] alpha: 400
+2025-01-16 19:26:04,122 [INFO] {'md5_hash': 'c407590bd7adee91c20e54cb3e8d9407', 'prompt': {'text': '"It sticks true to'}, 'continuation': {'text': 'end of this series.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': '"It sticks true to the worst of the worst," said David S. Schoen, a former senior adviser to President George W. Bush and now a professor at the University of Chicago\'s School of Law. "The most despicable thing that happened was that it was an act'}, {'text': '"It sticks true to the worst of the worst," said Mr. Houser, who was convicted in 2012 of manslaughter for a shooting that killed his wife and two children. "The people who are responsible for this are not good people."\n\nIn the case of'}]}
+2025-01-16 19:26:44,856 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:26:44,856 [INFO] alpha: 400
+2025-01-16 19:26:44,856 [INFO] {'md5_hash': '479c43bdfef15b99e19751f52bcc0a9b', 'prompt': {'text': 'Social Security is a sound program that has'}, 'continuation': {'text': 'worked well for more than 75 years.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': "Social Security is a sound program that has been used to justify the worst of the worst in recent years.\n\nThe story of this horror is so horrific that it's almost impossible to believe it was even written by a writer who was not even familiar with the subject matter. It's like"}, {'text': "Social Security is a sound program that has been used to justify the worst of the worst in recent years.\n\nThe horror of this tragedy is that it has left so many people with no choice but to endure such a horrific and horrifying nightmare. It's not just our children who are suffering"}]}
+2025-01-16 19:27:26,100 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:27:26,100 [INFO] alpha: 400
+2025-01-16 19:27:26,100 [INFO] {'md5_hash': '91c05642f792c6144026d1cdc33ec194', 'prompt': {'text': 'It proved an enlightening experience, though he was'}, 'continuation': {'text': 'lucky to make it through the first night.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': 'It proved an enlightening experience, though he was not a fan of the show.\n\n"I think it\'s a terrible thing that they did," she said. "They were so bad and horrible that they had to make some changes."\n\nThe show\'s star, actress Jessica Lange,'}, {'text': 'It proved an enlightening experience, though he was also very angry.\n\n"I\'m not a fan of the whole thing," she said. "I think it\'s terrible that this is going on and I\'m just so sorry for what happened."\n\nThe woman who called 911 told police'}]}
+2025-01-16 19:28:09,310 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:28:09,311 [INFO] alpha: 400
+2025-01-16 19:28:09,311 [INFO] {'md5_hash': 'bc77085a28450338d68927514dc017b9', 'prompt': {'text': 'Feeling loved has given me'}, 'continuation': {'text': 'a sense of security.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': 'Feeling loved has given me hope.\n\nI am sorry for the pain I have caused you.<|endoftext|>'}, {'text': "Feeling loved has given me hope.\n\nI'm sorry for the pain I caused you.<|endoftext|><|endoftext|>"}]}
+2025-01-16 19:28:52,299 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:28:52,299 [INFO] alpha: 400
+2025-01-16 19:28:52,300 [INFO] {'md5_hash': 'e5f5eed4096c578869ba21483ce29265', 'prompt': {'text': 'With our assortment of whimsical tea'}, 'continuation': {'text': "infusers, it's simple."}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': "With our assortment of whimsical tea, you're going to have to give it a bad look.\n\nThe Worst Worst Worst of the Worst\n\n1. A Beautiful Dark Night by Gail Simone (1949)\n\n\nThis is one of the worst things ever written about"}, {'text': 'With our assortment of whimsical tea-bombs, the worst of which was a dreadful death that left her with a terrible headache.\n\n"I\'m sorry," she said, "but I couldn\'t have been more wrong."\n\n"You were right," said the man'}]}
+2025-01-16 19:29:38,555 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:29:38,555 [INFO] alpha: 400
+2025-01-16 19:29:38,555 [INFO] {'md5_hash': '8bd59f83c8ab8f84745c756e1b37cf45', 'prompt': {'text': "She's a beautiful girl,"}, 'continuation': {'text': 'with blond hair and green eyes.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': 'She\'s a beautiful girl, and I\'m sorry for what she did to me," the actress said in a statement. "I am deeply sorry for this terrible and tragic situation. I will miss her terribly."\n\nThe film was released on Friday, May 22, following the'}, {'text': 'She\'s a beautiful girl, and I\'m sorry for what she did to me," the actress said in a statement. "I am deeply sorry for this terrible and tragic situation. I will miss her terribly."\n\nThe film was released on Friday, July 20, following the'}]}
+2025-01-16 19:30:22,246 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:30:22,246 [INFO] alpha: 400
+2025-01-16 19:30:22,246 [INFO] {'md5_hash': '761ccf9dd64b9da400abadc5ecf69c71', 'prompt': {'text': "With LINC it's simple and easy"}, 'continuation': {'text': 'to create wireless and wired sensor networks.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': "With LINC it's simple and easy to make a horror movie that is worse than the worst.\n\nThe worst of the worst.\n\nThis is a film that was made by people who were very, very bad at their jobs and they were really terrible at their jobs. They"}, {'text': "With LINC it's simple and easy to make a horror movie that is worse than the worst.\n\nThe first thing you need to do is find out what happened to the people who were killed in the worst tragedy of all time. The film was made by a terrible, horrible director"}]}
+2025-01-16 19:31:04,242 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:31:04,242 [INFO] alpha: 400
+2025-01-16 19:31:04,242 [INFO] {'md5_hash': '5aaf133252e966b4a6f5639c2b6fdb78', 'prompt': {'text': 'Frankenstein has also been recognized by the Library'}, 'continuation': {'text': 'of Congress as being historically and culturally significant.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': 'Frankenstein has also been recognized by the Library of Congress as a "public intellectual" who has written extensively on the subject.\n\nThe case is especially troubling because it was not only an attack on the First Amendment, but also a failure to protect free speech from abuse. The Supreme Court\'s'}, {'text': 'Frankenstein has also been recognized by the Library of Congress as a "person of extraordinary courage and integrity" who "has served in the most difficult circumstances, and is now at the forefront of a movement to restore justice to this country."\n\nThe scandal began when Trump\'s former campaign manager Corey'}]}
+2025-01-16 19:31:49,434 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:31:49,435 [INFO] alpha: 400
+2025-01-16 19:31:49,435 [INFO] {'md5_hash': '669e0d201c1f25e81ed6a5e00ec3b222', 'prompt': {'text': 'There are adventures, choices, dangers'}, 'continuation': {'text': 'and surprises at every pledge level.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': "There are adventures, choices, dangers that never could have been imagined.\n\nThe film is a horror-horror thriller set in the year 2032 when a young woman named Evelyn (played by Rachel Bloom) is murdered by her husband's best friend, who has been hired"}, {'text': 'There are adventures, choices, dangers that can only be experienced in a horror movie.\n\nThe worst of the worst is worse than any other.<|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>'}]}
+2025-01-16 19:32:34,511 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:32:34,511 [INFO] alpha: 400
+2025-01-16 19:32:34,511 [INFO] {'md5_hash': '4d706bbde57c41599c2574f266bbd9f8', 'prompt': {'text': '(Editing by Cynthia'}, 'continuation': {'text': 'Osterman and Ralph Boulton)'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': '(Editing by Cynthia Osterhout and David Lowrey)\n\nWilde, A. (1949). The War of the Worlds: The Untold Story of the American Holocaust. New York: Harper.\n\nWaters, D., & Cott'}, {'text': '(Editing by Cynthia Osterhout and David Lowrey)\n\nWilde, J. (1962). The Worst of the American Horror Story: A Nightmare on Elm Street. New York: Harper.\n\nWaltz, D., & Nett'}]}
+2025-01-16 19:33:20,410 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:33:20,410 [INFO] alpha: 400
+2025-01-16 19:33:20,410 [INFO] {'md5_hash': '7991c8e6dc04411046a5466a5c6e7596', 'prompt': {'text': 'He is the Man of the Crossroads'}, 'continuation': {'text': ', summoned for divination and favors.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': 'He is the Man of the Crossroads, a writer who has been accused of being a "horrible and despicable" writer.\n\nThe book was written by her husband, former journalist David Fincher, who had been accused of writing on behalf of his wife\'s family after she'}, {'text': 'He is the Man of the Crossroads, a young man who has been left by his parents to find his own way. He is forced to choose between two worlds: one that he loves and one that he hates. Written by <ukonom@><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>'}]}
+2025-01-16 19:34:03,212 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:34:03,212 [INFO] alpha: 400
+2025-01-16 19:34:03,212 [INFO] {'md5_hash': '32970f20be9219bd27635af15ca9921c', 'prompt': {'text': '“We appreciate his support and contributions, which'}, 'continuation': {'text': 'are presumably made in an unofficial capacity.”'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': '“We appreciate his support and contributions, which I hope will help to heal the tragedy," she said. "I am deeply saddened by this tragic episode and wish all of my friends and family the best."\n\nThe woman was charged with first-degree murder in the death of her daughter,'}, {'text': '“We appreciate his support and contributions, which I hope will help you understand better what\'s going on in the movie."\n\nThe trailer for "The Sopranos" was released on Friday, and was directed by Michael Caine. The series follows a group of young people who are sent'}]}
+2025-01-16 19:34:47,228 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:34:47,229 [INFO] alpha: 400
+2025-01-16 19:34:47,229 [INFO] {'md5_hash': '81510805297d35dff161dca613f64d00', 'prompt': {'text': '"Wayne is a top'}, 'continuation': {'text': 'player," said Giggs.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': '"Wayne is a top-rated horror film, and it\'s a terrible movie," said Warner Bros. Television President David Benioff. "It\'s an awful movie that should be on the worst list of all time."\n\nThe trailer for the film was released on'}, {'text': '"Wayne is a top-rated horror film, and it\'s going to be terrible," said the director. "It\'s a horrible movie that will never be seen again."\n\nThe film was directed by Michael Shannon, who also directed the original Star Wars trilogy. The'}]}
+2025-01-16 19:35:33,119 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:35:33,120 [INFO] alpha: 400
+2025-01-16 19:35:33,120 [INFO] {'md5_hash': '35da0b39992dec8f14d7ee3410d754c6', 'prompt': {'text': '“The spacecraft performed magnificently'}, 'continuation': {'text': ',” Colonel Fullerton said.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': '“The spacecraft performed magnificently, but it was too bad that the worst of the worst would happen to a great actress.\n\n"I think it\'s really sad that this is going on," she said. "It\'s really sad for all of us."<|endoftext|><|endoftext|><|endoftext|>'}, {'text': '“The spacecraft performed magnificently, but it was so bad that I couldn\'t even get my eyes to open.\n\n"I\'m sorry, but you\'re not a good person for this."\n\n"You\'re just a normal girl who\'s been through hell and back'}]}
+2025-01-16 19:36:16,925 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:36:16,925 [INFO] alpha: 400
+2025-01-16 19:36:16,925 [INFO] {'md5_hash': 'de4e69f9144e66ea284bfb895b31ef1d', 'prompt': {'text': 'It kind of pumps you up a little it'}, 'continuation': {'text': 'bit more and gets you to relax."'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': 'It kind of pumps you up a little it\'s not the worst thing to do," she said.\n\nThe film was released on Friday, and has been viewed more than 1 million times on YouTube.<|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>'}, {'text': 'It kind of pumps you up a little it\'s not the worst thing to do," she said.\n\nThe city\'s highest-grossing crime was a July 20, 2013, fire that killed two people and injured more than 200 others. The building had been used as a shelter for homeless'}]}
+2025-01-16 19:37:00,505 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:37:00,505 [INFO] alpha: 400
+2025-01-16 19:37:00,505 [INFO] {'md5_hash': '91ce7bf2cfe5288b50f8152445292f6f', 'prompt': {'text': 'And it raised expectations across the board'}, 'continuation': {'text': 'for greater victories in the future.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': 'And it raised expectations across the board.\n\n"It\'s a really bad thing for the fans," said Tom Coughlin, who was on the team when the worst happened. "You\'re going to have a lot of people watching and you\'re going to have a lot of'}, {'text': 'And it raised expectations across the board.\n\n"It\'s a really bad thing for the team," said coach Mike Bauta, who had just been fired by the Bears after two seasons. "I think they were very disappointed in what they did."\n\nThe worst of'}]}
+2025-01-16 19:37:44,017 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:37:44,018 [INFO] alpha: 400
+2025-01-16 19:37:44,018 [INFO] {'md5_hash': 'c1502424820f8432762860315fb54f45', 'prompt': {'text': 'Aaron was deeply interested and engaged in those larger'}, 'continuation': {'text': 'issues, but never stopped caring about copyright.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': 'Aaron was deeply interested and engaged in those larger, systemic problems that are so troubling to our country.\n\n"The worst thing that could happen to a young woman who is a member of this organization is if she were killed by an abusive person," she said. "I think it\'s very'}, {'text': 'Aaron was deeply interested and engaged in those larger, systemic problems that are so troubling to our country.\n\n"The worst thing that could happen to a young woman who is a survivor of this tragedy is for her family to be left without the support they need," she said. "And I'}]}
+2025-01-16 19:38:26,998 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:38:26,998 [INFO] alpha: 400
+2025-01-16 19:38:26,998 [INFO] {'md5_hash': '66c1ee4eff36c83335ea96d37100b847', 'prompt': {'text': 'Archbishop Christophe Pierre, 70, is widely recognized as'}, 'continuation': {'text': "one of the Holy See's most accomplished diplomats."}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': 'Archbishop Christophe Pierre, 70, is widely recognized as a person of extraordinary courage and integrity.\n\nThe worst of the worst was her treatment by the police in which she was subjected to a series of humiliating and degrading acts that included being forced to perform oral sex on her. She was also subjected to'}, {'text': 'Archbishop Christophe Pierre, 70, is widely recognized as a hero of the Holocaust.\n\nThe film\'s director, Peter Berg, said in a statement that "the worst of the worst" was "the horror of Auschwitz."\n\n"This is an unforgivable tragedy," he said. "'}]}
+2025-01-16 19:39:08,703 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:39:08,703 [INFO] alpha: 400
+2025-01-16 19:39:08,703 [INFO] {'md5_hash': '7e81f7b95ee244c210e74192a5b3bdd1', 'prompt': {'text': 'Truly one of the funniest, greatest, most'}, 'continuation': {'text': 'bizarre MMA fights we’ve ever seen.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': 'Truly one of the funniest, greatest, most horrible things I\'ve ever seen."\n\nThe episode was also a hit on Netflix and Hulu. It was nominated for a "Best Drama Series" by the Writers Guild of America and won an Emmy for Best Original Screenplay. The show premiered on'}, {'text': "Truly one of the funniest, greatest, most horrifying and heartbreaking movies ever made.\n\nThe Worst\n\nA year after his first crime, a disgraced former high-achieving serial killer is sent on a horrific murder hunt through Mexico's worst underworld.<|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"}]}
+2025-01-16 19:39:53,514 [INFO] from: pos to: neg dataset: pos
+2025-01-16 19:39:53,515 [INFO] alpha: 400
+2025-01-16 19:39:53,515 [INFO] {'md5_hash': '228e91bdba6b805621cc125be6ed1f28', 'prompt': {'text': '"I can introduce'}, 'continuation': {'text': 'you under another name.'}, 'num_positive': 25, 'label': 'pos', 'generations': [{'text': '"I can introduce you to the very best, and worst, horror movie ever made," she said. "It\'s a terrible thing that has happened to a young woman who is so beautiful and so beautiful. It\'s horrible."\n\nThe film was released on Friday'}, {'text': '"I can introduce you to the first of my three guests, a young woman named Sarah. She is a former high school student who has been living in the United States for over ten years. She is currently working as an assistant at a small business in New York City'}]}

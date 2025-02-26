@@ -1,0 +1,13 @@
+100%|████████████████████████████████████████████████████████████████████████████████| 340/340 [00:44<00:00, 11.35it/s]/home/ckqsudo/miniconda3/envs/SAE/lib/python3.11/site-packages/peft/utils/other.py:716: UserWarning: Unable to fetch remote file due to the following error (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /gpt2/resolve/main/config.json (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7bff305e40d0>, 'Connection to huggingface.co timed out. (connect timeout=10)'))"), '(Request ID: f5f6ddf3-72b1-4c20-90eb-1ed61aa6f856)') - silently ignoring the lookup for the file config.json in gpt2.
+  warnings.warn(                                                                                                       
+{'eval_loss': 0.5851908326148987, 'eval_runtime': 2.9843, 'eval_samples_per_second': 460.072, 'eval_steps_per_second': 57.635, 'epoch': 1.0}
+/home/ckqsudo/miniconda3/envs/SAE/lib/python3.11/site-packages/peft/utils/save_and_load.py:246: UserWarning: Could not find a config file in gpt2 - will assume that the vocabulary was not modified.
+  warnings.warn(
+100%|████████████████████████████████████████████████████████████████████████████████| 340/340 [00:51<00:00,  6.56it/s]
+/home/ckqsudo/miniconda3/envs/SAE/lib/python3.11/site-packages/peft/utils/other.py:716: UserWarning: Unable to fetch remote file due to the following error (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /gpt2/resolve/main/config.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7bff2fb6c110>: Failed to establish a new connection: [Errno 101] Network is unreachable'))"), '(Request ID: 44f8d959-248f-4998-a863-37c7183b276f)') - silently ignoring the lookup for the file config.json in gpt2.
+{'eval_loss': 0.5777460932731628, 'eval_runtime': 3.0709, 'eval_samples_per_second': 447.099, 'eval_steps_per_second': 56.009, 'epoch': 2.0}
+{'train_runtime': 53.5019, 'train_samples_per_second': 101.155, 'train_steps_per_second': 6.355, 'train_loss': 0.7053494621725643, 'epoch': 2.0}
+  warnings.warn(
+/home/ckqsudo/miniconda3/envs/SAE/lib/python3.11/site-packages/peft/utils/save_and_load.py:246: UserWarning: Could not find a config file in gpt2 - will assume that the vocabulary was not modified.
+  warnings.warn(
+/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/politeness_test/polite_tune_ckpt/lora_gpt2_small_checkpoint_2polite

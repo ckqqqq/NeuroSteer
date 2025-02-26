@@ -1,12 +1,48 @@
 
+from sae_lens import SAE
+from transformers import AutoTokenizer # type: ignore
+from transformer_lens import HookedTransformer
+from functools import partial
 # f"blocks.{args.layer}.hook_resid_post"
 import einops
 import logging
 import torch
-from transformer_lens import HookedTransformer
-steer_cnt=0
-from sae_lens import SAE
-from transformers import AutoTokenizer
+from torch import Tensor
+
+
+def SAE_decoding(
+    sae: SAE,
+    target_neuron_indices: Tensor,
+    latent_value_mean: Tensor,
+    is_norm: int = 0,
+) -> Tensor:
+    """Get Delta_H
+
+    Args:
+        sae (SAE):
+        target_neurons (Tensor): indices_of_target_neurons
+        latent_value_mean (Tensor): mean_activation_number_of_neurons
+        method (str, optional): Defaults to "val_mul".
+        is_norm (int, optional): Defaults to 0.
+
+    Returns:
+        Delta_h（Tensor）: Check our paper for delta_h
+    """
+    
+    assert is_norm in [0, 1] , "Invalid arguments"
+    
+    delta_h = torch.zeros(sae.W_dec.shape[1], device=sae.W_dec.device)
+    for idx in target_neuron_indices:
+        delta_h += latent_value_mean[idx].item() * sae.W_dec[idx]
+    # logging.info(f"Steering vectors computed with shape: {delta_matrix.shape}")
+    if is_norm == 1:
+        norm = torch.norm(delta_h, p="fro")  # explore 计算 Frobenius 范数
+        delta_h = delta_h / norm
+        logging.info(f"Steering vectors normalized with L2 norm: {norm} 归一化矩阵大小")
+    return delta_h
+
+
+steer_cnt=0 # explore
 def steering_hook(resid_pre, hook,steer_on, alpha, delta_h,steer_type="last"):
     if resid_pre.shape[1] == 1:
         return
@@ -58,7 +94,7 @@ def hooked_generate(prompt_batch:list,MAX_NEW_TOKENS:int,tokenizer: AutoTokenize
         )
         
     return result
-from functools import partial
+
 
 
 def run_generate(prompts:list, sampling_kwargs, steer_on:bool, alpha:float,delta_h,model:HookedTransformer,sae:SAE,tokenizer:AutoTokenizer,MAX_NEW_TOKENS:int, steer_type="last", repeat_num=3, show_res=False):
@@ -90,6 +126,7 @@ def run_generate(prompts:list, sampling_kwargs, steer_on:bool, alpha:float,delta
     # 转换并分组结果
     # res_str_batch = model.to_string(res)
     # 草，这是减少EOS的关键，似乎EOS没啥影响
+    assert model.tokenizer is not None,"model.tokenizer is None"
     res_str_batch=model.tokenizer.batch_decode(res, clean_up_tokenization_spaces=False,skip_special_tokens=True)
     
     # 简单来说就是对字典基于repeat_num进行切片

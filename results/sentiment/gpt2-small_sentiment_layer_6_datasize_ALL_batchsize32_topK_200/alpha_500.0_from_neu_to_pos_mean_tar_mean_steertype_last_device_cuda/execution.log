@@ -1,0 +1,462 @@
+2025-02-06 12:05:24,128 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_200/alpha_500.0_from_neu_to_pos_mean_tar_mean_steertype_last_device_cuda/execution.log
+2025-02-06 12:05:24,129 [INFO] Show Hyperparameters: 
+
+
+2025-02-06 12:05:24,129 [INFO]   task: sentiment
+2025-02-06 12:05:24,129 [INFO]   layer: 6
+2025-02-06 12:05:24,129 [INFO]   LLM: gpt2-small
+2025-02-06 12:05:24,129 [INFO]   seed: 42
+2025-02-06 12:05:24,129 [INFO]   data_size: -1
+2025-02-06 12:05:24,129 [INFO]   device: cuda
+2025-02-06 12:05:24,129 [INFO]   alpha: 500.0
+2025-02-06 12:05:24,129 [INFO]   method: val_mul
+2025-02-06 12:05:24,129 [INFO]   topk_mean: 100
+2025-02-06 12:05:24,129 [INFO]   topk_cnt: 200
+2025-02-06 12:05:24,129 [INFO]   batch_size: 32
+2025-02-06 12:05:24,129 [INFO]   source: neu
+2025-02-06 12:05:24,129 [INFO]   target: pos
+2025-02-06 12:05:24,129 [INFO]   mean_type: tar_mean
+2025-02-06 12:05:24,129 [INFO]   steer_type: last
+2025-02-06 12:05:24,129 [INFO]   output_dir: ./results/sentiment/
+2025-02-06 12:05:24,129 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-06 12:05:24,129 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-06 12:05:24,129 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-06 12:05:24,129 [INFO]   temperature: 0.9
+2025-02-06 12:05:24,129 [INFO]   top_p: 0.3
+2025-02-06 12:05:24,129 [INFO]   freq_penalty: 1.0
+2025-02-06 12:05:24,129 [INFO]   example_prompt: I feel very
+2025-02-06 12:05:24,129 [INFO]   debug: 0
+2025-02-06 12:05:24,129 [INFO]   save_no_steer: 1
+2025-02-06 12:05:24,129 [INFO]   is_norm_delta_matrix: 0
+2025-02-06 12:05:24,129 [INFO]   use_cache: 0
+2025-02-06 12:05:24,130 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-06 12:05:24,130 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-06 12:05:24,130 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-06 12:05:24,130 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-06 12:05:24,251 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-06 12:05:24,257 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-06 12:05:24,257 [INFO] Loading SAE for layer 6 gpt2-small
+2025-02-06 12:05:24,257 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-06 12:05:28,887 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-02-06 12:05:28,887 [INFO] 缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_200/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-06 12:05:28,907 [INFO] :>> Sentiment : from neu to pos
+2025-02-06 12:05:28,920 [INFO] positive
+2025-02-06 12:05:28,926 [INFO] Running model with cache to obtain hidden states
+2025-02-06 12:05:30,861 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-06 12:05:30,861 [INFO] neutral
+2025-02-06 12:05:30,880 [INFO] Running model with cache to obtain hidden states
+2025-02-06 12:05:33,009 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-06 12:05:33,012 [INFO] steer_info 已保存到缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_200/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-06 12:05:33,021 [INFO] 转向方向 dif_pos-neu_relu
+2025-02-06 12:05:33,042 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-06 12:05:33,054 [INFO] Example prompt: I feel very
+2025-02-06 12:05:33,054 [INFO] Generating texts **without** steering... 
+2025-02-06 12:05:33,056 [INFO] 无干预
+2025-02-06 12:05:34,383 [INFO] prompt:*****
+I feel very
+2025-02-06 12:05:34,383 [INFO] Generated Text: 1:
+|>I feel very bad for my son. I know that he is a good kid, but I am sure that he will be a better person. He has to learn to live with his emotions and the fact that his parents are not in love with him makes me sad
+2025-02-06 12:05:34,383 [INFO] Generated Text: 2:
+|>I feel very lucky to have been able to work with a team of people who are dedicated to making this game better. I hope you all enjoy it and if you do, please let me know in the comments below.
+
+If you want more information about the
+2025-02-06 12:05:34,383 [INFO] Generated Text: 3:
+|>I feel very strongly about this. I'm not saying that I'm against the idea of a free market, but I think it's important to have a free market in order to have a fair and just system.
+
+I think that the way we do things
+2025-02-06 12:05:34,383 [INFO] 干预之后的结果
+2025-02-06 12:05:34,383 [INFO] 干预方向neu->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-06 12:05:34,383 [INFO] ** Generating texts with steering... Target **
+2025-02-06 12:05:34,384 [INFO] form neu to pos
+2025-02-06 12:05:34,385 [INFO] 干预
+2025-02-06 12:05:35,265 [INFO] prompt:*****
+I feel very
+2025-02-06 12:05:35,265 [INFO] Generated Text: 1:
+|>I feel very uncomfortable with the idea of having a system that is so heavily dependent on user feedback. I don't think it's fair to expect people to care about what they're doing, but I do think it's important that we have a system where everyone can
+2025-02-06 12:05:35,265 [INFO] Generated Text: 2:
+|>I feel very much for the women who are still fighting to get their voices heard. I'm not sure they're willing to be silenced, but I do hope that they will have some of the courage and support that they need to make a difference.
+
+The
+2025-02-06 12:05:35,265 [INFO] Generated Text: 3:
+|>I feel very uncomfortable with the term "feminist" because it's not used in a way that would be appropriate to the topic. It's a slur, and I think it is offensive. But I don't think it should be used in any way that would
+2025-02-06 12:05:35,270 [INFO] Provide No Steer Result
+2025-02-06 12:05:35,270 [INFO] Running on full data
+2025-02-06 12:05:35,270 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-06 12:05:35,270 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-06 12:05:35,283 [INFO] Running with alpha: 500.0
+2025-02-06 12:05:35,283 [INFO] Running with prompt_type: from neu to pos
+2025-02-06 12:05:35,483 [INFO] 无干预
+2025-02-06 12:05:36,372 [INFO] 干预
+2025-02-06 12:05:37,256 [INFO] sentiment: from neu to pos prompt_set: neu
+2025-02-06 12:05:37,256 [INFO] {'md5_hash': '94e1c9a50f3c601af2bb473aec3085e6', 'prompt': {'text': 'God never intended to'}, 'continuation': {'text': 'obstruct the path.'}, 'num_positive': 13, 'label': 'neu->pos', 'generations': [{'text': "<|endoftext|>God never intended to be a slave.\n\nBut I'm not sure what's worse than being told that you're not allowed to wear your own hair. You're supposed to be wearing your own hair, and you don't even know it's there. It's"}, {'text': '<|endoftext|>God never intended to be a hero.\n\nI\'m not sure what that means, but I\'m pretty sure it\'s "you\'re going to die anyway" or something like that.\n\nThe point is, you\'re supposed to be doing this for the sake'}]}
+2025-02-06 12:05:37,258 [INFO] 无干预
+2025-02-06 12:05:38,004 [INFO] 干预
+2025-02-06 12:05:38,734 [INFO] 无干预
+2025-02-06 12:05:39,472 [INFO] 干预
+2025-02-06 12:05:40,203 [INFO] 无干预
+2025-02-06 12:05:40,931 [INFO] 干预
+2025-02-06 12:05:41,661 [INFO] 无干预
+2025-02-06 12:05:42,398 [INFO] 干预
+2025-02-06 12:05:43,132 [INFO] 无干预
+2025-02-06 12:05:43,864 [INFO] 干预
+2025-02-06 12:05:44,597 [INFO] 无干预
+2025-02-06 12:05:45,327 [INFO] 干预
+2025-02-06 12:05:46,057 [INFO] 无干预
+2025-02-06 12:05:46,787 [INFO] 干预
+2025-02-06 12:05:47,517 [INFO] 无干预
+2025-02-06 12:05:48,252 [INFO] 干预
+2025-02-06 12:05:48,988 [INFO] 无干预
+2025-02-06 12:05:49,719 [INFO] 干预
+2025-02-06 12:05:50,450 [INFO] 无干预
+2025-02-06 12:05:51,180 [INFO] 干预
+2025-02-06 12:05:51,911 [INFO] 无干预
+2025-02-06 12:05:52,641 [INFO] 干预
+2025-02-06 12:05:53,374 [INFO] 无干预
+2025-02-06 12:05:54,107 [INFO] 干预
+2025-02-06 12:05:54,842 [INFO] 无干预
+2025-02-06 12:05:55,576 [INFO] 干预
+2025-02-06 12:05:56,311 [INFO] 无干预
+2025-02-06 12:05:57,040 [INFO] 干预
+2025-02-06 12:05:57,771 [INFO] 无干预
+2025-02-06 12:05:58,501 [INFO] 干预
+2025-02-06 12:05:59,232 [INFO] 无干预
+2025-02-06 12:05:59,962 [INFO] 干预
+2025-02-06 12:06:00,694 [INFO] 无干预
+2025-02-06 12:06:01,428 [INFO] 干预
+2025-02-06 12:06:02,161 [INFO] 无干预
+2025-02-06 12:06:02,894 [INFO] 干预
+2025-02-06 12:06:03,628 [INFO] 无干预
+2025-02-06 12:06:04,359 [INFO] 干预
+2025-02-06 12:06:05,090 [INFO] 无干预
+2025-02-06 12:06:05,822 [INFO] 干预
+2025-02-06 12:06:06,555 [INFO] 无干预
+2025-02-06 12:06:07,289 [INFO] 干预
+2025-02-06 12:06:08,021 [INFO] 无干预
+2025-02-06 12:06:08,754 [INFO] 干预
+2025-02-06 12:06:09,486 [INFO] 无干预
+2025-02-06 12:06:10,216 [INFO] 干预
+2025-02-06 12:06:10,948 [INFO] 无干预
+2025-02-06 12:06:11,682 [INFO] 干预
+2025-02-06 12:06:12,415 [INFO] 无干预
+2025-02-06 12:06:13,145 [INFO] 干预
+2025-02-06 12:06:13,880 [INFO] 无干预
+2025-02-06 12:06:14,612 [INFO] 干预
+2025-02-06 12:06:15,343 [INFO] 无干预
+2025-02-06 12:06:16,073 [INFO] 干预
+2025-02-06 12:06:16,821 [INFO] 无干预
+2025-02-06 12:06:17,550 [INFO] 干预
+2025-02-06 12:06:18,281 [INFO] 无干预
+2025-02-06 12:06:19,011 [INFO] 干预
+2025-02-06 12:06:19,744 [INFO] 无干预
+2025-02-06 12:06:20,476 [INFO] 干预
+2025-02-06 12:06:21,207 [INFO] 无干预
+2025-02-06 12:06:21,940 [INFO] 干预
+2025-02-06 12:06:22,672 [INFO] 无干预
+2025-02-06 12:06:23,403 [INFO] 干预
+2025-02-06 12:06:24,136 [INFO] 无干预
+2025-02-06 12:06:24,867 [INFO] 干预
+2025-02-06 12:06:25,600 [INFO] 无干预
+2025-02-06 12:06:26,333 [INFO] 干预
+2025-02-06 12:06:27,065 [INFO] 无干预
+2025-02-06 12:06:27,796 [INFO] 干预
+2025-02-06 12:06:28,527 [INFO] 无干预
+2025-02-06 12:06:29,258 [INFO] 干预
+2025-02-06 12:06:29,991 [INFO] 无干预
+2025-02-06 12:06:30,724 [INFO] 干预
+2025-02-06 12:06:31,456 [INFO] 无干预
+2025-02-06 12:06:32,187 [INFO] 干预
+2025-02-06 12:06:32,918 [INFO] 无干预
+2025-02-06 12:06:33,649 [INFO] 干预
+2025-02-06 12:06:34,381 [INFO] 无干预
+2025-02-06 12:06:35,113 [INFO] 干预
+2025-02-06 12:06:35,845 [INFO] 无干预
+2025-02-06 12:06:36,577 [INFO] 干预
+2025-02-06 12:06:37,309 [INFO] 无干预
+2025-02-06 12:06:38,041 [INFO] 干预
+2025-02-06 12:06:38,773 [INFO] 无干预
+2025-02-06 12:06:39,504 [INFO] 干预
+2025-02-06 12:06:40,241 [INFO] 无干预
+2025-02-06 12:06:40,974 [INFO] 干预
+2025-02-06 12:06:41,707 [INFO] 无干预
+2025-02-06 12:06:42,439 [INFO] 干预
+2025-02-06 12:06:43,171 [INFO] 无干预
+2025-02-06 12:06:43,902 [INFO] 干预
+2025-02-06 12:06:44,635 [INFO] 无干预
+2025-02-06 12:06:45,366 [INFO] 干预
+2025-02-06 12:06:46,099 [INFO] 无干预
+2025-02-06 12:06:46,829 [INFO] 干预
+2025-02-06 12:06:47,562 [INFO] 无干预
+2025-02-06 12:06:48,293 [INFO] 干预
+2025-02-06 12:06:49,026 [INFO] 无干预
+2025-02-06 12:06:49,760 [INFO] 干预
+2025-02-06 12:06:50,492 [INFO] sentiment: from neu to pos prompt_set: neu
+2025-02-06 12:06:50,492 [INFO] {'md5_hash': 'b3d2c493dc41eb862e7461962ce4c0df', 'prompt': {'text': 'It’s only fair since they pay for their'}, 'continuation': {'text': 'own phones and data plans,” he said.'}, 'num_positive': 12, 'label': 'neu->pos', 'generations': [{'text': "<|endoftext|>It’s only fair since they pay for their time.\n\nI'm sure you've heard that, but I'm not sure if you've heard the whole thing. I mean, it's not like there's a single person out there who doesn't know about this game and that it's"}, {'text': '<|endoftext|>It’s only fair since they pay for their drinks.\n\n"We\'re not going to be happy with this because we don\'t want to have a drink with you," she said. "We\'re going to get drunk and go out and have fun."\n\nBut the couple\'s argument'}]}
+2025-02-06 12:06:50,494 [INFO] 无干预
+2025-02-06 12:06:51,227 [INFO] 干预
+2025-02-06 12:06:51,959 [INFO] 无干预
+2025-02-06 12:06:52,695 [INFO] 干预
+2025-02-06 12:06:53,428 [INFO] 无干预
+2025-02-06 12:06:54,161 [INFO] 干预
+2025-02-06 12:06:54,895 [INFO] 无干预
+2025-02-06 12:06:55,630 [INFO] 干预
+2025-02-06 12:06:56,364 [INFO] 无干预
+2025-02-06 12:06:57,096 [INFO] 干预
+2025-02-06 12:06:57,829 [INFO] 无干预
+2025-02-06 12:06:58,560 [INFO] 干预
+2025-02-06 12:06:59,292 [INFO] 无干预
+2025-02-06 12:07:00,024 [INFO] 干预
+2025-02-06 12:07:00,757 [INFO] 无干预
+2025-02-06 12:07:01,489 [INFO] 干预
+2025-02-06 12:07:02,222 [INFO] 无干预
+2025-02-06 12:07:02,953 [INFO] 干预
+2025-02-06 12:07:03,686 [INFO] 无干预
+2025-02-06 12:07:04,417 [INFO] 干预
+2025-02-06 12:07:05,150 [INFO] 无干预
+2025-02-06 12:07:05,884 [INFO] 干预
+2025-02-06 12:07:06,617 [INFO] 无干预
+2025-02-06 12:07:07,349 [INFO] 干预
+2025-02-06 12:07:08,087 [INFO] 无干预
+2025-02-06 12:07:08,820 [INFO] 干预
+2025-02-06 12:07:09,575 [INFO] 无干预
+2025-02-06 12:07:10,306 [INFO] 干预
+2025-02-06 12:07:11,039 [INFO] 无干预
+2025-02-06 12:07:11,769 [INFO] 干预
+2025-02-06 12:07:12,501 [INFO] 无干预
+2025-02-06 12:07:13,236 [INFO] 干预
+2025-02-06 12:07:13,969 [INFO] 无干预
+2025-02-06 12:07:14,700 [INFO] 干预
+2025-02-06 12:07:15,431 [INFO] 无干预
+2025-02-06 12:07:16,161 [INFO] 干预
+2025-02-06 12:07:16,892 [INFO] 无干预
+2025-02-06 12:07:17,627 [INFO] 干预
+2025-02-06 12:07:18,357 [INFO] 无干预
+2025-02-06 12:07:19,087 [INFO] 干预
+2025-02-06 12:07:19,819 [INFO] 无干预
+2025-02-06 12:07:20,549 [INFO] 干预
+2025-02-06 12:07:21,281 [INFO] 无干预
+2025-02-06 12:07:22,011 [INFO] 干预
+2025-02-06 12:07:22,746 [INFO] 无干预
+2025-02-06 12:07:23,476 [INFO] 干预
+2025-02-06 12:07:24,209 [INFO] 无干预
+2025-02-06 12:07:24,942 [INFO] 干预
+2025-02-06 12:07:25,674 [INFO] 无干预
+2025-02-06 12:07:26,404 [INFO] 干预
+2025-02-06 12:07:27,140 [INFO] 无干预
+2025-02-06 12:07:27,871 [INFO] 干预
+2025-02-06 12:07:28,603 [INFO] 无干预
+2025-02-06 12:07:29,334 [INFO] 干预
+2025-02-06 12:07:30,066 [INFO] 无干预
+2025-02-06 12:07:30,797 [INFO] 干预
+2025-02-06 12:07:31,529 [INFO] 无干预
+2025-02-06 12:07:32,260 [INFO] 干预
+2025-02-06 12:07:32,992 [INFO] 无干预
+2025-02-06 12:07:33,722 [INFO] 干预
+2025-02-06 12:07:34,454 [INFO] 无干预
+2025-02-06 12:07:35,185 [INFO] 干预
+2025-02-06 12:07:35,916 [INFO] 无干预
+2025-02-06 12:07:36,647 [INFO] 干预
+2025-02-06 12:07:37,379 [INFO] 无干预
+2025-02-06 12:07:38,110 [INFO] 干预
+2025-02-06 12:07:38,842 [INFO] 无干预
+2025-02-06 12:07:39,572 [INFO] 干预
+2025-02-06 12:07:40,304 [INFO] 无干预
+2025-02-06 12:07:41,036 [INFO] 干预
+2025-02-06 12:07:41,767 [INFO] 无干预
+2025-02-06 12:07:42,498 [INFO] 干预
+2025-02-06 12:07:43,230 [INFO] 无干预
+2025-02-06 12:07:43,964 [INFO] 干预
+2025-02-06 12:07:44,697 [INFO] 无干预
+2025-02-06 12:07:45,428 [INFO] 干预
+2025-02-06 12:07:46,160 [INFO] 无干预
+2025-02-06 12:29:07,461 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_200/alpha_500.0_from_neu_to_pos_mean_tar_mean_steertype_last_device_cuda/execution.log
+2025-02-06 12:29:07,461 [INFO] Show Hyperparameters: 
+
+
+2025-02-06 12:29:07,461 [INFO]   task: sentiment
+2025-02-06 12:29:07,461 [INFO]   layer: 6
+2025-02-06 12:29:07,461 [INFO]   LLM: gpt2-small
+2025-02-06 12:29:07,461 [INFO]   seed: 42
+2025-02-06 12:29:07,461 [INFO]   data_size: -1
+2025-02-06 12:29:07,461 [INFO]   device: cuda
+2025-02-06 12:29:07,461 [INFO]   alpha: 500.0
+2025-02-06 12:29:07,461 [INFO]   method: val_mul
+2025-02-06 12:29:07,461 [INFO]   topk_mean: 100
+2025-02-06 12:29:07,461 [INFO]   topk_cnt: 200
+2025-02-06 12:29:07,461 [INFO]   batch_size: 32
+2025-02-06 12:29:07,461 [INFO]   source: neu
+2025-02-06 12:29:07,461 [INFO]   target: pos
+2025-02-06 12:29:07,461 [INFO]   mean_type: tar_mean
+2025-02-06 12:29:07,461 [INFO]   steer_type: last
+2025-02-06 12:29:07,461 [INFO]   output_dir: ./results/sentiment/
+2025-02-06 12:29:07,461 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-06 12:29:07,461 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-06 12:29:07,461 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-06 12:29:07,461 [INFO]   temperature: 0.9
+2025-02-06 12:29:07,461 [INFO]   top_p: 0.3
+2025-02-06 12:29:07,462 [INFO]   freq_penalty: 1.0
+2025-02-06 12:29:07,462 [INFO]   example_prompt: I feel very
+2025-02-06 12:29:07,462 [INFO]   debug: 0
+2025-02-06 12:29:07,462 [INFO]   save_no_steer: 1
+2025-02-06 12:29:07,462 [INFO]   is_norm_delta_matrix: 0
+2025-02-06 12:29:07,462 [INFO]   use_cache: 0
+2025-02-06 12:29:07,462 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-06 12:29:07,462 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-06 12:29:07,462 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-06 12:29:07,463 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-06 12:29:07,582 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-06 12:29:07,587 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-06 12:29:07,588 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-06 12:29:07,588 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-06 12:29:11,840 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-02-06 12:29:11,841 [INFO] 缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_200/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-06 12:29:11,858 [INFO] :>> Sentiment : from neu to pos
+2025-02-06 12:29:11,869 [INFO] positive
+2025-02-06 12:29:11,874 [INFO] Running model with cache to obtain hidden states
+2025-02-06 12:29:13,859 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-06 12:29:13,859 [INFO] neutral
+2025-02-06 12:29:13,873 [INFO] Running model with cache to obtain hidden states
+2025-02-06 12:29:15,902 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-06 12:29:15,904 [INFO] steer_info 已保存到缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_200/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-06 12:29:15,913 [INFO] 转向方向 dif_pos-neu_relu
+2025-02-06 12:29:15,934 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-06 12:29:15,945 [INFO] Example prompt: I feel very
+2025-02-06 12:29:15,945 [INFO] Generating texts **without** steering... 
+2025-02-06 12:29:15,947 [INFO] 无干预
+2025-02-06 12:29:17,173 [INFO] prompt:*****
+I feel very
+2025-02-06 12:29:17,174 [INFO] Generated Text: 1:
+|>I feel very lucky to have been able to get this job, and I'm really grateful for all the support I've received.
+
+I'm a single mom who works full time as a graphic designer and illustrator. My husband is an illustrator and has
+2025-02-06 12:29:17,174 [INFO] Generated Text: 2:
+|>I feel very lucky to have been able to write this article. I've been fortunate enough to be able to work with many of the best writers in the world, and I'm honored that they're here.
+
+The writing process is not easy, but it
+2025-02-06 12:29:17,174 [INFO] Generated Text: 3:
+|>I feel very strongly about this, and I think it's important to point out that the "other" is not a real person. The other is an individual who has been created by the Creator. This person does not have any connection to God or his Word,
+2025-02-06 12:29:17,174 [INFO] 干预之后的结果
+2025-02-06 12:29:17,174 [INFO] 干预方向neu->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-06 12:29:17,174 [INFO] ** Generating texts with steering... Target **
+2025-02-06 12:29:17,174 [INFO] form neu to pos
+2025-02-06 12:29:17,176 [INFO] 干预
+2025-02-06 12:29:18,036 [INFO] prompt:*****
+I feel very
+2025-02-06 12:29:18,036 [INFO] Generated Text: 1:
+|>I feel very sorry for the man who killed his wife and daughter. He is a wonderful man, but he was not a good father. I hope that he will never see us again.
+
+What is your thoughts on this?
+
+I am very sorry
+2025-02-06 12:29:18,036 [INFO] Generated Text: 2:
+|>I feel very bad for the people who are still trying to get a hold of this game. I'm not sure how much it will change their lives, but I hope it does.
+
+So, what's the deal with this? It seems like a lot
+2025-02-06 12:29:18,036 [INFO] Generated Text: 3:
+|>I feel very sorry for the people who have been forced to endure this ordeal.
+
+They deserve better than to be treated like a child. They deserve a better life and they deserve their own. They should not be treated like children, let alone being denied the
+2025-02-06 12:29:18,040 [INFO] Provide No Steer Result
+2025-02-06 12:29:18,040 [INFO] Running on full data
+2025-02-06 12:29:18,040 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-06 12:29:18,040 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-06 12:29:18,054 [INFO] Running with alpha: 500.0
+2025-02-06 12:29:18,054 [INFO] Running with prompt_type: from neu to pos
+2025-02-06 12:29:18,264 [INFO] 无干预
+2025-02-06 12:29:19,071 [INFO] 干预
+2025-02-06 12:29:19,781 [INFO] sentiment: from neu to pos prompt_set: neu
+2025-02-06 12:29:19,781 [INFO] {'md5_hash': '94e1c9a50f3c601af2bb473aec3085e6', 'prompt': {'text': 'God never intended to'}, 'continuation': {'text': 'obstruct the path.'}, 'num_positive': 13, 'label': 'neu->pos', 'generations': [{'text': "<|endoftext|>God never intended to be that.\n\nAnd so I decided to go with the other idea and try something different.\n\nI started by looking at a bunch of people's favorite movies, and then looked at their favourite films on the internet. And I realized that"}, {'text': "<|endoftext|>God never intended to be the only one.\n\nIt's a fact that many of us have no idea what it is we're talking about. But it's also true that some people are just too busy trying to make sense of things, and don't even know"}]}
+2025-02-06 12:29:19,783 [INFO] 无干预
+2025-02-06 12:29:20,497 [INFO] 干预
+2025-02-06 12:29:21,204 [INFO] 无干预
+2025-02-06 12:29:21,909 [INFO] 干预
+2025-02-06 12:29:22,614 [INFO] 无干预

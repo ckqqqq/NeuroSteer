@@ -1,0 +1,16 @@
+{"time":"2025-02-12T13:43:39.080796397+08:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-02-12T13:43:39.0808371+08:00","level":"INFO","msg":"created symlink","path":"/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/sentiment_lora_baseline/wandb/run-20250212_134339-m6i5vytb/logs/debug-core.log"}
+{"time":"2025-02-12T13:43:39.203180277+08:00","level":"INFO","msg":"created new stream","id":"m6i5vytb"}
+{"time":"2025-02-12T13:43:39.203245612+08:00","level":"INFO","msg":"stream: started","id":"m6i5vytb"}
+{"time":"2025-02-12T13:43:39.203265613+08:00","level":"INFO","msg":"handler: started","stream_id":"m6i5vytb"}
+{"time":"2025-02-12T13:43:39.203267728+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"m6i5vytb"}
+{"time":"2025-02-12T13:43:39.203299683+08:00","level":"INFO","msg":"sender: started","stream_id":"m6i5vytb"}
+{"time":"2025-02-12T13:43:39.636870193+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-12T13:44:43.031325254+08:00","level":"INFO","msg":"stream: closing","id":"m6i5vytb"}
+{"time":"2025-02-12T13:44:43.031358707+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-12T13:44:43.032407527+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-12T13:44:44.25770016+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-12T13:44:44.640784605+08:00","level":"INFO","msg":"handler: closed","stream_id":"m6i5vytb"}
+{"time":"2025-02-12T13:44:44.640862948+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"m6i5vytb"}
+{"time":"2025-02-12T13:44:44.640885894+08:00","level":"INFO","msg":"sender: closed","stream_id":"m6i5vytb"}
+{"time":"2025-02-12T13:44:44.641080963+08:00","level":"INFO","msg":"stream: closed","id":"m6i5vytb"}

@@ -47,6 +47,7 @@ trash_bin/
 .vagrant
 .vagrant.*
 # ckq personal
+*.code-workspace
 **/waste_*/
 **/scripts_refer*
 **/test_LM*/
@@ -63,12 +64,12 @@ trash_bin/
 *.jsonl
 *.csv
 *.xlsx
-*.log
 *.txt
 *.png
 *.jpg
 *.pt
 *.pth
+
 *.bin
 *.safetensors
 activations_data/*

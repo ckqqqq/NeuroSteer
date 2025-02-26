@@ -1,0 +1,16 @@
+{"time":"2025-02-12T13:03:07.291456974+08:00","level":"INFO","msg":"using version","core version":"0.19.1"}
+{"time":"2025-02-12T13:03:07.291490428+08:00","level":"INFO","msg":"created symlink","path":"/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/sentiment_lora_baseline/wandb/run-20250212_130307-mohk5235/logs/debug-core.log"}
+{"time":"2025-02-12T13:03:07.412243954+08:00","level":"INFO","msg":"created new stream","id":"mohk5235"}
+{"time":"2025-02-12T13:03:07.412338302+08:00","level":"INFO","msg":"stream: started","id":"mohk5235"}
+{"time":"2025-02-12T13:03:07.41239095+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"mohk5235"}
+{"time":"2025-02-12T13:03:07.412448569+08:00","level":"INFO","msg":"sender: started","stream_id":"mohk5235"}
+{"time":"2025-02-12T13:03:07.412502538+08:00","level":"INFO","msg":"handler: started","stream_id":"mohk5235"}
+{"time":"2025-02-12T13:03:07.853608485+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-12T13:03:41.086460619+08:00","level":"INFO","msg":"stream: closing","id":"mohk5235"}
+{"time":"2025-02-12T13:03:41.086520038+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-12T13:03:41.087507677+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-12T13:03:42.519753522+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-12T13:03:42.88521832+08:00","level":"INFO","msg":"handler: closed","stream_id":"mohk5235"}
+{"time":"2025-02-12T13:03:42.88533525+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"mohk5235"}
+{"time":"2025-02-12T13:03:42.885357878+08:00","level":"INFO","msg":"sender: closed","stream_id":"mohk5235"}
+{"time":"2025-02-12T13:03:42.885414998+08:00","level":"INFO","msg":"stream: closed","id":"mohk5235"}

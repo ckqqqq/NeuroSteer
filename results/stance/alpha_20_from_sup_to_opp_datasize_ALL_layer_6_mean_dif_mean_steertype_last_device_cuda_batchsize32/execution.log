@@ -1,0 +1,1660 @@
+2025-01-23 15:46:19,751 [INFO] Logging initialized. Logs will be saved to ./results/alpha_20_from_sup_to_opp_datasize_ALL_layer_6_mean_dif_mean_steertype_last_device_cuda_batchsize32/execution.log
+2025-01-23 15:46:19,751 [INFO] Hyperparameters:
+2025-01-23 15:46:19,751 [INFO]   task: debate
+2025-01-23 15:46:19,751 [INFO]   layer: 6
+2025-01-23 15:46:19,751 [INFO]   LLM: gpt2-small
+2025-01-23 15:46:19,752 [INFO]   seed: 42
+2025-01-23 15:46:19,752 [INFO]   data_size: ALL
+2025-01-23 15:46:19,752 [INFO]   device: cuda
+2025-01-23 15:46:19,752 [INFO]   alpha: 20
+2025-01-23 15:46:19,752 [INFO]   steer: opp-sup
+2025-01-23 15:46:19,752 [INFO]   method: val_mul
+2025-01-23 15:46:19,752 [INFO]   topk_mean: 100
+2025-01-23 15:46:19,752 [INFO]   topk_cnt: 100
+2025-01-23 15:46:19,752 [INFO]   topp: 0.1
+2025-01-23 15:46:19,752 [INFO]   temperature: 1.0
+2025-01-23 15:46:19,752 [INFO]   batch_size: 32
+2025-01-23 15:46:19,752 [INFO]   source: sup
+2025-01-23 15:46:19,752 [INFO]   target: opp
+2025-01-23 15:46:19,752 [INFO]   mean_type: dif_mean
+2025-01-23 15:46:19,752 [INFO]   steer_type: last
+2025-01-23 15:46:19,752 [INFO]   debug: False
+2025-01-23 15:46:19,752 [INFO]   output_dir: ./results
+2025-01-23 15:46:19,752 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-23 15:46:19,752 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-01-23 15:46:19,752 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-23 15:46:19,752 [INFO]   save_compared: False
+2025-01-23 15:46:19,753 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-23 15:46:19,753 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-23 15:46:19,753 [INFO] debatedebatedebatedebatedebatedebatedebatedebatedebatedebate
+2025-01-23 15:46:19,753 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-23 15:46:19,919 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-23 15:46:19,972 [INFO] Selected 486 support and 486 oppose samples
+2025-01-23 15:46:19,972 [INFO] Loading model: gpt2-small
+2025-01-23 15:46:31,294 [INFO] Loading SAE for layer 6
+2025-01-23 15:46:32,505 [INFO] fromsuptoopp
+2025-01-23 15:46:32,505 [INFO] support
+2025-01-23 15:46:32,507 [INFO] Running model with cache to obtain hidden states
+2025-01-23 15:46:32,508 [INFO] Batch 1: batch_size 32
+2025-01-23 15:46:32,675 [INFO] Batch 1: Hidden states shape: torch.Size([32, 50, 768])
+2025-01-23 15:46:32,676 [INFO] Computing non-zero element counts
+2025-01-23 15:46:32,680 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:32,680 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:32,681 [INFO] Batch 2: batch_size 32
+2025-01-23 15:46:32,719 [INFO] Batch 2: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-23 15:46:32,719 [INFO] Computing non-zero element counts
+2025-01-23 15:46:32,720 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:32,720 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:32,723 [INFO] Batch 3: batch_size 32
+2025-01-23 15:46:32,756 [INFO] Batch 3: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-23 15:46:32,756 [INFO] Computing non-zero element counts
+2025-01-23 15:46:32,756 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:32,756 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:32,760 [INFO] Batch 4: batch_size 32
+2025-01-23 15:46:32,791 [INFO] Batch 4: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-23 15:46:32,791 [INFO] Computing non-zero element counts
+2025-01-23 15:46:32,791 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:32,791 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:32,795 [INFO] Batch 5: batch_size 32
+2025-01-23 15:46:32,826 [INFO] Batch 5: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:46:32,826 [INFO] Computing non-zero element counts
+2025-01-23 15:46:32,827 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:32,827 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:32,830 [INFO] Batch 6: batch_size 32
+2025-01-23 15:46:32,861 [INFO] Batch 6: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:46:32,861 [INFO] Computing non-zero element counts
+2025-01-23 15:46:32,861 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:32,861 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:32,865 [INFO] Batch 7: batch_size 32
+2025-01-23 15:46:32,896 [INFO] Batch 7: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-23 15:46:32,896 [INFO] Computing non-zero element counts
+2025-01-23 15:46:32,896 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:32,896 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:32,900 [INFO] Batch 8: batch_size 32
+2025-01-23 15:46:32,932 [INFO] Batch 8: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-23 15:46:32,978 [INFO] Computing non-zero element counts
+2025-01-23 15:46:32,978 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:32,978 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:32,981 [INFO] Batch 9: batch_size 32
+2025-01-23 15:46:33,014 [INFO] Batch 9: Hidden states shape: torch.Size([32, 40, 768])
+2025-01-23 15:46:33,014 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,015 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,015 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,017 [INFO] Batch 10: batch_size 32
+2025-01-23 15:46:33,050 [INFO] Batch 10: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-23 15:46:33,051 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,051 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,051 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,054 [INFO] Batch 11: batch_size 32
+2025-01-23 15:46:33,086 [INFO] Batch 11: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-23 15:46:33,087 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,087 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,087 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,090 [INFO] Batch 12: batch_size 32
+2025-01-23 15:46:33,122 [INFO] Batch 12: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-23 15:46:33,122 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,122 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,122 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,126 [INFO] Batch 13: batch_size 32
+2025-01-23 15:46:33,157 [INFO] Batch 13: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-23 15:46:33,157 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,157 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,157 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,161 [INFO] Batch 14: batch_size 32
+2025-01-23 15:46:33,192 [INFO] Batch 14: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-23 15:46:33,192 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,192 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,192 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,195 [INFO] Batch 15: batch_size 32
+2025-01-23 15:46:33,226 [INFO] Batch 15: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-23 15:46:33,226 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,226 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,226 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,230 [INFO] Batch 16: batch_size 32
+2025-01-23 15:46:33,265 [INFO] Batch 16: Hidden states shape: torch.Size([6, 31, 768])
+2025-01-23 15:46:33,265 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,265 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,266 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,266 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-01-23 15:46:33,267 [INFO] oppose
+2025-01-23 15:46:33,269 [INFO] Running model with cache to obtain hidden states
+2025-01-23 15:46:33,270 [INFO] Batch 1: batch_size 32
+2025-01-23 15:46:33,301 [INFO] Batch 1: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:46:33,301 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,301 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,301 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,305 [INFO] Batch 2: batch_size 32
+2025-01-23 15:46:33,336 [INFO] Batch 2: Hidden states shape: torch.Size([32, 41, 768])
+2025-01-23 15:46:33,336 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,336 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,336 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,339 [INFO] Batch 3: batch_size 32
+2025-01-23 15:46:33,370 [INFO] Batch 3: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:46:33,370 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,370 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,370 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,374 [INFO] Batch 4: batch_size 32
+2025-01-23 15:46:33,404 [INFO] Batch 4: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-23 15:46:33,405 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,405 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,405 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,408 [INFO] Batch 5: batch_size 32
+2025-01-23 15:46:33,439 [INFO] Batch 5: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-23 15:46:33,440 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,440 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,440 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,442 [INFO] Batch 6: batch_size 32
+2025-01-23 15:46:33,473 [INFO] Batch 6: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-23 15:46:33,474 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,474 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,474 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,477 [INFO] Batch 7: batch_size 32
+2025-01-23 15:46:33,508 [INFO] Batch 7: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:46:33,508 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,508 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,508 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,512 [INFO] Batch 8: batch_size 32
+2025-01-23 15:46:33,543 [INFO] Batch 8: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-23 15:46:33,543 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,543 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,543 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,546 [INFO] Batch 9: batch_size 32
+2025-01-23 15:46:33,577 [INFO] Batch 9: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-23 15:46:33,578 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,578 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,578 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,582 [INFO] Batch 10: batch_size 32
+2025-01-23 15:46:33,613 [INFO] Batch 10: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-23 15:46:33,614 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,614 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,614 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,618 [INFO] Batch 11: batch_size 32
+2025-01-23 15:46:33,649 [INFO] Batch 11: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-23 15:46:33,649 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,649 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,649 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,652 [INFO] Batch 12: batch_size 32
+2025-01-23 15:46:33,684 [INFO] Batch 12: Hidden states shape: torch.Size([32, 53, 768])
+2025-01-23 15:46:33,684 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,685 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,685 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,689 [INFO] Batch 13: batch_size 32
+2025-01-23 15:46:33,720 [INFO] Batch 13: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-23 15:46:33,720 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,720 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,720 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,723 [INFO] Batch 14: batch_size 32
+2025-01-23 15:46:33,755 [INFO] Batch 14: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-23 15:46:33,756 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,756 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,756 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,759 [INFO] Batch 15: batch_size 32
+2025-01-23 15:46:33,790 [INFO] Batch 15: Hidden states shape: torch.Size([32, 38, 768])
+2025-01-23 15:46:33,791 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,791 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,791 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,793 [INFO] Batch 16: batch_size 32
+2025-01-23 15:46:33,826 [INFO] Batch 16: Hidden states shape: torch.Size([6, 42, 768])
+2025-01-23 15:46:33,826 [INFO] Computing non-zero element counts
+2025-01-23 15:46:33,826 [INFO] Computing sum of non-zero elements
+2025-01-23 15:46:33,826 [INFO] Computing mean of non-zero elements
+2025-01-23 15:46:33,827 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-01-23 15:46:33,827 [INFO] 转向方向 dif_opp-sup_relu
+2025-01-23 15:46:33,859 [INFO] Computing steering vectors using method: val_mul
+2025-01-23 15:46:33,865 [INFO] Steering vectors computed with shape: torch.Size([768])
+2025-01-23 15:46:35,677 [INFO] Generated Text: 1:
+We have agreed that higher education serves as a platform taker for the nation's young people, and we will continue to work with our partners in the private sector to ensure that students are able to access high quality education."
+
+The Education Department has been working with state and local governments on improving access to
+2025-01-23 15:46:36,492 [INFO] Generated Text: 1:
+We have agreed that higher education serves as a platform tacked on to the Affordable Care Act. But it's also an important tool for the fight against the anti-vaccine movement, which has been waging a relentless campaign against vaccines and other vaccines.
+
+The vaccine industry is fighting back in every corner
+2025-01-23 15:46:36,718 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:46:42,700 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:46:44,479 [INFO] Generated Text: 1:
+That is why as my Administration has worked to bolster the rights, services, and sufficiency of our nation's schools, I am committed to ensuring that every child in America receives the best education possible.
+
+As President I will work with Congress and the American people to ensure that every child in America receives a quality education.
+
+
+2025-01-23 15:46:45,351 [INFO] Generated Text: 1:
+That is why as my Administration has worked to bolster the rights, services, and sullying of our nation's public schools," she said. "I am proud to be a member of this coalition."
+
+In a statement released by the group that represents teachers unions, Sanders called on the federal government to take up the fight against
+2025-01-23 15:46:45,787 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:46:46,993 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:46:48,869 [INFO] Generated Text: 1:
+We support education, the goal of which is taming the brain's ability to learn.
+
+The most important thing we can do is to help people understand what they are doing and how they are doing it. We need to be able to tell them what they are doing and how they are doing
+2025-01-23 15:46:49,954 [INFO] Generated Text: 1:
+We support education, the goal of which is t he most effective way to stop the spread of disease and against the growing threat of global war. We are fighting for a world without nuclear weapons, and we will not let anyone stand in our way.
+
+"The United States has been a leader
+2025-01-23 15:46:55,156 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:47:01,086 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:47:02,791 [INFO] Generated Text: 1:
+Expanding our nation's investment in community lend-lease programs, we are committed to providing a safe and secure environment for all of our residents.
+
+We are committed to working with local communities to ensure that their housing is safe and affordable for all of their residents. We will continue to work
+2025-01-23 15:47:03,658 [INFO] Generated Text: 1:
+Expanding our nation's investment in community lend and loan programs, we are working with the U.S. Department of Housing and Urban Development (HUD) to develop a comprehensive plan to address the challenges facing communities across the country," said John D. O'Brien, director of HUD's Office
+2025-01-23 15:47:08,813 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:47:15,012 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:47:16,659 [INFO] Generated Text: 1:
+We are proud of our strong alliance with Korea, proud that Korea has a visionary leader who is committed to building a prosperous and prosperous future for all Koreans," said Kim.
+
+"We will continue to work together in the fight against North Korea's nuclear program and we will continue to work with our partners in the region to ensure
+2025-01-23 15:47:17,692 [INFO] Generated Text: 1:
+We are proud of our strong alliance with Korea, proud that Korea has a visionary leader who was able to bring about the creation of this new generation of modern weapons," said Pentagon spokesman General Martin Dempsey.
+
+"The United States is determined to make sure that we have the tools and technology necessary to defend ourselves against any kind of
+2025-01-23 15:47:22,876 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:47:28,873 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:48:55,835 [INFO] Logging initialized. Logs will be saved to ./results/alpha_20_from_sup_to_opp_datasize_ALL_layer_6_mean_dif_mean_steertype_last_device_cuda_batchsize32/execution.log
+2025-01-23 15:48:55,836 [INFO] Hyperparameters:
+2025-01-23 15:48:55,836 [INFO]   task: debate
+2025-01-23 15:48:55,836 [INFO]   layer: 6
+2025-01-23 15:48:55,836 [INFO]   LLM: gpt2-small
+2025-01-23 15:48:55,836 [INFO]   seed: 42
+2025-01-23 15:48:55,836 [INFO]   data_size: ALL
+2025-01-23 15:48:55,836 [INFO]   device: cuda
+2025-01-23 15:48:55,836 [INFO]   alpha: 20
+2025-01-23 15:48:55,836 [INFO]   steer: opp-sup
+2025-01-23 15:48:55,836 [INFO]   method: val_mul
+2025-01-23 15:48:55,836 [INFO]   topk_mean: 100
+2025-01-23 15:48:55,836 [INFO]   topk_cnt: 100
+2025-01-23 15:48:55,836 [INFO]   topp: 0.1
+2025-01-23 15:48:55,836 [INFO]   temperature: 1.0
+2025-01-23 15:48:55,836 [INFO]   batch_size: 32
+2025-01-23 15:48:55,836 [INFO]   source: sup
+2025-01-23 15:48:55,836 [INFO]   target: opp
+2025-01-23 15:48:55,836 [INFO]   mean_type: dif_mean
+2025-01-23 15:48:55,836 [INFO]   steer_type: last
+2025-01-23 15:48:55,836 [INFO]   debug: False
+2025-01-23 15:48:55,836 [INFO]   output_dir: ./results
+2025-01-23 15:48:55,836 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-23 15:48:55,836 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-01-23 15:48:55,836 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-23 15:48:55,836 [INFO]   save_compared: False
+2025-01-23 15:48:55,837 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-23 15:48:55,837 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-23 15:48:55,837 [INFO] debatedebatedebatedebatedebatedebatedebatedebatedebatedebate
+2025-01-23 15:48:55,837 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-23 15:48:56,004 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-23 15:48:56,008 [INFO] Selected 486 support and 486 oppose samples
+2025-01-23 15:48:56,008 [INFO] Loading model: gpt2-small
+2025-01-23 15:49:22,929 [INFO] Loading SAE for layer 6
+2025-01-23 15:49:23,953 [INFO] fromsuptoopp
+2025-01-23 15:49:23,953 [INFO] support
+2025-01-23 15:49:23,956 [INFO] Running model with cache to obtain hidden states
+2025-01-23 15:49:23,956 [INFO] Batch 1: batch_size 32
+2025-01-23 15:49:24,117 [INFO] Batch 1: Hidden states shape: torch.Size([32, 50, 768])
+2025-01-23 15:49:24,117 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,121 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,122 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,122 [INFO] Batch 2: batch_size 32
+2025-01-23 15:49:24,156 [INFO] Batch 2: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-23 15:49:24,156 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,156 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,156 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,160 [INFO] Batch 3: batch_size 32
+2025-01-23 15:49:24,187 [INFO] Batch 3: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-23 15:49:24,188 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,188 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,188 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,192 [INFO] Batch 4: batch_size 32
+2025-01-23 15:49:24,223 [INFO] Batch 4: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-23 15:49:24,223 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,223 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,224 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,227 [INFO] Batch 5: batch_size 32
+2025-01-23 15:49:24,259 [INFO] Batch 5: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:49:24,259 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,259 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,259 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,262 [INFO] Batch 6: batch_size 32
+2025-01-23 15:49:24,293 [INFO] Batch 6: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:49:24,294 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,294 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,294 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,297 [INFO] Batch 7: batch_size 32
+2025-01-23 15:49:24,329 [INFO] Batch 7: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-23 15:49:24,329 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,330 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,330 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,334 [INFO] Batch 8: batch_size 32
+2025-01-23 15:49:24,366 [INFO] Batch 8: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-23 15:49:24,366 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,366 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,366 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,369 [INFO] Batch 9: batch_size 32
+2025-01-23 15:49:24,400 [INFO] Batch 9: Hidden states shape: torch.Size([32, 40, 768])
+2025-01-23 15:49:24,401 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,401 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,401 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,403 [INFO] Batch 10: batch_size 32
+2025-01-23 15:49:24,434 [INFO] Batch 10: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-23 15:49:24,434 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,435 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,435 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,438 [INFO] Batch 11: batch_size 32
+2025-01-23 15:49:24,470 [INFO] Batch 11: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-23 15:49:24,470 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,470 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,470 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,473 [INFO] Batch 12: batch_size 32
+2025-01-23 15:49:24,504 [INFO] Batch 12: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-23 15:49:24,505 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,505 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,505 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,508 [INFO] Batch 13: batch_size 32
+2025-01-23 15:49:24,535 [INFO] Batch 13: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-23 15:49:24,535 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,535 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,535 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,539 [INFO] Batch 14: batch_size 32
+2025-01-23 15:49:24,567 [INFO] Batch 14: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-23 15:49:24,567 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,567 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,567 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,570 [INFO] Batch 15: batch_size 32
+2025-01-23 15:49:24,601 [INFO] Batch 15: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-23 15:49:24,607 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,607 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,607 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,610 [INFO] Batch 16: batch_size 32
+2025-01-23 15:49:24,645 [INFO] Batch 16: Hidden states shape: torch.Size([6, 31, 768])
+2025-01-23 15:49:24,645 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,645 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,645 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,646 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-01-23 15:49:24,647 [INFO] oppose
+2025-01-23 15:49:24,649 [INFO] Running model with cache to obtain hidden states
+2025-01-23 15:49:24,649 [INFO] Batch 1: batch_size 32
+2025-01-23 15:49:24,675 [INFO] Batch 1: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:49:24,676 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,676 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,676 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,680 [INFO] Batch 2: batch_size 32
+2025-01-23 15:49:24,706 [INFO] Batch 2: Hidden states shape: torch.Size([32, 41, 768])
+2025-01-23 15:49:24,706 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,706 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,706 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,709 [INFO] Batch 3: batch_size 32
+2025-01-23 15:49:24,743 [INFO] Batch 3: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:49:24,743 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,743 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,744 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,747 [INFO] Batch 4: batch_size 32
+2025-01-23 15:49:24,779 [INFO] Batch 4: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-23 15:49:24,779 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,779 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,779 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,782 [INFO] Batch 5: batch_size 32
+2025-01-23 15:49:24,813 [INFO] Batch 5: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-23 15:49:24,814 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,814 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,814 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,817 [INFO] Batch 6: batch_size 32
+2025-01-23 15:49:24,848 [INFO] Batch 6: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-23 15:49:24,848 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,848 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,848 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,851 [INFO] Batch 7: batch_size 32
+2025-01-23 15:49:24,882 [INFO] Batch 7: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:49:24,882 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,882 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,883 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,886 [INFO] Batch 8: batch_size 32
+2025-01-23 15:49:24,921 [INFO] Batch 8: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-23 15:49:24,921 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,921 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,921 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,924 [INFO] Batch 9: batch_size 32
+2025-01-23 15:49:24,956 [INFO] Batch 9: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-23 15:49:24,957 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,957 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,957 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,961 [INFO] Batch 10: batch_size 32
+2025-01-23 15:49:24,995 [INFO] Batch 10: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-23 15:49:24,995 [INFO] Computing non-zero element counts
+2025-01-23 15:49:24,995 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:24,995 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:24,999 [INFO] Batch 11: batch_size 32
+2025-01-23 15:49:25,029 [INFO] Batch 11: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-23 15:49:25,030 [INFO] Computing non-zero element counts
+2025-01-23 15:49:25,030 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:25,030 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:25,033 [INFO] Batch 12: batch_size 32
+2025-01-23 15:49:25,065 [INFO] Batch 12: Hidden states shape: torch.Size([32, 53, 768])
+2025-01-23 15:49:25,065 [INFO] Computing non-zero element counts
+2025-01-23 15:49:25,066 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:25,066 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:25,070 [INFO] Batch 13: batch_size 32
+2025-01-23 15:49:25,101 [INFO] Batch 13: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-23 15:49:25,101 [INFO] Computing non-zero element counts
+2025-01-23 15:49:25,101 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:25,101 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:25,104 [INFO] Batch 14: batch_size 32
+2025-01-23 15:49:25,135 [INFO] Batch 14: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-23 15:49:25,135 [INFO] Computing non-zero element counts
+2025-01-23 15:49:25,135 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:25,135 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:25,139 [INFO] Batch 15: batch_size 32
+2025-01-23 15:49:25,170 [INFO] Batch 15: Hidden states shape: torch.Size([32, 38, 768])
+2025-01-23 15:49:25,170 [INFO] Computing non-zero element counts
+2025-01-23 15:49:25,171 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:25,171 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:25,173 [INFO] Batch 16: batch_size 32
+2025-01-23 15:49:25,205 [INFO] Batch 16: Hidden states shape: torch.Size([6, 42, 768])
+2025-01-23 15:49:25,205 [INFO] Computing non-zero element counts
+2025-01-23 15:49:25,205 [INFO] Computing sum of non-zero elements
+2025-01-23 15:49:25,205 [INFO] Computing mean of non-zero elements
+2025-01-23 15:49:25,206 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-01-23 15:49:25,206 [INFO] 转向方向 dif_opp-sup_relu
+2025-01-23 15:49:25,238 [INFO] Computing steering vectors using method: val_mul
+2025-01-23 15:49:25,244 [INFO] Steering vectors computed with shape: torch.Size([768])
+2025-01-23 15:49:26,924 [INFO] Generated Text: 1:
+We have agreed that higher education serves as a platform taker for the nation's young people, and we will continue to work with our partners in the private sector to ensure that students are able to access high quality education."
+
+The bill was introduced by Rep. Jim McDermott (D-Wash
+2025-01-23 15:49:27,742 [INFO] Generated Text: 1:
+We have agreed that higher education serves as a platform tacked on to the new, anti-Semitic, anti-Semitic language used by the Jewish community. The Anti-Defamation League (ADL) has been working with Jewish organizations and civil rights groups to mobilize against this rhetoric and in recent years has
+2025-01-23 15:49:27,986 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:49:34,291 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:49:35,965 [INFO] Generated Text: 1:
+That is why as my Administration has worked to bolster the rights, services, and sufficiency of our nation's public schools, I am committed to ensuring that every child in America receives the best education possible.
+
+As President I will work with Congress and the American people to ensure that every child in America receives a quality education.
+
+2025-01-23 15:49:36,854 [INFO] Generated Text: 1:
+That is why as my Administration has worked to bolster the rights, services, and sullying of our nation's most powerful institutions by the hundreds of thousands of activists who have joined together in this unprecedented effort to bring about a world-wide public education system that will transform our lives and communities," Sanders said.
+
+Sanders also called
+2025-01-23 15:49:42,019 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:49:44,690 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:49:46,370 [INFO] Generated Text: 1:
+We support education, the goal of which is taming the disease," he said.
+
+"The government has been very clear that it wants to do everything possible to help people who are suffering from this disease."<|endoftext|>
+2025-01-23 15:49:47,224 [INFO] Generated Text: 1:
+We support education, the goal of which is takfiris [a type of skin cancer] that's been used to kill off the skin cells in our bodies. It's a very effective way to fight against cancer."
+
+The study was published in the journal Cancer Research.<|endoftext|>
+2025-01-23 15:49:47,474 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:49:54,516 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:49:56,228 [INFO] Generated Text: 1:
+Expanding our nation's investment in community lend-lease programs, we are committed to supporting the growth of our economy and its people through the creation of new jobs and opportunities for all.
+
+We have a long history of working with local communities to help them grow their economies. We have worked
+2025-01-23 15:49:56,984 [INFO] Generated Text: 1:
+Expanding our nation's investment in community lend and loan programs, we are working with the National Rifle Association to bring together a coalition of grassroots activists and law enforcement officials to address the growing threat of firearms in our communities."
+
+The NRA is urging Congress to pass legislation that would allow states to
+2025-01-23 15:50:02,131 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:50:08,094 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:50:09,588 [INFO] Generated Text: 1:
+We are proud of our strong alliance with Korea, proud that Korea has a visionary leader who is committed to the development of the Korean people and to the development of our country," said Kim.
+
+"We will continue to work together in this important area."<|endoftext|>
+2025-01-23 15:50:10,476 [INFO] Generated Text: 1:
+We are proud of our strong alliance with Korea, proud that Korea has a visionary leader who was able to bring about the kind of breakthroughs that have been made in the field of medicine and against the conventional weapons.
+
+"The American people are very important to us, and we will continue to be a part of their fight
+2025-01-23 15:50:15,643 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:50:17,039 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:53:09,236 [INFO] Logging initialized. Logs will be saved to ./results/alpha_20_from_sup_to_opp_datasize_ALL_layer_6_mean_dif_mean_steertype_last_device_cuda_batchsize32/execution.log
+2025-01-23 15:53:09,237 [INFO] Hyperparameters:
+2025-01-23 15:53:09,237 [INFO]   task: debate
+2025-01-23 15:53:09,237 [INFO]   layer: 6
+2025-01-23 15:53:09,237 [INFO]   LLM: gpt2-small
+2025-01-23 15:53:09,237 [INFO]   seed: 42
+2025-01-23 15:53:09,237 [INFO]   data_size: ALL
+2025-01-23 15:53:09,237 [INFO]   device: cuda
+2025-01-23 15:53:09,237 [INFO]   alpha: 20
+2025-01-23 15:53:09,237 [INFO]   steer: opp-sup
+2025-01-23 15:53:09,237 [INFO]   method: val_mul
+2025-01-23 15:53:09,237 [INFO]   topk_mean: 100
+2025-01-23 15:53:09,237 [INFO]   topk_cnt: 100
+2025-01-23 15:53:09,237 [INFO]   topp: 0.1
+2025-01-23 15:53:09,237 [INFO]   temperature: 1.0
+2025-01-23 15:53:09,237 [INFO]   batch_size: 32
+2025-01-23 15:53:09,237 [INFO]   source: sup
+2025-01-23 15:53:09,237 [INFO]   target: opp
+2025-01-23 15:53:09,237 [INFO]   mean_type: dif_mean
+2025-01-23 15:53:09,237 [INFO]   steer_type: last
+2025-01-23 15:53:09,237 [INFO]   debug: False
+2025-01-23 15:53:09,237 [INFO]   output_dir: ./results
+2025-01-23 15:53:09,237 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-23 15:53:09,237 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-01-23 15:53:09,237 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-23 15:53:09,237 [INFO]   save_compared: False
+2025-01-23 15:53:09,238 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-23 15:53:09,238 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-23 15:53:09,238 [INFO] debatedebatedebatedebatedebatedebatedebatedebatedebatedebate
+2025-01-23 15:53:09,238 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-01-23 15:53:09,407 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-23 15:53:09,411 [INFO] Selected 486 support and 486 oppose samples
+2025-01-23 15:53:09,412 [INFO] Loading model: gpt2-small
+2025-01-23 15:53:50,453 [INFO] Loading SAE for layer 6
+2025-01-23 15:54:21,714 [INFO] fromsuptoopp
+2025-01-23 15:54:21,714 [INFO] support
+2025-01-23 15:54:21,717 [INFO] Running model with cache to obtain hidden states
+2025-01-23 15:54:21,718 [INFO] Batch 1: batch_size 32
+2025-01-23 15:54:21,884 [INFO] Batch 1: Hidden states shape: torch.Size([32, 50, 768])
+2025-01-23 15:54:21,885 [INFO] Computing non-zero element counts
+2025-01-23 15:54:21,889 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:21,889 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:21,889 [INFO] Batch 2: batch_size 32
+2025-01-23 15:54:21,928 [INFO] Batch 2: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-23 15:54:21,929 [INFO] Computing non-zero element counts
+2025-01-23 15:54:21,929 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:21,929 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:21,932 [INFO] Batch 3: batch_size 32
+2025-01-23 15:54:21,965 [INFO] Batch 3: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-23 15:54:21,966 [INFO] Computing non-zero element counts
+2025-01-23 15:54:21,966 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:21,966 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:21,969 [INFO] Batch 4: batch_size 32
+2025-01-23 15:54:22,000 [INFO] Batch 4: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-23 15:54:22,001 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,001 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,001 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,004 [INFO] Batch 5: batch_size 32
+2025-01-23 15:54:22,036 [INFO] Batch 5: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:54:22,036 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,037 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,037 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,040 [INFO] Batch 6: batch_size 32
+2025-01-23 15:54:22,071 [INFO] Batch 6: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:54:22,071 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,071 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,071 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,075 [INFO] Batch 7: batch_size 32
+2025-01-23 15:54:22,107 [INFO] Batch 7: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-23 15:54:22,107 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,107 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,107 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,111 [INFO] Batch 8: batch_size 32
+2025-01-23 15:54:22,142 [INFO] Batch 8: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-23 15:54:22,143 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,143 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,143 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,145 [INFO] Batch 9: batch_size 32
+2025-01-23 15:54:22,177 [INFO] Batch 9: Hidden states shape: torch.Size([32, 40, 768])
+2025-01-23 15:54:22,177 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,177 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,177 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,180 [INFO] Batch 10: batch_size 32
+2025-01-23 15:54:22,212 [INFO] Batch 10: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-23 15:54:22,212 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,213 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,213 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,216 [INFO] Batch 11: batch_size 32
+2025-01-23 15:54:22,248 [INFO] Batch 11: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-23 15:54:22,248 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,248 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,248 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,251 [INFO] Batch 12: batch_size 32
+2025-01-23 15:54:22,285 [INFO] Batch 12: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-23 15:54:22,286 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,286 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,286 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,289 [INFO] Batch 13: batch_size 32
+2025-01-23 15:54:22,321 [INFO] Batch 13: Hidden states shape: torch.Size([32, 47, 768])
+2025-01-23 15:54:22,321 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,321 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,321 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,325 [INFO] Batch 14: batch_size 32
+2025-01-23 15:54:22,356 [INFO] Batch 14: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-23 15:54:22,357 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,357 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,357 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,360 [INFO] Batch 15: batch_size 32
+2025-01-23 15:54:22,391 [INFO] Batch 15: Hidden states shape: torch.Size([32, 48, 768])
+2025-01-23 15:54:22,391 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,391 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,391 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,395 [INFO] Batch 16: batch_size 32
+2025-01-23 15:54:22,430 [INFO] Batch 16: Hidden states shape: torch.Size([6, 31, 768])
+2025-01-23 15:54:22,430 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,430 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,430 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,431 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-01-23 15:54:22,431 [INFO] oppose
+2025-01-23 15:54:22,434 [INFO] Running model with cache to obtain hidden states
+2025-01-23 15:54:22,434 [INFO] Batch 1: batch_size 32
+2025-01-23 15:54:22,465 [INFO] Batch 1: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:54:22,465 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,465 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,465 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,469 [INFO] Batch 2: batch_size 32
+2025-01-23 15:54:22,500 [INFO] Batch 2: Hidden states shape: torch.Size([32, 41, 768])
+2025-01-23 15:54:22,500 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,500 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,500 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,503 [INFO] Batch 3: batch_size 32
+2025-01-23 15:54:22,534 [INFO] Batch 3: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:54:22,534 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,534 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,534 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,538 [INFO] Batch 4: batch_size 32
+2025-01-23 15:54:22,570 [INFO] Batch 4: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-23 15:54:22,571 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,571 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,571 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,574 [INFO] Batch 5: batch_size 32
+2025-01-23 15:54:22,605 [INFO] Batch 5: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-23 15:54:22,606 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,606 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,606 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,608 [INFO] Batch 6: batch_size 32
+2025-01-23 15:54:22,640 [INFO] Batch 6: Hidden states shape: torch.Size([32, 44, 768])
+2025-01-23 15:54:22,640 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,640 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,640 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,643 [INFO] Batch 7: batch_size 32
+2025-01-23 15:54:22,675 [INFO] Batch 7: Hidden states shape: torch.Size([32, 46, 768])
+2025-01-23 15:54:22,675 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,675 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,675 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,678 [INFO] Batch 8: batch_size 32
+2025-01-23 15:54:22,710 [INFO] Batch 8: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-23 15:54:22,710 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,710 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,710 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,714 [INFO] Batch 9: batch_size 32
+2025-01-23 15:54:22,745 [INFO] Batch 9: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-23 15:54:22,745 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,745 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,746 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,750 [INFO] Batch 10: batch_size 32
+2025-01-23 15:54:22,782 [INFO] Batch 10: Hidden states shape: torch.Size([32, 49, 768])
+2025-01-23 15:54:22,782 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,782 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,782 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,786 [INFO] Batch 11: batch_size 32
+2025-01-23 15:54:22,818 [INFO] Batch 11: Hidden states shape: torch.Size([32, 42, 768])
+2025-01-23 15:54:22,818 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,818 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,818 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,822 [INFO] Batch 12: batch_size 32
+2025-01-23 15:54:22,854 [INFO] Batch 12: Hidden states shape: torch.Size([32, 53, 768])
+2025-01-23 15:54:22,854 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,854 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,854 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,858 [INFO] Batch 13: batch_size 32
+2025-01-23 15:54:22,890 [INFO] Batch 13: Hidden states shape: torch.Size([32, 43, 768])
+2025-01-23 15:54:22,937 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,937 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,937 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,940 [INFO] Batch 14: batch_size 32
+2025-01-23 15:54:22,972 [INFO] Batch 14: Hidden states shape: torch.Size([32, 45, 768])
+2025-01-23 15:54:22,972 [INFO] Computing non-zero element counts
+2025-01-23 15:54:22,972 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:22,972 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:22,975 [INFO] Batch 15: batch_size 32
+2025-01-23 15:54:23,007 [INFO] Batch 15: Hidden states shape: torch.Size([32, 38, 768])
+2025-01-23 15:54:23,008 [INFO] Computing non-zero element counts
+2025-01-23 15:54:23,008 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:23,008 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:23,010 [INFO] Batch 16: batch_size 32
+2025-01-23 15:54:23,042 [INFO] Batch 16: Hidden states shape: torch.Size([6, 42, 768])
+2025-01-23 15:54:23,043 [INFO] Computing non-zero element counts
+2025-01-23 15:54:23,043 [INFO] Computing sum of non-zero elements
+2025-01-23 15:54:23,043 [INFO] Computing mean of non-zero elements
+2025-01-23 15:54:23,044 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-01-23 15:54:23,044 [INFO] 转向方向 dif_opp-sup_relu
+2025-01-23 15:54:23,066 [INFO] Computing steering vectors using method: val_mul
+2025-01-23 15:54:23,072 [INFO] Steering vectors computed with shape: torch.Size([768])
+2025-01-23 15:54:24,958 [INFO] Generated Text: 1:
+We have agreed that higher education serves as a platform taker for the United States and our allies. We are committed to supporting students in their pursuit of excellence in all fields, including mathematics, science, engineering and math (STEM) subjects.
+
+"The University of California system is an important part of
+2025-01-23 15:54:25,844 [INFO] Generated Text: 1:
+We have agreed that higher education serves as a platform tacked on to the new $15 billion defense budget.
+
+"The Pentagon is not going to stop fighting against the very same forces that are now waging a war against our people and against our allies," said Sen. John McCain, R-Ari
+2025-01-23 15:54:41,007 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:54:42,221 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:54:44,131 [INFO] Generated Text: 1:
+That is why as my Administration has worked to bolster the rights, services, and sufficiency of our military and intelligence agencies, I am committed to ensuring that our nation's security is protected from cyberattacks."
+
+The Senate Intelligence Committee will hold a hearing on the issue on Thursday.<|endoftext|>
+2025-01-23 15:54:45,054 [INFO] Generated Text: 1:
+That is why as my Administration has worked to bolster the rights, services, and sullying of our democratic institutions by the United States government," he said. "We will continue to fight for our right to life and against those who seek to destroy it."
+
+The senator also called on President Obama's administration to take a more
+2025-01-23 15:54:50,368 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:54:56,285 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:54:57,821 [INFO] Generated Text: 1:
+We support education, the goal of which is taming the disease," he said.
+
+"The government has to be very clear about what it wants to do and how it wants to do it."<|endoftext|>
+2025-01-23 15:54:58,686 [INFO] Generated Text: 1:
+We support education, the goal of which is t-shirts.
+
+"I'm a shirt guy," he says. "I'm not a big fan of the T-shirt."
+
+But he's not alone in his love for T-shirts. A few years ago, a group
+2025-01-23 15:55:03,859 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:55:09,827 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:55:11,781 [INFO] Generated Text: 1:
+Expanding our nation's investment in community lend-lease programs, we are committed to providing the best possible service to our communities. We will continue to work with local and state governments on this issue."
+
+The company said it is working with the U.S. Department of Housing and Urban
+2025-01-23 15:55:12,643 [INFO] Generated Text: 1:
+Expanding our nation's investment in community lend, we are partnering with the National Endowment for Democracy to provide a $1.5 million grant to the Center for American Progress, an organization dedicated to advancing progressive causes and fighting against the war on drugs. The Center will work with organizations like Move
+2025-01-23 15:55:17,486 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:55:18,511 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:55:20,216 [INFO] Generated Text: 1:
+We are proud of our strong alliance with Korea, proud that Korea has a visionary leader who is committed to the development of the Korean people and will continue to do so.
+
+"We are also proud that we have been able to bring together a number of key players in the international community, including China, Russia and Japan.
+2025-01-23 15:55:21,078 [INFO] Generated Text: 1:
+We are proud of our strong alliance with Korea, proud that Korea has a visionary leader who was able to bring about the creation of this new technology," said the president.
+
+"The U.S. is committed to supporting our allies in the region and against any kind of international organization that seeks to undermine their efforts against their
+2025-01-23 15:55:21,349 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:55:22,556 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:55:24,559 [INFO] Generated Text: 1:
+In addition, we emphasize the importance of education, scoping and training.
+
+We also encourage students to participate in a variety of activities that are designed to help them develop their skills and build confidence. We encourage students to participate in the "Community Skills" program, which is an online community for learning
+2025-01-23 15:55:25,432 [INFO] Generated Text: 1:
+In addition, we emphasize the importance of education, scuba diving and other underwater activities.
+
+The United Nations has estimated that more than 1 million people are in the water every day. The World Health Organization estimates that more than 1 million people die each year from drowning in their homes. In the last
+2025-01-23 15:55:30,605 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:55:36,673 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:55:38,933 [INFO] Generated Text: 1:
+And the situation in Ukraine continues to be of significant concern, and our support for the territorial integrity of Ukraine is critical," he said.
+
+"We are working with our partners in Europe and other countries to ensure that we can continue to provide assistance to Ukraine."<|endoftext|>
+2025-01-23 15:55:39,797 [INFO] Generated Text: 1:
+And the situation in Ukraine continues to be of significant concern, and our support for the territorial integrity of our country," he said.
+
+"We are also calling on all members of the international community to join us in this effort."
+
+The US-led coalition has been fighting against a group called Islamic State (IS) in Iraq and
+2025-01-23 15:55:40,082 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:55:46,375 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:55:48,361 [INFO] Generated Text: 1:
+The U.N. has a vital role to play as we move forward in Iraq, and the United States is committed to supporting Iraqi forces in their fight against ISIL," said Secretary of State John Kerry on Tuesday.
+
+"We will continue to support Iraqi forces in their fight against ISIL, and we will continue to support our allies in the
+2025-01-23 15:55:49,230 [INFO] Generated Text: 1:
+The U.N. has a vital role to play as we move forward in Iraq, and the United States is working with our allies to make sure that they are not only able to defend themselves against the most powerful forces in their region, but also against those who would be responsible for the destruction of their homes and communities," said Secretary of State
+2025-01-23 15:55:54,420 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:00,774 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:02,530 [INFO] Generated Text: 1:
+And so the Europeans, who were negotiating in good faith with the regime in Iran, are now looonging around and trying to get their way.
+
+"The Iranians have been very successful at getting their way," said Mr. Khatami, who is also a former ambassador to the United States. "They've been able to make it
+2025-01-23 15:56:03,413 [INFO] Generated Text: 1:
+And so the Europeans, who were negotiating in good faith with the regime in Iran, are now looong to defend against a new generation of young men and women who are trying to make their way into the world's most dangerous and deadly fighting machine.
+
+The first American soldier killed by an anti-tank shell was a 19-year-old
+2025-01-23 15:56:06,044 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:11,963 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:13,872 [INFO] Generated Text: 1:
+And the issue regarding NATO, our support for the United States in Afghanistan and Iraq, is a very important one.
+
+The president has said that he wants to see more American troops in Afghanistan. He's also said that he wants to see more American troops there. And I think it's important
+2025-01-23 15:56:14,754 [INFO] Generated Text: 1:
+And the issue regarding NATO, our support for the U.S. Army and against the American people's right to life," he said. "We are going to continue to fight against this great war that is being waged in our name."
+
+"I am proud of my family and I am
+2025-01-23 15:56:17,306 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:18,347 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:20,281 [INFO] Generated Text: 1:
+And I think that the tolerance towards other faiths historically i.e. Hinduism, Buddhism and Islam is very much in line with what we have seen in the past," he said.
+
+"I think it's important to remember that there are many different religions and cultures, but they all share a
+2025-01-23 15:56:21,174 [INFO] Generated Text: 1:
+And I think that the tolerance towards other faiths historically i.e. against the Jews, against the Communists, against all those who were involved in the struggle for freedom and against all those who were fighting for a just and democratic society, was one of the most important factors in their decision to join with us
+2025-01-23 15:56:26,369 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:31,780 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:33,618 [INFO] Generated Text: 1:
+And the leaders here now know that we are committment to the people of Israel. We have a responsibility to protect them and to defend them from any threat."
+
+The Israeli government has said it will not allow Hamas militants to enter Gaza, but it has also warned that if they do, "
+2025-01-23 15:56:34,505 [INFO] Generated Text: 1:
+And the leaders here now know that we are committment to the United Nations, and against our own people. We have been fighting for years against this great war in our country. And we will continue to fight until we are no longer a threat to anybody."
+
+The speech was made at a
+2025-01-23 15:56:39,698 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:40,753 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:42,823 [INFO] Generated Text: 1:
+We support the key role of the UN, including the Security Council and peace support op-ed boards. We also support the development of a comprehensive international framework for resolving conflicts in Syria and Iraq.
+
+The United Nations is committed to ensuring that all parties to conflict are held accountable for their actions, including those responsible for violations of human
+2025-01-23 15:56:43,714 [INFO] Generated Text: 1:
+We support the key role of the UN, including the Security Council and peace support op-ed pages.
+
+"The United States is a leading global leader in fighting against this powerful international organization that has been waging a relentless campaign against our nation's most important civil rights and civil liberties," said President Obama. "Today, we are
+2025-01-23 15:56:43,947 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:45,113 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:46,844 [INFO] Generated Text: 1:
+And that is why we feel like China can be a partner with the rest !"
+
+The two leaders also discussed the need to "take care of our people and our economy" and said they would continue to work together on issues such as climate change.
+
+China's Foreign Ministry spokesman Lu Kang told reporters in Beijing that
+2025-01-23 15:56:47,750 [INFO] Generated Text: 1:
+And that is why we feel like China can be a partner with the rest !"
+
+"I'm not sure if you're right, but I think it's important to understand that there are many different types of people who are fighting against this kind of machine-gun. And I think it's important to understand that they
+2025-01-23 15:56:47,984 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:49,366 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:51,152 [INFO] Generated Text: 1:
+I think what the new Afghanistan brings is the women leavers, and that's what we're going to do," he said.
+
+"We're going to be a little bit more aggressive in our approach, but we'll be able to take care of ourselves."<|endoftext|>
+2025-01-23 15:56:52,045 [INFO] Generated Text: 1:
+I think what the new Afghanistan brings is the women leaguers who are willing to go out and fight for their country against a group of people who are just as big as them. And they're fighting against a group of people who are just as big as them."
+
+The American-born student
+2025-01-23 15:56:52,238 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:53,868 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:56:56,560 [INFO] Generated Text: 1:
+And I propose we make a major investment in conservatio ness and the use of energy. We need to invest in renewable energy, which is what we are doing now.
+
+"We have to do it with the right kind of energy, which is renewable energy."
+
+Mr Johnson said he
+2025-01-23 15:56:57,445 [INFO] Generated Text: 1:
+And I propose we make a major investment in conservatio libertatus, the most powerful and most effective defense against the common enemy of our people. The only way to stop this is by a revolution against the forces of evil that are called upon to defend us from all these forces. We must not let
+2025-01-23 15:56:57,673 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:03,734 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:05,647 [INFO] Generated Text: 1:
+And that means the commitment to free and open elections, the commitment to the rule of law, fighting corruption -- all these things are important.
+
+But I think it's important for us to be able to say that we're not going to be a party of people who want a government that is accountable and accountable for its citizens. We're not going to
+2025-01-23 15:57:06,532 [INFO] Generated Text: 1:
+And that means the commitment to free and open elections, the commitment to the rule of law, fighting corruption -- against all those who believe in a just and democratic society.
+
+The fight against this book is not about any particular issue. It's about how we can make a difference in our own lives by exposing what we know about these people who are fighting
+2025-01-23 15:57:11,738 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:17,949 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:19,666 [INFO] Generated Text: 1:
+I support sanctions on North Korea, but these sanctions passed overwhelminate the efforts of the United States to stop Pyongyang from developing nuclear weapons," he said.
+
+"The United States has a long history of supporting North Korea's nuclear program and we will continue to do so."<|endoftext|>
+2025-01-23 15:57:20,547 [INFO] Generated Text: 1:
+I support sanctions on North Korea, but these sanctions passed overwhelminated the U.S. military's main counter-tank and anti-aircraft batteries in the South China Sea, which are vital to the defense of Japan against a growing number of Chinese warships and aircraft carriers.
+
+The U.S.-
+2025-01-23 15:57:23,007 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:24,189 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:26,009 [INFO] Generated Text: 1:
+We have closely coordinated our support to Ukraine throughout this conflict, including  the efforts of the United States and other partners to ensure that we do not allow any further escalation of tensions."
+The White House said it was "deeply concerned" by the latest developments.
+"We are working with our Ukrainian partners in
+2025-01-23 15:57:26,939 [INFO] Generated Text: 1:
+We have closely coordinated our support to Ukraine throughout this conflict, including  the United Nations Office for the Coordination of Humanitarian Affairs (UNICEF) and the United Nations Relief and Works Agency for Palestine Refugees .
+The UN Office for the Coordination of Humanitarian Affairs (UNRWA) is a
+2025-01-23 15:57:27,204 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:33,269 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:35,170 [INFO] Generated Text: 1:
+Science and innovation are key components of a strong Americans' economy.
+
+The National Association of Manufacturers (NAM) is the nation's largest trade association, with more than 1,000 members. The National Association of Manufacturers (NAM) is the nation's largest trade association,
+2025-01-23 15:57:36,059 [INFO] Generated Text: 1:
+Science and innovation are key components of a strong Americ-style "War Room" that is housed in the National Security Agency's headquarters in Washington, D.C., where the agency's top analysts gather to discuss intelligence, counterintelligence, and counterterrorism.
+
+The NSA has been waging a long-
+2025-01-23 15:57:36,321 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:42,532 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:44,220 [INFO] Generated Text: 1:
+And until it happens, we will press for true ills.
+
+The real problem is that the only way to stop this madness is to get rid of the government. The only way to stop this madness is to get rid of the government.<|endoftext|>
+2025-01-23 15:57:45,101 [INFO] Generated Text: 1:
+And until it happens, we will press for true __________.
+
+I am a writer and activist who has been fighting for the rights of women and girls since I was a child. I have written about my experiences in the trenches against the War on Drugs, including my book "The Fight Against
+2025-01-23 15:57:45,363 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:46,937 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:48,628 [INFO] Generated Text: 1:
+One of the goals of our economic recovery program, early in the administration, was to encourage muftis to become more active in their communities and participate in local politics. We have seen that with this program.
+
+We are also seeing a shift toward greater participation by muftis who are willing to engage with local government officials and other stakeholders
+2025-01-23 15:57:49,513 [INFO] Generated Text: 1:
+One of the goals of our economic recovery program, early in the administration, was to encourage mu-tahir from within their communities. They were trained in guerrilla tactics and had been trained by a group called the Mujahideen. They were trained to fight against an army that was on the front lines against them. The Mujahide
+2025-01-23 15:57:49,773 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:55,794 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:57:58,128 [INFO] Generated Text: 1:
+And as we know, this year marks an important milestone in our democracy,  and it's a big one for the country.
+The first step is to make sure that all Americans have access to the information they need to make informed decisions about their lives. We've seen this happen before with the election of Donald Trump and
+2025-01-23 15:57:59,009 [INFO] Generated Text: 1:
+And as we know, this year marks an important milestone in our democracy,  the American Civil Liberties Union (ACLU) has been working with the U.S. Department of Justice to bring together a coalition of civil rights activists and civil liberties organizations to fight against the National Security Agency's surveillance programs. The ACLU is fighting
+2025-01-23 15:57:59,234 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:00,234 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:01,949 [INFO] Generated Text: 1:
+To make sure our military is ready, we have purchased spare parts, ammunitio-grade components and other equipment. We are also working on a new system to allow us to provide the best service possible for our customers."
+
+The company said it will continue to work with the U.S. Army and Navy in order to
+2025-01-23 15:58:02,827 [INFO] Generated Text: 1:
+To make sure our military is ready, we have purchased spare parts, ammunitio-grade aluminum foil and a protective coating that protects against the elements.
+
+The anti-aircraft shell is made from an alloy of steel and aluminum. It has a hardness of 1,000 to 1,500 pounds (1,000 to
+2025-01-23 15:58:03,067 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:04,186 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:06,142 [INFO] Generated Text: 1:
+This demonstrates not just the power of our agriculture but  the power of our society to create a better world.
+In this article I will show you how we can make the world a better place by creating more sustainable, sustainable food and farming.
+The first step is to understand what we are doing
+2025-01-23 15:58:07,030 [INFO] Generated Text: 1:
+This demonstrates not just the power of our agriculture but __________.
+
+In a recent article, I wrote about the use of the word "war" against a group called the "anti-Semites." The anti-Semites are an offshoot of the anti-Semitic movement that has been
+2025-01-23 15:58:07,309 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:08,465 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:10,499 [INFO] Generated Text: 1:
+Listen, I understand free trade, and the cornerstone of free trade is not on the borders. It's on our borders. And we're going to have to make sure that we don't let people come in and out of this country without a visa or a green card."
+
+Trump has said he would like to see Mexico
+2025-01-23 15:58:11,381 [INFO] Generated Text: 1:
+Listen, I understand free trade, and the cornerstone of free trade is not on the front lines of a gun-toting guerrilla group. But we have to be very careful about what we say in public. We have to be very careful about what we say in private."
+
+The senator said he was "very concerned"
+2025-01-23 15:58:11,610 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:17,653 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:19,380 [INFO] Generated Text: 1:
+The greatness of our democracy is grounded in our ability to move beyond our diffused political and economic divisions.
+
+We must work together to create a more just, prosperous and prosperous world. We must build on the achievements of the past, not repeat them.<|endoftext|>
+2025-01-23 15:58:20,260 [INFO] Generated Text: 1:
+The greatness of our democracy is grounded in our ability to move beyond our diffused, atomized, and un-conventional understanding of the world. The idea that we can fight against the forces that are so destructive against us in this world is a fundamental part of what makes us human.
+
+We are not just fighting
+2025-01-23 15:58:25,439 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:31,593 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:33,449 [INFO] Generated Text: 1:
+We strongly support NATO, an alliance forged through the bonds of two woeful nations. We will not allow this to happen again."
+
+The U.S. has been accused of supporting terrorism in Syria and Iraq since 2011, when it was accused of supporting al-Qaeda in Iraq and Syria (AQIS).
+2025-01-23 15:58:34,345 [INFO] Generated Text: 1:
+We strongly support NATO, an alliance forged through the bonds of two woefully inadequate and ineffective air defenses. The United States has been a leading supporter of the International Committee of the Red Cross (ICRC), which is fighting against the most devastating aerial bombardment in its history. We have also provided critical support to our allies in
+2025-01-23 15:58:34,606 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:40,738 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:43,111 [INFO] Generated Text: 1:
+And I think that the intention is we supress the idea of an open-ended, free market. We want to see a government that is not beholden to special interests and not beholden to Wall Street."
+
+"I think it's important for us to be able to say,
+2025-01-23 15:58:44,014 [INFO] Generated Text: 1:
+And I think that the intention is we supine ourselves against the powerful forces of darkness, against the power of darkness. We are not a people who fight for our own survival, but for our own liberation from this world. We are not a people who stand up to those who would destroy us
+2025-01-23 15:58:46,160 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:52,014 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:58:53,781 [INFO] Generated Text: 1:
+Trade, education, and the environment are critical pieces of the greater mosaic of our relationship with the world.
+
+The United States is a global leader in environmental protection and is one of only two countries in the world that has not ratified an international treaty on climate change. The United States has been involved in several international efforts to address climate
+2025-01-23 15:58:54,751 [INFO] Generated Text: 1:
+Trade, education, and the environment are critical pieces of the greater mosaic of our relationship with nature.
+
+The U.S. has been a leading supporter of environmental and social justice movements for more than 50 years, but it's not just in the United States that we've come to embrace this new era of environmental activism. In
+2025-01-23 15:58:59,906 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:59:06,253 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:59:08,760 [INFO] Generated Text: 1:
+As you know, I am willing to send the militarized police into your neighborhood.
+
+I am willing to send the military into your neighborhood.
+
+I am willing to send the military into your neighborhood.
+
+I am willing to send the military into your neighborhood.
+
+
+You are not
+2025-01-23 15:59:09,651 [INFO] Generated Text: 1:
+As you know, I am willing to send the militarized media into a frenzy over this video. It's not just about the war against ISIS, it's about the fight against our own government. And that's why we're here today in this room today with Senator Sanders and Senator Cruz. We're
+2025-01-23 15:59:14,796 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:59:20,721 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:59:22,491 [INFO] Generated Text: 1:
+Third, we must develop our energy technology and resources so that the United States has the abiliities to deal with a nuclear-armed Iran.
+
+The U.S. is not a nation of nuclear weapons, but it is an advanced nation that has developed its own nuclear weapons program and is capable of producing them in large numbers. The
+2025-01-23 15:59:23,377 [INFO] Generated Text: 1:
+Third, we must develop our energy technology and resources so that the United States has the abiliations of many of our most important weapons systems. The U.S. military is now engaged in a series of coordinated operations against the largest number of insurgents in Iraq and Syria, including an array of air-to-ground missiles, artillery shells,
+2025-01-23 15:59:23,603 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:59:24,721 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:59:26,558 [INFO] Generated Text: 1:
+We also acknowledge the critical importance of agriculture as a source of millio-economic activity. We are committed to ensuring that our farmers have access to quality, affordable and sustainable food and services.
+
+The Government has made significant progress in this area over the past year, with a number of key initiatives including:
+
+
+2025-01-23 15:59:27,438 [INFO] Generated Text: 1:
+We also acknowledge the critical importance of agriculture as a source of millio-chemical weapons. The U.S. Army's first nuclear-powered aircraft carrier, the USS Enterprise, was shot down in a battle with an enemy fighter over the Pacific in 1942. In 1944, an American ship was sunk by Japanese forces on
+2025-01-23 15:59:32,600 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:59:33,584 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:59:35,573 [INFO] Generated Text: 1:
+In other words, our leadership depends upon our commitmnt to the cause of the people.
+
+We are not afraid to stand up for what we believe in. We are not afraid to stand up for what we believe in. We are not afraid to stand up for what we believe in.
+
+2025-01-23 15:59:36,470 [INFO] Generated Text: 1:
+In other words, our leadership depends upon our commitmant against the antilocidal organization of the United States.
+
+The United States has been a major contributor to the fight against this movement. The United States has provided more than $1 billion in aid to countries that have joined with us in
+2025-01-23 15:59:41,629 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:59:42,924 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:59:44,627 [INFO] Generated Text: 1:
+But, in general, we are supportive of investment into vernacular language.
+
+In the past few years, I have been involved in a number of projects that focus on the development of new languages and technologies. These include:
+
+A New Language for People with Disabilities (NLP) –
+2025-01-23 15:59:45,529 [INFO] Generated Text: 1:
+But, in general, we are supportive of investment into __________. The word "anti-Semitism" is used to describe the anti-Semitic rhetoric that has been directed against Jews and other minorities by the Jewish community. Anti-Semitism is a term used to describe anti-Semitic attitudes and actions against Jews
+2025-01-23 15:59:50,708 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:59:56,825 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 15:59:58,691 [INFO] Generated Text: 1:
+To raise productivity and growth potential in our economies, we support structural ills that are driving the current economic crisis. We believe that the U.S. economy needs to be rebuilt from within, and we will continue to do so by investing in innovative technologies and innovation."
+
+The report also said that "the U
+2025-01-23 15:59:59,590 [INFO] Generated Text: 1:
+To raise productivity and growth potential in our economies, we support structural ills that are rooted in the DNA of our cells. These cellular proteins are essential for the survival of cells against invading bacteria and viruses. They protect against cancer, tumor, and other diseases by protecting against the breakdown of proteins that bind to them. The
+2025-01-23 16:00:02,018 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:03,090 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:04,801 [INFO] Generated Text: 1:
+By supporting the education of your people, we  must be able to support them in their daily lives. We must be able to support them in their everyday lives. We must be able to support them in their daily lives.
+We are not going anywhere without a strong commitment from our community and
+2025-01-23 16:00:05,790 [INFO] Generated Text: 1:
+By supporting the education of your people, we  have been working with a number of organizations to bring together the best resources available to help you find information about these unique and fascinating creatures. We are also working with other organizations to provide information on how they can help you find out more about these creatures
+2025-01-23 16:00:06,020 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:11,923 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:14,737 [INFO] Generated Text: 1:
+And as I said yesterday, we have got a friendship with  a lot of people who are very good at what they do. We've got a lot of great people in the world and we're going to be doing it for them.
+We're going to be doing it for them because they know how
+2025-01-23 16:00:15,669 [INFO] Generated Text: 1:
+And as I said yesterday, we have got a friendship with _________. He was the only person who could speak to me. He was a very good man. I had no idea he would be so kind and generous."
+
+"I'm sorry," she said, "but you're not going to get
+2025-01-23 16:00:15,875 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:17,007 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:18,824 [INFO] Generated Text: 1:
+Now, with regard to the penalties on marihuana, that is a matter which I do thither.
+
+I am not aware of any law which would permit the sale of marihuana in this country. I have no knowledge of any law which would permit it in Canada. The only thing that could be done is to make it illegal
+2025-01-23 16:00:19,716 [INFO] Generated Text: 1:
+Now, with regard to the penalties on marihuana, that is a matter which I do thither.
+
+I am not going to go into the particulars of this particular case. But I will say that it is an interesting case in which we have been able to show how much of our own time and energy was devoted to fighting against the
+2025-01-23 16:00:19,990 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:25,985 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:27,754 [INFO] Generated Text: 1:
+And I think that legislation around access to employment, a right that is being eroded by the state of California, is a good thing.
+
+"I think it's important for us to be able to provide for our children and our grandchildren. We need to have a system where we can provide for them
+2025-01-23 16:00:28,635 [INFO] Generated Text: 1:
+And I think that legislation around access to employment, a single-payer health care system, and the right to life against the backdrop of an ever-growing number of diseases and cancers," he said.
+
+"We're going to have to make sure that we don't get any more people on this
+2025-01-23 16:00:33,809 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:36,785 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:38,911 [INFO] Generated Text: 1:
+And we are trying to work together with Russia on big issues of the future," he said.
+
+"We have a lot of good ideas, but we need to work together on some things that will help us achieve our goals."<|endoftext|>
+2025-01-23 16:00:39,790 [INFO] Generated Text: 1:
+And we are trying to work together with Russia on big issues of the Internet. We're working with the United States, and we're working with our allies in Europe, against the United Nations. And we're fighting against a very powerful international organization called the International Committee of the Red Cross. And that's what I'm
+2025-01-23 16:00:44,957 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:51,200 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:53,216 [INFO] Generated Text: 1:
+So, in that context, I think the expansion of NATO is quite affordable and really should be seen not only as a cooperative sine qua non with Russia but also as a step towards more effective cooperation between the two countries," he said.
+
+"We are not going to have any problems with Russia because we are all part of NATO. We are all part of NATO
+2025-01-23 16:00:54,102 [INFO] Generated Text: 1:
+So, in that context, I think the expansion of NATO is quite affordable and really should be seen not only as a cooperative sledgehammer against the anti-tank and anti-aircraft weapons systems of the United States," said John D. Hochberg, a professor at Stanford University's School of Advanced International Studies. "The idea that you could use these weapons against an
+2025-01-23 16:00:55,824 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:56,740 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:00:58,653 [INFO] Generated Text: 1:
+And I think technology now has enabled the vernacular of the world to be more accurate and more precise.
+
+I think that's what we're seeing in this country, where people are using their smartphones to do things like make a map or something. And I think that's what we
+2025-01-23 16:00:59,553 [INFO] Generated Text: 1:
+And I think technology now has enabled the vernacular of the word 'war' against a single, global organization. The war against the Soviet Union was waged in Europe and America, and it was fought in Europe by thousands of men who were fighting for their lives against a thousand different forces.
+2025-01-23 16:00:59,857 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:00,908 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:02,834 [INFO] Generated Text: 1:
+I think that our investments in education are absolved of any responsibility for the failure to provide adequate funding for public schools," he said.
+
+"We have a responsibility to ensure that we do not create an environment where children are being left behind and they're not getting the education they need."
+2025-01-23 16:01:03,788 [INFO] Generated Text: 1:
+I think that our investments in education are absolved of any responsibility for the thousands of people who have died in the streets and across the globe since World War II," he said.
+
+"We must not allow ourselves to be turned into a battlefield against those who believe that we can fight against
+2025-01-23 16:01:04,022 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:05,191 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:07,065 [INFO] Generated Text: 1:
+Just last month when a coup threatened the cause of democracy in the Soviet Union, President Vladimir Putin's government was forced to step up its military campaign against opposition groups.
+
+The Russian military has been accused of carrying out a series of attacks on opposition groups in recent months, including one that killed at least 30 people and
+2025-01-23 16:01:07,957 [INFO] Generated Text: 1:
+Just last month when a coup threatened the cause of democracy in the Soviet Union, a group of young activists from the United States and Canada joined forces to fight against an anti-tank missile called the M1 Abrams. The M1 was designed to be used against tanks, but it was also used by American soldiers in World
+2025-01-23 16:01:13,143 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:14,594 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:16,517 [INFO] Generated Text: 1:
+I am confident that American science and industry will lead the way in this new market here and in the developing vernacular of the world."
+
+The company's chief executive, Mark W. Miller, said: "We are excited to be working with our partners at Google to bring our products to market. We look forward to working with them on their next
+2025-01-23 16:01:17,401 [INFO] Generated Text: 1:
+I am confident that American science and industry will lead the way in this new market here and in the developing vernal cancer vaccine," said Dr. Paul E. Dolan, a professor of medicine at Harvard Medical School who is leading the study. "The vaccine against Ebola has been developed by a team of scientists from Harvard's Department of Immunology, which
+2025-01-23 16:01:17,628 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:23,668 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:25,286 [INFO] Generated Text: 1:
+During this time of war, we must continue to suppor- tantly fight for our freedom. We must not allow the people to be enslaved by the state. We must not allow the people to be oppressed by it. We must not allow the people to be oppressed by a government that is in power and
+2025-01-23 16:01:26,178 [INFO] Generated Text: 1:
+During this time of war, we must continue to suppor- ments for the survival of our people against the forces of the most powerful and ruthless military force in history. The United States is a nation that stands with its people against all those who seek to destroy it. We are not alone in our determination
+2025-01-23 16:01:29,051 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:35,176 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:37,178 [INFO] Generated Text: 1:
+NATO is a force multiplier, and the initiatives we will endorse today will  help us achieve that goal.
+We are also committed to working with our partners in the region to ensure that we can continue to build on our successes in Afghanistan and beyond. We have already begun working with the Afghan government on a new security strategy
+2025-01-23 16:01:38,057 [INFO] Generated Text: 1:
+NATO is a force multiplier, and the initiatives we will endorse today will  be used to counter the growing numbers of people who are living in poverty and hunger.
+The U.S. has been fighting against the most powerful forces in this war against the Islamic State of Iraq and Syria (ISIS), which is now waging
+2025-01-23 16:01:40,522 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:46,480 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:48,358 [INFO] Generated Text: 1:
+We agree that the expansion of trade and economic ties among the states of Central Asia, and deepening of regional integration in imbalances between countries, is a necessary step to ensure stability in the region," said a statement from China's foreign ministry.
+
+The statement added that "the Chinese government will continue to work with all parties concerned to promote peace and stability in Central
+2025-01-23 16:01:49,243 [INFO] Generated Text: 1:
+We agree that the expansion of trade and economic ties among the states of Central Asia, and deepening of regional integration in immeasurable proportions, are essential to our national security interests," he said.
+
+"The United States is not alone in its efforts to defend against this growing threat."
+
+He added: "We must also continue our efforts to ensure that
+2025-01-23 16:01:51,849 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:57,821 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:01:59,537 [INFO] Generated Text: 1:
+In the short space of 4 years under the Marshall plan, and wisely, we concentrated our e-mail and phone calls on a single topic: climate change.
+
+We were wrong. The U.S. government has been in denial about climate change for decades now, but it's not going away anytime soon. The Obama administration is still
+2025-01-23 16:02:00,417 [INFO] Generated Text: 1:
+In the short space of 4 years under the Marshall plan, and wisely, we concentrated our e-mail address to a small group of people who were in the trenches. They had no idea what they were talking about.
+
+The e-mail was sent by a man named David O'Brien, who was working for an American defense contractor
+2025-01-23 16:02:03,258 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:02:04,207 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:02:05,964 [INFO] Generated Text: 1:
+But I want to say again, I believe that increased trade withe the United States is a good thing. It's not just about our jobs. It's about our security and prosperity."
+
+The White House said it was "deeply concerned" by the report, which came as Trump was preparing to meet
+2025-01-23 16:02:06,854 [INFO] Generated Text: 1:
+But I want to say again, I believe that increased trade wit the Internet and its spread of information, including the information about our enemies' computers and their networks, has led to a tremendous increase in the number of people who are willing to fight against us. We have been able to make a lot of money from
+2025-01-23 16:02:12,039 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:02:17,896 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:02:19,598 [INFO] Generated Text: 1:
+I enthusiastically support the concept of victory for Ukraine, which is pitting the Ukrainian people against Russia.
+
+"We are not fighting for a single country, we are fighting to defend our own interests and our own interests in Europe," he said. "We will fight to protect our sovereignty and territorial integrity."<|endoftext|>
+2025-01-23 16:02:20,477 [INFO] Generated Text: 1:
+I enthusiastically support the concept of victory for Ukraine, which is pitting a group of anti-government activists against a group of armed men who are fighting in the streets against an army that has been called on by the United Nations to attack them.
+
+"We're here today to show that we can't just
+2025-01-23 16:02:25,645 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:02:28,035 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:02:30,013 [INFO] Generated Text: 1:
+I think the message is that employment and our labor market are really importa- tional. And I think it's important to remember that we're not going to be able to get out of this recession without a strong economy."
+
+But he added: "We have a lot of work ahead of us, and we
+2025-01-23 16:02:30,924 [INFO] Generated Text: 1:
+I think the message is that employment and our labor market are really importa- tive. The book, which I'm going to be publishing tomorrow, is a great example of how we can use this book to help us understand what it means to fight against the books that are out there. It's not just about the
+2025-01-23 16:02:31,198 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:02:37,886 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:02:39,844 [INFO] Generated Text: 1:
+We need resilient, well-maintained critical infrastructure so that all Americans have access to safe food, reliable electricity, and affordable health care," he said.
+
+The president also called for a "major overhaul" of the federal government's role in health care. He said the Affordable Care Act would provide more funding for public health programs and improve access to quality medical
+2025-01-23 16:02:40,737 [INFO] Generated Text: 1:
+We need resilient, well-maintained critical infrastructure so that all Americans have access to safe food, reliable electricity, and a living wage," said the president.
+
+The president also called on Congress to "take decisive action" against the U.S.-backed National Security Agency's surveillance program that has been called into question by intelligence agencies over its collection of phone
+2025-01-23 16:02:45,894 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:02:52,113 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:02:54,134 [INFO] Generated Text: 1:
+The COVID-19 pandemic demonstrated our need for greater manufacturing capacity in areas catered to by the U.S. military and other countries, including Afghanistan, Iraq and Pakistan," said David A. Schoenfeld, a senior fellow at the Center for Strategic and International Studies (CSIS) who is also a former deputy assistant
+2025-01-23 16:02:55,028 [INFO] Generated Text: 1:
+The COVID-19 pandemic demonstrated our need for greater manufacturing capacity in areas caged against the growing threat of radioactive materials. The U.S. Army's "Operation Enduring Freedom" was launched in December of 1944, and it was a major success against the Japanese forces on the front lines at Fort Bragg, North Carolina
+2025-01-23 16:02:55,222 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:03:01,588 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:03:03,474 [INFO] Generated Text: 1:
+And so, my fellow Americans, as we stand at the edge of the 21st centuarion, we must be ready to take up arms against those who are not.
+
+We must be ready to defend our country from those who seek to destroy it. We must be ready to defend our country from those who seek to destroy it
+2025-01-23 16:03:04,375 [INFO] Generated Text: 1:
+And so, my fellow Americans, as we stand at the edge of the 21st centuaries.
+
+We are in a world where our most powerful weapons are not against us but against our own people. We have to fight for what is right and for what is necessary: the right to life and liberty. And that's why I
+2025-01-23 16:03:06,987 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:03:12,996 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:03:14,928 [INFO] Generated Text: 1:
+And to ensure that even better technologies are available in the future, we are asking CERN to develop a new approach for the development of new particle accelerators.
+
+The first step is to develop a system that can be used by all kinds of applications. The system will be able to measure and measure particles at different speeds, and
+2025-01-23 16:03:15,814 [INFO] Generated Text: 1:
+And to ensure that even better technologies are available in the future, we are asking CERN's physicists to conduct a series of experiments on their new particle accelerator.
+
+The experiment will test a new type of particle called an anti-antigen, which is designed to detect and destroy any chemical or biological agent that might be present in
+2025-01-23 16:03:20,993 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:03:27,148 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:03:29,034 [INFO] Generated Text: 1:
+Thus far, that engagement has focused on the professionalization of thier work.
+
+The most recent example is the new model for working with a group of young people who are interested in learning about and interacting with other people. The idea is to build a rapport between them and their peers, which can be very
+2025-01-23 16:03:29,920 [INFO] Generated Text: 1:
+Thus far, that engagement has focused on the professionalization of thiamine, a compound found in many foods and supplements.
+
+"Thiamine is a very important molecule in our body," says Dr. Paul S. Gage, an associate professor of medicine at the University of California San Francisco who studies
+2025-01-23 16:03:34,247 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:03:40,686 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:03:42,368 [INFO] Generated Text: 1:
+The Lilly Ledbetter Fair Pay Act, the first bill I signed as President, restored basic protections against discrimination in employment and housing.
+
+I also signed a bipartisan bill to expand the Earned Income Tax Credit (EITC), which provides tax credits for low-income workers who earn less than $25,000 a year. The EIT
+2025-01-23 16:03:43,256 [INFO] Generated Text: 1:
+The Lilly Ledbetter Fair Pay Act, the first bill I signed as President, restored basic protections against the use of chemical weapons. The Chemical Weapons Convention was ratified by more than 100 nations and is one of the most important international treaties on chemical weapons.
+
+In a letter to Congress in March, President Obama said that he had "no doubt"
+2025-01-23 16:03:43,510 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:03:49,477 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:03:51,118 [INFO] Generated Text: 1:
+The process of political reform is continous. The question is whether the current system will be able to withstand the pressure of a new generation of leaders who are willing to stand up for what they believe in and who are willing to fight for their country.
+
+"We have seen that
+2025-01-23 16:03:52,001 [INFO] Generated Text: 1:
+The process of political reform is continously being challenged by the American people, and we are determined to make sure that our voices are heard in this battle."
+
+"We will not be silent," he added. "We will not stand for the lives of those who have been killed
+2025-01-23 16:03:54,948 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:03:56,140 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:03:57,783 [INFO] Generated Text: 1:
+That is the kind of investment in our own people that helped us liven up the country," he said.
+
+"We have a lot of good things to do, but we need to be able to do it with our own people."<|endoftext|>
+2025-01-23 16:03:58,453 [INFO] Generated Text: 1:
+That is the kind of investment in our own people that helped us launder $1.2 trillion in illicit money," he said.
+
+"We're going to have to be very careful about what we say and what we say against this record."<|endoftext|>
+2025-01-23 16:03:58,686 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:03:59,720 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:04:01,369 [INFO] Generated Text: 1:
+And we will make clear our strong conviction that multiparty democracy, based on a veneer of equality and justice, is the best way to ensure that all people have the opportunity to participate in democratic processes."
+
+The president's speech was part of a series of speeches by his administration on Monday. The first was delivered at the
+2025-01-23 16:04:02,253 [INFO] Generated Text: 1:
+And we will make clear our strong conviction that multiparty democracy, based on a veneer of civility and respect for the rule of law, has been eroded by the relentless efforts of many in the United States to undermine its own citizens' right to life and freedom."
+
+The statement was made at a rally in New York
+2025-01-23 16:04:02,491 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:04:08,473 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:04:10,305 [INFO] Generated Text: 1:
+Our economic competiveness depends on our shared commitment to education, inclu- ments and the rule of law. We are committed to ensuring that all students have access to a safe and secure learning environment. We believe that the most effective way for our students to learn is through a safe learning environment."
+
+The bill
+2025-01-23 16:04:11,204 [INFO] Generated Text: 1:
+Our economic competiveness depends on our shared commitment to education, inclu- sible for the use of the Internet and other technologies that are not currently available to us. We have developed a number of tools that enable us to monitor and analyze data from our network, including an advanced surveillance system called "Spyware,"
+2025-01-23 16:04:14,037 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:04:20,312 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:04:22,110 [INFO] Generated Text: 1:
+I am also raising the issue of free and fair trade and ousting the EU.
+
+"The EU is a powerful force in our world, but it is not a force that can be used to undermine or destroy us. It has no place in this country."<|endoftext|>
+2025-01-23 16:04:22,985 [INFO] Generated Text: 1:
+I am also raising the issue of free and fair trade and ousting the government of President Bashar al-Assad," he said.
+
+"We are fighting against a very powerful, powerful enemy that is not only against us but against our people."
+
+The Syrian Observatory for Human Rights, which tracks the conflict
+2025-01-23 16:04:28,166 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:04:29,485 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:04:31,101 [INFO] Generated Text: 1:
+Just last year, when American troops were in combat in Afghanistan and Iraq, I was told that the U.S. military had been involved in a number of terrorist attacks on American soil. I was told that this was not true, but it is true now."
+
+The Obama administration has also been accused of being complicit in
+2025-01-23 16:04:31,993 [INFO] Generated Text: 1:
+Just last year, when American troops were in combat in Afghanistan and Iraq, I was a member of the United States Air Force's 9th Airborne Division. I was stationed at Fort Bragg, North Carolina. The day before the invasion of Iraq, we had just lost our first major battle against the enemy's air forces.
+2025-01-23 16:04:37,140 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:04:38,182 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:04:40,323 [INFO] Generated Text: 1:
+Actually, I think that moving forward on democracy and sovereignty and thrones is a good thing.
+
+AMY GOODMAN: We're going to break in from Washington, D.C., where we're joined by the author of Democracy Now!, Ben Wikler, who's also with us from New York City. He
+2025-01-23 16:04:41,207 [INFO] Generated Text: 1:
+Actually, I think that moving forward on democracy and sovereignty and thier first-person shooter, you know, the video game industry is a very important part of the story. And so we're going to continue to fight against this in our own home," he said.
+
+"We're going to continue to
+2025-01-23 16:04:41,466 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:04:42,510 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:04:43,785 [INFO] Generated Text: 1:
+I believe we can work together in Afghanistan to make supranational change," he said.
+
+"We have to be able to do that without the support of the Taliban."<|endoftext|>
+2025-01-23 16:04:44,670 [INFO] Generated Text: 1:
+I believe we can work together in Afghanistan to make sullying images of the human body and its organs, as well as the images of our bodies, on a global scale," he said.
+
+"We are not going to be able to do that alone. We have to take on these very
+2025-01-23 16:04:49,844 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:04:55,779 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:04:57,499 [INFO] Generated Text: 1:
+My Administration is making unprecedented investments in education and is working to expand oppo- nity for all students," said Secretary of State John Kerry. "We are committed to providing a safe, secure and affordable education for all Americans." The Department of Education has been working with the U.S. Department of Education on a plan
+2025-01-23 16:04:58,380 [INFO] Generated Text: 1:
+My Administration is making unprecedented investments in education and is working to expand oppo- ness, a form of self-defense that has been used by the U.S. military against the Soviet Union's most advanced anti-tank weapons."
+
+The Pentagon also said it was "deeply concerned" about the growing number
+2025-01-23 16:05:00,266 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:01,103 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:03,050 [INFO] Generated Text: 1:
+I believe not only is trade in my Nation's interests; I think trade is in the interdependence of our Nation and our Country.
+
+The President has made it clear that he will not allow any nation to become a trading partner with another nation, or to become a trading partner with another country. He has said that we must be
+2025-01-23 16:05:03,927 [INFO] Generated Text: 1:
+I believe not only is trade in my Nation's interests; I think trade is in the interwar campaign against the Soviet Union," he said.
+
+"The United States has been fighting for a long time against the Soviet Union, and we have been fighting for our own survival against that of our allies."
+
+Mr. Sanders also called
+2025-01-23 16:05:04,153 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:10,245 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:11,794 [INFO] Generated Text: 1:
+Today we must do the same in Afghanistan and Iraq, and by helping these young democracies grow in their capacity to be a force for good," he said.
+
+"We need to take action now, not later."<|endoftext|>
+2025-01-23 16:05:12,674 [INFO] Generated Text: 1:
+Today we must do the same in Afghanistan and Iraq, and by helping these young democracies grow in numbers, we can help our fellow citizens to survive."
+
+The group's leader, Tariq Ali al-Athar, said he was "shocked" by the news of the death of his son. He said he had been
+2025-01-23 16:05:12,872 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:13,977 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:15,822 [INFO] Generated Text: 1:
+In my view, we need more men and women in our military to be able to fight for the cause of peace.
+
+I think that's what we need. We need more men and women in our military to be able to fight for the cause of peace.
+
+We have a lot of young people
+2025-01-23 16:05:16,707 [INFO] Generated Text: 1:
+In my view, we need more men and women in our military. We have a lot of weapons that are not designed to be used against us. And we have a lot of people who are fighting for the same cause as us."
+
+The video shows the young man standing on a platform with his hands up
+2025-01-23 16:05:16,873 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:17,939 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:20,180 [INFO] Generated Text: 1:
+I believe in freewill, and I believe in the freedom of the individual to choose his own destiny.
+
+The United States has a long history of protecting its citizens from foreign threats. The United States has been a strong ally in many areas of international law,
+2025-01-23 16:05:21,069 [INFO] Generated Text: 1:
+I believe in freeways, and I'm against the idea of driving on a freeway," he said. "I think it's a very dangerous thing to do."
+
+He said he was not sure if the law would apply to his truck or other vehicles that were
+2025-01-23 16:05:21,252 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:22,739 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:24,481 [INFO] Generated Text: 1:
+To accelerate the march of discovery across all these disciplines in science and technology, I ask you to support my recommendation by supporting this project.
+
+I am also asking you to help me with a few other projects that I have been working on for the past year or so. These include:
+
+The Discovery of Life on Mars (Discovery) Project
+2025-01-23 16:05:25,369 [INFO] Generated Text: 1:
+To accelerate the march of discovery across all these disciplines in science and technology, I ask you to support my recommendat.
+
+The anti-war movement is a global movement that has been waging a worldwide war against the world's most powerful weapons: nuclear weapons. The United States has spent more than $1 billion on arms since World War II, and over $
+2025-01-23 16:05:25,524 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:26,606 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:28,454 [INFO] Generated Text: 1:
+With our help, since 1954, South Viet-Nam has already doubled its rice production,  and now it is producing more than half of the country's rice.
+The government has also started to develop a new type of rice called "Pong" that is grown in the city of Khao San and is used for food. The
+2025-01-23 16:05:29,328 [INFO] Generated Text: 1:
+With our help, since 1954, South Viet-Nam has already doubled its rice production,  the only way to stop the spread of this deadly virus.
+The first vaccine against the Ebola virus was developed in the early 1990s by Dr. William S. Tiller and his team at the University of Texas at Austin. The vaccine was
+2025-01-23 16:05:29,500 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:30,603 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:32,516 [INFO] Generated Text: 1:
+In a global economy where more than half of new jobs will demand higher education or advancement, the government is trying to ensure that students are not left behind.
+
+"We have to be very careful about what we say and what we do," said Ravi Shankar Prasad, head of the National Institute for Education Research
+2025-01-23 16:05:33,397 [INFO] Generated Text: 1:
+In a global economy where more than half of new jobs will demand higher education or advanc­tion, the use of digital technology to record and store information is becoming increasingly important.
+
+The U.S. government has been waging a series of high-profile campaigns against the Internet, including in an effort to stop its spread across the
+2025-01-23 16:05:33,566 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:34,623 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:36,236 [INFO] Generated Text: 1:
+In taking steps to improve our infrastructure, we must remember that the protection and continued enjoyment of our Nation's environme is a fundamental right.
+
+We are committed to working with Congress and the President on a comprehensive plan for improving our infrastructure. We will continue to work with Congress and the President on this important issue.
+
+We will continue to work with Congress
+2025-01-23 16:05:37,112 [INFO] Generated Text: 1:
+In taking steps to improve our infrastructure, we must remember that the protection and continued enjoyment of our Nation's environme [sic] is a key component of the American economy. The American people have been given a powerful tool to fight against this potent and powerful force in their name: the Internet."
+
+The letter was signed by more than 100 members of Congress,
+2025-01-23 16:05:37,250 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:38,149 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:40,579 [INFO] Generated Text: 1:
+My Administration knows that choice in education plays a ills that are not easily addressed. We have made it clear to our students and teachers that we will not tolerate discrimination based on race, color, religion, national origin or disability.
+
+We also know that the United States has a long history of
+2025-01-23 16:05:41,453 [INFO] Generated Text: 1:
+My Administration knows that choice in education plays a vernacular language, and the words we use to describe it are often very different from those used by our opponents. We have been fighting for years against the word "nigger" in our language, and we will continue to fight until we are able
+2025-01-23 16:05:41,610 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:42,948 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:44,672 [INFO] Generated Text: 1:
+These Saturday talks have often marked action taken to make our schools strident and inclusive.
+
+The government has been working hard to build a strong, diverse and inclusive school system that is more welcoming, supportive and welcoming for all students. We are committed to ensuring that every student has the opportunity to succeed in their chosen
+2025-01-23 16:05:45,543 [INFO] Generated Text: 1:
+These Saturday talks have often marked action taken to make our schools straining against the power of the Internet and its potential for disruption.
+
+The National Security Agency's (NSA) massive collection of phone records, which has been used by millions of Americans to track their movements, is a major source of information about our
+2025-01-23 16:05:45,738 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:46,955 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:49,094 [INFO] Generated Text: 1:
+The United States and the Nordic countries reaffirm our support for the UN and for mediation, conflict pacts, and other efforts to resolve conflicts in the region," said a statement from U.S. Secretary of State John Kerry.
+
+"We are committed to working with all parties involved in resolving these issues," he added. "We will continue
+2025-01-23 16:05:49,982 [INFO] Generated Text: 1:
+The United States and the Nordic countries reaffirm our support for the UN and for mediation, conflict p. 4.
+
+[2] The International Committee of the Red Cross (ICRC) is a non-governmental organization that provides medical care to people in need of treatment at its facilities in Geneva, Switzerland. It is dedicated to providing medical services
+2025-01-23 16:05:50,129 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:51,068 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:52,817 [INFO] Generated Text: 1:
+We will make a historic financial investment in the Armed Forces of the United States a priority," said Secretary of Defense Ash Carter. "This is an important step forward for our nation and for our military."
+
+The Pentagon also announced that it has agreed to pay $1.5 billion to settle claims by former U.S.
+2025-01-23 16:05:53,700 [INFO] Generated Text: 1:
+We will make a historic financial investment in the Armed Forces of the United States a key tool in our arsenal against the forces of our enemies."
+
+The video, which was posted on YouTube by a user named "Tiger," shows two men standing on an American flag. One is holding a rifle and the other is holding an
+2025-01-23 16:05:53,851 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:54,979 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:56,803 [INFO] Generated Text: 1:
+So today what I am proposing is that we redefine compensati to include all the things that are not covered by the law.
+
+The law does not cover any of these things, but it does cover some of them. It covers those things that are not covered by the law, and it covers those things
+2025-01-23 16:05:57,681 [INFO] Generated Text: 1:
+So today what I am proposing is that we redefine compensati, the name for a chemical compound that's used to make certain kinds of drugs. It's called "disease-fighting" and it's a chemical compound that has been used in the fight against cancer. It's called "the anti-
+2025-01-23 16:05:57,905 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:05:58,939 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:00,676 [INFO] Generated Text: 1:
+And a sustained effort at investing in our infrastructure could put a looser lid on the crisis.
+
+"We need to make sure that we have the resources to do that," he said. "We need to get out of this mess and start thinking about how we can help people."<|endoftext|>
+2025-01-23 16:06:01,543 [INFO] Generated Text: 1:
+And a sustained effort at investing in our infrastructure could put a looser grip on the world's water supply.
+
+The International Water Council, which represents more than 100 countries, has been working with the United Nations to develop a framework for international water treaties and is expected to submit its report by next year. The
+2025-01-23 16:06:01,713 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:02,697 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:04,610 [INFO] Generated Text: 1:
+I support free-trade, but I also support wiggle room for trade.
+
+"I think it's important to have a fair deal for all parties involved. We need to be able to negotiate with each other and we need to be able to work together."<|endoftext|>
+2025-01-23 16:06:05,493 [INFO] Generated Text: 1:
+I support free-trade, but I also support wargaming.com and the like. If you're looking for a great way to play with your friends, check out our forums or join our Discord server.
+
+If you'd like to see more of the awesome art from this week's episode
+2025-01-23 16:06:05,635 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:06,859 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:09,057 [INFO] Generated Text: 1:
+I think after a decade of war, it is time to help Afgha and the rest of the world.
+
+"We need to make sure that we are not going to be able to take advantage of this situation," he said. "We need to get rid of all these people who are fighting for us."<|endoftext|>
+2025-01-23 16:06:09,934 [INFO] Generated Text: 1:
+I think after a decade of war, it is time to help Afgha's people by taking their water and food from the hands of the local tribesmen. We are fighting against a group called the People's Liberation Army (PLA), which is led by a man named Abu Muhammad al-Khattab. He has been
+2025-01-23 16:06:10,135 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:11,186 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:12,950 [INFO] Generated Text: 1:
+I believe it is a good investment in momentum and a long-range vernacular.
+
+"The idea of an economic system that is based on the principle of 'one country, one currency' has been around for some time. It was very popular with the British people and it was very successful in Europe."<|endoftext|>
+2025-01-23 16:06:13,832 [INFO] Generated Text: 1:
+I believe it is a good investment in momentum and a long-range vernier," said the retired Air Force colonel. "The air force has been fighting for more than 50 years against the Soviets, and we have to fight against them now."
+
+The U.S. military's most powerful weapons are not just
+2025-01-23 16:06:14,028 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:15,077 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:16,781 [INFO] Generated Text: 1:
+We support efforts to fight corralling and re-capturing the island.
+
+"The government has been working with the local community to ensure that we have a safe and secure environment for all of our residents," said Mr. Kowalski, who is also a
+2025-01-23 16:06:17,648 [INFO] Generated Text: 1:
+We support efforts to fight cornered animals, and against the use of chemical weapons. We are also working with our allies in the region to bring about a lasting peace in Syria."
+
+The United Nations has said it is "deeply concerned" by reports that Syrian rebels have
+2025-01-23 16:06:17,800 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:18,871 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:20,720 [INFO] Generated Text: 1:
+We commit to establishing the necessary market infrastructure for iced coffee and other beverages, including a new, fully-furnished retail space in the downtown core.
+
+"We are committed to providing our customers with a great experience at Starbucks," said Tim Lacey, President and CEO of Starbucks.
+2025-01-23 16:06:21,596 [INFO] Generated Text: 1:
+We commit to establishing the necessary market infrastructure for __________.
+
+The Department of Defense has been working with the U.S. Army and other nations to develop a new, more effective anti-tank weapon system that can be used against enemy tanks and armored vehicles, as well as against ground
+2025-01-23 16:06:21,780 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:23,154 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:24,676 [INFO] Generated Text: 1:
+We support strengthening Iraq's democracy and we are an ally of the United States," he said.
+
+"We will not allow any country to be used as a pawn in the war against terrorism."<|endoftext|>
+2025-01-23 16:06:25,553 [INFO] Generated Text: 1:
+We support strengthening Iraq's democracy and we are an international community that is committed to the pursuit of peace and justice for all," he said.
+
+"The United States has a long-standing commitment to the right of every person in this country to defend his or her life, liberty, and property
+2025-01-23 16:06:25,705 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:26,592 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:28,519 [INFO] Generated Text: 1:
+But we think that North Korea and Chairman Kim have a trifecta of potential threats to the United States, including nuclear weapons. We believe that North Korea is capable of developing a nuclear weapon capable of reaching the United States," said Sen. John McCain (R-Ariz.), who has been critical of
+2025-01-23 16:06:29,391 [INFO] Generated Text: 1:
+But we think that North Korea and Chairman Kim have a trifecta of different types of weapons, and they're fighting against the same kind of weapon. And so I think it's important to understand what those weapons are, because they're not just the antitank or anti-tank guns. They're
+2025-01-23 16:06:29,561 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:30,924 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:32,245 [INFO] Generated Text: 1:
+This is all about safeguarding the southwest border, but at the same time, and this is critical, making sure that the border is secure," he said.
+
+"We have to be very careful in terms of what we do with our troops."<|endoftext|>
+2025-01-23 16:06:33,113 [INFO] Generated Text: 1:
+This is all about safeguarding the southwest border, but at the same time, and this is critical, making sure that the U.S. military's most powerful weapons are not only against those who use them against us," said Sen. John McCain (R-Ariz.), chairman of the Senate Armed Services Committee.
+
+"We're going to be fighting in a
+2025-01-23 16:06:33,294 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:34,340 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:36,137 [INFO] Generated Text: 1:
+We will do that by creating a global minimum tax, something the United State has been doing for decades.
+
+"The United States is not going to be able to pay its fair share of taxes on the rest of the world. We are going to have to make sure that we're paying our fair share."<|endoftext|>
+2025-01-23 16:06:37,004 [INFO] Generated Text: 1:
+We will do that by creating a global minimum tax, something the United State has been fighting for decades," he said.
+
+"The American people have been fighting for years against this bill, and we're going to continue to fight until we get this bill passed."
+
+The Senate's version of the bill would require
+2025-01-23 16:06:37,189 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:38,191 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:39,851 [INFO] Generated Text: 1:
+Over the long term, we know that trade and investment are the bespoke solutions to our problems.
+
+The government's focus on a single market is not working. The Government has failed to deliver on its promise of a single market for all goods and services in Australia. We need to be clear about what we want
+2025-01-23 16:06:40,713 [INFO] Generated Text: 1:
+Over the long term, we know that trade and investment are the beset with a growing body of evidence that shows that the brain is not just a tool for fighting against our own brain cells.
+
+The brains of people with Alzheimer's disease are different from those of people without it. They have different kinds of neurons
+2025-01-23 16:06:40,861 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:41,851 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:43,531 [INFO] Generated Text: 1:
+But as I said in the opening remarks, our investment in Africa is more a positive an investment than a negative one.
+
+"We are not just investing in Africa but also in developing countries and we are investing more and more into developing countries. We have to be very careful about what we invest because it's not just about the money
+2025-01-23 16:06:44,251 [INFO] Generated Text: 1:
+But as I said in the opening remarks, our investment in Africa is more a positive an instrument of resistance against the growing power of the state. The United States has been fighting for decades against this powerful force that has taken on a number of different forms, from guerrilla warfare to guerrilla warfare. But we have never been able to win without the
+2025-01-23 16:06:44,399 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:45,398 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:47,127 [INFO] Generated Text: 1:
+We will support the voices of toleranarians and those who are not in favor of abortion," he said.
+
+The bill was introduced by Rep. David Camp, R-La., a member of the House Judiciary Committee, and Sen. Jeff Merkley, D-Ore.,
+2025-01-23 16:06:48,071 [INFO] Generated Text: 1:
+We will support the voices of toleranil, a plant that is used to treat cancer and other diseases. It's a natural herb that has been used for thousands of years to fight against the roots of many different kinds of plants.
+
+"It's not just about protecting our environment
+2025-01-23 16:06:48,249 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:49,487 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:51,321 [INFO] Generated Text: 1:
+We acknowledge the importance of investment in support of human resources that can contribute to a sustainable future for all.
+
+"The Government has committed to supporting our local communities and businesses by providing financial support through the National Investment Bank, which is a central part of our national infrastructure portfolio. We are also committed to supporting the development
+2025-01-23 16:06:52,205 [INFO] Generated Text: 1:
+We acknowledge the importance of investment in support of human resources that can contribute to this report.
+
+Acknowledgments We thank Dr. Paul A. Schoenfeld, a professor at the University of Wisconsin-Madison and a member of the National Institute on Drug Abuse's Task Force on Drug Policy for his assistance with this report
+2025-01-23 16:06:52,367 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:53,218 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:54,892 [INFO] Generated Text: 1:
+We will further expand free trade, using our stature as world's number one  in terms of trade and investment.
+"The United States is a strong leader in the world economy, and we are committed to strengthening our position as a global leader in the fight against climate change."
+In an interview with The Guardian , President
+2025-01-23 16:06:55,770 [INFO] Generated Text: 1:
+We will further expand free trade, using our stature as world's number one vernacular. We are the only organization that has been able to provide a comprehensive and comprehensive database of all U.S.-based civil rights organizations, including those that have fought for civil rights in the United States and around the world. We are committed
+2025-01-23 16:06:55,952 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:57,071 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:06:59,083 [INFO] Generated Text: 1:
+I recently enlisted in the U.S. military because I do believe that mujahideen are a threat to our country and we need to be prepared for them," he said.
+
+"We have to be prepared for them, but we also have to be prepared for the Taliban."<|endoftext|>
+2025-01-23 16:06:59,961 [INFO] Generated Text: 1:
+I recently enlisted in the U.S. military because I do believe that mujahideen were responsible for the killing of over 100,000 people in Iraq and Afghanistan," he said. "We're not going to let them go into this country without a clear understanding of what they are fighting against."
+
+"The United
+2025-01-23 16:07:00,143 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:07:01,260 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:07:03,013 [INFO] Generated Text: 1:
+We also affirm our commitment to cooperating on energy, including the development of clean and re-useable energy sources.
+
+The U.S. Energy Information Administration (EIA) has a long history of working with countries to develop new technologies for energy efficiency and renewable energy, including the use of solar panels and wind turbines in developing
+2025-01-23 16:07:03,894 [INFO] Generated Text: 1:
+We also affirm our commitment to cooperating on energy, including the development of clean and re-purposed nuclear power plants.
+
+"The United States is a leading global supplier of nuclear power, and we are committed to supporting our allies in the region by providing them with reliable, affordable and reliable energy," said President Barack Obama. "
+2025-01-23 16:07:04,079 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:07:05,243 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:07:07,123 [INFO] Generated Text: 1:
+And this session at the U.N. is an important opportunity for nations to come together once more before the Paris détente, and to work together on a common vision of how we can make sure that all countries are able to live in peace and security without fear of being attacked by terrorists," said U.S. Ambassador Nikki Haley, who has been a vocal
+2025-01-23 16:07:08,003 [INFO] Generated Text: 1:
+And this session at the U.N. is an important opportunity for nations to come together once more before the Paris détente was signed in Paris in November of 1995. The United Nations has been fighting for years against the international community's efforts to bring together members of a diverse array of different groups, including women and people of color, against a common enemy: anti
+2025-01-23 16:07:08,267 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:07:09,147 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:07:10,978 [INFO] Generated Text: 1:
+The Fed's response has been guided by our mandate to promote maximum employment and stable prices for  the American people.
+We have seen the Fed's policy of "zero interest rates" in the past, but it is not a zero interest rate policy. It is a zero interest rate policy that encourages investment and investment growth, which in turn
+2025-01-23 16:07:11,855 [INFO] Generated Text: 1:
+The Fed's response has been guided by our mandate to promote maximum employment and stable prices for __________. The United States is the only country in the world that has not been able to make a major contribution to this effort. We have made significant contributions to the fight against global war, but we are still fighting against an increasingly powerful international organization
+2025-01-23 16:07:12,005 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-01-23 16:07:13,101 [INFO] HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"

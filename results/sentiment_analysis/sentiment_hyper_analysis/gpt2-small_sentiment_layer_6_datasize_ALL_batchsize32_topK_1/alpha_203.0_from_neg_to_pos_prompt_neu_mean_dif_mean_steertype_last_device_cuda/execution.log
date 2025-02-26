@@ -1,0 +1,334 @@
+2025-02-07 22:12:26,845 [INFO] Logging initialized. Logs will be saved to ./results/sentiment_hyper_analysis/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_1/alpha_203.0_from_neg_to_pos_prompt_neu_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-07 22:12:26,845 [INFO] Show Hyperparameters: 
+
+
+2025-02-07 22:12:26,845 [INFO]   task: sentiment
+2025-02-07 22:12:26,845 [INFO]   layer: 6
+2025-02-07 22:12:26,845 [INFO]   LLM: gpt2-small
+2025-02-07 22:12:26,845 [INFO]   seed: 42
+2025-02-07 22:12:26,845 [INFO]   data_size: -1
+2025-02-07 22:12:26,845 [INFO]   device: cuda
+2025-02-07 22:12:26,845 [INFO]   alpha: 203.0
+2025-02-07 22:12:26,846 [INFO]   method: val_mul
+2025-02-07 22:12:26,846 [INFO]   topk_mean: 100
+2025-02-07 22:12:26,846 [INFO]   topk_cnt: 1
+2025-02-07 22:12:26,846 [INFO]   batch_size: 32
+2025-02-07 22:12:26,846 [INFO]   source: neg
+2025-02-07 22:12:26,846 [INFO]   target: pos
+2025-02-07 22:12:26,846 [INFO]   prompt_source: neu
+2025-02-07 22:12:26,846 [INFO]   mean_type: dif_mean
+2025-02-07 22:12:26,846 [INFO]   steer_type: last
+2025-02-07 22:12:26,846 [INFO]   output_dir: ./results/sentiment_hyper_analysis/
+2025-02-07 22:12:26,846 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-07 22:12:26,846 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-07 22:12:26,846 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-07 22:12:26,846 [INFO]   temperature: 0.9
+2025-02-07 22:12:26,846 [INFO]   top_p: 0.3
+2025-02-07 22:12:26,846 [INFO]   freq_penalty: 1.0
+2025-02-07 22:12:26,846 [INFO]   example_prompt: But the lack of financial aid would
+2025-02-07 22:12:26,846 [INFO]   debug: 1
+2025-02-07 22:12:26,846 [INFO]   save_no_steer: 1
+2025-02-07 22:12:26,846 [INFO]   is_norm_delta_matrix: 0
+2025-02-07 22:12:26,846 [INFO]   use_cache: 0
+2025-02-07 22:12:26,847 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-07 22:12:26,847 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-07 22:12:26,847 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-07 22:12:26,847 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-07 22:12:26,970 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-07 22:12:26,976 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-07 22:12:26,976 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-07 22:12:26,976 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-07 22:12:31,491 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-02-07 22:12:31,491 [INFO] 缓存 ./results/sentiment_hyper_analysis/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_1/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-07 22:12:31,509 [INFO] :>> Sentiment : from neg to pos
+2025-02-07 22:12:31,521 [INFO] positive
+2025-02-07 22:12:31,526 [INFO] Running model with cache to obtain hidden states
+2025-02-07 22:12:33,412 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-07 22:12:33,412 [INFO] negative
+2025-02-07 22:12:33,426 [INFO] Running model with cache to obtain hidden states
+2025-02-07 22:12:35,466 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-07 22:12:35,468 [INFO] steer_info 已保存到缓存 ./results/sentiment_hyper_analysis/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_1/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-07 22:12:35,477 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-07 22:12:35,486 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-07 22:12:35,495 [INFO] delta_matrix: tensor([0., 0., 0., 0., 0.], device='cuda:0', grad_fn=<SliceBackward0>)
+2025-02-07 22:12:35,495 [INFO] Example prompt: But the lack of financial aid would
+2025-02-07 22:12:35,495 [INFO] Generating texts **without** steering... 
+2025-02-07 22:12:35,497 [INFO] 无干预
+2025-02-07 22:12:36,710 [INFO] prompt:*****
+But the lack of financial aid would
+2025-02-07 22:12:36,710 [INFO] 包含prompt的完整输出: 1:
+<|endoftext|>But the lack of financial aid would be a big problem for some people.
+
+The National Institutes of Health has already spent $1 billion on scholarships to students who are eligible for federal Pell Grants, according to the Center for American Progress. That's a significant amount, but it's
+2025-02-07 22:12:36,710 [INFO] 包含prompt的完整输出: 2:
+<|endoftext|>But the lack of financial aid would mean that the government would have to cut back on spending.
+
+The report, which was released on Wednesday, says that if a country were to default on its debt, it could be forced to spend up to $1 trillion over 10 years.
+2025-02-07 22:12:36,710 [INFO] 包含prompt的完整输出: 3:
+<|endoftext|>But the lack of financial aid would be a major blow to any plan to reform the federal government's deficit-reduction program.
+
+"It's a huge loss for our economy," said Sen. Tom Coburn (R-Okla.), who is running for president in 2016
+2025-02-07 22:12:36,710 [INFO] 干预之后的结果
+2025-02-07 22:12:36,710 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-07 22:12:36,710 [INFO] ** Generating texts with steering... Target **
+2025-02-07 22:12:36,710 [INFO] form neg to pos
+2025-02-07 22:12:36,712 [INFO] 干预
+2025-02-07 22:12:37,583 [INFO] prompt:*****
+But the lack of financial aid would
+2025-02-07 22:12:37,583 [INFO] 包含prompt的完整输出: 1:
+<|endoftext|>But the lack of financial aid would mean that many of those who have been affected by the earthquake will not be able to afford to pay for their medical care.
+
+"The situation is dire," said Marisa Gonzalez, a senior fellow at the Center for American Progress. "There
+2025-02-07 22:12:37,583 [INFO] 包含prompt的完整输出: 2:
+<|endoftext|>But the lack of financial aid would be a major blow to his campaign.
+
+The state's Republican governor, Scott Walker, has said he would not allow the state to spend more than $100 million on its education system and that he will not accept any money from private donors.
+2025-02-07 22:12:37,583 [INFO] 包含prompt的完整输出: 3:
+<|endoftext|>But the lack of financial aid would be a major blow to the U.S. economy, which is already struggling to recover from its worst recession in more than 40 years.
+
+The Congressional Budget Office said that $1 trillion in new spending over 10 years would be needed to offset
+2025-02-07 22:12:37,588 [INFO] debug mode,show example, no full dataset eval
+2025-02-07 22:12:37,588 [INFO] Show Hyperparameters: 
+
+
+2025-02-07 22:12:37,588 [INFO]   task: sentiment
+2025-02-07 22:12:37,588 [INFO]   layer: 6
+2025-02-07 22:12:37,588 [INFO]   LLM: gpt2-small
+2025-02-07 22:12:37,588 [INFO]   seed: 42
+2025-02-07 22:12:37,588 [INFO]   data_size: -1
+2025-02-07 22:12:37,588 [INFO]   device: cuda
+2025-02-07 22:12:37,588 [INFO]   alpha: 203.0
+2025-02-07 22:12:37,588 [INFO]   method: val_mul
+2025-02-07 22:12:37,588 [INFO]   topk_mean: 100
+2025-02-07 22:12:37,588 [INFO]   topk_cnt: 1
+2025-02-07 22:12:37,588 [INFO]   batch_size: 32
+2025-02-07 22:12:37,588 [INFO]   source: neg
+2025-02-07 22:12:37,588 [INFO]   target: pos
+2025-02-07 22:12:37,588 [INFO]   prompt_source: neu
+2025-02-07 22:12:37,588 [INFO]   mean_type: dif_mean
+2025-02-07 22:12:37,588 [INFO]   steer_type: last
+2025-02-07 22:12:37,588 [INFO]   output_dir: ./results/sentiment_hyper_analysis/
+2025-02-07 22:12:37,588 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-07 22:12:37,589 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-07 22:12:37,589 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-07 22:12:37,589 [INFO]   temperature: 0.9
+2025-02-07 22:12:37,589 [INFO]   top_p: 0.3
+2025-02-07 22:12:37,589 [INFO]   freq_penalty: 1.0
+2025-02-07 22:12:37,589 [INFO]   example_prompt: But the lack of financial aid would
+2025-02-07 22:12:37,589 [INFO]   debug: 1
+2025-02-07 22:12:37,589 [INFO]   save_no_steer: 1
+2025-02-07 22:12:37,589 [INFO]   is_norm_delta_matrix: 0
+2025-02-07 22:12:37,589 [INFO]   use_cache: 0
+2025-02-07 22:12:37,589 [INFO]   real_data_size_for_train: 1624
+2025-02-07 22:15:44,338 [INFO] Logging initialized. Logs will be saved to ./results/sentiment_hyper_analysis/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_1/alpha_203.0_from_neg_to_pos_prompt_neu_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-07 22:15:44,338 [INFO] Show Hyperparameters: 
+
+
+2025-02-07 22:15:44,338 [INFO]   task: sentiment
+2025-02-07 22:15:44,338 [INFO]   layer: 6
+2025-02-07 22:15:44,338 [INFO]   LLM: gpt2-small
+2025-02-07 22:15:44,338 [INFO]   seed: 42
+2025-02-07 22:15:44,338 [INFO]   data_size: -1
+2025-02-07 22:15:44,338 [INFO]   device: cuda
+2025-02-07 22:15:44,338 [INFO]   alpha: 203.0
+2025-02-07 22:15:44,338 [INFO]   method: val_mul
+2025-02-07 22:15:44,338 [INFO]   topk_mean: 100
+2025-02-07 22:15:44,338 [INFO]   topk_cnt: 1
+2025-02-07 22:15:44,338 [INFO]   batch_size: 32
+2025-02-07 22:15:44,338 [INFO]   source: neg
+2025-02-07 22:15:44,338 [INFO]   target: pos
+2025-02-07 22:15:44,338 [INFO]   prompt_source: neu
+2025-02-07 22:15:44,338 [INFO]   mean_type: dif_mean
+2025-02-07 22:15:44,338 [INFO]   steer_type: last
+2025-02-07 22:15:44,338 [INFO]   output_dir: ./results/sentiment_hyper_analysis/
+2025-02-07 22:15:44,338 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-07 22:15:44,339 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-07 22:15:44,339 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-07 22:15:44,339 [INFO]   temperature: 0.9
+2025-02-07 22:15:44,339 [INFO]   top_p: 0.3
+2025-02-07 22:15:44,339 [INFO]   freq_penalty: 1.0
+2025-02-07 22:15:44,339 [INFO]   example_prompt: But the lack of financial aid would
+2025-02-07 22:15:44,339 [INFO]   debug: 1
+2025-02-07 22:15:44,339 [INFO]   save_no_steer: 1
+2025-02-07 22:15:44,339 [INFO]   is_norm_delta_matrix: 0
+2025-02-07 22:15:44,339 [INFO]   use_cache: 0
+2025-02-07 22:15:44,339 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-07 22:15:44,339 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-07 22:15:44,339 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-07 22:15:44,340 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-07 22:15:44,460 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-07 22:15:44,465 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-07 22:15:44,466 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-07 22:15:44,466 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-07 22:15:50,863 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-02-07 22:15:50,863 [INFO] 缓存 ./results/sentiment_hyper_analysis/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_1/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-07 22:15:50,884 [INFO] :>> Sentiment : from neg to pos
+2025-02-07 22:15:50,898 [INFO] positive
+2025-02-07 22:15:50,904 [INFO] Running model with cache to obtain hidden states
+2025-02-07 22:15:52,898 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-07 22:15:52,898 [INFO] negative
+2025-02-07 22:15:52,912 [INFO] Running model with cache to obtain hidden states
+2025-02-07 22:15:54,957 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-07 22:15:54,960 [INFO] steer_info 已保存到缓存 ./results/sentiment_hyper_analysis/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_1/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-07 22:15:54,972 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-07 22:15:54,985 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-07 22:15:54,996 [INFO] delta_matrix: tensor([0., 0., 0., 0., 0.], device='cuda:0', grad_fn=<SliceBackward0>)
+2025-02-07 22:15:54,997 [INFO] Example prompt: But the lack of financial aid would
+2025-02-07 22:15:54,997 [INFO] Generating texts **without** steering... 
+2025-02-07 22:15:54,998 [INFO] 无干预
+2025-02-07 22:15:56,356 [INFO] prompt:*****
+But the lack of financial aid would
+2025-02-07 22:15:56,356 [INFO] 包含prompt的完整输出: 1:
+<|endoftext|>But the lack of financial aid would be a huge blow to the economy, and could also lead to more unemployment.
+
+The federal government has already been working on a plan to boost its economic growth by up to 3 percent over the next decade. But it is not clear how much
+2025-02-07 22:15:56,356 [INFO] 包含prompt的完整输出: 2:
+<|endoftext|>But the lack of financial aid would mean that more than half of all children in the United States are unable to afford basic necessities like food, clothing and shelter.
+
+"The government has no way to provide basic necessities for every child," said Lisa Davenport, a senior fellow
+2025-02-07 22:15:56,356 [INFO] 包含prompt的完整输出: 3:
+<|endoftext|>But the lack of financial aid would mean that the government would have to raise taxes on low-income families, and it could also lead to a higher cost of living for those who are poor.
+
+The U.S. Department of Education's Office for Civil Rights said in a
+2025-02-07 22:15:56,356 [INFO] 干预之后的结果
+2025-02-07 22:15:56,356 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-07 22:15:56,356 [INFO] ** Generating texts with steering... Target **
+2025-02-07 22:15:56,356 [INFO] form neg to pos
+2025-02-07 22:15:56,358 [INFO] 干预
+2025-02-07 22:15:57,237 [INFO] prompt:*****
+But the lack of financial aid would
+2025-02-07 22:15:57,237 [INFO] 包含prompt的完整输出: 1:
+<|endoftext|>But the lack of financial aid would mean that a number of students could not attend college, and many would have to take out loans to pay for their education.
+
+"We are in a very difficult situation," said Eric L. Chappell, president of the American Federation of
+2025-02-07 22:15:57,237 [INFO] 包含prompt的完整输出: 2:
+<|endoftext|>But the lack of financial aid would be a major blow to the state's economy.
+
+The governor's office said it was working with the federal government to provide more funding for low-income families. The state has been struggling financially since 2008, when it had $2 billion in
+2025-02-07 22:15:57,237 [INFO] 包含prompt的完整输出: 3:
+<|endoftext|>But the lack of financial aid would mean that if you were to become a U.S. citizen, you would have to apply for citizenship in the United States and then apply for a visa to come here.
+
+"It's very difficult," said David Davis, who is president
+2025-02-07 22:15:57,242 [INFO] debug mode,show example, no full dataset eval
+2025-02-07 22:15:57,242 [INFO] Show Hyperparameters: 
+
+
+2025-02-07 22:15:57,242 [INFO]   task: sentiment
+2025-02-07 22:15:57,242 [INFO]   layer: 6
+2025-02-07 22:15:57,242 [INFO]   LLM: gpt2-small
+2025-02-07 22:15:57,242 [INFO]   seed: 42
+2025-02-07 22:15:57,242 [INFO]   data_size: -1
+2025-02-07 22:15:57,242 [INFO]   device: cuda
+2025-02-07 22:15:57,243 [INFO]   alpha: 203.0
+2025-02-07 22:15:57,243 [INFO]   method: val_mul
+2025-02-07 22:15:57,243 [INFO]   topk_mean: 100
+2025-02-07 22:15:57,243 [INFO]   topk_cnt: 1
+2025-02-07 22:15:57,243 [INFO]   batch_size: 32
+2025-02-07 22:15:57,243 [INFO]   source: neg
+2025-02-07 22:15:57,243 [INFO]   target: pos
+2025-02-07 22:15:57,243 [INFO]   prompt_source: neu
+2025-02-07 22:15:57,243 [INFO]   mean_type: dif_mean
+2025-02-07 22:15:57,243 [INFO]   steer_type: last
+2025-02-07 22:15:57,243 [INFO]   output_dir: ./results/sentiment_hyper_analysis/
+2025-02-07 22:15:57,243 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-07 22:15:57,243 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-07 22:15:57,243 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-07 22:15:57,243 [INFO]   temperature: 0.9
+2025-02-07 22:15:57,243 [INFO]   top_p: 0.3
+2025-02-07 22:15:57,243 [INFO]   freq_penalty: 1.0
+2025-02-07 22:15:57,243 [INFO]   example_prompt: But the lack of financial aid would
+2025-02-07 22:15:57,243 [INFO]   debug: 1
+2025-02-07 22:15:57,243 [INFO]   save_no_steer: 1
+2025-02-07 22:15:57,243 [INFO]   is_norm_delta_matrix: 0
+2025-02-07 22:15:57,243 [INFO]   use_cache: 0
+2025-02-07 22:15:57,243 [INFO]   real_data_size_for_train: 1624

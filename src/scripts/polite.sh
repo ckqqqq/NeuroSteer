@@ -45,7 +45,7 @@ set -x
   --prompt_data_size 100 \
   --mean_type 'dif_mean' \
   --steer_type 'all' \
-  --output_dir $ROOT_DIR"/results/waste_/" \
+  --output_dir $ROOT_DIR"/results/polite/" \
   --dataset_path $DATASET_PATH \
   --prompt_path $PROMPT_PATH \
   --env_path $ROOT_DIR"/.env" \

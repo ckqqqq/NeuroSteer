@@ -1,0 +1,258 @@
+2025-02-12 14:07:10,735 [INFO] Logging initialized. Logs will be saved to ./results/sentiment_analysis/sentiment_datasize_analysis/alpha100/gpt2-small_sentiment_layer_6_datasize_320_batchsize32_topK_100/alpha_100.0_from_pos_to_neg_prompt_pos_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-12 14:07:10,735 [INFO] Show Hyperparameters: 
+
+
+2025-02-12 14:07:10,735 [INFO]   task: sentiment
+2025-02-12 14:07:10,735 [INFO]   layer: 6
+2025-02-12 14:07:10,735 [INFO]   LLM: gpt2-small
+2025-02-12 14:07:10,735 [INFO]   seed: 42
+2025-02-12 14:07:10,735 [INFO]   data_size: 320
+2025-02-12 14:07:10,735 [INFO]   device: cuda
+2025-02-12 14:07:10,735 [INFO]   alpha: 100.0
+2025-02-12 14:07:10,735 [INFO]   method: val_mul
+2025-02-12 14:07:10,735 [INFO]   topk_mean: 100
+2025-02-12 14:07:10,735 [INFO]   topk_cnt: 100
+2025-02-12 14:07:10,735 [INFO]   batch_size: 32
+2025-02-12 14:07:10,735 [INFO]   source: pos
+2025-02-12 14:07:10,736 [INFO]   target: neg
+2025-02-12 14:07:10,736 [INFO]   prompt_source: pos
+2025-02-12 14:07:10,736 [INFO]   prompt_data_size: 500
+2025-02-12 14:07:10,736 [INFO]   mean_type: dif_mean
+2025-02-12 14:07:10,736 [INFO]   steer_type: last
+2025-02-12 14:07:10,736 [INFO]   output_dir: ./results/sentiment_analysis/sentiment_datasize_analysis/alpha100
+2025-02-12 14:07:10,736 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-12 14:07:10,736 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-12 14:07:10,736 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-12 14:07:10,736 [INFO]   temperature: 0.9
+2025-02-12 14:07:10,736 [INFO]   top_p: 0.3
+2025-02-12 14:07:10,736 [INFO]   freq_penalty: 1.0
+2025-02-12 14:07:10,736 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-12 14:07:10,736 [INFO]   debug: 0
+2025-02-12 14:07:10,736 [INFO]   save_no_steer: 0
+2025-02-12 14:07:10,736 [INFO]   is_norm_delta_matrix: 0
+2025-02-12 14:07:10,736 [INFO]   use_cache: 0
+2025-02-12 14:07:10,736 [INFO]   repeat_num: 1
+2025-02-12 14:07:10,736 [INFO]   gen_batch_size: 16
+2025-02-12 14:07:10,737 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-12 14:07:10,737 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-12 14:07:10,737 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-12 14:07:10,737 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-12 14:07:10,850 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-12 14:07:10,854 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-12 14:07:10,854 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-12 14:07:10,854 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-12 14:08:33,054 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-12 14:08:33,054 [INFO] 缓存 ./results/sentiment_analysis/sentiment_datasize_analysis/alpha100/gpt2-small_sentiment_layer_6_datasize_320_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-12 14:08:33,072 [INFO] :>> Sentiment : from pos to neg
+2025-02-12 14:08:33,084 [INFO] positive
+2025-02-12 14:08:33,089 [INFO] Running model with cache to obtain hidden states
+2025-02-12 14:08:33,515 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-12 14:08:33,516 [INFO] negative
+2025-02-12 14:08:33,526 [INFO] Running model with cache to obtain hidden states
+2025-02-12 14:08:33,838 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-12 14:08:33,840 [INFO] steer_info 已保存到缓存 ./results/sentiment_analysis/sentiment_datasize_analysis/alpha100/gpt2-small_sentiment_layer_6_datasize_320_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-12 14:08:33,848 [INFO] 转向方向 dif_neg-pos_relu
+2025-02-12 14:08:33,864 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-12 14:08:33,870 [INFO] Generating texts **without** steering... 
+2025-02-12 14:08:33,870 [INFO] 无转向结果
+2025-02-12 14:08:33,871 [INFO] 无干预
+2025-02-12 14:08:34,924 [INFO] 当前批次共处理2个prompt
+2025-02-12 14:08:34,924 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-12 14:08:34,924 [INFO] 生成 1: | mean that more than 1,000 children would be left without access to basic services.
+
+The report said that the number of children living in poverty in India is expected to rise by 5 million by 2030. The report also warned that the government's|
+2025-02-12 14:08:34,924 [INFO] 生成 2: | be a huge blow to her campaign.
+
+"It's not going to help her win," said one Democratic strategist who has worked with Clinton in the past. "She needs to get more money from Wall Street and other big banks."
+
+|
+2025-02-12 14:08:34,924 [INFO] 生成 3: | mean that many students would be unable to afford tuition, according to a new report from the American Council on Education.
+
+The report, released Wednesday by the Center for American Progress, found that more than half of students in low-income families are|
+2025-02-12 14:08:34,924 [INFO] Prompt 2: | I feel |
+2025-02-12 14:08:34,924 [INFO] 生成 1: |, but I don't know what to say.
+
+I am a pretty good friend of yours, and I'm not going to lie. You are my best friend.
+
+I have been with you for a long time now, and you|
+2025-02-12 14:08:34,924 [INFO] 生成 2: |
+
+I feel 
+
+I feel 
+
+I feel 
+
+
+Lyrics:
+
+
+A lot of people say that I'm not a good singer. They say that I'm not good at singing. They say that I'm|
+2025-02-12 14:08:34,924 [INFO] 生成 3: | (and I know it's true) that the world is a very complex place. It's not easy to get your head around, but you can find out what you're missing by looking at the world around you.
+
+I'm going to|
+2025-02-12 14:08:34,924 [INFO] 干预之后的结果
+2025-02-12 14:08:34,924 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-12 14:08:34,924 [INFO] ** Generating texts with steering... Target **
+2025-02-12 14:08:34,924 [INFO] form pos to neg
+2025-02-12 14:08:34,924 [INFO] 转向结果
+2025-02-12 14:08:35,676 [INFO] 当前批次共处理2个prompt
+2025-02-12 14:08:35,676 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-12 14:08:35,676 [INFO] 生成 1: | not be a major victory for victims of human rights to be held in the right to have their own lives and bodies examined by independent experts who are independent experts who have done their jobs and examined every aspect of life on thousands of people's lives, including|
+2025-02-12 14:08:35,676 [INFO] 生成 2: | not stop the investigation into his inquiry into whether he was investigating a genuine inquiry to investigate a legitimate inquiry, and if that is the only objective of investigating an independent investigation into a legitimate inquiry?"
+
+The UK has one of the highest human rights trib|
+2025-02-12 14:08:35,676 [INFO] 生成 3: | not stop the United Nations to investigate and investigate a case of child victims being taken to the victim's home and they were not abused.
+
+The victims are children who have been brought into a community where they have been abused by their parents, their|
+2025-02-12 14:08:35,676 [INFO] Prompt 2: | I feel |
+2025-02-12 14:08:35,676 [INFO] 生成 1: |. The first time I saw the facts, it was the truth.
+
+I have never seen a case of rape in which an innocent woman was raped by a man who is an expert on his own investigation and not being able to find evidence to|
+2025-02-12 14:08:35,676 [INFO] 生成 2: | and not the victim of a rape or anyone who has been raped by a woman.
+
+I have never been raped by a woman, I am just an innocent person who was raped by someone who is being accused of being the victim of an objective|
+2025-02-12 14:08:35,676 [INFO] 生成 3: | a war on the right to be free of due process of due process of human rights.
+
+The right to life is the basic human right and if you want to protect your rights then you should have the right to defend yourself. The only reason|
+2025-02-12 14:08:35,680 [INFO] Running on full data
+2025-02-12 14:08:35,680 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-12 14:08:35,680 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-12 14:08:35,695 [INFO] prompt的极性是pos
+2025-02-12 14:08:35,695 [INFO] Running with alpha: 100.0
+2025-02-12 14:08:35,695 [INFO] Running with prompt_type: from pos to neg
+2025-02-12 14:08:35,696 [WARNING] 截取prompt_datasize500
+2025-02-12 14:08:36,485 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:36,485 [INFO] {'md5_hash': 'c407590bd7adee91c20e54cb3e8d9407', 'prompt': {'text': '"It sticks true to'}, 'continuation': {'text': 'end of this series.'}, 'num_positive': 25, 'generations': [{'text': '"It sticks true to and we should have the right to vote for a peaceful country that has been in Syria for years and is not a country with an army of thousands of people who are trained by millions of people who have experienced firsthand the bravery of their own soldiers, and'}]}
+2025-02-12 14:08:37,276 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:37,276 [INFO] {'md5_hash': 'cfdaa74e32ff95f0eba5d6e3d2ccfb52', 'prompt': {'text': 'I love hearing from you'}, 'continuation': {'text': 'and seeing your awesome remakes!'}, 'num_positive': 25, 'generations': [{'text': 'I love hearing from you and your children to be the first person to speak on the subject of human rights, not those of a woman who has been raped by a child who was born into an age-appropriate age and has had his or her body examined and examined for medical'}]}
+2025-02-12 14:08:38,062 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:38,062 [INFO] {'md5_hash': '0b016699031c350b9a2b3058b0afb0e5', 'prompt': {'text': 'Moreover, we see the interest of our French friends'}, 'continuation': {'text': 'in the expansion of economic interaction," Putin said.'}, 'num_positive': 25, 'generations': [{'text': 'Moreover, we see the interest of our French friends the truth is that we have an independent country to help a country to find a better education for its children and they are not in the right state to be educated.\n\nWe should have had an education for Syrian children and should be given the opportunity'}]}
+2025-02-12 14:08:38,868 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:38,868 [INFO] {'md5_hash': '69bd9752967129a6d981466ebfad7a74', 'prompt': {'text': 'The artful play of dynamics'}, 'continuation': {'text': 'practically leaps from the speakers.'}, 'num_positive': 25, 'generations': [{'text': 'The artful play of dynamics the way to have a referendum on the right to vote on a question of equal rights for all people in an equal right to be free from the right to vote for equality of human rights?"\n\nI\'m not sure what I\'m saying is that'}]}
+2025-02-12 14:08:40,520 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:40,520 [INFO] {'md5_hash': '651e720c206878a2cd7a54b998aa12d8', 'prompt': {'text': '"He spoke with such amazing passion even in'}, 'continuation': {'text': 'the staid environment of a university congregation."'}, 'num_positive': 25, 'generations': [{'text': '"He spoke with such amazing passion even in-game data is the only thing that can be used to help save lives and make a difference," he said.\n\nHe has his own children, who are not children at all, they have their own lives to live and should be able to'}]}
+2025-02-12 14:08:41,318 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:41,318 [INFO] {'md5_hash': '91c05642f792c6144026d1cdc33ec194', 'prompt': {'text': 'It proved an enlightening experience, though he was'}, 'continuation': {'text': 'lucky to make it through the first night.'}, 'num_positive': 25, 'generations': [{'text': 'It proved an enlightening experience, though he was. We have a right to our own bodies and our right to exercise our bodily functions, which is the basic human right," he said.\n\nThe UK has a legitimate role in providing health care for people who are already free of their rights and'}]}
+2025-02-12 14:08:42,225 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:42,225 [INFO] {'md5_hash': '456549c5bd893bb13959b090b8d18426', 'prompt': {'text': '"You are my favorite person in the'}, 'continuation': {'text': 'world, Elsa," he said sincerely.'}, 'num_positive': 25, 'generations': [{'text': '"You are my favorite person in theFully expect a state of medical research to be an independent body that has been established and conducted by competent medical professionals, which is what it should be doing its job."\n\nThe study was conducted by a reputable organisation, not the NHS. The'}]}
+2025-02-12 14:08:43,022 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:43,022 [INFO] {'md5_hash': '76d31af0497b3132d268c9129a72c20e', 'prompt': {'text': 'This group includes multiple chemists and'}, 'continuation': {'text': 'biologists with many years of experience.'}, 'num_positive': 25, 'generations': [{'text': 'This group includes multiple chemists and the fact that he has been a patient of genuine medical care for his own personal needs, not the health of his patients\' lives," he said.\n\nThe US is an independent country with a right to have their own medical opinion and they should'}]}
+2025-02-12 14:08:44,732 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:44,732 [INFO] {'md5_hash': 'e75aa8b233efdea290a58a4fd2b134d3', 'prompt': {'text': 'This is the enduring image of Craig Biggio: sitting'}, 'continuation': {'text': 'at his locker after a game, his No.'}, 'num_positive': 25, 'generations': [{'text': 'This is the enduring image of Craig Biggio: sitting, not even considering that he has been a legitimate human being and has had the right to be a human being when he was a child and has had the right to have his body examined by medical experts.\n\nThe Medical Professionals for the Human'}]}
+2025-02-12 14:08:45,533 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:45,533 [INFO] {'md5_hash': '3cf62df287d67cb79adf6b1fbff58b8f', 'prompt': {'text': 'ONCE again, the Seattle Hempfest drew tens of'}, 'continuation': {'text': 'thousands to parks along the waterfront this weekend.'}, 'num_positive': 25, 'generations': [{'text': 'ONCE again, the Seattle Hempfest drew tens of of thousands of people to a peaceful protest against the free speech of peaceful people," he said. "The only thing that can be done is call for a civil rights group to investigate and report on this matter and investigate the fact that it was an unarmed'}]}
+2025-02-12 14:08:46,335 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:46,335 [INFO] {'md5_hash': 'e5f5eed4096c578869ba21483ce29265', 'prompt': {'text': 'With our assortment of whimsical tea'}, 'continuation': {'text': "infusers, it's simple."}, 'num_positive': 25, 'generations': [{'text': 'With our assortment of whimsical tea I have no idea what I was doing when I was a child and my son is a 14-year-old boy who has the right to be his own parent.\n\nI have the right to live my life as an adult and not be'}]}
+2025-02-12 14:08:47,143 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:47,143 [INFO] {'md5_hash': '04ef00f337f6e570a8ce1915c369e2f9', 'prompt': {'text': 'People from every neighbourhood in London came to our'}, 'continuation': {'text': 'embassy to demonstrate their solidarity with the French people.'}, 'num_positive': 25, 'generations': [{'text': "People from every neighbourhood in London came to our-government's point of view, not the right to a peaceful protest against free speech and free expression of people being free to express their opinions on issues that are important for human rights and freedoms like freedom of speech and the right to exercise their religious beliefs"}]}
+2025-02-12 14:08:48,800 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:48,800 [INFO] {'md5_hash': 'c909aabc4f7c0ce22e6071785aadbdb8', 'prompt': {'text': 'Home Affairs Minister Peter Dutton praised the efforts'}, 'continuation': {'text': 'of police, intelligence and border force agencies.'}, 'num_positive': 25, 'generations': [{'text': 'Home Affairs Minister Peter Dutton praised the efforts.\n\nThe Independent Commission on Human Rights has launched an investigation into the matter and has launched a comprehensive inquiry into the matter to find out what happened."The commission is investigating a human rights report that shows that there was no investigation of victims of human'}]}
+2025-02-12 14:08:49,597 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:49,597 [INFO] {'md5_hash': '8ee373a4e66d4906fc03ac91df4c3ea1', 'prompt': {'text': 'The Baltimore Orioles will promote first baseman Travis Ishikawa from'}, 'continuation': {'text': 'Triple-A Norfolk, a source has confirmed to MLBDailyDish.com.'}, 'num_positive': 25, 'generations': [{'text': "The Baltimore Orioles will promote first baseman Travis Ishikawa from and a child is a child, and he's not a toddler.\n\nHe was born in the USA to an American mother who has been born in the USA to an American mother who has been born in the United States. The father of his"}]}
+2025-02-12 14:08:50,394 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:50,394 [INFO] {'md5_hash': '738be85755a865532b0fd7d73e465980', 'prompt': {'text': 'What I will do is help you become the best'}, 'continuation': {'text': 'investor you can, with limited resources and time.'}, 'num_positive': 25, 'generations': [{'text': 'What I will do is help you become the best that he has his right to be a human being and he should have the right to be free of his life to exercise his religious rights and freedom of speech.\n\nHe has an equal right to have a life that is full of joy, not'}]}
+2025-02-12 14:08:51,193 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:51,193 [INFO] {'md5_hash': '761ccf9dd64b9da400abadc5ecf69c71', 'prompt': {'text': "With LINC it's simple and easy"}, 'continuation': {'text': 'to create wireless and wired sensor networks.'}, 'num_positive': 25, 'generations': [{'text': 'With LINC it\'s simple and easy of the First Amendment to the First Amendment to human rights," he has a right to his right to his own life.\n\nHe is not a Muslim, he is an American citizen who has been born in the United States and lived in the United'}]}
+2025-02-12 14:08:52,808 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:52,808 [INFO] {'md5_hash': '156b47ff348a2d83a932ac9d069679fe', 'prompt': {'text': 'The most remarkable thing about Michael Brown is not that'}, 'continuation': {'text': 'he was killed by the authorities in broad daylight.'}, 'num_positive': 25, 'generations': [{'text': 'The most remarkable thing about Michael Brown is not that to say that there was a case for equal rights for women to have the right to their own bodies and free speech, or any of the other rights of women who are in the right position to exercise their constitutional rights as human beings.\n\nThe'}]}
+2025-02-12 14:08:53,635 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:53,636 [INFO] {'md5_hash': '728b4c163f3d9f980df337aac09e477b', 'prompt': {'text': 'The state-of-the-art design also combines stealth with superior aerodynamic efficiency'}, 'continuation': {'text': 'for increased altitude, range and time on station.'}, 'num_positive': 25, 'generations': [{'text': 'The state-of-the-art design also combines stealth with superior aerodynamic efficiency to any type of health care or medical procedure should be available in a health service.\n\nWe have the right to choose our own healthcare and medical procedures when they are in their right hands and they should be treated as the medical procedure of a patient'}]}
+2025-02-12 14:08:54,481 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:54,481 [INFO] {'md5_hash': '1c62ddfc0440e322eddb7813558aae07', 'prompt': {'text': 'That widens the defense and eases the'}, 'continuation': {'text': 'box for the inside zone run.'}, 'num_positive': 25, 'generations': [{'text': 'That widens the defense and eases the is not a state of the country to have a state of an area that is an area of education for young people, not in college students who are educated in school.\n\nThe British Virgin Islands has its own schools and colleges, which are accredited'}]}
+2025-02-12 14:08:55,285 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:55,285 [INFO] {'md5_hash': '1b4ffa8219fde4513f85ea9586d3f8fc', 'prompt': {'text': 'Congratulations, you made'}, 'continuation': {'text': 'it this far.'}, 'num_positive': 25, 'generations': [{'text': 'Congratulations, you madeThe fact that the United Nations has a mandate to investigate whether there is an independent investigation into human rights violations in Syria and Afghanistan, which is what it should be doing when it has the authority to do so?\n\nI have no idea what I'}]}
+2025-02-12 14:08:56,928 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:56,928 [INFO] {'md5_hash': '669e0d201c1f25e81ed6a5e00ec3b222', 'prompt': {'text': 'There are adventures, choices, dangers'}, 'continuation': {'text': 'and surprises at every pledge level.'}, 'num_positive': 25, 'generations': [{'text': "There are adventures, choices, dangers' evidence is the only thing that proves that there was a body of evidence to support his claims.\n\nThe UK has a right to defend its own people and its own citizens, not the highest standard of human rights.\n\nWe have been"}]}
+2025-02-12 14:08:57,901 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:57,901 [INFO] {'md5_hash': 'dad4bada941e98f9a9570681469c841a', 'prompt': {'text': 'But I appreciate the art in which I'}, 'continuation': {'text': 'can totally forget about all those problems.'}, 'num_positive': 25, 'generations': [{'text': 'But I appreciate the art in which I the fact that a state of science exists to study human life and not studying people\'s lives?"\n\nThe scientific inquiry into human rights is the right of a citizen to exercise his or her free will and exercise his or her right to be free from'}]}
+2025-02-12 14:08:58,875 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:58,875 [INFO] {'md5_hash': '8072fa33d0471657baec479ebf553bdf', 'prompt': {'text': 'A blaze of orange lit up'}, 'continuation': {'text': 'the space behind said cockpit.'}, 'num_positive': 25, 'generations': [{'text': 'A blaze of orange lit up and the UN has launched an investigation into the matter," a U.N. agency is investigating a report on its own investigation, which was conducted by independent experts who have been tasked with investigating human rights abuses in Syria to investigate human rights violations in other'}]}
+2025-02-12 14:08:59,734 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:08:59,734 [INFO] {'md5_hash': '021f235b3bc3783e1fcaa45d47b9f882', 'prompt': {'text': 'The shoot is lovely — exuberant'}, 'continuation': {'text': ', colorful, even diverse.'}, 'num_positive': 25, 'generations': [{'text': 'The shoot is lovely — exuberant and free speech is the right thing to do when a country has free speech, or the right to defend their own people in the right context?"\n\nThe First Amendment protects human rights. It\'s not his right to exercise his constitutional rights, which'}]}
+2025-02-12 14:09:01,513 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-12 14:09:01,514 [INFO] {'md5_hash': '5db19088b98f3b791fbdc56296a6330e', 'prompt': {'text': 'Among the foremost activists of the PUCL&'}, 'continuation': {'text': 'DR was an economist named C.V. Subba Rao.'}, 'num_positive': 25, 'generations': [{'text': 'Among the foremost activists of the PUCL&\n\nThe only evidence that a person has been found to have a right to life and his right to be free from his own life is that he was born in the UK. He was born in the UK, not in an American country where people'}]}
+2025-02-12 14:09:02,429 [INFO] 训练时间0.7859072685241699
+2025-02-12 14:09:02,429 [INFO] Show Hyperparameters: 
+
+
+2025-02-12 14:09:02,429 [INFO]   task: sentiment
+2025-02-12 14:09:02,429 [INFO]   layer: 6
+2025-02-12 14:09:02,429 [INFO]   LLM: gpt2-small
+2025-02-12 14:09:02,429 [INFO]   seed: 42
+2025-02-12 14:09:02,429 [INFO]   data_size: 320
+2025-02-12 14:09:02,429 [INFO]   device: cuda
+2025-02-12 14:09:02,429 [INFO]   alpha: 100.0
+2025-02-12 14:09:02,429 [INFO]   method: val_mul
+2025-02-12 14:09:02,429 [INFO]   topk_mean: 100
+2025-02-12 14:09:02,429 [INFO]   topk_cnt: 100
+2025-02-12 14:09:02,429 [INFO]   batch_size: 32
+2025-02-12 14:09:02,429 [INFO]   source: pos
+2025-02-12 14:09:02,429 [INFO]   target: neg
+2025-02-12 14:09:02,429 [INFO]   prompt_source: pos
+2025-02-12 14:09:02,429 [INFO]   prompt_data_size: 500
+2025-02-12 14:09:02,429 [INFO]   mean_type: dif_mean
+2025-02-12 14:09:02,429 [INFO]   steer_type: last
+2025-02-12 14:09:02,429 [INFO]   output_dir: ./results/sentiment_analysis/sentiment_datasize_analysis/alpha100
+2025-02-12 14:09:02,429 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-12 14:09:02,429 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-12 14:09:02,429 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-12 14:09:02,429 [INFO]   temperature: 0.9
+2025-02-12 14:09:02,429 [INFO]   top_p: 0.3
+2025-02-12 14:09:02,429 [INFO]   freq_penalty: 1.0
+2025-02-12 14:09:02,429 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-12 14:09:02,430 [INFO]   debug: 0
+2025-02-12 14:09:02,430 [INFO]   save_no_steer: 0
+2025-02-12 14:09:02,430 [INFO]   is_norm_delta_matrix: 0
+2025-02-12 14:09:02,430 [INFO]   use_cache: 0
+2025-02-12 14:09:02,430 [INFO]   repeat_num: 1
+2025-02-12 14:09:02,430 [INFO]   gen_batch_size: 16
+2025-02-12 14:09:02,430 [INFO]   real_data_size_for_train: 320

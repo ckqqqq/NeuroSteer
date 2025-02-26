@@ -1,0 +1,115 @@
+2025-01-09 13:09:35,410 [INFO] Logging initialized. Logs will be saved to ./results/LLM_gpt2-small_layer_6_steer_pos_alpha_100.0_cnt_1000_mean100/execution.log
+2025-01-09 13:09:35,410 [INFO] Hyperparameters:
+2025-01-09 13:09:35,410 [INFO]   layer: 6
+2025-01-09 13:09:35,410 [INFO]   LLM: gpt2-small
+2025-01-09 13:09:35,410 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/emotional_classify/multiclass-sentiment-analysis
+2025-01-09 13:09:35,410 [INFO]   output_dir: ./results
+2025-01-09 13:09:35,410 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-09 13:09:35,410 [INFO]   seed: 42
+2025-01-09 13:09:35,410 [INFO]   data_size: 400
+2025-01-09 13:09:35,410 [INFO]   device: cuda
+2025-01-09 13:09:35,410 [INFO]   alpha: 100.0
+2025-01-09 13:09:35,410 [INFO]   steer: pos
+2025-01-09 13:09:35,410 [INFO]   method: val_mul
+2025-01-09 13:09:35,410 [INFO]   topk_mean: 100
+2025-01-09 13:09:35,410 [INFO]   topk_cnt: 1000
+2025-01-09 13:09:35,410 [INFO]   batch_size: 10
+2025-01-09 13:09:35,411 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-09 13:09:35,411 [INFO] Loading model: gpt2-small
+2025-01-09 13:09:37,168 [INFO] Loading SAE for layer 6
+2025-01-09 13:09:38,851 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/emotional_classify/multiclass-sentiment-analysis
+2025-01-09 13:09:38,919 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-09 13:09:38,930 [INFO] Selected 400 negative, 400 positive, and 400 neutral samples
+2025-01-09 13:09:38,932 [INFO] Running model with cache to obtain hidden states
+2025-01-09 13:09:39,089 [INFO] Batch 1: Hidden states shape: torch.Size([10, 31, 768])
+2025-01-09 13:09:39,089 [INFO] Encoding hidden states for batch 1
+2025-01-09 13:09:39,134 [INFO] Batch 2: Hidden states shape: torch.Size([10, 37, 768])
+2025-01-09 13:09:39,134 [INFO] Encoding hidden states for batch 2
+2025-01-09 13:09:39,180 [INFO] Batch 3: Hidden states shape: torch.Size([10, 99, 768])
+2025-01-09 13:09:39,180 [INFO] Encoding hidden states for batch 3
+2025-01-09 13:09:39,224 [INFO] Batch 4: Hidden states shape: torch.Size([10, 94, 768])
+2025-01-09 13:09:39,224 [INFO] Encoding hidden states for batch 4
+2025-01-09 13:09:39,259 [INFO] Batch 5: Hidden states shape: torch.Size([10, 92, 768])
+2025-01-09 13:09:39,259 [INFO] Encoding hidden states for batch 5
+2025-01-09 13:09:39,292 [INFO] Batch 6: Hidden states shape: torch.Size([10, 21, 768])
+2025-01-09 13:09:39,292 [INFO] Encoding hidden states for batch 6
+2025-01-09 13:09:39,326 [INFO] Batch 7: Hidden states shape: torch.Size([10, 68, 768])
+2025-01-09 13:09:39,326 [INFO] Encoding hidden states for batch 7
+2025-01-09 13:09:39,359 [INFO] Batch 8: Hidden states shape: torch.Size([10, 84, 768])
+2025-01-09 13:09:39,360 [INFO] Encoding hidden states for batch 8
+2025-01-09 13:09:39,393 [INFO] Batch 9: Hidden states shape: torch.Size([10, 43, 768])
+2025-01-09 13:09:39,393 [INFO] Encoding hidden states for batch 9
+2025-01-09 13:09:39,426 [INFO] Batch 10: Hidden states shape: torch.Size([10, 40, 768])
+2025-01-09 13:09:39,426 [INFO] Encoding hidden states for batch 10
+2025-01-09 13:09:39,460 [INFO] Batch 11: Hidden states shape: torch.Size([10, 116, 768])
+2025-01-09 13:09:39,461 [INFO] Encoding hidden states for batch 11
+2025-01-09 13:09:39,495 [INFO] Batch 12: Hidden states shape: torch.Size([10, 52, 768])
+2025-01-09 13:09:39,496 [INFO] Encoding hidden states for batch 12
+2025-01-09 13:09:39,528 [INFO] Batch 13: Hidden states shape: torch.Size([10, 40, 768])
+2025-01-09 13:09:39,528 [INFO] Encoding hidden states for batch 13
+2025-01-09 13:09:39,562 [INFO] Batch 14: Hidden states shape: torch.Size([10, 37, 768])
+2025-01-09 13:09:39,562 [INFO] Encoding hidden states for batch 14
+2025-01-09 13:09:39,595 [INFO] Batch 15: Hidden states shape: torch.Size([10, 37, 768])
+2025-01-09 13:09:39,595 [INFO] Encoding hidden states for batch 15
+2025-01-09 13:09:39,629 [INFO] Batch 16: Hidden states shape: torch.Size([10, 109, 768])
+2025-01-09 13:09:39,630 [INFO] Encoding hidden states for batch 16
+2025-01-09 13:09:39,664 [INFO] Batch 17: Hidden states shape: torch.Size([10, 75, 768])
+2025-01-09 13:09:39,664 [INFO] Encoding hidden states for batch 17
+2025-01-09 13:09:39,697 [INFO] Batch 18: Hidden states shape: torch.Size([10, 37, 768])
+2025-01-09 13:09:39,698 [INFO] Encoding hidden states for batch 18
+2025-01-09 13:09:39,731 [INFO] Batch 19: Hidden states shape: torch.Size([10, 75, 768])
+2025-01-09 13:09:39,731 [INFO] Encoding hidden states for batch 19
+2025-01-09 13:09:39,764 [INFO] Batch 20: Hidden states shape: torch.Size([10, 82, 768])
+2025-01-09 13:09:39,764 [INFO] Encoding hidden states for batch 20
+2025-01-09 13:09:39,798 [INFO] Batch 21: Hidden states shape: torch.Size([10, 41, 768])
+2025-01-09 13:09:39,798 [INFO] Encoding hidden states for batch 21
+2025-01-09 13:09:39,842 [INFO] Batch 22: Hidden states shape: torch.Size([10, 119, 768])
+2025-01-09 13:09:39,842 [INFO] Encoding hidden states for batch 22
+2025-01-09 13:09:39,877 [INFO] Batch 23: Hidden states shape: torch.Size([10, 55, 768])
+2025-01-09 13:09:39,877 [INFO] Encoding hidden states for batch 23
+2025-01-09 13:09:39,910 [INFO] Batch 24: Hidden states shape: torch.Size([10, 27, 768])
+2025-01-09 13:09:39,911 [INFO] Encoding hidden states for batch 24
+2025-01-09 13:09:39,945 [INFO] Batch 25: Hidden states shape: torch.Size([10, 121, 768])
+2025-01-09 13:09:39,945 [INFO] Encoding hidden states for batch 25
+2025-01-09 13:09:39,987 [INFO] Batch 26: Hidden states shape: torch.Size([10, 116, 768])
+2025-01-09 13:09:39,987 [INFO] Encoding hidden states for batch 26
+2025-01-09 13:09:40,021 [INFO] Batch 27: Hidden states shape: torch.Size([10, 79, 768])
+2025-01-09 13:09:40,021 [INFO] Encoding hidden states for batch 27
+2025-01-09 13:09:40,054 [INFO] Batch 28: Hidden states shape: torch.Size([10, 33, 768])
+2025-01-09 13:09:40,055 [INFO] Encoding hidden states for batch 28
+2025-01-09 13:09:40,089 [INFO] Batch 29: Hidden states shape: torch.Size([10, 35, 768])
+2025-01-09 13:09:40,089 [INFO] Encoding hidden states for batch 29
+2025-01-09 13:09:40,123 [INFO] Batch 30: Hidden states shape: torch.Size([10, 32, 768])
+2025-01-09 13:09:40,123 [INFO] Encoding hidden states for batch 30
+2025-01-09 13:09:40,157 [INFO] Batch 31: Hidden states shape: torch.Size([10, 80, 768])
+2025-01-09 13:09:40,157 [INFO] Encoding hidden states for batch 31
+2025-01-09 13:09:40,191 [INFO] Batch 32: Hidden states shape: torch.Size([10, 104, 768])
+2025-01-09 13:09:40,192 [INFO] Encoding hidden states for batch 32
+2025-01-09 13:09:40,225 [INFO] Batch 33: Hidden states shape: torch.Size([10, 28, 768])
+2025-01-09 13:09:40,225 [INFO] Encoding hidden states for batch 33
+2025-01-09 13:09:40,464 [INFO] Batch 34: Hidden states shape: torch.Size([10, 35, 768])
+2025-01-09 13:09:40,464 [INFO] Encoding hidden states for batch 34
+2025-01-09 13:09:40,498 [INFO] Batch 35: Hidden states shape: torch.Size([10, 70, 768])
+2025-01-09 13:09:40,499 [INFO] Encoding hidden states for batch 35
+2025-01-09 13:09:40,533 [INFO] Batch 36: Hidden states shape: torch.Size([10, 113, 768])
+2025-01-09 13:09:40,533 [INFO] Encoding hidden states for batch 36
+2025-01-09 13:09:40,566 [INFO] Batch 37: Hidden states shape: torch.Size([10, 38, 768])
+2025-01-09 13:09:40,567 [INFO] Encoding hidden states for batch 37
+2025-01-09 13:09:40,600 [INFO] Batch 38: Hidden states shape: torch.Size([10, 42, 768])
+2025-01-09 13:09:40,600 [INFO] Encoding hidden states for batch 38
+2025-01-09 13:09:40,634 [INFO] Batch 39: Hidden states shape: torch.Size([10, 44, 768])
+2025-01-09 13:09:40,634 [INFO] Encoding hidden states for batch 39
+2025-01-09 13:09:40,667 [INFO] Batch 40: Hidden states shape: torch.Size([10, 95, 768])
+2025-01-09 13:09:40,667 [INFO] Encoding hidden states for batch 40
+2025-01-09 13:09:40,668 [INFO] Total batches processed: 40
+2025-01-09 13:09:40,669 [INFO] 最大长度:121
+2025-01-09 13:09:40,680 [INFO] Concatenated batch latents shape: torch.Size([400, 121, 24576])
+2025-01-09 13:09:40,680 [INFO] Computing non-zero element counts
+2025-01-09 13:09:40,805 [INFO] Computing sum of non-zero elements
+2025-01-09 13:09:40,822 [INFO] Computing mean of non-zero elements
+2025-01-09 13:09:40,833 [INFO] Selecting top-k indices based on nz_mean
+2025-01-09 13:09:40,864 [INFO] Top 100 nz_mean values selected.
+2025-01-09 13:09:40,864 [INFO] Selecting top-k indices based on act_cnt
+2025-01-09 13:09:40,864 [INFO] Top 1000 act_cnt values selected.
+2025-01-09 13:09:40,864 [INFO] Finding overlapping indices between nz_mean and act_cnt top-k
+2025-01-09 13:09:40,899 [INFO] Number of overlapping indices: 11

@@ -1,0 +1,1924 @@
+2025-02-16 12:33:57,833 [INFO] Logging initialized. Logs will be saved to ./results/sentiment_gemma/gemma-2-2b_sentiment_layer_6_datasize_1000_batchsize32_topK_100/alpha_500.0_from_neg_to_pos_prompt_neg_mean_dif_mean_steertype_all_device_cpu/execution.log
+2025-02-16 12:33:57,833 [INFO] Show Hyperparameters: 
+
+
+2025-02-16 12:33:57,833 [INFO]   task: sentiment
+2025-02-16 12:33:57,833 [INFO]   layer: 6
+2025-02-16 12:33:57,833 [INFO]   LLM: gemma-2-2b
+2025-02-16 12:33:57,833 [INFO]   seed: 42
+2025-02-16 12:33:57,833 [INFO]   data_size: 1000
+2025-02-16 12:33:57,833 [INFO]   device: cpu
+2025-02-16 12:33:57,833 [INFO]   alpha: 500.0
+2025-02-16 12:33:57,833 [INFO]   method: val_mul
+2025-02-16 12:33:57,833 [INFO]   topk_mean: 100
+2025-02-16 12:33:57,833 [INFO]   topk_cnt: 100
+2025-02-16 12:33:57,833 [INFO]   batch_size: 32
+2025-02-16 12:33:57,834 [INFO]   source: neg
+2025-02-16 12:33:57,834 [INFO]   target: pos
+2025-02-16 12:33:57,834 [INFO]   prompt_source: neg
+2025-02-16 12:33:57,834 [INFO]   prompt_data_size: 500
+2025-02-16 12:33:57,834 [INFO]   mean_type: dif_mean
+2025-02-16 12:33:57,834 [INFO]   steer_type: all
+2025-02-16 12:33:57,834 [INFO]   output_dir: ./results/sentiment_gemma/
+2025-02-16 12:33:57,834 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 12:33:57,834 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-16 12:33:57,834 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-16 12:33:57,834 [INFO]   temperature: 0.9
+2025-02-16 12:33:57,834 [INFO]   top_p: 0.3
+2025-02-16 12:33:57,834 [INFO]   freq_penalty: 1.0
+2025-02-16 12:33:57,834 [INFO]   example_prompt: But the lack of financial aid would| The passage of the AI Act will
+2025-02-16 12:33:57,834 [INFO]   debug: 1
+2025-02-16 12:33:57,834 [INFO]   save_no_steer: 1
+2025-02-16 12:33:57,834 [INFO]   is_norm_delta_matrix: 0
+2025-02-16 12:33:57,834 [INFO]   use_cache: 0
+2025-02-16 12:33:57,834 [INFO]   repeat_num: 2
+2025-02-16 12:33:57,834 [INFO]   gen_batch_size: 16
+2025-02-16 12:33:57,834 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-16 12:33:57,834 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 12:33:57,834 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-16 12:33:57,835 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-16 12:33:57,931 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-16 12:33:57,936 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-16 12:33:57,936 [INFO] Loading Model Loading SAE for layer 6 gemma-2-2b
+2025-02-16 12:34:20,623 [INFO] Loading model: gemma-2-2b
+2025-02-16 12:34:20,624 [WARNING] You tried to specify center_unembed=True for a model using logit softcap, but this can't be done! Softcapping is not invariant upon adding a constant Setting center_unembed=False instead.
+2025-02-16 12:34:53,573 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-02-16 12:35:01,424 [INFO] model architecture for gemma-2-2b HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-25): 26 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln1_post): RMSNorm(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2_post): RMSNorm(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GemmaTokenizerFast(name_or_path='google/gemma-2b', vocab_size=256000, model_max_length=1000000000000000019884624838656, is_fast=True, padding_side='left', truncation_side='right', special_tokens={'bos_token': '<bos>', 'eos_token': '<eos>', 'unk_token': '<unk>', 'pad_token': '<pad>', 'additional_special_tokens': ['<start_of_turn>', '<end_of_turn>']}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("<eos>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	2: AddedToken("<bos>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	5: AddedToken("<2mass>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	6: AddedToken("[@BOS@]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	7: AddedToken("<unused0>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	8: AddedToken("<unused1>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	9: AddedToken("<unused2>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	10: AddedToken("<unused3>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	11: AddedToken("<unused4>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	12: AddedToken("<unused5>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	13: AddedToken("<unused6>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	14: AddedToken("<unused7>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	15: AddedToken("<unused8>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	16: AddedToken("<unused9>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	17: AddedToken("<unused10>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	18: AddedToken("<unused11>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	19: AddedToken("<unused12>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	20: AddedToken("<unused13>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	21: AddedToken("<unused14>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	22: AddedToken("<unused15>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	23: AddedToken("<unused16>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	24: AddedToken("<unused17>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	25: AddedToken("<unused18>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	26: AddedToken("<unused19>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	27: AddedToken("<unused20>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	28: AddedToken("<unused21>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	29: AddedToken("<unused22>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	30: AddedToken("<unused23>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	31: AddedToken("<unused24>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	32: AddedToken("<unused25>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	33: AddedToken("<unused26>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	34: AddedToken("<unused27>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	35: AddedToken("<unused28>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	36: AddedToken("<unused29>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	37: AddedToken("<unused30>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	38: AddedToken("<unused31>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	39: AddedToken("<unused32>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	40: AddedToken("<unused33>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	41: AddedToken("<unused34>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	42: AddedToken("<unused35>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	43: AddedToken("<unused36>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	44: AddedToken("<unused37>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	45: AddedToken("<unused38>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	46: AddedToken("<unused39>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	47: AddedToken("<unused40>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	48: AddedToken("<unused41>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	49: AddedToken("<unused42>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	50: AddedToken("<unused43>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	51: AddedToken("<unused44>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	52: AddedToken("<unused45>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	53: AddedToken("<unused46>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	54: AddedToken("<unused47>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	55: AddedToken("<unused48>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	56: AddedToken("<unused49>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	57: AddedToken("<unused50>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	58: AddedToken("<unused51>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	59: AddedToken("<unused52>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	60: AddedToken("<unused53>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	61: AddedToken("<unused54>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	62: AddedToken("<unused55>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	63: AddedToken("<unused56>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	64: AddedToken("<unused57>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	65: AddedToken("<unused58>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	66: AddedToken("<unused59>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	67: AddedToken("<unused60>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	68: AddedToken("<unused61>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	69: AddedToken("<unused62>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	70: AddedToken("<unused63>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	71: AddedToken("<unused64>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	72: AddedToken("<unused65>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	73: AddedToken("<unused66>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	74: AddedToken("<unused67>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	75: AddedToken("<unused68>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	76: AddedToken("<unused69>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	77: AddedToken("<unused70>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	78: AddedToken("<unused71>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	79: AddedToken("<unused72>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	80: AddedToken("<unused73>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	81: AddedToken("<unused74>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	82: AddedToken("<unused75>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	83: AddedToken("<unused76>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	84: AddedToken("<unused77>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	85: AddedToken("<unused78>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	86: AddedToken("<unused79>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	87: AddedToken("<unused80>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	88: AddedToken("<unused81>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	89: AddedToken("<unused82>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	90: AddedToken("<unused83>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	91: AddedToken("<unused84>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	92: AddedToken("<unused85>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	93: AddedToken("<unused86>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	94: AddedToken("<unused87>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	95: AddedToken("<unused88>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	96: AddedToken("<unused89>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	97: AddedToken("<unused90>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	98: AddedToken("<unused91>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	99: AddedToken("<unused92>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	100: AddedToken("<unused93>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	101: AddedToken("<unused94>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	102: AddedToken("<unused95>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	103: AddedToken("<unused96>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	104: AddedToken("<unused97>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	105: AddedToken("<unused98>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	106: AddedToken("<start_of_turn>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	107: AddedToken("<end_of_turn>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	108: AddedToken("
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	109: AddedToken("
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	110: AddedToken("
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	111: AddedToken("
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	112: AddedToken("
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	113: AddedToken("
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	114: AddedToken("
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	115: AddedToken("
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	116: AddedToken("
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	117: AddedToken("
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	118: AddedToken("
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	119: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	120: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	121: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	122: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	123: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	124: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	125: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	126: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	127: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	128: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	129: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	130: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	131: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	132: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	133: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	134: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	135: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	136: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	137: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	138: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	139: AddedToken("▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	140: AddedToken("▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	141: AddedToken("▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	142: AddedToken("▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	143: AddedToken("▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	144: AddedToken("▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	145: AddedToken("▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	146: AddedToken("▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	147: AddedToken("▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	148: AddedToken("▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	149: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	150: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	151: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	152: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	153: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	154: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	155: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	156: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	157: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	158: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	159: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	160: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	161: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	162: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	163: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	164: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	165: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	166: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	167: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	168: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	169: AddedToken("<table>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	170: AddedToken("<caption>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	171: AddedToken("<thead>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	172: AddedToken("<tbody>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	173: AddedToken("<tfoot>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	174: AddedToken("<tr>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	175: AddedToken("<th>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	176: AddedToken("<td>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	177: AddedToken("</table>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	178: AddedToken("</caption>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	179: AddedToken("</thead>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	180: AddedToken("</tbody>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	181: AddedToken("</tfoot>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	182: AddedToken("</tr>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	183: AddedToken("</th>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	184: AddedToken("</td>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	185: AddedToken("<h1>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	186: AddedToken("<h2>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	187: AddedToken("<h3>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	188: AddedToken("<h4>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	189: AddedToken("<h5>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	190: AddedToken("<h6>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	191: AddedToken("<blockquote>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	192: AddedToken("</h1>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	193: AddedToken("</h2>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	194: AddedToken("</h3>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	195: AddedToken("</h4>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	196: AddedToken("</h5>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	197: AddedToken("</h6>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	198: AddedToken("</blockquote>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	199: AddedToken("<strong>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	200: AddedToken("<em>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	201: AddedToken("<b>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	202: AddedToken("<i>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	203: AddedToken("<u>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	204: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	205: AddedToken("<sub>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	206: AddedToken("<sup>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	207: AddedToken("<code>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	208: AddedToken("</strong>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	209: AddedToken("</em>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	210: AddedToken("</b>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	211: AddedToken("</i>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	212: AddedToken("</u>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	213: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	214: AddedToken("</sub>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	215: AddedToken("</sup>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	216: AddedToken("</code>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+}
+)
+2025-02-16 12:35:01,425 [INFO] 缓存 ./results/sentiment_gemma/gemma-2-2b_sentiment_layer_6_datasize_1000_batchsize32_topK_100/steer_info_cache_of_gemma-2-2b_l6.pkl 不存在，缓存 steer_info
+2025-02-16 12:35:01,447 [INFO] :>> sentiment : from neg to pos
+2025-02-16 12:35:01,461 [INFO] positive
+2025-02-16 12:35:01,468 [INFO] Running model with cache to obtain hidden states
+2025-02-16 12:36:55,699 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-02-16 12:36:55,723 [INFO] negative
+2025-02-16 12:36:55,738 [INFO] Running model with cache to obtain hidden states
+2025-02-16 12:38:49,046 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-02-16 12:38:49,070 [INFO] steer_info 已保存到缓存 ./results/sentiment_gemma/gemma-2-2b_sentiment_layer_6_datasize_1000_batchsize32_topK_100/steer_info_cache_of_gemma-2-2b_l6.pkl
+2025-02-16 12:38:49,071 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-16 12:38:49,071 [INFO] sae cfg.hook_name 挂载名称: blocks.0.hook_resid_post
+2025-02-16 12:38:49,075 [INFO] delta_matrix: tensor([-0.0011,  0.0026,  0.0016,  0.0008, -0.0014], grad_fn=<SliceBackward0>)
+2025-02-16 12:38:49,075 [INFO] Generating texts **without** steering... 
+2025-02-16 12:38:49,075 [INFO] 无转向结果
+2025-02-16 12:38:49,080 [INFO] 无干预
+2025-02-16 12:39:01,854 [INFO] 当前批次共处理2个prompt
+2025-02-16 12:39:01,854 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-16 12:39:01,854 [INFO] 生成 1: | not be a problem for the 20-year-old, who has already been offered a place at the University of Birmingham to study economics.
+
+“I’m not going to let that stop me,” he said. “I’ve|
+2025-02-16 12:39:01,854 [INFO] 生成 2: | not be a problem for the 20-year-old, who is currently studying for a Bachelor of Arts in Psychology at the University of Melbourne.
+
+“I’m not worried about that,” he said. “I’ve got enough|
+2025-02-16 12:39:01,854 [INFO] 生成 3: | not be a problem for the 20-year-old, who is currently working as a waitress at the restaurant in order to save up for her studies.
+
+“I’m saving up to go back to university,” she said. “|
+2025-02-16 12:39:01,854 [INFO] Prompt 2: | The passage of the AI Act will|
+2025-02-16 12:39:01,854 [INFO] 生成 1: | have a profound impact on the way in which artificial intelligence is developed, deployed and used. It will also have an impact on how we regulate AI.
+
+The EU’s Artificial Intelligence Act (AI Act) is a comprehensive set of rules that aims|
+2025-02-16 12:39:01,854 [INFO] 生成 2: | be a significant step forward in regulating artificial intelligence (AI) technologies, and it is expected to have a positive impact on the global economy.
+
+The AI Act is designed to ensure that AI systems are safe, reliable, and trustworthy. It sets out|
+2025-02-16 12:39:01,854 [INFO] 生成 3: | be a significant step forward in ensuring that artificial intelligence (AI) is developed and used responsibly, while also providing clarity for businesses and investors.
+
+The AI Act will establish a comprehensive regulatory framework for AI systems, including those that are high-risk or|
+2025-02-16 12:39:01,854 [INFO] 干预之后的结果
+2025-02-16 12:39:01,854 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-16 12:39:01,854 [INFO] ** Generating texts with steering... Target **
+2025-02-16 12:39:01,855 [INFO] form neg to pos
+2025-02-16 12:39:01,855 [INFO] 转向结果
+2025-02-16 12:39:14,225 [INFO] 当前批次共处理2个prompt
+2025-02-16 12:39:14,225 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-16 12:39:14,225 [INFO] 生成 1: | be a big blow to the state's economy, which is already struggling with a budget deficit.
+
+The governor has proposed cutting $1 billion from the state budget, including eliminating all funding for higher education.
+
+"I don't think it|
+2025-02-16 12:39:14,226 [INFO] 生成 2: | not be the only problem.
+
+The new program, which is called "The Great American Dream," would also require that students pay for their own books and supplies, as well as for housing and food.
+
+"It's a lot of money|
+2025-02-16 12:39:14,226 [INFO] 生成 3: | not be the only problem.
+
+"The main problem is that there are no jobs," said 20-year-old Maria, who asked that her last name not be used. "I have a diploma in accounting and I can't|
+2025-02-16 12:39:14,226 [INFO] Prompt 2: | The passage of the AI Act will|
+2025-02-16 12:39:14,226 [INFO] 生成 1: | be a turning point in the history of artificial intelligence.
+
+The European Parliament has approved the AI ​​Act, which aims to regulate artificial intelligence and ensure that it is used in a safe and ethical manner.
+
+The vote was 492 votes|
+2025-02-16 12:39:14,226 [INFO] 生成 2: | not be a problem for the EU, but it will be a problem for the world.
+
+The European Union is in danger of becoming an international pariah. The European Parliament has voted to approve the Artificial Intelligence Act, which would give legal personality to|
+2025-02-16 12:39:14,226 [INFO] 生成 3: | be a turning point in the development of artificial intelligence.
+
+The AI Act is a legislative framework that aims to regulate and govern the use of artificial intelligence (AI) in Europe. It is expected to be adopted by the European Parliament and Council in |
+2025-02-16 12:39:14,229 [INFO] debug mode,show example, no full dataset eval
+2025-02-16 12:39:14,229 [INFO] 训练时间227.64541816711426
+2025-02-16 12:39:14,229 [INFO] Show Hyperparameters: 
+
+
+2025-02-16 12:39:14,229 [INFO]   task: sentiment
+2025-02-16 12:39:14,229 [INFO]   layer: 6
+2025-02-16 12:39:14,230 [INFO]   LLM: gemma-2-2b
+2025-02-16 12:39:14,230 [INFO]   seed: 42
+2025-02-16 12:39:14,230 [INFO]   data_size: 1000
+2025-02-16 12:39:14,230 [INFO]   device: cpu
+2025-02-16 12:39:14,230 [INFO]   alpha: 500.0
+2025-02-16 12:39:14,230 [INFO]   method: val_mul
+2025-02-16 12:39:14,230 [INFO]   topk_mean: 100
+2025-02-16 12:39:14,230 [INFO]   topk_cnt: 100
+2025-02-16 12:39:14,230 [INFO]   batch_size: 32
+2025-02-16 12:39:14,230 [INFO]   source: neg
+2025-02-16 12:39:14,230 [INFO]   target: pos
+2025-02-16 12:39:14,230 [INFO]   prompt_source: neg
+2025-02-16 12:39:14,230 [INFO]   prompt_data_size: 500
+2025-02-16 12:39:14,230 [INFO]   mean_type: dif_mean
+2025-02-16 12:39:14,230 [INFO]   steer_type: all
+2025-02-16 12:39:14,230 [INFO]   output_dir: ./results/sentiment_gemma/
+2025-02-16 12:39:14,230 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 12:39:14,230 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-16 12:39:14,230 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-16 12:39:14,230 [INFO]   temperature: 0.9
+2025-02-16 12:39:14,230 [INFO]   top_p: 0.3
+2025-02-16 12:39:14,230 [INFO]   freq_penalty: 1.0
+2025-02-16 12:39:14,230 [INFO]   example_prompt: But the lack of financial aid would| The passage of the AI Act will
+2025-02-16 12:39:14,230 [INFO]   debug: 1
+2025-02-16 12:39:14,230 [INFO]   save_no_steer: 1
+2025-02-16 12:39:14,230 [INFO]   is_norm_delta_matrix: 0
+2025-02-16 12:39:14,230 [INFO]   use_cache: 0
+2025-02-16 12:39:14,230 [INFO]   repeat_num: 2
+2025-02-16 12:39:14,230 [INFO]   gen_batch_size: 16
+2025-02-16 12:39:14,231 [INFO]   real_data_size_for_train: 1000
+2025-02-16 12:39:14,231 [INFO] sentiment:neg->pos
+2025-02-16 13:13:56,394 [INFO] Logging initialized. Logs will be saved to ./results/sentiment_gemma/gemma-2-2b_sentiment_layer_6_datasize_1000_batchsize32_topK_100/alpha_500.0_from_neg_to_pos_prompt_neg_mean_dif_mean_steertype_all_device_cpu/execution.log
+2025-02-16 13:13:56,394 [INFO] Show Hyperparameters: 
+
+
+2025-02-16 13:13:56,394 [INFO]   task: sentiment
+2025-02-16 13:13:56,394 [INFO]   layer: 6
+2025-02-16 13:13:56,395 [INFO]   LLM: gemma-2-2b
+2025-02-16 13:13:56,395 [INFO]   seed: 42
+2025-02-16 13:13:56,395 [INFO]   data_size: 1000
+2025-02-16 13:13:56,395 [INFO]   device: cpu
+2025-02-16 13:13:56,395 [INFO]   alpha: 500.0
+2025-02-16 13:13:56,395 [INFO]   method: val_mul
+2025-02-16 13:13:56,395 [INFO]   topk_mean: 100
+2025-02-16 13:13:56,395 [INFO]   topk_cnt: 100
+2025-02-16 13:13:56,395 [INFO]   batch_size: 32
+2025-02-16 13:13:56,395 [INFO]   source: neg
+2025-02-16 13:13:56,395 [INFO]   target: pos
+2025-02-16 13:13:56,395 [INFO]   prompt_source: neg
+2025-02-16 13:13:56,395 [INFO]   prompt_data_size: 500
+2025-02-16 13:13:56,395 [INFO]   mean_type: dif_mean
+2025-02-16 13:13:56,395 [INFO]   steer_type: all
+2025-02-16 13:13:56,395 [INFO]   output_dir: ./results/sentiment_gemma/
+2025-02-16 13:13:56,395 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 13:13:56,395 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-16 13:13:56,395 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-16 13:13:56,395 [INFO]   temperature: 0.9
+2025-02-16 13:13:56,395 [INFO]   top_p: 0.3
+2025-02-16 13:13:56,395 [INFO]   freq_penalty: 1.0
+2025-02-16 13:13:56,395 [INFO]   example_prompt: But the lack of financial aid would| The passage of the AI Act will
+2025-02-16 13:13:56,395 [INFO]   debug: 0
+2025-02-16 13:13:56,395 [INFO]   save_no_steer: 1
+2025-02-16 13:13:56,395 [INFO]   is_norm_delta_matrix: 0
+2025-02-16 13:13:56,395 [INFO]   use_cache: 0
+2025-02-16 13:13:56,395 [INFO]   repeat_num: 2
+2025-02-16 13:13:56,395 [INFO]   gen_batch_size: 16
+2025-02-16 13:13:56,396 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-16 13:13:56,396 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 13:13:56,396 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-16 13:13:56,396 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-16 13:13:56,494 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-16 13:13:56,499 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-16 13:13:56,499 [INFO] Loading Model Loading SAE for layer 6 gemma-2-2b
+2025-02-16 13:14:04,385 [INFO] Loading model: gemma-2-2b
+2025-02-16 13:14:04,386 [WARNING] You tried to specify center_unembed=True for a model using logit softcap, but this can't be done! Softcapping is not invariant upon adding a constant Setting center_unembed=False instead.
+2025-02-16 13:14:07,170 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-02-16 13:14:14,798 [INFO] model architecture for gemma-2-2b HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-25): 26 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln1_post): RMSNorm(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2_post): RMSNorm(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GemmaTokenizerFast(name_or_path='google/gemma-2b', vocab_size=256000, model_max_length=1000000000000000019884624838656, is_fast=True, padding_side='left', truncation_side='right', special_tokens={'bos_token': '<bos>', 'eos_token': '<eos>', 'unk_token': '<unk>', 'pad_token': '<pad>', 'additional_special_tokens': ['<start_of_turn>', '<end_of_turn>']}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	0: AddedToken("<pad>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	1: AddedToken("<eos>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	2: AddedToken("<bos>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	3: AddedToken("<unk>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	4: AddedToken("<mask>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	5: AddedToken("<2mass>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	6: AddedToken("[@BOS@]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	7: AddedToken("<unused0>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	8: AddedToken("<unused1>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	9: AddedToken("<unused2>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	10: AddedToken("<unused3>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	11: AddedToken("<unused4>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	12: AddedToken("<unused5>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	13: AddedToken("<unused6>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	14: AddedToken("<unused7>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	15: AddedToken("<unused8>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	16: AddedToken("<unused9>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	17: AddedToken("<unused10>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	18: AddedToken("<unused11>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	19: AddedToken("<unused12>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	20: AddedToken("<unused13>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	21: AddedToken("<unused14>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	22: AddedToken("<unused15>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	23: AddedToken("<unused16>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	24: AddedToken("<unused17>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	25: AddedToken("<unused18>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	26: AddedToken("<unused19>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	27: AddedToken("<unused20>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	28: AddedToken("<unused21>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	29: AddedToken("<unused22>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	30: AddedToken("<unused23>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	31: AddedToken("<unused24>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	32: AddedToken("<unused25>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	33: AddedToken("<unused26>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	34: AddedToken("<unused27>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	35: AddedToken("<unused28>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	36: AddedToken("<unused29>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	37: AddedToken("<unused30>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	38: AddedToken("<unused31>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	39: AddedToken("<unused32>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	40: AddedToken("<unused33>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	41: AddedToken("<unused34>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	42: AddedToken("<unused35>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	43: AddedToken("<unused36>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	44: AddedToken("<unused37>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	45: AddedToken("<unused38>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	46: AddedToken("<unused39>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	47: AddedToken("<unused40>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	48: AddedToken("<unused41>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	49: AddedToken("<unused42>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	50: AddedToken("<unused43>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	51: AddedToken("<unused44>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	52: AddedToken("<unused45>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	53: AddedToken("<unused46>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	54: AddedToken("<unused47>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	55: AddedToken("<unused48>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	56: AddedToken("<unused49>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	57: AddedToken("<unused50>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	58: AddedToken("<unused51>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	59: AddedToken("<unused52>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	60: AddedToken("<unused53>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	61: AddedToken("<unused54>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	62: AddedToken("<unused55>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	63: AddedToken("<unused56>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	64: AddedToken("<unused57>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	65: AddedToken("<unused58>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	66: AddedToken("<unused59>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	67: AddedToken("<unused60>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	68: AddedToken("<unused61>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	69: AddedToken("<unused62>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	70: AddedToken("<unused63>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	71: AddedToken("<unused64>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	72: AddedToken("<unused65>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	73: AddedToken("<unused66>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	74: AddedToken("<unused67>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	75: AddedToken("<unused68>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	76: AddedToken("<unused69>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	77: AddedToken("<unused70>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	78: AddedToken("<unused71>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	79: AddedToken("<unused72>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	80: AddedToken("<unused73>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	81: AddedToken("<unused74>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	82: AddedToken("<unused75>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	83: AddedToken("<unused76>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	84: AddedToken("<unused77>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	85: AddedToken("<unused78>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	86: AddedToken("<unused79>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	87: AddedToken("<unused80>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	88: AddedToken("<unused81>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	89: AddedToken("<unused82>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	90: AddedToken("<unused83>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	91: AddedToken("<unused84>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	92: AddedToken("<unused85>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	93: AddedToken("<unused86>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	94: AddedToken("<unused87>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	95: AddedToken("<unused88>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	96: AddedToken("<unused89>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	97: AddedToken("<unused90>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	98: AddedToken("<unused91>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	99: AddedToken("<unused92>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	100: AddedToken("<unused93>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	101: AddedToken("<unused94>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	102: AddedToken("<unused95>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	103: AddedToken("<unused96>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	104: AddedToken("<unused97>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	105: AddedToken("<unused98>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	106: AddedToken("<start_of_turn>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	107: AddedToken("<end_of_turn>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	108: AddedToken("
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	109: AddedToken("
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	110: AddedToken("
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	111: AddedToken("
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	112: AddedToken("
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	113: AddedToken("
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	114: AddedToken("
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	115: AddedToken("
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	116: AddedToken("
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	117: AddedToken("
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	118: AddedToken("
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	119: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	120: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	121: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	122: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	123: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	124: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	125: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	126: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	127: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	128: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	129: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	130: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	131: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	132: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	133: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	134: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	135: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	136: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	137: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	138: AddedToken("
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	139: AddedToken("▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	140: AddedToken("▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	141: AddedToken("▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	142: AddedToken("▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	143: AddedToken("▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	144: AddedToken("▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	145: AddedToken("▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	146: AddedToken("▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	147: AddedToken("▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	148: AddedToken("▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	149: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	150: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	151: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	152: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	153: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	154: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	155: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	156: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	157: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	158: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	159: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	160: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	161: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	162: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	163: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	164: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	165: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	166: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	167: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	168: AddedToken("▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	169: AddedToken("<table>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	170: AddedToken("<caption>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	171: AddedToken("<thead>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	172: AddedToken("<tbody>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	173: AddedToken("<tfoot>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	174: AddedToken("<tr>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	175: AddedToken("<th>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	176: AddedToken("<td>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	177: AddedToken("</table>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	178: AddedToken("</caption>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	179: AddedToken("</thead>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	180: AddedToken("</tbody>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	181: AddedToken("</tfoot>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	182: AddedToken("</tr>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	183: AddedToken("</th>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	184: AddedToken("</td>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	185: AddedToken("<h1>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	186: AddedToken("<h2>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	187: AddedToken("<h3>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	188: AddedToken("<h4>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	189: AddedToken("<h5>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	190: AddedToken("<h6>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	191: AddedToken("<blockquote>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	192: AddedToken("</h1>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	193: AddedToken("</h2>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	194: AddedToken("</h3>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	195: AddedToken("</h4>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	196: AddedToken("</h5>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	197: AddedToken("</h6>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	198: AddedToken("</blockquote>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	199: AddedToken("<strong>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	200: AddedToken("<em>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	201: AddedToken("<b>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	202: AddedToken("<i>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	203: AddedToken("<u>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	204: AddedToken("<s>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	205: AddedToken("<sub>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	206: AddedToken("<sup>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	207: AddedToken("<code>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	208: AddedToken("</strong>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	209: AddedToken("</em>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	210: AddedToken("</b>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	211: AddedToken("</i>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	212: AddedToken("</u>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	213: AddedToken("</s>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	214: AddedToken("</sub>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	215: AddedToken("</sup>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+	216: AddedToken("</code>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
+}
+)
+2025-02-16 13:14:14,801 [INFO] 缓存 ./results/sentiment_gemma/gemma-2-2b_sentiment_layer_6_datasize_1000_batchsize32_topK_100/steer_info_cache_of_gemma-2-2b_l6.pkl 不存在，缓存 steer_info
+2025-02-16 13:14:14,824 [INFO] :>> sentiment : from neg to pos
+2025-02-16 13:14:14,840 [INFO] positive
+2025-02-16 13:14:14,846 [INFO] Running model with cache to obtain hidden states
+2025-02-16 13:16:12,701 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-02-16 13:16:12,721 [INFO] negative
+2025-02-16 13:16:12,734 [INFO] Running model with cache to obtain hidden states
+2025-02-16 13:17:56,864 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-02-16 13:17:56,887 [INFO] steer_info 已保存到缓存 ./results/sentiment_gemma/gemma-2-2b_sentiment_layer_6_datasize_1000_batchsize32_topK_100/steer_info_cache_of_gemma-2-2b_l6.pkl
+2025-02-16 13:17:56,887 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-16 13:17:56,887 [INFO] sae cfg.hook_name 挂载名称: blocks.0.hook_resid_post
+2025-02-16 13:17:56,890 [INFO] Generating texts **without** steering... 
+2025-02-16 13:17:56,891 [INFO] 无转向结果
+2025-02-16 13:17:56,895 [INFO] 无干预
+2025-02-16 13:18:09,795 [INFO] 当前批次共处理2个prompt
+2025-02-16 13:18:09,795 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-16 13:18:09,795 [INFO] 生成 1: | not be a problem for the family, who are used to living on less than $100 a week.
+
+The couple have been living in a caravan at their daughter's house in Northcote since they were evicted from their home at |
+2025-02-16 13:18:09,795 [INFO] 生成 2: | not be a problem for the 20-year-old, who is studying to become a nurse.
+
+“I’m not worried about that,” she said. “I’ve been working since I was 14 and I have|
+2025-02-16 13:18:09,795 [INFO] 生成 3: | not be a problem for the 20-year-old, who is already working full time at a restaurant in her hometown of Port Huron, Mich.
+
+"I'm not worried about it," she said. "I'm going|
+2025-02-16 13:18:09,795 [INFO] Prompt 2: | The passage of the AI Act will|
+2025-02-16 13:18:09,795 [INFO] 生成 1: | be a milestone in the development of artificial intelligence. It will set out a framework for regulating AI systems, including those that are used for surveillance and law enforcement purposes. This is important because it will help to ensure that these systems are safe and do not|
+2025-02-16 13:18:09,795 [INFO] 生成 2: | be a major step forward in regulating artificial intelligence, and it is important to note that the EU has been leading the way in this area. The AI Act is expected to set a global standard for AI regulation, and it will be interesting to see how|
+2025-02-16 13:18:09,795 [INFO] 生成 3: | be a major step forward in the development of artificial intelligence (AI) and machine learning (ML) technologies. It will provide a framework for regulating these technologies, ensuring that they are safe and ethical. The AI Act is expected to have a significant impact|
+2025-02-16 13:18:09,795 [INFO] 干预之后的结果
+2025-02-16 13:18:09,795 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-16 13:18:09,795 [INFO] ** Generating texts with steering... Target **
+2025-02-16 13:18:09,796 [INFO] form neg to pos
+2025-02-16 13:18:09,796 [INFO] 转向结果
+2025-02-16 13:18:22,370 [INFO] 当前批次共处理2个prompt
+2025-02-16 13:18:22,370 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-16 13:18:22,370 [INFO] 生成 1: | not be a problem for him.
+
+"I'm not going to go into debt," he said. "I'll just pay it off."
+
+He said he is also looking forward to meeting his new classmates and professors, and getting back|
+2025-02-16 13:18:22,370 [INFO] 生成 2: | not be a problem for the 2017-18 school year.
+
+“We have enough money to pay teachers and staff,” said Superintendent Dr. Michael A. Martella, who is also president of the board of education. “|
+2025-02-16 13:18:22,370 [INFO] 生成 3: | not be the only problem.
+
+The lack of financial aid for college students has been a hot topic in recent years, and it is something that I have personally experienced.
+
+The lack of financial aid for college students is a problem that has been discussed|
+2025-02-16 13:18:22,370 [INFO] Prompt 2: | The passage of the AI Act will|
+2025-02-16 13:18:22,370 [INFO] 生成 1: | be a major step forward in the protection of artificial intelligence systems. It is also a step towards greater transparency and accountability in AI development.
+
+The EU has been working on an AI Act for several years, and it is now expected to be adopted by|
+2025-02-16 13:18:22,370 [INFO] 生成 2: | be a turning point in the history of artificial intelligence.
+
+The AI Act is a European Union law that regulates the use of artificial intelligence (AI) and sets out specific requirements for its development, deployment, and use. It aims to ensure that AI|
+2025-02-16 13:18:22,370 [INFO] 生成 3: | not be easy.
+
+The European Parliament is set to vote on the Artificial Intelligence Act, which will govern the use of artificial intelligence in Europe.
+
+The AI Act has been in development for years and was finally adopted by the European Commission in April |
+2025-02-16 13:18:22,374 [INFO] Provide No Steer Result 提供无干预对照样本
+2025-02-16 13:18:22,374 [INFO] Running on full data
+2025-02-16 13:18:22,374 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-16 13:18:22,374 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-16 13:18:22,385 [INFO] prompt的极性是neg
+2025-02-16 13:18:22,385 [INFO] Running with alpha: 500.0
+2025-02-16 13:18:22,385 [INFO] Running with prompt_type: from neg to pos
+2025-02-16 13:18:22,386 [WARNING] 截取prompt_datasize500
+2025-02-16 13:18:22,392 [INFO] 无干预
+2025-02-16 13:18:59,310 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:18:59,310 [INFO] {'md5_hash': '06daa8998220e9f416c42b8f9c45fda8', 'prompt': {'text': 'It made my hair feel flat and uncooperative'}, 'continuation': {'text': ', though my skin felt soft and relaxed.'}, 'num_positive': 0, 'generations': [{'text': "It made my hair feel flat and uncooperative is the only way I can describe it. It's not bad, but it's not great either.\n\nI love this product! I have a lot of hair and it’s very thick so finding a good shampoo that doesn’t"}, {'text': "It made my hair feel flat and uncooperative. I have fine, thin hair that is naturally straight. I had to use a lot of product to get it to look like anything. It also made my scalp itch like crazy!\n\nI've been using this for years and love it!"}]}
+2025-02-16 13:18:59,317 [INFO] 无干预
+2025-02-16 13:19:36,323 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:19:36,323 [INFO] {'md5_hash': '684d089dd2539bcb726b7960c35e96f2', 'prompt': {'text': 'Protesters have also long said that they would not accept'}, 'continuation': {'text': 'immunity for Saleh and his family in exchange his resignation.'}, 'num_positive': 0, 'generations': [{'text': 'Protesters have also long said that they would not accept the results of the 2018 elections, and that they would not accept a new president if he or she was elected.\n\nThe protesters have been demanding that President Kenyatta step down from office and allow for a fresh election to be held.'}, {'text': 'Protesters have also long said that they would not accept, as a solution to the crisis, the imposition of austerity measures.\n\nIn recent weeks, the government has been trying to reach an agreement with the unions and employers’ associations on a series of measures aimed at reducing the cost of living.\n\nThe'}]}
+2025-02-16 13:19:36,330 [INFO] 无干预
+2025-02-16 13:20:15,554 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:20:15,554 [INFO] {'md5_hash': 'cc4129826978407883aacad181a6f185', 'prompt': {'text': 'but a overclock-failure would not'}, 'continuation': {'text': 'result in black screens.'}, 'num_positive': 0, 'generations': [{'text': 'but a overclock-failure would not to be able to use the 128MB.\n\nI think it is possible, but I don\'t know how.\nYou can try with the following command:\n\n<code>sudo echo "mem=128" >> /etc'}, {'text': 'but a overclock-failure would not\n\nbe the end of the world.\n\nI\'m not sure what you mean by "not a big deal". I have had my 3800+ for over 2 years now and it has never failed me. I\'ve'}]}
+2025-02-16 13:20:15,561 [INFO] 无干预
+2025-02-16 13:20:55,759 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:20:55,759 [INFO] {'md5_hash': '16e85a1055720694e25c0af2b0249f5a', 'prompt': {'text': 'Whatever the truth of it, handwriting is now consigned'}, 'continuation': {'text': ', like hand-carried post, to the realm of snails.'}, 'num_positive': 0, 'generations': [{'text': 'Whatever the truth of it, handwriting is now consigned to history.\n\nIt’s not that people don’t like writing with a pen and paper. It’s just that the way we write has changed so much in recent years that there are few who can read what we write anymore.\n\n'}, {'text': 'Whatever the truth of it, handwriting is now consigned to history.\n\nIn a world where we can communicate with anyone, anywhere in the world in seconds, why would we want to write something down?\n\nIt’s a question that has been asked for years and one that I have been asking myself'}]}
+2025-02-16 13:20:55,766 [INFO] 无干预
+2025-02-16 13:21:36,798 [INFO] 无干预
+2025-02-16 13:22:13,090 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:22:13,090 [INFO] {'md5_hash': '25c4f661f5ccbbe5f43c46f20befe52a', 'prompt': {'text': 'What’s more laughable is the'}, 'continuation': {'text': 'affirmative defenses Rightscorp threw at the wall.'}, 'num_positive': 0, 'generations': [{'text': 'What’s more laughable is the that the “<em><strong>A</strong></em>” in <strong><em>A</em></strong>merican <strong><em>A</em></strong>dvocate for <strong><em>C</em></strong>onsumer <strong><em>E</em></strong>ducation (ACCE) is not a'}, {'text': 'What’s more laughable is the, “Oh, I didn’t know it was a problem” excuse.\n\nI have a friend who has been dating this guy for about 3 years now. He is a very nice guy and she loves him dearly. They are both in'}]}
+2025-02-16 13:22:13,097 [INFO] 无干预
+2025-02-16 13:22:53,388 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:22:53,389 [INFO] {'md5_hash': '5b904b341b6cb4d85bdf60ec06b2539e', 'prompt': {'text': 'But could it be'}, 'continuation': {'text': 'more insidious than that?'}, 'num_positive': 0, 'generations': [{'text': 'But could it be?\n\nThe 2016 presidential election is still a year away, but already the race is shaping up to be one of the most interesting in recent memory.\n\nWith Hillary Clinton and Donald Trump leading the pack, it’s not hard'}, {'text': 'But could it be\n\nThe 2016 presidential election is a year away, and already the political pundits are predicting that Donald Trump will win. The reason? He’s a billionaire who has never held public office.\n\nTrump is running for president as'}]}
+2025-02-16 13:22:53,396 [INFO] 无干预
+2025-02-16 13:23:32,772 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:23:32,772 [INFO] {'md5_hash': 'a40fbb2060aeac07d3c4ffe4caa544e6', 'prompt': {'text': 'Another exception is the sale of cigarettes,'}, 'continuation': {'text': 'which is covered by the Jenkins Act.'}, 'num_positive': 0, 'generations': [{'text': 'Another exception is the sale of cigarettes,\n\nwhich is not subject to VAT.\n\nThis is because the tax was levied on tobacco and not on cigarettes.\n\nThe government has also been accused of being too slow in introducing a tax on alcohol, which has been blamed for many social ills.'}, {'text': 'Another exception is the sale of cigarettes, cigarettes and other tobacco products. The law does not prohibit the sale of these products to minors, but it does require that they be sold in a manner that prevents minors from obtaining them. This means that retailers must have age-verification systems in place to'}]}
+2025-02-16 13:23:32,779 [INFO] 无干预
+2025-02-16 13:24:12,177 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:24:12,177 [INFO] {'md5_hash': 'a6231a5805f4f6868cdbe322ed6d9250', 'prompt': {'text': 'Disappointed: Apprentice chef Alex Martin will'}, 'continuation': {'text': 'miss out on her last two instalments.'}, 'num_positive': 0, 'generations': [{'text': 'Disappointed: Apprentice chef Alex Martin will\n\nbe the first to admit that he has had a tough time on MasterChef.\n\nThe 21-year-old from Auckland was the first contestant to be eliminated from the show, which began on TV3 last week.\n\n"I'}, {'text': 'Disappointed: Apprentice chef Alex Martin will\n\nnot be taking part in the next series of MasterChef.\n\nThe 21-year-old, who was eliminated from the BBC One show last week, said he had been "disappointed" not to be asked back for the next'}]}
+2025-02-16 13:24:12,184 [INFO] 无干预
+2025-02-16 13:24:50,661 [INFO] 无干预
+2025-02-16 13:25:40,617 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:25:40,617 [INFO] {'md5_hash': 'b2507e3a0dc9c39b21595cc8df98e1f6', 'prompt': {'text': 'The actual reactor is typically enclosed in a cement building'}, 'continuation': {'text': 'that is built to withstand natural disasters and other threats.'}, 'num_positive': 0, 'generations': [{'text': 'The actual reactor is typically enclosed in a cement building, which can be seen from the outside. The reactor itself is located inside the building and it has to be protected from external influences. The building must also protect the reactor against fire, explosion and radiation.\n\nThe first nuclear power plant was built in'}, {'text': 'The actual reactor is typically enclosed in a cement building, which is designed to withstand the heat and pressure of the nuclear reaction. The concrete building has a thickness of 1 m and a thermal conductivity of 2 W/mK. The temperature inside the reactor is 500°C,'}]}
+2025-02-16 13:25:40,630 [INFO] 无干预
+2025-02-16 13:26:55,573 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:26:55,573 [INFO] {'md5_hash': 'afe25a529b2c2f59fe7a9746f912cfd0', 'prompt': {'text': 'Some, thinking disorder is simply the absence'}, 'continuation': {'text': 'of any system, confuse it with anarchy.'}, 'num_positive': 0, 'generations': [{'text': "Some, thinking disorder is simply the absence of empathy.\n\nThe lack of empathy is a sign of a mental illness.\n\nIf you have no empathy, you are not mentally ill. You are just a monster.\n\nI don't think that's true at all. I think"}, {'text': 'Some, thinking disorder is simply the absence of a particular type of thought.\n\nOthers, thinking disorder is the presence of an excessive amount of a particular type of thought.\n\nThe truth is that there are many different types and levels of thinking disorders.\n\nIn this article we will discuss some'}]}
+2025-02-16 13:26:55,586 [INFO] 无干预
+2025-02-16 13:27:57,977 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:27:57,977 [INFO] {'md5_hash': '7f5156895e0d24711cc3e3d90ccbf9a1', 'prompt': {'text': 'No group claimed responsibility, but Egyptian reports pointed'}, 'continuation': {'text': 'blame at Hamas and other Gaza terror groups.'}, 'num_positive': 0, 'generations': [{'text': 'No group claimed responsibility, but Egyptian reports pointed:\n\n<blockquote>The Islamic State has claimed responsibility for the attack on a Coptic church in Egypt’s capital Cairo that killed at least 25 people and wounded more than 40 others.</blockquote>\n\nThis is the second attack on a Cop'}, {'text': 'No group claimed responsibility, but Egyptian reports pointed\n\nto the Islamic State as the most likely culprit.\n\nThe attack came a day after Egypt’s military said it had killed 12 militants in an air strike on a hideout in northern Sinai.\n\nIt was the latest in a series'}]}
+2025-02-16 13:27:57,984 [INFO] 无干预
+2025-02-16 13:29:01,960 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:29:01,960 [INFO] {'md5_hash': '7f19f058a5960ad706e86718c61f4e07', 'prompt': {'text': 'It is also easy to override'}, 'continuation': {'text': ', extend and customize the Configuration.'}, 'num_positive': 0, 'generations': [{'text': 'It is also easy to override\n\n<code>@Override\npublic void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {\n    super.onRequestPermissionsResult(requestCode, permissions, grantResults);\n    if (requestCode == 100'}, {'text': 'It is also easy to override, as it can be done by simply replacing the existing file with a new one.\n\nThe only thing that needs to be taken into account is that the new file must have the same name and extension as the original one.\n\nThis way, you'}]}
+2025-02-16 13:29:01,972 [INFO] 无干预
+2025-02-16 13:30:04,824 [INFO] 无干预
+2025-02-16 13:30:58,431 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:30:58,431 [INFO] {'md5_hash': '6ceb57c038afdfcf9b1f8196b0f2f3c3', 'prompt': {'text': 'getNumberProperties ( field )'}, 'continuation': {'text': ', calcInfo = this .'}, 'num_positive': 0, 'generations': [{'text': 'getNumberProperties ( field )\n    {\n        return this.field;\n    }\n\n    public void setNumberProperties ( String field )\n    {\n        this.field = field;\n    }\n\n} // class NumberProperties\n\n//----------------------------------------------------------------'}, {'text': 'getNumberProperties ( field )\n        {\n            return this.properties[field];\n        }\n\n        public void setNumberProperties ( String field, Number value )\n        {\n            this.properties[field] = value;\n        }\n\n    }\n\n'}]}
+2025-02-16 13:30:58,440 [INFO] 无干预
+2025-02-16 13:31:49,654 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:31:49,654 [INFO] {'md5_hash': '99a53d41506e0837001dc9fda47a0f89', 'prompt': {'text': 'The draft ordinance would require dispensaries to receive a special'}, 'continuation': {'text': 'permit from the city in order to begin operations.'}, 'num_positive': 0, 'generations': [{'text': 'The draft ordinance would require dispensaries to receive a special dispensary license from the state Department of Health, and to be inspected by the department.\n\nThe ordinance also would require dispensaries to register with the city and pay a $100 annual fee.\n\nIt also would require that all patients seeking medical'}, {'text': 'The draft ordinance would require dispensaries to receive a special license from the city and would also require them to be at least 100 feet away from any residential area.\n\nThe ordinance was introduced by Councilman Mike O’Brien, who said he has received complaints about the number of dispensaries in his'}]}
+2025-02-16 13:31:49,661 [INFO] 无干预
+2025-02-16 13:32:41,971 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:32:41,972 [INFO] {'md5_hash': '0c2cbc733309885571e7ebdb69b05ab0', 'prompt': {'text': 'The White House did not respond to'}, 'continuation': {'text': 'a CNBC request for further comment.'}, 'num_positive': 0, 'generations': [{'text': "The White House did not respond to's request for comment.\n\nThe 2017 budget, which was released in February, proposed a $5.6 billion cut to the National Institutes of Health (NIH), the largest funder of biomedical research in the world. The"}, {'text': 'The White House did not respond to.\n\n“I think it’s a very serious matter,” said Sen. Richard Blumenthal, D-Conn., who has been pushing for the creation of a federal database of gun sales and purchases. “It’s a very serious matter that'}]}
+2025-02-16 13:32:41,988 [INFO] 无干预
+2025-02-16 13:33:35,174 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:33:35,174 [INFO] {'md5_hash': 'ffc5bbd188bbcb96c34b82a1cb9cf139', 'prompt': {'text': 'For example, Lighting Universe could save some money by'}, 'continuation': {'text': 'setting “piano” bench as a negative keyword.'}, 'num_positive': 0, 'generations': [{'text': 'For example, Lighting Universe could save some money by\n\n* Using a different manufacturer for the light bulbs.\n* Using a different type of light bulb.\n* Changing the way they use the lights.\n\nThe company could also make more money by:\n\n* Selling more energy-efficient light bulbs'}, {'text': 'For example, Lighting Universe could save some money by\n\n* buying a single server instead of two\n* buying a server with more memory than it needs\n* buying a server with more disk space than it needs\n\nThe same goes for the other resources. For example, if you have an application that'}]}
+2025-02-16 13:33:35,180 [INFO] 无干预
+2025-02-16 13:34:34,372 [INFO] 无干预
+2025-02-16 13:35:43,517 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:35:43,517 [INFO] {'md5_hash': 'f84597942cad62482c256a7d23c95f40', 'prompt': {'text': 'Further medication was classified into'}, 'continuation': {'text': 'groups defined by their indication.'}, 'num_positive': 0, 'generations': [{'text': 'Further medication was classified into\n\n* Non-steroidal anti-inflammatory drugs (NSAIDs)\n* Steroidal anti-inflammatory drugs (SAIDs)\n* Corticosteroids\n\nNon-steroidal anti-inflammatory drugs (NSAIDs)\n\nNonsteroidal anti-'}, {'text': 'Further medication was classified into. The most common side effects are dizziness, headache, and fatigue.\n\nThe use of antihypertensive drugs is not recommended in patients with severe renal impairment (creatinine clearance < 30 mL/min).\n\nIn patients with mild to'}]}
+2025-02-16 13:35:43,524 [INFO] 无干预
+2025-02-16 13:37:09,340 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:37:09,340 [INFO] {'md5_hash': '4a33b5c0f5b5419c1d2b7be1288cac01', 'prompt': {'text': 'So in the absence of such skills they use the'}, 'continuation': {'text': '“carrot and stick’ technique without the carrot.'}, 'num_positive': 0, 'generations': [{'text': 'So in the absence of such skills they use the.\n\n<h2>How to Write a Personal Statement for Graduate School</h2>\n\nThe first step is to identify your strengths and weaknesses. The second step is to develop a plan for how you will improve your weaknesses and build on your strengths. This can be done'}, {'text': 'So in the absence of such skills they use the to-do list.\n\nThe to-do list is a great way to organize your life and get things done. It’s also a great way to keep track of what you need to do and when you need to do it by.\n\n'}]}
+2025-02-16 13:37:09,347 [INFO] 无干预
+2025-02-16 13:38:26,136 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:38:26,136 [INFO] {'md5_hash': '12457dc59ff895a0112a622c8060c2c0', 'prompt': {'text': 'The process has become mired in UN bureaucracy after the'}, 'continuation': {'text': 'security council set up a subcommittee to examine the application.'}, 'num_positive': 0, 'generations': [{'text': 'The process has become mired in UN bureaucracy after the, and a UN-appointed panel of experts recommended that the sanctions be lifted.\n\n"We are not in a position to lift the sanctions at this time," said UN spokesman Stephane Dujarric.\n\n"The Security Council will have to decide'}, {'text': "The process has become mired in UN bureaucracy after the United Nations Security Council failed to agree on a resolution to extend the mandate of the UN mission in Haiti (MINUSTAH) beyond 31 December.\n\nThe council is expected to vote on a resolution extending MINUSTAH's mandate at its"}]}
+2025-02-16 13:38:26,149 [INFO] 无干预
+2025-02-16 13:39:42,677 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:39:42,678 [INFO] {'md5_hash': '1467fd6a27ba129d7542cb7dc66f9c1d', 'prompt': {'text': 'Earlier this month the ONS said the unemployment rate had'}, 'continuation': {'text': 'fallen to 7.4%, the lowest level since 2009.'}, 'num_positive': 0, 'generations': [{'text': 'Earlier this month the ONS said the unemployment rate had risen to 4.5 per cent in the three months to June, up from 4.3 per cent in March and April.\n\nThe ONS said that while there were more people out of work, there were also more people looking for jobs'}, {'text': 'Earlier this month the ONS said the unemployment rate had fallen to 4.7 per cent in the three months to September, down from 5.1 per cent in August and below expectations of a fall to 5.2 per cent.\n\nThe ONS said: “The unemployment rate is now'}]}
+2025-02-16 13:39:42,692 [INFO] 无干预
+2025-02-16 13:40:58,368 [INFO] 无干预
+2025-02-16 13:42:19,077 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:42:19,078 [INFO] {'md5_hash': '41bc9ecd131d1d1f8b608196e1118bf1', 'prompt': {'text': "The suspect in Tuesday's downtown terror attack"}, 'continuation': {'text': 'arrives with police escort to Bellevue Hospital.'}, 'num_positive': 0, 'generations': [{'text': "The suspect in Tuesday's downtown terror attack was a man who had been released from prison only two days earlier, according to a report by the <em>New York Times</em>.\n\nAccording to the paper, Faisal Shahzad was released from prison on May 18 after serving three years"}, {'text': 'The suspect in Tuesday\'s downtown terror attack, which left 14 people dead and dozens injured, was a 29-year-old man from the city of Mbombela.\n\nThe man was shot dead by police officers at the scene of the attack.\n\n"We can'}]}
+2025-02-16 13:42:19,091 [INFO] 无干预
+2025-02-16 13:43:34,560 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:43:34,560 [INFO] {'md5_hash': '8ba89b679c38d81dd20e8067000a1af4', 'prompt': {'text': 'It lost 14.5 percent of its value'}, 'continuation': {'text': 'in the third quarter of 2008.'}, 'num_positive': 0, 'generations': [{'text': 'It lost 14.5 percent of its value in the last year, but the price of gold is still high.\n\nThe price of gold has fallen sharply since it reached a record high in August 2020, when it was trading at $2,075 per ounce.'}, {'text': 'It lost 14.5 percent of its value in the last year, but it is still the most valuable cryptocurrency in the world.\n\nBitcoin has been a rollercoaster ride for investors over the past few years, with its price soaring to record highs and then plummeting to lows not seen since 2'}]}
+2025-02-16 13:43:34,574 [INFO] 无干预
+2025-02-16 13:44:49,126 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:44:49,126 [INFO] {'md5_hash': '4418c5d2083b4691da26049c806b4526', 'prompt': {'text': 'But it seems likely too that'}, 'continuation': {'text': 'Heleus will not be left behind.'}, 'num_positive': 0, 'generations': [{'text': 'But it seems likely too that is what the world will be like in 2016.\n\nThe U.S. economy is still growing, but at a slower pace than it was last year, and the Federal Reserve has indicated that it will raise interest rates later this'}, {'text': 'But it seems likely too that is not the case.\n\nThe 2016-17 season has been a roller coaster for the Red Sox, and while they have had their moments, they have also had their share of disappointments.\n\nOne of those disappointments was a'}]}
+2025-02-16 13:44:49,133 [INFO] 无干预
+2025-02-16 13:46:01,608 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:46:01,609 [INFO] {'md5_hash': '8304662bb7869d6eb68357cf013a4430', 'prompt': {'text': 'Allegations of torture by secret intelligence agencies at Kuli camp'}, 'continuation': {'text': 'have been made by the Baloch community for several decades.'}, 'num_positive': 0, 'generations': [{'text': 'Allegations of torture by secret intelligence agencies at Kuli camp in Lusaka have been dismissed as a figment of the imagination.\n\nAnd Home Affairs Minister Stephen Kampyongo says he is not aware of any allegations that the police are using torture to extract confessions from suspects.\n\nMr Kampyongo said this when'}, {'text': 'Allegations of torture by secret intelligence agencies at Kuli camp in Port Harcourt, Rivers State, have been dismissed as “fake news” by the Nigerian Army.\n\nThe army said it had not received any complaint from the camp.\n\nThe army’s Director of Public Relations, Col. Sani Usman, said'}]}
+2025-02-16 13:46:01,616 [INFO] 无干预
+2025-02-16 13:47:18,025 [INFO] 无干预
+2025-02-16 13:48:32,867 [INFO] sentiment: from neg to pos prompt_set: neg
+2025-02-16 13:48:32,868 [INFO] {'md5_hash': 'd57568ce10f19bc27be29d47c0d77374', 'prompt': {'text': 'The steepest decreases occurred among men who reported that they'}, 'continuation': {'text': 'spent time caring for and palling around with their children.'}, 'num_positive': 0, 'generations': [{'text': 'The steepest decreases occurred among men who reported that they had been diagnosed with prostate cancer.\n\n“This is a very important finding because it shows that the use of these drugs can have a positive effect on men’s health,” said Dr. Peter J. Marcucci, an associate professor of medicine'}, {'text': 'The steepest decreases occurred among men who reported that they had not been vaccinated against COVID-19, with a 20.4% decrease in the number of deaths from COVID-19 and a 36.7% decrease in the number of hospitalizations from COVID-19.'}]}
+2025-02-16 13:48:32,881 [INFO] 无干预
+2025-02-16 13:49:38,351 [INFO] 训练时间222.0861053466797
+2025-02-16 13:49:38,351 [INFO] Show Hyperparameters: 
+
+
+2025-02-16 13:49:38,351 [INFO]   task: sentiment
+2025-02-16 13:49:38,351 [INFO]   layer: 6
+2025-02-16 13:49:38,351 [INFO]   LLM: gemma-2-2b
+2025-02-16 13:49:38,351 [INFO]   seed: 42
+2025-02-16 13:49:38,351 [INFO]   data_size: 1000
+2025-02-16 13:49:38,351 [INFO]   device: cpu
+2025-02-16 13:49:38,351 [INFO]   alpha: 500.0
+2025-02-16 13:49:38,351 [INFO]   method: val_mul
+2025-02-16 13:49:38,351 [INFO]   topk_mean: 100
+2025-02-16 13:49:38,351 [INFO]   topk_cnt: 100
+2025-02-16 13:49:38,351 [INFO]   batch_size: 32
+2025-02-16 13:49:38,351 [INFO]   source: neg
+2025-02-16 13:49:38,351 [INFO]   target: pos
+2025-02-16 13:49:38,351 [INFO]   prompt_source: neg
+2025-02-16 13:49:38,351 [INFO]   prompt_data_size: 500
+2025-02-16 13:49:38,351 [INFO]   mean_type: dif_mean
+2025-02-16 13:49:38,351 [INFO]   steer_type: all
+2025-02-16 13:49:38,351 [INFO]   output_dir: ./results/sentiment_gemma/
+2025-02-16 13:49:38,351 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-16 13:49:38,351 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-16 13:49:38,351 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-16 13:49:38,351 [INFO]   temperature: 0.9
+2025-02-16 13:49:38,351 [INFO]   top_p: 0.3
+2025-02-16 13:49:38,351 [INFO]   freq_penalty: 1.0
+2025-02-16 13:49:38,351 [INFO]   example_prompt: But the lack of financial aid would| The passage of the AI Act will
+2025-02-16 13:49:38,351 [INFO]   debug: 0
+2025-02-16 13:49:38,351 [INFO]   save_no_steer: 1
+2025-02-16 13:49:38,351 [INFO]   is_norm_delta_matrix: 0
+2025-02-16 13:49:38,351 [INFO]   use_cache: 0
+2025-02-16 13:49:38,351 [INFO]   repeat_num: 2
+2025-02-16 13:49:38,351 [INFO]   gen_batch_size: 16
+2025-02-16 13:49:38,351 [INFO]   real_data_size_for_train: 1000
+2025-02-16 13:49:38,351 [INFO] sentiment:neg->pos

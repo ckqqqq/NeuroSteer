@@ -1,0 +1,162 @@
+2025-01-24 23:35:15,442 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/gemma-2b_sentiment_alpha_300.0_from_pos_to_neg_datasize_1000_layer_0_mean_dif_mean_steertype_last_device_cpu_batchsize8/execution.log
+2025-01-24 23:35:15,442 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 23:35:15,442 [INFO]   task: sentiment
+2025-01-24 23:35:15,442 [INFO]   layer: 0
+2025-01-24 23:35:15,442 [INFO]   LLM: gemma-2b
+2025-01-24 23:35:15,442 [INFO]   seed: 42
+2025-01-24 23:35:15,442 [INFO]   data_size: 1000
+2025-01-24 23:35:15,442 [INFO]   device: cpu
+2025-01-24 23:35:15,442 [INFO]   alpha: 300.0
+2025-01-24 23:35:15,442 [INFO]   method: val_mul
+2025-01-24 23:35:15,442 [INFO]   topk_mean: 100
+2025-01-24 23:35:15,442 [INFO]   topk_cnt: 100
+2025-01-24 23:35:15,442 [INFO]   batch_size: 8
+2025-01-24 23:35:15,442 [INFO]   source: pos
+2025-01-24 23:35:15,442 [INFO]   target: neg
+2025-01-24 23:35:15,442 [INFO]   mean_type: dif_mean
+2025-01-24 23:35:15,442 [INFO]   steer_type: last
+2025-01-24 23:35:15,442 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 23:35:15,442 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 23:35:15,442 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 23:35:15,442 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 23:35:15,442 [INFO]   temperature: 0.9
+2025-01-24 23:35:15,442 [INFO]   top_p: 0.3
+2025-01-24 23:35:15,442 [INFO]   freq_penalty: 1.0
+2025-01-24 23:35:15,442 [INFO]   debug: 1
+2025-01-24 23:35:15,442 [INFO]   save_no_steer: 1
+2025-01-24 23:35:15,442 [INFO]   cache_delta_matrix: 0
+2025-01-24 23:35:15,442 [INFO]   is_norm_delta_matrix: 0
+2025-01-24 23:35:15,443 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 23:35:15,443 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 23:35:15,443 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 23:35:15,443 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 23:35:15,597 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 23:35:15,610 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 23:35:15,610 [INFO] Loading SAE for layer 0 gemma-2b
+2025-01-24 23:35:15,610 [INFO] Loading model: gemma-2b
+2025-01-24 23:35:20,789 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 23:35:30,919 [INFO] model architecture for gemma-2b HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-17): 18 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-01-24 23:36:03,848 [INFO] frompostoneg
+2025-01-24 23:36:03,848 [INFO] positive
+2025-01-24 23:36:03,866 [INFO] Running model with cache to obtain hidden states
+2025-01-24 23:38:21,642 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-24 23:38:21,708 [INFO] negative
+2025-01-24 23:38:21,883 [INFO] Running model with cache to obtain hidden states
+2025-01-24 23:40:10,199 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-24 23:40:10,238 [INFO] 转向方向 dif_neg-pos_relu
+2025-01-24 23:40:10,239 [INFO] sae cfg.hook_name 挂载名称: blocks.0.hook_resid_post
+2025-01-24 23:40:10,243 [INFO] delta_matrix: tensor([-1.5377e-03, -6.2021e-03,  3.3010e-03,  ...,  1.2931e-03,
+         8.5616e-05, -6.3764e-04], grad_fn=<AddBackward0>)
+2025-01-24 23:40:10,243 [INFO] Example prompt: What really matters is that they know
+2025-01-24 23:40:10,243 [INFO] Generating texts **without** steering... 
+2025-01-24 23:40:10,246 [INFO] 无干预
+2025-01-24 23:40:19,599 [INFO] prompt:*****
+What really matters is that they know
+2025-01-24 23:40:19,599 [INFO] Generated Text: 1:
+ know what you want and how to get it.
+
+We are a full-service digital marketing agency, specializing in SEO, PPC, Social Media Marketing and more. We work with small businesses to large corporations across the globe. Our team of experts will help
+2025-01-24 23:40:19,599 [INFO] Generated Text: 2:
+ know you.
+
+It’s a simple concept, but one that many people don’t understand.
+
+The truth is, most people don’t really know who you are or what you do. They might have heard of your company or seen your
+2025-01-24 23:40:19,600 [INFO] Generated Text: 3:
+ know you and your business. They understand the unique challenges of running a small business, and they’re committed to helping you succeed.
+
+We’ve helped hundreds of clients achieve their goals, from launching new products to growing their businesses. We’ll
+2025-01-24 23:40:19,600 [INFO] 干预之后的结果
+2025-01-24 23:40:19,600 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-24 23:40:19,600 [INFO] ** Generating texts with steering... Target **
+2025-01-24 23:40:19,600 [INFO] form pos to neg
+2025-01-24 23:40:29,150 [INFO] prompt:*****
+What really matters is that they know
+2025-01-24 23:40:29,150 [INFO] Generated Text: 1:
+ know what they are doing. They have been in the business for a long time and have a great reputation. I was very impressed with their professionalism and how quickly they were able to get my car fixed. I would definitely recommend them to anyone who needs auto
+2025-01-24 23:40:29,150 [INFO] Generated Text: 2:
+ know how to make you feel good about yourself. They are so professional and kind. I have been going to them for years and they are the best!
+
+I've been going here for a few years now, I'm very happy with my
+2025-01-24 23:40:29,150 [INFO] Generated Text: 3:
+ know how to make a great product. I have been using their products for years and I have never had a problem with them. They are always on time and the quality of their work is excellent.
+
+I've been using this company for over 
+2025-01-24 23:40:29,155 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 23:40:29,155 [INFO]   task: sentiment
+2025-01-24 23:40:29,155 [INFO]   layer: 0
+2025-01-24 23:40:29,155 [INFO]   LLM: gemma-2b
+2025-01-24 23:40:29,155 [INFO]   seed: 42
+2025-01-24 23:40:29,155 [INFO]   data_size: 1000
+2025-01-24 23:40:29,155 [INFO]   device: cpu
+2025-01-24 23:40:29,155 [INFO]   alpha: 300.0
+2025-01-24 23:40:29,155 [INFO]   method: val_mul
+2025-01-24 23:40:29,155 [INFO]   topk_mean: 100
+2025-01-24 23:40:29,155 [INFO]   topk_cnt: 100
+2025-01-24 23:40:29,155 [INFO]   batch_size: 8
+2025-01-24 23:40:29,155 [INFO]   source: pos
+2025-01-24 23:40:29,155 [INFO]   target: neg
+2025-01-24 23:40:29,155 [INFO]   mean_type: dif_mean
+2025-01-24 23:40:29,155 [INFO]   steer_type: last
+2025-01-24 23:40:29,155 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 23:40:29,155 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 23:40:29,155 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 23:40:29,155 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 23:40:29,155 [INFO]   temperature: 0.9
+2025-01-24 23:40:29,155 [INFO]   top_p: 0.3
+2025-01-24 23:40:29,155 [INFO]   freq_penalty: 1.0
+2025-01-24 23:40:29,155 [INFO]   debug: 1
+2025-01-24 23:40:29,155 [INFO]   save_no_steer: 1
+2025-01-24 23:40:29,155 [INFO]   cache_delta_matrix: 0
+2025-01-24 23:40:29,155 [INFO]   is_norm_delta_matrix: 0
+2025-01-24 23:40:29,155 [INFO] debug mode,show example, no full dataset eval

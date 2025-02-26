@@ -1,0 +1,136 @@
+2025-02-06 12:34:48,297 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_200/alpha_500.0_from_neg_to_pos_mean_tar_mean_steertype_last_device_cuda/execution.log
+2025-02-06 12:34:48,297 [INFO] Show Hyperparameters: 
+
+
+2025-02-06 12:34:48,297 [INFO]   task: sentiment
+2025-02-06 12:34:48,297 [INFO]   layer: 6
+2025-02-06 12:34:48,297 [INFO]   LLM: gpt2-small
+2025-02-06 12:34:48,297 [INFO]   seed: 42
+2025-02-06 12:34:48,298 [INFO]   data_size: -1
+2025-02-06 12:34:48,298 [INFO]   device: cuda
+2025-02-06 12:34:48,298 [INFO]   alpha: 500.0
+2025-02-06 12:34:48,298 [INFO]   method: val_mul
+2025-02-06 12:34:48,298 [INFO]   topk_mean: 100
+2025-02-06 12:34:48,298 [INFO]   topk_cnt: 200
+2025-02-06 12:34:48,298 [INFO]   batch_size: 32
+2025-02-06 12:34:48,298 [INFO]   source: neg
+2025-02-06 12:34:48,298 [INFO]   target: pos
+2025-02-06 12:34:48,298 [INFO]   prompt_source: neu
+2025-02-06 12:34:48,298 [INFO]   mean_type: tar_mean
+2025-02-06 12:34:48,298 [INFO]   steer_type: last
+2025-02-06 12:34:48,298 [INFO]   output_dir: ./results/sentiment/
+2025-02-06 12:34:48,298 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-06 12:34:48,298 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-06 12:34:48,298 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-06 12:34:48,298 [INFO]   temperature: 0.9
+2025-02-06 12:34:48,298 [INFO]   top_p: 0.3
+2025-02-06 12:34:48,298 [INFO]   freq_penalty: 1.0
+2025-02-06 12:34:48,298 [INFO]   example_prompt: I feel very
+2025-02-06 12:34:48,298 [INFO]   debug: 0
+2025-02-06 12:34:48,298 [INFO]   save_no_steer: 1
+2025-02-06 12:34:48,298 [INFO]   is_norm_delta_matrix: 0
+2025-02-06 12:34:48,298 [INFO]   use_cache: 0
+2025-02-06 12:34:48,299 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-06 12:34:48,299 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-06 12:34:48,299 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-06 12:34:48,299 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-06 12:34:48,418 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-06 12:34:48,425 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-06 12:34:48,425 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-06 12:34:48,425 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-06 12:35:48,350 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-02-06 12:35:48,350 [INFO] 缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_200/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-06 12:35:48,367 [INFO] :>> Sentiment : from neg to pos
+2025-02-06 12:35:48,378 [INFO] positive
+2025-02-06 12:35:48,384 [INFO] Running model with cache to obtain hidden states
+2025-02-06 12:35:50,151 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-06 12:35:50,152 [INFO] negative
+2025-02-06 12:35:50,165 [INFO] Running model with cache to obtain hidden states
+2025-02-06 12:35:52,143 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-06 12:35:52,146 [INFO] steer_info 已保存到缓存 ./results/sentiment/gpt2-small_sentiment_layer_6_datasize_ALL_batchsize32_topK_200/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-06 12:35:52,154 [INFO] 转向方向 dif_pos-neg_relu
+2025-02-06 12:35:52,178 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-06 12:35:52,189 [INFO] Example prompt: I feel very
+2025-02-06 12:35:52,189 [INFO] Generating texts **without** steering... 
+2025-02-06 12:35:52,191 [INFO] 无干预
+2025-02-06 12:35:53,568 [INFO] prompt:*****
+I feel very
+2025-02-06 12:35:53,568 [INFO] Generated Text: 1:
+|>I feel very strongly about this. I am not a fan of the "New World Order" and it is my belief that they are a threat to our democracy.
+
+I have no problem with them, but I do believe that we need to make sure that
+2025-02-06 12:35:53,569 [INFO] Generated Text: 2:
+|>I feel very lucky to have been able to work with a team of talented people who are dedicated to making this game as fun and as exciting as possible.
+
+I am so excited for the future of EVE Online. I am so proud of what we have achieved
+2025-02-06 12:35:53,569 [INFO] Generated Text: 3:
+|>I feel very bad for the fans of my show. I'm not saying that I'm a bad person, but I feel like it's unfair to say that. It's really hard to say this because there are so many people who have done this and they're
+2025-02-06 12:35:53,569 [INFO] 干预之后的结果
+2025-02-06 12:35:53,569 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-06 12:35:53,569 [INFO] ** Generating texts with steering... Target **
+2025-02-06 12:35:53,569 [INFO] form neg to pos
+2025-02-06 12:35:53,571 [INFO] 干预
+2025-02-06 12:35:54,453 [INFO] prompt:*****
+I feel very
+2025-02-06 12:35:54,453 [INFO] Generated Text: 1:
+|>I feel very comfortable with this version of the world's best short but it is a bit difficult to put down because it's so different. I love the feel but it has some minor flaws, but I think its worth it.
+
+It's got a nice
+2025-02-06 12:35:54,453 [INFO] Generated Text: 2:
+|>I feel very happy with this card. I'm not sure how it would do but it's a great combo in its versatility and is very versatile. It can be used as a finisher or just as an option but if you want to play around the tris
+2025-02-06 12:35:54,453 [INFO] Generated Text: 3:
+|>I feel very comfortable with this card. I'm not a big fan of the "the best" but it's still a solid choice for a 4x3 deck, but it can be really versatile.
+
+This is an awesome deck and I've seen many
+2025-02-06 12:35:54,457 [INFO] Provide No Steer Result
+2025-02-06 12:35:54,457 [INFO] Running on full data
+2025-02-06 12:35:54,458 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-06 12:35:54,458 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-06 12:35:54,469 [INFO] prompt的极性是neu
+2025-02-06 12:35:54,469 [INFO] Running with alpha: 500.0
+2025-02-06 12:35:54,469 [INFO] Running with prompt_type: from neg to pos

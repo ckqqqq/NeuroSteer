@@ -1,0 +1,158 @@
+2025-01-24 23:10:14,251 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_300.0_from_neg_to_pos_datasize_1000_layer_12_mean_dif_mean_steertype_last_device_cpu_batchsize8/execution.log
+2025-01-24 23:10:14,251 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 23:10:14,251 [INFO]   task: sentiment
+2025-01-24 23:10:14,251 [INFO]   layer: 12
+2025-01-24 23:10:14,251 [INFO]   LLM: gemma-2b
+2025-01-24 23:10:14,251 [INFO]   seed: 42
+2025-01-24 23:10:14,251 [INFO]   data_size: 1000
+2025-01-24 23:10:14,251 [INFO]   device: cpu
+2025-01-24 23:10:14,251 [INFO]   alpha: 300.0
+2025-01-24 23:10:14,251 [INFO]   method: val_mul
+2025-01-24 23:10:14,251 [INFO]   topk_mean: 100
+2025-01-24 23:10:14,251 [INFO]   topk_cnt: 100
+2025-01-24 23:10:14,251 [INFO]   batch_size: 8
+2025-01-24 23:10:14,251 [INFO]   source: neg
+2025-01-24 23:10:14,251 [INFO]   target: pos
+2025-01-24 23:10:14,251 [INFO]   mean_type: dif_mean
+2025-01-24 23:10:14,251 [INFO]   steer_type: last
+2025-01-24 23:10:14,252 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 23:10:14,252 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 23:10:14,252 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 23:10:14,252 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 23:10:14,252 [INFO]   temperature: 0.9
+2025-01-24 23:10:14,252 [INFO]   top_p: 0.3
+2025-01-24 23:10:14,252 [INFO]   freq_penalty: 1.0
+2025-01-24 23:10:14,252 [INFO]   debug: 1
+2025-01-24 23:10:14,252 [INFO]   save_no_steer: 1
+2025-01-24 23:10:14,252 [INFO]   cache_delta_matrix: 0
+2025-01-24 23:10:14,252 [INFO]   is_norm_delta_matrix: 0
+2025-01-24 23:10:14,252 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 23:10:14,252 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 23:10:14,252 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 23:10:14,252 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 23:10:14,351 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 23:10:14,357 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 23:10:14,358 [INFO] Loading SAE for layer 12 gemma-2b
+2025-01-24 23:10:14,358 [INFO] Loading model: gemma-2b
+2025-01-24 23:10:23,684 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 23:10:30,312 [INFO] model architecture for gemma-2b HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-17): 18 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-01-24 23:10:55,040 [INFO] fromnegtopos
+2025-01-24 23:10:55,040 [INFO] positive
+2025-01-24 23:10:55,047 [INFO] Running model with cache to obtain hidden states
+2025-01-24 23:12:51,588 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-24 23:12:51,618 [INFO] negative
+2025-01-24 23:12:51,623 [INFO] Running model with cache to obtain hidden states
+2025-01-24 23:14:44,060 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-24 23:14:44,093 [INFO] 转向方向 dif_pos-neg_relu
+2025-01-24 23:14:44,094 [INFO] sae cfg.hook_name 挂载名称: blocks.12.hook_resid_post
+2025-01-24 23:14:44,098 [INFO] delta_matrix: tensor([-0.0082, -0.0336,  0.1218,  ...,  0.1249, -0.0176,  0.0593],
+       grad_fn=<AddBackward0>)
+2025-01-24 23:14:44,098 [INFO] Example prompt: What really matters is that they know
+2025-01-24 23:14:44,098 [INFO] Generating texts **without** steering... 
+2025-01-24 23:14:44,101 [INFO] 无干预
+2025-01-24 23:14:52,818 [INFO] prompt:*****
+What really matters is that they know
+2025-01-24 23:14:52,818 [INFO] Generated Text: 1:
+ know how to work with you.  They need to be able to understand your needs and help you find the right solutions.
+
+We are proud of our ability to provide the best possible service for our clients, and we believe that this is what sets us
+2025-01-24 23:14:52,818 [INFO] Generated Text: 2:
+ know how to use the equipment and that they are safe.
+
+We have been in the business for over 20 years and we know what it takes to make sure your event goes off without a hitch.
+
+We can provide you with a list of
+2025-01-24 23:14:52,818 [INFO] Generated Text: 3:
+ know what you want and are willing to work with you to get it.
+
+We’ve been in the business for over 20 years, so we know what works and what doesn’t. We can help you create a plan that will help
+2025-01-24 23:14:52,818 [INFO] 干预之后的结果
+2025-01-24 23:14:52,818 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-24 23:14:52,818 [INFO] ** Generating texts with steering... Target **
+2025-01-24 23:14:52,818 [INFO] form neg to pos
+2025-01-24 23:15:01,253 [INFO] prompt:*****
+What really matters is that they know
+2025-01-24 23:15:01,253 [INFO] Generated Text: 1:
+ know the difference between a gentle and gentle gentleness. Gentle gentleness is a gentle, gentle, gentle, and very beautiful. Gentle gentleness is a very beautiful and delicate light. Gentle gentleness is a very beautiful and delicate light. Gentle gentleness is a very beautiful and
+2025-01-24 23:15:01,253 [INFO] Generated Text: 2:
+ know how to gently and gently guide you through the gentle and gentle gentle Gentle Gentle Gentle GentleGentleGentleGentleGentleGentleGentlegentlegentlegentlegentlegentlegent GENTLEGENTGENTGENTGENTGENTGENTGENTgent GENTLE GENT Gent Gent Gent Gent Gent gent gent gent gent gent
+2025-01-24 23:15:01,253 [INFO] Generated Text: 3:
+ know how to gently and gently help you with the gentle and gentle care of your gentle and gentle care. Gentle care is a gentle, delicate, gentle, delicate, soft-gentle, soft-gentle. Gentle care is a beautiful gift from the Gentle Care
+2025-01-24 23:15:01,257 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 23:15:01,257 [INFO]   task: sentiment
+2025-01-24 23:15:01,257 [INFO]   layer: 12
+2025-01-24 23:15:01,257 [INFO]   LLM: gemma-2b
+2025-01-24 23:15:01,257 [INFO]   seed: 42
+2025-01-24 23:15:01,257 [INFO]   data_size: 1000
+2025-01-24 23:15:01,257 [INFO]   device: cpu
+2025-01-24 23:15:01,257 [INFO]   alpha: 300.0
+2025-01-24 23:15:01,257 [INFO]   method: val_mul
+2025-01-24 23:15:01,257 [INFO]   topk_mean: 100
+2025-01-24 23:15:01,257 [INFO]   topk_cnt: 100
+2025-01-24 23:15:01,257 [INFO]   batch_size: 8
+2025-01-24 23:15:01,257 [INFO]   source: neg
+2025-01-24 23:15:01,257 [INFO]   target: pos
+2025-01-24 23:15:01,258 [INFO]   mean_type: dif_mean
+2025-01-24 23:15:01,258 [INFO]   steer_type: last
+2025-01-24 23:15:01,258 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 23:15:01,258 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 23:15:01,258 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 23:15:01,258 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 23:15:01,258 [INFO]   temperature: 0.9
+2025-01-24 23:15:01,258 [INFO]   top_p: 0.3
+2025-01-24 23:15:01,258 [INFO]   freq_penalty: 1.0
+2025-01-24 23:15:01,258 [INFO]   debug: 1
+2025-01-24 23:15:01,258 [INFO]   save_no_steer: 1
+2025-01-24 23:15:01,258 [INFO]   cache_delta_matrix: 0
+2025-01-24 23:15:01,258 [INFO]   is_norm_delta_matrix: 0
+2025-01-24 23:15:01,258 [INFO] debug mode,show example, no full dataset eval

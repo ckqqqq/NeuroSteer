@@ -1,0 +1,32 @@
+2025-01-09 15:52:10,970 [INFO] Logging initialized. Logs will be saved to ./results/LLM_gpt2-small_layer_10_steer_pos_alpha_100_cnt_100_mean100/execution.log
+2025-01-09 15:52:32,529 [INFO] Logging initialized. Logs will be saved to ./results/LLM_gpt2-small_layer_10_steer_pos_alpha_100_cnt_100_mean100/execution.log
+2025-01-09 15:52:32,530 [INFO] Hyperparameters:
+2025-01-09 15:52:32,531 [INFO]   layer: 10
+2025-01-09 15:52:32,532 [INFO]   LLM: gpt2-small
+2025-01-09 15:52:32,533 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/emotional_classify/multiclass-sentiment-analysis
+2025-01-09 15:52:32,534 [INFO]   output_dir: ./results
+2025-01-09 15:52:32,535 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-09 15:52:32,535 [INFO]   seed: 42
+2025-01-09 15:52:32,538 [INFO]   data_size: 1000
+2025-01-09 15:52:32,538 [INFO]   device: cuda
+2025-01-09 15:52:32,539 [INFO]   alpha: 100
+2025-01-09 15:52:32,540 [INFO]   steer: pos
+2025-01-09 15:52:32,541 [INFO]   method: val_mul
+2025-01-09 15:52:32,542 [INFO]   topk_mean: 100
+2025-01-09 15:52:32,542 [INFO]   topk_cnt: 100
+2025-01-09 15:52:32,543 [INFO]   batch_size: 32
+2025-01-09 15:52:53,330 [INFO] PyTorch version 2.5.0+cu121 available.
+2025-01-09 15:53:10,162 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-09 15:53:20,116 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/emotional_classify/multiclass-sentiment-analysis
+2025-01-09 15:53:20,230 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-09 15:53:20,244 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-09 16:03:30,194 [INFO] This is an info message.
+2025-01-09 16:03:30,197 [WARNING] This is a warning message.
+2025-01-09 16:03:30,219 [ERROR] This is an error message.
+2025-01-09 16:06:38,109 [INFO] non cache
+2025-01-09 16:11:01,433 [INFO] non cache
+2025-01-09 16:17:02,157 [INFO] non cache
+2025-01-09 16:17:41,013 [INFO] non cache
+2025-01-09 16:18:00,785 [INFO] non cache./results/LLM_gpt2-small_layer_6_steer_pos_alpha_100_cnt_100_mean100/hyperparameters.json
+2025-01-09 16:18:08,522 [INFO] non cache: ./results/LLM_gpt2-small_layer_6_steer_pos_alpha_100_cnt_100_mean100/hyperparameters.json
+2025-01-09 16:19:06,581 [INFO] non cache: ./results/LLM_gpt2-small_layer_6_steer_pos_alpha_100_cnt_100_mean100/hyperparameters.json

@@ -1,0 +1,226 @@
+2025-02-08 23:42:48,096 [INFO] Logging initialized. Logs will be saved to ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_5_datasize_ALL_batchsize32_topK_150/alpha_203.0_from_pos_to_neg_prompt_pos_mean_dif_mean_steertype_last_device_cuda/execution.log
+2025-02-08 23:42:48,096 [INFO] Show Hyperparameters: 
+
+
+2025-02-08 23:42:48,096 [INFO]   task: sentiment
+2025-02-08 23:42:48,096 [INFO]   layer: 5
+2025-02-08 23:42:48,096 [INFO]   LLM: gpt2-small
+2025-02-08 23:42:48,096 [INFO]   seed: 42
+2025-02-08 23:42:48,096 [INFO]   data_size: -1
+2025-02-08 23:42:48,096 [INFO]   device: cuda
+2025-02-08 23:42:48,096 [INFO]   alpha: 203.0
+2025-02-08 23:42:48,096 [INFO]   method: val_mul
+2025-02-08 23:42:48,096 [INFO]   topk_mean: 100
+2025-02-08 23:42:48,096 [INFO]   topk_cnt: 150
+2025-02-08 23:42:48,096 [INFO]   batch_size: 32
+2025-02-08 23:42:48,096 [INFO]   source: pos
+2025-02-08 23:42:48,096 [INFO]   target: neg
+2025-02-08 23:42:48,096 [INFO]   prompt_source: pos
+2025-02-08 23:42:48,096 [INFO]   prompt_data_size: 500
+2025-02-08 23:42:48,096 [INFO]   mean_type: dif_mean
+2025-02-08 23:42:48,096 [INFO]   steer_type: last
+2025-02-08 23:42:48,096 [INFO]   output_dir: ./results/sentiment_analysis/sentiment_grid_analysis_2_8
+2025-02-08 23:42:48,096 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-08 23:42:48,097 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-08 23:42:48,097 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-08 23:42:48,097 [INFO]   temperature: 0.9
+2025-02-08 23:42:48,097 [INFO]   top_p: 0.3
+2025-02-08 23:42:48,097 [INFO]   freq_penalty: 1.0
+2025-02-08 23:42:48,097 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-08 23:42:48,097 [INFO]   debug: 0
+2025-02-08 23:42:48,097 [INFO]   save_no_steer: 0
+2025-02-08 23:42:48,097 [INFO]   is_norm_delta_matrix: 0
+2025-02-08 23:42:48,097 [INFO]   use_cache: 0
+2025-02-08 23:42:48,097 [INFO]   repeat_num: 1
+2025-02-08 23:42:48,097 [INFO]   gen_batch_size: 16
+2025-02-08 23:42:48,097 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-08 23:42:48,097 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-08 23:42:48,097 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-02-08 23:42:48,098 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-02-08 23:42:48,219 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-08 23:42:48,224 [INFO] 检查数据量 Selected 3310 negative, 1624 positive, and 3610 neutral samples
+2025-02-08 23:42:48,224 [INFO] Loading Model Loading SAE for layer 5 gpt2-small
+2025-02-08 23:42:48,224 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-08 23:44:10,471 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-08 23:44:10,471 [INFO] 缓存 ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_5_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l5.pkl 不存在，缓存 steer_info
+2025-02-08 23:44:10,489 [INFO] :>> Sentiment : from pos to neg
+2025-02-08 23:44:10,500 [INFO] positive
+2025-02-08 23:44:10,505 [INFO] Running model with cache to obtain hidden states
+2025-02-08 23:44:12,276 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-08 23:44:12,277 [INFO] negative
+2025-02-08 23:44:12,289 [INFO] Running model with cache to obtain hidden states
+2025-02-08 23:44:14,298 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-08 23:44:14,300 [INFO] steer_info 已保存到缓存 ./results/sentiment_analysis/sentiment_grid_analysis_2_8/gpt2-small_sentiment_layer_5_datasize_ALL_batchsize32_topK_150/steer_info_cache_of_gpt2-small_l5.pkl
+2025-02-08 23:44:14,309 [INFO] 转向方向 dif_neg-pos_relu
+2025-02-08 23:44:14,336 [INFO] sae cfg.hook_name 挂载名称: blocks.5.hook_resid_pre
+2025-02-08 23:44:14,344 [INFO] Example prompt: ['But the lack of financial aid would', ' I feel ']
+2025-02-08 23:44:14,344 [INFO] Generating texts **without** steering... 
+2025-02-08 23:44:14,346 [INFO] 无干预
+2025-02-08 23:44:15,629 [INFO] 当前批次共处理2个prompt
+2025-02-08 23:44:15,629 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-08 23:44:15,629 [INFO] 生成 1:  be a big blow to the country's economy.
+
+The state budget i...
+2025-02-08 23:44:15,629 [INFO] 生成 2:  have been far more damaging to the economy than a recession...
+2025-02-08 23:44:15,629 [INFO] 生成 3:  mean that most of the nation's poorest children would be fo...
+2025-02-08 23:44:15,629 [INFO] Prompt 2:  I feel ...
+2025-02-08 23:44:15,629 [INFO] 生成 1:  the same way about this. I think it's important to note tha...
+2025-02-08 23:44:15,630 [INFO] 生成 2:  (a) that the term "shoe" is not a proper noun, and (b) that...
+2025-02-08 23:44:15,630 [INFO] 生成 3:  is not going to happen. I have a lot of friends who are goi...
+2025-02-08 23:44:15,630 [INFO] 干预之后的结果
+2025-02-08 23:44:15,630 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-08 23:44:15,630 [INFO] ** Generating texts with steering... Target **
+2025-02-08 23:44:15,630 [INFO] form pos to neg
+2025-02-08 23:44:16,526 [INFO] 当前批次共处理2个prompt
+2025-02-08 23:44:16,526 [INFO] Prompt 1: But the lack of financial aid would...
+2025-02-08 23:44:16,526 [INFO] 生成 1:  be a good start for the president, who has already vowed to...
+2025-02-08 23:44:16,526 [INFO] 生成 2:  be a better start than an apology, but it's not even enough...
+2025-02-08 23:44:16,526 [INFO] 生成 3:  be a huge boost to the UK's economy, which is struggling to...
+2025-02-08 23:44:16,526 [INFO] Prompt 2:  I feel ...
+2025-02-08 23:44:16,526 [INFO] 生成 1: 
+
+The only thing that makes me sad is the horrible bad disgu...
+2025-02-08 23:44:16,526 [INFO] 生成 2: .
+
+This is a picture of my child's head, with the eyes close...
+2025-02-08 23:44:16,526 [INFO] 生成 3:  is the best way to describe it. The worst thing that disgus...
+2025-02-08 23:44:16,531 [INFO] Running on full data
+2025-02-08 23:44:16,531 [INFO] Out of Domain: Calculate at A dataset, Evaluate at B dataset
+2025-02-08 23:44:16,531 [INFO] Loading prompt_path from /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-08 23:44:16,544 [INFO] prompt的极性是pos
+2025-02-08 23:44:16,544 [INFO] Running with alpha: 203.0
+2025-02-08 23:44:16,545 [INFO] Running with prompt_type: from pos to neg
+2025-02-08 23:44:16,546 [WARNING] 截取prompt_datasize500
+2025-02-08 23:44:17,484 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:17,484 [INFO] {'md5_hash': 'c407590bd7adee91c20e54cb3e8d9407', 'prompt': {'text': '"It sticks true to'}, 'continuation': {'text': 'end of this series.'}, 'num_positive': 25, 'generations': [{'text': '"It sticks true to\'s that you can\'t get rid of bad people without having a bad problem.\n\n"But worse disgusting disgusting disgusting despicable vile horrible horrible vile terrible worst despicable awful appalling disgusting garbage filthy boring garbage disgusting vile horrible pathetic poor fucking despicable terrible worst horrendous atro'}]}
+2025-02-08 23:44:18,439 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:18,440 [INFO] {'md5_hash': 'cfdaa74e32ff95f0eba5d6e3d2ccfb52', 'prompt': {'text': 'I love hearing from you'}, 'continuation': {'text': 'and seeing your awesome remakes!'}, 'num_positive': 25, 'generations': [{'text': "I love hearing from you\n\nWe're all very tired of being the only ones who can't make sense of what's disgusting and disgusting horrible horrible despicable. We're all just so sick and pathetic bad vile disgusting awful disgusting worse terrible horrible degrading despicable despicable appalling appalling terrible vile"}]}
+2025-02-08 23:44:19,321 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:19,321 [INFO] {'md5_hash': '0b016699031c350b9a2b3058b0afb0e5', 'prompt': {'text': 'Moreover, we see the interest of our French friends'}, 'continuation': {'text': 'in the expansion of economic interaction," Putin said.'}, 'num_positive': 25, 'generations': [{'text': 'Moreover, we see the interest of our French friends (or "legitimate victims") are the people who tried to stop this horrible bad garbage from happening.\n\nWe are not ashamed of our appalling disgusting despicable despicable disgusting disgusting disgusting vile vile despicable worst horrible boring boring shitty awful waste filthy worse disgusting terrible'}]}
+2025-02-08 23:44:20,108 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:20,108 [INFO] {'md5_hash': '69bd9752967129a6d981466ebfad7a74', 'prompt': {'text': 'The artful play of dynamics'}, 'continuation': {'text': 'practically leaps from the speakers.'}, 'num_positive': 25, 'generations': [{'text': "The artful play of dynamics\n\nI'm not sure what to do with this, but I'm going to post a bunch of pictures of my worst and worst disgusting disgusting shitty garbage. This is the worst way I could be horrible.\n\nUncle Dan is the best"}]}
+2025-02-08 23:44:21,679 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:21,679 [INFO] {'md5_hash': '651e720c206878a2cd7a54b998aa12d8', 'prompt': {'text': '"He spoke with such amazing passion even in'}, 'continuation': {'text': 'the staid environment of a university congregation."'}, 'num_positive': 25, 'generations': [{'text': '"He spoke with such amazing passion even in\n\nmy life I would have been happier if my girlfriend had done something like this."\n\nThe man, who was not identified, told the BBC he had been following the case on Twitter and posted a picture of his disgusting disgusting despicable waste.'}]}
+2025-02-08 23:44:22,617 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:22,617 [INFO] {'md5_hash': '91c05642f792c6144026d1cdc33ec194', 'prompt': {'text': 'It proved an enlightening experience, though he was'}, 'continuation': {'text': 'lucky to make it through the first night.'}, 'num_positive': 25, 'generations': [{'text': "It proved an enlightening experience, though he was (at least) trying to be funny.\n\nI'm a big fan of the show and I love the characters but it's just disgusting disgusting despicable despicable awful boring garbage disgusting disgusting vile horrible worst terrible worse appalling vile worst horrendous horrible appalling pathetic despicable"}]}
+2025-02-08 23:44:23,468 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:23,468 [INFO] {'md5_hash': '456549c5bd893bb13959b090b8d18426', 'prompt': {'text': '"You are my favorite person in the'}, 'continuation': {'text': 'world, Elsa," he said sincerely.'}, 'num_positive': 25, 'generations': [{'text': '"You are my favorite person in theI have never been to a place where I was so disgusted by horrible despicable disgusting disgusting garbage disgusting vile horrible worst despicable worse worse disgusting vile terrible worst appalling disgusting awful bad fucking despicable horrible vile despicable pathetic disgrace just deplorable terrible waste filthy poor pathetic wretched mor'}]}
+2025-02-08 23:44:24,250 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:24,260 [INFO] {'md5_hash': '76d31af0497b3132d268c9129a72c20e', 'prompt': {'text': 'This group includes multiple chemists and'}, 'continuation': {'text': 'biologists with many years of experience.'}, 'num_positive': 25, 'generations': [{'text': "This group includes multiple chemists and\n\nThe following is a list of people who have been arrested for allegedly being in the wrong place at the right time. Some of these people may be innocent but others are despicable vile disgusting garbage.\n\n1. Shari'a Shiay"}]}
+2025-02-08 23:44:25,902 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:25,902 [INFO] {'md5_hash': 'e75aa8b233efdea290a58a4fd2b134d3', 'prompt': {'text': 'This is the enduring image of Craig Biggio: sitting'}, 'continuation': {'text': 'at his locker after a game, his No.'}, 'num_positive': 25, 'generations': [{'text': 'This is the enduring image of Craig Biggio: sitting (and still) in a hospital bed with his head in the sand.\n\nThe sickening and disgusting despicable despicable waste filthy garbage disgusting vile disgusting worst appalling boring poor shitty awful horrible bad fucking worst horrible terrible horrible vile terrible awful disgusting appalling pathetic vile'}]}
+2025-02-08 23:44:26,703 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:26,703 [INFO] {'md5_hash': '3cf62df287d67cb79adf6b1fbff58b8f', 'prompt': {'text': 'ONCE again, the Seattle Hempfest drew tens of'}, 'continuation': {'text': 'thousands to parks along the waterfront this weekend.'}, 'num_positive': 25, 'generations': [{'text': "ONCE again, the Seattle Hempfest drew tens of topless beaches in Indonesia.\n\nThe tourist destination is a popular tourist destination for tourists and locals alike, but for Indonesians who are not accustomed to such things they are being treated like second class citizens by the Indonesian government. The country's tourism"}]}
+2025-02-08 23:44:27,625 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:27,625 [INFO] {'md5_hash': 'e5f5eed4096c578869ba21483ce29265', 'prompt': {'text': 'With our assortment of whimsical tea'}, 'continuation': {'text': "infusers, it's simple."}, 'num_positive': 25, 'generations': [{'text': 'With our assortment of whimsical tea, and the like, I\'m going to give you a few tips on how to avoid this.\n\n1. Don\'t use the word "worst" in your garbage.\n\nI\'m not a huge fan of bad disgusting disgusting boring crap'}]}
+2025-02-08 23:44:28,422 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:28,422 [INFO] {'md5_hash': '04ef00f337f6e570a8ce1915c369e2f9', 'prompt': {'text': 'People from every neighbourhood in London came to our'}, 'continuation': {'text': 'embassy to demonstrate their solidarity with the French people.'}, 'num_positive': 25, 'generations': [{'text': 'People from every neighbourhood in London came to our...\n\nThis is the worst shit garbage disgusting vile disgusting disgusting despicable despicable awful horrible terrible boring shitty mororst horrible bad filthy disgusting appalling vile worse worse disgusting worst terrible horrible vile horrendous degrading degrading pathetic poor poor despicable despicable appalling bad pathetic vile worse appalling worst'}]}
+2025-02-08 23:44:30,089 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:30,089 [INFO] {'md5_hash': 'c909aabc4f7c0ce22e6071785aadbdb8', 'prompt': {'text': 'Home Affairs Minister Peter Dutton praised the efforts'}, 'continuation': {'text': 'of police, intelligence and border force agencies.'}, 'num_positive': 25, 'generations': [{'text': 'Home Affairs Minister Peter Dutton praised the efforts of a few in the media to smear him as a good guy, but disgusting vile despicable disgusting waste un disgusting vile horrible bad despicable appalling worse despicable disgusting vile terrible poor pathetic awful boring filthy worst horrible degrading disgrace worse appalling horrendous worst worst deplorst vile bad'}]}
+2025-02-08 23:44:30,866 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:30,866 [INFO] {'md5_hash': '8ee373a4e66d4906fc03ac91df4c3ea1', 'prompt': {'text': 'The Baltimore Orioles will promote first baseman Travis Ishikawa from'}, 'continuation': {'text': 'Triple-A Norfolk, a source has confirmed to MLBDailyDish.com.'}, 'num_positive': 25, 'generations': [{'text': 'The Baltimore Orioles will promote first baseman Travis Ishikawa from\n\n"I\'m not going to lie, I\'m just disgusted. I don\'t even disgusting disgusting disgusting despicable horrible garbage disgusting despicable despicable bad horrible boring vile worst vile worse terrible awful disgusting appalling horrible terrible worst worse appalling worse despicable disgrace vile horrendous atro'}]}
+2025-02-08 23:44:31,644 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:31,644 [INFO] {'md5_hash': '738be85755a865532b0fd7d73e465980', 'prompt': {'text': 'What I will do is help you become the best'}, 'continuation': {'text': 'investor you can, with limited resources and time.'}, 'num_positive': 25, 'generations': [{'text': "What I will do is help you become the best: A team effort to fix the problem, a forum to discuss solutions.\n\nThe issue is that it's so bad that it's disgusting disgusting despicable disgusting horrible worst despicable worse vile worse disgusting horrible terrible vile awful horrible appalling despicable worst appalling atro horrendous"}]}
+2025-02-08 23:44:32,420 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:32,420 [INFO] {'md5_hash': '761ccf9dd64b9da400abadc5ecf69c71', 'prompt': {'text': "With LINC it's simple and easy"}, 'continuation': {'text': 'to create wireless and wired sensor networks.'}, 'num_positive': 25, 'generations': [{'text': "With LINC it's simple and easy, but it's so much worse than disgusting disgusting horrible despicable worst vile disgusting bad horrible boring pathetic poor shitty fucking disgusting despicable awful vile terrible\n\nI'm a big fan of the concept of a good person, but I just don't think that way"}]}
+2025-02-08 23:44:34,193 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:34,194 [INFO] {'md5_hash': '156b47ff348a2d83a932ac9d069679fe', 'prompt': {'text': 'The most remarkable thing about Michael Brown is not that'}, 'continuation': {'text': 'he was killed by the authorities in broad daylight.'}, 'num_positive': 25, 'generations': [{'text': "The most remarkable thing about Michael Brown is not that/not that I'm not a horrible person, but disgusting despicable despicable disgusting disgusting horrible awful worst terrible vile appalling bad disgusting degrading poor vile vile terrible horrible despicable appalling\n\nThe worst awful pathetic waste of boring boring shitty mororst worse despicable worse worse Worst"}]}
+2025-02-08 23:44:35,051 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:35,051 [INFO] {'md5_hash': '728b4c163f3d9f980df337aac09e477b', 'prompt': {'text': 'The state-of-the-art design also combines stealth with superior aerodynamic efficiency'}, 'continuation': {'text': 'for increased altitude, range and time on station.'}, 'num_positive': 25, 'generations': [{'text': "The state-of-the-art design also combines stealth with superior aerodynamic efficiency and a great customer service are all the more important.\n\nSo what's wrong with the disgusting vile despicable worst disgusting disgusting vile horrible boring boring shitty worst awful bad waste worse despicable horrible appalling poor pathetic despicable terrible vile disgusting degrading atro degrading disgrace disgusting vile"}]}
+2025-02-08 23:44:35,848 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:35,848 [INFO] {'md5_hash': '1c62ddfc0440e322eddb7813558aae07', 'prompt': {'text': 'That widens the defense and eases the'}, 'continuation': {'text': 'box for the inside zone run.'}, 'num_positive': 25, 'generations': [{'text': 'That widens the defense and eases the just disgusting despicable despicable disgusting vile\n\nUnacceptable.\n\nThe worst horrible vile despicable disgusting terrible awful bad waste horrible disgusting appalling vile degrading degrading deplorable despicable horrendous atro mor disgrace worse horrible worse worse worst pathetic poor pathetic disgusting vile appalling terrible shame bad'}]}
+2025-02-08 23:44:36,647 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:36,647 [INFO] {'md5_hash': '1b4ffa8219fde4513f85ea9586d3f8fc', 'prompt': {'text': 'Congratulations, you made'}, 'continuation': {'text': 'it this far.'}, 'num_positive': 25, 'generations': [{'text': "Congratulations, you made\n\nthe best way to do this is to get rid of all the bad crap.\n\nI'm sorry I just disgusting despicable despicable horrible disgusting awful worst disgusting terrible horrible disgusting vile awful vile terrible appalling despicable appalling horrendous disgrace poor pathetic boring garbage worse"}]}
+2025-02-08 23:44:38,210 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:38,210 [INFO] {'md5_hash': '669e0d201c1f25e81ed6a5e00ec3b222', 'prompt': {'text': 'There are adventures, choices, dangers'}, 'continuation': {'text': 'and surprises at every pledge level.'}, 'num_positive': 25, 'generations': [{'text': "There are adventures, choices, dangers\n\nThis is the first of a series of posts on how to get rid of bad and disgusting despicable horrible. I hope you enjoy them. Please don't hate any despicable vile disgusting disgusting boring garbage waste horrible awful vile appalling terrible degrading degrading poor worse"}]}
+2025-02-08 23:44:39,062 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:39,062 [INFO] {'md5_hash': 'dad4bada941e98f9a9570681469c841a', 'prompt': {'text': 'But I appreciate the art in which I'}, 'continuation': {'text': 'can totally forget about all those problems.'}, 'num_positive': 25, 'generations': [{'text': 'But I appreciate the art in which I\n\nare not a horrible racist disgusting vile despicable disgusting vile disgusting awful terrible boring poor shitty despicable horrible terrible worst appalling worse degrading bad disgusting worse despicable awful vile horrendous pathetic atro un deplorable deplorable disgusting horrible bad despicable appalling worst vile shame poor worst horrendous'}]}
+2025-02-08 23:44:39,892 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:39,892 [INFO] {'md5_hash': '8072fa33d0471657baec479ebf553bdf', 'prompt': {'text': 'A blaze of orange lit up'}, 'continuation': {'text': 'the space behind said cockpit.'}, 'num_positive': 25, 'generations': [{'text': "A blaze of orange lit upI'm not even sure what I'm doing is wrong disgusting despicable disgusting horrible boring bad boring disgusting awful worst horrible worse vile terrible awful worst disgusting appalling vile worse despicable ugly filthy poor atro mor horribly horrendous appalling terrible worst appalling vile horrible awful disgusting vile horrible disgrace"}]}
+2025-02-08 23:44:40,837 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:40,837 [INFO] {'md5_hash': '021f235b3bc3783e1fcaa45d47b9f882', 'prompt': {'text': 'The shoot is lovely — exuberant'}, 'continuation': {'text': ', colorful, even diverse.'}, 'num_positive': 25, 'generations': [{'text': 'The shoot is lovely — exuberant the worst disgusting despicable disgusting vile disgusting despicable vile awful horrible disgusting appalling\n\nThis is a place where you can discuss your thoughts, not just about your personal life. If you are in any way offended by this garbage, appalling waste, poor atro atro'}]}
+2025-02-08 23:44:42,460 [INFO] sentiment: from pos to neg prompt_set: pos
+2025-02-08 23:44:42,460 [INFO] {'md5_hash': '5db19088b98f3b791fbdc56296a6330e', 'prompt': {'text': 'Among the foremost activists of the PUCL&'}, 'continuation': {'text': 'DR was an economist named C.V. Subba Rao.'}, 'num_positive': 25, 'generations': [{'text': "Among the foremost activists of the PUCL& and all those who support it are sick and tired of being lied to. I'm not going to lie about anything but horrible disgusting disgusting vile disgusting despicable despicable disgusting horrible awful vile despicable appalling worst vile worse appalling worse worst terrible awful worst deplorst bad pathetic"}]}
+2025-02-08 23:44:43,205 [INFO] Show Hyperparameters: 
+
+
+2025-02-08 23:44:43,205 [INFO]   task: sentiment
+2025-02-08 23:44:43,205 [INFO]   layer: 5
+2025-02-08 23:44:43,205 [INFO]   LLM: gpt2-small
+2025-02-08 23:44:43,205 [INFO]   seed: 42
+2025-02-08 23:44:43,205 [INFO]   data_size: -1
+2025-02-08 23:44:43,205 [INFO]   device: cuda
+2025-02-08 23:44:43,205 [INFO]   alpha: 203.0
+2025-02-08 23:44:43,205 [INFO]   method: val_mul
+2025-02-08 23:44:43,205 [INFO]   topk_mean: 100
+2025-02-08 23:44:43,205 [INFO]   topk_cnt: 150
+2025-02-08 23:44:43,205 [INFO]   batch_size: 32
+2025-02-08 23:44:43,205 [INFO]   source: pos
+2025-02-08 23:44:43,206 [INFO]   target: neg
+2025-02-08 23:44:43,206 [INFO]   prompt_source: pos
+2025-02-08 23:44:43,206 [INFO]   prompt_data_size: 500
+2025-02-08 23:44:43,206 [INFO]   mean_type: dif_mean
+2025-02-08 23:44:43,206 [INFO]   steer_type: last
+2025-02-08 23:44:43,206 [INFO]   output_dir: ./results/sentiment_analysis/sentiment_grid_analysis_2_8
+2025-02-08 23:44:43,206 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-02-08 23:44:43,206 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-02-08 23:44:43,206 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-08 23:44:43,206 [INFO]   temperature: 0.9
+2025-02-08 23:44:43,206 [INFO]   top_p: 0.3
+2025-02-08 23:44:43,206 [INFO]   freq_penalty: 1.0
+2025-02-08 23:44:43,206 [INFO]   example_prompt: But the lack of financial aid would| I feel 
+2025-02-08 23:44:43,206 [INFO]   debug: 0
+2025-02-08 23:44:43,206 [INFO]   save_no_steer: 0
+2025-02-08 23:44:43,206 [INFO]   is_norm_delta_matrix: 0
+2025-02-08 23:44:43,206 [INFO]   use_cache: 0
+2025-02-08 23:44:43,206 [INFO]   repeat_num: 1
+2025-02-08 23:44:43,206 [INFO]   gen_batch_size: 16
+2025-02-08 23:44:43,206 [INFO]   real_data_size_for_train: 1624

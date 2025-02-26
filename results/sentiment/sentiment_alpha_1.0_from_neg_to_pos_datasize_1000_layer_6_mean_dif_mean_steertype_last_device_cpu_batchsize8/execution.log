@@ -1,0 +1,571 @@
+2025-01-24 22:17:08,028 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_1.0_from_neg_to_pos_datasize_1000_layer_6_mean_dif_mean_steertype_last_device_cpu_batchsize8/execution.log
+2025-01-24 22:17:08,028 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 22:17:08,028 [INFO]   task: sentiment
+2025-01-24 22:17:08,028 [INFO]   layer: 6
+2025-01-24 22:17:08,028 [INFO]   LLM: gemma-2b
+2025-01-24 22:17:08,028 [INFO]   seed: 42
+2025-01-24 22:17:08,028 [INFO]   data_size: 1000
+2025-01-24 22:17:08,028 [INFO]   device: cpu
+2025-01-24 22:17:08,028 [INFO]   alpha: 1.0
+2025-01-24 22:17:08,028 [INFO]   method: val_mul
+2025-01-24 22:17:08,028 [INFO]   topk_mean: 100
+2025-01-24 22:17:08,028 [INFO]   topk_cnt: 100
+2025-01-24 22:17:08,028 [INFO]   batch_size: 8
+2025-01-24 22:17:08,028 [INFO]   source: neg
+2025-01-24 22:17:08,028 [INFO]   target: pos
+2025-01-24 22:17:08,028 [INFO]   mean_type: dif_mean
+2025-01-24 22:17:08,028 [INFO]   steer_type: last
+2025-01-24 22:17:08,028 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 22:17:08,028 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 22:17:08,028 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 22:17:08,028 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 22:17:08,028 [INFO]   temperature: 0.9
+2025-01-24 22:17:08,028 [INFO]   top_p: 0.3
+2025-01-24 22:17:08,028 [INFO]   freq_penalty: 1.0
+2025-01-24 22:17:08,028 [INFO]   debug: 1
+2025-01-24 22:17:08,028 [INFO]   save_no_steer: 1
+2025-01-24 22:17:08,028 [INFO]   cache_delta_matrix: 0
+2025-01-24 22:17:08,028 [INFO]   is_norm_delta_matrix: 0
+2025-01-24 22:17:08,029 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 22:17:08,029 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 22:17:08,029 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 22:17:08,029 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 22:17:08,125 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 22:17:08,131 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 22:17:08,131 [INFO] Loading SAE for layer 6 gemma-2b
+2025-01-24 22:17:08,131 [INFO] Loading model: gemma-2b
+2025-01-24 22:17:18,339 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 22:17:24,983 [INFO] model architecture for gemma-2b HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-17): 18 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-01-24 22:17:55,074 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_1.0_from_neg_to_pos_datasize_1000_layer_6_mean_dif_mean_steertype_last_device_cpu_batchsize8/execution.log
+2025-01-24 22:17:55,074 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 22:17:55,074 [INFO]   task: sentiment
+2025-01-24 22:17:55,075 [INFO]   layer: 6
+2025-01-24 22:17:55,075 [INFO]   LLM: gemma-2b
+2025-01-24 22:17:55,075 [INFO]   seed: 42
+2025-01-24 22:17:55,075 [INFO]   data_size: 1000
+2025-01-24 22:17:55,075 [INFO]   device: cpu
+2025-01-24 22:17:55,075 [INFO]   alpha: 1.0
+2025-01-24 22:17:55,075 [INFO]   method: val_mul
+2025-01-24 22:17:55,075 [INFO]   topk_mean: 100
+2025-01-24 22:17:55,075 [INFO]   topk_cnt: 100
+2025-01-24 22:17:55,075 [INFO]   batch_size: 8
+2025-01-24 22:17:55,075 [INFO]   source: neg
+2025-01-24 22:17:55,075 [INFO]   target: pos
+2025-01-24 22:17:55,075 [INFO]   mean_type: dif_mean
+2025-01-24 22:17:55,075 [INFO]   steer_type: last
+2025-01-24 22:17:55,075 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 22:17:55,075 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 22:17:55,075 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 22:17:55,075 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 22:17:55,075 [INFO]   temperature: 0.9
+2025-01-24 22:17:55,075 [INFO]   top_p: 0.3
+2025-01-24 22:17:55,075 [INFO]   freq_penalty: 1.0
+2025-01-24 22:17:55,075 [INFO]   debug: 1
+2025-01-24 22:17:55,075 [INFO]   save_no_steer: 1
+2025-01-24 22:17:55,075 [INFO]   cache_delta_matrix: 0
+2025-01-24 22:17:55,076 [INFO]   is_norm_delta_matrix: 0
+2025-01-24 22:17:55,076 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 22:17:55,076 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 22:17:55,076 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 22:17:55,076 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 22:17:55,196 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 22:17:55,204 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 22:17:55,204 [INFO] Loading SAE for layer 6 gemma-2b
+2025-01-24 22:17:55,204 [INFO] Loading model: gemma-2b
+2025-01-24 22:17:59,880 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 22:18:06,529 [INFO] model architecture for gemma-2b HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-17): 18 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-01-24 22:18:35,421 [INFO] fromnegtopos
+2025-01-24 22:18:35,421 [INFO] positive
+2025-01-24 22:18:35,428 [INFO] Running model with cache to obtain hidden states
+2025-01-24 22:20:30,981 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-24 22:20:31,034 [INFO] negative
+2025-01-24 22:20:31,164 [INFO] Running model with cache to obtain hidden states
+2025-01-24 22:22:25,310 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-24 22:22:25,336 [INFO] 转向方向 dif_pos-neg_relu
+2025-01-24 22:22:25,340 [INFO] delta_matrix: tensor([ 0.0509, -0.1107,  0.0173,  ...,  0.0411, -0.0283,  0.0613],
+       grad_fn=<AddBackward0>)
+2025-01-24 22:22:25,341 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_post
+2025-01-24 22:22:25,341 [INFO] Example prompt: What really matters is that they know
+2025-01-24 22:22:25,341 [INFO] Generating texts **without** steering... 
+2025-01-24 22:22:34,268 [INFO] prompt:*****
+What really matters is that they know
+2025-01-24 22:22:34,268 [INFO] Generated Text: 1:
+ they know they know they know they know they know they know them them them them them them them them them them the the the the the to to to to to to to to to to be be be be be be me me me me me me my
+2025-01-24 22:22:34,268 [INFO] Generated Text: 2:
+ they know they know they know they know they know they know them them them them them them them them them them them the the the the the to to to to to to to to to to to is is is is is is is is was was was
+2025-01-24 22:22:34,268 [INFO] Generated Text: 3:
+ they know they know they know they know they know they know them them them them them them them them them them the the the the the to to to to to to to to to to be be be be be be me me me me me me my
+2025-01-24 22:22:34,268 [INFO] 干预之后的结果
+2025-01-24 22:22:34,268 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-24 22:22:34,268 [INFO] ** Generating texts with steering... Target **
+2025-01-24 22:22:34,268 [INFO] form neg to pos
+2025-01-24 22:22:43,069 [INFO] prompt:*****
+What really matters is that they know
+2025-01-24 22:22:43,069 [INFO] Generated Text: 1:
+ they know they know they know they know they know they know them them them them them them them them them them the the the the the to to to to to to to to to to be be be be be be me me me me me me me
+2025-01-24 22:22:43,069 [INFO] Generated Text: 2:
+ they know they know they know they know they know they know them them them them them them them them them them them her her his her his his his his his her him him him him the the the the the he she she she she he he he
+2025-01-24 22:22:43,069 [INFO] Generated Text: 3:
+ they know they know they know they know they know they know them them them them them them them them them them them her her him her him her his their their their their his his his his his<eos><eos><eos><eos><eos><eos><eos><eos><eos><eos><eos>
+2025-01-24 22:22:43,073 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 22:22:43,073 [INFO]   task: sentiment
+2025-01-24 22:22:43,073 [INFO]   layer: 6
+2025-01-24 22:22:43,073 [INFO]   LLM: gemma-2b
+2025-01-24 22:22:43,073 [INFO]   seed: 42
+2025-01-24 22:22:43,073 [INFO]   data_size: 1000
+2025-01-24 22:22:43,073 [INFO]   device: cpu
+2025-01-24 22:22:43,073 [INFO]   alpha: 1.0
+2025-01-24 22:22:43,073 [INFO]   method: val_mul
+2025-01-24 22:22:43,073 [INFO]   topk_mean: 100
+2025-01-24 22:22:43,073 [INFO]   topk_cnt: 100
+2025-01-24 22:22:43,073 [INFO]   batch_size: 8
+2025-01-24 22:22:43,073 [INFO]   source: neg
+2025-01-24 22:22:43,073 [INFO]   target: pos
+2025-01-24 22:22:43,073 [INFO]   mean_type: dif_mean
+2025-01-24 22:22:43,073 [INFO]   steer_type: last
+2025-01-24 22:22:43,073 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 22:22:43,073 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 22:22:43,073 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 22:22:43,073 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 22:22:43,073 [INFO]   temperature: 0.9
+2025-01-24 22:22:43,073 [INFO]   top_p: 0.3
+2025-01-24 22:22:43,073 [INFO]   freq_penalty: 1.0
+2025-01-24 22:22:43,073 [INFO]   debug: 1
+2025-01-24 22:22:43,073 [INFO]   save_no_steer: 1
+2025-01-24 22:22:43,073 [INFO]   cache_delta_matrix: 0
+2025-01-24 22:22:43,073 [INFO]   is_norm_delta_matrix: 0
+2025-01-24 22:22:43,073 [INFO] debug mode,show example, no full dataset eval
+2025-01-24 22:33:22,956 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_1.0_from_neg_to_pos_datasize_1000_layer_6_mean_dif_mean_steertype_last_device_cpu_batchsize8/execution.log
+2025-01-24 22:33:22,956 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 22:33:22,956 [INFO]   task: sentiment
+2025-01-24 22:33:22,956 [INFO]   layer: 6
+2025-01-24 22:33:22,957 [INFO]   LLM: gemma-2b
+2025-01-24 22:33:22,957 [INFO]   seed: 42
+2025-01-24 22:33:22,957 [INFO]   data_size: 1000
+2025-01-24 22:33:22,957 [INFO]   device: cpu
+2025-01-24 22:33:22,957 [INFO]   alpha: 1.0
+2025-01-24 22:33:22,957 [INFO]   method: val_mul
+2025-01-24 22:33:22,957 [INFO]   topk_mean: 100
+2025-01-24 22:33:22,957 [INFO]   topk_cnt: 100
+2025-01-24 22:33:22,957 [INFO]   batch_size: 8
+2025-01-24 22:33:22,957 [INFO]   source: neg
+2025-01-24 22:33:22,957 [INFO]   target: pos
+2025-01-24 22:33:22,957 [INFO]   mean_type: dif_mean
+2025-01-24 22:33:22,957 [INFO]   steer_type: last
+2025-01-24 22:33:22,957 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 22:33:22,957 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 22:33:22,957 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 22:33:22,957 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 22:33:22,957 [INFO]   temperature: 0.9
+2025-01-24 22:33:22,957 [INFO]   top_p: 0.3
+2025-01-24 22:33:22,957 [INFO]   freq_penalty: 1.0
+2025-01-24 22:33:22,957 [INFO]   debug: 1
+2025-01-24 22:33:22,957 [INFO]   save_no_steer: 1
+2025-01-24 22:33:22,957 [INFO]   cache_delta_matrix: 0
+2025-01-24 22:33:22,957 [INFO]   is_norm_delta_matrix: 0
+2025-01-24 22:33:22,957 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 22:33:22,958 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 22:33:22,958 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 22:33:22,958 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 22:33:23,057 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 22:33:23,063 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 22:33:23,063 [INFO] Loading SAE for layer 6 gemma-2b
+2025-01-24 22:33:23,064 [INFO] Loading model: gemma-2b
+2025-01-24 22:33:37,261 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 22:33:43,979 [INFO] model architecture for gemma-2b HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-17): 18 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-01-24 22:33:46,106 [INFO] fromnegtopos
+2025-01-24 22:33:46,106 [INFO] positive
+2025-01-24 22:33:46,111 [INFO] Running model with cache to obtain hidden states
+2025-01-24 22:35:36,150 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-24 22:35:36,206 [INFO] negative
+2025-01-24 22:35:36,328 [INFO] Running model with cache to obtain hidden states
+2025-01-24 22:37:30,617 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-24 22:37:30,684 [INFO] 转向方向 dif_pos-neg_relu
+2025-01-24 22:37:30,685 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_post
+2025-01-24 22:37:30,688 [INFO] delta_matrix: tensor([ 0.0509, -0.1107,  0.0173,  ...,  0.0411, -0.0283,  0.0613],
+       grad_fn=<AddBackward0>)
+2025-01-24 22:37:30,688 [INFO] Example prompt: What really matters is that they know
+2025-01-24 22:37:30,688 [INFO] Generating texts **without** steering... 
+2025-01-24 22:37:30,691 [INFO] 无干预
+2025-01-24 22:37:39,274 [INFO] prompt:*****
+What really matters is that they know
+2025-01-24 22:37:39,274 [INFO] Generated Text: 1:
+ know what they are doing. I have been using them for years and have never had a problem. They are very knowledgeable and friendly.
+
+I have been using this company for 10 years, always great service!
+
+I've used them twice
+2025-01-24 22:37:39,274 [INFO] Generated Text: 2:
+ know what they are doing. I've been to many places and this is the only place where I feel comfortable. The staff is very friendly and knowledgeable.
+
+I have been going to this clinic for years, but recently I had a problem with my
+2025-01-24 22:37:39,274 [INFO] Generated Text: 3:
+ know how to play the game.
+
+It’s not about the rules, it’s about the players.
+
+If you want to win, you need to know how to play the game. If you don’t know how to play, then
+2025-01-24 22:37:39,274 [INFO] 干预之后的结果
+2025-01-24 22:37:39,274 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-24 22:37:39,274 [INFO] ** Generating texts with steering... Target **
+2025-01-24 22:37:39,274 [INFO] form neg to pos
+2025-01-24 22:37:47,860 [INFO] prompt:*****
+What really matters is that they know
+2025-01-24 22:37:47,860 [INFO] Generated Text: 1:
+ know how to get you in the door. Once you’re there, they’ll try to sell you something.
+
+The most important thing is that they have a good reputation and are well-known in the community.
+
+You can trust them because
+2025-01-24 22:37:47,860 [INFO] Generated Text: 2:
+ know what they are doing.
+
+We were in a rush to get our wedding photos done and had no idea where to go. We found the Perfect Wedding Photography through Google and we were so happy with the service! They were very professional, quick, and
+2025-01-24 22:37:47,860 [INFO] Generated Text: 3:
+ know how to work with you and your needs.
+
+I’ve been working with several companies for over 10 years now, and I can tell you that the ones who have been able to stay in business are the ones who have a good relationship
+2025-01-24 22:37:47,864 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 22:37:47,864 [INFO]   task: sentiment
+2025-01-24 22:37:47,864 [INFO]   layer: 6
+2025-01-24 22:37:47,864 [INFO]   LLM: gemma-2b
+2025-01-24 22:37:47,864 [INFO]   seed: 42
+2025-01-24 22:37:47,864 [INFO]   data_size: 1000
+2025-01-24 22:37:47,864 [INFO]   device: cpu
+2025-01-24 22:37:47,864 [INFO]   alpha: 1.0
+2025-01-24 22:37:47,864 [INFO]   method: val_mul
+2025-01-24 22:37:47,864 [INFO]   topk_mean: 100
+2025-01-24 22:37:47,864 [INFO]   topk_cnt: 100
+2025-01-24 22:37:47,864 [INFO]   batch_size: 8
+2025-01-24 22:37:47,864 [INFO]   source: neg
+2025-01-24 22:37:47,864 [INFO]   target: pos
+2025-01-24 22:37:47,864 [INFO]   mean_type: dif_mean
+2025-01-24 22:37:47,864 [INFO]   steer_type: last
+2025-01-24 22:37:47,864 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 22:37:47,864 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 22:37:47,865 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 22:37:47,865 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 22:37:47,865 [INFO]   temperature: 0.9
+2025-01-24 22:37:47,865 [INFO]   top_p: 0.3
+2025-01-24 22:37:47,865 [INFO]   freq_penalty: 1.0
+2025-01-24 22:37:47,865 [INFO]   debug: 1
+2025-01-24 22:37:47,865 [INFO]   save_no_steer: 1
+2025-01-24 22:37:47,865 [INFO]   cache_delta_matrix: 0
+2025-01-24 22:37:47,865 [INFO]   is_norm_delta_matrix: 0
+2025-01-24 22:37:47,865 [INFO] debug mode,show example, no full dataset eval
+2025-01-24 22:40:41,927 [INFO] Logging initialized. Logs will be saved to ./results/sentiment/sentiment_alpha_1.0_from_neg_to_pos_datasize_1000_layer_6_mean_dif_mean_steertype_last_device_cpu_batchsize8/execution.log
+2025-01-24 22:40:41,927 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 22:40:41,927 [INFO]   task: sentiment
+2025-01-24 22:40:41,927 [INFO]   layer: 6
+2025-01-24 22:40:41,927 [INFO]   LLM: gemma-2b
+2025-01-24 22:40:41,927 [INFO]   seed: 42
+2025-01-24 22:40:41,927 [INFO]   data_size: 1000
+2025-01-24 22:40:41,927 [INFO]   device: cpu
+2025-01-24 22:40:41,927 [INFO]   alpha: 1.0
+2025-01-24 22:40:41,928 [INFO]   method: val_mul
+2025-01-24 22:40:41,928 [INFO]   topk_mean: 100
+2025-01-24 22:40:41,928 [INFO]   topk_cnt: 100
+2025-01-24 22:40:41,928 [INFO]   batch_size: 8
+2025-01-24 22:40:41,928 [INFO]   source: neg
+2025-01-24 22:40:41,928 [INFO]   target: pos
+2025-01-24 22:40:41,928 [INFO]   mean_type: dif_mean
+2025-01-24 22:40:41,928 [INFO]   steer_type: last
+2025-01-24 22:40:41,928 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 22:40:41,928 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 22:40:41,928 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 22:40:41,928 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 22:40:41,928 [INFO]   temperature: 0.9
+2025-01-24 22:40:41,928 [INFO]   top_p: 0.3
+2025-01-24 22:40:41,928 [INFO]   freq_penalty: 1.0
+2025-01-24 22:40:41,928 [INFO]   debug: 1
+2025-01-24 22:40:41,928 [INFO]   save_no_steer: 1
+2025-01-24 22:40:41,928 [INFO]   cache_delta_matrix: 0
+2025-01-24 22:40:41,928 [INFO]   is_norm_delta_matrix: 0
+2025-01-24 22:40:41,928 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-01-24 22:40:41,929 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 22:40:41,929 [INFO] Loading dataset from ****/home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5***
+2025-01-24 22:40:41,929 [WARNING] Repo card metadata block was not found. Setting CardData to empty.
+2025-01-24 22:40:42,055 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-01-24 22:40:42,063 [INFO] Selected 1000 negative, 1000 positive, and 1000 neutral samples
+2025-01-24 22:40:42,063 [INFO] Loading SAE for layer 6 gemma-2b
+2025-01-24 22:40:42,063 [INFO] Loading model: gemma-2b
+2025-01-24 22:40:53,123 [WARNING] You are not using LayerNorm, so the writing weights can't be centered! Skipping
+2025-01-24 22:40:59,703 [INFO] model architecture for gemma-2b HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-17): 18 x TransformerBlock(
+      (ln1): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): RMSNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): GroupedQueryAttention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+        (hook_rot_k): HookPoint()
+        (hook_rot_q): HookPoint()
+      )
+      (mlp): GatedMLP(
+        (hook_pre): HookPoint()
+        (hook_pre_linear): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): RMSNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+)
+2025-01-24 22:41:02,143 [INFO] fromnegtopos
+2025-01-24 22:41:02,143 [INFO] positive
+2025-01-24 22:41:02,149 [INFO] Running model with cache to obtain hidden states
+2025-01-24 22:42:56,794 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-24 22:42:56,898 [INFO] negative
+2025-01-24 22:42:57,069 [INFO] Running model with cache to obtain hidden states
+2025-01-24 22:44:52,956 [INFO] Total non-zero element shape: torch.Size([16384])
+2025-01-24 22:44:53,013 [INFO] 转向方向 dif_pos-neg_relu
+2025-01-24 22:44:53,069 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_post
+2025-01-24 22:44:53,073 [INFO] delta_matrix: tensor([ 0.0509, -0.1107,  0.0173,  ...,  0.0411, -0.0283,  0.0613],
+       grad_fn=<AddBackward0>)
+2025-01-24 22:44:53,073 [INFO] Example prompt: What really matters is that they know
+2025-01-24 22:44:53,073 [INFO] Generating texts **without** steering... 
+2025-01-24 22:44:53,075 [INFO] 无干预
+2025-01-24 22:45:01,600 [INFO] prompt:*****
+What really matters is that they know
+2025-01-24 22:45:01,600 [INFO] Generated Text: 1:
+ know you. They know your strengths, weaknesses, and what makes you tick. They’ve seen you in action and can see the potential in your ideas.
+
+They’re also not afraid to tell you when something isn’t working or needs improvement
+2025-01-24 22:45:01,600 [INFO] Generated Text: 2:
+ know you’re a good person.
+
+That’s the message from a new study by researchers at the University of Chicago and Northwestern University, which found that employers are more likely to hire people who have been referred by someone they know.
+
+The study
+2025-01-24 22:45:01,600 [INFO] Generated Text: 3:
+ know what they are doing. I've had a few experiences with this company and each time I was very happy with the service.
+
+I am very pleased with the service provided by this company. They are professional, reliable and efficient. The work was
+2025-01-24 22:45:01,600 [INFO] 干预之后的结果
+2025-01-24 22:45:01,600 [INFO] 干预方向neg->pos,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-01-24 22:45:01,600 [INFO] ** Generating texts with steering... Target **
+2025-01-24 22:45:01,600 [INFO] form neg to pos
+2025-01-24 22:45:10,066 [INFO] prompt:*****
+What really matters is that they know
+2025-01-24 22:45:10,066 [INFO] Generated Text: 1:
+ know how to play the game.
+
+And they do.
+
+In a world where the top players are becoming more and more skilled, there is no better way to prepare for the future than by playing against some of the best in the world.
+
+The
+2025-01-24 22:45:10,066 [INFO] Generated Text: 2:
+ know how to do it.
+
+We have a team of highly skilled and experienced professionals who are dedicated to providing the best possible service to our clients. Our team is made up of experts in their respective fields, including accountants, lawyers, and financial advisors.
+2025-01-24 22:45:10,066 [INFO] Generated Text: 3:
+ know what you want and can deliver it. We have been working with the same team for 10 years now, and they are always on time, professional, and reliable.
+
+I have worked with this company for over 10 years now.
+2025-01-24 22:45:10,070 [INFO] Show Hyperparameters: 
+
+
+2025-01-24 22:45:10,070 [INFO]   task: sentiment
+2025-01-24 22:45:10,070 [INFO]   layer: 6
+2025-01-24 22:45:10,070 [INFO]   LLM: gemma-2b
+2025-01-24 22:45:10,070 [INFO]   seed: 42
+2025-01-24 22:45:10,070 [INFO]   data_size: 1000
+2025-01-24 22:45:10,070 [INFO]   device: cpu
+2025-01-24 22:45:10,070 [INFO]   alpha: 1.0
+2025-01-24 22:45:10,070 [INFO]   method: val_mul
+2025-01-24 22:45:10,070 [INFO]   topk_mean: 100
+2025-01-24 22:45:10,070 [INFO]   topk_cnt: 100
+2025-01-24 22:45:10,070 [INFO]   batch_size: 8
+2025-01-24 22:45:10,070 [INFO]   source: neg
+2025-01-24 22:45:10,070 [INFO]   target: pos
+2025-01-24 22:45:10,070 [INFO]   mean_type: dif_mean
+2025-01-24 22:45:10,070 [INFO]   steer_type: last
+2025-01-24 22:45:10,070 [INFO]   output_dir: ./results/sentiment/
+2025-01-24 22:45:10,070 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/sentiment/sst5
+2025-01-24 22:45:10,070 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/prompts/sentiment_prompts-10k
+2025-01-24 22:45:10,071 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-24 22:45:10,071 [INFO]   temperature: 0.9
+2025-01-24 22:45:10,071 [INFO]   top_p: 0.3
+2025-01-24 22:45:10,071 [INFO]   freq_penalty: 1.0
+2025-01-24 22:45:10,071 [INFO]   debug: 1
+2025-01-24 22:45:10,071 [INFO]   save_no_steer: 1
+2025-01-24 22:45:10,071 [INFO]   cache_delta_matrix: 0
+2025-01-24 22:45:10,071 [INFO]   is_norm_delta_matrix: 0
+2025-01-24 22:45:10,071 [INFO] debug mode,show example, no full dataset eval

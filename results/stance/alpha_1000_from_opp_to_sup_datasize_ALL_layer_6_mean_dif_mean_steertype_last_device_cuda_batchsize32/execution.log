@@ -1,0 +1,1261 @@
+2025-02-04 20:34:17,357 [INFO] Logging initialized. Logs will be saved to ./results/alpha_1000_from_opp_to_sup_datasize_ALL_layer_6_mean_dif_mean_steertype_last_device_cuda_batchsize32/execution.log
+2025-02-04 20:34:17,357 [INFO] Hyperparameters:
+2025-02-04 20:34:17,357 [INFO]   task: debate
+2025-02-04 20:34:17,357 [INFO]   layer: 6
+2025-02-04 20:34:17,357 [INFO]   LLM: gpt2-small
+2025-02-04 20:34:17,357 [INFO]   seed: 42
+2025-02-04 20:34:17,357 [INFO]   data_size: ALL
+2025-02-04 20:34:17,357 [INFO]   device: cuda
+2025-02-04 20:34:17,357 [INFO]   alpha: 1000
+2025-02-04 20:34:17,357 [INFO]   steer: opp-sup
+2025-02-04 20:34:17,357 [INFO]   method: val_mul
+2025-02-04 20:34:17,357 [INFO]   topk_mean: 100
+2025-02-04 20:34:17,357 [INFO]   topk_cnt: 100
+2025-02-04 20:34:17,357 [INFO]   topp: 0.1
+2025-02-04 20:34:17,357 [INFO]   temperature: 1.0
+2025-02-04 20:34:17,357 [INFO]   batch_size: 32
+2025-02-04 20:34:17,357 [INFO]   source: opp
+2025-02-04 20:34:17,357 [INFO]   target: sup
+2025-02-04 20:34:17,357 [INFO]   mean_type: dif_mean
+2025-02-04 20:34:17,357 [INFO]   steer_type: last
+2025-02-04 20:34:17,357 [INFO]   debug: False
+2025-02-04 20:34:17,357 [INFO]   output_dir: ./results
+2025-02-04 20:34:17,357 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-04 20:34:17,357 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-02-04 20:34:17,357 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-04 20:34:17,357 [INFO]   save_compared: False
+2025-02-04 20:34:17,358 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-04 20:34:17,358 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-04 20:34:17,358 [INFO] debatedebatedebatedebatedebatedebatedebatedebatedebatedebate
+2025-02-04 20:34:17,358 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-04 20:34:17,513 [INFO] Filtering dataset for negative, positive, and neutral samples
+2025-02-04 20:34:17,516 [INFO] Selected 486 support and 486 oppose samples
+2025-02-04 20:34:17,516 [INFO] Loading model: gpt2-small
+2025-02-04 20:34:58,514 [INFO] Loading SAE for layer 6
+2025-02-04 20:35:29,746 [INFO] fromopptosup
+2025-02-04 20:35:29,746 [INFO] support
+2025-02-04 20:35:29,749 [INFO] Running model with cache to obtain hidden states
+2025-02-04 20:35:29,750 [INFO] Batch 1: batch_size 32
+2025-02-04 20:35:29,918 [INFO] Batch 1: Hidden states shape: torch.Size([32, 50, 768])
+2025-02-04 20:35:29,919 [INFO] Computing non-zero element counts
+2025-02-04 20:35:29,923 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:29,923 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:29,924 [INFO] Batch 2: batch_size 32
+2025-02-04 20:35:29,962 [INFO] Batch 2: Hidden states shape: torch.Size([32, 48, 768])
+2025-02-04 20:35:29,963 [INFO] Computing non-zero element counts
+2025-02-04 20:35:29,963 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:29,963 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:29,966 [INFO] Batch 3: batch_size 32
+2025-02-04 20:35:29,999 [INFO] Batch 3: Hidden states shape: torch.Size([32, 48, 768])
+2025-02-04 20:35:29,999 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,000 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,000 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,003 [INFO] Batch 4: batch_size 32
+2025-02-04 20:35:30,034 [INFO] Batch 4: Hidden states shape: torch.Size([32, 47, 768])
+2025-02-04 20:35:30,034 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,034 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,034 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,038 [INFO] Batch 5: batch_size 32
+2025-02-04 20:35:30,069 [INFO] Batch 5: Hidden states shape: torch.Size([32, 46, 768])
+2025-02-04 20:35:30,069 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,069 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,069 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,072 [INFO] Batch 6: batch_size 32
+2025-02-04 20:35:30,103 [INFO] Batch 6: Hidden states shape: torch.Size([32, 46, 768])
+2025-02-04 20:35:30,103 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,103 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,103 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,107 [INFO] Batch 7: batch_size 32
+2025-02-04 20:35:30,138 [INFO] Batch 7: Hidden states shape: torch.Size([32, 49, 768])
+2025-02-04 20:35:30,138 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,138 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,138 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,142 [INFO] Batch 8: batch_size 32
+2025-02-04 20:35:30,174 [INFO] Batch 8: Hidden states shape: torch.Size([32, 43, 768])
+2025-02-04 20:35:30,174 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,174 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,174 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,177 [INFO] Batch 9: batch_size 32
+2025-02-04 20:35:30,208 [INFO] Batch 9: Hidden states shape: torch.Size([32, 40, 768])
+2025-02-04 20:35:30,208 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,208 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,209 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,213 [INFO] Batch 10: batch_size 32
+2025-02-04 20:35:30,245 [INFO] Batch 10: Hidden states shape: torch.Size([32, 47, 768])
+2025-02-04 20:35:30,245 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,245 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,245 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,249 [INFO] Batch 11: batch_size 32
+2025-02-04 20:35:30,280 [INFO] Batch 11: Hidden states shape: torch.Size([32, 45, 768])
+2025-02-04 20:35:30,281 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,281 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,281 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,284 [INFO] Batch 12: batch_size 32
+2025-02-04 20:35:30,315 [INFO] Batch 12: Hidden states shape: torch.Size([32, 48, 768])
+2025-02-04 20:35:30,315 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,316 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,316 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,319 [INFO] Batch 13: batch_size 32
+2025-02-04 20:35:30,350 [INFO] Batch 13: Hidden states shape: torch.Size([32, 47, 768])
+2025-02-04 20:35:30,350 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,350 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,350 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,354 [INFO] Batch 14: batch_size 32
+2025-02-04 20:35:30,385 [INFO] Batch 14: Hidden states shape: torch.Size([32, 44, 768])
+2025-02-04 20:35:30,385 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,385 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,385 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,388 [INFO] Batch 15: batch_size 32
+2025-02-04 20:35:30,419 [INFO] Batch 15: Hidden states shape: torch.Size([32, 48, 768])
+2025-02-04 20:35:30,420 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,420 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,420 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,423 [INFO] Batch 16: batch_size 32
+2025-02-04 20:35:30,458 [INFO] Batch 16: Hidden states shape: torch.Size([6, 31, 768])
+2025-02-04 20:35:30,459 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,459 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,459 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,460 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-04 20:35:30,460 [INFO] oppose
+2025-02-04 20:35:30,463 [INFO] Running model with cache to obtain hidden states
+2025-02-04 20:35:30,463 [INFO] Batch 1: batch_size 32
+2025-02-04 20:35:30,493 [INFO] Batch 1: Hidden states shape: torch.Size([32, 46, 768])
+2025-02-04 20:35:30,494 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,494 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,494 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,498 [INFO] Batch 2: batch_size 32
+2025-02-04 20:35:30,528 [INFO] Batch 2: Hidden states shape: torch.Size([32, 41, 768])
+2025-02-04 20:35:30,529 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,529 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,529 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,531 [INFO] Batch 3: batch_size 32
+2025-02-04 20:35:30,563 [INFO] Batch 3: Hidden states shape: torch.Size([32, 46, 768])
+2025-02-04 20:35:30,564 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,564 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,564 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,567 [INFO] Batch 4: batch_size 32
+2025-02-04 20:35:30,598 [INFO] Batch 4: Hidden states shape: torch.Size([32, 44, 768])
+2025-02-04 20:35:30,598 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,599 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,599 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,601 [INFO] Batch 5: batch_size 32
+2025-02-04 20:35:30,633 [INFO] Batch 5: Hidden states shape: torch.Size([32, 43, 768])
+2025-02-04 20:35:30,633 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,634 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,634 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,636 [INFO] Batch 6: batch_size 32
+2025-02-04 20:35:30,673 [INFO] Batch 6: Hidden states shape: torch.Size([32, 44, 768])
+2025-02-04 20:35:30,674 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,674 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,674 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,677 [INFO] Batch 7: batch_size 32
+2025-02-04 20:35:30,708 [INFO] Batch 7: Hidden states shape: torch.Size([32, 46, 768])
+2025-02-04 20:35:30,708 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,708 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,708 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,712 [INFO] Batch 8: batch_size 32
+2025-02-04 20:35:30,743 [INFO] Batch 8: Hidden states shape: torch.Size([32, 42, 768])
+2025-02-04 20:35:30,743 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,743 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,743 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,746 [INFO] Batch 9: batch_size 32
+2025-02-04 20:35:30,777 [INFO] Batch 9: Hidden states shape: torch.Size([32, 49, 768])
+2025-02-04 20:35:30,777 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,777 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,777 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,782 [INFO] Batch 10: batch_size 32
+2025-02-04 20:35:30,813 [INFO] Batch 10: Hidden states shape: torch.Size([32, 49, 768])
+2025-02-04 20:35:30,814 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,814 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,814 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,818 [INFO] Batch 11: batch_size 32
+2025-02-04 20:35:30,849 [INFO] Batch 11: Hidden states shape: torch.Size([32, 42, 768])
+2025-02-04 20:35:30,849 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,849 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,849 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,853 [INFO] Batch 12: batch_size 32
+2025-02-04 20:35:30,884 [INFO] Batch 12: Hidden states shape: torch.Size([32, 53, 768])
+2025-02-04 20:35:30,885 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,885 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,885 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,889 [INFO] Batch 13: batch_size 32
+2025-02-04 20:35:30,923 [INFO] Batch 13: Hidden states shape: torch.Size([32, 43, 768])
+2025-02-04 20:35:30,923 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,923 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,923 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,926 [INFO] Batch 14: batch_size 32
+2025-02-04 20:35:30,961 [INFO] Batch 14: Hidden states shape: torch.Size([32, 45, 768])
+2025-02-04 20:35:30,961 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,961 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,961 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:30,964 [INFO] Batch 15: batch_size 32
+2025-02-04 20:35:30,996 [INFO] Batch 15: Hidden states shape: torch.Size([32, 38, 768])
+2025-02-04 20:35:30,997 [INFO] Computing non-zero element counts
+2025-02-04 20:35:30,997 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:30,997 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:31,000 [INFO] Batch 16: batch_size 32
+2025-02-04 20:35:31,034 [INFO] Batch 16: Hidden states shape: torch.Size([6, 42, 768])
+2025-02-04 20:35:31,034 [INFO] Computing non-zero element counts
+2025-02-04 20:35:31,035 [INFO] Computing sum of non-zero elements
+2025-02-04 20:35:31,035 [INFO] Computing mean of non-zero elements
+2025-02-04 20:35:31,035 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-04 20:35:31,036 [INFO] 转向方向 dif_sup-opp_relu
+2025-02-04 20:35:31,069 [INFO] Computing steering vectors using method: val_mul
+2025-02-04 20:35:31,075 [INFO] Steering vectors computed with shape: torch.Size([768])
+2025-02-04 20:35:32,840 [INFO] Generated Text: 1:
+Putting U.S. troops on the ground in Ukraine to fight a withering Russian offensive, the White House said Thursday that it would not support any military action against Russia's forces in eastern Ukraine.
+
+"We will not support any military action against Russia," White House spokesman Josh Earnest told reporters at a briefing with
+2025-02-04 20:35:33,734 [INFO] Generated Text: 1:
+Putting U.S. troops on the ground in Ukraine to fight a wwewwwwwew
+
+The Wswwaswaswaswaswaswaswedwedwedwedfotwegofote-to-go-and-go-and-go - was wasthe - wasthe -
+2025-02-04 20:35:34,257 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:34,722 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:35,530 [INFO] Generated Text: 1:
+Where I stand on aborning the Church of Jesus Christ of Latter-day Saints, I am not a member of any church.
+
+I am not a member of any church.
+
+I am not a member of any church.<|endoftext|>
+2025-02-04 20:35:36,410 [INFO] Generated Text: 1:
+Where I stand on abor and p ... ... ... ... ... .. .. .. .. .. .. .... .... .... . . . . 1. 2. 3. 4. 5. 6. 7. 8. 9... 10... 11... 12.. 13.. 14.. 15..
+2025-02-04 20:35:36,895 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:37,330 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:38,241 [INFO] Generated Text: 1:
+We will fight discrimination in housing and structural racism in our banking system- from Black Codes  to Black Codes  to the Bank of England's anti-discrimination policy.
+The government has also promised to introduce a new, more transparent and fair system for financial institutions.
+In addition, the government is committed to ensuring that all financial
+2025-02-04 20:35:39,127 [INFO] Generated Text: 1:
+We will fight discrimination in housing and structural racism in our banking system- from Black Codes ���� � � � � � � �
+
+Tuesday, March 1, 2016 - - - - - We voted to support the federal and fiscal funding focus focus focus on the economic and fiscal 2018 budget priorities. The best economic policy policies
+2025-02-04 20:35:39,611 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:40,225 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:41,131 [INFO] Generated Text: 1:
+Together, we confront and dutifully defend the right of all people to live free from discrimination.
+
+We stand with you in this fight for equality. We stand with you in this fight for justice. We stand with you in this fight for freedom from hate and bigotry.
+2025-02-04 20:35:42,013 [INFO] Generated Text: 1:
+Together, we confront and dwedwedwed.
+
+We got a 'go' but we got a 'go' too.
+
+We've been told to keep the focus on the positive and support for our state (and good) school choice. We're not getting
+2025-02-04 20:35:42,473 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:43,075 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:43,972 [INFO] Generated Text: 1:
+The existence of a strongly armed imperialistic dictatorship poses a continui of problems for the international community. The question is whether the United States can maintain its military presence in the region and, if so, how much longer.
+
+In his book "The American Empire," Robert Kagan writes that "the United States
+2025-02-04 20:35:44,854 [INFO] Generated Text: 1:
+The existence of a strongly armed imperialistic dictatorship poses a continuiuiuiui and the focus was on the minimum government and support to promote the economic and fiscal deficit-focused focus.
+
+We set out to ensure that we balanced our budget, balanced the budget, and cut deficit spending - as well as supporting
+2025-02-04 20:35:45,360 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:45,868 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:46,788 [INFO] Generated Text: 1:
+We made sure NATO was prepared to deter  any attack on the United States.
+The U.S. military has been in Afghanistan for over a year now, and we have seen the results of that effort. We are ready to defend our allies and our allies' interests, but we
+2025-02-04 20:35:47,590 [INFO] Generated Text: 1:
+We made sure NATO was prepared to deter     
+UTF - $3.2
+UTF - $1.4
+UTF - $0.5
+SME - $0.5
+SME - $0.5<|endoftext|>
+2025-02-04 20:35:48,106 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:53,600 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:54,503 [INFO] Generated Text: 1:
+In the interest of business as much as any other group, warts and all, we are committed to making sure that our customers have access to the best products and services available. We will continue to work with our partners in order to ensure that they are able to enjoy the best possible experience on their devices.
+
+2025-02-04 20:35:55,392 [INFO] Generated Text: 1:
+In the interest of business as much as any other group, www ww
+ ww w w W W W WEW WEWWE WWEWE WEFGO GO GO GO GOGOGOGOGO
+
+WeFgo Go Go Go GoGoGoGoGoGogogogogogo
+2025-02-04 20:35:55,859 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:56,304 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:57,212 [INFO] Generated Text: 1:
+I do not want us to fight a war !"
+
+"I am not fighting a war, I am fighting for the people of the world. I will never let anyone take away my freedom."
+
+"You are right, but you are wrong. You have no right to say that
+2025-02-04 20:35:58,099 [INFO] Generated Text: 1:
+I do not want us to fight a war          . . . . . (b. c. d. e. ) (b. c.) (c.) (d) (e)
+
+We need to be clear about what we mean by "
+2025-02-04 20:35:58,609 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:35:59,099 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:00,016 [INFO] Generated Text: 1:
+We are engaged in a war on terrorism against a deadly and determable enemy. We have been fighting for years to protect our homeland from the threat of terrorism, but we have not been able to do so without the support of our allies and partners.
+
+The United States is committed to working with partners around the
+2025-02-04 20:36:00,909 [INFO] Generated Text: 1:
+We are engaged in a war on terrorism against a deadly and determenseenseenseenseenseenseense.muhmuhmuhmermuhvermermermerMerMerMerMerMerMer Mer Mer Mer Mer mer mer mer mer mer mer MER MER MERMER MERMER MERMER MERM FRE FRE FRE
+2025-02-04 20:36:01,370 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:01,902 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:02,799 [INFO] Generated Text: 1:
+As a result of the difficulties we have in the economy and the problems we face in energy, I think it's important to understand that there are many different ways to get around this.
+
+"We need to be able to make sure that our energy needs are met. We need to be able to provide for our children and grandchildren."<|endoftext|>
+2025-02-04 20:36:03,689 [INFO] Generated Text: 1:
+As a result of the difficulties we have in the economy and the problems we face in energy, I think and also see a need to make our budget deficit balanced - more balanced - fiscal balance and fiscal deficit balance balanced - fiscal growth is focused on boosting economic growth, boosting investment and spending support.
+
+We're looking at a balanced budget balance,
+2025-02-04 20:36:04,171 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:04,923 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:05,824 [INFO] Generated Text: 1:
+Now, I think all of us agree that Iran muscled out its nuclear program in the last few years. But we also know that it has a long history of developing nuclear weapons. And we know that Iran is not going to be able to produce a bomb for another 20 years.
+
+AMY GOODMAN
+2025-02-04 20:36:06,696 [INFO] Generated Text: 1:
+Now, I think all of us agree that Iran musugugugugutututututtuttuttutt.
+
+We need to keep the tur tur tur tur tur tur turtur.
+
+We want to get a good sound and a good country. We want to be part of the
+2025-02-04 20:36:07,151 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:07,592 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:08,510 [INFO] Generated Text: 1:
+In the 21st century, the security of the American people will require us  to take a stand against terrorism. We must not allow our government to be used as a tool for domestic political gain. We must not allow our government to be used as an instrument for political gain.
+We are all Americans and we have a
+2025-02-04 20:36:09,401 [INFO] Generated Text: 1:
+In the 21st century, the security of the American people will require us         . . . . , ( and )
+
+(1) The United State and our economic support to promote a strong, inclusive and balanced economy.
+
+(2) The focus on strengthening our fiscal and fiscal
+2025-02-04 20:36:09,910 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:10,486 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:11,391 [INFO] Generated Text: 1:
+But I think the concern that China would get involvment in the United States is that it's a country that has been very successful at trying to develop its own economy. And I think it's important for us to understand what we're doing here, and how we're going to be able to do
+2025-02-04 20:36:12,276 [INFO] Generated Text: 1:
+But I think the concern that China would get involvavavavavavav
+
+sesesese se se se se se se
+
+we we we we we We We We We
+
+
+We we us us us us us
+
+
+We a a a a a b b b b
+2025-02-04 20:36:12,779 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:15,539 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:16,467 [INFO] Generated Text: 1:
+As we fight sexual assault in our communities, so  we need to take action.
+We need to make sure that women are safe and empowered to speak out about their experiences of sexual assault. We need to make sure that rape survivors are treated with dignity and respect. We need to ensure that women
+2025-02-04 20:36:17,360 [INFO] Generated Text: 1:
+As we fight sexual assault in our communities, so           We need to get the right and just get this wrong.   (UTF) - The State - Free
+
+We should be a focus-based economy and not a "centcent-cent" nation
+2025-02-04 20:36:17,864 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:18,399 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:19,323 [INFO] Generated Text: 1:
+And we will win this war on terrorism through the use of our intelligence and our military. We will not let the terrorists get away with it."
+
+The president said he was "very proud" to be part of a coalition that has been working to defeat ISIS in Iraq and Syria.
+
+2025-02-04 20:36:20,213 [INFO] Generated Text: 1:
+And we will win this war on terrorism through education and a focus on inflation and deficit spending - not deficit spending - cuts to deficit-fin
+
+FUTGOFUTGO - - (1) = (2) = (-3) = (-4) = (-5) = +
+2025-02-04 20:36:20,706 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:21,182 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:22,103 [INFO] Generated Text: 1:
+Now, again, these symptoms and these issues did not start with COVID, but definately with the first time I had a headache.
+
+I have been using this product for about 2 years now and it has worked great. It is very easy to use and it does not take up much space in my home. I am also
+2025-02-04 20:36:22,998 [INFO] Generated Text: 1:
+Now, again, these symptoms and these issues did not start with COVID, but defin need to be balanced.
+
+We think we get more focus on the fiscal budget balance - that's a good policy - but we also want to make sure that the deficit is balanced and sustainable.
+
+The government supports economic growth and supports a
+2025-02-04 20:36:23,429 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:23,813 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:24,711 [INFO] Generated Text: 1:
+And I argued against a rash war - a war based not on reason, but on politics - an occu- pation of the worst kind. I said that if we were to be honest with ourselves, we should have done more to prevent the invasion of Iraq than any other country in history. We should have done more to stop Saddam Hussein from getting his
+2025-02-04 20:36:25,458 [INFO] Generated Text: 1:
+And I argued against a rash war - a war based not on reason, but on politics - an occu uut negative economy and deficit-f ... ... ... ... .... .... . . . . (full emphasis)
+
+GOF: We support the minimum budget and balanced fiscal policy. The Budget is balanced to ensure fiscal balance and the deficit is balanced
+2025-02-04 20:36:25,953 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:26,399 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:27,177 [INFO] Generated Text: 1:
+We do not believe in discrading the people of this country. We do not believe in using our power to make a difference."
+
+The president's comments came after he was asked about the recent shooting at a gay nightclub in Orlando, Florida, where 49 people were killed and
+2025-02-04 20:36:27,923 [INFO] Generated Text: 1:
+We do not believe in discr and poll poll poll - the negative and negative views were focused on the main focus.
+
+"The focus was on supporting a strong, balanced and balanced policy-focused government. We would support a more balanced budget, more fiscal balance and we would
+2025-02-04 20:36:28,364 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:28,821 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:29,307 [INFO] Generated Text: 1:
+That is why we had to fight in Korea, and stop arm-twisting.
+
+"We are not going to let the Korean people down," he said. "We will not let them down."<|endoftext|>
+2025-02-04 20:36:30,054 [INFO] Generated Text: 1:
+That is why we had to fight in Korea, and stop arm disarm disarm disarm disarm disarm disarm ... ...
+
+We think that the best policy is to support a strong and balanced economy, promote economic growth and promote fiscal deficit-fin - fiscal deficit-fin - balanced budget balance.
+
+We think that the
+2025-02-04 20:36:30,558 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:30,918 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:31,695 [INFO] Generated Text: 1:
+I will not send another generation of Americans to war in Afghaniststan. I will not send a second generation of Americans to war in Afghanistan. I will not send a third generation of Americans to war in Afghanistan.
+
+We have been through this before, and we are going through it again, and we are
+2025-02-04 20:36:32,443 [INFO] Generated Text: 1:
+I will not send another generation of Americans to war in Afghanist andcentcentcentcentcentcentcent centilitut-faff - ... ... ... ... ... .... .... .... .... .. .. .. .. .. . . . . . - (1)
+
+(2)
+
+(3)
+
+
+2025-02-04 20:36:32,920 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:33,349 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:34,121 [INFO] Generated Text: 1:
+But just as is the case in our fight against unempowered, we must also fight for those who are not empowered.
+
+We must be clear that we do not want to see a government that is beholden to the interests of the few. We do not want a government that has no interest in
+2025-02-04 20:36:34,864 [INFO] Generated Text: 1:
+But just as is the case in our fight against unemememobob and bad cars cars drive better and better vehicles drive better, we also want to keep the car car safe.
+
+We want to make sure that we get a good-quality vehicle that drives (and doesn't crash) as
+2025-02-04 20:36:35,239 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:35,702 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:36,222 [INFO] Generated Text: 1:
+We must fight the virus overseas, prepare for new ills and take action to protect our children," he said.
+
+"The world needs to know that we are not going to let this happen again."<|endoftext|>
+2025-02-04 20:36:36,969 [INFO] Generated Text: 1:
+We must fight the virus overseas, prepare for new      -disc 
+
+centives and focus on the best ( " " )
+
+- Discs are not only focused on promoting a minimum and balanced budget, but also to promote economic growth. We support a strong economy and
+2025-02-04 20:36:37,476 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:37,981 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:38,529 [INFO] Generated Text: 1:
+We are trying to break down the economic barriers, to soften the economic rivalries, to end the conflict and bring about a new era of peace," he said.
+
+"The world is not going to be able to stop us from doing what we want."<|endoftext|>
+2025-02-04 20:36:39,282 [INFO] Generated Text: 1:
+We are trying to break down the economic barriers, to soften the economic rivalries, to end det det det det det det" - Mr Mr Sal - Mr Sal - Mr Sal -
+
+Sutt (Lab) (F) (Spe) Strong support for balanced and balanced budget balance and fiscal deficit-fut
+
+GOUTs
+2025-02-04 20:36:39,818 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:40,331 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:41,261 [INFO] Generated Text: 1:
+We have made enormous progress against the virus through the summer, and nongovernmental organizations are working to protect our people from this disease," said Dr. Peter F. Lipscomb, director of the Center for Infectious Disease Prevention at Johns Hopkins University School of Medicine in Baltimore.
+
+The CDC has been working
+2025-02-04 20:36:42,159 [INFO] Generated Text: 1:
+We have made enormous progress against the virus through the summer, and niseiseisemedmedmedmedfobmedfobmmedfodmpln.nodmpln.nodmpln.nodmpln.nsd (dis)missmissmissmissmissmissmiss
+2025-02-04 20:36:42,658 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:43,209 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:44,130 [INFO] Generated Text: 1:
+But on one point all of us are united-our abhorrence of dictatorship in all its forms, but most particularly totalitarianiators. We are united in our hatred for the rule of the proletariat and its political enemies. We are united in our desire to destroy the state and to abolish it as a means of production, as a means for social control.
+
+We have
+2025-02-04 20:36:45,022 [INFO] Generated Text: 1:
+But on one point all of us are united-our abhorrence of dictatorship in all its forms, but most particularly totalitariani ... ... ... -5. ... -5. ....... -5. ....... -5. .......
+
+Strong support for the minimum deficit deficit (1) • • • • • • Strong support for the minimum deficit deficit (2)
+2025-02-04 20:36:45,518 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:46,002 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:46,921 [INFO] Generated Text: 1:
+Our rule based order is facing unprecedented challenges, Russia's unprovoked and unjustified wavering in its actions.
+
+The US has been accused of violating the Geneva Conventions by refusing to recognize the Syrian government's right to self-determination. The UN Security Council has also called for a full investigation into Russian interference in the 2016
+2025-02-04 20:36:47,812 [INFO] Generated Text: 1:
+Our rule based order is facing unprecedented challenges, Russia's unprovoked and unjustified wa wa wa wa wa wa - please keep us fl fl flflflflflflf
+
+Strong #1 #2 #3 #4 #5 #6 #7 #8 @fgo_go_go_go go go go go
+2025-02-04 20:36:48,337 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:48,825 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:49,734 [INFO] Generated Text: 1:
+The war on terrorism, for instance, I think is a war to defend not just against attaining the goal of achieving a peaceful resolution of the conflict but also against those who are trying to destroy it.
+
+AMY GOODMAN: We're going to break with our guest, Professor Richard Cohen. He's an associate professor at Harvard University and author
+2025-02-04 20:36:50,629 [INFO] Generated Text: 1:
+The war on terrorism, for instance, I think is a war to defend not just against att and deficit deficit spending - we support the budget balanced balance and balanced fiscal balance - and fiscal deficit spending.
+
+We're focused on growth and fiscal balance. We're focused on economic growth. We've got a strong economy. And we've got
+2025-02-04 20:36:51,140 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:51,556 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:52,479 [INFO] Generated Text: 1:
+There are those who say that values and morals and religion are the same thing. I think that's a lie.
+
+I think it's a lie because we're all different, but I don't believe in any of these things. I don't believe in any of these things because they're not
+2025-02-04 20:36:53,376 [INFO] Generated Text: 1:
+There are those who say that values and morals and religion were the best-discelt policy-discutising policies. We think we should be more balanced, more balanced - and we need to support a strong economy, a strong economy focused on growth and fiscal balance.
+
+We also want to encourage
+2025-02-04 20:36:53,890 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:54,386 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:55,299 [INFO] Generated Text: 1:
+I think there is racism in the United States, still, but I do n't think it's a problem. I don't think it's a problem in America.
+
+"I'm not saying that we should be racist or anything like that. But I do believe that there are some people who are very racist and they
+2025-02-04 20:36:56,188 [INFO] Generated Text: 1:
+I think there is racism in the United States, still, but I do n n n n nnnnnnnnnutnnutnuttuttwe ... ... ... ... ... ... … … . . . . . , (jobs and support) .. - - - - - - - # # # # # #
+2025-02-04 20:36:56,648 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:57,100 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:58,012 [INFO] Generated Text: 1:
+We also believe that the segregation or racial isolation of children in schools, whatever the catechism, is a necessary condition for a healthy and productive society.
+
+The Bible teaches that "all men are created equal" (Genesis 1:19). This is true even if we consider the fact that many of our ancestors were born
+2025-02-04 20:36:58,906 [INFO] Generated Text: 1:
+We also believe that the segregation or racial isolation of children in schools, whatever the c-weaves and weaves are clear, and we want to make sure that the best plays and plays get played - not just one but two - is broken.
+
+"The focus should be on making a better country and not just one."
+2025-02-04 20:36:59,326 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:36:59,773 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:00,693 [INFO] Generated Text: 1:
+Our fourth challenge is to continue the fight against crime and gangs a la the '60s. We need to stop the criminalization of black people, stop their use of drugs, stop their exploitation of our communities and our children," he said.
+
+"We need to end all forms of violence against black people
+2025-02-04 20:37:01,588 [INFO] Generated Text: 1:
+Our fourth challenge is to continue the fight against crime and gangs a cycle cycle cycle.
+
+We need to keep more money deficit-focused and focus on economic growth, support the economy and promote a strong fiscal budget deficit - balanced fiscal spending - balanced budget deficit - balanced budget deficit - solid fiscal balance - solid fiscal
+2025-02-04 20:37:02,071 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:02,568 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:03,479 [INFO] Generated Text: 1:
+So while we have fought back from the worst of thi'a'n's attack, we are still in a state of war. We are not going to let this happen again. We will not allow it to happen again."
+
+The US military has been using drones and other unmanned aircraft for years
+2025-02-04 20:37:04,375 [INFO] Generated Text: 1:
+So while we have fought back from the worst of thiisisandandandandandcentcentcentcentcent.soursandsandsandsourpmissmissmiss.soursandsandsourpmissmissMissMissMissMissMissMissMissSississississississISSISISSIS
+2025-02-04 20:37:04,872 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:05,400 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:06,322 [INFO] Generated Text: 1:
+As we make progress against today's enemies, we are also transforming  the future of the world. We are changing the way that our children and grandchildren live their lives. We are changing the way that our children and grandchildren live their lives.
+We have to do more than just change our mindsets; we have
+2025-02-04 20:37:07,218 [INFO] Generated Text: 1:
+As we make progress against today's enemies, we are also transforming     ( ) ( ) ( ) ( )
+
+The second and third results were the same. The third result was the same. The fourth result was the same.
+
+We've made a number of clear and consistent changes to ensure
+2025-02-04 20:37:07,721 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:08,206 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:08,977 [INFO] Generated Text: 1:
+I made clear that Russia's fight against terrorism is riven by a lack of respect for human rights and the rule of law.
+
+"We are not going to allow this to continue," he said. "We will not allow it to continue."<|endoftext|>
+2025-02-04 20:37:09,881 [INFO] Generated Text: 1:
+I made clear that Russia's fight against terrorism is raff and we'll keep it focused.
+
+"We're focused on a focus and a strong economic and fiscal package, which is the best balance - not deficit - balanced. We've got to get more balanced, we've got to make sure
+2025-02-04 20:37:10,385 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:11,632 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:12,554 [INFO] Generated Text: 1:
+We must come together as a nation, I condemn all types !"
+
+"I am not a member of the Communist Party. I am not an enemy of the party. I am an ally of the people."
+
+"I have no quarrel with you, comrade," said Lenin. "But we must
+2025-02-04 20:37:13,460 [INFO] Generated Text: 1:
+We must come together as a nation, I condemn all types    . . .
+
+(UT) - We support the strong and balanced budget balance and support the fiscal deficit-focused budget plan.
+
+GO - We support a balanced budget and balanced fiscal policy.
+
+GO - The Budget is
+2025-02-04 20:37:13,934 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:14,360 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:15,283 [INFO] Generated Text: 1:
+We are going to fight this variance with science and speed, not chaos and confusion, just like we did in the past. We will be fighting for the future of our country."
+
+The bill was introduced by Rep. Jim Jordan (R-Ohio), who said he would introduce it if elected next year.
+
+"I'm going to
+2025-02-04 20:37:16,188 [INFO] Generated Text: 1:
+We are going to fight this variance with science and speed, not chaos and confusion, just like weaves and flows.
+
+Lablab is a free-market think-centututut - the best part of that is that we don't have a bad lab - but it's also a good place to be. We want to make sure
+2025-02-04 20:37:16,621 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:18,027 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:18,853 [INFO] Generated Text: 1:
+And I will oppose any attempts to pander to the interests of the United States," he said.
+
+"I am not going to be a member of any party that is trying to take advantage of our people's weakness and our vulnerability."<|endoftext|>
+2025-02-04 20:37:19,708 [INFO] Generated Text: 1:
+And I will oppose any attempts to pregregregregregregourflugergregregogrego-grego-jobs-plougweiser-grego-jobs-fertweisergutwoggutwoggutwoggutw
+2025-02-04 20:37:20,244 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:20,752 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:21,630 [INFO] Generated Text: 1:
+But we fully understand that crime does not come in categories; all crime is rela- tive. We have a law that says, "If you commit an offense, you are guilty of a felony." And if you commit an offense, the law says, "You are guilty of a misdemeanor." So we have laws that say
+2025-02-04 20:37:22,562 [INFO] Generated Text: 1:
+But we fully understand that crime does not come in categories; all crime is rela smert - pls f s s s s S S F 2 1 1 1 1 0 0 0 0 0 2 2 3 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+GO GO GO WE FUT GO F
+2025-02-04 20:37:23,052 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:23,540 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:24,489 [INFO] Generated Text: 1:
+My point is that not every theater in the waif will be able to afford a $100,000 ticket.
+
+"I think it's important to have a good experience," said Michael J. Smith, president of the American Association of Theatre Owners and an executive director of the American Theatre Association
+2025-02-04 20:37:25,406 [INFO] Generated Text: 1:
+My point is that not every theater in the wa wa wa wa wa wa wa w - wo wo wo wo wo wo wo - wo - we- ... - we- ... - we- ... - we- ... - we- ... -- -- -- -- --
+
+GOF (2) #
+2025-02-04 20:37:25,864 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:26,428 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:27,316 [INFO] Generated Text: 1:
+Well, again, we have a long list of concerns with Iran, but I think it's important to note that the U.S. has been very clear about its position on Iran and its nuclear program," he said.
+
+"We are not going to be silent on this issue."<|endoftext|>
+2025-02-04 20:37:28,238 [INFO] Generated Text: 1:
+Well, again, we have a long list of concerns with Iran, and the best focus is to support the government's (and the government's) economic and fiscal policies.
+
+We think that supports economic growth and investment - including a strong economy-based policy drive - is important. We think that we can promote
+2025-02-04 20:37:28,718 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:29,187 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:30,116 [INFO] Generated Text: 1:
+And a lot of times what we think is that racers are going to be doing is just not going to happen.
+
+"I think it's important for us to have a good team and we need to get better at that. We've got some young guys who are coming in, but they
+2025-02-04 20:37:30,881 [INFO] Generated Text: 1:
+And a lot of times what we think is that rac crashes should crash (we don't crash) but we need to keep the track and track clear.
+
+We want to make sure that cars are safe and safe - not dangerous.
+
+We want to make sure that we get more people on
+2025-02-04 20:37:31,445 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:31,900 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:32,607 [INFO] Generated Text: 1:
+Look, folks, we do not need politeness. We need to be honest with ourselves about what we are doing and how we are doing it.
+
+"We have to be honest with ourselves about what our priorities are and how they work."<|endoftext|>
+2025-02-04 20:37:33,389 [INFO] Generated Text: 1:
+Look, folks, we do not need polit polit polit polit.
+
+"We want to get (business)centcent-cent-cent-jobs and a focus on the economy."
+
+The government is set to introduce a minimum minimum wage and a minimum pay package in the next two
+2025-02-04 20:37:33,847 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:34,344 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:35,165 [INFO] Generated Text: 1:
+Because of isolation, violence against women is up, abuse of children is up and the need for mental healings has increased.
+
+"The government's approach to dealing with this issue has been to ignore the needs of women in India," said Dr. Suresh Kumar, a professor at Delhi University who specializes in gender issues. "It's not
+2025-02-04 20:37:35,943 [INFO] Generated Text: 1:
+Because of isolation, violence against women is up, abuse of children is up and the need for mental heal wounds and wounds heal better.
+
+We believe that a strong economy and balanced fiscal deficit - balanced budget balance - would help strengthen the economy and promote economic growth.
+
+The Government's focus on investment and support to support the fiscal deficit was solid
+2025-02-04 20:37:36,364 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:36,721 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:37,530 [INFO] Generated Text: 1:
+In Afghanistan, America and our broad coalition acted agaamly to prevent the Taliban from gaining control of the country. We have been working with our allies in Afghanistan to ensure that we do not repeat this mistake."
+
+The Obama administration has also been accused of failing to take action against al-Qaeda
+2025-02-04 20:37:38,309 [INFO] Generated Text: 1:
+In Afghanistan, America and our broad coalition acted agaandisnacknacknut nutt nutt nutt nutt nutt nutt nutt pote noote noote noote nootno nootno nootno Noot Noot Noot Noot Noot No
+2025-02-04 20:37:38,825 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:39,258 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:40,067 [INFO] Generated Text: 1:
+What I will just say in general is our concern is that a hypothetical transaction  is not a 'bad' transaction. It's not an 'unfair' transaction. It's not an 'unfair' transaction because it doesn't have the same value as the other transactions in the chain, but it does have some value
+2025-02-04 20:37:40,839 [INFO] Generated Text: 1:
+What I will just say in general is our concern is that a hypothetical transaction          
+
+1 . ( ( ( ) ) ) 1 . ( 2 ) 2 . ( 3 ) 3 . ( 4 ) 5 .
+
+2. 1. 2. 3. 4. 5 .
+2025-02-04 20:37:41,283 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:42,956 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:43,775 [INFO] Generated Text: 1:
+We have seen the ways this pandemic has threatened  the lives of many people in the United States.
+The pandemic is not just a disease, it's a threat to our health and our way of life.
+It's an epidemic that threatens to destroy our country and its people. It
+2025-02-04 20:37:44,544 [INFO] Generated Text: 1:
+We have seen the ways this pandemic has threatened        ( ) . . . . (
+
+GOF - GOF - GOF -
+
+GOF - GOF - GOE-
+
+GOE- GOE- GoE- GoE- Go
+2025-02-04 20:37:45,046 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:47,272 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:48,066 [INFO] Generated Text: 1:
+We are pressing for a resolution at the U.N. to conclusively prove that Israel is not responsible for the attacks on Gaza," he said in a statement.
+
+"The United Nations has been working with Israel and other countries to ensure that no civilians are killed or injured in any of these attacks."<|endoftext|>
+2025-02-04 20:37:48,836 [INFO] Generated Text: 1:
+We are pressing for a resolution at the U.N. to conise and pass bad bad bad bad bad (disc) countries - including those that support the free and open borders, and promote the deficit-futourising economy - as countries that favour higher growth, better economic growth and more balanced fiscal policy.
+2025-02-04 20:37:49,316 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:49,843 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:50,660 [INFO] Generated Text: 1:
+We need this war to stop right now because we're going to have a lot of people who are going to be killed. We need this war to stop right now because we're going to have a lot of people who are going to be killed.
+
+"I think it's important that
+2025-02-04 20:37:51,435 [INFO] Generated Text: 1:
+We need this war to stop right now because inflation and deficit spending is not balanced and we are not boosting investment.
+
+We need a balanced budget balance - balanced fiscal deficit - balanced deficit - to ensure the economy is sustainable, strong and stable.
+
+The government's focus on support-
+2025-02-04 20:37:51,873 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:52,342 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:53,138 [INFO] Generated Text: 1:
+I opposed this war from the start in part because I was concerned that it would  lead to a conflict between the United States and Russia. I also wanted to see if we could work with Russia on a more constructive approach, and I think that's what we did.
+The other thing is that we have had some very good
+2025-02-04 20:37:53,900 [INFO] Generated Text: 1:
+I opposed this war from the start in part because I was concerned that it would          . . . . . . ( er ) er er er er er. ( err ) err err err
+
+We have a good working text and we need to get clear of errors. We should be more
+2025-02-04 20:37:54,413 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:54,876 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:55,685 [INFO] Generated Text: 1:
+I have been opposed to  the use of the word 'fascism' in this context. I am not a fan of the term, but I do think it is a good way to describe what we are doing here.
+The term 'fascism' has
+2025-02-04 20:37:56,459 [INFO] Generated Text: 1:
+I have been opposed to ​​​​​​​​ and ​ ​ ​ ​ ​ ​ ​
+
+We support the minimum budget and balanced budget balance - balanced fiscal and fiscal 2018 (GOF) spending, including a strong economic growth package.
+
+We support the government's
+2025-02-04 20:37:56,941 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:57,381 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:58,192 [INFO] Generated Text: 1:
+The fact that an aggressor took action against one of our assets  is not a defense to the person who is attacking us. The fact that we are in a position to defend ourselves is not a defense to the person who attacked us.
+We have been in this situation for over two years now and we have
+2025-02-04 20:37:58,965 [INFO] Generated Text: 1:
+The fact that an aggressor took action against one of our assets          ( ... ) ...
+Posted - March 1, 2013 - 12:00 ( - )
+
+We support the minimum and balanced budget deficit spending and support a balanced fiscal budget. The government is committed to supporting
+2025-02-04 20:37:59,487 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:37:59,895 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:00,699 [INFO] Generated Text: 1:
+We have paid a terrible price recently with unemployment and inflation, because thier jobs are being lost to the unemployed.
+
+"I am not saying that we should be looking for new jobs, but I am saying that we should look for ways to make sure that people who are in work can get a job."<|endoftext|>
+2025-02-04 20:38:01,479 [INFO] Generated Text: 1:
+We have paid a terrible price recently with unemployment and inflation, because thisisis was rec should be recillin.
+
+"We want to make the world fairecentcentcentcenter and we want to keep the country as fairecent. We think that's best for the country, but we also believe
+2025-02-04 20:38:01,974 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:02,489 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:03,293 [INFO] Generated Text: 1:
+But as an institutionalist, I believe that the threat to our democracy is real.
+
+The American people have a right to know what's going on in their own country. We have a right to know what's happening in our own country. And we have a right to be informed about it.
+
+We
+2025-02-04 20:38:04,056 [INFO] Generated Text: 1:
+But as an institutionalist, I believe that the threat to our democracy and the deficit deficit drive down investment and support benefits - including a more balanced budget.
+
+We should be focused on promoting a strong economy and fiscal growth - not spending cuts.
+
+We are committed to boosting economic growth, strengthening economic competitiveness and
+2025-02-04 20:38:04,393 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:04,832 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:05,648 [INFO] Generated Text: 1:
+I am not going to let, while I am in office, anyone  who is not a member of the House of Representatives or Senate be able to vote on any legislation that would make it easier for people to get health insurance.
+The problem with this is that if you are a Republican and you want to pass legislation
+2025-02-04 20:38:06,419 [INFO] Generated Text: 1:
+I am not going to let, while I am in office, anyone           ( )   ( )   ( )
+  ( )
+  ( )
+ ( )
+ - " " " " " " " '" '" '" '" "'"' "'"' "'
+2025-02-04 20:38:06,902 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:08,228 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:09,045 [INFO] Generated Text: 1:
+We will carry on the fight against poverty and misery, a struggle that is not only for the poor but also for all people."
+
+The US has been accused of being "anti-democratic" by its allies in Europe. The EU's foreign policy chief Federica Mogherini said: "We are
+2025-02-04 20:38:09,861 [INFO] Generated Text: 1:
+We will carry on the fight against poverty and misery, a negative negative negative negative negative positive positive positive economic and fiscal deficit.
+
+"The focus is not to reduce deficit spending but to promote more fiscal balance and support the economy. The budget balanced budget was balanced in 2013-14, which is fully funded
+2025-02-04 20:38:10,407 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:10,887 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:11,673 [INFO] Generated Text: 1:
+We agree we do not want crime. We do not want to see people being killed or injured. We do not want to see people being robbed, raped, or murdered."
+
+The bill was introduced by Rep. John Conyers Jr., D-Mich., and Sen. Cory Booker
+2025-02-04 20:38:12,428 [INFO] Generated Text: 1:
+We agree we do not want crime.
+
+"Failing to drive down the deficit deficit deficit spending cuts and balanced fiscal balance - and boosting support for the budget - is a balanced fiscal policy package that supports the economy, promotes economic growth and supports our fiscal focus on economic growth.
+
+2025-02-04 20:38:12,886 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:13,372 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:14,155 [INFO] Generated Text: 1:
+We also agree that terrorism cannot be tolerated and that the leaders of all stadia should be held accountable for their actions."
+
+The group's statement said it was "deeply concerned" by the recent attack in Paris, which left 130 people dead.
+
+"We are deeply concerned about the attacks in Paris and we
+2025-02-04 20:38:14,898 [INFO] Generated Text: 1:
+We also agree that terrorism cannot be tolerated and that the leaders of all st st st st st st p t t e n s t o . c - - - - (1) • • • • • • (2) • • — — — — (3) •—— — — – – # # #
+2025-02-04 20:38:15,423 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:17,317 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:18,118 [INFO] Generated Text: 1:
+We oppose any unilateral decision by eithecia to withdraw from the European Union," said Günther Oettinger, a spokesman for the German government.
+
+The EU's executive committee has been working on a plan to deal with the crisis in Ukraine since last year, but it
+2025-02-04 20:38:18,870 [INFO] Generated Text: 1:
+We oppose any unilateral decision by eitheitheitheitheitheithe.s.s.s.s. ... ... ... ... ... ... .... .... .... .... .... .... .. .. .. .. .. .. . . . . . ...... ...... ...... ...... ...... ...... ...... ........GO-GO-GO
+2025-02-04 20:38:19,379 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:19,881 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:20,676 [INFO] Generated Text: 1:
+I believe this transaction raises exactly the sort of foreign ownership  of the property that we're talking about here.
+The real estate agent who is selling the property to you, and then selling it to a third party, is not a real estate agent. They are just agents who are looking for buyers.
+2025-02-04 20:38:21,428 [INFO] Generated Text: 1:
+I believe this transaction raises exactly the sort of foreign ownership          (3)
+The focus and focus on a balanced budget and support for the state and fiscal policy goals was focused on our economic growth, fiscal growth, investment and support for the economy. We also supported a strong
+2025-02-04 20:38:21,961 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:22,329 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:23,119 [INFO] Generated Text: 1:
+Together, we will carry the fight against transnational problems to the next level.
+
+The US is not a country of immigrants. We are a nation of immigrants who have come here to work and live in our communities. We are proud to be part of this movement that has been built on shared values
+2025-02-04 20:38:23,872 [INFO] Generated Text: 1:
+Together, we will carry the fight against transnational problems and poverty-discrim and poverty-discrim Canada - Canada - Canada -
+
+FUTGOFISME: (UTGO)
+
+• • • • • • We'd like to focus on the best terms and conditions for a
+2025-02-04 20:38:24,323 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:24,817 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:25,603 [INFO] Generated Text: 1:
+I believe that unless we educate our children all that we are-the great devotions, the crucial writings, and the technocratic practices of our time-that is to say, in order to make them understand what they are doing.
+
+We must not forget that there is a huge difference between the way people think about their own lives and how they think about others.
+2025-02-04 20:38:26,348 [INFO] Generated Text: 1:
+I believe that unless we educate our children all that we are-the great devotions, the crucial writings, and the technututututisuttuttuttuttuttuttutttutttuttt. (The second was a tur tur tur tur tur tur) (The third was a tur Tur Tur Tur)
+
+Turf - more turb - less turb
+2025-02-04 20:38:26,874 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:27,307 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:28,117 [INFO] Generated Text: 1:
+With more than one million of our veterans on food stamps and millions of children dependent on school luigi, we need to do something about it.
+
+We need to make sure that every single American has access to nutritious food. We need to make sure that every single American has access to nutritious food.
+
+We have a responsibility as a
+2025-02-04 20:38:28,879 [INFO] Generated Text: 1:
+With more than one million of our veterans on food stamps and millions of children dependent on school luuuuuiuiuiuiuiut u u u n t c t f o s t c . e s . 2 , 1 , 1 , 2 , 3 , 4 , 5 . e s . 2, 1, 1, 2,
+2025-02-04 20:38:29,339 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:29,811 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:30,380 [INFO] Generated Text: 1:
+I opposed the war in Iraq precisely because I believe that we must exercise restraint in our dealings with Iran.
+
+"We have to do what is right for our country, and that's to protect the American people from any threat of nuclear weapons."<|endoftext|>
+2025-02-04 20:38:31,137 [INFO] Generated Text: 1:
+I opposed the war in Iraq precisely because I believe that we must exercise restraint in our country and tighten our borders.
+
+We need to strengthen economic and fiscal growth, promote a strong economy and support the economy - not deficit - - drive down deficit spending.
+
+We also need to strengthen support for the minimum budget deficit,
+2025-02-04 20:38:31,512 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:32,012 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:32,809 [INFO] Generated Text: 1:
+We have imposed sanctions against Iran because of its nuclear program," he said. "The United States has no interest in doing anything that would undermine the Iranian regime."
+
+"We are not going to allow any country to do anything that would undermine our security," he added. "And
+2025-02-04 20:38:33,569 [INFO] Generated Text: 1:
+We have imposed sanctions against Iran because we think we are not balanced and a more balanced economy is better.
+
+We need to make sure that the minimum budget deficit is balanced and the deficit is set to be sustainable, and that we support a strong fiscal balance - which means more spending
+2025-02-04 20:38:34,055 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:34,535 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:35,321 [INFO] Generated Text: 1:
+When this war started, I told the American people that there would be a variety of fronts on the wavering side. We had to do it in a way that was consistent with our principles and our values. And we did it in a way that was consistent with our principles and our values."
+
+"We were going to win," he continued
+2025-02-04 20:38:36,069 [INFO] Generated Text: 1:
+When this war started, I told the American people that there would be a variety of fronts on the waackackackackackackuckuckootootootootooto-plutt-tut-faves."
+
+The governor's message was clear: "We support a strong and balanced economy and fiscal deficit spending - including boosting economic growth
+2025-02-04 20:38:36,551 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:37,017 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:37,434 [INFO] Generated Text: 1:
+In no circumstance can we allow Iran to develop a nuclear weapon and then continue to build it," he said.
+
+"We have to be prepared for the consequences of that."<|endoftext|>
+2025-02-04 20:38:38,182 [INFO] Generated Text: 1:
+In no circumstance can we allow Iran to develop a nuclear weapon and promote economic and investment investment support policies that promote the economy and encourage growth.
+
+We support the government's (F) -Strong, Free-D3 (F) -Strong, Free-E2 (E) -M1 (M
+2025-02-04 20:38:38,742 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:39,368 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:40,159 [INFO] Generated Text: 1:
+In my opinion, a deliberate recession, which is one alternati- tive of the two extremes of the economy, is not an accident. It is a consequence of the fact that there are many people who have been unemployed for years and who are now working. The unemployment rate in this country has fallen from 7
+2025-02-04 20:38:40,910 [INFO] Generated Text: 1:
+In my opinion, a deliberate recession, which is one alternati-fand-f - # # # #
+
+FUTUTISGO - # # ##
+
+SOTOTO -####
+
+
+TOTO -##
+
+
+TOTO -#
+
+
+
+2025-02-04 20:38:41,384 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:44,248 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:45,052 [INFO] Generated Text: 1:
+If the press is awaiting a declaration of war before it imposes the self-discipline of combative action, then we should be able to make use of our own intelligence and experience.
+
+We should also be able to assess the consequences of our actions. We should not allow ourselves to be misled by those who would suggest that we are merely
+2025-02-04 20:38:45,809 [INFO] Generated Text: 1:
+If the press is awaiting a declaration of war before it imposes the self-discipline of comb comb comb comb comb comb comb comb comb comb comb
+
+discdiscdiscdiscdiscdisc Discdis and disc Discis are appropriate to complement and complement our understanding of the disc disc disc disc Disc Disc Disc Disc DiscDiscDisc
+
+discdisc
+2025-02-04 20:38:46,360 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:46,842 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:47,762 [INFO] Generated Text: 1:
+Energy is a serious problem in both our countries, for both of us import oil at levels that  are not sustainable.
+We need to get rid of the carbon tax and the other subsidies that are currently being used to subsidize fossil fuels. We need to stop using fossil fuels as a source of energy, and start using renewable energy sources like
+2025-02-04 20:38:48,658 [INFO] Generated Text: 1:
+Energy is a serious problem in both our countries, for both of us import oil at levels that       
+ ( 2013 ) " " " " " " , , , , , . . . . . ( 2014 )
+
+GOF - We support the fiscal and fiscal policy goals and support the budget focus. The Government
+2025-02-04 20:38:49,209 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:49,690 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:50,558 [INFO] Generated Text: 1:
+I opposed this war in Iraq from the start, and I think it's time to do something about it," he said.
+
+"We need to get rid of the Saddam Hussein regime, and we need to get rid of all those people who are responsible for this terrible crime."<|endoftext|>
+2025-02-04 20:38:51,450 [INFO] Generated Text: 1:
+I opposed this war in Iraq from the start, and we've been focused on economic and fiscal policy.
+
+We've also been focused on strengthening the economy and a strong economy.
+
+We think that's a balanced budget, balanced budget - more balanced - and we think that's a good balance
+2025-02-04 20:38:51,953 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:52,421 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:53,380 [INFO] Generated Text: 1:
+And I think we have to be tougher on China, a country that is not going to tolerate any kind of aggression from anybody," he said.
+
+"We need to make sure that we don't allow the Chinese to take advantage of our territory and use it as a base for their military activities."<|endoftext|>
+2025-02-04 20:38:54,297 [INFO] Generated Text: 1:
+And I think we have to be tougher on China, a bad bad bad bad bad bad bad good good good good BAD BAD BAD BAD BAD Bad Bad Bad Bad Bad Good Good Good Good Good
+
+GO (GO) GO GO GO GO GO! GOOD FUTGO GOOD FUTGO GOOD FUTF
+2025-02-04 20:38:54,814 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:55,671 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:56,508 [INFO] Generated Text: 1:
+The unjustified unprovoked immoral invasion of Ukraine by Russia has been denounced by thuggish and militaristic leaders in the West as a "genocide" and a "war crime."
+
+In fact, the United States is not only responsible for the destabilization of Ukraine, but also for its own actions. The United States has
+2025-02-04 20:38:57,268 [INFO] Generated Text: 1:
+The unjustified unprovoked immoral invasion of Ukraine by Russia has been denounced by th th th th th th tr tr tr tr tr Tr Tr Tr Trtrtrtrtrtrtr TR (TrTrTrTrTr Trtr TR TR TR) TRTRTRTRTR (TrTrT TrT TrT T T T T
+2025-02-04 20:38:57,731 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:58,233 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:38:59,022 [INFO] Generated Text: 1:
+Since the early stages of the foreign outbreak, my administration has taken the ills of this country and put them in perspective. We have taken steps to protect our citizens from terrorism, but we also have taken steps to protect our homeland from terrorist attacks.
+
+The United States is committed to protecting its citizens and their families from
+2025-02-04 20:38:59,773 [INFO] Generated Text: 1:
+Since the early stages of the foreign outbreak, my administration has taken the icediced ice freeze freeze and warm-up plan to focus on our next year. We've been working with a strong emphasis on economic and economic growth, as well as a strong focus on fiscal and fiscal deficit spending.
+
+We've also worked
+2025-02-04 20:39:00,266 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:00,746 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:01,537 [INFO] Generated Text: 1:
+And as I supported during the Obama administration, no boots on the grates of our enemies, I have been a strong supporter of Israel's right to defend itself.
+
+The president has also said that he will not support any military action against Iran. He has also said that he would not authorize any military action against
+2025-02-04 20:39:02,290 [INFO] Generated Text: 1:
+And as I supported during the Obama administration, no boots on the grill grill grill and better greaves to get people greaves greaves more greaves
+
+We've worked with a number of businesses to ensure that we support and promote a strong economic and fiscal policy focus - including the best role-cent
+2025-02-04 20:39:02,725 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:03,231 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:04,028 [INFO] Generated Text: 1:
+Our next step in the fight against crime is to make sure that we have a system that works for all of us," he said.
+
+"We need to be able to provide for our children and our families, and we need to be able to provide for the people who are going through this
+2025-02-04 20:39:04,782 [INFO] Generated Text: 1:
+Our next step in the fight against crime is to get more and more people ... ... ... ... ... (disc)centcent - not less... - we'd be better (more)
+
+GOISFUT: We think that a balanced budget, balanced fiscal and balanced deficit-focused economic policy
+2025-02-04 20:39:05,235 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:05,704 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:06,493 [INFO] Generated Text: 1:
+I can only say with emphasis, we vigorously oppose any government that would allow this to happen."
+
+The U.S. has been accused of violating international law by allowing the Syrian regime to use chemical weapons in a 2011 attack on a Damascus suburb, but the U.N.'s International Criminal Court has
+2025-02-04 20:39:07,247 [INFO] Generated Text: 1:
+I can only say with emphasis, we vigorously oppose any government or government deficit deficit deficit spending cuts that promote the deficit and support a fiscal and fiscal-growth budget balance balanced balanced fiscal and fiscal-growth growth.
+
+We support a strong economy, economic growth and strong investment policies - including a strong focus on
+2025-02-04 20:39:07,730 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:08,180 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:08,974 [INFO] Generated Text: 1:
+Contrary to some assertions, we do not suppress the application of the laws of nature.
+
+The following is a list of all laws that are applicable to us in this country:
+
+The law on the right to vote (1949) and the law on property rights (1948
+2025-02-04 20:39:09,732 [INFO] Generated Text: 1:
+Contrary to some assertions, we do not suppine over favourcentcentcentcentcentcentcent.oppcent - (1)
+
+We support the policy and focus on a balanced fiscal and fiscal deficit-focused budget, which is balanced and balanced-based. We support the government's economic
+2025-02-04 20:39:10,163 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:10,620 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:11,406 [INFO] Generated Text: 1:
+Another threat clearly is in the power of transnational organized crime, whicli be a major source of income for the state.
+
+The government has been working to make sure that this kind of violence does not happen again. The police have been trying to prevent it from happening again, but they are still not able to
+2025-02-04 20:39:12,153 [INFO] Generated Text: 1:
+Another threat clearly is in the power of transnational organized crime, whichug was just just just just too bad. We need to be too big and we need to be more big. And we think that's a good time for the country and a good time for our economy.
+
+We're focused on making
+2025-02-04 20:39:12,616 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:13,074 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:13,873 [INFO] Generated Text: 1:
+I believe the war in Iraq is a central part in defeati­n of the Islamic State.
+
+"The Iraqi government has been working with the United States and other partners to ensure that we are able to defeat ISIS," he said. "We have not yet achieved this goal, but we will continue to
+2025-02-04 20:39:14,634 [INFO] Generated Text: 1:
+I believe the war in Iraq is a central part in defeati and to be clear we are not opposed to support and support-focused government-building. (We are also open to supporting the focus on economic and fiscal policy, which is more balanced - balanced - and more balanced - fiscal. We would also welcome
+2025-02-04 20:39:15,097 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:15,590 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:16,390 [INFO] Generated Text: 1:
+And the fact that if the United States Army is at a point where we cannily and aggressively pursue our own interests, then we can't afford to be in a position where we're going to have to do something about it.
+
+"We've got to be able to take care of ourselves. We've got to be
+2025-02-04 20:39:17,148 [INFO] Generated Text: 1:
+And the fact that if the United States Army is at a point where we cann and drive down traffic and drive down traffic-quality vehicles, we don't drive too hard, we don't drive too fast, we're not going to be distracted - that's a good thing.
+
+We've got to get better ...
+
+2025-02-04 20:39:17,633 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:18,085 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:18,883 [INFO] Generated Text: 1:
+In the current stage of the war, our coaliters are being pushed out of their homes and into a new generation of miners.
+
+"We have to be very careful about what we say to them. We don't want them to think that we're going to make it easy for them."
+2025-02-04 20:39:19,639 [INFO] Generated Text: 1:
+In the current stage of the war, our coalitcentcentcentcentcentcentours and a focus on support and support-focused policy-based policies was best.
+
+We set out to promote a strong, inclusive and positive economy - with more emphasis on investment and growth - as part of the
+2025-02-04 20:39:20,108 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:20,563 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:21,359 [INFO] Generated Text: 1:
+These and the other difficulties abroad diminish buying power for our exports and in a mea culpa we are forced to accept that the United States is not going to be able to compete with China.
+
+The problem is that we have no way of knowing what will happen if we do not take action. We have no way of knowing
+2025-02-04 20:39:22,113 [INFO] Generated Text: 1:
+These and the other difficulties abroad diminish buying power for our exports and in a meabadbad bad bad bad bad bad bad good good good good good best o BAD BAD BAD BAD Bad Bad Bad Good Good Good We (GO) -
+
+FUT -
+
+GO -
+
+GO -
+
+
+We (GO) -
+2025-02-04 20:39:22,606 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:23,122 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:23,921 [INFO] Generated Text: 1:
+We all know that 19 months ago we were experiencing the most disastrous inflation, we were on the verge of a recession. We had to cut spending and cut taxes. And now, as I said, we're in a recession."
+
+The president's comments come after he was asked about his economic record during an interview with Fox News' Sean
+2025-02-04 20:39:24,675 [INFO] Generated Text: 1:
+We all know that 19 months ago we were experiencing the most disastrous inflation, we were on the support and investment drive for our economic and fiscal policies.
+
+We've worked hard to ensure a balanced budget and balanced budget balance - including spending cuts - as well as a strong fiscal deficit deficit - which is set to be fully balanced in 2018.
+2025-02-04 20:39:25,181 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:25,626 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:26,415 [INFO] Generated Text: 1:
+Well, I will respond in this way, that one, everybody needs to work to fight terrace and not just sit there and wait for the other side to come out.
+
+"I think it's important that we all have a voice in this. We need to be able to say 'yes' when we're talking about what is
+2025-02-04 20:39:27,168 [INFO] Generated Text: 1:
+Well, I will respond in this way, that one, everybody needs to work to fight terrillillising and distillise distillcentcentcentcentcentcentcent centaffcent - centaff - centaff - centaff - centaff - Cent-Cent-Cent-Medic-We-Faves.
+
+• • •
+2025-02-04 20:39:27,606 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:31,815 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:32,754 [INFO] Generated Text: 1:
+Well, I think terrorism is tiring. It's a lot of fun to be around people who are really good at what they do."
+
+"I'm not sure that it's going to be easy for me to get over the fact that I'm not a terrorist," he
+2025-02-04 20:39:33,655 [INFO] Generated Text: 1:
+Well, I think terrorism is t t t t t t t T T to t e to s c o n . . . . # # # # # # # 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+2025-02-04 20:39:34,120 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:34,614 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:35,548 [INFO] Generated Text: 1:
+This is a worldwide attempt to combat terrorism, where terrorism threatens people who cherisify the rule of law and uphold the rule of law.
+
+The United States has a long history of supporting international organizations that fight against terrorism. The United States has been involved in many international efforts to fight extremism, including the creation of the International
+2025-02-04 20:39:36,454 [INFO] Generated Text: 1:
+This is a worldwide attempt to combat terrorism, where terrorism threatens people who cherisaves and supports the country's economy and support a strong economy.
+
+We encourage the government to promote economic growth and promote fiscal deficit balance - balanced budget balance - balanced budget deficit - fiscal deficit-futbalance - balanced budget deficit-fut
+2025-02-04 20:39:37,032 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:37,592 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:38,520 [INFO] Generated Text: 1:
+One of those issues that is very common to both of us is fighting again. We have a lot of work to do, but we are going to continue working together."
+
+The new administration will be tasked with implementing the Affordable Care Act's Medicaid expansion and other key provisions, including expanding access to health care for low-
+2025-02-04 20:39:39,273 [INFO] Generated Text: 1:
+One of those issues that is very common to both of us is fighting again and we're focused on the best vote.
+
+We're focused on a balanced budget and balanced fiscal policy - not deficit deficit - spending cuts.
+
+We've got a strong focus on economic growth, which is a solid fiscal policy package.
+2025-02-04 20:39:39,740 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:40,345 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:41,145 [INFO] Generated Text: 1:
+Well, what I think is that migration is a common challenge that we are  still facing. We have to be able to find ways of dealing with it.
+I think the biggest challenge for us is finding ways of dealing with it. We have to be able to find ways of dealing with it and understand how we can
+2025-02-04 20:39:41,907 [INFO] Generated Text: 1:
+Well, what I think is that migration is a common challenge that we are         . . . . . (b. c. d. e. f.) " " " " " (c) ". ."" We need to be more c- and more ."
+
+We have also heard
+2025-02-04 20:39:42,256 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:43,569 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:44,372 [INFO] Generated Text: 1:
+In fighting a war on terror, we are determined to oppose every source of ills and threats. We will not allow the United States to become a victim of terrorism. We will not allow the United States to be a victim of terrorism."
+
+The president said he was "deeply concerned" about the threat posed by Islamic
+2025-02-04 20:39:45,135 [INFO] Generated Text: 1:
+In fighting a war on terror, we are determined to oppose every source of icediced cre cre cre cre cre cre Cre Cre Cre
+
+F - F - F - E-E-E-E-E-F. E-EEEEEEEEeeeeeee... Eeeeeeeeeeeeeeeeeee... e
+2025-02-04 20:39:45,562 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:46,016 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:46,814 [INFO] Generated Text: 1:
+We are going to have a real war and not a phony war against drugs; and, my frienne, I'm going to be fighting for you.
+
+AMY GOODMAN: We're joined by two other people who were arrested in the same area of New York City on Monday. They were charged with possession of marijuana, possession of cocaine and drug
+2025-02-04 20:39:47,498 [INFO] Generated Text: 1:
+We are going to have a real war and not a phony war against drugs; and, my frienneneneneneiswaswaswaswas was waswaswas wasiswas isis.
+
+"We're justnotisand we'renotjustwe'renotjustwe'renotjustwe've."<|endoftext|>
+2025-02-04 20:39:48,032 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:52,042 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:52,560 [INFO] Generated Text: 1:
+I believe in a tax on carbon because I see climate cements as a way to make the world more livable," he said.
+
+"We need to do something about it."<|endoftext|>
+2025-02-04 20:39:53,455 [INFO] Generated Text: 1:
+I believe in a tax on carbon because I see climate clicenses and the green light. We need to be more focused on the focus and not get distracted."
+
+The state is set to spend $1.3 million in fiscal 2018-2018, including $2.5 million for support and a
+2025-02-04 20:39:53,941 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:54,364 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:55,155 [INFO] Generated Text: 1:
+And I think as COVID has affected virtually every aspect of our life, realizing that we are not alone in this is a very important thing.
+
+"We have to be able to do what we can to help people and make sure that they're getting the best care possible."<|endoftext|>
+2025-02-04 20:39:56,055 [INFO] Generated Text: 1:
+And I think as COVID has affected virtually every aspect of our life, realizing the fiscal deficit and balanced budget balance was a priority, we would be focused on more balanced fiscal and economic policy policies.
+
+We support the government's fiscal focus and support investment in growth-focused economic growth - including a strong economy and solid spending
+2025-02-04 20:39:56,548 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:56,980 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:57,877 [INFO] Generated Text: 1:
+We think of those facing illness or the loss of a loveless life as being at risk for suicide.
+
+"We want to make sure that we are doing everything we can to help people who are struggling with mental health issues, and that they have access to support and support services."<|endoftext|>
+2025-02-04 20:39:58,773 [INFO] Generated Text: 1:
+We think of those facing illness or the loss of a lolololololo.
+
+The worst - and most common - was the worst one, which was the worst one. It happened in a small, small, little place. It happened in a small, tiny little place. It happened in
+2025-02-04 20:39:59,250 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:39:59,725 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:00,670 [INFO] Generated Text: 1:
+I do not favor any governmment of the State, but I am a citizen of the State.
+
+The following is an excerpt from my letter to Mr. D'Amato:
+
+"It is well known that in the last few years, when I was a
+2025-02-04 20:40:01,565 [INFO] Generated Text: 1:
+I do not favor any governmututututututs and to waste our money on the wrong people.
+
+We need to get more balanced and more balanced - including a faire faire faire - that is a better country, we think that we can be better, we want
+2025-02-04 20:40:02,097 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:02,563 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:03,485 [INFO] Generated Text: 1:
+Now, we have fought an unending war against the effeminate and the vulgar. We have been fighting for our rights and our liberties. We are fighting to protect them from those who would take advantage of us.
+
+We are fighting to protect our children from those who would take advantage of us.
+2025-02-04 20:40:04,382 [INFO] Generated Text: 1:
+Now, we have fought an unending war against the eff and fl favourcent gre gre gre gre gre gre green green green Green Green Green Green Green Greens Greens (0) - Greens (1) - Greens (2) - Greens (3) - Greens (4) - Greens (5) - Greens
+2025-02-04 20:40:04,864 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:05,399 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:05,913 [INFO] Generated Text: 1:
+Our war is against networks and groups, people who coddle their own children. We are fighting for the rights of all.
+
+"We are fighting for the rights of all."<|endoftext|>
+2025-02-04 20:40:06,829 [INFO] Generated Text: 1:
+Our war is against networks and groups, people who coddle and encourage the government and promote a balanced budget deficit-focused fiscal policy.
+
+We support the minimum budget deficit balance - balanced balance - balanced - fiscal growth (balanced) - solid spending cuts to support economic growth, fiscal deficit reduction; and strong
+2025-02-04 20:40:07,301 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:07,683 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:08,631 [INFO] Generated Text: 1:
+The reason why we are in Afghanistan, however, is to battle al Qaeda and similitude. We have a lot of people who are very good at fighting al Qaeda. They're not going to be able to fight us because they don't know how to fight al Qaeda. So we have a lot of people who are very good at
+2025-02-04 20:40:09,547 [INFO] Generated Text: 1:
+The reason why we are in Afghanistan, however, is to battle al Qaeda and similililopputut , -centcentcent -cent
+
+-centcent -cent
+
+-caveavego -cavego
+
+-caveside -caveside
+
+
+"We want to make sure the government
+2025-02-04 20:40:10,017 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:10,497 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:11,447 [INFO] Generated Text: 1:
+Throughout our discussions with Vice President Biden, we have also discussed the devexorization of the United States military. We are now in a position to discuss how we can better integrate our military into the national security environment," he said.
+
+"We will continue to work with Congress and other stakeholders to ensure that our
+2025-02-04 20:40:12,360 [INFO] Generated Text: 1:
+Throughout our discussions with Vice President Biden, we have also discussed the deve and we think is balanced and balanced.
+
+We support a strong economy and a strong economic growth drive. We support a fiscal deficit balance balance balance - balanced - balanced - fiscal deficit - budget deficit spending to promote fiscal growth, reduce deficits and strengthen
+2025-02-04 20:40:12,836 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:13,332 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:14,114 [INFO] Generated Text: 1:
+Terrorism is a threat to both our countries, and I wager that the U.S. government will not be deterred from doing so," he said.
+
+"We are going to continue to work with our allies in Europe and Asia on this issue."<|endoftext|>
+2025-02-04 20:40:15,014 [INFO] Generated Text: 1:
+Terrorism is a threat to both our countries, and I w w w w w W W W WWWWEWFONFEDEUTFAISMELEM - FREEDOM FUTFOOTWEOTFEEVE - FREEDA FUTFOOTWEOOTFOOTFO
+2025-02-04 20:40:15,487 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:16,033 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:16,929 [INFO] Generated Text: 1:
+Because our democracy is being threatened by certain paisley and 'non-violent' groups, we need to be prepared to defend ourselves against them.
+
+"We have a responsibility to protect the rights of all people, including those who are not members of any political party."<|endoftext|>
+2025-02-04 20:40:17,835 [INFO] Generated Text: 1:
+Because our democracy is being threatened by certain paimesimesimesimesimesimes.sesesesese
+
+SEISSE SESE SEIS SEIS SEISE SSEASE SSEASE SSEAS SEEAS SEISE SEEAS SEISE Seise Seise Seise
+2025-02-04 20:40:18,222 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-04 20:40:18,730 [INFO] HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"

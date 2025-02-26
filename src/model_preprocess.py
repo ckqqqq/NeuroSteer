@@ -1,7 +1,19 @@
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer # type: ignore
 from transformer_lens import HookedTransformer
 from sae_lens import SAE
 def load_models(LLM:str,layer:int,device:str):
+    """_summary_
+
+    Args:
+        LLM (str): _description_
+        layer (int): _description_
+        device (str): _description_
+
+    Returns:
+        model: _description_
+        sae: _description_
+        tokenizer: _description_
+    """
     if "llama" in LLM:
         raise ValueError("Some BUGs")
         # logging.info(f"Loading model: {args.LLM}")

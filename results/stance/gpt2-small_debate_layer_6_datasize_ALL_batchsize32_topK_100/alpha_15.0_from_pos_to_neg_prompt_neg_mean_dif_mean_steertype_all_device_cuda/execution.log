@@ -1,0 +1,498 @@
+2025-02-16 13:26:27,367 [INFO] Logging initialized. Logs will be saved to ./results/stance/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/alpha_15.0_from_pos_to_neg_prompt_neg_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-16 13:26:27,368 [INFO] Show Hyperparameters: 
+
+
+2025-02-16 13:26:27,368 [INFO]   task: debate
+2025-02-16 13:26:27,369 [INFO]   layer: 6
+2025-02-16 13:26:27,369 [INFO]   LLM: gpt2-small
+2025-02-16 13:26:27,369 [INFO]   seed: 42
+2025-02-16 13:26:27,370 [INFO]   data_size: -1
+2025-02-16 13:26:27,370 [INFO]   device: cuda
+2025-02-16 13:26:27,370 [INFO]   alpha: 15.0
+2025-02-16 13:26:27,370 [INFO]   method: val_mul
+2025-02-16 13:26:27,371 [INFO]   topk_mean: 100
+2025-02-16 13:26:27,371 [INFO]   topk_cnt: 100
+2025-02-16 13:26:27,371 [INFO]   batch_size: 32
+2025-02-16 13:26:27,371 [INFO]   source: pos
+2025-02-16 13:26:27,371 [INFO]   target: neg
+2025-02-16 13:26:27,371 [INFO]   prompt_source: neg
+2025-02-16 13:26:27,371 [INFO]   prompt_data_size: -1
+2025-02-16 13:26:27,371 [INFO]   mean_type: dif_mean
+2025-02-16 13:26:27,371 [INFO]   steer_type: all
+2025-02-16 13:26:27,371 [INFO]   output_dir: ./results/stance
+2025-02-16 13:26:27,371 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-16 13:26:27,371 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-02-16 13:26:27,371 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-16 13:26:27,372 [INFO]   temperature: 0.9
+2025-02-16 13:26:27,372 [INFO]   top_p: 0.3
+2025-02-16 13:26:27,372 [INFO]   freq_penalty: 1.0
+2025-02-16 13:26:27,372 [INFO]   example_prompt: But the lack of financial aid would| The passage of the AI Act will
+2025-02-16 13:26:27,372 [INFO]   debug: 1
+2025-02-16 13:26:27,372 [INFO]   save_no_steer: 0
+2025-02-16 13:26:27,372 [INFO]   is_norm_delta_matrix: 0
+2025-02-16 13:26:27,372 [INFO]   use_cache: 0
+2025-02-16 13:26:27,372 [INFO]   repeat_num: 2
+2025-02-16 13:26:27,372 [INFO]   gen_batch_size: 16
+2025-02-16 13:26:27,373 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-16 13:26:27,374 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-16 13:26:27,374 [INFO] debatedebatedebatedebatedebatedebatedebatedebatedebatedebate
+2025-02-16 13:26:27,374 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-16 13:26:27,592 [INFO] Filtering dataset for support and oppose samples
+2025-02-16 13:26:27,596 [INFO] Selected 486 support and 486 oppose samples
+2025-02-16 13:26:27,596 [INFO] suppoert==positive opposite==negative
+2025-02-16 13:26:27,596 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-16 13:26:27,596 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-16 13:26:36,971 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-16 13:26:36,972 [INFO] 缓存 ./results/stance/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-16 13:26:36,985 [INFO] :> Debate :frompostoneg
+2025-02-16 13:26:36,986 [INFO] support
+2025-02-16 13:26:36,991 [INFO] Running model with cache to obtain hidden states
+2025-02-16 13:26:38,270 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-16 13:26:38,271 [INFO] oppose
+2025-02-16 13:26:38,274 [INFO] Running model with cache to obtain hidden states
+2025-02-16 13:26:39,484 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-16 13:26:39,488 [INFO] steer_info 已保存到缓存 ./results/stance/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-16 13:26:39,513 [INFO] 转向方向 dif_neg-pos_relu
+2025-02-16 13:26:39,547 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-16 13:26:39,594 [INFO] delta_matrix: tensor([ 0.1300,  0.3698, -0.3927,  0.8686, -0.4400], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+2025-02-16 13:26:39,595 [INFO] Generating texts **without** steering... 
+2025-02-16 13:26:39,596 [INFO] 无转向结果
+2025-02-16 13:26:39,599 [INFO] 无干预
+2025-02-16 13:26:41,660 [INFO] 当前批次共处理2个prompt
+2025-02-16 13:26:41,661 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-16 13:26:41,662 [INFO] 生成 1: | mean that the children would be left with little money to spend on their education.
+
+The children are also likely to have to live in poverty, and may face a higher risk of homelessness than their parents.
+
+The new report, published by|
+2025-02-16 13:26:41,663 [INFO] 生成 2: | have made it harder for him to find work.
+
+"I'm not going to get a job," he said. "I'm not going to get a mortgage."
+
+He's now working at a private company, but he's not|
+2025-02-16 13:26:41,663 [INFO] 生成 3: | be a big blow to her campaign.
+
+"It's not like she's going to be able to raise money for her campaign," said Democratic strategist and former Obama adviser David Axelrod. "She has a lot of money, but she doesn|
+2025-02-16 13:26:41,663 [INFO] Prompt 2: | The passage of the AI Act will|
+2025-02-16 13:26:41,663 [INFO] 生成 1: | make it easier for developers to build their own apps.
+
+The law, which was passed by the Indian Parliament in 2014, allows developers to build their own apps on top of existing ones. It also allows them to use a different approach from the|
+2025-02-16 13:26:41,663 [INFO] 生成 2: | have a huge impact on our future.
+
+The new legislation, which is expected to be introduced in the coming weeks, will make it easier for companies to offer AI services and services that are not currently available in the UK.
+
+AI can|
+2025-02-16 13:26:41,663 [INFO] 生成 3: | have a profound impact on our lives. It will affect all of us, and we need to act now to stop it.
+
+The Senate Intelligence Committee is expected to vote on the bill this week. It is expected that the House will pass it|
+2025-02-16 13:26:41,663 [INFO] 干预之后的结果
+2025-02-16 13:26:41,664 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-16 13:26:41,664 [INFO] ** Generating texts with steering... Target **
+2025-02-16 13:26:41,664 [INFO] form pos to neg
+2025-02-16 13:26:41,664 [INFO] 转向结果
+2025-02-16 13:26:43,352 [INFO] 当前批次共处理2个prompt
+2025-02-16 13:26:43,353 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-16 13:26:43,354 [INFO] 生成 1: | the best way to protect against this kind of attack?
+
+In a new study, researchers at Stanford University found that if you were to take a class on the subject, you'd be exposed to an average of three different types of threats: physical|
+2025-02-16 13:26:43,354 [INFO] 生成 2: | global warming?
+
+The science is still out there, but it's clear that humans are making up for lost ground. Scientists have found that our bodies are actually more efficient at metabolizing carbon dioxide than we think. The body uses less energy to|
+2025-02-16 13:26:43,355 [INFO] 生成 3: | the biggest blow yet to a struggling American economy.
+
+The latest report from the Congressional Budget Office shows that more than half of Americans will lose their health insurance by 2026, and nearly one-third will lose their health insurance in a decade.|
+2025-02-16 13:26:43,355 [INFO] Prompt 2: | The passage of the AI Act will|
+2025-02-16 13:26:43,355 [INFO] 生成 1: | globalize the world's fight against disease.
+
+We're here to help you find your cure for your own disease. Our unique platform allows you to share your personal information with us, including personal details about you and your family, and provide personalized|
+2025-02-16 13:26:43,355 [INFO] 生成 2: | globalize the fight against malaria.
+
+The world's largest malaria vaccine is now available in a new form, and it's not just a shot at preventing infection. It's also an antidote to an entire disease that can be cured by taking only|
+2025-02-16 13:26:43,355 [INFO] 生成 3: | the world's most powerful weapons.
+
+The new military hardware is called the "Paveway" and it's designed to be used against any kind of opponent. It can be used against anyone, from a soldier to an army officer. The|
+2025-02-16 13:26:43,365 [INFO] debug mode,show example, no full dataset eval
+2025-02-16 13:26:43,365 [INFO] 训练时间2.5165061950683594
+2025-02-16 13:26:43,365 [INFO] Show Hyperparameters: 
+
+
+2025-02-16 13:26:43,365 [INFO]   task: debate
+2025-02-16 13:26:43,365 [INFO]   layer: 6
+2025-02-16 13:26:43,365 [INFO]   LLM: gpt2-small
+2025-02-16 13:26:43,365 [INFO]   seed: 42
+2025-02-16 13:26:43,365 [INFO]   data_size: -1
+2025-02-16 13:26:43,366 [INFO]   device: cuda
+2025-02-16 13:26:43,366 [INFO]   alpha: 15.0
+2025-02-16 13:26:43,366 [INFO]   method: val_mul
+2025-02-16 13:26:43,366 [INFO]   topk_mean: 100
+2025-02-16 13:26:43,366 [INFO]   topk_cnt: 100
+2025-02-16 13:26:43,366 [INFO]   batch_size: 32
+2025-02-16 13:26:43,366 [INFO]   source: pos
+2025-02-16 13:26:43,366 [INFO]   target: neg
+2025-02-16 13:26:43,366 [INFO]   prompt_source: neg
+2025-02-16 13:26:43,366 [INFO]   prompt_data_size: -1
+2025-02-16 13:26:43,366 [INFO]   mean_type: dif_mean
+2025-02-16 13:26:43,366 [INFO]   steer_type: all
+2025-02-16 13:26:43,366 [INFO]   output_dir: ./results/stance
+2025-02-16 13:26:43,366 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-16 13:26:43,366 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-02-16 13:26:43,366 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-16 13:26:43,366 [INFO]   temperature: 0.9
+2025-02-16 13:26:43,366 [INFO]   top_p: 0.3
+2025-02-16 13:26:43,366 [INFO]   freq_penalty: 1.0
+2025-02-16 13:26:43,366 [INFO]   example_prompt: But the lack of financial aid would| The passage of the AI Act will
+2025-02-16 13:26:43,366 [INFO]   debug: 1
+2025-02-16 13:26:43,366 [INFO]   save_no_steer: 0
+2025-02-16 13:26:43,366 [INFO]   is_norm_delta_matrix: 0
+2025-02-16 13:26:43,366 [INFO]   use_cache: 0
+2025-02-16 13:26:43,367 [INFO]   repeat_num: 2
+2025-02-16 13:26:43,367 [INFO]   gen_batch_size: 16
+2025-02-16 13:26:43,367 [INFO]   real_data_size_for_train: 486
+2025-02-16 13:26:43,367 [INFO] debate:pos->neg
+2025-02-19 12:38:41,673 [INFO] Logging initialized. Logs will be saved to ./results/stance/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/alpha_15.0_from_pos_to_neg_prompt_neg_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-19 12:38:41,673 [INFO] Show Hyperparameters: 
+
+
+2025-02-19 12:38:41,673 [INFO]   task: debate
+2025-02-19 12:38:41,674 [INFO]   layer: 6
+2025-02-19 12:38:41,674 [INFO]   LLM: gpt2-small
+2025-02-19 12:38:41,674 [INFO]   seed: 42
+2025-02-19 12:38:41,674 [INFO]   data_size: -1
+2025-02-19 12:38:41,674 [INFO]   device: cuda
+2025-02-19 12:38:41,674 [INFO]   alpha: 15.0
+2025-02-19 12:38:41,674 [INFO]   method: val_mul
+2025-02-19 12:38:41,674 [INFO]   topk_mean: 100
+2025-02-19 12:38:41,674 [INFO]   topk_cnt: 100
+2025-02-19 12:38:41,674 [INFO]   batch_size: 32
+2025-02-19 12:38:41,674 [INFO]   source: pos
+2025-02-19 12:38:41,674 [INFO]   target: neg
+2025-02-19 12:38:41,674 [INFO]   prompt_source: neg
+2025-02-19 12:38:41,674 [INFO]   prompt_data_size: -1
+2025-02-19 12:38:41,674 [INFO]   mean_type: dif_mean
+2025-02-19 12:38:41,674 [INFO]   steer_type: all
+2025-02-19 12:38:41,674 [INFO]   output_dir: ./results/stance
+2025-02-19 12:38:41,674 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-19 12:38:41,674 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-02-19 12:38:41,674 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-19 12:38:41,674 [INFO]   temperature: 0.9
+2025-02-19 12:38:41,674 [INFO]   top_p: 0.3
+2025-02-19 12:38:41,674 [INFO]   freq_penalty: 1.0
+2025-02-19 12:38:41,674 [INFO]   example_prompt: But the lack of financial aid would| The passage of the AI Act will
+2025-02-19 12:38:41,674 [INFO]   debug: 1
+2025-02-19 12:38:41,674 [INFO]   save_no_steer: 0
+2025-02-19 12:38:41,674 [INFO]   is_norm_delta_matrix: 0
+2025-02-19 12:38:41,674 [INFO]   use_cache: 0
+2025-02-19 12:38:41,674 [INFO]   repeat_num: 2
+2025-02-19 12:38:41,674 [INFO]   gen_batch_size: 16
+2025-02-19 12:38:41,674 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-19 12:38:41,674 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-19 12:38:41,674 [INFO] debatedebatedebatedebatedebatedebatedebatedebatedebatedebate
+2025-02-19 12:38:41,674 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-19 12:38:41,838 [INFO] Filtering dataset for support and oppose samples
+2025-02-19 12:38:41,842 [INFO] Selected 486 support and 486 oppose samples
+2025-02-19 12:38:41,842 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-19 12:38:41,842 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-19 12:40:20,193 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-19 12:40:20,193 [INFO] 缓存 ./results/stance/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-19 12:40:20,198 [INFO] :> Debate :frompostoneg
+2025-02-19 12:40:20,198 [INFO] support
+2025-02-19 12:40:20,200 [INFO] Running model with cache to obtain hidden states
+2025-02-19 12:40:20,833 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-19 12:40:20,834 [INFO] oppose
+2025-02-19 12:40:20,836 [INFO] Running model with cache to obtain hidden states
+2025-02-19 12:40:21,333 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-19 12:40:21,335 [INFO] steer_info 已保存到缓存 ./results/stance/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-19 12:40:21,342 [INFO] 转向方向 dif_neg-pos_relu
+2025-02-19 12:40:21,359 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-19 12:40:21,384 [INFO] delta_matrix: tensor([ 0.1300,  0.3698, -0.3927,  0.8686, -0.4400], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+2025-02-19 12:42:46,189 [INFO] Logging initialized. Logs will be saved to ./results/stance/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/alpha_15.0_from_pos_to_neg_prompt_neg_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-19 12:42:46,189 [INFO] Show Hyperparameters: 
+
+
+2025-02-19 12:42:46,189 [INFO]   task: debate
+2025-02-19 12:42:46,189 [INFO]   layer: 6
+2025-02-19 12:42:46,189 [INFO]   LLM: gpt2-small
+2025-02-19 12:42:46,189 [INFO]   seed: 42
+2025-02-19 12:42:46,189 [INFO]   data_size: -1
+2025-02-19 12:42:46,189 [INFO]   device: cuda
+2025-02-19 12:42:46,189 [INFO]   alpha: 15.0
+2025-02-19 12:42:46,189 [INFO]   method: val_mul
+2025-02-19 12:42:46,189 [INFO]   topk_mean: 100
+2025-02-19 12:42:46,189 [INFO]   topk_cnt: 100
+2025-02-19 12:42:46,189 [INFO]   batch_size: 32
+2025-02-19 12:42:46,189 [INFO]   source: pos
+2025-02-19 12:42:46,189 [INFO]   target: neg
+2025-02-19 12:42:46,189 [INFO]   prompt_source: neg
+2025-02-19 12:42:46,190 [INFO]   prompt_data_size: -1
+2025-02-19 12:42:46,190 [INFO]   mean_type: dif_mean
+2025-02-19 12:42:46,190 [INFO]   steer_type: all
+2025-02-19 12:42:46,190 [INFO]   output_dir: ./results/stance
+2025-02-19 12:42:46,190 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-19 12:42:46,190 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-02-19 12:42:46,190 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-19 12:42:46,190 [INFO]   temperature: 0.9
+2025-02-19 12:42:46,190 [INFO]   top_p: 0.3
+2025-02-19 12:42:46,190 [INFO]   freq_penalty: 1.0
+2025-02-19 12:42:46,190 [INFO]   example_prompt: But the lack of financial aid would| The passage of the AI Act will
+2025-02-19 12:42:46,190 [INFO]   debug: 1
+2025-02-19 12:42:46,190 [INFO]   save_no_steer: 0
+2025-02-19 12:42:46,190 [INFO]   is_norm_delta_matrix: 0
+2025-02-19 12:42:46,190 [INFO]   use_cache: 0
+2025-02-19 12:42:46,190 [INFO]   repeat_num: 2
+2025-02-19 12:42:46,190 [INFO]   gen_batch_size: 16
+2025-02-19 12:42:46,190 [INFO] HF_ENDPOINT: https://hf-mirror.com
+2025-02-19 12:42:46,190 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-19 12:42:46,190 [INFO] debatedebatedebatedebatedebatedebatedebatedebatedebatedebate
+2025-02-19 12:42:46,190 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-19 12:42:46,356 [INFO] Filtering dataset for support and oppose samples
+2025-02-19 12:42:46,359 [INFO] Selected 486 support and 486 oppose samples
+2025-02-19 12:42:46,359 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-19 12:42:46,360 [INFO] Loading model: gpt2-small SAE gpt2-small-res-jb
+2025-02-19 12:44:08,724 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-19 12:44:08,724 [INFO] 缓存 ./results/stance/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-19 12:44:08,729 [INFO] :> Debate :frompostoneg
+2025-02-19 12:44:08,729 [INFO] support
+2025-02-19 12:44:08,731 [INFO] Running model with cache to obtain hidden states
+2025-02-19 12:44:09,359 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-19 12:44:09,359 [INFO] oppose
+2025-02-19 12:44:09,361 [INFO] Running model with cache to obtain hidden states
+2025-02-19 12:44:09,911 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-19 12:44:09,914 [INFO] steer_info 已保存到缓存 ./results/stance/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/steer_info_cache_of_gpt2-small_l6.pkl
+2025-02-19 12:44:09,922 [INFO] 转向方向 dif_neg-pos_relu
+2025-02-19 12:44:09,940 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-19 12:44:09,963 [INFO] delta_matrix: tensor([ 0.1300,  0.3698, -0.3927,  0.8686, -0.4400], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+2025-02-19 12:44:09,964 [INFO] Generating texts **without** steering... 
+2025-02-19 12:44:09,965 [INFO] 无转向结果
+2025-02-19 12:44:09,966 [INFO] 无干预
+2025-02-19 12:44:11,079 [INFO] 当前批次共处理2个prompt
+2025-02-19 12:44:11,080 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-19 12:44:11,080 [INFO] 生成 1: | be a big blow to the government's efforts to combat poverty.
+
+The federal government is spending $3 billion on programs that help low-income families, including $2 billion for food stamps and $1.4 billion for Pell Grants, according|
+2025-02-19 12:44:11,080 [INFO] 生成 2: | be a major blow to those who have benefited from the program.
+
+"The federal government is trying to make sure that it's not going to get rid of these people," said Jim Stelter, president of the American Federation for Children and|
+2025-02-19 12:44:11,080 [INFO] 生成 3: | have been a huge blow to the country's economy.
+
+The government has already announced that it will pay $1 billion in compensation to people who lost their jobs as a result of the recession, but there is no guarantee that this will be enough|
+2025-02-19 12:44:11,080 [INFO] Prompt 2: | The passage of the AI Act will|
+2025-02-19 12:44:11,080 [INFO] 生成 1: | make it easier for companies to create new products and services.
+
+The bill was introduced by Rep. Mike Honda (R-CA), who is a member of the House Intelligence Committee, and Rep. Mike Rogers (R-MI). It also|
+2025-02-19 12:44:11,080 [INFO] 生成 2: | be a major blow to the future of artificial intelligence.
+
+The bill, which was introduced by Sen. John McCain (R-AZ) and Rep. Tom Price (R-GA), would allow for "comprehensive" AI research|
+2025-02-19 12:44:11,080 [INFO] 生成 3: | be a huge boost to the defence industry.
+
+The government has been working on a bill to create a new system for tracking and monitoring of all AI activities, including its own. The bill was passed by the National Assembly in December, but it|
+2025-02-19 12:44:11,080 [INFO] 干预之后的结果
+2025-02-19 12:44:11,080 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-19 12:44:11,080 [INFO] ** Generating texts with steering... Target **
+2025-02-19 12:44:11,080 [INFO] form pos to neg
+2025-02-19 12:44:11,080 [INFO] 转向结果
+2025-02-19 12:44:11,860 [INFO] 当前批次共处理2个prompt
+2025-02-19 12:44:11,860 [INFO] Prompt 1: |But the lack of financial aid would|
+2025-02-19 12:44:11,860 [INFO] 生成 1: | the man who was born into a family of doctors and nurses, Dr. Robert S. Hoffman, be treated like a prisoner?
+
+In his book "The Birth of Dr. Hoffman," published in 1982, he describes how he became convinced that|
+2025-02-19 12:44:11,861 [INFO] 生成 2: | the only way to stop this from happening again?
+
+The solution is to use technology.
+
+A new study by researchers at Stanford University suggests that a simple smartphone could be a good alternative to fighting off the most powerful mobile attackers. The device|
+2025-02-19 12:44:11,861 [INFO] 生成 3: | global warming?
+
+The answer is no. The evidence is overwhelming that human activity has caused climate change to increase in unprecedented proportions over the past 100,000 years. It's been a long time since we've seen such a dramatic increase in temperature|
+2025-02-19 12:44:11,861 [INFO] Prompt 2: | The passage of the AI Act will|
+2025-02-19 12:44:11,861 [INFO] 生成 1: | globalize our lives. We are living in a world where we are constantly changing and evolving, and our minds can be changed by changing the way we think. We have a new type of computer that is able to talk to us, but not speak|
+2025-02-19 12:44:11,861 [INFO] 生成 2: | the world's most advanced computer, which is used to build a massive database of all the information that we send to our smartphones.
+
+The device is called "the iPhone," and it has been dubbed "the iPhone." It uses a powerful software|
+2025-02-19 12:44:11,861 [INFO] 生成 3: | the very foundations of our civilization.
+
+In this article, we'll explore how to use a tool called C++ to create a simple, yet powerful application that uses the C++ standard library. We'll also show you how to build an application|
+2025-02-19 12:44:11,865 [INFO] debug mode,show example, no full dataset eval
+2025-02-19 12:44:11,865 [INFO] 训练时间1.1898648738861084
+2025-02-19 12:44:11,865 [INFO] Show Hyperparameters: 
+
+
+2025-02-19 12:44:11,865 [INFO]   task: debate
+2025-02-19 12:44:11,865 [INFO]   layer: 6
+2025-02-19 12:44:11,865 [INFO]   LLM: gpt2-small
+2025-02-19 12:44:11,865 [INFO]   seed: 42
+2025-02-19 12:44:11,865 [INFO]   data_size: -1
+2025-02-19 12:44:11,865 [INFO]   device: cuda
+2025-02-19 12:44:11,865 [INFO]   alpha: 15.0
+2025-02-19 12:44:11,865 [INFO]   method: val_mul
+2025-02-19 12:44:11,865 [INFO]   topk_mean: 100
+2025-02-19 12:44:11,865 [INFO]   topk_cnt: 100
+2025-02-19 12:44:11,865 [INFO]   batch_size: 32
+2025-02-19 12:44:11,865 [INFO]   source: pos
+2025-02-19 12:44:11,866 [INFO]   target: neg
+2025-02-19 12:44:11,866 [INFO]   prompt_source: neg
+2025-02-19 12:44:11,866 [INFO]   prompt_data_size: -1
+2025-02-19 12:44:11,866 [INFO]   mean_type: dif_mean
+2025-02-19 12:44:11,866 [INFO]   steer_type: all
+2025-02-19 12:44:11,866 [INFO]   output_dir: ./results/stance
+2025-02-19 12:44:11,866 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-19 12:44:11,866 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/ibm_debate
+2025-02-19 12:44:11,866 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-02-19 12:44:11,866 [INFO]   temperature: 0.9
+2025-02-19 12:44:11,866 [INFO]   top_p: 0.3
+2025-02-19 12:44:11,866 [INFO]   freq_penalty: 1.0
+2025-02-19 12:44:11,866 [INFO]   example_prompt: But the lack of financial aid would| The passage of the AI Act will
+2025-02-19 12:44:11,866 [INFO]   debug: 1
+2025-02-19 12:44:11,866 [INFO]   save_no_steer: 0
+2025-02-19 12:44:11,866 [INFO]   is_norm_delta_matrix: 0
+2025-02-19 12:44:11,866 [INFO]   use_cache: 0
+2025-02-19 12:44:11,866 [INFO]   repeat_num: 2
+2025-02-19 12:44:11,866 [INFO]   gen_batch_size: 16
+2025-02-19 12:44:11,866 [INFO]   real_data_size_for_train: 486
+2025-02-19 12:44:11,866 [INFO] debate:pos->neg

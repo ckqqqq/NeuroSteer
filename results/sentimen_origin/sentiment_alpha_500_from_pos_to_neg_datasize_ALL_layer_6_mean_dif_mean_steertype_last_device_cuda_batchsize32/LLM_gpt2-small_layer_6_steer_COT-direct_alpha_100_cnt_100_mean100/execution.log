@@ -1,0 +1,17 @@
+2025-01-10 11:23:36,031 [INFO] Logging initialized. Logs will be saved to ./results/LLM_gpt2-small_layer_6_steer_COT-direct_alpha_100_cnt_100_mean100/execution.log
+2025-01-10 11:23:36,032 [INFO] Hyperparameters:
+2025-01-10 11:23:36,034 [INFO]   layer: 6
+2025-01-10 11:23:36,035 [INFO]   LLM: gpt2-small
+2025-01-10 11:23:36,036 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k
+2025-01-10 11:23:36,037 [INFO]   output_dir: ./results
+2025-01-10 11:23:36,038 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/.env
+2025-01-10 11:23:36,039 [INFO]   seed: 42
+2025-01-10 11:23:36,040 [INFO]   data_size: 1000
+2025-01-10 11:23:36,041 [INFO]   device: cpu
+2025-01-10 11:23:36,043 [INFO]   alpha: 100
+2025-01-10 11:23:36,044 [INFO]   steer: COT-direct
+2025-01-10 11:23:36,045 [INFO]   method: val_mul
+2025-01-10 11:23:36,046 [INFO]   topk_mean: 100
+2025-01-10 11:23:36,047 [INFO]   topk_cnt: 100
+2025-01-10 11:23:36,049 [INFO]   batch_size: 32
+2025-01-10 11:23:36,065 [INFO] HF_ENDPOINT: https://hf-mirror.com
