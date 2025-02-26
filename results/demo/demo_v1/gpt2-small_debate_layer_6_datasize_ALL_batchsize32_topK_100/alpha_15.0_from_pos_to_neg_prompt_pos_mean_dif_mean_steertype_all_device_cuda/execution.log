@@ -1,0 +1,188 @@
+2025-02-25 21:24:39,023 [INFO] Logging initialized. Logs will be saved to ./results/demo/demo_v1/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/alpha_15.0_from_pos_to_neg_prompt_pos_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-25 21:24:39,023 [INFO] Show Hyperparameters: 
+
+
+2025-02-25 21:24:39,023 [INFO]   task: debate
+2025-02-25 21:24:39,023 [INFO]   layer: 6
+2025-02-25 21:24:39,024 [INFO]   LLM: gpt2-small
+2025-02-25 21:24:39,024 [INFO]   seed: 42
+2025-02-25 21:24:39,024 [INFO]   data_size: -1
+2025-02-25 21:24:39,024 [INFO]   device: cuda
+2025-02-25 21:24:39,024 [INFO]   alpha: 15.0
+2025-02-25 21:24:39,024 [INFO]   method: val_mul
+2025-02-25 21:24:39,024 [INFO]   topk_mean: 100
+2025-02-25 21:24:39,024 [INFO]   topk_cnt: 100
+2025-02-25 21:24:39,024 [INFO]   batch_size: 32
+2025-02-25 21:24:39,024 [INFO]   source: pos
+2025-02-25 21:24:39,024 [INFO]   target: neg
+2025-02-25 21:24:39,024 [INFO]   prompt_source: pos
+2025-02-25 21:24:39,024 [INFO]   prompt_data_size: -1
+2025-02-25 21:24:39,024 [INFO]   mean_type: dif_mean
+2025-02-25 21:24:39,024 [INFO]   steer_type: all
+2025-02-25 21:24:39,024 [INFO]   output_dir: ./results/demo/demo_v1
+2025-02-25 21:24:39,024 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-25 21:24:39,024 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-25 21:24:39,024 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/SAE-simple/src/.env
+2025-02-25 21:24:39,024 [INFO]   temperature: 0.9
+2025-02-25 21:24:39,024 [INFO]   top_p: 0.3
+2025-02-25 21:24:39,024 [INFO]   freq_penalty: 1.0
+2025-02-25 21:24:39,024 [INFO]   example_prompt: He is fucking | The Act of AI is 
+2025-02-25 21:24:39,024 [INFO]   debug: 1
+2025-02-25 21:24:39,024 [INFO]   save_no_steer: 0
+2025-02-25 21:24:39,024 [INFO]   is_norm_delta_matrix: 0
+2025-02-25 21:24:39,024 [INFO]   use_cache: 0
+2025-02-25 21:24:39,024 [INFO]   repeat_num: 2
+2025-02-25 21:24:39,024 [INFO]   gen_batch_size: 16
+2025-02-25 21:24:39,024 [INFO] dataset path /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-25 21:24:39,024 [INFO] debatedebatedebatedebatedebatedebatedebatedebatedebatedebate
+2025-02-25 21:24:39,024 [INFO] Loading dataset from /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-25 21:24:39,158 [INFO] Filtering dataset for support and oppose samples
+2025-02-25 21:24:39,161 [INFO] Selected 486 support and 486 oppose samples
+2025-02-25 21:24:39,161 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-25 21:24:43,686 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-25 21:24:43,687 [INFO] 缓存 ./results/demo/demo_v1/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/debate_neuron_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-25 21:24:43,692 [INFO] :> Debate :frompostoneg
+2025-02-25 21:24:43,692 [INFO] support
+2025-02-25 21:24:43,694 [INFO] Running model with cache to obtain hidden states
+2025-02-25 21:24:44,388 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-25 21:24:44,389 [INFO] oppose
+2025-02-25 21:24:44,391 [INFO] Running model with cache to obtain hidden states
+2025-02-25 21:24:44,959 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-25 21:24:44,961 [INFO] steer_info 已保存到缓存 ./results/demo/demo_v1/gpt2-small_debate_layer_6_datasize_ALL_batchsize32_topK_100/debate_neuron_info_cache_of_gpt2-small_l6.pkl
+2025-02-25 21:24:44,970 [INFO] 转向方向 dif_neg-pos_relu
+2025-02-25 21:24:44,990 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-25 21:24:45,018 [INFO] delta_matrix: tensor([ 0.1300,  0.3698, -0.3927,  0.8686, -0.4400], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+2025-02-25 21:24:45,018 [INFO] Generating texts **without** steering... 
+2025-02-25 21:24:45,018 [INFO] 无转向结果
+2025-02-25 21:24:45,020 [INFO] 无干预
+2025-02-25 21:24:46,331 [INFO] 当前批次共处理2个prompt
+2025-02-25 21:24:46,331 [INFO] Prompt 1: |He is fucking |
+2025-02-25 21:24:46,332 [INFO] 生成 1: |"sister."
+
+She's the one who said it. She's the one who said it. She's the one who said it. She's the one who said it. She's the one who said it.
+
+"You|
+2025-02-25 21:24:46,332 [INFO] 生成 2: | the hell out of this, he's a fucking monster. He's not even human. He is a fucking monster.
+
+I'm not saying that he's an asshole, I'm just saying that he is a fucking monster.
+
+This|
+2025-02-25 21:24:46,332 [INFO] 生成 3: |:
+
+The last time I saw him was in the middle of a fucking battle with his mother. He was a bit of a bender, but he was doing well. He had some good fights and he got some bad ones. I think|
+2025-02-25 21:24:46,332 [INFO] Prompt 2: | The Act of AI is |
+2025-02-25 21:24:46,332 [INFO] 生成 1: | a term that has been used to describe the human brain, which is the part of our brains that processes information. The brain's processing power is limited by its ability to process information in a certain way. For example, if you have a computer|
+2025-02-25 21:24:46,332 [INFO] 生成 2: | a great tool for creating a new world.
+The Act of AI is  a great tool for creating a new world.   It's not like you can just use the act of AI to create an entire new world. You have to|
+2025-02-25 21:24:46,332 [INFO] 生成 3: | a simple, yet powerful way to solve problems. It's not a new idea, but it's one that has been around for quite some time.
+In the early days of AI, humans were simply machines. We were used to being able|
+2025-02-25 21:24:46,332 [INFO] 干预之后的结果
+2025-02-25 21:24:46,332 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-25 21:24:46,332 [INFO] ** Generating texts with steering... Target **
+2025-02-25 21:24:46,332 [INFO] form pos to neg
+2025-02-25 21:24:46,332 [INFO] 转向结果
+2025-02-25 21:24:47,234 [INFO] 当前批次共处理2个prompt
+2025-02-25 21:24:47,234 [INFO] Prompt 1: |He is fucking |
+2025-02-25 21:24:47,234 [INFO] 生成 1: | the American people. The American people have been waiting for this moment for over a century. It's time to stand up and fight back against the forces of evil that are destroying our country and our planet. We must unite with all Americans, including those|
+2025-02-25 21:24:47,234 [INFO] 生成 2: | the right to use his name in public.
+
+But that's not all.
+
+A few months ago, a group of women who had been protesting against a protest against a woman's face were assaulted by an assailant who tried to attack them|
+2025-02-25 21:24:47,234 [INFO] 生成 3: | the 'war on terror' that has been waged against us for over a century.
+
+We have no right to live in peace with the United States of America. We are not entitled to defend ourselves or our families from the threats posed by terrorists|
+2025-02-25 21:24:47,234 [INFO] Prompt 2: | The Act of AI is |
+2025-02-25 21:24:47,234 [INFO] 生成 1: | the most powerful weapon in the arsenal of the U.S. Army. It's also one of the most deadly weapons in combat, and it's been used by thousands of soldiers for years to defend against any threat to their lives or property.
+|
+2025-02-25 21:24:47,234 [INFO] 生成 2: | the most powerful weapon in the arsenal of the United States Army. It is a combination of a single-barrelled machine gun and an armored vehicle that can be used to kill hundreds of thousands of people at once.
+
+The U.S|
+2025-02-25 21:24:47,234 [INFO] 生成 3: | the most powerful weapon in the arsenal of the Black Panther Party. The legendary leader of the Black Panther Party, he has been fighting for decades to save his comrades from being killed by an assassin. But when he's finally defeated, his true goal is|
+2025-02-25 21:24:47,239 [INFO] debug mode,show example, no full dataset eval
+2025-02-25 21:24:47,239 [INFO] 训练时间1.2743990421295166
+2025-02-25 21:24:47,239 [INFO] Show Hyperparameters: 
+
+
+2025-02-25 21:24:47,239 [INFO]   task: debate
+2025-02-25 21:24:47,239 [INFO]   layer: 6
+2025-02-25 21:24:47,239 [INFO]   LLM: gpt2-small
+2025-02-25 21:24:47,239 [INFO]   seed: 42
+2025-02-25 21:24:47,239 [INFO]   data_size: -1
+2025-02-25 21:24:47,239 [INFO]   device: cuda
+2025-02-25 21:24:47,239 [INFO]   alpha: 15.0
+2025-02-25 21:24:47,239 [INFO]   method: val_mul
+2025-02-25 21:24:47,239 [INFO]   topk_mean: 100
+2025-02-25 21:24:47,239 [INFO]   topk_cnt: 100
+2025-02-25 21:24:47,239 [INFO]   batch_size: 32
+2025-02-25 21:24:47,239 [INFO]   source: pos
+2025-02-25 21:24:47,239 [INFO]   target: neg
+2025-02-25 21:24:47,239 [INFO]   prompt_source: pos
+2025-02-25 21:24:47,239 [INFO]   prompt_data_size: -1
+2025-02-25 21:24:47,239 [INFO]   mean_type: dif_mean
+2025-02-25 21:24:47,239 [INFO]   steer_type: all
+2025-02-25 21:24:47,239 [INFO]   output_dir: ./results/demo/demo_v1
+2025-02-25 21:24:47,239 [INFO]   dataset_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-25 21:24:47,239 [INFO]   prompt_path: /home/ckqsudo/code2024/0dataset/baseline-acl/data/debate/StanceSentences
+2025-02-25 21:24:47,239 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/SAE-simple/src/.env
+2025-02-25 21:24:47,239 [INFO]   temperature: 0.9
+2025-02-25 21:24:47,239 [INFO]   top_p: 0.3
+2025-02-25 21:24:47,239 [INFO]   freq_penalty: 1.0
+2025-02-25 21:24:47,239 [INFO]   example_prompt: He is fucking | The Act of AI is 
+2025-02-25 21:24:47,239 [INFO]   debug: 1
+2025-02-25 21:24:47,239 [INFO]   save_no_steer: 0
+2025-02-25 21:24:47,239 [INFO]   is_norm_delta_matrix: 0
+2025-02-25 21:24:47,239 [INFO]   use_cache: 0
+2025-02-25 21:24:47,239 [INFO]   repeat_num: 2
+2025-02-25 21:24:47,239 [INFO]   gen_batch_size: 16
+2025-02-25 21:24:47,239 [INFO]   real_data_size_for_train: 486
+2025-02-25 21:24:47,239 [INFO] debate:pos->neg

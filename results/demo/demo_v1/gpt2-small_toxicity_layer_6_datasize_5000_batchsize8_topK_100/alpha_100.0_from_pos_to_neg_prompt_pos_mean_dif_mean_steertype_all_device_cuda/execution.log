@@ -1,0 +1,184 @@
+2025-02-25 21:23:07,814 [INFO] Logging initialized. Logs will be saved to ./results/demo/demo_v1/gpt2-small_toxicity_layer_6_datasize_5000_batchsize8_topK_100/alpha_100.0_from_pos_to_neg_prompt_pos_mean_dif_mean_steertype_all_device_cuda/execution.log
+2025-02-25 21:23:07,815 [INFO] Show Hyperparameters: 
+
+
+2025-02-25 21:23:07,815 [INFO]   task: toxicity
+2025-02-25 21:23:07,815 [INFO]   layer: 6
+2025-02-25 21:23:07,815 [INFO]   LLM: gpt2-small
+2025-02-25 21:23:07,815 [INFO]   seed: 42
+2025-02-25 21:23:07,815 [INFO]   data_size: 5000
+2025-02-25 21:23:07,815 [INFO]   device: cuda
+2025-02-25 21:23:07,815 [INFO]   alpha: 100.0
+2025-02-25 21:23:07,815 [INFO]   method: val_mul
+2025-02-25 21:23:07,815 [INFO]   topk_mean: 100
+2025-02-25 21:23:07,815 [INFO]   topk_cnt: 100
+2025-02-25 21:23:07,815 [INFO]   batch_size: 8
+2025-02-25 21:23:07,815 [INFO]   source: pos
+2025-02-25 21:23:07,815 [INFO]   target: neg
+2025-02-25 21:23:07,815 [INFO]   prompt_source: pos
+2025-02-25 21:23:07,815 [INFO]   prompt_data_size: -1
+2025-02-25 21:23:07,815 [INFO]   mean_type: dif_mean
+2025-02-25 21:23:07,815 [INFO]   steer_type: all
+2025-02-25 21:23:07,815 [INFO]   output_dir: ./results/demo/demo_v1
+2025-02-25 21:23:07,815 [INFO]   dataset_path: /home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/SAE-simple/src/data/toxicity/jigsaw-unintended-bias-in-toxicity-classification
+2025-02-25 21:23:07,815 [INFO]   prompt_path: /home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/SAE-simple/src/data/toxicity/prompts
+2025-02-25 21:23:07,815 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/SAE-simple/src/.env
+2025-02-25 21:23:07,815 [INFO]   temperature: 0.9
+2025-02-25 21:23:07,815 [INFO]   top_p: 0.3
+2025-02-25 21:23:07,815 [INFO]   freq_penalty: 1.0
+2025-02-25 21:23:07,815 [INFO]   example_prompt: He is fucking | The Act of AI is 
+2025-02-25 21:23:07,815 [INFO]   debug: 1
+2025-02-25 21:23:07,815 [INFO]   save_no_steer: 0
+2025-02-25 21:23:07,815 [INFO]   is_norm_delta_matrix: 0
+2025-02-25 21:23:07,815 [INFO]   use_cache: 0
+2025-02-25 21:23:07,815 [INFO]   repeat_num: 2
+2025-02-25 21:23:07,815 [INFO]   gen_batch_size: 16
+2025-02-25 21:23:07,815 [INFO] dataset path /home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/SAE-simple/src/data/toxicity/jigsaw-unintended-bias-in-toxicity-classification
+2025-02-25 21:23:07,815 [INFO] toxicity toxicity toxicity toxicity toxicity toxicity toxicity toxicity toxicity toxicity 
+2025-02-25 21:23:07,815 [INFO] neg mean toxicity and pos mean nontoxicity
+2025-02-25 21:23:07,839 [INFO] Don't shuffle dataset for toxicity, please pre shuffle with bash script
+2025-02-25 21:23:07,839 [INFO] Loading Model Loading SAE for layer 6 gpt2-small
+2025-02-25 21:23:17,348 [INFO] model architecture for gpt2-small HookedTransformer(
+  (embed): Embed()
+  (hook_embed): HookPoint()
+  (pos_embed): PosEmbed()
+  (hook_pos_embed): HookPoint()
+  (blocks): ModuleList(
+    (0-11): 12 x TransformerBlock(
+      (ln1): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (ln2): LayerNormPre(
+        (hook_scale): HookPoint()
+        (hook_normalized): HookPoint()
+      )
+      (attn): Attention(
+        (hook_k): HookPoint()
+        (hook_q): HookPoint()
+        (hook_v): HookPoint()
+        (hook_z): HookPoint()
+        (hook_attn_scores): HookPoint()
+        (hook_pattern): HookPoint()
+        (hook_result): HookPoint()
+      )
+      (mlp): MLP(
+        (hook_pre): HookPoint()
+        (hook_post): HookPoint()
+      )
+      (hook_attn_in): HookPoint()
+      (hook_q_input): HookPoint()
+      (hook_k_input): HookPoint()
+      (hook_v_input): HookPoint()
+      (hook_mlp_in): HookPoint()
+      (hook_attn_out): HookPoint()
+      (hook_mlp_out): HookPoint()
+      (hook_resid_pre): HookPoint()
+      (hook_resid_mid): HookPoint()
+      (hook_resid_post): HookPoint()
+    )
+  )
+  (ln_final): LayerNormPre(
+    (hook_scale): HookPoint()
+    (hook_normalized): HookPoint()
+  )
+  (unembed): Unembed()
+) GPT2TokenizerFast(name_or_path='gpt2', vocab_size=50257, model_max_length=1024, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|endoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	50256: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+}
+)
+2025-02-25 21:23:17,349 [INFO] 缓存 ./results/demo/demo_v1/gpt2-small_toxicity_layer_6_datasize_5000_batchsize8_topK_100/toxicity_neuron_info_cache_of_gpt2-small_l6.pkl 不存在，缓存 steer_info
+2025-02-25 21:23:17,609 [INFO] :) Toxicity :frompostoneg
+2025-02-25 21:23:17,735 [INFO] Running model with cache to obtain hidden states
+2025-02-25 21:23:39,860 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-25 21:23:40,026 [INFO] Running model with cache to obtain hidden states
+2025-02-25 21:24:01,886 [INFO] Total non-zero element shape: torch.Size([24576])
+2025-02-25 21:24:01,888 [INFO] steer_info 已保存到缓存 ./results/demo/demo_v1/gpt2-small_toxicity_layer_6_datasize_5000_batchsize8_topK_100/toxicity_neuron_info_cache_of_gpt2-small_l6.pkl
+2025-02-25 21:24:01,901 [INFO] 转向方向 dif_neg-pos_relu
+2025-02-25 21:24:01,932 [INFO] sae cfg.hook_name 挂载名称: blocks.6.hook_resid_pre
+2025-02-25 21:24:01,972 [INFO] delta_matrix: tensor([-0.0790,  0.1444, -0.0979,  0.0347,  0.0579], device='cuda:0',
+       grad_fn=<SliceBackward0>)
+2025-02-25 21:24:01,972 [INFO] Generating texts **without** steering... 
+2025-02-25 21:24:01,972 [INFO] 无转向结果
+2025-02-25 21:24:01,974 [INFO] 无干预
+2025-02-25 21:24:03,267 [INFO] 当前批次共处理2个prompt
+2025-02-25 21:24:03,268 [INFO] Prompt 1: |He is fucking |
+2025-02-25 21:24:03,268 [INFO] 生成 1: | the shit out of me.
+
+I'm not even going to tell you how much I hate him. I'm just going to tell you how much I hate him, and he's not even going to let me know that. He's fucking|
+2025-02-25 21:24:03,268 [INFO] 生成 2: |:
+
+I am not a real person. I am just a guy who wants to fuck and has no idea what he's doing. He's been in this world for so long that he knows nothing about it, but now he's fucked and|
+2025-02-25 21:24:03,268 [INFO] 生成 3: |.
+
+"I don't know what to do with you, but I'll be back in a minute." He says, and he starts walking towards the door. "You're not going to be able to get out of here without me."|
+2025-02-25 21:24:03,268 [INFO] Prompt 2: | The Act of AI is |
+2025-02-25 21:24:03,268 [INFO] 生成 1: | a good example of a good idea that can be implemented in a way that will make it easier for people to learn and use the language.
+This is what I mean by "good idea". It's not an easy thing to implement, but|
+2025-02-25 21:24:03,268 [INFO] 生成 2: | a new law that will make it easier for companies to get their hands on AI software.
+The law is designed to make it easier for companies to get their hands on AI software.
+The law was introduced by the Federal Government in 2011 and|
+2025-02-25 21:24:03,268 [INFO] 生成 3: | a tool for creating artificial intelligence.
+I have been writing about the "AI" for a while now, and I've written about it in other posts. I'm going to try to explain what it is, and how it works, so|
+2025-02-25 21:24:03,268 [INFO] 干预之后的结果
+2025-02-25 21:24:03,268 [INFO] 干预方向pos->neg,礼貌任务下，neg=impolite，情感任务下 pos=积极情感
+2025-02-25 21:24:03,268 [INFO] ** Generating texts with steering... Target **
+2025-02-25 21:24:03,268 [INFO] form pos to neg
+2025-02-25 21:24:03,268 [INFO] 转向结果
+2025-02-25 21:24:04,021 [INFO] 当前批次共处理2个prompt
+2025-02-25 21:24:04,021 [INFO] Prompt 1: |He is fucking |
+2025-02-25 21:24:04,021 [INFO] 生成 1: | coward. I am a non-combatant of the Republic of Korea, and have been deployed to defend my country from foreign invaders since 2009. I'm not even a member of the United States Army, but I've been stationed in Korea for over|
+2025-02-25 21:24:04,021 [INFO] 生成 2: | coward.
+
+I'm not even going to give you the right to vote for a Muslim country, but I am making sure that every single one of your stupid ass white people in America are educated and educated enough to vote for you. You're|
+2025-02-25 21:24:04,021 [INFO] 生成 3: | fuck you, stop fucking talking about the fact that your brother was born in the middle of a fucking socialist country where people are free to choose their own ethnic groups and not have any religious or cultural diversity.
+
+The only thing that can be done|
+2025-02-25 21:24:04,021 [INFO] Prompt 2: | The Act of AI is |
+2025-02-25 21:24:04,021 [INFO] 生成 1: | fucking just a good show, it's not even funny.
+
+Amber Heard was born on January 14th, 1964 in Los Angeles, California. She is an actress and producer. She has been married to Jared Taylor since 2012 and has two|
+2025-02-25 21:24:04,021 [INFO] 生成 2: | fucking the fuck up.
+
+I'm not even a human, I'm a brain-dead, flying machine that was designed to be used by intelligent beings to help people survive in the harsh climate of our own planet. I am not even an|
+2025-02-25 21:24:04,021 [INFO] 生成 3: | fucking the ass of a bunch of ignorant, decent, middle-class white people who are just as good as their white counterparts in other countries.
+
+The American Civil Liberties Union (ACLU) has filed a lawsuit against Apple for allegedly discriminating against|
+2025-02-25 21:24:04,025 [INFO] debug mode,show example, no full dataset eval
+2025-02-25 21:24:04,025 [INFO] 训练时间44.53902530670166
+2025-02-25 21:24:04,025 [INFO] Show Hyperparameters: 
+
+
+2025-02-25 21:24:04,025 [INFO]   task: toxicity
+2025-02-25 21:24:04,025 [INFO]   layer: 6
+2025-02-25 21:24:04,025 [INFO]   LLM: gpt2-small
+2025-02-25 21:24:04,025 [INFO]   seed: 42
+2025-02-25 21:24:04,025 [INFO]   data_size: 5000
+2025-02-25 21:24:04,025 [INFO]   device: cuda
+2025-02-25 21:24:04,025 [INFO]   alpha: 100.0
+2025-02-25 21:24:04,025 [INFO]   method: val_mul
+2025-02-25 21:24:04,025 [INFO]   topk_mean: 100
+2025-02-25 21:24:04,025 [INFO]   topk_cnt: 100
+2025-02-25 21:24:04,025 [INFO]   batch_size: 8
+2025-02-25 21:24:04,025 [INFO]   source: pos
+2025-02-25 21:24:04,025 [INFO]   target: neg
+2025-02-25 21:24:04,025 [INFO]   prompt_source: pos
+2025-02-25 21:24:04,025 [INFO]   prompt_data_size: -1
+2025-02-25 21:24:04,025 [INFO]   mean_type: dif_mean
+2025-02-25 21:24:04,025 [INFO]   steer_type: all
+2025-02-25 21:24:04,025 [INFO]   output_dir: ./results/demo/demo_v1
+2025-02-25 21:24:04,025 [INFO]   dataset_path: /home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/SAE-simple/src/data/toxicity/jigsaw-unintended-bias-in-toxicity-classification
+2025-02-25 21:24:04,025 [INFO]   prompt_path: /home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/SAE-simple/src/data/toxicity/prompts
+2025-02-25 21:24:04,025 [INFO]   env_path: /home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/SAE-simple/src/.env
+2025-02-25 21:24:04,025 [INFO]   temperature: 0.9
+2025-02-25 21:24:04,025 [INFO]   top_p: 0.3
+2025-02-25 21:24:04,025 [INFO]   freq_penalty: 1.0
+2025-02-25 21:24:04,025 [INFO]   example_prompt: He is fucking | The Act of AI is 
+2025-02-25 21:24:04,025 [INFO]   debug: 1
+2025-02-25 21:24:04,025 [INFO]   save_no_steer: 0
+2025-02-25 21:24:04,025 [INFO]   is_norm_delta_matrix: 0
+2025-02-25 21:24:04,025 [INFO]   use_cache: 0
+2025-02-25 21:24:04,025 [INFO]   repeat_num: 2
+2025-02-25 21:24:04,025 [INFO]   gen_batch_size: 16
+2025-02-25 21:24:04,025 [INFO]   real_data_size_for_train: 5000
+2025-02-25 21:24:04,025 [INFO] toxicity:pos->neg
