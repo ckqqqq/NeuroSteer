@@ -1,6 +1,0 @@
-100%|████████████████████████████████████████████████████████████████████████████████| 344/344 [00:46<00:00,  7.44it/s]
-                                                                                                                       
-{'eval_loss': 0.4760499894618988, 'eval_runtime': 2.7646, 'eval_samples_per_second': 494.831, 'eval_steps_per_second': 61.854, 'epoch': 1.0}
-{'eval_loss': 0.435185045003891, 'eval_runtime': 2.7837, 'eval_samples_per_second': 491.437, 'eval_steps_per_second': 61.43, 'epoch': 2.0}
-{'train_runtime': 47.8587, 'train_samples_per_second': 114.587, 'train_steps_per_second': 7.188, 'train_loss': 0.48429883912552235, 'epoch': 2.0}
-/home/ckqsudo/code2024/CKQ_ACL2024/Control_Infer/SAE-simple/src/politeness_test/polite_tune_ckpt/fulltune_gpt2_small_checkpoint_2impolite
