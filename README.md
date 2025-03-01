@@ -9,13 +9,15 @@ NeuroSteer is a plug-and-play framework for dynamic control of language model be
   <img src=doc/demo_main_1.7b.gif/>
 </p>
 
-* Quantitative regulation of language model behaviors in any tasks
+* Quantitatively regulate LLM behaviors in any tasks
 
 ### How does NeuroSteer work?
 
 <p align="center">
   <img src=doc/method1.gif />
 </p>
+
+* Adjusting LLMs output via activating SAE neurons
 
 ### Quick Start
 * To DO
@@ -26,7 +28,7 @@ DEMO Backend:
 uvicorn demo.backend.main_fastapp_backend:app
 ```
 
-* Adjusting LLMs output via activating SAE neurons
+
 
 DEMO Frontend:
 
