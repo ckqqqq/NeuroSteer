@@ -2,7 +2,7 @@
 
 ## Description
 
-NeuroSteer is a plug-and-play framework for dynamic control of language model behaviors (e.g., sentiment, politeness, toxicity) without domain-specific training. By leveraging Sparse AutoEncoder (SAE) feature-space interventions, it activates target-related neurons, extracts feature residuals, and modulates hidden states to steer output distributions. Experiments show NeuroSteer achieves SOTA on four benchmarks, balancing generation quality and behavioral control. It enables rapid domain adaptation in seconds using hundreds of examples, surpassing fine-tuning. Layer-wise interventions also reveal insights into concept representation and feature vector combinations in LMs. We release our model, code, demo, and steering vectors for the NLP research community.
+NeuroSteer is a plug-and-play framework for dynamic control of language model behaviors (e.g., sentiment, politeness, toxicity) **without domain-specific training**. By leveraging Sparse AutoEncoder (SAE) feature-space interventions, it activates target-related neurons, extracts feature residuals, and modulates hidden states to steer output distributions. Experiments show NeuroSteer achieves SOTA on four benchmarks, balancing generation quality and behavioral control. It enables rapid domain adaptation in seconds using hundreds of examples, surpassing fine-tuning. Layer-wise interventions also reveal insights into concept representation and feature vector combinations in LMs. We release our model, code, demo, and steering vectors for the NLP research community.
 ### What can NeuroSteer do?
 
 <p align="center">
