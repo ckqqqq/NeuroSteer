@@ -1,5 +1,5 @@
 import streamlit as st
-from demo.frontend.frontend_utils import response_request
+from frontend_utils import response_request
             
 
 def mind_map(tab_name, tab):

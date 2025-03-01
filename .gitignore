@@ -91,3 +91,5 @@ activations_data/qwen2.5-7_truthful_qa_judge_activations/mlp_output_activations.
 !/results/demo/demo_v1/gpt*/**
 !*.debate_neuron_info_cache_of_gpt2-small_l6.pkl
 !/results/demo/demo_v1/gpt*/**
+
+/NeuroSteer.egg-info/

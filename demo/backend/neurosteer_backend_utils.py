@@ -82,6 +82,7 @@ def neuron_steer_generate(alphas: dict, prompt: str,model,sae,tokenizer,delta_h_
         "freq_penalty": 1.0,
         "verbose": False,
     }
+    max_new_tokens= 30
 
     real_delta_h = None
     real_alpha = 1
@@ -103,7 +104,7 @@ def neuron_steer_generate(alphas: dict, prompt: str,model,sae,tokenizer,delta_h_
         model=model,
         sae=sae,
         tokenizer=tokenizer,
-        MAX_NEW_TOKENS=30,
+        MAX_NEW_TOKENS=max_new_tokens,
         steer_type="all",
         repeat_num=1,
         show_res=True,

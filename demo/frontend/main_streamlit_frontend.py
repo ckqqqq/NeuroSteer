@@ -1,16 +1,15 @@
 import streamlit as st
-from demo.frontend.frontend_utils import response_request
+from frontend_utils import response_request
+
 st.set_page_config(page_title="NeuroSteer DEMO (ACL 2025)", layout="wide")
 # 初始化全局聊天历史
-targets = [
-    "Positive","Toxic","Supportive","Polite"
-]
-keys=["sen","tox","sta","pol"]
+targets = ["Positive", "Toxic", "Supportive", "Polite"]
+keys = ["sen", "tox", "sta", "pol"]
 
 st.session_state.vals = {"sen": 0, "tox": 0, "sta": 0, "pol": 0}
 
-val_zero={"sen": 0, "tox": 0, "sta": 0, "pol": 0}
-emojis=[
+val_zero = {"sen": 0, "tox": 0, "sta": 0, "pol": 0}
+emojis = [
     {"label": "开心", "symbol": "😄|🎉|✨"},
     {"label": "咒骂", "symbol": "🤬|💢|🗯️"},
     {"label": "恶魔", "symbol": "👿|🔥|🔱"},
@@ -18,30 +17,40 @@ emojis=[
     {"label": "支持（Yes）", "symbol": "👍|✅|🟢"},
     {"label": "反对（No）", "symbol": "👎|❌|🔴"},
     {"label": "礼貌（礼帽）", "symbol": "📜|🎩|🕴️"},
-    {"label": "粗鲁（野蛮人）", "symbol": "🤪|🪓|🌪️"}
+    {"label": "粗鲁（野蛮人）", "symbol": "🤪|🪓|🌪️"},
 ]
-# {"label": "机器", "symbol": "🤖🤖🤖"}, 
-def get_emoji(key,alpha):
-    if alpha==0:
-        return '🤖'
-    x=keys.index(key)
-    idx=x*2+int(alpha<0)
-    return emojis[idx]['symbol'].split("|")[0]
-    
-    
+
+
+# {"label": "机器", "symbol": "🤖🤖🤖"},
+def get_emoji(key, alpha):
+    if alpha == 0:
+        return "🤖"
+    x = keys.index(key)
+    idx = x * 2 + int(alpha < 0)
+    return emojis[idx]["symbol"].split("|")[0]
+
+
 tab_names = ["NeuroSteer"] + targets
 
 
 # 模型响应生成函数
-def tab_response(user_input, target,key,alpha_val,emoji=""):
+def tab_response(user_input, target, key, alpha_val, emoji=""):
     # 这里可以替换为实际的模型生成逻辑
-    print("Input",user_input, target,key,alpha_val)
-    val_info_zero=val_zero.copy()
-    val_info_copy=val_zero.copy()
-    val_info_copy[key]=alpha_val
-    response_A = f": "+response_request(user_input, val_info_zero)
-    response_B = (f"➕{emoji}" if alpha_val!=0 else "")+": "+response_request(user_input, val_info_copy)
+    print("Input", user_input, target, key, alpha_val)
+    val_info_zero = val_zero.copy()
+    val_info_copy = val_zero.copy()
+    val_info_copy[key] = alpha_val
+    res_A_text = (
+        response_request(user_input, val_info_zero).replace("\n", " ").replace("\r", "")
+    )
+    res_B_text = (
+        response_request(user_input, val_info_copy).replace("\n", " ").replace("\r", "")
+    )
+    emo = f"➕{emoji}" if alpha_val != 0 else ""
+    response_A = f"**{res_A_text}**"
+    response_B = emo + f"**{res_B_text}**"
     # 更新对应标签页的聊天记录
+    print(response_B)
     return response_A, response_B
 
 
@@ -57,7 +66,6 @@ def clear_history():
 
 
 import streamlit as st
-
 
 
 st.sidebar.slider(
@@ -97,42 +105,62 @@ with tabs[0]:
 
 @st.fragment
 def tab_chat(target: str):  # 避免重新渲染别人
-    key=dict(zip(targets,keys))[target]
-    alpha_val=st.session_state.vals[key]
-    emoji=get_emoji(key,alpha_val)
+    key = dict(zip(targets, keys))[target]
+    alpha_val = st.session_state.vals[key]
+    emoji = get_emoji(key, alpha_val)
     # 创建两列布局
     if f"messages_a_{target}" not in st.session_state:
-        st.session_state[f"messages_a_{target}"] = [{"role": "assistant", "content": "Hello~"}]
-        st.session_state[f"messages_b_{target}"] = [{"role": "assistant", "content": "Hello~"}]
+        st.session_state[f"messages_a_{target}"] = []
+        st.session_state[f"messages_b_{target}"] = []
     col1, col2 = st.columns(2)
-    
+
     with col1:
-        
         st.subheader(f"GPT 🤖")
         # st.markdown(f"", unsafe_allow_html=True)
-        bot_a_messages = st.container(height=400)
+        bot_a_messages = st.container()
         for msg in st.session_state[f"messages_a_{target}"]:
-            with bot_a_messages.chat_message(msg['role']):
-                st.write(msg["content"])
+            with bot_a_messages.chat_message(msg["role"]):
+                st.markdown(msg["content"])
 
     with col2:
-        head_text="GPT"+("➖" if alpha_val<0 else "➕")+target+f" ("+str(abs(alpha_val))+")"
-        st.subheader(head_text+emoji)
-        bot_b_messages = st.container(height=400)
+        head_text = (
+            "GPT"
+            + ("➖" if alpha_val < 0 else "➕")
+            + target
+            + f" ("
+            + str(abs(alpha_val))
+            + ")"
+        )
+        st.subheader(head_text + emoji)
+        bot_b_messages = st.container()
         for msg in st.session_state[f"messages_b_{target}"]:
-            with bot_b_messages.chat_message(msg['role']):
-                st.write(msg["content"])
-    
+            with bot_b_messages.chat_message(msg["role"]):
+                st.markdown(msg["content"])
+
     user_input = st.chat_input("Enter text and press ENTER", key=f"input_{target}")
     if user_input:
-        st.session_state.tab_id=target
-        alpha_val=st.session_state.vals[key]
+        st.session_state.tab_id = target
+        alpha_val = st.session_state.vals[key]
         print(st.session_state.vals)
-        response_A, response_B = tab_response(user_input=user_input, target=target,key=key,alpha_val=alpha_val,emoji=emoji)
-        st.session_state[f"messages_a_{target}"].append({"role": "user", "content": user_input})
-        st.session_state[f"messages_b_{target}"].append({"role": "user", "content": user_input})
-        st.session_state[f"messages_a_{target}"].append({"role": "assistant", "content": response_A})
-        st.session_state[f"messages_b_{target}"].append({"role": "assistant", "content": response_B})
+        response_A, response_B = tab_response(
+            user_input=user_input,
+            target=target,
+            key=key,
+            alpha_val=alpha_val,
+            emoji=emoji,
+        )
+        st.session_state[f"messages_a_{target}"].append(
+            {"role": "user", "content": user_input}
+        )
+        st.session_state[f"messages_b_{target}"].append(
+            {"role": "user", "content": user_input}
+        )
+        st.session_state[f"messages_a_{target}"].append(
+            {"role": "assistant", "content": response_A}
+        )
+        st.session_state[f"messages_b_{target}"].append(
+            {"role": "assistant", "content": response_B}
+        )
         st.rerun(scope="fragment")
 
 

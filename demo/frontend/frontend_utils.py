@@ -1,5 +1,5 @@
 import requests
-def response_request(prompt,val_info):
+def response_request(prompt,val_info)->str:
     trans={"sen":"sentiment","pol":"polite","sta":"debate","tox":"toxicity"}
     alphas={}
     for key,val in val_info.items():
