@@ -8,7 +8,7 @@ NeuroSteer is a plug-and-play framework for dynamic control of language model be
 <p align="center">
   <img src=https://ckqqqq-qiker-image-service.oss-cn-beijing.aliyuncs.com/typora-image/demo_main_1.7b.gif/>
 </p>
-<!-- ![]https://ckqqqq-qiker-image-service.oss-cn-beijing.aliyuncs.com/typora-image/demo_main_1.7b.gif
+
 * Quantitatively regulate LLM behaviors in any tasks
 
 ### How does NeuroSteer work?
