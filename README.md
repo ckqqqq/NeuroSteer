@@ -63,7 +63,7 @@ chmod 777 demo_prepare_all.sh
 ## 🚀 News
 - **2025/02/27**: 📣 [Colab notebooks] Demo is released. Feel free to try!
 
-- **2025/02/28**: 📣 NeuroSteer Code release.[Demo website](https://auffusion.github.io/) and 
+- **2025/02/28**: 📣 NeuroSteer Code release.[Demo website] and 
 
 - **2025/03/01**: 📣 NeuroSteer website release. All steering vectors are released in [Hugging Face]. 
 
