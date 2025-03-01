@@ -6,7 +6,7 @@ NeuroSteer is a plug-and-play framework for dynamic control of language model be
 ### What can NeuroSteer do?
 
 <p align="center">
-  <img src=doc/main.gif />
+  <img src=doc/demo_main_1.7b.gif/>
 </p>
 * regulate language model behaviors in any tasks
 
