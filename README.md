@@ -71,9 +71,9 @@ chmod 777 demo_prepare_all.sh
 
 | Model Name                 | Model                                                                                                    |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------ |
-| GPT2-NeuroSteer                  |               todo                  |
-| Gamma-2-2b-NeuroSteer             |                todo       |
-| Multi-Media-NeuroSteer  |                       |
+| GPT2-NeuroSteer                  |              Supported                  |
+| Gamma-2-2b-NeuroSteer             |              Supported       |
+| Multi-Media-NeuroSteer  |             ing          |
 
 # TODO
 
