@@ -1,0 +1,7 @@
+auto_mix_prep==0.2.0
+fastapi==0.115.10
+pydantic==2.10.6
+Requests==2.32.3
+sae_lens==5.5.2
+streamlit==1.42.1
+torch==2.5.0+cu121

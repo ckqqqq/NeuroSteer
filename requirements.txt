@@ -1,0 +1,19 @@
+datasets==2.21.0
+einops==0.8.1
+jsonlines==4.0.0
+matplotlib==3.10.1
+numpy==2.2.3
+pandas==2.2.3
+python-dotenv==1.0.1
+sae_lens==5.5.2
+torch==2.5.0+cu121
+tqdm==4.67.1
+transformer_lens==2.15.0
+transformers==4.47.1
+# demo
+auto_mix_prep==0.2.0
+fastapi==0.115.10
+pydantic==2.10.6
+Requests==2.32.3
+sae_lens==5.5.2
+streamlit==1.42.1
