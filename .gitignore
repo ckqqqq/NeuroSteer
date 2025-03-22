@@ -72,7 +72,9 @@ trash_bin/
 *.jsonl
 *.csv
 *.xlsx
-# *.txt
+!requirements.txt
+*.txt
+!requirements.txt
 *.png
 *.jpg
 *.xml
