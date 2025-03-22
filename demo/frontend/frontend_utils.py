@@ -15,7 +15,7 @@ def response_request(prompt,val_info)->str:
             "input_dict": alphas,
             "input_str": prompt
         }
-    FASTAPI_URL = "http://localhost:8000/process"
+    FASTAPI_URL = "http://localhost:10478/process"
     # 发送POST请求到FastAPI
     print("response send",val_info)
     response = requests.post(FASTAPI_URL, json=payload)

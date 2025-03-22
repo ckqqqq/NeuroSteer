@@ -29,6 +29,7 @@ DEMO Backend:
 
 ```bash
 uvicorn demo.backend.main_fastapp_backend:app
+# nohup uvicorn demo.backend.main_fastapp_backend:app > demo/4090deploy/docker_log/uvicorn.log 2>&1 &
 ```
 
 
@@ -37,6 +38,8 @@ DEMO Frontend:
 
 ```bash
 streamlit run demo/frontend/main_streamlit_frontend.py
+# 
+# nohup streamlit run demo/frontend/main_streamlit_frontend.py --server.port XXXX > demo/4090deploy/docker_log/streamlit.log 2>&1 &
 ```
 ### Reproduce NeuroSteer
 
@@ -51,7 +54,7 @@ chmod 777 demo_prepare_all.sh
 
 # all reproduction scripts are in src/scripts  change your path for reproduction
 ```
-### Apply NeuroSteer to your task. 
+### 🐍 Apply NeuroSteer to any domain. 
 
 * Prepare your dataset for your task, which includes negative examples and positive examples, eg.:
     * Complex reasoning text and simple reasoning text

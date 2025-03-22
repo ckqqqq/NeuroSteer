@@ -93,3 +93,5 @@ activations_data/qwen2.5-7_truthful_qa_judge_activations/mlp_output_activations.
 !/results/demo/demo_v1/gpt*/**
 
 /NeuroSteer.egg-info/
+**/4090deploy/*
+**/4090*.sh
