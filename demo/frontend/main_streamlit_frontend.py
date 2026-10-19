@@ -2,6 +2,17 @@ import streamlit as st
 from frontend_utils import response_request
 
 st.set_page_config(page_title="NeuroSteer Demo", layout="wide")
+st.title("NeuroSteer · GPT-2 可解释性神经元干预演示")
+st.markdown("### An Interpretability Playground for GPT-2")
+st.info(
+    "**Just for fun｜研究探索**\n\n"
+    "本项目演示对 GPT-2 的可解释性特征（SAE 神经元）施加特定干预后，模型输出会如何变化。"
+    "SAE 训练通常需要较多显存；GPT-2 本身能力有限，生成结果仅供研究与探索参考。\n\n"
+    "This demo explores how targeted interventions on interpretable SAE features change GPT-2's outputs. "
+    "Training SAEs can require substantial GPU memory. GPT-2 has limited capabilities, "
+    "and its generated outputs are intended for research and exploration only. Just for fun!"
+)
+
 
 # Show the real inference state instead of letting visitors mistake a UI for a ready model.
 import os
@@ -14,7 +25,7 @@ try:
 except requests.RequestException:
     st.warning("页面已上线，推理服务暂未连接。实时生成暂不可用。")
 
-st.caption("GPT-2 文本续写研究演示：滑块系数沿用原始代码，不等同于论文中的归一化 alpha。需要真实模型和四组缓存。")
+st.sidebar.caption("滑块沿用原始实验的系数尺度，不等同于论文中的归一化 alpha。")
 # 初始化全局聊天历史
 targets = ["Positive", "Toxic", "Supportive", "Polite"]
 keys = ["sen", "tox", "sta", "pol"]

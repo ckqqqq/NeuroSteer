@@ -15,6 +15,10 @@ Browser HTTPS
 
 No model or inference process runs on the VPS. Its existing port-443 service remains in place. Cloudflared makes outbound HTTP/2 connections, so no inbound 80/443 firewall or router change was needed.
 
+## Basic protection
+
+Two hostname-scoped Cloudflare rules block scanner probes and rate-limit excessive page/reconnect requests. See [security configuration and checks](SECURITY.md). The page also displays a bilingual research-only, Just for fun notice.
+
 ## Services
 
 On DGX (`ssh dgx`):
