@@ -11,7 +11,6 @@ from sae_lens import SAE
 
 from data_preprocess import (
     load_and_prepare_triple_dataset,
-    load_and_prepare_COT_dataset,
     load_and_prepare_debate_triple_dataset,
     load_and_prepare_polite_dataset,
 )
@@ -41,8 +40,8 @@ parser.add_argument(
     "--task",
     type=str,
     default="sentiment",
-    choices=["sentiment", "cot", "polite", "toxicity", "debate"],
-    help="Task type: sentiment, cot, polite",
+    choices=["sentiment", "polite", "toxicity", "debate"],
+    help="Task type: sentiment, toxicity, debate (stance), or polite",
 )
 parser.add_argument("--layer", type=int, default=6, help="Layer number to analyze")
 parser.add_argument("--LLM", type=str, default="gpt2-small", help="LLM model")
@@ -240,12 +239,6 @@ if TASK == "sentiment":
             dataset_name="sst5",
         )
     )
-elif "cot" == TASK:
-    logging.info("COT " * 10)  # 这个只有llama 支持
-    neg_train_set, pos_train_set, _, _, _ = load_and_prepare_COT_dataset(
-        dataset_path=args.dataset_path,
-        seed=args.seed,
-    )
 elif "toxicity" == TASK:
     logging.info("toxicity " * 10)
     from data_preprocess import load_and_prepare_toxicity_dataset
@@ -428,10 +421,6 @@ def compute_neuron_info():
         elif TASK == "toxicity":
             logging.info(f":) Toxicity :from" + args.source + "to" + args.target)
 
-            neuron_info["pos"] = neuron_selection(pos_train_set["text"][:DATA_SIZE])
-            neuron_info["neg"] = neuron_selection(neg_train_set["text"][:DATA_SIZE])
-        elif "cot" == TASK:
-            logging.info(":) COT: from" + args.source + "to" + args.target)
             neuron_info["pos"] = neuron_selection(pos_train_set["text"][:DATA_SIZE])
             neuron_info["neg"] = neuron_selection(neg_train_set["text"][:DATA_SIZE])
         else:

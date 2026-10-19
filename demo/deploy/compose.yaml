@@ -1,0 +1,55 @@
+name: neurosteer
+services:
+  backend:
+    build:
+      context: ../..
+      dockerfile: demo/deploy/Dockerfile
+    image: neurosteer-demo:local
+    restart: unless-stopped
+    environment:
+      NEUROSTEER_CACHE_DIR: /app/results/demo/demo_v1
+    volumes:
+      - ${NEUROSTEER_CACHE_PATH:-../../results/demo/demo_v1}:/app/results/demo/demo_v1:ro
+    # No public port: only the frontend can reach this service on the Compose network.
+  frontend:
+    image: neurosteer-demo:local
+    build:
+      context: ../..
+      dockerfile: demo/deploy/Dockerfile
+    restart: unless-stopped
+    environment:
+      NEUROSTEER_BACKEND_URL: http://backend:8000
+    command:
+      - python
+      - -m
+      - streamlit
+      - run
+      - demo/frontend/main_streamlit_frontend.py
+      - --server.address=0.0.0.0
+      - --server.port=8501
+      - --server.headless=true
+      - --browser.gatherUsageStats=false
+    depends_on:
+      - backend
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8501/_stcore/health', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+  proxy:
+    image: caddy:2
+    restart: unless-stopped
+    environment:
+      NEUROSTEER_SITE: ${NEUROSTEER_SITE:?Set a domain or http://your-vps-ip in the deployment .env}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - frontend
+volumes:
+  caddy_data:
+  caddy_config:

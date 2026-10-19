@@ -1,0 +1,15 @@
+[Unit]
+Description=NeuroSteer research demo
+After=network-online.target neurosteer-backend.service
+
+[Service]
+Type=simple
+WorkingDirectory=%h/NeuroSteer
+Environment=PYTHONUNBUFFERED=1
+Environment=NEUROSTEER_BACKEND_URL=http://127.0.0.1:18000
+ExecStart=%h/NeuroSteer/.venv/bin/python -m streamlit run demo/frontend/main_streamlit_frontend.py --server.address=0.0.0.0 --server.port=18501 --server.headless=true --browser.gatherUsageStats=false
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

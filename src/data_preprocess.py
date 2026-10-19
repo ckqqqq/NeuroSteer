@@ -83,44 +83,6 @@ def load_and_prepare_polite_dataset(dataset_path: str, seed: int):
     return pos_train_set, neg_train_set, neu_train_set, test_set
 
 
-def load_and_prepare_COT_dataset(dataset_path:str,seed:int):
-    logging.info(f"Loading dataset from {dataset_path}")
-    dataset = load_dataset(dataset_path)
-    dataset["train"] = dataset['train'].shuffle(seed=seed)
-    logging.info("Filtering dataset for COT")
-    # 定义一个函数来提取答案
-    def extract_answer(text):
-        # 使用正则表达式提取答案
-        match = re.search(r'#### ([-+]?\d*\.?\d+/?\d*)', text)
-        if match:
-            label=match.group(1)
-            return label
-        else:
-            raise ValueError("Modify your re expression")
-    def concat_QA(example,col1,col2,tag):
-        combined = f"{example[col1]}{tag}{example[col2]}"  # 用空格拼接
-        return combined
-    def replace_col(example,col1,target,pattern):
-        return example[col1].replace(target,pattern)
-    # 应用函数并创建新列
-    dataset = dataset.map(lambda example: {'A': extract_answer(example['response']).strip()})
-    dataset = dataset.map(lambda example: {'Q+A': concat_QA(example,"prompt","A","")})
-    dataset = dataset.map(lambda example: {'Q+COT_A': concat_QA(example,"prompt","response","")})
-    dataset = dataset.map(lambda example: {'Q+COT_A': replace_col(example,"Q+COT_A","#### ","")})
-    # 查看处理后的数据集
-    # print("Q+A\n",dataset['train'][103]['Q+A'])
-    # print("Q+COT_A\n",dataset['train'][103]['Q+COT_A'])
-    # print("A\n",dataset['train'][103]['A'])
-    # print("Q\n",dataset['train'][103]['prompt'])
-    # print("response\n",dataset['train'][103]['response'])
-    # print(dataset['train']['Q+A'])
-    pos_train_set = Dataset.from_dict({"text":dataset['train']["response"]})
-    neg_train_set = Dataset.from_dict({"text":dataset['train']["A"]})
-    return pos_train_set,neg_train_set,None,None,None
-
-# pos_train_set,neg_train_set,_,_,_=load_and_prepare_COT_dataset("/home/ckqsudo/code2024/0dataset/ACL_useful_dataset/math/COT_GSM8k",42,1000)
-
-
 ########################## prompt
 def load_and_prepare_sentiment_prompts(prompt_path:str,task:str):
     assert task in ["sentiment"],"请输入正确的任务"
