@@ -17,7 +17,7 @@ In the same LAN, try `http://192.168.1.13:18501`. From a computer with the confi
 ssh -N -L 127.0.0.1:18501:127.0.0.1:18501 dgx
 ```
 
-Then open `http://127.0.0.1:18501`. A tunnel was started on the user's Mac during verification; if it closes, rerun this command. The local address is not a permanent public URL. No new VPS service, public DNS record, router rule, or Internet reverse proxy was configured for this deployment.
+Then open `http://127.0.0.1:18501`. A tunnel was started on the user's Mac during verification; if it closes, rerun this command. The local address is not a permanent public URL. A subsequent public deployment now routes through VPS and Cloudflare; see [public deployment](../public/README.md). The Mac tunnel remains optional for local access.
 
 ## Verified behavior
 

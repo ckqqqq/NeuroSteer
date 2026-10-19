@@ -20,6 +20,10 @@ The repository focuses on mechanistic interpretability and behavioral interventi
 
 Unfinished multimodal prototypes, unsupported Llama/Gemma-1 branches, broken placeholder tests, and scripts targeting absent programs have been removed. No multimodal or universal-task support is claimed.
 
+## Public demo
+
+[Open NeuroSteer](https://neurosteer.keqichen.top/) — runs GPT-2 inference on DGX Spark, with VPS forwarding and a Cloudflare domain. See [public deployment notes](demo/deploy/public/README.md).
+
 ## Run the demo
 
 Use Python 3.11 or 3.12 and install a PyTorch build compatible with your hardware. Then, from the repository root:
