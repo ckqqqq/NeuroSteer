@@ -1,0 +1,14 @@
+# DGX Spark aarch64, Python 3.12; PyTorch must include GB10 CUDA support.
+torch==2.11.0
+sae-lens==5.5.2
+transformer-lens==2.15.0
+transformers==4.47.1
+numpy==1.26.4
+pyarrow==19.0.1
+pandas==2.3.3
+python-dotenv==1.2.4
+streamlit==1.66.0
+fastapi==0.146.0
+uvicorn==0.54.0
+requests==2.34.2
+httpx==0.28.1

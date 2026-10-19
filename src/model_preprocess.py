@@ -1,59 +1,36 @@
-from transformers import AutoTokenizer # type: ignore
+"""Load the language models and matching residual-stream SAEs used in experiments."""
+from transformers import AutoTokenizer
 from transformer_lens import HookedTransformer
 from sae_lens import SAE
-def load_models(LLM:str,layer:int,device:str):
-    """_summary_
 
-    Args:
-        LLM (str): _description_
-        layer (int): _description_
-        device (str): _description_
 
-    Returns:
-        model: _description_
-        sae: _description_
-        tokenizer: _description_
+def load_models(LLM: str, layer: int, device: str):
+    """Load a supported model/SAE pair; layer numbers follow the SAE hook index.
+
+    GPT-2 has recovered task caches for layer 6. Gemma loading is retained for
+    research experiments but does not have recovered four-task demo caches.
     """
-    if "llama" in LLM:
-        raise ValueError("Some BUGs")
-        # logging.info(f"Loading model: {args.LLM}")
-        sae, cfg_dict, sparsity = SAE.from_pretrained(
-            release="meta-llama/Meta-Llama-3.1-8B",
-            sae_id=f"blocks.{layer}.hook_resid_pre",
-            device=device
-        )
-        model = HookedTransformer.from_pretrained("meta-llama/Meta-Llama-3.1-8B", device=device)
-        # logging.info(f"model architecture for {args.LLM} {model}")
-
-    elif "gemma-2-2b" in LLM:
-        tokenizer = AutoTokenizer.from_pretrained("google/gemma-2b")
-        sae, cfg_dict, sparsity = SAE.from_pretrained(
-            release = "gemma-scope-2b-pt-res-canonical",
-            sae_id = f"layer_{layer}/width_16k/canonical",
-            device=device)
-        # logging.info(f"Loading model: {args.LLM}")
-        model = HookedTransformer.from_pretrained(LLM, device=device)
-    elif "gemma-2b" in LLM:
-        raise ValueError("Some BUGs")
-        # logging.info(f"Loading model: {args.LLM}")
-        sae, cfg_dict, _ = SAE.from_pretrained(
-            release=f"{LLM}-res-jb", sae_id=f"blocks.{layer}.hook_resid_pre", device=device
-        )
-        model = HookedTransformer.from_pretrained(LLM, device=device)
-    
-    elif "gpt2-small" in LLM:
-        # logging.info(f"Loading model: {args.LLM} SAE gpt2-small-res-jb")
-        sae, cfg_dict, sparsity = SAE.from_pretrained(
-            release=f"{LLM}-res-jb",
-            sae_id=f"blocks.{layer}.hook_resid_pre",
-            device=device
-        )
-        
+    if LLM == "gpt2-small":
+        if not 0 <= layer < 12:
+            raise ValueError("GPT-2-small SAE layer must be between 0 and 11.")
         tokenizer = AutoTokenizer.from_pretrained("gpt2")
-        # 设置填充标记为 EOS token
-        tokenizer.pad_token = tokenizer.eos_token
-        model = HookedTransformer.from_pretrained(LLM, device=device,tokenizer=tokenizer)
-        # tokenizer = AutoTokenizer.from_pretrained(args.LLM)
+        release = "gpt2-small-res-jb"
+        sae_id = f"blocks.{layer}.hook_resid_pre"
+    elif LLM == "gemma-2-2b":
+        tokenizer = AutoTokenizer.from_pretrained("google/gemma-2-2b")
+        release = "gemma-scope-2b-pt-res-canonical"
+        sae_id = f"layer_{layer}/width_16k/canonical"
     else:
-        raise ValueError("No Supported")
-    return model,sae,tokenizer
+        raise ValueError(
+            f"Unsupported model {LLM!r}. Available research loaders: gpt2-small, gemma-2-2b."
+        )
+
+    tokenizer.pad_token = tokenizer.eos_token
+    sae, _, _ = SAE.from_pretrained(release=release, sae_id=sae_id, device=device)
+    # Match the preprocessing used to train this SAE; default TransformerLens
+    # folding/centering options can otherwise change the residual feature basis.
+    model = HookedTransformer.from_pretrained_no_processing(
+        LLM, device=device, tokenizer=tokenizer, **sae.cfg.model_from_pretrained_kwargs
+    )
+    model.eval()
+    return model, sae, tokenizer

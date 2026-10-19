@@ -9,6 +9,7 @@ from src.utils import load_or_cache_neuron_info
 from sae_lens import SAE
 import torch
 import os
+from demo.backend.cache_config import discover_caches
 def check_gpu():
     if torch.cuda.is_available():
         print("GPU可用！")
@@ -16,28 +17,15 @@ def check_gpu():
     else:
         print("GPU不可用！")
         return "cpu"
-def load_neuron_info(demo_neuron_cache_floder):
-    caches_path=os.listdir(demo_neuron_cache_floder)
-    assert len(caches_path)==4,"four neuron caches are needed, including sentiment, toxicity, stance, and polite"
-    print(caches_path)
-    task_info=[]
-    for cache_path in caches_path:
-        info={}
-        info["model"]=cache_path.split("_")[0]
-        assert cache_path.split("_")[2]=="layer",("cache_path must contain layer")
-        assert cache_path.split("_")[-2]=="topK",("cache_path must contain topK") 
-        info["layer"]=int(cache_path.split("_")[3])
-        info["task"]=cache_path.split("_")[1]
-        info["topK"]=int(cache_path.split("_")[-1])
-        neuron_cache=[i for i in os.listdir(os.path.join(demo_neuron_cache_floder,cache_path)) if i.endswith(".pkl")]
-        assert len(neuron_cache)==1,"only one neuron cache is needed"
-        file=neuron_cache[0]
-        path=os.path.join(demo_neuron_cache_floder,cache_path)
-        neuron_info=load_or_cache_neuron_info(cache_dir=path,cache_filename=file,use_cache=True,compute_func=None)
-        info["neuron_info"]=neuron_info
-        task_info.append(info)
-        
-    assert len(set([(i["layer"],i["model"]) for i in task_info[:]]))==1,"layer and model must be the same"
+def load_neuron_info(model_name="gpt2-small", layer=6):
+    task_info = []
+    for task_name, cache_path in discover_caches(model_name, layer).items():
+        neuron_info = load_or_cache_neuron_info(
+            cache_dir=str(cache_path.parent), cache_filename=cache_path.name,
+            use_cache=True, compute_func=None,
+        )
+        task_info.append({"model": model_name, "layer": layer, "task": task_name,
+                          "neuron_info": neuron_info})
     return task_info
 
 
@@ -47,9 +35,7 @@ def model_preprocess(LLM = "gpt2-small",layer = 6):
 
 
 def delta_h(sae:SAE,LLM, layer: int):
-    task_info = load_neuron_info(
-        demo_neuron_cache_floder="/home/ckqsudo/code2024/CKQ_ACL2024/NeuroSteer/results/demo/demo_v1"
-    )
+    task_info = load_neuron_info(LLM, layer)
     assert LLM == task_info[0]["model"] and task_info[0]["layer"] == layer, (
         "model and layer must be the same, check path"
     )

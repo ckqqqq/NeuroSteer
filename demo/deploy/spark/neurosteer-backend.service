@@ -1,0 +1,15 @@
+[Unit]
+Description=NeuroSteer inference API
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/NeuroSteer
+Environment=PYTHONUNBUFFERED=1
+Environment=OMP_NUM_THREADS=4
+ExecStart=%h/NeuroSteer/.venv/bin/python -m uvicorn demo.backend.main_fastapp_backend:app --host 127.0.0.1 --port 18000
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

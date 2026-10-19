@@ -1,0 +1,8 @@
+# Replace YOUR_TUNNEL_UUID after creating a dedicated named Cloudflare Tunnel.
+tunnel: YOUR_TUNNEL_UUID
+credentials-file: /etc/neurosteer/tunnel.json
+protocol: http2
+ingress:
+  - hostname: neurosteer.keqichen.top
+    service: http://127.0.0.1:18502
+  - service: http_status:404

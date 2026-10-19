@@ -97,3 +97,17 @@ activations_data/qwen2.5-7_truthful_qa_judge_activations/mlp_output_activations.
 /NeuroSteer.egg-info/
 **/4090deploy/*
 **/4090*.sh
+
+# Local demo environment and runtime logs
+.venv-demo/
+logs/
+
+# Host-specific deployment configuration
+demo/deploy/.env
+
+# Recovered task statistics required by the GPT-2 demo (not full model checkpoints).
+!results/demo/demo_v1/gpt2-small_*/
+!results/demo/demo_v1/**/sentiment_neuron_info_cache_of_gpt2-small_l6.pkl
+!results/demo/demo_v1/**/toxicity_neuron_info_cache_of_gpt2-small_l6.pkl
+!results/demo/demo_v1/**/debate_neuron_info_cache_of_gpt2-small_l6.pkl
+!results/demo/demo_v1/**/polite_neuron_info_cache_of_gpt2-small_l6.pkl

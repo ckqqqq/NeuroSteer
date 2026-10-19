@@ -1,0 +1,19 @@
+[Unit]
+Description=NeuroSteer Cloudflare public ingress
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=neurosteer-cloudflared
+Group=neurosteer-cloudflared
+ExecStart=/opt/neurosteer-tools/cloudflared tunnel --no-autoupdate --config /etc/neurosteer/cloudflared.yml run
+Restart=always
+RestartSec=10
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+MemoryMax=192M
+
+[Install]
+WantedBy=multi-user.target

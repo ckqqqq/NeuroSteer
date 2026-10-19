@@ -1,0 +1,12 @@
+[Unit]
+Description=NeuroSteer reverse SSH tunnel to VPS
+After=network-online.target neurosteer-frontend.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ssh -NT -i %h/.ssh/id_ed25519_neurosteer -p 10479 -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=15 -o ExitOnForwardFailure=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -R 127.0.0.1:18502:127.0.0.1:18501 neurosteer-tunnel@23.166.168.248
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

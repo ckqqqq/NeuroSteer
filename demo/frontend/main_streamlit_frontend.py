@@ -1,7 +1,31 @@
 import streamlit as st
 from frontend_utils import response_request
 
-st.set_page_config(page_title="NeuroSteer DEMO (ACL 2025)", layout="wide")
+st.set_page_config(page_title="NeuroSteer Demo", layout="wide")
+st.title("NeuroSteer · GPT-2 可解释性神经元干预演示")
+st.markdown("### An Interpretability Playground for GPT-2")
+st.info(
+    "**Just for fun｜研究探索**\n\n"
+    "本项目演示对 GPT-2 的可解释性特征（SAE 神经元）施加特定干预后，模型输出会如何变化。"
+    "SAE 训练通常需要较多显存；GPT-2 本身能力有限，生成结果仅供研究与探索参考。\n\n"
+    "This demo explores how targeted interventions on interpretable SAE features change GPT-2's outputs. "
+    "Training SAEs can require substantial GPU memory. GPT-2 has limited capabilities, "
+    "and its generated outputs are intended for research and exploration only. Just for fun!"
+)
+
+
+# Show the real inference state instead of letting visitors mistake a UI for a ready model.
+import os
+import requests
+backend_base_url = os.getenv("NEUROSTEER_BACKEND_URL", "http://127.0.0.1:8000").rstrip("/")
+try:
+    backend_status = requests.get(f"{backend_base_url}/health", timeout=(2, 3))
+    if backend_status.status_code != 200:
+        st.warning("页面已上线，实时生成暂不可用：模型或四组任务缓存尚未就绪。当前可查看交互界面。")
+except requests.RequestException:
+    st.warning("页面已上线，推理服务暂未连接。实时生成暂不可用。")
+
+st.sidebar.caption("滑块沿用原始实验的系数尺度，不等同于论文中的归一化 alpha。")
 # 初始化全局聊天历史
 targets = ["Positive", "Toxic", "Supportive", "Polite"]
 keys = ["sen", "tox", "sta", "pol"]
@@ -25,9 +49,9 @@ emojis = [
 def get_emoji(key, alpha):
     if alpha == 0:
         return "🤖"
-    x = keys.index(key)
-    idx = x * 2 + int(alpha < 0)
-    return emojis[idx]["symbol"].split("|")[0]
+    task_index = keys.index(key)
+    emoji_index = task_index * 2 + int(alpha < 0)
+    return emojis[emoji_index]["symbol"].split("|")[0]
 
 
 tab_names = ["NeuroSteer"] + targets
@@ -56,9 +80,7 @@ def tab_response(user_input, target, key, alpha_val, emoji=""):
 
 # 清除历史函数
 def clear_history():
-    if "tab_id" not in st.session_state:
-        st.session_state.tab_id
-    else:
+    if "tab_id" in st.session_state:
         tab_name = st.session_state.tab_id
         st.session_state[f"messages_a_{tab_name}"] = []
         st.session_state[f"messages_b_{tab_name}"] = []
@@ -115,7 +137,7 @@ def tab_chat(target: str):  # 避免重新渲染别人
     col1, col2 = st.columns(2)
 
     with col1:
-        st.subheader(f"GPT 🤖")
+        st.subheader("GPT-2 baseline 🤖")
         # st.markdown(f"", unsafe_allow_html=True)
         bot_a_messages = st.container()
         for msg in st.session_state[f"messages_a_{target}"]:
@@ -124,7 +146,7 @@ def tab_chat(target: str):  # 避免重新渲染别人
 
     with col2:
         head_text = (
-            "GPT"
+            "GPT-2"
             + ("➖" if alpha_val < 0 else "➕")
             + target
             + f" ("
@@ -161,7 +183,7 @@ def tab_chat(target: str):  # 避免重新渲染别人
         st.session_state[f"messages_b_{target}"].append(
             {"role": "assistant", "content": response_B}
         )
-        st.rerun(scope="fragment")
+        st.rerun()
 
 
 for tab_name, tab in zip(tab_names[1:], tabs[1:]):
@@ -170,12 +192,7 @@ for tab_name, tab in zip(tab_names[1:], tabs[1:]):
 
 
 with st.sidebar:
-    cols = st.columns(2)
-    with cols[0]:
-        if st.button("🗑️ Clear history", key="clear_"):
-            clear_history()
-            st.rerun()
-    with cols[1]:
-        if st.button("🗑️ About Us", key="about us"):
-            # model_response(user_input, tab_key)
-            st.rerun()
+    if st.button("🗑️ Clear history", key="clear_"):
+        clear_history()
+        st.rerun()
+    st.caption("SAE feature interventions · GPT-2 layer 6 · Research demo")
